@@ -1,0 +1,259 @@
+% \documentclass[spanish]{report}
+\documentclass[11pt]{report}
+\usepackage[utf8]{inputenc} %tipo de letra
+
+\usepackage[spanish,es-noquoting,es-tabla]{babel} %idioma
+% \usepackage{babel} %idioma
+\usepackage{graphicx} 
+\usepackage{mathtools}
+\usepackage{float}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage[a4paper, headsep=24pt, headheight=2cm]{geometry}
+\usepackage{anysize} 
+\usepackage{accents}
+\usepackage{changepage}
+\usepackage{caption}
+\usepackage[affil-it]{authblk}
+\usepackage{physics}
+\usepackage{minted}
+\usepackage{listings}
+% \usepackage{hyperref}%para poner hiperreferencias, tipo links
+\usepackage{esint}
+\usepackage{titling}
+\usepackage{bm}
+\usepackage{import}
+\usepackage[final]{pdfpages}
+\usepackage{cancel}
+\usepackage{soul}
+\usepackage{layouts}
+\usepackage{draftfigure}
+\usepackage{csvsimple}
+\usepackage{longtable}
+\usepackage{makecell}
+\usepackage{xspace}
+
+\usepackage{blindtext}
+\usepackage{chemfig}%ecuaciones químicas
+\usepackage{chemformula}%idem
+\usepackage[version=4]{mhchem}%idem
+\usepackage{siunitx}%unidades del sistema internacional
+\usepackage{enumitem}
+
+\usepackage{verbatim}
+\usepackage{amsmath}%matematica
+%\setcounter{MaxMatrixCols}{20}
+
+\usepackage{array,booktabs}
+\usepackage{tabularray}
+
+%\usepackage[separate-uncertainty = true]{siunitx}
+%\sisetup{output-decimal-marker = {,}}
+%\usepackage{placeins}
+
+%\usepackage{mathabx}
+\usepackage{amssymb}
+\usepackage{gensymb}
+
+\usepackage{tikz}
+% \usepackage{tikz-3dplot}
+\usepackage{tikzscale}
+\usetikzlibrary{babel}
+\usetikzlibrary{calc}
+\usetikzlibrary{arrows}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{positioning}
+\usetikzlibrary{external}
+\usetikzlibrary{backgrounds}
+\usetikzlibrary{shapes}
+
+\usepackage{fancyhdr}
+\pagestyle{plain}
+
+\usepackage{framed}%para frames en todo entorno
+
+\usepackage{subcaption}
+\usepackage[export]{adjustbox}
+\usepackage{wrapfig}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{filecontents}
+
+\usepackage{pgfgantt}
+\usepackage{mathrsfs}
+
+\usepackage{hyperref}
+\hypersetup{
+%bookmarks=true,         % show bookmarks bar
+unicode=true,          % non-Latin characters in Acrobat’s bookmarks
+pdftoolbar=true,        % show Acrobat’s toolbar?
+pdfmenubar=true,        % show Acrobat’s menu?
+pdffitwindow=false,     % window fit to page when opened
+pdftitle={Análisis Paramétrico de Actuadores Discales},    % title
+pdfauthor={JTeich},     % author
+pdfsubject={},          % subject of the document
+pdfkeywords={},
+colorlinks=true,        % false: boxed links, true: colored links
+linkcolor=black,        % color of internal links (change box color with linkbordercolor)
+citecolor=black,        % color of links to bibliography
+filecolor=magenta,      % color of file links
+urlcolor=black           % color of external links
+}
+\usepackage{multicol}
+\usepackage{outlines}
+
+
+% Paquete para agregar notas
+\usepackage{todonotes}
+\newcommand{\todoy}[1]{\todo[color=yellow]{#1}} % Comentarios 
+\newcommand{\todoiy}[1]{\todo[inline, color=yellow]{#1}} % Comentarios 
+
+\newcommand{\todob}[1]{\todo[color=blue!20]{#1}} % Comentarios Ale
+\newcommand{\todoib}[1]{\todo[inline, color=blue!20]{#1}} % Comentarios Ale
+
+% Paquete para registrar los cambios
+\usepackage[commandnameprefix=ifneeded]{changes}
+\definechangesauthor[name=Ale, color=orange]{ao}
+
+\newcommand{\addedo}[1]{\added[id=ao]{#1}} % agregados Ale
+\newcommand{\deletedo}[1]{\deleted[id=ao]{#1}} % borrado Ale
+\newcommand{\replacedo}[2]{\replaced[id=ao]{#1}{#2}} % borrado Ale
+
+% \usepackage[backend=biber, sorting=none]{biblatex}
+% \usepackage[backend=bibtex, sorting=none]{biblatex}
+% \usepackage{bibtex}
+% \addbibresource{bibliografia.bib}
+
+\newcommand{\mathcolorbox}[2]{\colorbox{#1}{$\displaystyle #2$}}
+
+\newcommand{\thetitle}{Tesis de Ingeniería Mecánica}
+\newcommand{\theauthorJT}{Juan Ignacio Teich}
+\newcommand{\thedirector}{Dr.~Ing.~Alejandro Daniel Otero}
+\newcommand{\thecodirector}{Ing.~Dimas Alejandro Barile}
+\newcommand{\thedate}{2024}
+\newcommand{\thesisname}{Análisis Paramétrico de Actuadores Discales para Simulación de Aerogeneradores en Parques Eólicos}
+%\newcommand{\theclass}{Sistemas Hidráulicos y Neumáticos}
+%\newcommand{\thecourse}{}
+%\newcommand{\thecareer}{}
+\usepackage{fancyhdr}
+\usepackage[T1]{fontenc}
+\pagestyle{fancy}
+\fancyhf{}
+% \fancyhead[C]{\ifnum\value{chapter}>0 \chaptername\ \thechapter. \fi \leftmark}
+% \fancyhead[C]{\leftmark}
+% \fancyhead[C]{\chaptername~ \thechapter}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\fancyhead[L]{\nouppercase{\chaptername~ \thechapter}}
+% \fancyhead[C]{\nouppercase{\thechapter~ \\\leftmark}}
+% \fancyhead[L]{\nouppercase{\chaptername~ \thechapter~}}
+\fancyhead[C]{\leftmark}
+% \fancyhead[C]{Facultad de Ingeniería\\Universidad de Buenos Aires}
+% \fancyhead[R]{\thetitle \\ \href{mailto:jteich@fi.uba.ar}{\theauthorJT}}
+\fancyhead[R]{\href{mailto:jteich@fi.uba.ar}{\theauthorJT}}
+%\fancyhead[C]{\large{\theclass}\\  \large{\thetitle} }
+%\rfoot{\thepage}
+\usepackage{lastpage}
+\rfoot{\thepage}
+\allowdisplaybreaks
+\newcommand{\Cancel}[2][black]{{\color{#1}\cancel{\color{black}#2}}}
+
+% \numberwithin{equation}{subsection}
+
+\usepackage{sectsty}
+% \sectionfont{\large}
+
+
+\tikzset{
+every picture/.append style={
+  execute at begin picture={\deactivatequoting},
+  execute at end picture={\activatequoting}
+  }
+}
+% \tikzexternalize
+
+\usepackage[numbers]{natbib}
+\bibliographystyle{plainnatsp}
+% \bibliographystyle{abbrvnat}
+% \setcitestyle{authoryear,open={((},close={))}} %Citation-related commands
+% \setcitestyle{authoryear,open={},close={}} %Citation-related commands
+
+% \usepackage[natbibapa]{apacite}
+% \usepackage{apacite}
+% \bibliographystyle{apacite}
+% \renewcommand{\BBAA}{e}
+% \renewcommand{\BBAB}{e}
+
+\setcounter{tocdepth}{2}
+\setcounter{secnumdepth}{2}
+\begin{document}
+
+\newcommand{\matriz}[1]{\underline{\underline{\pmb{#1}}}}
+\newcommand{\cmss}{\fontfamily{cmss}\selectfont}
+\definecolor{bg}{rgb}{0.95,0.95,0.95}
+\renewcommand{\listingscaption}{Cuadro de Código}
+\newcommand{\tabitem}{~~\llap{\textbullet}~~}
+
+\newcommand{\ADunif}{{\cmss Actuador Discal Uniforme}\xspace}
+\newcommand{\ADnavarro}{{\cmss Actuador Discal Numérico de Navarro Diaz}\xspace}
+\newcommand{\ADvanDerLaan}{{\cmss Actuador Discal Numérico de van der Laan}\xspace}
+\newcommand{\ADan}{{\cmss Actuador Discal Analítico}\xspace}
+\newcommand{\ADairfoil}{{\cmss Actuador Discal Airfoil}\xspace}
+\newcommand{\ADeliptic}{{\cmss Actuador Discal Elíptico}\xspace}
+
+\newenvironment{subsubfigure}[2][]{%
+  \begin{subfigure}[#1]{#2}%
+    \stepcounter{subsubfigure}%
+    \renewcommand{\thesubfigure}{\alph{subfigure}.\roman{subsubfigure}}%
+}{%
+    \addtocounter{subfigure}{-1}%
+  \end{subfigure}%
+}
+\newcounter{subsubfigure}
+
+
+\begin{titlepage}
+    \centering
+    \includegraphics[width=0.25\textwidth]{Logo-fiuba.png}\\
+    \vspace{1cm}
+    {\bfseries \LARGE Facultad de Ingeniería}\\
+    \vspace{0.5cm}
+    {\scshape \Large Universidad de Buenos Aires}\\
+    \vspace{3cm}
+    {\LARGE \textbf{\thesisname}}\\
+    \vspace{1cm}
+    {\scshape \thetitle}\\
+    \vfill
+    {\Large Autor: \theauthorJT}\\
+    \vspace{0.5cm}
+    {\Large Director: \thedirector}\\
+    \vspace{0.5cm}
+    {\Large Co-Director: \thecodirector}\\
+    \vfill
+    {\Large \thedate}
+\end{titlepage}
+
+\newpage
+\tableofcontents
+\clearpage
+
+% \input{capitulos/reuniones/reuniones.tex}
+\input{capitulos/resumenAgradecimientos.tex}
+\input{capitulos/01-introduccion/introduccion.tex}
+\input{capitulos/02-marcoTeorico/marcoTeorico.tex}
+% 
+\input{capitulos/03-modelosActuadoresDiscales/modelosActuadoresDiscales.tex}
+\input{capitulos/04-implementacionOpenFOAM/implementacionOpenFOAM.tex}
+\input{capitulos/05-resultados/resultados.tex}
+\input{capitulos/06-conclusiones/conclusiones.tex}
+
+% \bibliographystyle{unsrtnat}
+% \bibliographystyle{unsrt}
+% \bibliographystyle{abbrvnat}
+\bibliography{bibliografia}
+\addcontentsline{toc}{chapter}{Bibliografía}
+\listoffigures
+\addcontentsline{toc}{chapter}{Índice de figuras}
+\listoftables
+\addcontentsline{toc}{chapter}{Índice de cuadros}
+\end{document}

@@ -1,0 +1,243 @@
+\documentclass[12pt, twoside]{report}
+
+%Font Family
+%\usepackage{mathptmx}
+%\usepackage[utf8]{inputenc}
+%\usepackage[OT1]{fontenc}
+\usepackage{helvet}		% Helvetica
+%\renewcommand{\familydefault}{\sfdefault}		% Arial
+%\usepackage{times}		% Times New Roman
+%\usepackage{ebgaramond}	% Garamond
+%\usepackage{palatino}	% Palatino
+%\usepackage{charter}	% Charter
+%\linespread{1.1}
+%\usepackage{microtype}
+
+%Numbered subsubsections
+\setcounter{secnumdepth}{3} % default value for 'report' class is "2"
+%Idioma español
+\usepackage[spanish, es-tabla]{babel}
+%Controlar donde poner imágenes y tablas
+\usepackage{float}
+%Control sobre tablas
+\usepackage{booktabs}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{parskip}
+\setlength{\parskip}{0.2cm plus3mm minus2mm}
+\usepackage{adjustbox}
+\usepackage{appendix}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{array}
+\usepackage{amsmath}
+\setcounter{MaxMatrixCols}{12}
+\usepackage{amsfonts}
+
+%Símbolo para cancelar términos en ecuaciones
+\usepackage{cancel}
+
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+\usepackage[a4paper,width=170mm,top=20mm,bottom=20mm, bindingoffset=10mm]{geometry}
+
+%Crear hipervínculos
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Tesis Ing. Mecánica Mateo Marcos Krupiczer}%,
+%     pdfpagemode=FullScreen,
+    }
+\urlstyle{same}
+
+%ECUACIONES LINDAS
+\usepackage{empheq}
+\usepackage[x11names,usenames,dvipsnames]{xcolor}
+\definecolor{alizarin}{rgb}{0.3, 0.2, 0.5}
+
+%CAJAS COLORIDAS
+\usepackage{tcolorbox}
+
+%Numerar ecuaciones por seccion
+\numberwithin{equation}{section}
+%Numerar figuras y tablas por seccion
+\usepackage{chngcntr}
+\counterwithin{figure}{section}
+\counterwithin{table}{section}
+
+%TITULOS DE PARRAFOS
+\newcommand{\myparagraph}[1]{\paragraph{#1}\mbox{}\vspace{2mm}\\}
+
+%TABLAS LINDAS
+\usepackage{tabularx}
+\usepackage{colortbl}
+\tcbuselibrary{skins}
+\newcolumntype{Y}{>{\raggedleft\arraybackslash}X}
+\tcbset{tab1/.style={fonttitle=\bfseries\large,fontupper=\normalsize\sffamily,
+colback=yellow!10!white,colframe=red!75!black,colbacktitle=Salmon!40!white,
+coltitle=black,center title,freelance,frame code={
+\foreach \n in {north east,north west,south east,south west}
+{\path [fill=red!75!black] (interior.\n) circle (3mm); };},}}
+\tcbset{tab2/.style={enhanced,fonttitle=\bfseries,fontupper=\normalsize\sffamily,
+colback=yellow!10!white,colframe=red!50!black,colbacktitle=Salmon!40!white,
+coltitle=black,center title}}
+
+\usepackage{booktabs}
+\usepackage{makecell}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\tikzset{>=latex}
+\usetikzlibrary{fit, positioning}
+\usetikzlibrary{babel}
+\usetikzlibrary{tikzmark,decorations.pathreplacing}
+
+\usepackage{mathtools}
+\usepackage{old-arrows}
+\newcommand{\eqstackrel}[1]{\stackrel{\substack{\mathclap{#1}\\[0.5ex]\displaystyle\uparrow\\ ~}}{ = } }
+
+\newcommand\vertarrowbox[3][6ex]{%
+  \begin{array}[t]{@{}c@{}} #2 \\
+  \left\downarrow\vcenter{\hrule height #1}\right.\kern-\nulldelimiterspace\\
+  \makebox[0pt]{\scriptsize#3}
+  \end{array}%
+}
+
+\usepackage{dashbox}
+\newcommand\dboxed[1]{\dbox{\ensuremath{#1}}}
+
+\usepackage{bm}
+\usepackage{mathtools}
+
+\usepackage{comment}
+
+\usepackage{minted}
+\tcbuselibrary{minted,breakable,xparse,skins}
+\definecolor{bg}{gray}{0.95}
+\DeclareTCBListing{mintedbox}{O{}m!O{}}{%
+  breakable=true,
+  listing engine=minted,
+  listing only,
+  minted language=#2,
+  minted style=default,
+  minted options={%
+    linenos,
+    gobble=0,
+    breaklines=true,
+    breakafter=,,
+    fontsize=\small,
+    numbersep=8pt,
+    #1},
+  boxsep=0pt,
+  left skip=0pt,
+  right skip=0pt,
+  left=25pt,
+  right=0pt,
+  top=3pt,
+  bottom=3pt,
+  arc=5pt,
+  leftrule=0pt,
+  rightrule=0pt,
+  bottomrule=2pt,
+  toprule=2pt,
+  colback=bg,
+  colframe=orange!70,
+  enhanced,
+  overlay={%
+    \begin{tcbclipinterior}
+    \fill[orange!20!white] (frame.south west) rectangle ([xshift=20pt]frame.north west);
+    \end{tcbclipinterior}},
+  #3}
+
+\usepackage[edges]{forest}
+\definecolor{folderbg}{RGB}{124,166,198}
+\definecolor{folderborder}{RGB}{110,144,169}
+\newlength\Size
+\setlength\Size{4pt}
+\tikzset{%
+  folder/.pic={%
+    \filldraw [draw=folderborder, top color=folderbg!50, bottom color=folderbg] (-1.05*\Size,0.2\Size+5pt) rectangle ++(.75*\Size,-0.2\Size-5pt);
+    \filldraw [draw=folderborder, top color=folderbg!50, bottom color=folderbg] (-1.15*\Size,-\Size) rectangle (1.15*\Size,\Size);
+  },
+  file/.pic={%
+    \filldraw [draw=folderborder, top color=folderbg!5, bottom color=folderbg!10] (-\Size,.4*\Size+5pt) coordinate (a) |- (\Size,-1.2*\Size) coordinate (b) -- ++(0,1.6*\Size) coordinate (c) -- ++(-5pt,5pt) coordinate (d) -- cycle (d) |- (c) ;
+  },
+}
+\forestset{%
+  declare autowrapped toks={pic me}{},
+  declare boolean register={pic root},
+  pic root=0,
+  pic dir tree/.style={%
+    for tree={%
+      folder,
+      font=\ttfamily,
+      grow'=0,
+    },
+    before typesetting nodes={%
+      for tree={%
+        edge label+/.option={pic me},
+      },
+      if pic root={
+        tikz+={
+          \pic at ([xshift=\Size].west) {folder};
+        },
+        align={l}
+      }{},
+    },
+  },
+  pic me set/.code n args=2{%
+    \forestset{%
+      #1/.style={%
+        inner xsep=2\Size,
+        pic me={pic {#2}},
+      }
+    }
+  },
+  pic me set={directory}{folder},
+  pic me set={file}{file},
+}
+
+\usepackage{physics}
+
+\newcommand{\todob}[1]{\todo[color=blue!20]{#1}} % Comentarios Ale
+\newcommand{\todoib}[1]{\todo[inline, color=blue!20]{#1}} % Comentarios Ale
+
+\usepackage[commandnameprefix=ifneeded]{changes}
+\definechangesauthor[name=Ale, color=orange]{ao}
+
+\newcommand{\addedo}[1]{\added[id=ao]{#1}} % agregados Ale
+\newcommand{\deletedo}[1]{\deleted[id=ao]{#1}} % borrado Ale
+\newcommand{\replacedo}[2]{\replaced[id=ao]{#1}{#2}} % borrado Ale
+
+\usepackage[numbers]{natbib}
+
+\usepackage{tabularray}
+
+\usepackage{fancyhdr}
+\usepackage[T1]{fontenc}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\fancyhead[L]{\nouppercase{\chaptername~ \thechapter}: \leftmark}
+\fancyhead[R]{Mateo Marcos Krupiczer}
+\usepackage{lastpage}
+\rfoot{\thepage}
+
+\usetikzlibrary{quotes}
+
+\begin{document}
+
+\input{0.caratula}
+\input{1.resumen}
+\input{2.agradecimientos}
+\newpage
+\tableofcontents
+\newpage
+\bibliographystyle{plainnat}
+\bibliography{referencias}
+
+\end{document}
