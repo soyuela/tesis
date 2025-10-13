@@ -1,3 +1,4 @@
+
 \documentclass[12pt, twoside]{report}
 
 %Font Family
@@ -98,7 +99,7 @@ coltitle=black,center title}}
 \usetikzlibrary{tikzmark,decorations.pathreplacing}
 
 \usepackage{mathtools}
-\usepackage{old-arrows}
+\usetikzlibrary{arrows.meta}  % reemplaza old-arrows
 \newcommand{\eqstackrel}[1]{\stackrel{\substack{\mathclap{#1}\\[0.5ex]\displaystyle\uparrow\\ ~}}{ = } }
 
 \newcommand\vertarrowbox[3][6ex]{%
@@ -131,6 +132,7 @@ coltitle=black,center title}}
 \usepackage[numbers]{natbib}
 
 \usepackage{tabularray}
+\usepackage{soul}
 
 \usepackage{fancyhdr}
 \usepackage[T1]{fontenc}
@@ -150,6 +152,10 @@ coltitle=black,center title}}
 \input{1.resumen}
 \input{2.agradecimientos}
 \input{3.propuesta_indice}
+\input{4.introduccion_general}
+\input{5.antecedentes_estado_del_arte}
+\input{6.metodologia_general}
+\input{7.resistencia_factor_de_forma}
 \newpage
 %\tableofcontents
 \newpage
