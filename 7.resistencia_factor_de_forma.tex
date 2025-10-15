@@ -3,234 +3,211 @@
 \section{Determinación experimental y numérica del factor de forma}
 \subsection{Ensayos experimentales de resistencia al avance}
 
-In this subsection, the EFD total resistance curve is analysed and compared with the CFD curve. 
-Figure \ref{fig:CT-FR} shows the EFD and CFD dimensionless total resistance curve ($C_{TM}$) versus Froude number (Fn) considering different draughts. 
-The coefficient $C_{TM}$ is defined as follows: 
+\subsubsection*{Introducción general}
 
-\begin{equation}
-    C_{TM}=\frac{R_{TM}}{\frac{1}{2} \rho S_{M} {V_{M}}^2}
-\end{equation}
-where $R_{TM}$ is the model total resistance, $V_{M}$ is the model velocity, $\rho$ is the water density and $S_{M}$ is the model wetted surface area.
+El presente eje aborda la determinación del factor de forma $(1+k)$ a partir de ensayos experimentales de resistencia realizados en el canal del Laboratorio de Hidrodinámica Naval y Oceánica (LabHiNO).  
+El objetivo es establecer una metodología experimental reproducible y evaluar su consistencia mediante la comparación con resultados internacionales.  
 
+Si bien el primer conjunto de ensayos correspondió al modelo pesquero \textbf{TPA}, posteriormente se realizó una campaña con el modelo de referencia \textbf{KCS}, ampliamente documentado en la literatura, con el propósito de verificar la correcta calibración del canal y validar retrospectivamente los resultados obtenidos para el pesquero.
 
-Normally, fishing vessels operate under different conditions and thus at different speeds and draughts, for example, when the vessel leaves port to fish, when it fishes and also when it returns to port with the catch. Usually, the design criteria are based on the speed in the phases of moving towards the fishing area and the return to port with the catch. In the present case, the vessel was designed to travel at 0.25 < Fn < 0.45, where the defined operating speed was Fn = 0.35. Therefore, the ship was considered a displacement ship according to \cite{blount_performance_2014}. The curves show the typical behaviour for this type of ship. Figure \ref{fig:CT-FR} also shows that for low speeds (Fn < 0.3), the total drag is almost equal to the viscous drag and $C_{TM}$ increases al\mbox{most line}arly. 
+\vspace{1em}
+\subsubsection*{Modelo pesquero TPA}
 
-For higher Fn, the slope of the total resistance curve increases continuously, indicating that $C_{TM}$ increases at a rate greater than the square of the model ship's speed. Wave resistance is negligible at low speeds, but as speed increases, wave resistance grows faster than viscous resistance. In fact, for most fishing vessels, above Fn = 0.30, wave resistance becomes the largest component of their resistance, abruptly increasing the total ship resistance and thus, in some cases, making vessels inefficient from a consumption point of view. 
+El modelo TPA representa un buque pesquero de baja esbeltez, construido en escala 1:20 y ensayado en tres condiciones de calado: ligero, medio y pesado.  
+Cada ensayo se realizó siguiendo los procedimientos recomendados por la ITTC \cite{ITTC_resistance}, manteniendo libre el trimado y el hundimiento.  
+La resistencia total se midió mediante una célula de carga Kempf \& Remmers R47, con adquisición a 200 Hz y filtrado de 4 Hz.
 
-Figure \ref{fig:CT-FR-juntos} shows the $C_{TM}$-versus-Fn curves separately for EFD and CFD to emphasise the influence of draught on $C_{TM}$. The left graph shows the EFD drag results for different draughts, while the right graph shows the CFD model results.
+\paragraph{Análisis de incertidumbre.}
+Las principales fuentes de incertidumbre consideradas fueron la calibración del dinamómetro, la precisión del carro de remolque, la temperatura del agua y la repetibilidad de los ensayos.  
+La combinación mediante el método de la raíz cuadrática media (RSS) arrojó incertidumbres combinadas de 5.35 \%, 2.04 \% y 0.83 \% para números de Froude de 0.14, 0.26 y 0.37 respectivamente.  
+Estos valores se consideran adecuados y en línea con las recomendaciones del ITTC \cite{ITTC_uncertainty}.  
+La Tabla \ref{tab:uncert_tpa} resume las componentes más relevantes.
 
-
-As expected, the EFD results indicate that for Fn < 0.3, draught changes do not result in significant changes in total ship resistance. At such low Fn values, resistance increases as the wetted surface area of the hull increases. However, these variations in $C_{TM}$ are not visible in Figure \ref{fig:CT-FR-juntos} due to the very low resistance values in this Fn range. Conversely, draught effects become noticeable for 0.3 < Fn < 0.40. In this interval, although wave resistance becomes the dominant component, viscous resistance still contributes significantly to the total resistance, resulting in an increase in $C_{TM}$ with the increase in draught. Finally, for Fn > 0.4, all curves tend to converge to a similar value due to the significant increase in wave resistance, which masks the draught effect and hence the viscous resistance.
-
-\begin{figure}[H]
-    \includegraphics[width=\linewidth]{images/EFD-3-calados.png}
-  \caption{$C_{TM}$ vs. Fn. Left: all draughts on EFD; right: all draughts on CFD.}
-  \label{fig:CT-FR-juntos}
-\end{figure}
-
-From the above observations, it is clear that wave resistance plays a crucial role in assessing the performance of this type of fishing vessel. Therefore, understanding the wave pattern across the hull of a vessel is essential to designing and operating efficient vessels. Figure \ref{fig:3D-comparacion} shows a comparison of the wave pattern distribution along the hull obtained with the CFD model and EFD, for draught T3 with different Fn values. The three cases illustrate the ability of the CFD model to reproduce the wave pattern generated by the ship for different Fn values.
-
-\begin{figure}[H]
-
-    \includegraphics[width=1\linewidth]{images/3D-comparacion1.png}
-    \caption{{Wave} %MDPI: (1). Please change the hyphen (-) in the image into a minus sign (−, “U+2212”), e.g., “-1” should be “−1”. (2). Please change the terms into scientific notations in the figure, e.g., “8 × 10³”, not “8E3”. CHENGED SCIENTIFIC NOTATION, CAN'T CHANGE HYPHEN INTO MINUS IN SCALE, PARAVIEW SEES NO DIFERENCE BETWEEN THEM.
- pattern for different Fn and draught = T3. 
-\textbf{Left column}: 3D CFD model. \textbf{Right column}: EFD model.
-\textbf{First row}: Fn = 0.26; \textbf{second row}: Fn = 0.37;\textbf{ third row}: Fn = 0.45.}
-    \label{fig:3D-comparacion}
-\end{figure}
-
-
-In ship hydrodynamics, it is common to divide wave resistance into two components: wave pattern resistance and wave breaking resistance. If Fn is sufficiently high, waves can become steep enough to break into eddies and spray. The energy removed from the wave system is then found in the ship's wake and constitutes the wave breaking resistance. The remaining wave energy is radiated away from the ship through the wave system, giving rise to wave pattern resistance. The breaking phenomenon can be seen in the EFD results for Fn > 0.3 (Figure \ref{fig:3D-comparacion}, second row for Fn = 0.37 and third row for Fn = 0.45).
-
-The CFD results capture the wave breaking phenomenon only for the highest Fn number (Figure \ref{fig:3D-comparacion}, third row for Fn = 0.45). A more detailed description of this phenomenon with the CFD model would require a finer mesh in the interface region. However, it is important to note that the wave breaking resistance is much smaller than the wave pattern resistance for this type of fishing vessel. The hull shoulders play an important role in wave generation and distribution along the hull. It is worth noting that for higher Froude numbers, a maximum hollow wave occurs at hull section 14.5 and moves backwards to about section 11.5 for Fn=0.45.
-
-\subsubsection{Determinación experimental del factor de forma} \label{k_EFD}
-
-The ITTC method of splitting the total drag coefficient incorporates Hughes' hypothesis \cite{hughes_friction_1954} and introduces the form factor $k$ to augment the flat plate drag coefficient ($C_{F}$). This enhancement accounts for the Reynolds number-dependent viscous drag and the shape effects on the boundary layer itself \cite{ITTC_resistance}. 
-
-\begin{equation}
-    C_T = (1 + k) C_{F} + C_W
-    \label{eq:ct}
-\end{equation}
-
-
-Once a form factor $k$ has been determined, the wave resistance coefficient ($C_W$) is obtained by solving the following equation:
-
-\begin{equation}
-    C_W = C_{TM} - (1 + k) C_{FM}
-    \label{eq:cw=}
-\end{equation}
-where $C_{FM}$ is the ITTC-57 correlation line coefficient for the Reynolds number of the model test and $C_{TM}$ is the dimensionless total resistance of the model ship.
-Prohaska \cite{prohaska1966simple} proposed a method for determining the form factor from model tests which is considered to be the most reliable method available. It assumes that for Fn < 0.2, $C_W$ can be approximated by $\alpha$Fn$^4$. So, Equation  (\ref{eq:ct}) for the model can be rewritten as
-
-\begin{equation}
-    \frac{C_{TM}}{C_{FM}} = (1 + k) + \alpha \frac{Fn^4}{C_{FM}}
-    \label{eq:cw/cf0}
-\end{equation}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-From the experimental results, we plot the left and right sides of Equation (\ref{eq:cw/cf0}) as data points ($C_{TM}/C_{FM}$, Fn$^4$/$C_{FM}$), where the data points should align in a straight line for model speeds with Fn < 0.2. The ITTC recommends using only data points in the Fn range [0.1, 0.2]. The form factor can then be determined by linear regression. In this paper, the regression lines were obtained by using the method explained by York \cite{york_unified_2004}.
-
-As an example, Figure \ref{figure:york} shows the ($C_{TM}/C_{FM}$, Fn$^4/C_{FM}$) points for T1 of 0.165 m (LC ballast) considering Fn < 0.2, along with the resulting regression line obtained by using York's method. The dashed red vertical lines indicate the limits of the range of Fn as [0.1, 0.2]. This method accounts for the experimental uncertainties in the regression process and also predicts the uncertainties in the form factor, shown with an error bar at Fn$^4/C_{FM}$ = 0. The uncertainty in the form factor was calculated to be 0.163, which is 65\% of $k$ for the 95\% confidence interval. {The error for each point, except for the extrapolation by York's method at Fn = 0, was calculated as the “Expanded for repeat mean” presented in Table \ref{tab:uncert}, given that the only source of error in $C_{TM}/C_{FM}$ is $C_{TM}$%Check intended meaning retained.
-	.}
-
-\begin{figure}[H]
-
-    \includegraphics[width=0.6\linewidth]{images/york.png}
-    \caption{Experimental form factor determination by Prohaska's method with a regression line obtained by York's method (T1: 0.165 m). }
-    \label{figure:york}
-\end{figure}
-
-Equation (\ref{eq:cw/cf0}), for 0.1 < Fn < 0.2, is plotted for the three different draughts in Figure~\ref{fig:Prohaska}.
-
-\vspace{-6pt}{}
-\begin{figure}[H]
-
-    \includegraphics[width=0.6\linewidth]{images/Prohaska-EFD.png}
-    \caption{Experimental form factor determination by using Prohaska's method applied to the three different designs.}
-    \label{fig:Prohaska}
-\end{figure}
-
-
-It is worth noting that at very low values of Fn, the measured points deviate from a straight line, making it necessary to select an appropriate data set for each draught to determine the form factor. Figure \ref{fig:Prohaska} shows straight lines indicating the resulting slope to determine the form factor for each draught. These lines also delineate the Fn range considered in each case. Similarly to Figure \ref{figure:york}, the dashed red vertical lines indicate the limits of the Fn range as [0.1, 0.2].
-
-The form factors obtained for T1, T2 and T3, together with their uncertainties, are given in Table \ref{tab:form_factors EFD}.
-
-\vspace{-3pt}{}
 \begin{table}[H]
-\caption{{Form} %MDPI: We removed the vertical lines, please confirm. Same with following. ACCEPTED
- factors for different draughts calculated by Prohaska's method.}
-
-\begin{tabularx}{\textwidth}{l c c}
-\hline
-
-\textbf{Load Condition}&\boldmath{$k$} &\boldmath{$U_k$\%}\\
-\hline
-T1: 0.165 m  & 0.252    & 65\\
-T2: 0.180 m  & 0.211 & 77    \\ 
-T3: 0.195 m  & 0.194  & 90    \\ \hline
-                    
+\caption{Resumen de incertidumbre combinada en las mediciones de resistencia del modelo pesquero TPA.}
+\begin{tabularx}{\textwidth}{lccc}
+\toprule
+\textbf{Componente} & \textbf{Fn = 0.14} & \textbf{Fn = 0.26} & \textbf{Fn = 0.37} \\
+\midrule
+Calibración del dinamómetro & 4.73 \% & 1.04 \% & 0.35 \% \\
+Repetibilidad entre réplicas & 5.00 \% & 3.50 \% & 1.50 \% \\
+Velocidad de remolque & 0.07 \% & 0.07 \% & 0.07 \% \\
+Temperatura del agua & 0.03 \% & 0.03 \% & 0.03 \% \\
+\midrule
+\textbf{Incertidumbre combinada (media de 4 réplicas)} & \textbf{5.35 \%} & \textbf{2.04 \%} & \textbf{0.83 \%} \\
+\bottomrule
 \end{tabularx}
-\label{tab:form_factors EFD}
+\label{tab:uncert_tpa}
 \end{table}
 
-It is crucial to highlight that despite being considered the most reliable procedure available, Prohaska's method still yields results with high uncertainty. This elevated uncertainty in the value of $k$ can be attributed to two primary factors. Firstly, the precise measurement of low-speed resistance at a model scale poses significant challenges, as elucidated in Section \ref{Uncertainty Analysis}. Secondly, flow phenomena associated with very low model speeds play a role. Low model speed results in a low Reynolds number, increasing the likelihood of flow separation and hindering the transition of the boundary layer to turbulence. If separation occurs, it leads to increased resistance and consequently yields a larger form factor. Conversely, if the boundary flow remains predominantly laminar without separation, the form factors may become smaller. Moreover, the challenges related to low Reynolds numbers are exacerbated for shorter models (larger scales), such as the one examined in this study.
+\paragraph{Determinación experimental del factor de forma.}
 
-In addition, the ship analysed in this work has a bulbous bow and stern, which may affect the applicability of Prohaska's method. These factors increase the uncertainties associated with low-speed drag measurements and low Reynolds number flow phenomena \cite{Gross_canada_report, KORKMAZ2022112590}.
+A partir de los resultados experimentales obtenidos para las distintas velocidades y condiciones de calado, se construyeron los diagramas del método de Prohaska, graficando $\frac{C_T}{C_F}$ frente a $\frac{F_n^4}{C_F}$ (Figura~\ref{fig:prohaska_tpa}).  
+Cada conjunto de puntos corresponde a un calado diferente del pesquero TPA.  
+Según el planteo teórico de Prohaska, los puntos deberían alinearse aproximadamente sobre una recta, cuya extrapolación al origen permite obtener el valor de $(1+k)$.  
+Sin embargo, en los tres calados se observa una ligera curvatura en los puntos experimentales, especialmente a bajos números de Froude, lo que indica una desviación del comportamiento lineal esperado.
 
-In Section \ref{combined}, we consider the effect of the high uncertainty in the form factor on the extrapolation of drag to the full-scale ship. 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-\subsection{Ensayos computacionales de resistencia al avance} \label{R_CFD}
-
-\begin{figure}[H]
-    \includegraphics[width=\linewidth]{images/CFD-3-calados.png}
-  \caption{$C_{TM}$ vs. Fn.  all draughts on CFD.}
-  \label{fig:CT-FR-juntos}
-\end{figure}
-
-\subsection{Determinación numérica del factor de forma} \label{k_CFD}
-
-The calculation of the CFD form factor not only serves to decompose the total resistance (see {Section} \ref{C_V C_W}) but also facilitates the investigation of the potential improvement in the extrapolation of the total vessel resistance by using combined CFD-EFD methods (see Section \ref{combined}).
-
-The CFD-based form-factor method considered for this study follows the assumptions of Hughes \cite{hughes_friction_1954} and is derived using the relationship
-
-\begin{equation}
-(1 + k) = \frac{C_F + C_{PV}}{C_{FM}} = \frac{C_V}{C_{FM}}
-\label{eq:dobleCasco}
-\end{equation}
-where the frictional drag coefficient ($C_F$) and the viscous pressure coefficient ($C_{PV}$) are obtained from the double-body CFD simulation. $C_{FM}$ in the denominator of Equation (\ref{eq:dobleCasco}) represents the equivalent flat plate resistance obtained from the same Reynolds number as the calculations using the ITTC-57 friction line.
-
-The uncertainty in the CFD form factor was calculated using the Grid Convergence Index (GCI) method described in \cite{ITTC_uncertainty_CFD}. Table \ref{tab:CFD_form_factors} shows the CFD form factors for different draughts, obtained by the double-hull method (at Fn = 0.1 and Fn = 0.2), along with their associated numerical uncertainties.
-
-\vspace{-3pt}{}
-\begin{table}[H]
-\caption{Form factors for different draughts, calculated by Prohaska's method and double-hull CFD method.}
-
-\begin{tabularx}{\textwidth}{lcccccc}
-\hline
-\multirow{2}{*}{\textbf{CFD Double Hull}} & \multicolumn{2}{c}{\textbf{T1: 0.165 m}} & \multicolumn{2}{c}{\textbf{T2: 0.180 m}} & \multicolumn{2}{c}{\textbf{T3: 0.195 m}} \\
-\cline{2-7}
-& \boldmath{$k$  }&  \boldmath{$U_k$ \% }& \boldmath{ $k$  }& \boldmath{ $U_k$ \%} &  \boldmath{$k$  }& \boldmath{ $U_k$ \%} \\
-\hline
-$\mathrm{Fn = 0.10}$ & 0.168 & 13.32 & 0.157 & 0.12 & 0.179 & 4.08 \\
-$\mathrm{Fn = 0.20}$ & 0.302 & 7.31 & 0.292 & 0.01 & 0.320 & 0.95 \\
-\hline
-\end{tabularx}
-\label{tab:CFD_form_factors} 
-\end{table}
-
-\vspace{-3pt}{}
-It is important to note that the difference in CFD form factors for different Fn is much higher than the numerical uncertainty in $k$. 
-This result seems to indicate a dependence of $k$ on model velocity. {In fact, the low Re number range ($1.10^6--3.10^6$) used in the model-scale experiments could produce some scale effects related to boundary-layer transition. 
-The investigation of this dependence is outside the scope of this paper. We are currently working on verifying the occurrence of such a dependence and interpreting the physical mechanism involved in it, along the lines of the work in \cite{TERZIEV2021147,TERZIEV2022110496}.}
-
-
-\subsection{Validación del modelo numérico} \label{validacion_modelo_numerico}
-
-A good agreement in $C_{TM}$ between EFD and CFD results is observed for the three investigated flows and the different Fro\mbox{ude numb}ers. 
+Este efecto fue atribuido a fenómenos de \textit{laminarización} parcial del flujo a bajas velocidades, así como a la sensibilidad del método frente a las pequeñas incertidumbres en la medición de resistencia total en ese régimen.  
+Tal como se discute en \cite{Oyuela2024_OceanEngineering}, el método de Prohaska presenta una fuerte dependencia de los puntos seleccionados para la regresión lineal, por lo que se evaluaron diferentes rangos de Froude con el fin de obtener una extrapolación más robusta.  
+Se realizaron regresiones sucesivas considerando intervalos progresivos, comenzando con $0.10 < F_n < 0.20$ y luego restringiendo a $0.12 < F_n < 0.20$, $0.14 < F_n < 0.20$, etc., descartando los puntos más dispersos.  
+De esta manera se mitigó la influencia de los valores afectados por laminarización y se logró una tendencia más próxima a la linealidad, permitiendo una estimación confiable del factor de forma para cada calado.
 
 \begin{figure}[H]
-  \begin{minipage}[H]{0.45\linewidth}
-    \includegraphics[width=\linewidth]{images/EFD-CFD-165.png}
-  \end{minipage}
-  \quad
-  \begin{minipage}[H]{0.45\linewidth}
-    \includegraphics[width=\linewidth]{images/EFD-CFD-180.png}
-  \end{minipage}
-  \begin{minipage}[H]{0.45\linewidth}
-   \includegraphics[width=\linewidth]{images/EFD-CFD-195.png}
-     \end{minipage}
-   \caption{$C_{TM}$ vs. Fn for different draughts. \textbf{Top left}: T1 ( 0.165 m). \textbf{Top right}: T2 (0.180 m). \textbf{Bottom}: T3 (0.195 m).}
-   \label{fig:CT-FR} 
+\centering
+\includegraphics[width=0.75\textwidth]{images/prohaska_tpa_comparacion.pdf}
+\caption{Diagramas del método de Prohaska para los tres calados del pesquero TPA. La desviación respecto de la linealidad teórica se acentúa a bajos números de Froude.}
+\label{fig:prohaska_tpa}
+\end{figure}
+
+A partir de las regresiones sucesivas realizadas con distintos intervalos de Froude, se obtuvo la evolución del factor de forma en función del rango de velocidades considerado (Figura~\ref{fig:tpa_range}).  
+Puede observarse que al eliminar los puntos correspondientes a $F_n < 0.15$, el valor de $(1+k)$ se estabiliza, indicando que los datos a muy baja velocidad distorsionaban la linealidad del ajuste.  
+Este comportamiento confirma que el rango óptimo de aplicación del método de Prohaska para este tipo de cascos se sitúa aproximadamente entre $0.15 < F_n < 0.20$, intervalo en el cual el flujo se mantiene plenamente turbulento y la componente por olas es aún despreciable.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{images/efd_form_factor_tpa_range.pdf}
+\caption{Variación del factor de forma experimental $(1+k)$ para el pesquero TPA en función del rango de Froude utilizado en el ajuste de Prohaska.}
+\label{fig:tpa_range}
+\end{figure}
+
+Para cuantificar la incertidumbre asociada a la pendiente e intersección de la recta de ajuste, se aplicó el \textit{método de York}, que considera errores tanto en el eje $x$ como en el eje $y$.  
+Este enfoque permite obtener intervalos de confianza más realistas para el valor de $(1+k)$, especialmente cuando los puntos presentan dispersión significativa.  
+La Figura~\ref{fig:york_tpa} ilustra un ejemplo del ajuste con incertidumbre ponderada obtenido para uno de los calados ensayados.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{images/york.png}
+\caption{Ajuste lineal con ponderación mediante el método de York aplicado al pesquero TPA para la estimación de $(1+k)$ y su incertidumbre.}
+\label{fig:york_tpa}
+\end{figure}
+
+\vspace{1em}
+\subsubsection*{Modelo de referencia KCS}
+
+Con el objetivo de verificar la linealidad del sistema de medición y la calibración general del canal, se realizó una segunda campaña experimental utilizando el modelo KCS (escala 1:79).  
+Este buque de referencia ha sido ampliamente ensayado por diversos laboratorios internacionales (KRISO, MARIN, SSPA, Hyundai), lo que permite una comparación directa de resultados.
+
+El factor de forma experimental se determinó nuevamente mediante el método de Prohaska, siguiendo el mismo procedimiento de ajuste aplicado al modelo pesquero.  
+En la Figura \ref{fig:prohaska_kcs} se muestra el diagrama de Prohaska obtenido para el KCS, donde se aprecia una buena linealidad de los puntos experimentales en el rango de bajas velocidades.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{images/prohaska_kcs.pdf}
+\caption{Determinación experimental del factor de forma $(1+k)$ para el modelo KCS mediante el método de Prohaska.}
+\label{fig:prohaska_kcs}
+\end{figure}
+
+Posteriormente se analizó la sensibilidad del resultado al rango de Froude considerado en el ajuste.  
+La Figura \ref{fig:kcs_range} muestra la evolución del valor de $(1+k)$ para distintos intervalos de Froude, observándose una estabilización clara del resultado para $0.13 < F_n < 0.20$.  
+El valor final obtenido fue $(1+k)=1.06$, en excelente concordancia con los datos de referencia.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{images/efd_form_factor_kcs_range.pdf}
+\caption{Variación del factor de forma $(1+k)$ para el modelo KCS en función del rango de Froude considerado en el ajuste de Prohaska.}
+\label{fig:kcs_range}
+\end{figure}
+
+Finalmente, en la Figura \ref{fig:kcs_validation} se comparan los resultados del LabHiNO con los obtenidos por distintos laboratorios internacionales, evidenciando que el canal reproduce con precisión las tendencias globales del factor de forma en función del número de Reynolds.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{images/completo_kcs_lit.pdf}
+\caption{Comparación del factor de forma $(1+k)$ del KCS obtenido en el LabHiNO con resultados internacionales:contentReference[oaicite:0]{index=0}.}
+\label{fig:kcs_validation}
+\end{figure}
+
+\subsection{Ensayos computacionales de resistencia al avance y de factor de forma}
+
+\subsubsection*{Introducción}
+
+Con el fin de complementar los resultados experimentales y analizar la contribución viscosa con mayor detalle, se realizaron simulaciones numéricas de resistencia al avance tanto para el modelo de referencia KCS como para el pesquero TPA.  
+El objetivo principal fue obtener el factor de forma $(1+k)$ a partir de los resultados CFD y comparar los valores con los obtenidos experimentalmente, evaluando la coherencia entre ambos enfoques.
+
+Dado que el método experimental de Prohaska se aplica en un rango de números de Froude reducidos, donde la generación de olas es mínima, las simulaciones numéricas se desarrollaron bajo un enfoque de \textit{doble cuerpo} (sin superficie libre).  
+Este procedimiento elimina los efectos de olas y permite una comparación directa con los resultados experimentales en condiciones dominadas por la resistencia viscosa.  
+Un plano de simetría redujo el dominio computacional hasta el calado del casco, optimizando el costo numérico.
+
+\vspace{0.5em}
+\subsubsection*{Métodos numéricos}
+
+Las simulaciones se realizaron empleando el código de volúmenes finitos de código abierto \textbf{OpenFOAM v11}.  
+El algoritmo \textit{PIMPLE} se utilizó para el acoplamiento presión–velocidad, proporcionando un esquema robusto para cálculos transitorios con números de Courant elevados.  
+La integración temporal se llevó a cabo mediante el esquema \textit{localEuler}.  
+La convergencia se evaluó monitoreando las oscilaciones de las fuerzas hidrodinámicas, y cada simulación se dio por concluida cuando las variaciones se mantenían por debajo del 1 \% durante varios ciclos de muestreo.
+
+Para la modelación de la turbulencia se adoptó el modelo \textbf{k–$\omega$ SST}, ampliamente utilizado por su buen equilibrio entre precisión y estabilidad, especialmente en regiones cercanas a la pared y en gradientes de presión adversos \cite{Oyuela2024_OceanEngineering,Terziev2020,Peña2021}.  
+Este modelo combina las ventajas del k–$\omega$ en la zona próxima a la pared y del k–$\varepsilon$ en el flujo externo, mejorando la predicción de la capa límite en cascos de forma compleja.
+
+\vspace{0.5em}
+\subsubsection*{Dominio computacional, malla y condiciones de contorno}
+
+El dominio computacional, común para ambos modelos, siguió las recomendaciones de la ITTC \cite{ITTC_CFD_guidelines}.  
+La Figura \ref{fig:domain} muestra su configuración general y la estrategia de mallado adoptada.  
+El plano de entrada se ubicó a 1.5 esloras aguas arriba del perpendicular de proa, donde se impuso una condición de velocidad uniforme.  
+La salida se situó a 2.5 esloras aguas abajo del perpendicular de popa, con condición de gradiente nulo para todas las variables.  
+Las paredes laterales y el fondo se colocaron a 2.5 esloras del plano medio, aplicándose condición de simetría para minimizar los efectos de bloqueo.  
+En el plano de flotación se aplicó igualmente una condición de simetría, acorde con el enfoque de doble cuerpo.  
+El casco del buque se trató como una pared \textit{no–slip}, empleando la función de pared \texttt{kLowReWallFunction}, que ajusta automáticamente el comportamiento de la capa límite en función del $y^+$ local.  
+En todos los casos, la distribución monitoreada arrojó valores promedio $y^+ < 300$, dentro de los límites recomendados en estudios previos \cite{Oyuela2024_OceanEngineering,Peña2021}, garantizando una resolución adecuada de la región próxima a la pared.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{images/esquema_malla.png}
+\caption{Esquema del dominio computacional y distribución de celdas en la región próxima al casco.}
+\label{fig:domain}
+\end{figure}
+
+Si bien la configuración numérica adopta una aproximación de doble cuerpo, esta elección resulta coherente con el objetivo del estudio.  
+En los ensayos experimentales, el factor de forma se determinó mediante el método de Prohaska, que se basa en mediciones a bajos números de Froude, donde la contribución de generación de olas es mínima.  
+Por lo tanto, la componente de resistencia observada es principalmente viscosa, y el tratamiento numérico sin superficie libre constituye un análogo válido para el análisis comparativo CFD/EFD.
+
+\vspace{0.5em}
+\paragraph{Verificación de malla y análisis de independencia numérica.}
+
+Para garantizar la confiabilidad de los resultados CFD, se llevó a cabo un estudio de independencia de malla para ambos modelos.  
+El objetivo fue determinar el refinamiento mínimo necesario para que las variaciones en la resistencia total fueran inferiores al 1~\%, asegurando que las diferencias residuales se debieran al error de discretización y no a la resolución espacial.
+
+Se emplearon mallas estructuradas, con celdas hexahédricas en el dominio principal, polihédricas en la cercanía del casco para poder adaptarse a la geometría y prismáticas en la capa límite, con un refinamiento progresivo hacia la superficie del casco.    
+El tamaño de la primera celda normal a la pared se definió para mantener $y^+ < 300$ en toda la superficie mojada.
+
+El estudio de convergencia se realizó considerando tres niveles de refinamiento (Malla~1, Malla~2 y Malla~3), incrementando el número de celdas aproximadamente en un factor de $sqrt(2)$ entre mallas.  
+El error de discretización se evaluó mediante el \textit{Grid Convergence Index} (GCI), analizando la variación relativa del coeficiente de resistencia total $C_T$.  
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{images/kcs_CFD_DC_convergencia.pdf}
+\caption{Análisis de independencia de malla para el modelo KCS.}
+\label{fig:kcs_gridconv}
 \end{figure}
 
 \begin{figure}[H]
-
-  \begin{minipage}[b]{0.45\linewidth}
-    \includegraphics[width=\linewidth]{images/EFD-3-calados.png}
-  \end{minipage}
-  \quad
-  \begin{minipage}[b]{0.45\linewidth}
-    \includegraphics[width=\linewidth]{images/CFD-3-calados.png}
-  \end{minipage}
-  \caption{$C_{TM}$ vs. Fn. Left: all draughts on EFD; right: all draughts on CFD.}
-  \label{fig:CT-FR-juntos}
+\centering
+\includegraphics[width=0.8\textwidth]{images/tpa_CFD_DC_convergencia.pdf}
+\caption{Análisis de independencia de malla para el modelo pesquero TPA. }
+\label{fig:tpa_gridconv}
 \end{figure}
 
-\begin{figure}[H]
+Con base en estos resultados, se seleccionó la Malla~2 como la configuración óptima para el resto de los casos, al ofrecer un equilibrio adecuado entre precisión y costo computacional.  
+El tamaño total de celdas resultante fue del orden de $1.8\times10^7$ para el KCS y $1.6\times10^7$ para el TPA.  
+Estas resoluciones demostraron ser suficientes para capturar de forma estable las distribuciones de presión y la estructura del flujo próximo al casco, garantizando la reproducibilidad del cálculo del factor de forma.
 
-    \includegraphics[width=1\linewidth]{images/3D-comparacion1.png}
-    \caption{{Wave} %MDPI: (1). Please change the hyphen (-) in the image into a minus sign (−, “U+2212”), e.g., “-1” should be “−1”. (2). Please change the terms into scientific notations in the figure, e.g., “8 × 10³”, not “8E3”. CHENGED SCIENTIFIC NOTATION, CAN'T CHANGE HYPHEN INTO MINUS IN SCALE, PARAVIEW SEES NO DIFERENCE BETWEEN THEM.
- pattern for different Fn and draught = T3. 
-\textbf{Left column}: 3D CFD model. \textbf{Right column}: EFD model.
-\textbf{First row}: Fn = 0.26; \textbf{second row}: Fn = 0.37;\textbf{ third row}: Fn = 0.45.}
-    \label{fig:3D-comparacion}
-\end{figure}
+\vspace{0.5em}
+\subsubsection*{Estrategia de cálculo y parámetros de simulación}
 
-Table \ref{tab:form_factors} compares the CFD form factors, for the different draughts, obtained by the double-hull method (with Fn = 0.1 and Fn = 0.2) with the EFD obtained by Prohaska's method (see Section \ref{k_EFD}).  Table \ref{tab:form_factors} shows the percentage difference between the EFD and CFD form factors, taking the EFD form factor as the reference value.
-In all cases, the difference between the CFD and EFD form factors is significant. However, it is still smaller than the uncertainty in the experimental form factor. 
+Cada caso se simuló en régimen transitorio hasta alcanzar un estado cuasi–estacionario de las fuerzas hidrodinámicas.  
+La densidad del fluido se fijó en $\rho = 998.2 \text{ kg/m}^3$ y la viscosidad cinemática en $\nu = 1.004\times10^{-6}\,\text{ m}^2/\text{s}$.  
+Los coeficientes de resistencia total se obtuvieron según:
+\[
+C_T = \frac{R_T}{\tfrac{1}{2}\,\rho\,U^2\,S},
+\]
+donde $R_T$ es la fuerza total en dirección longitudinal, $U$ la velocidad media en el dominio de entrada, y $S$ la superficie mojada del casco.
 
-\vspace{-3pt}{}
-\begin{table}[H]
-\caption{Form factor for different draughts, calculated by Prohaska's method and double-hull CFD method.}
+El factor de forma numérico se determinó de acuerdo con la relación:
+\[
+1+k = \frac{C_T}{C_F},
+\]
+empleando para $C_F$ la línea de fricción ITTC–1957.  
+Este procedimiento permite una comparación directa con los valores experimentales obtenidos mediante el método de Prohaska.
 
-\begin{tabularx}{\textwidth}{lcccccc}
-\hline
-\multirow{2}{*}{\textbf{Method}} & \multicolumn{2}{c}{\textbf{T1: 0.165 m}} & \multicolumn{2}{c}{\textbf{T2: 0.180 m}} & \multicolumn{2}{c}{\textbf{T3: 0.195 m}} \\
-\cline{2-7}
-&\boldmath{ $k$ }&\boldmath{ $\Delta\%$ }&\boldmath{ $k$ }&\boldmath{ $\Delta\%$ }& \boldmath{$k$ }&\boldmath{ $\Delta\%$} \\
-\hline
-EFD Prohaska & 0.252 & 0 & 0.211 & 0 & 0.194 & 0 \\
-CFD double hull Fn = 0.10 & 0.168 & $-$33 & 0.157 & $-$26 & 0.179 &$-$8 \\ 
-CFD double hull Fn = 0.20 & 0.302 & 20 & 0.292 & 38 & 0.320 & 65 \\
-\hline
-\end{tabularx}
-\label{tab:form_factors}
-\end{table}
