@@ -126,7 +126,7 @@ El objetivo principal fue obtener el factor de forma $(1+k)$ a partir de los res
 
 Dado que el método experimental de Prohaska se aplica en un rango de números de Froude reducidos, donde la generación de olas es mínima, las simulaciones numéricas se desarrollaron bajo un enfoque de \textit{doble cuerpo} (sin superficie libre).  
 Este procedimiento elimina los efectos de olas y permite una comparación directa con los resultados experimentales en condiciones dominadas por la resistencia viscosa.  
-Un plano de simetría redujo el dominio computacional hasta el calado del casco, optimizando el costo numérico.
+Un plano de simetría en el plano de flotación reduce el dominio computacional aproximadamente a la mitad, optimizando el costo numérico.
 
 \vspace{0.5em}
 \subsubsection*{Métodos numéricos}
@@ -158,56 +158,94 @@ En todos los casos, la distribución monitoreada arrojó valores promedio $y^+ <
 \label{fig:domain}
 \end{figure}
 
-Si bien la configuración numérica adopta una aproximación de doble cuerpo, esta elección resulta coherente con el objetivo del estudio.  
-En los ensayos experimentales, el factor de forma se determinó mediante el método de Prohaska, que se basa en mediciones a bajos números de Froude, donde la contribución de generación de olas es mínima.  
-Por lo tanto, la componente de resistencia observada es principalmente viscosa, y el tratamiento numérico sin superficie libre constituye un análogo válido para el análisis comparativo CFD/EFD.
 
 \vspace{0.5em}
-\paragraph{Verificación de malla y análisis de independencia numérica.}
+\subsubsection{Validación de malla y análisis de independencia numérica.}
 
-Para garantizar la confiabilidad de los resultados CFD, se llevó a cabo un estudio de independencia de malla para ambos modelos.  
-El objetivo fue determinar el refinamiento mínimo necesario para que las variaciones en la resistencia total fueran inferiores al 1~\%, asegurando que las diferencias residuales se debieran al error de discretización y no a la resolución espacial.
+Con el objetivo de asegurar la confiabilidad de los resultados numéricos, se efectuó un estudio de convergencia de malla siguiendo las directrices propuestas por Freitas et al., la ITTC (2008) y la norma ASME (Celik et al., 2008).  
+El análisis se realizó mediante el método del \textit{Índice de Convergencia de Malla} (GCI, \textit{Grid Convergence Index}), que permite cuantificar el error de discretización y determinar si la solución presenta \textit{convergencia monótona}, \textit{ convergencia/divergencia oscilatoria} o \textit{divergencia}.
 
-Se emplearon mallas estructuradas, con celdas hexahédricas en el dominio principal, polihédricas en la cercanía del casco para poder adaptarse a la geometría y prismáticas en la capa límite, con un refinamiento progresivo hacia la superficie del casco.    
-El tamaño de la primera celda normal a la pared se definió para mantener $y^+ < 300$ en toda la superficie mojada.
+El método se basa en la extrapolación de Richardson, que estima el valor asintótico al que tiende la solución a medida que la malla se refina.  
+Para cada modelo (KCS y TPA) se generaron tres mallas sistemáticamente refinadas —\textit{gruesa}, \textit{media} y \textit{fina}— con un factor de refinamiento geométrico $r = \sqrt{2}$ entre niveles sucesivos.  
+El tamaño característico de celda $h$ se definió como el promedio cúbico de los volúmenes de control:
 
-El estudio de convergencia se realizó considerando tres niveles de refinamiento (Malla~1, Malla~2 y Malla~3), incrementando el número de celdas aproximadamente en un factor de $sqrt(2)$ entre mallas.  
-El error de discretización se evaluó mediante el \textit{Grid Convergence Index} (GCI), analizando la variación relativa del coeficiente de resistencia total $C_T$.  
+\begin{equation}
+h = \left( \frac{1}{N}\sum_{i=1}^{N} V_i \right)^{1/3},
+\end{equation}
 
+donde $V_i$ es el volumen de la $i$–ésima celda y $N$ el número total de celdas.  
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.8\textwidth]{images/kcs_CFD_DC_convergencia.pdf}
-\caption{Análisis de independencia de malla para el modelo KCS.}
-\label{fig:kcs_gridconv}
-\end{figure}
+El orden aparente de precisión $p$ se determinó según:
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.8\textwidth]{images/tpa_CFD_DC_convergencia.pdf}
-\caption{Análisis de independencia de malla para el modelo pesquero TPA. }
-\label{fig:tpa_gridconv}
-\end{figure}
+\begin{equation}
+p = \frac{\ln\left(\frac{\epsilon_{32}}{\epsilon_{21}}\right)}{\ln(r)},
+\end{equation}
 
-Con base en estos resultados, se seleccionó la Malla~2 como la configuración óptima para el resto de los casos, al ofrecer un equilibrio adecuado entre precisión y costo computacional.  
-El tamaño total de celdas resultante fue del orden de $1.8\times10^7$ para el KCS y $1.6\times10^7$ para el TPA.  
-Estas resoluciones demostraron ser suficientes para capturar de forma estable las distribuciones de presión y la estructura del flujo próximo al casco, garantizando la reproducibilidad del cálculo del factor de forma.
+siendo $\epsilon_{ij} = \Phi_i - \Phi_j$ la diferencia relativa entre las soluciones obtenidas en dos mallas consecutivas (gruesa-media o media–fina), y $\Phi$ la magnitud de interés —en este caso, el coeficiente de resistencia total $C_T$.  
+
+El comportamiento de convergencia se clasificó de acuerdo con las recomendaciones de la ITTC (2008):
+
+\begin{itemize}
+\item $0 < R < 1$: convergencia monótona;
+\item $R < 0$: convergencia oscilatoria;
+\item $R > 1$: divergencia.
+\end{itemize}
+
+El \textit{Grid Convergence Index} (GCI) correspondiente a la malla más fina se calculó mediante:
+
+\begin{equation}
+GCI = F_s \, \frac{|\Phi_1 - \Phi_2|}{\Phi_1 \,(r^p - 1)},
+\end{equation}
+
+donde $F_s = 1.25$ es el factor de seguridad recomendado por ASME para tres niveles de refinamiento.
+
+Los resultados mostraron que la mayoría de los casos presentaron convergencia oscilatoria, con valores de $GCI$ inferiores al 0.35\%, salvo para los números de Froude más altos ($0.36 < F_n < 0.40$), donde el error creció hasta 1.0–1.8\%, manteniendo no obstante un comportamiento convergente.  
+Estos valores confirman que la solución se encuentra dentro del rango asintótico y que la discretización espacial resulta adecuada para el análisis del factor de forma.
+
 
 \vspace{0.5em}
-\subsubsection*{Estrategia de cálculo y parámetros de simulación}
+\subsubsection*{Determinación numérica del factor de forma}
 
-Cada caso se simuló en régimen transitorio hasta alcanzar un estado cuasi–estacionario de las fuerzas hidrodinámicas.  
-La densidad del fluido se fijó en $\rho = 998.2 \text{ kg/m}^3$ y la viscosidad cinemática en $\nu = 1.004\times10^{-6}\,\text{ m}^2/\text{s}$.  
-Los coeficientes de resistencia total se obtuvieron según:
-\[
-C_T = \frac{R_T}{\tfrac{1}{2}\,\rho\,U^2\,S},
-\]
-donde $R_T$ es la fuerza total en dirección longitudinal, $U$ la velocidad media en el dominio de entrada, y $S$ la superficie mojada del casco.
+El método de determinación numérica del factor de forma adoptado en este trabajo sigue las hipótesis propuestas por Hughes \cite{Hughes1954}, considerando el flujo en régimen de doble cuerpo (\textit{Double–Body, DB}) sin superficie libre.  
+Bajo este enfoque, la resistencia total obtenida en la simulación CFD proviene exclusivamente de las contribuciones viscosas: fricción pura y presión viscosa.  
+El factor de forma se define a partir de la relación:
 
-El factor de forma numérico se determinó de acuerdo con la relación:
-\[
-1+k = \frac{C_T}{C_F},
-\]
-empleando para $C_F$ la línea de fricción ITTC–1957.  
-Este procedimiento permite una comparación directa con los valores experimentales obtenidos mediante el método de Prohaska.
+\begin{equation}
+    1+k = \frac{C_{F}+C_{PV}}{C_{F0}} = \frac{C_{V}}{C_{F0}},
+    \label{eq:db_form_factor}
+\end{equation}
+
+donde $C_{F}$ es el coeficiente de fricción, $C_{PV}$ el coeficiente de presión viscosa y $C_{V}$ la suma de ambos, todos obtenidos directamente de la simulación CFD de doble cuerpo.  
+$C_{F0}$ representa el coeficiente de fricción de una placa plana a igual número de Reynolds, calculado según la correlación ITTC–57.
+
+\vspace{0.5em}
+\paragraph{Comparación con estudios previos.}
+Con el objetivo de validar el modelo numérico, se compararon los resultados obtenidos para el modelo KCS a escala 1:79 con los reportados por Terziev et al. \cite{TERZIEV2021147}, quienes emplearon el mismo modelo de turbulencia $k$–$\omega$ SST.  
+La Figura~\ref{fig:kcs_cfd_cean_terziev} muestra la variación de $(1+k)$ en función del número de Froude, donde se observa que el comportamiento es análogo al documentado en la literatura.  
+A partir de $F_n \geq 0.30$, el valor de $(1+k)$ tiende asintóticamente al determinado por Terziev et al., confirmando la coherencia entre ambos modelos numéricos.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{images/kcs_cfd_cean_terziev.pdf}
+    \caption{Evolución del factor de forma numérico $(1+k)$ en función de $F_n$ para el KCS a escala 1:79 comparado con el modelo 1:75 de Terziev et al. \cite{TERZIEV2021147}.}
+    \label{fig:kcs_cfd_cean_terziev}
+\end{figure}
+
+Si bien ambos modelos alcanzan un valor asintótico similar, el presente caso muestra una estabilización a valores de $F_n$ ligeramente mayores.  
+Sin embargo, al representar los resultados en función del número de Reynolds (Figura~\ref{fig:kcs_DB_prohaska}), se observa que ambos casos convergen hacia un mismo valor estable de $(1+k)$ entre $Re = 4\times10^6$ y $Re = 5\times10^6$.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{images/kcs_DB_prohaska.pdf}
+    \caption{Comparación de $(1+k)$ en función del número de Reynolds para el KCS 1:79 y el modelo 1:75 de Terziev et al. \cite{TERZIEV2021147}. Las líneas verticales indican los límites $F_n = 0.10$ y $F_n = 0.20$ empleados experimentalmente.}
+    \label{fig:kcs_DB_prohaska}
+\end{figure}
+
+\vspace{0.5em}
+\paragraph{Comparación CFD–EFD.}
+En la Figura~\ref{fig:kcs_DB_prohaska} se incluye además el valor experimental de $(1+k)$ obtenido en los ensayos del canal del LabHiNO.  
+Si bien existen diferencias notables entre los valores experimentales y los resultados CFD dentro del rango de $F_n$ en el que se aplicó el método de Prohaska, ambos coinciden con el valor asintótico alcanzado por la simulación de doble cuerpo, con una discrepancia de solo 5.1\%.  
+Asimismo, la diferencia entre el valor experimental y el obtenido por CFD para $F_n = 0.02$ es de apenas 5.3\%.  
+
+Estos resultados evidencian una excelente correspondencia entre los enfoques numérico y experimental, validando el uso del modelo de doble cuerpo para la determinación del factor de forma a bajos números de Froude.
 
