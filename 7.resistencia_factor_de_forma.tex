@@ -52,9 +52,9 @@ Tal como se discute en \cite{Oyuela2024_OceanEngineering}, el método de Prohask
 Se realizaron regresiones sucesivas considerando intervalos progresivos, comenzando con $0.10 < F_n < 0.20$ y luego restringiendo a $0.12 < F_n < 0.20$, $0.14 < F_n < 0.20$, etc., descartando los puntos más dispersos.  
 De esta manera se mitigó la influencia de los valores afectados por laminarización y se logró una tendencia más próxima a la linealidad, permitiendo una estimación confiable del factor de forma para cada calado.
 
-\begin{figure}[H]
+\begin{figure}[htpb]
 \centering
-\includegraphics[width=0.75\textwidth]{images/prohaska_tpa_comparacion.pdf}
+\includegraphics[width=0.6\textwidth, trim=3.5cm 8cm 4cm 8cm, clip]{images/prohaska_tpa_comparacion.pdf}
 \caption{Diagramas del método de Prohaska para los tres calados del pesquero TPA. La desviación respecto de la linealidad teórica se acentúa a bajos números de Froude.}
 \label{fig:prohaska_tpa}
 \end{figure}
@@ -63,10 +63,10 @@ A partir de las regresiones sucesivas realizadas con distintos intervalos de Fro
 Puede observarse que al eliminar los puntos correspondientes a $F_n < 0.15$, el valor de $(1+k)$ se estabiliza, indicando que los datos a muy baja velocidad distorsionaban la linealidad del ajuste.  
 Este comportamiento confirma que el rango óptimo de aplicación del método de Prohaska para este tipo de cascos se sitúa aproximadamente entre $0.15 < F_n < 0.20$, intervalo en el cual el flujo se mantiene plenamente turbulento y la componente por olas es aún despreciable.
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.75\textwidth]{images/efd_form_factor_tpa_range.pdf}
-\caption{Variación del factor de forma experimental $(1+k)$ para el pesquero TPA en función del rango de Froude utilizado en el ajuste de Prohaska.}
+\begin{figure}[htpb]
+	\centering
+	\includegraphics[width=.6\columnwidth, trim=3.5cm 8cm 4cm 8cm, clip]{images/efd_form_factor_tpa_range.pdf}
+	\caption{Variación del factor de forma experimental $(1+k)$ para el pesquero TPA en función del rango de Froude utilizado en el ajuste de Prohaska.}
 \label{fig:tpa_range}
 \end{figure}
 
@@ -74,15 +74,15 @@ Para cuantificar la incertidumbre asociada a la pendiente e intersección de la 
 Este enfoque permite obtener intervalos de confianza más realistas para el valor de $(1+k)$, especialmente cuando los puntos presentan dispersión significativa.  
 La Figura~\ref{fig:york_tpa} ilustra un ejemplo del ajuste con incertidumbre ponderada obtenido para uno de los calados ensayados.
 
-\begin{figure}[H]
+\begin{figure}[htpb]
 \centering
-\includegraphics[width=0.7\textwidth]{images/york.png}
+\includegraphics[width=0.6\textwidth]{images/york.png}
 \caption{Ajuste lineal con ponderación mediante el método de York aplicado al pesquero TPA para la estimación de $(1+k)$ y su incertidumbre.}
 \label{fig:york_tpa}
 \end{figure}
 
 \vspace{1em}
-\subsubsection*{Modelo de referencia KCS}
+\paragraph*{Modelo de referencia KCS} 
 
 Con el objetivo de verificar la linealidad del sistema de medición y la calibración general del canal, se realizó una segunda campaña experimental utilizando el modelo KCS (escala 1:79).  
 Este buque de referencia ha sido ampliamente ensayado por diversos laboratorios internacionales (KRISO, MARIN, SSPA, Hyundai), lo que permite una comparación directa de resultados.
@@ -90,9 +90,9 @@ Este buque de referencia ha sido ampliamente ensayado por diversos laboratorios 
 El factor de forma experimental se determinó nuevamente mediante el método de Prohaska, siguiendo el mismo procedimiento de ajuste aplicado al modelo pesquero.  
 En la Figura \ref{fig:prohaska_kcs} se muestra el diagrama de Prohaska obtenido para el KCS, donde se aprecia una buena linealidad de los puntos experimentales en el rango de bajas velocidades.
 
-\begin{figure}[H]
+\begin{figure}[htpb]
 \centering
-\includegraphics[width=0.75\textwidth]{images/prohaska_kcs.pdf}
+\includegraphics[width=0.6\textwidth, trim=3.5cm 8cm 4cm 8cm, clip]{images/prohaska_kcs.pdf}
 \caption{Determinación experimental del factor de forma $(1+k)$ para el modelo KCS mediante el método de Prohaska.}
 \label{fig:prohaska_kcs}
 \end{figure}
@@ -101,151 +101,18 @@ Posteriormente se analizó la sensibilidad del resultado al rango de Froude cons
 La Figura \ref{fig:kcs_range} muestra la evolución del valor de $(1+k)$ para distintos intervalos de Froude, observándose una estabilización clara del resultado para $0.13 < F_n < 0.20$.  
 El valor final obtenido fue $(1+k)=1.06$, en excelente concordancia con los datos de referencia.
 
-\begin{figure}[H]
+\begin{figure}[htpb]
 \centering
-\includegraphics[width=0.75\textwidth]{images/efd_form_factor_kcs_range.pdf}
+\includegraphics[width=0.6\textwidth, trim=3.5cm 8cm 4cm 8cm, clip]{images/efd_form_factor_kcs_range.pdf}
 \caption{Variación del factor de forma $(1+k)$ para el modelo KCS en función del rango de Froude considerado en el ajuste de Prohaska.}
 \label{fig:kcs_range}
 \end{figure}
 
 Finalmente, en la Figura \ref{fig:kcs_validation} se comparan los resultados del LabHiNO con los obtenidos por distintos laboratorios internacionales, evidenciando que el canal reproduce con precisión las tendencias globales del factor de forma en función del número de Reynolds.
 
-\begin{figure}[H]
+\begin{figure}[htpb]
 \centering
-\includegraphics[width=0.7\textwidth]{images/completo_kcs_lit.pdf}
-\caption{Comparación del factor de forma $(1+k)$ del KCS obtenido en el LabHiNO con resultados internacionales:contentReference[oaicite:0]{index=0}.}
+\includegraphics[width=0.6\textwidth, trim=3.5cm 8cm 4cm 8cm, clip]{images/completo_kcs_lit.pdf}
+\caption{Comparación del factor de forma $(1+k)$ del KCS obtenido en el LabHiNO con resultados internacionales.}
 \label{fig:kcs_validation}
 \end{figure}
-
-\subsection{Ensayos computacionales de resistencia al avance y de factor de forma}
-
-\subsubsection*{Introducción}
-
-Con el fin de complementar los resultados experimentales y analizar la contribución viscosa con mayor detalle, se realizaron simulaciones numéricas de resistencia al avance tanto para el modelo de referencia KCS como para el pesquero TPA.  
-El objetivo principal fue obtener el factor de forma $(1+k)$ a partir de los resultados CFD y comparar los valores con los obtenidos experimentalmente, evaluando la coherencia entre ambos enfoques.
-
-Dado que el método experimental de Prohaska se aplica en un rango de números de Froude reducidos, donde la generación de olas es mínima, las simulaciones numéricas se desarrollaron bajo un enfoque de \textit{doble cuerpo} (sin superficie libre).  
-Este procedimiento elimina los efectos de olas y permite una comparación directa con los resultados experimentales en condiciones dominadas por la resistencia viscosa.  
-Un plano de simetría en el plano de flotación reduce el dominio computacional aproximadamente a la mitad, optimizando el costo numérico.
-
-\vspace{0.5em}
-\subsubsection*{Métodos numéricos}
-
-Las simulaciones se realizaron empleando el código de volúmenes finitos de código abierto \textbf{OpenFOAM v11}.  
-El algoritmo \textit{PIMPLE} se utilizó para el acoplamiento presión–velocidad, proporcionando un esquema robusto para cálculos transitorios con números de Courant elevados.  
-La integración temporal se llevó a cabo mediante el esquema \textit{localEuler}.  
-La convergencia se evaluó monitoreando las oscilaciones de las fuerzas hidrodinámicas, y cada simulación se dio por concluida cuando las variaciones se mantenían por debajo del 1 \% durante varios ciclos de muestreo.
-
-Para la modelación de la turbulencia se adoptó el modelo \textbf{k–$\omega$ SST}, ampliamente utilizado por su buen equilibrio entre precisión y estabilidad, especialmente en regiones cercanas a la pared y en gradientes de presión adversos \cite{Oyuela2024_OceanEngineering,Terziev2020,Peña2021}.  
-Este modelo combina las ventajas del k–$\omega$ en la zona próxima a la pared y del k–$\varepsilon$ en el flujo externo, mejorando la predicción de la capa límite en cascos de forma compleja.
-
-\vspace{0.5em}
-\subsubsection*{Dominio computacional, malla y condiciones de contorno}
-
-El dominio computacional, común para ambos modelos, siguió las recomendaciones de la ITTC \cite{ITTC_CFD_guidelines}.  
-La Figura \ref{fig:domain} muestra su configuración general y la estrategia de mallado adoptada.  
-El plano de entrada se ubicó a 1.5 esloras aguas arriba del perpendicular de proa, donde se impuso una condición de velocidad uniforme.  
-La salida se situó a 2.5 esloras aguas abajo del perpendicular de popa, con condición de gradiente nulo para todas las variables.  
-Las paredes laterales y el fondo se colocaron a 2.5 esloras del plano medio, aplicándose condición de simetría para minimizar los efectos de bloqueo.  
-En el plano de flotación se aplicó igualmente una condición de simetría, acorde con el enfoque de doble cuerpo.  
-El casco del buque se trató como una pared \textit{no–slip}, empleando la función de pared \texttt{kLowReWallFunction}, que ajusta automáticamente el comportamiento de la capa límite en función del $y^+$ local.  
-En todos los casos, la distribución monitoreada arrojó valores promedio $y^+ < 300$, dentro de los límites recomendados en estudios previos \cite{Oyuela2024_OceanEngineering,Peña2021}, garantizando una resolución adecuada de la región próxima a la pared.
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.8\textwidth]{images/esquema_malla.png}
-\caption{Esquema del dominio computacional y distribución de celdas en la región próxima al casco.}
-\label{fig:domain}
-\end{figure}
-
-
-\vspace{0.5em}
-\subsubsection{Validación de malla y análisis de independencia numérica.}
-
-Con el objetivo de asegurar la confiabilidad de los resultados numéricos, se efectuó un estudio de convergencia de malla siguiendo las directrices propuestas por Freitas et al., la ITTC (2008) y la norma ASME (Celik et al., 2008).  
-El análisis se realizó mediante el método del \textit{Índice de Convergencia de Malla} (GCI, \textit{Grid Convergence Index}), que permite cuantificar el error de discretización y determinar si la solución presenta \textit{convergencia monótona}, \textit{ convergencia/divergencia oscilatoria} o \textit{divergencia}.
-
-El método se basa en la extrapolación de Richardson, que estima el valor asintótico al que tiende la solución a medida que la malla se refina.  
-Para cada modelo (KCS y TPA) se generaron tres mallas sistemáticamente refinadas —\textit{gruesa}, \textit{media} y \textit{fina}— con un factor de refinamiento geométrico $r = \sqrt{2}$ entre niveles sucesivos.  
-El tamaño característico de celda $h$ se definió como el promedio cúbico de los volúmenes de control:
-
-\begin{equation}
-h = \left( \frac{1}{N}\sum_{i=1}^{N} V_i \right)^{1/3},
-\end{equation}
-
-donde $V_i$ es el volumen de la $i$–ésima celda y $N$ el número total de celdas.  
-
-El orden aparente de precisión $p$ se determinó según:
-
-\begin{equation}
-p = \frac{\ln\left(\frac{\epsilon_{32}}{\epsilon_{21}}\right)}{\ln(r)},
-\end{equation}
-
-siendo $\epsilon_{ij} = \Phi_i - \Phi_j$ la diferencia relativa entre las soluciones obtenidas en dos mallas consecutivas (gruesa-media o media–fina), y $\Phi$ la magnitud de interés —en este caso, el coeficiente de resistencia total $C_T$.  
-
-El comportamiento de convergencia se clasificó de acuerdo con las recomendaciones de la ITTC (2008):
-
-\begin{itemize}
-\item $0 < R < 1$: convergencia monótona;
-\item $R < 0$: convergencia oscilatoria;
-\item $R > 1$: divergencia.
-\end{itemize}
-
-El \textit{Grid Convergence Index} (GCI) correspondiente a la malla más fina se calculó mediante:
-
-\begin{equation}
-GCI = F_s \, \frac{|\Phi_1 - \Phi_2|}{\Phi_1 \,(r^p - 1)},
-\end{equation}
-
-donde $F_s = 1.25$ es el factor de seguridad recomendado por ASME para tres niveles de refinamiento.
-
-Los resultados mostraron que la mayoría de los casos presentaron convergencia oscilatoria, con valores de $GCI$ inferiores al 0.35\%, salvo para los números de Froude más altos ($0.36 < F_n < 0.40$), donde el error creció hasta 1.0–1.8\%, manteniendo no obstante un comportamiento convergente.  
-Estos valores confirman que la solución se encuentra dentro del rango asintótico y que la discretización espacial resulta adecuada para el análisis del factor de forma.
-
-
-\vspace{0.5em}
-\subsubsection*{Determinación numérica del factor de forma}
-
-El método de determinación numérica del factor de forma adoptado en este trabajo sigue las hipótesis propuestas por Hughes \cite{Hughes1954}, considerando el flujo en régimen de doble cuerpo (\textit{Double–Body, DB}) sin superficie libre.  
-Bajo este enfoque, la resistencia total obtenida en la simulación CFD proviene exclusivamente de las contribuciones viscosas: fricción pura y presión viscosa.  
-El factor de forma se define a partir de la relación:
-
-\begin{equation}
-    1+k = \frac{C_{F}+C_{PV}}{C_{F0}} = \frac{C_{V}}{C_{F0}},
-    \label{eq:db_form_factor}
-\end{equation}
-
-donde $C_{F}$ es el coeficiente de fricción, $C_{PV}$ el coeficiente de presión viscosa y $C_{V}$ la suma de ambos, todos obtenidos directamente de la simulación CFD de doble cuerpo.  
-$C_{F0}$ representa el coeficiente de fricción de una placa plana a igual número de Reynolds, calculado según la correlación ITTC–57.
-
-\vspace{0.5em}
-\paragraph{Comparación con estudios previos.}
-Con el objetivo de validar el modelo numérico, se compararon los resultados obtenidos para el modelo KCS a escala 1:79 con los reportados por Terziev et al. \cite{TERZIEV2021147}, quienes emplearon el mismo modelo de turbulencia $k$–$\omega$ SST.  
-La Figura~\ref{fig:kcs_cfd_cean_terziev} muestra la variación de $(1+k)$ en función del número de Froude, donde se observa que el comportamiento es análogo al documentado en la literatura.  
-A partir de $F_n \geq 0.30$, el valor de $(1+k)$ tiende asintóticamente al determinado por Terziev et al., confirmando la coherencia entre ambos modelos numéricos.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.85\textwidth]{images/kcs_cfd_cean_terziev.pdf}
-    \caption{Evolución del factor de forma numérico $(1+k)$ en función de $F_n$ para el KCS a escala 1:79 comparado con el modelo 1:75 de Terziev et al. \cite{TERZIEV2021147}.}
-    \label{fig:kcs_cfd_cean_terziev}
-\end{figure}
-
-Si bien ambos modelos alcanzan un valor asintótico similar, el presente caso muestra una estabilización a valores de $F_n$ ligeramente mayores.  
-Sin embargo, al representar los resultados en función del número de Reynolds (Figura~\ref{fig:kcs_DB_prohaska}), se observa que ambos casos convergen hacia un mismo valor estable de $(1+k)$ entre $Re = 4\times10^6$ y $Re = 5\times10^6$.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.85\textwidth]{images/kcs_DB_prohaska.pdf}
-    \caption{Comparación de $(1+k)$ en función del número de Reynolds para el KCS 1:79 y el modelo 1:75 de Terziev et al. \cite{TERZIEV2021147}. Las líneas verticales indican los límites $F_n = 0.10$ y $F_n = 0.20$ empleados experimentalmente.}
-    \label{fig:kcs_DB_prohaska}
-\end{figure}
-
-\vspace{0.5em}
-\paragraph{Comparación CFD–EFD.}
-En la Figura~\ref{fig:kcs_DB_prohaska} se incluye además el valor experimental de $(1+k)$ obtenido en los ensayos del canal del LabHiNO.  
-Si bien existen diferencias notables entre los valores experimentales y los resultados CFD dentro del rango de $F_n$ en el que se aplicó el método de Prohaska, ambos coinciden con el valor asintótico alcanzado por la simulación de doble cuerpo, con una discrepancia de solo 5.1\%.  
-Asimismo, la diferencia entre el valor experimental y el obtenido por CFD para $F_n = 0.02$ es de apenas 5.3\%.  
-
-Estos resultados evidencian una excelente correspondencia entre los enfoques numérico y experimental, validando el uso del modelo de doble cuerpo para la determinación del factor de forma a bajos números de Froude.
-
