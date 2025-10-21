@@ -5,7 +5,7 @@
 
 \subsubsection*{Introducción general}
 
-El presente eje aborda la determinación del factor de forma $(1+k)$ a partir de ensayos experimentales de resistencia realizados en el canal del Laboratorio de Hidrodinámica Naval y Oceánica (LabHiNO).  
+El presente eje aborda la construcción de la curva de resistencia y el cálculo del factor de forma $(1+k)$ a partir de ensayos experimentales de resistencia realizados en el canal del Laboratorio de Hidrodinámica Naval y Oceánica (LabHiNO).  
 El objetivo es establecer una metodología experimental reproducible y evaluar su consistencia mediante la comparación con resultados internacionales.  
 
 Si bien el primer conjunto de ensayos correspondió al modelo pesquero \textbf{TPA}, posteriormente se realizó una campaña con el modelo de referencia \textbf{KCS}, ampliamente documentado en la literatura, con el propósito de verificar la correcta calibración del canal y validar retrospectivamente los resultados obtenidos para el pesquero.
@@ -39,6 +39,32 @@ Temperatura del agua & 0.03 \% & 0.03 \% & 0.03 \% \\
 \end{tabularx}
 \label{tab:uncert_tpa}
 \end{table}
+
+\paragraph{Ensayo de resistencia al avance}
+
+
+
+\begin{figure}[htpb]
+\centering
+\includegraphics[width=0.6\textwidth]{images/efd-165}
+\caption{Resistencia al avance en función de Fr. Calado 1.}
+\label{fig:prohaska_tpa}
+\end{figure}
+
+\begin{figure}[htpb]
+\centering
+\includegraphics[width=0.6\textwidth]{images/efd-180}
+\caption{Resistencia al avance en función de Fr. Calado 2.}
+\label{fig:prohaska_tpa}
+\end{figure}
+
+\begin{figure}[htpb]
+\centering
+\includegraphics[width=0.6\textwidth]{images/efd-195}
+\caption{Resistencia al avance en función de Fr. Calado 3.}
+\label{fig:prohaska_tpa}
+\end{figure}
+
 
 \paragraph{Determinación experimental del factor de forma.}
 
@@ -112,7 +138,102 @@ Finalmente, en la Figura \ref{fig:kcs_validation} se comparan los resultados del
 
 \begin{figure}[htpb]
 \centering
-\includegraphics[width=0.6\textwidth, trim=3.5cm 8cm 4cm 8cm, clip]{images/completo_kcs_lit.pdf}
+\includegraphics[width=0.6\textwidth]{images/efd_kcs_lit.png}
 \caption{Comparación del factor de forma $(1+k)$ del KCS obtenido en el LabHiNO con resultados internacionales.}
 \label{fig:kcs_validation}
 \end{figure}
+
+\subsection{Ensayos computacionales de resistencia al avance}
+
+En esta sección se repetirán los ensayos realizados en el canal por simulaciones. Esto permitirá discriminar según su origen las distintas componentes de la resistencia, sin recurrir a modelos como el propuesto por Hughes.
+
+\begin{figure}[htpb]
+\centering
+\includegraphics[width=0.6\textwidth]{images/domain}
+\caption{Dominio computacional para ensayo de resistencia al avance}
+\label{fig:dominio}
+\end{figure}
+
+
+\begin{figure}[htpb]
+\centering
+\includegraphics[width=0.6\textwidth]{images/cfd-165}
+\caption{Resistencia al avance en función de Fr. Calado 1.}
+\label{fig:cfd_165_tpa}
+\end{figure}
+
+\begin{figure}[htpb]
+\centering
+\includegraphics[width=0.6\textwidth]{images/cfd-180}
+\caption{Resistencia al avance en función de Fr. Calado 2.}
+\label{fig:cfd_165_tpa}
+\end{figure}
+
+\begin{figure}[htpb]
+\centering
+\includegraphics[width=0.6\textwidth]{images/cfd-195}
+\caption{Resistencia al avance en función de Fr. Calado 3.}
+\label{fig:cfd_165_tpa}
+\end{figure}
+
+\paragraph{Determinación numérica del factor de forma.}
+
+Para la determinación computacional del factor de forma se limitó el dominio presentado en la Figura \ref{fig:dominio} hasta la linea de calado. En el análisis del factor de forma $(1+k)$, es posible eliminar la fase de aire y considerar un modelo de \textit{doble cuerpo} al tratar la resistencia viscosa de un casco totalmente sumergido. Este enfoque reemplaza la superficie libre por un plano de simetría, de modo que la resistencia por formación de olas se anula y sólo permanecen los efectos de fricción y presión viscosa sobre el casco. Según Dogrul et al.~\cite{Dogrul2020}, “for double body approach, where the free-surface is replaced by a symmetry plane, the wave resistance was assumed to be zero because the symmetrical double body is deeply submerged”. 
+
+Desde el punto de vista numérico, eliminar la fase de aire simplifica el modelo y reduce el costo computacional, evitando la necesidad de resolver la interacción aire–agua. Korkmaz et al.~\cite{Korkmaz2021} explican que las simulaciones de doble cuerpo permiten obtener directamente los coeficientes de fricción y presión viscosa omitiendo el modelado de la superficie libre, hélices o rugosidad. De esta forma, el método permite aislar la contribución viscosa pura del casco, que es precisamente la magnitud que el factor de forma busca representar~\cite{Johnson2013}. 
+ 
+
+\begin{figure}[htpb]
+\centering
+\includegraphics[width=0.6\textwidth]{images/esquema_malla}
+\caption{Dominio reducido para simulación sin superficie libre.}
+\label{fig:double_cody}
+\end{figure}
+
+\begin{figure}[htpb]
+\centering
+\includegraphics[width=0.6\textwidth, trim=3.5cm 8cm 4cm 8cm, clip]{images/tpa_CFD_DC_convergencia}
+\caption{Dominio reducido para simulación sin superficie libre.}
+\label{fig:tpa_DB_k_escala20}
+\end{figure}
+
+\begin{figure}[htpb]
+	\centering
+	\includegraphics[width=.6\columnwidth, trim=3.5cm 8cm 4cm 8cm, clip]{images/kcs_DB_prohaska.pdf}
+	\caption{Numerical $1+k$ vs $Rn$ for the KCS 1:79 and 1:75 of Terziev et al. \cite{TERZIEV2021147}.}
+	\label{fig:kcs_DB_prohaska}
+\end{figure}
+
+\begin{figure}[htpb]
+	\centering
+	\includegraphics[width=.6\columnwidth]{images/cfd_kcs_lit}
+	\caption{$1+k$ vs $Rn$ for the KCS. Numerical (CFD DB) results from present work and from Terziev et al. Data set \cite{TerzievDataSet}.}
+	\label{completo_kcs_lit}
+\end{figure}
+
+\paragraph{Extensión de escalas} 
+
+Con el fin de resaltar el comportamiento distintivo de \(1+k\) en función de \(Rn\) que se ha encontrado para el buque pesquero, en esta subsección se compara dicho comportamiento con el correspondiente al KCS. En primer lugar, con el propósito de una mayor claridad analítica, los resultados presentados en las Figuras \ref{fig:kcs_DB_prohaska} y \ref{fig:tpa_DB_k_escala20} se reúnen en la Figura \ref{fig:completo_log}.
+
+La Figura \ref{comparacion_total_kcs_tpa} muestra los valores de \(1+k\) frente a \(Rn\) obtenidos mediante CFD \textit{double body} (DB) para el KCS a escala 1:79, el KCS a escala 1:75 de Terziev et al. \cite{TERZIEV2021147} y el buque pesquero en escala modelo (1:20). El gráfico incluye además los valores experimentales (EFD) de \(1+k\) determinados mediante el método de Prohaska en el presente trabajo (para el KCS a escala 1:79 y para el pesquero).
+
+Es evidente que, dentro del rango de velocidades del modelo considerado, el pesquero no alcanza un valor asintótico de \(1+k\), a diferencia de lo observado en el KCS. Por consiguiente, y en contraste con el comportamiento mostrado por el KCS, el valor experimental de \(1+k\) del pesquero se desvía progresivamente del valor calculado mediante CFD DB a medida que aumenta la velocidad del modelo.
+
+Resulta destacable que, incluso considerando la mayor velocidad del modelo, el pesquero no alcanza valores de \(Rn\) comparables a aquellos que produjeron la estabilización del valor de \(1+k\) en el caso del KCS (\(Rn\) entre \(4\times10^6\) y \(5\times10^6\)).
+
+Para comprender mejor el comportamiento de \(1+k\) en función de \(Rn\) en el caso del pesquero, se realizaron cálculos CFD DB de \(1+k\) para diferentes escalas de modelo, con el fin de abarcar un rango más amplio de \(Rn\). Se evaluaron la escala 1:20 y tres escalas adicionales, 1:10, 1:5 y 1:1, con el propósito de analizar la influencia de la escala en esta investigación.
+
+\begin{figure}[htpb]
+	\centering
+	\includegraphics[width=.6\columnwidth, trim=3.2cm 8cm 3.2cm 8cm, clip]{images/completo_log_kcs_lit_tpa.pdf}
+	\caption{$1+k$ vs $Rn$ for the KCS and the fishing vessel (FV). KCS numerical (CFD DB) and experimental results (EFD) from present work and from Terziev et al. Data set \cite{TerzievDataSet}. Fishing vessel numerical (CFD DB, considering different scales) and experimental results (EFD) from present work. Logarithmic scale.}
+	\label{fig:completo_log}
+\end{figure}
+
+La Figura \ref{completo_log} ilustra nuestros resultados de \(1+k\) (CFD DB y EFD) junto con los resultados recopilados de la literatura existente para el KCS, así como nuestros resultados de \(1+k\) (CFD, considerando diferentes escalas, y EFD) para el buque pesquero.
+
+En la Figura \ref{completo_log} se observa que nuestro modelo CFD DB presenta, para ambos buques estudiados, un pico aproximadamente en el mismo rango de \(Rn\). Este pico podría estar directamente asociado con la modelización de la transición.
+
+Por otro lado, se observa que, si bien la variación de \(1+k\) con \(Rn\) disminuye para valores altos de \(Rn\) en ambos buques, el pesquero no alcanza un valor asintótico tan claramente definido como el KCS.
+
+El impacto de \(Rn\) sobre el valor de \(1+k\) es considerablemente más pronunciado en el buque pesquero que en el KCS. A modo ilustrativo, la diferencia entre el valor de \(1+k\) a bajo \(Rn\) y a alto \(Rn\) es aproximadamente del 40\% para el pesquero, mientras que para el KCS es cercana al 8\%. Además, el valor final de \(1+k\) del pesquero resulta casi un 50\% superior al del KCS.
