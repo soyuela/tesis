@@ -73,7 +73,16 @@ Cada conjunto de puntos corresponde a un calado diferente del pesquero TPA.
 Según el planteo teórico de Prohaska, los puntos deberían alinearse aproximadamente sobre una recta, cuya extrapolación al origen permite obtener el valor de $(1+k)$.  
 Sin embargo, en los tres calados se observa una ligera curvatura en los puntos experimentales, especialmente a bajos números de Froude, lo que indica una desviación del comportamiento lineal esperado.
 
-Este efecto fue atribuido a fenómenos de \textit{laminarización} parcial del flujo a bajas velocidades, así como a la sensibilidad del método frente a las pequeñas incertidumbres en la medición de resistencia total en ese régimen.  
+Este efecto fue atribuido a fenómenos de \textit{laminarización} parcial del flujo a bajas velocidades, como es explicado por \cite{keh-sik-min} en la Figura \ref{fig:keh-sik}, así como a la sensibilidad del método frente a las pequeñas incertidumbres en la medición de resistencia total en ese régimen.
+
+\begin{figure}[htpb]
+\centering
+\includegraphics[width=0.6\textwidth]{images/keh-sik-min.png}
+\caption{Ajuste lineal con ponderación mediante el método de York aplicado al pesquero TPA para la estimación de $(1+k)$ y su incertidumbre.}
+\label{fig:keh-sik}
+\end{figure}
+
+  
 Tal como se discute en \cite{Oyuela2024_OceanEngineering}, el método de Prohaska presenta una fuerte dependencia de los puntos seleccionados para la regresión lineal, por lo que se evaluaron diferentes rangos de Froude con el fin de obtener una extrapolación más robusta.  
 Se realizaron regresiones sucesivas considerando intervalos progresivos, comenzando con $0.10 < F_n < 0.20$ y luego restringiendo a $0.12 < F_n < 0.20$, $0.14 < F_n < 0.20$, etc., descartando los puntos más dispersos.  
 De esta manera se mitigó la influencia de los valores afectados por laminarización y se logró una tendencia más próxima a la linealidad, permitiendo una estimación confiable del factor de forma para cada calado.
@@ -178,7 +187,32 @@ En esta sección se repetirán los ensayos realizados en el canal por simulacion
 
 \paragraph{Determinación numérica del factor de forma.}
 
-Para la determinación computacional del factor de forma se limitó el dominio presentado en la Figura \ref{fig:dominio} hasta la linea de calado. En el análisis del factor de forma $(1+k)$, es posible eliminar la fase de aire y considerar un modelo de \textit{doble cuerpo} al tratar la resistencia viscosa de un casco totalmente sumergido. Este enfoque reemplaza la superficie libre por un plano de simetría, de modo que la resistencia por formación de olas se anula y sólo permanecen los efectos de fricción y presión viscosa sobre el casco. Según Dogrul et al.~\cite{Dogrul2020}, “for double body approach, where the free-surface is replaced by a symmetry plane, the wave resistance was assumed to be zero because the symmetrical double body is deeply submerged”. 
+Para la determinación computacional del factor de forma se implementaron dos métodos. El primero fue repetir lo propuesto por Prohaska para lo tres calados con el dominio presentado en la Figura \ref{fig:dominio}, lo que permite una comparación directa con el ensayo experimental. Sería lógico esperar el mismo problema a bajas velocidades, pero como se muestra en las Figuras XX a XX, a bajas velocidades las curvas experimentales y numéricas se separan. 
+
+\begin{figure}[htpb]
+\centering
+\includegraphics[width=0.6\textwidth]{images/prohaska-efd-cfd-195}
+\caption{Resistencia al avance en función de Fr. Calado 1.}
+\label{fig:cfd_165_tpa}
+\end{figure}
+
+\begin{figure}[htpb]
+\centering
+\includegraphics[width=0.6\textwidth]{images/prohaska-efd-cfd-195}
+\caption{Resistencia al avance en función de Fr. Calado 2.}
+\label{fig:cfd_165_tpa}
+\end{figure}
+
+\begin{figure}[htpb]
+\centering
+\includegraphics[width=0.6\textwidth]{images/prohaska-efd-cfd-195}
+\caption{Resistencia al avance en función de Fr. Calado 3.}
+\label{fig:cfd_165_tpa}
+\end{figure}
+
+Una posible razón para esta diferencia a bajas velocidades es el modelado de la turbulencia en los ensayos CFD estando en zona de transición, ya que se está utilizando el modelo k-omegaSST que asume que el flujo es turbulento fuera de la pared. Otra razón puede ser la alta incertidumbre de las mediciones experimentales, que aumenta notablemente a bajas velocidades, como fue presentado en Sección XX.
+
+Una segunda forma de estudiar el factor de forma consiste en limitar. el dominio presentado en la Figura \ref{fig:dominio} hasta la linea de calado. En el análisis del factor de forma $(1+k)$, es posible eliminar la fase de aire y considerar un modelo de \textit{doble cuerpo} al tratar la resistencia viscosa de un casco totalmente sumergido. Este enfoque reemplaza la superficie libre por un plano de simetría, de modo que la resistencia por formación de olas se anula y sólo permanecen los efectos de fricción y presión viscosa sobre el casco. Según Dogrul et al. \cite{DOGRUL2020107428}, “for double body approach, where the free-surface is replaced by a symmetry plane, the wave resistance was assumed to be zero because the symmetrical double body is deeply submerged”. 
 
 Desde el punto de vista numérico, eliminar la fase de aire simplifica el modelo y reduce el costo computacional, evitando la necesidad de resolver la interacción aire–agua. Korkmaz et al.~\cite{Korkmaz2021} explican que las simulaciones de doble cuerpo permiten obtener directamente los coeficientes de fricción y presión viscosa omitiendo el modelado de la superficie libre, hélices o rugosidad. De esta forma, el método permite aislar la contribución viscosa pura del casco, que es precisamente la magnitud que el factor de forma busca representar~\cite{Johnson2013}. 
  
