@@ -212,9 +212,9 @@ Para la determinación computacional del factor de forma se implementaron dos m�
 
 Una posible razón para esta diferencia a bajas velocidades es el modelado de la turbulencia en los ensayos CFD estando en zona de transición, ya que se está utilizando el modelo k-omegaSST que asume que el flujo es turbulento fuera de la pared. Otra razón puede ser la alta incertidumbre de las mediciones experimentales, que aumenta notablemente a bajas velocidades, como fue presentado en Sección XX.
 
-Una segunda forma de estudiar el factor de forma consiste en limitar. el dominio presentado en la Figura \ref{fig:dominio} hasta la linea de calado. En el análisis del factor de forma $(1+k)$, es posible eliminar la fase de aire y considerar un modelo de \textit{doble cuerpo} al tratar la resistencia viscosa de un casco totalmente sumergido. Este enfoque reemplaza la superficie libre por un plano de simetría, de modo que la resistencia por formación de olas se anula y sólo permanecen los efectos de fricción y presión viscosa sobre el casco. Según Dogrul et al. \cite{DOGRUL2020107428}, “for double body approach, where the free-surface is replaced by a symmetry plane, the wave resistance was assumed to be zero because the symmetrical double body is deeply submerged”. 
+Una segunda forma de estudiar el factor de forma consiste en limitar. el dominio presentado en la Figura \ref{fig:dominio} hasta la linea de calado. En el análisis del factor de forma $(1+k)$, es posible eliminar la fase de aire y considerar un modelo de \textit{doble cuerpo} al tratar la resistencia viscosa de un casco totalmente sumergido. Este enfoque reemplaza la superficie libre por un plano de simetría, de modo que la resistencia por formación de olas se anula y sólo permanecen los efectos de fricción y presión viscosa sobre el casco. Según \cite{DOGRUL2020107428}, “for double body approach, where the free-surface is replaced by a symmetry plane, the wave resistance was assumed to be zero because the symmetrical double body is deeply submerged”. 
 
-Desde el punto de vista numérico, eliminar la fase de aire simplifica el modelo y reduce el costo computacional, evitando la necesidad de resolver la interacción aire–agua. Korkmaz et al.~\cite{Korkmaz2021} explican que las simulaciones de doble cuerpo permiten obtener directamente los coeficientes de fricción y presión viscosa omitiendo el modelado de la superficie libre, hélices o rugosidad. De esta forma, el método permite aislar la contribución viscosa pura del casco, que es precisamente la magnitud que el factor de forma busca representar~\cite{Johnson2013}. 
+Desde el punto de vista numérico, eliminar la fase de aire simplifica el modelo y reduce el costo computacional, evitando la necesidad de resolver la interacción aire–agua. Korkmaz et al. \cite{Korkmaz2021} explican que las simulaciones de doble cuerpo permiten obtener directamente los coeficientes de fricción y presión viscosa omitiendo el modelado de la superficie libre, hélices o rugosidad. De esta forma, el método permite aislar la contribución viscosa pura del casco, que es precisamente la magnitud que el factor de forma busca representar. 
  
 
 \begin{figure}[htpb]
@@ -241,7 +241,7 @@ Desde el punto de vista numérico, eliminar la fase de aire simplifica el modelo
 \begin{figure}[htpb]
 	\centering
 	\includegraphics[width=.6\columnwidth]{images/cfd_kcs_lit}
-	\caption{$1+k$ vs $Rn$ for the KCS. Numerical (CFD DB) results from present work and from Terziev et al. Data set \cite{TerzievDataSet}.}
+	\caption{$1+k$ vs $Rn$ for the KCS. Numerical (CFD DB) results from present work and from Terziev et al. Data set \citep{TerzievDataSet}.}
 	\label{completo_kcs_lit}
 \end{figure}
 
