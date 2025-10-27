@@ -18,6 +18,63 @@ keywords = {Form factor, Ship resistance, Scale effects, Reynolds number depende
 abstract = {The problem of predicting a ship’s form factor and associated scale effects has been subject to many investigations in recent years. In this study, an attempt is made to investigate whether the form factor is influenced by a change in the ship’s speed by numerically modelling a geosim series of the KCS hull form by means of a RANS solver. The turbulence dependence of the problem is also studied by altering the closure model among three widely used approaches (the k-ω, k-ω SST, and k-ε models). The results show that at very low speeds (Froude numbers in the range of 0.02–0.06) the numerical model predicts changes in the form factor of a ship between 10% and 20%, depending on the turbulence model and scale factor choices. As the speed is increased further, the form factor exhibits little change, usually in the range of 1% or less. Simulations where the Reynolds number is changed by approximately two orders of magnitude, achieved by altering the value of viscosity, confirmed that the form factor can be considered Froude-dependent only for low speeds, predicting essentially identical values when high speed cases are considered.}
 }
 
+@article{Menter1994,
+  author  = {Menter, Florian R.},
+  title   = {Two-equation eddy-viscosity turbulence models for engineering applications},
+  journal = {AIAA Journal},
+  volume  = {32},
+  number  = {8},
+  pages   = {1598--1605},
+  year    = {1994},
+  doi     = {10.2514/3.12149}
+}
+
+@article{Karim,
+author = {Karim, Mashud and Rahman, MM and Alim, M. A.},
+year = {2011},
+month = {07},
+pages = {},
+title = {Performance of SST k-$\omega$ turbulence model for computation of viscous drag of axisymmetric underwater bodies},
+volume = {24},
+journal = {International Journal of Engineering}
+}
+
+@article{korkmaz_wetted_transom,
+title = {Scaling of wetted-transom resistance for improved full-scale ship performance predictions},
+journal = {Ocean Engineering},
+volume = {266},
+pages = {112590},
+year = {2022},
+issn = {0029-8018},
+doi = {https://doi.org/10.1016/j.oceaneng.2022.112590},
+url = {https://www.sciencedirect.com/science/article/pii/S002980182201873X},
+author = {Kadir Burak Korkmaz and Sofia Werner and Rickard Bensow},
+keywords = {Ship resistance, Form factor, CFD, Combined CFD/EFD methods, Transom flow, Wetted-transom},
+abstract = {Determining a ship’s propulsive power is a critical stage in the design phase in which the evaluation of the stern plays a crucial role. Different flow regimes can be observed depending on the position and shape of the transom. This paper investigates the wetted-transom flow characteristics and their implications on the 1978 ITTC Performance Prediction Method. In the case of flow separation, such as the wetted-transom flow, the current ITTC-78 procedure does not provide an alternative method. Therefore, two alternative methods were proposed based on the investigations of CFD computations on seven hull forms. The firstly proposed method is a combined EFD&CFD method called the two form factor method. It requires CFD computations in model and full-scale, and it can handle any case of flow separation, including the wetted-transom flow. The second proposed method is an empirical correction formula for the hulls with a wetted-transom flow. Finally, the full-scale speed-power relations between the speed trials and the full-scale predictions from the two alternative methods and the standard ITTC-78 method were presented. It is observed that the two suggested methods considerably improve the correlation between the predictions and the speed trials.}
+}
+
+@article{prohaska1966,
+  title={A simple method for evaluation of the form facter and low speed wave resistance},
+  author={Prohaska, CW},
+  journal={Proceedings of 11th ITTC},
+  pages={65--66},
+  year={1966}
+}
+
+@Article{korkmaz-verif-and-valid-cfd-efd,
+AUTHOR = {Korkmaz, Kadir Burak and Werner, Sofia and Bensow, Rickard},
+TITLE = {Verification and Validation of CFD Based Form Factors as a Combined CFD/EFD Method},
+JOURNAL = {Journal of Marine Science and Engineering},
+VOLUME = {9},
+YEAR = {2021},
+NUMBER = {1},
+ARTICLE-NUMBER = {75},
+URL = {https://www.mdpi.com/2077-1312/9/1/75},
+ISSN = {2077-1312},
+ABSTRACT = {Predicting the propulsive power of ships with high accuracy still remains a challenge. Well established practices in the 1978 ITTC Power Prediction method have been questioned such as the form factor approach and its determination method. This paper investigates the possibility to improve the power predictions by the introduction of a combined CFD/EFD Method where the experimental determination of form factor is replaced by double body RANS computations. Following the Quality Assurance Procedure proposed by ITTC, a best practice guideline has been derived for the CFD based form factor determination method by applying systematic variations to the CFD set-ups. Following the verification and validation of the CFD based form factor method in model scale, the full scale speed-power-rpm relations between large number of speed trials and full scale predictions using the CFD based form factors in combination with ITTC-57 line and numerical friction lines are investigated. It is observed that the usage of CFD based form factors improves the predictions in general and no deterioration is noted within the limits of this study. Therefore, the combination of EFD and CFD is expected to provide immediate improvements to the 1978 ITTC Performance Prediction Method.},
+DOI = {10.3390/jmse9010075}
+}
+
 @misc{TerzievDataSet,
   author = {Terziev, M. and Tezdogan, T. and Demirel, Y. K. and Villa, D. and Mizzi, S. and Incecik, A.},
   title = {Data for: "Exploring the effects of speed and scale on a ship’s form factor using CFD"},

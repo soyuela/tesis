@@ -40,6 +40,16 @@
 %Símbolo para cancelar términos en ecuaciones
 \usepackage{cancel}
 
+\usepackage{minitoc}
+\dominitoc          % activa minitoc globalmente
+\setcounter{tocdepth}{3} % para incluir subsubsecciones
+
+
+\usepackage{placeins,etoolbox}
+\preto{\subsection}{\FloatBarrier}      % barrera antes de cada subsección
+\preto{\subsubsection}{\FloatBarrier}   % barrera antes de cada subsubsección
+
+
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \graphicspath{ {images/} }
@@ -150,6 +160,8 @@ coltitle=black,center title}}
 \begin{document}
 
 \input{0.caratula}
+\tableofcontents
+\cleardoublepage
 \input{1.resumen}
 \input{2.agradecimientos}
 \input{3.propuesta_indice}
