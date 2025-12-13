@@ -86,7 +86,7 @@ Sin embargo, en los tres calados se observa una ligera curvatura en los puntos e
 \end{figure}
 
 Una primera explicación de esta curvatura se relaciona con fenómenos de \textit{laminarización} parcial del flujo a bajas velocidades, como se describe en \cite{keh-sik-min}.  
-En dichos regímenes, el flujo cercano a la proa puede volverse transicional o parcialmente laminar, reduciendo temporalmente el coeficiente de fricción y alterando la pendiente esperada de la curva de Prohaska.  
+En dichos regímenes, el flujo cercano a la proa puede volverse transicional o parcialmente laminar, reduciendo temporalmente el coeficiente de fricción y alterando la pendiente esperada de la curva de Prohaska como se ve en la Figura \ref{fig:keh-sik}.  
 A ello se suma la elevada sensibilidad del método frente a pequeñas incertidumbres en la medición de resistencia total, particularmente cuando el valor absoluto de la resistencia es muy bajo.
 
 \begin{figure}[htpb]
@@ -121,10 +121,10 @@ Estudios más recientes de CFD \citep{korkmaz-verif-and-valid-cfd-efd} confirman
 
 Por otra parte, incluso si el flujo fuese ideal, el método analítico puede introducir curvaturas propias.  
 El método de Prohaska se basa en sustraer la resistencia por fricción estimada mediante la línea de correlación ITTC-1957 para aislar la resistencia residual.  
-Si la línea de fricción no reproduce exactamente la fricción real del modelo —particularmente a bajos $Re$—, la relación $C_T/C_F$ frente a $Fn$ puede inclinarse o curvarse.  
+Si la línea de fricción no reproduce exactamente la fricción real del modelo, particularmente a bajos $Re$, la relación $C_T/C_F$ frente a $Fn$ puede inclinarse o curvarse.  
 Varios autores han identificado la ITTC-57 como una de las causas de la aparente dependencia con la velocidad del factor de forma.  
 La pendiente fija de dicha correlación (disminución logarítmica del coeficiente de fricción) resulta demasiado pronunciada en el rango de Reynolds característico de los ensayos, haciendo que el $C_F$ calculado disminuya más rápido que el real.  
-Esto genera una curvatura convexa hacia arriba (valores crecientes de $C_T/C_F$ a medida que aumenta $Fn$), que desaparece al utilizar líneas de fricción numéricas derivadas de CFD para placas planas.  
+Esto genera una curvatura convexa (valores crecientes de $C_T/C_F$ a medida que aumenta $Fn$), que desaparece al utilizar líneas de fricción numéricas derivadas de CFD para placas planas.  
 En consecuencia, algunas “jorobas” o curvaturas no reflejan el comportamiento físico del modelo, sino un artefacto analítico del método.
 
 Adicionalmente, la propia formulación de Prohaska incorpora una simplificación al asumir que la resistencia por olas varía como $\sim Fn^4$.  
@@ -297,7 +297,7 @@ Hull (casco)
     \item \textbf{nutkWF} (nutkWallFunction): función de pared para la viscosidad turbulenta $\nu_t$, calcula automáticamente el valor en función del $k$ local.
 \end{itemize}
 
-A continuación, en la Figura \ref{fig:CFD_olas_195_Fr45} se presenta a modo ilustrativo la simulación convergida del casco a $Fr = 0.45$ en la condición de "Calado 3" y en las Figuras \ref{fig:cfd_165_tpa} a \ref{fig:cfd_195_tpa} se presentan las curvas de resistencia total obtenidas para los tres calados. En todos los casos se observa un incremento continuo de la resistencia con el número de Froude, mostrando la transición habitual entre el régimen de bajas velocidades, donde la contribución viscosa domina el comportamiento global, y el rango a partir de $F_n \approx 0.30$, donde la componente asociada a la generación de olas comienza a desarrollarse con mayor intensidad. La evolución suave de las curvas y la ausencia de oscilaciones significativas indican que las simulaciones convergen de forma estable hacia un régimen estacionario, reproduciendo adecuadamente el comportamiento esperado para un ensayo de remolque. Estas curvas constituyen la base sobre la cual se realizará la comparación cuantitativa con los resultados experimentales y la determinación de las contribuciones viscosa y de formación de olas en secciones posteriores.
+A continuación, en la Figura \ref{fig:CFD_olas_195_Fr45} se presenta a modo ilustrativo la simulación convergida del casco a $Fr = 0.45$ en la condición de Calado 3 y en las Figuras \ref{fig:cfd_165_tpa} a \ref{fig:cfd_195_tpa} se presentan las curvas de resistencia total obtenidas para los tres calados. En todos los casos se observa un incremento continuo de la resistencia con el número de Froude, mostrando la transición habitual entre el régimen de bajas velocidades, donde la contribución viscosa domina el comportamiento global, y el rango a partir de $F_n \approx 0.30$, donde la componente asociada a la generación de olas comienza a desarrollarse con mayor intensidad. La evolución suave de las curvas y la ausencia de oscilaciones significativas indican que las simulaciones convergen de forma estable hacia un régimen estacionario, reproduciendo adecuadamente el comportamiento esperado para un ensayo de remolque. 
 
 \begin{figure}[htpb]
 \centering
@@ -343,13 +343,13 @@ Para la determinación computacional del factor de forma se implementaron dos m�
 
 Una posible razón para esta diferencia a bajas velocidades es el modelado de la turbulencia en los ensayos CFD estando en zona de transición de laminar a turbulenta, ya que se está utilizando el modelo k-omegaSST que asume que el flujo es turbulento fuera de la pared. 
 
-Al igual que se hizo con los ensayos experimentales, se repite el análisis de rangos de Froude para el análisis computacional del factor de forma. A menos que se considere necesario resaltar alguna diferencia entre calados, de ahora en adelante los análisis se centrarán en el Calado 3. En la Figura \ref{fig:tpa_range} se presenta el factor de forma adoptado.
+Al igual que se hizo con los ensayos experimentales, se repite el análisis de rangos de Froude para el análisis computacional del factor de forma. A menos que se considere necesario resaltar alguna diferencia entre calados, de ahora en adelante los análisis se centrarán en el Calado 3. En la Figura \ref{fig:tpa_range_cfd} se presenta el factor de forma adoptado.
 
 \begin{figure}[htpb]
 	\centering
 	\includegraphics[width=.6\columnwidth, trim=3.5cm 8cm 4cm 8cm, clip]{images/cfd_form_factor_tpa_195_range.pdf}
 	\caption{Variación del factor de forma experimental $(1+k)$ para el pesquero TPA en función del rango de Froude utilizado en el ajuste de Prohaska. Calado 3}
-\label{fig:tpa_range}
+\label{fig:tpa_range_cfd}
 \end{figure}
 
 \paragraph{Método de doble cuerpo}
@@ -364,7 +364,7 @@ Desde el punto de vista numérico, la ausencia de la interfaz aire–agua simpli
 \label{fig:double_cody}
 \end{figure}
 
-En las Figuras \ref{fig:tpa_DB_k_escala20_165} a \ref{fig:tpa_DB_k_escala20_195} se presenta el factor de forma resultante para cada Fr ensayado en cada calado. Llama la atención la gran diferencia entre $Fr = 0.10$ y $Fr = 0.40$ ya que el modelo de ITTC asume un factor de forma constante para todas las escalas. Encontrar un factor de forma variable dentro de una misma escala violería dicha hipótesis y dificultaría la elección del mismo para la extrapolación a escala 1:1.
+En las Figuras \ref{fig:tpa_DB_k_escala20_165} a \ref{fig:tpa_DB_k_escala20_195} se presenta el factor de forma resultante para cada Fr ensayado en cada calado. Llama la atención la gran diferencia entre $Fr = 0.10$ y $Fr = 0.40$ ya que el modelo de ITTC asume un factor de forma constante para todas las escalas. Encontrar un factor de forma variable dentro de una misma escala violaría dicha hipótesis y dificultaría la elección del mismo para la extrapolación a escala 1:1.
 
 \begin{figure}[htpb]
 \centering
@@ -509,7 +509,6 @@ En el caso de la comparación del médoto de Prohaska, ya sea experimental o com
 
 \subsection{Discusión de incertidumbres y diferencias entre EFD y CFD}
 
-
 \subsection{Análisis de efectos de escala} 
 
 
@@ -528,7 +527,7 @@ La Figura \ref{fig:comparacion_total_kcs_tpa} muestra los valores de \(1+k\) fre
 
 Es evidente que, dentro del rango de velocidades del modelo considerado, el pesquero no alcanza un valor asintótico de \(1+k\), a diferencia de lo observado en el KCS. Por consiguiente, y en contraste con el comportamiento mostrado por el KCS, el valor experimental de \(1+k\) del pesquero se desvía progresivamente del valor calculado mediante CFD DB a medida que aumenta la velocidad del modelo.
 
-Para comprender mejor el comportamiento de \(1+k\) en función de \(Rn\) en el caso del pesquero, se realizaron cálculos CFD DB de \(1+k\) para diferentes escalas de modelo, con el fin de abarcar un rango más amplio de \(Rn\). Se evaluaron la escala 1:20 y tres escalas adicionales, 1:10, 1:5 y 1:1, con el propósito de analizar la influencia de la escala en esta investigación.
+Para comprender mejor el comportamiento de \(1+k\) en función de \(Rn\) en el caso del pesquero, se realizaron cálculos CFD DB de \(1+k\) para diferentes escalas de modelo, con el fin de abarcar un rango más amplio de \(Rn\). Se evaluaron la escala 1:20 y tres escalas adicionales, 1:10, 1:5 y 1:1.
 
 \begin{figure}[htpb]
 	\centering
@@ -574,7 +573,7 @@ Este método podría ser aplicado al KCS, ya que se observa dicho "factor de for
 
 \subsection{Descomposición de la resistencia viscosa}
 
-La Figura~\ref{descomposicion_fuerzas} muestra el coeficiente de resistencia total ($C_T$), el coeficiente de fricción ($C_F$) y el coeficiente de presión viscosa ($C_{PV}$) obtenidos a partir de la simulación CFD en configuración de doble cuerpo (DB) para el buque pesquero, en función del número de Reynolds ($Rn$). Asimismo, se incluye la línea de correlación ITTC-57 ($C_{F0}$) a efectos comparativos.
+La Figura~\ref{descomposicion_fuerzas} muestra el coeficiente de resistencia total ($C_T$), el coeficiente de resistencia friccional ($C_F$) y el coeficiente de resistencia por presión viscosa ($C_{PV}$) obtenidos a partir de la simulación CFD en configuración de doble cuerpo (DB) para el buque pesquero, en función del número de Reynolds ($Rn$). Asimismo, se incluye la línea de correlación ITTC-57 ($C_{F0}$) a efectos comparativos.
 
 \begin{figure}
 \centering
@@ -583,7 +582,7 @@ La Figura~\ref{descomposicion_fuerzas} muestra el coeficiente de resistencia tot
 \label{descomposicion_fuerzas}
 \end{figure}
 
-El coeficiente de fricción ($C_F$) del modelo CFD-DB coincide estrechamente con la correlación ITTC-57 para valores de $Rn$ mayores que $5\times 10^6$, es decir, más allá de la región de transición. En contraste, el coeficiente de presión viscosa ($C_{PV}$) muestra una disminución muy lenta con $Rn$, generando así un incremento sostenido del factor de forma $(1+k)$, como se aprecia en la Figura~\ref{ittc_nfl}. No obstante, la tasa de crecimiento de $(1+k)$ se reduce conforme $C_F$ tiende a estabilizarse.
+El coeficiente de resistencia friccional ($C_F$) del modelo CFD-DB coincide estrechamente con la correlación ITTC-57 para valores de $Rn$ mayores que $5\times 10^6$, es decir, más allá de la región de transición. En contraste, el coeficiente de presión viscosa ($C_{PV}$) muestra una disminución muy lenta con $Rn$, generando así un incremento sostenido del factor de forma $(1+k)$, como se aprecia en la Figura~\ref{ittc_nfl}. 
 
 Para analizar el comportamiento característico de $C_{PV}$, la Figura~\ref{cpv_friccion} compara los valores obtenidos para el pesquero y para el KCS. Los resultados muestran que, en el rango completo de Reynolds considerado, el valor de $C_{PV}$ del pesquero es más de tres veces superior al del KCS.
 
@@ -594,9 +593,9 @@ Para analizar el comportamiento característico de $C_{PV}$, la Figura~\ref{cpv_
 \label{cpv_friccion}
 \end{figure}
 
-A diferencia de $C_F$, el coeficiente $C_{PV}$ es poco sensible a variaciones de $Rn$, pero sí altamente dependiente de la geometría del casco. Este comportamiento surge de la superposición de dos mecanismos: (1) el adelgazamiento de la capa límite tridimensional, cuya contribución disminuye con $Rn$ al reducirse la disipación viscosa, y (2) la presencia de estructuras vorticales generadas en la popa, cuya intensidad puede mantenerse prácticamente estable con $Rn$. Esta interpretación coincide con lo reportado por Zeng et al.~\cite{ZENG2019106434}, Raven et al.~\cite{Raven2016} y estudios de escalado de popas mojadas \cite{KORKMAZ-2k-wetted-transom}.
+A diferencia de $C_F$, el coeficiente $C_{PV}$ es poco sensible a variaciones de $Rn$ y altamente dependiente de la geometría del casco. Este comportamiento surge de la superposición de dos mecanismos: (1) el adelgazamiento de la capa límite tridimensional, cuya contribución disminuye con $Rn$ al reducirse la disipación viscosa, y (2) la presencia de estructuras vorticales generadas en la popa, cuya intensidad puede mantenerse prácticamente estable con $Rn$. Esta interpretación coincide con lo reportado por Zeng et al.~\cite{ZENG2019106434}, Raven et al.~\cite{Raven2016} y estudios de escalado de popas mojadas \cite{KORKMAZ-2k-wetted-transom}.
 
-La Figura~\ref{U_x_U_0} presenta contornos de la velocidad longitudinal $U_x/U_0$ a $x/L=0.05$ para escalas modelo y real ($\log(Rn)=6,8$), donde se aprecia el adelgazamiento de la capa límite con $Rn$. Por otro lado, la Figura~\ref{vortex} muestra iso-superficies de Q-criterion que revelan el sistema vortical desprendido del transom para ambas escalas. Dichas estructuras se mantienen con intensidad similar al aumentar $Rn$, lo que explica el alto valor de $C_{PV}$ y su débil sensibilidad al número de Reynolds.
+La Figura~\ref{U_x_U_0} presenta contornos de la velocidad longitudinal $U_x/U_0$ a $x/L=0.05$ para escalas modelo y real ($\log(Rn)=6,8$), donde se aprecia el adelgazamiento de la capa límite con $Rn$. Por otro lado, la Figura~\ref{vortex} muestra iso-superficies de criterio Q que revelan el sistema vortical desprendido de la popa espeojo para ambas escalas. Dichas estructuras se mantienen con intensidad similar al aumentar $Rn$, lo que explica el alto valor de $C_{PV}$ y su débil sensibilidad al número de Reynolds.
 
 \begin{figure}
 \centering
@@ -654,14 +653,14 @@ Las Figuras~\ref{cp_bow}, \ref{cp_stern}, \ref{cp_bottom} y \ref{cp_side} muestr
 
 Los resultados indican que la recuperación de presión en la zona de popa es considerablemente menor que en cascos más hidrodinámicos, como el KCS \cite{cp_recovery_kcs}, lo cual explica los altos valores de $(1+k)$ observados en este tipo de buques. La comparación entre escalas muestra diferencias muy pequeñas: la escala real recupera una fracción ligeramente mayor de presión, coherente con la leve disminución de $C_{PV}$ al aumentar $Rn$.
 
-La Figura~\ref{fig:cp_x} presenta la distribución longitudinal del coeficiente de presión $C_P(x/L)$ para distintos números de Reynolds y para varias líneas de agua. Se observa un déficit persistente de presión en la región de popa para todos los $Rn$, con variaciones mínimas entre escalas. La diferencia entre el caso 1:20 ($Rn=1.3\times10^6$) y el 1:1 ($Rn=1.1\times10^8$) es del orden de $\Delta C_P = 0.01$–$0.02$, lo que confirma que la recuperación de presión en popa es extremadamente débil y poco sensible a los efectos inerciales. Este comportamiento es consistente con la lenta disminución de $C_{PV}$ con $Rn$, reforzando la idea de que las pérdidas por presión viscosa en popa dominan la evolución del factor de forma.
+La Figura~\ref{fig:cp_x} presenta la distribución longitudinal del coeficiente de presión $C_{Px}(x/L)$ para distintos números de Reynolds y para varias líneas de agua. Se observa un déficit persistente de presión en la región de popa para todos los $Rn$, con variaciones mínimas entre escalas. La diferencia entre el caso 1:20 ($Rn=1.3\times10^6$) y el 1:1 ($Rn=1.1\times10^8$) es del orden de $\Delta C_P = 0.01$–$0.02$, lo que confirma que la recuperación de presión en popa es extremadamente débil y poco sensible a los efectos inerciales. Este comportamiento es consistente con la lenta disminución de $C_{PV}$ con $Rn$, reforzando la idea de que las pérdidas por presión viscosa en popa dominan la evolución del factor de forma.
 
 \begin{figure}
     \centering
     \begin{subfigure}{\linewidth}
         \centering
         \includegraphics[width=.6\columnwidth]{./images/z0.pdf}
-        \caption{Distribución de \(C_p(x)\) sobre la línea de agua Z = 0.}
+        \caption{Distribución de \(C_{PX}(x/L)\) sobre la línea de agua Z = T.}
     \end{subfigure}
 
     \vspace{1em}
@@ -669,7 +668,7 @@ La Figura~\ref{fig:cp_x} presenta la distribución longitudinal del coeficiente 
     \begin{subfigure}{\linewidth}
         \centering
         \includegraphics[width=.6\columnwidth]{./images/z5.pdf}
-        \caption{Distribución de \(C_p(x)\) sobre la línea de agua Z = 0.5T.}
+        \caption{Distribución de \(C_{PX}(x/L)\) sobre la línea de agua Z = T-0.5T.}
     \end{subfigure}
 
     \vspace{1em}
@@ -677,7 +676,7 @@ La Figura~\ref{fig:cp_x} presenta la distribución longitudinal del coeficiente 
     \begin{subfigure}{\linewidth}
         \centering
         \includegraphics[width=.6\columnwidth]{./images/z75.pdf}
-        \caption{Distribución de \(C_p(x)\) sobre la línea de agua Z = 0.75T.}
+        \caption{Distribución de \(C_{PX}(x/L)\) sobre la línea de agua Z = T-0.75T.}
     \end{subfigure}
 
     \caption{Distribución de \(C_p(x/L)\) para distintos números de Reynolds y diferentes líneas de agua. Se observa un déficit persistente de presión en popa y variaciones mínimas entre escalas.}
@@ -687,6 +686,12 @@ La Figura~\ref{fig:cp_x} presenta la distribución longitudinal del coeficiente 
 
 
 \subsection{Conclusiones parciales}
+
+El análisis de la distribución del coeficiente de presión $C_P$ confirma que el comportamiento del término de presión viscosa $C_{PV}$ está dominado por la región de popa del buque pesquero. En todas las escalas analizadas se observa una recuperación de presión muy limitada en el cuerpo de salida, lo que conduce a pérdidas viscosas significativas asociadas a gradientes de presión adversos y a la persistencia de estructuras vorticosas de gran escala.
+
+La comparación entre escala modelo y escala real muestra que el efecto del número de Reynolds sobre la distribución de presiones es reducido. Si bien a escala real se aprecia una recuperación de presión levemente mayor, las diferencias cuantitativas son pequeñas y se traducen únicamente en una disminución muy moderada de $C_{PV}$. Este resultado explica la débil dependencia de la presión viscosa con $Rn$ observada previamente y, en consecuencia, el crecimiento sostenido del factor de forma $(1+k)$ con la escala.
+
+El déficit persistente de presión en popa, prácticamente invariante con el número de Reynolds, constituye así el mecanismo físico principal que distingue a los cascos de baja esbeltez de los cascos esbeltos convencionales. En este tipo de geometrías, las pérdidas por presión viscosa dominan la resistencia viscosa total y limitan la validez de los supuestos clásicos de extrapolación, reforzando la necesidad de considerar explícitamente los efectos geométricos en la estimación del factor de forma.
 
 \section{Influencia de la proa bulbo en el factor de forma}
 
