@@ -702,6 +702,26 @@ En el modelo TPA analizado, se evaluaron las configuraciones con y sin bulbo par
 
 \subsection{Modelos numéricos}
 
+\begin{figure}
+    \centering
+    \begin{subfigure}{\linewidth}
+        \centering
+        \includegraphics[width=.6\columnwidth]{./images/A1.png}
+        \caption{Modelo original.}
+    \end{subfigure}
+
+    \vspace{1em}
+
+    \begin{subfigure}{\linewidth}
+        \centering
+        \includegraphics[width=.6\columnwidth]{./images/A2.png}
+        \caption{Modelo sin proa bulbo.}
+    \end{subfigure}
+
+    \caption{Modelo original y modelo sin proa bulbo.}
+    \label{fig:tpa_y_ctrlZ}
+\end{figure}
+
 
 \subsection{Resultados de resistencia para diferentes configuraciones de proa}
 Las Figuras \ref{fig:Ct_bulbo_165} a \ref{fig:Cw_bulbo_195} presentan las curvas de resistencia total ($C_T$), viscosa ($C_V$) y por olas ($C_W$) en función del número de Froude.  
@@ -771,18 +791,17 @@ Esto indica que su efecto es esencialmente global, asociado a una redistribució
 	\label{fig:k_bulbo_195}
 \end{figure}
 
+\subsection{Conclusiones parciales}
+
 En síntesis, el bulbo incrementa el factor de forma y la resistencia viscosa, pero a la vez reduce la resistencia por olas dentro del rango de diseño.  
 A calados reducidos, este balance resulta favorable para la resistencia total, mientras que a mayor calado el beneficio desaparece.  
-Los resultados confirman que el método DB sigue siendo aplicable incluso en cascos con bulbo cercano a la superficie libre, siempre que se mantenga la coherencia de las condiciones de contorno y se analice la tendencia completa de $(1+k)$ con el número de Froude.
-
-\subsection{Conclusiones parciales}
 
 \section{Influencia de la popa sumergida en el factor de forma}
 
 \subsection{Introducción y motivación del estudio}
 
 El estudio de \cite{korkmaz_wetted_transom} analiza la influencia del flujo con \textit{popa mojada} (\textit{wetted-transom flow}) sobre la predicción de la resistencia total y la extrapolación ITTC--78.  
-Cuando el espejo de popa se encuentra sustancialmente sumergido ---ya sea por operar a baja velocidad o por calados elevados--- se forma una \textbf{zona de recirculación} detrás del espejo, análoga al flujo que ocurre sobre un \textit{backward-facing step}.  
+Cuando el espejo de la popa se encuentra sustancialmente sumergido, ya sea por operar a baja velocidad o por calados elevados, se forma una \textbf{zona de recirculación} detrás del espejo, análoga al flujo que ocurre sobre un \textit{backward-facing step}.  
 En este régimen, la presión en la arista del espejo no alcanza el valor atmosférico, el flujo se separa y se genera una región de baja presión con un vórtice persistente aguas abajo.
 
 \subsection{Definiciones geométricas y parámetros característicos}
@@ -853,11 +872,11 @@ k_{tr} = k_S - k_M
 \end{equation}
 
 De acuerdo con los resultados del autor, el método y las correcciones asociadas deben aplicarse sólo cuando el espejo se encuentra \textbf{considerablemente sumergido}, típicamente para $tr_{\mathrm{ratio}} > 0.025$ o $F_{r,tr} < 3.2$.  
-Para transoms poco sumergidos o parcialmente secos, el uso del método 2--$k$ no resulta necesario.
+Propone que para transoms poco sumergidos o parcialmente secos, el uso del método 2--$k$ no resulta necesario.
 
 \subsection*{Aplicación al pesquero de referencia}
 
-En el caso del presente pesquero, la geometría de la popa presenta cierta inmersión, pero el grado de submergencia no alcanza los valores que justificarían una corrección significativa.  
+En el caso del presente pesquero, la geometría de la popa presenta cierta inmersión, pero el grado de inmersión no alcanza los valores que justificarían una corrección significativa.  
 Los parámetros característicos calculados para tres condiciones representativas se resumen en la Tabla~\ref{tab:tpa_transom_params}.
 
 \begin{table}[h]
@@ -894,11 +913,11 @@ No obstante, se conserva el análisis comparativo entre simulaciones de cuerpo d
 \subsection*{Análisis comparativo de flujo}
 
 De acuerdo con el criterio propuesto por \cite{korkmaz_wetted_transom}, el método 2--$k$ y las correcciones empíricas asociadas sólo resultan necesarias cuando la popa se encuentra \textbf{considerablemente sumergida} y la recirculación constituye una fuente significativa de resistencia adicional.  
-En el caso del presente pesquero, si bien la geometría de la popa presenta cierta inmersión, el grado de submergencia no alcanza los valores que justificarían la aplicación de dicha corrección.  
+En el caso del presente pesquero, si bien la geometría de la popa presenta cierta inmersión, el grado de inmersión no alcanza los valores que justificarían la aplicación de dicha corrección.  
 No obstante, con el fin de verificar este aspecto, se analizan comparativamente las simulaciones \textbf{de cuerpo doble y con superficie libre}, tanto \textbf{en escala modelo como en escala real}, observando la estructura del flujo y la persistencia de la recirculación en popa.
 
 Este análisis permite confirmar si la zona de recirculación en la popa ---identificada en las figuras siguientes--- mantiene la coherencia entre escalas o si su intensidad decrece con el aumento del número de Reynolds.  
-La evidencia obtenida indica que, aunque la recirculación está presente, su extensión e influencia sobre la resistencia total no ameritan una corrección del tipo 2--$k$.
+La evidencia obtenida indica que, aunque la recirculación está presente, su extensión e influencia sobre la resistencia total no ameritan una corrección del tipo 2--$k$ según propone \cite{korkmaz_wetted_transom}.
 
 \begin{figure}[htpb]
 	\centering
@@ -1099,7 +1118,7 @@ Al comparar el valor de $(1+k)$ obtenido para el TPA con correlaciones empírica
 
 \begin{figure}[htpb]
     \centering
-    \includegraphics[width=.9\textwidth, trim=3.5cm 8cm 4cm 8cm, clip]{./images/empiricos.pdf}
+    \includegraphics[width=.6\textwidth, trim=3.5cm 8cm 4cm 8cm, clip]{./images/empiricos.pdf}
     \caption{Valores de $(1+k)$ para el pesquero en función de $Rn$, obtenidos por CFD DB, EFD y correlaciones empíricas de la literatura \cite{molland2017ship, conn1968results, grigson2000planar, wright1984viscous, couser1997calm}.}
     \label{empiricos}
 \end{figure}
@@ -1108,7 +1127,7 @@ La ausencia de herramientas navales adecuadas motivó la búsqueda de referencia
 
 \begin{figure}[htpb]
     \centering
-    \includegraphics[width=.9\textwidth, trim=3.5cm 8cm 4cm 8cm, clip]{./images/aerodynamics.pdf}
+    \includegraphics[width=.6\textwidth, trim=3.5cm 8cm 4cm 8cm, clip]{./images/aerodynamics.pdf}
     \caption{Factores de forma para cuerpos de revolución en función de la razón de esbeltez $l/d$ y comparación con valores CFD DB para el pesquero y el KCS. Datos de \cite{hoerner1965drag, raymer2019aircraft, torenbeek2010synthesis, roskam1987airplane, shevell1989fundamentals, TerzievDataSet}.}
     \label{aerodynamics}
 \end{figure}
@@ -1170,13 +1189,13 @@ Para evaluar de manera sistemática el efecto de la esbeltez, se agregaron dos p
 Al disminuir $L/B$, las secciones transversales se vuelven más robustas y la transición hacia la popa más abrupta, lo que favorece la aparición de regiones extensas de presión adversa y el desprendimiento de estructuras vorticosas de gran escala. Estas características inducen mayores valores de $C_{PV}$ y explican la persistencia de la presión viscosa incluso a escala real. A pesar de sus diferencias individuales, los tres pesqueros comparten proporciones y distribución volumétrica similares, lo que sugiere la presencia de un comportamiento hidrodinámico común asociado a la baja esbeltez.
 
 
-\subsection{Generalización del comportamiento observado y formulación empírica}
+\subsection{Generalización del comportamiento observado y formulación empírica}\label{sec:generalizacion_LB}
 
 La Figura~\ref{fig:Re_formfactor} resume la evolución del factor de forma para los cuatro cascos analizados. Mientras que el KCS reproduce el comportamiento esperado —incremento inicial y posterior estabilización del valor de $(1+k)$ conforme se desarrolla la capa límite turbulenta—, los tres pesqueros presentan un crecimiento continuo y no asintótico incluso hacia escala real.
 
 \begin{figure}[htpb]
     \centering
-    \includegraphics[width=.9\textwidth]{./images/completo_log_kcs_lit_tpa.pdf}
+    \includegraphics[width=.9\textwidth]{./images/completo_log_kcs_lit_tpa_jpa_contessi.pdf}
     \caption{Evolución de $(1+k)$ con el número de Reynolds para el KCS y los tres pesqueros analizados.}
     \label{fig:Re_formfactor}
 \end{figure}
@@ -1208,7 +1227,7 @@ Este hallazgo abre la posibilidad de desarrollar una formulación empírica espe
 
 La marcada dependencia del factor de forma con el número de Reynolds, observada en los pesqueros analizados, tiene consecuencias directas sobre la extrapolación de resistencia y la estimación de la potencia efectiva a escala real. En particular, los valores elevados de $(1+k)$ obtenidos para cascos de baja esbeltez, junto con su crecimiento sostenido hacia altas escalas, desafían el supuesto central del método ITTC: la igualdad entre los factores de forma del modelo y del buque ($k_{M} = k_{S}$).
 
-De acuerdo con el procedimiento estándar de predicción de potencia \cite{ITTC_Performance_prediction}, la resistencia total del buque puede expresarse como:
+De acuerdo con el procedimiento estándar de predicción de potencia \citep{ITTC_Performance_prediction}, la resistencia total del buque puede expresarse como:
 \begin{equation}
     C_{TS} = (1+k_S)\,C_{FS0} + C_W + \Delta C_F + C_A,
 \end{equation}
@@ -1230,57 +1249,80 @@ y la potencia efectiva requerida para remolcarlo es:
     P_{ES} = R_{TS} V_S.
 \end{equation}
 
-Para cuantificar la magnitud del error introducido por la selección de un valor inapropiado de $k$, se compararon tres enfoques (Tabla~\ref{tbl:metodos}):
+Para cuantificar la magnitud del error introducido por la selección de un valor inapropiado de $k$, se compararon tres enfoques (Tablas~\ref{tbl:metodos_abs} y \ref{tbl:metodos_delta}):
 
 \begin{itemize}
     \item \textbf{Método 1 (ITTC–EFD)}: $k_M = k_S$, obtenido por el método de Prohaska en modelo.
-    \item \textbf{Método 2 (CFD–EFD, doble k)}: valores distintos de $k_M$ y $k_S$, determinados mediante CFD DB para modelo y buque \cite{KORKMAZ-2k-wetted-transom}.
+    \item \textbf{Método 2 (CFD–EFD, doble k)}: valores distintos de $k_M$ y $k_S$, determinados mediante CFD DB para modelo y buque. La idea es propuesta por \cite{korkmaz_wetted_transom} pero en su caso la diferencia nace exclusivamente de la popa sumergida, mientras que según la presente tesis la necesidad surge de los efectos de escala presentados en la Sección XX (Cpv).
     \item \textbf{Método 3 ($k = 0$)}: empleado cuando no es posible determinar el factor de forma mediante ensayos; asume resistencia viscosa puramente friccional.
 \end{itemize}
 
 \begin{table*}[htbp]
 \caption{$C_{TS}$, $R_{TS}$ y $P_{ES}$ estimados mediante tres enfoques distintos para la determinación de $k_M$ y $k_S$.}
-\label{tbl:metodos}
+\label{tbl:metodos_abs}
 \scriptsize
+\centering
 
-\begin{tabularx}{\textwidth}{@{}c c c 
+\begin{tabular}{c c c
     r r r
     r r r
-    r r r
-    r r
-@{}}
+    r r r}
 \toprule
-$Fn$ & $v_S$ [m/s] & $v_S$ [kn] &
+\multirow{2}{*}{$Fn$} &
+\multicolumn{2}{c}{Velocidad} &
 \multicolumn{3}{c}{Method 1 (EFD)} &
-\multicolumn{3}{c}{Method 2 (EFD-CFD)} &
-\multicolumn{3}{c}{Method 3 ($k=0$)} &
-{2 vs 1} & {3 vs 1} \\
-\cmidrule(lr){4-6} \cmidrule(lr){7-9} \cmidrule(lr){10-12} \cmidrule(lr){13-14}
-& & & 
-$C_{TS}$ & $R_{TS}$ [kN] & $P_{ES}$ [kW] &
-$C_{TS}$ & $R_{TS}$ [kN] & $P_{ES}$ [kW] &
-$C_{TS}$ & $R_{TS}$ [kN] & $P_{ES}$ [kW] &
-$\Delta P_{ES}$ \% & $\Delta P_{ES}$ \% \\
+\multicolumn{3}{c}{Method 2 (EFD--CFD)} &
+\multicolumn{3}{c}{Method 3 ($k=0$)} \\
+\cmidrule(lr){2-3}
+\cmidrule(lr){4-6}
+\cmidrule(lr){7-9}
+\cmidrule(lr){10-12}
+ & $v_S$ & $v_S$ &
+ $C_{TS}$ & $R_{TS}$ & $P_{ES}$ &
+ $C_{TS}$ & $R_{TS}$ & $P_{ES}$ &
+ $C_{TS}$ & $R_{TS}$ & $P_{ES}$ \\
+ & {[m/s]} & {[kn]} &
+ & {[kN]} & {[kW]} &
+ & {[kN]} & {[kW]} &
+ & {[kN]} & {[kW]} \\
 \midrule
-0.26 & 4.71 & 9.16 &
-6.28 & 32.16 & 151.51 &
-7.33 & 37.53 & 176.79 &
-6.70 & 34.27 & 161.46 &
-16.7 & 6.6 \\
-0.30 & 5.34 & 10.38 &
-7.68 & 50.46 & 269.34 &
-8.71 & 57.22 & 305.45 &
-8.08 & 53.08 & 283.34 &
-13.4 & 5.2 \\
+0.26 & 4.71 & 9.16
+     & 6.28 & 32.16 & 151.51
+     & 7.33 & 37.53 & 176.79
+     & 6.70 & 34.27 & 161.46 \\
+0.30 & 5.34 & 10.38
+     & 7.68 & 50.46 & 269.34
+     & 8.71 & 57.22 & 305.45
+     & 8.08 & 53.08 & 283.34 \\
 \bottomrule
-\end{tabularx}
+\end{tabular}
 \end{table*}
+
+\begin{table}[htbp]
+\caption{Diferencias porcentuales en la potencia efectiva estimada respecto al método ITTC (Método 1).}
+\label{tbl:metodos_delta}
+\scriptsize
+\centering
+
+\begin{tabular}{c c c c c}
+\toprule
+$Fn$ & $v_S$ & $v_S$ & Method 2 vs 1 & Method 3 vs 1 \\
+     & {[m/s]} & {[kn]} & {$\Delta P_{ES}$ [\%]} & {$\Delta P_{ES}$ [\%]} \\
+\midrule
+0.26 & 4.71 & 9.16  & 16.7 & 6.6 \\
+0.30 & 5.34 & 10.38 & 13.4 & 5.2 \\
+\bottomrule
+\end{tabular}
+
+\end{table}
+
+
 
 
 Los resultados muestran que asumir $k=0$ (método 3) produce una \textbf{sobreestimación moderada} de la potencia efectiva ($\approx
 5\%$). En cambio, el método de doble $k$ basado en CFD DB (método 2) arroja una \textbf{potencia un 13–17$\%$ mayor} que la obtenida mediante el enfoque ITTC (método 1), diferencia atribuible al mayor valor de $k_S$ predicho numéricamente.
 
-Estas discrepancias —del orden del 15$\%$ en términos de potencia instalada— son suficientemente significativas como para justificar una validación mediante pruebas de mar. Además, sugieren que las correlaciones empíricas introducidas en la \textcolor{red}{Sección~4.4}, originadas en aeronáutica y dependientes de la razón de esbeltez, podrían ser utilizadas como una estimación preliminar de $k_S$ de forma más confiable que las metodologías navales actuales. Esto permitiría implementar un método de extrapolación de doble $k$, donde $k_M$ se obtenga de CFD DB a escala modelo y $k_S$ de una correlación basada en $L/B$, evitando la necesidad de simulaciones CFD a escala real.
+Estas discrepancias —del orden del 15$\%$ en términos de potencia instalada— son suficientemente significativas como para justificar una validación mediante pruebas de mar. Además, sugieren que las correlaciones empíricas introducidas en la Sección \ref{sec:generalizacion_LB}, originadas en aeronáutica y dependientes de la razón de esbeltez, podrían ser utilizadas como una estimación preliminar de $k_S$ de forma más confiable que las metodologías navales actuales. Esto permitiría implementar un método de extrapolación de doble $k$, donde $k_M$ se obtenga de CFD DB a escala modelo y $k_S$ de una correlación basada en $L/B$, evitando la necesidad de simulaciones CFD a escala real.
 
 El desarrollo de una curva específica de $(1+k)$ en función de $L/B$ para cascos pesqueros —particularmente para el rango $L/B < 4$— aparece, por lo tanto, como un paso clave para mejorar la predicción de resistencia y potencia efectiva en este tipo de buques.
 
