@@ -1,1 +1,113 @@
-\chapter{Metodología general}
+\chapter{Metodología Experimental y Numérica}
+\label{chap:Metodologia}
+
+\section{Introducción}
+
+Habiendo establecido en el Capítulo 2 los fundamentos físicos de la resistencia al avance y las bases teóricas de la mecánica de fluidos, este capítulo detalla la implementación práctica de las herramientas utilizadas. La investigación adopta una estrategia híbrida que vincula ensayos físicos en canal de remolque (EFD) con simulaciones numéricas de alta fidelidad (CFD).
+
+A continuación se describen las instalaciones experimentales del Laboratorio de Hidrodinámica Naval y Oceánica (LabHiNO), los modelos físicos construidos y la instrumentación empleada. Posteriormente, se detalla la configuración del modelo numérico en \textit{OpenFOAM}, especificando el dominio computacional, las condiciones de contorno y los esquemas de discretización utilizados tanto para los ensayos de resistencia con superficie libre como para las simulaciones de doble cuerpo.
+
+\section{Metodología Experimental (EFD)}
+
+Los ensayos experimentales se llevaron a cabo en el canal de remolque del LabHiNO. Esta campaña tuvo como objetivo principal generar una base de datos de validación confiable para el modelo pesquero TPA y el buque de referencia KCS.
+
+\subsection{Instalaciones y Modelos}
+
+El canal de remolque utilizado posee las dimensiones y capacidades necesarias para operar en el régimen de números de Reynolds y Froude requeridos por este estudio, minimizando efectos de bloqueo y de aguas someras.
+
+Se construyeron y ensayaron dos modelos a escala:
+\begin{enumerate}
+    \item \textbf{Modelo Pesquero TPA:} Un casco de baja esbeltez ($L/B < 4$) representativo de la flota pesquera nacional. Se construyó a escala 1:20 y se evaluó en tres condiciones de calado (ligero, medio y pesado) para barrer un rango operativo amplio.
+    \item \textbf{Modelo de Referencia KCS:} El buque portacontenedores KRISO (MOERI) Container Ship, construido a escala 1:79. Este modelo se utilizó para la verificación del sistema de medición y la validación cruzada con bases de datos internacionales.
+\end{enumerate}
+
+Para asegurar la similitud cinemática en la capa límite y evitar la laminarización del flujo a bajas velocidades, se instalaron estimuladores de turbulencia (tiras de arena/studs) en la proa de ambos modelos, siguiendo las recomendaciones de la ITTC (Procedimiento 7.5-01-01-01).
+
+\subsection{Instrumentación y Adquisición de Datos}
+
+La medición de la resistencia total al avance ($R_T$) se realizó mediante una celda de carga de precisión \textbf{Kempf \& Remmers R47}. Este dinamómetro permite registrar la fuerza longitudinal mientras libera los movimientos de hundimiento (\textit{sinkage}) y cabeceo (\textit{trim}), restringiendo los movimientos laterales y de guiñada.
+
+El sistema de adquisición se configuró con los siguientes parámetros:
+\begin{itemize}
+    \item \textbf{Frecuencia de muestreo:} 200 Hz, para capturar la dinámica transitoria y las fluctuaciones turbulentas.
+    \item \textbf{Filtrado:} Se aplicó un filtro paso bajo de 4 Hz durante el post-procesamiento para eliminar el ruido eléctrico y las vibraciones mecánicas de alta frecuencia del carro, sin atenuar la respuesta física del modelo.
+\end{itemize}
+
+\subsection{Análisis de Incertidumbre}
+
+La cuantificación de la incertidumbre experimental se realizó siguiendo los estándares de la ITTC \cite{ITTC_uncertainty}. Se consideraron las fuentes de error sistemático (bias) y aleatorio (precisión), incluyendo la calibración del dinamómetro, la precisión de la velocidad del carro, la medición de la temperatura del agua y la repetibilidad de los ensayos.
+
+La incertidumbre combinada se calculó mediante el método de la raíz de la suma de los cuadrados (RSS). Como se detalla en los resultados (Capítulo 4), se obtuvieron valores de incertidumbre expandida (95\% de confianza) inferiores al 1\% para las velocidades de diseño, validando la calidad de los datos para su uso en la comparación con CFD.
+
+\section{Metodología Numérica (CFD)}
+
+Las simulaciones numéricas se realizaron utilizando el código de código abierto \textbf{OpenFOAM} (versión 11), basado en el Método de Volúmenes Finitos (FVM). Este software permite el acceso total al código fuente, facilitando la implementación de condiciones de borde específicas y el control detallado de los esquemas numéricos.
+
+\subsection{Dominio Computacional y Mallado}
+
+Se definió un dominio computacional rectangular prismático, dimensionado para evitar la reflexión de olas y garantizar que las condiciones de borde no afecten el flujo alrededor del casco.
+\begin{itemize}
+    \item \textbf{Entrada (Inlet):} Ubicada a $1.5 L_{pp}$ a proa del modelo.
+    \item \textbf{Salida (Outlet):} Ubicada a $2.5 L_{pp}$ a popa, permitiendo el desarrollo de la estela y evitando el reflujo.
+    \item \textbf{Límites laterales y fondo:} Ubicados a distancia suficiente para simular condiciones de aguas profundas y restringidas lateralmente solo por la simetría (medio cuerpo simulado).
+\end{itemize}
+
+El mallado se generó utilizando la herramienta \texttt{snappyHexMesh}, creando una malla predominantemente hexaédrica no estructurada. Se aplicaron refinamientos locales sucesivos en la zona de superficie libre (para capturar la elevación de ola) y en la cercanía del casco. Para resolver la capa límite turbulenta, se añadieron capas de prismas (\textit{boundary layers}) sobre la superficie del casco, ajustando la altura de la primera celda para obtener valores de $y^+$ compatibles con las funciones de pared utilizadas (rango $1 < y^+ < 300$).
+
+\subsection{Configuración Física y Numérica}
+
+Se emplearon dos configuraciones de simulación distintas según el objetivo del análisis:
+
+\subsubsection{1. Simulación de Resistencia Total (Superficie Libre)}
+Para replicar los ensayos de canal y obtener la resistencia total ($R_T$), se utilizó el solucionador multifásico \textbf{interFoam} basado en el método \textbf{Volume of Fluid (VoF)}.
+
+\begin{itemize}
+    \item \textbf{Modelo de Flujo:} Bifásico (aire-agua), incompresible e isotérmico.
+    \item \textbf{Captura de Interfaz:} Se resolvió la ecuación de transporte para la fracción de volumen $\alpha_{water}$ con el término de compresión artificial de MULES para mantener la nitidez de la interfaz.
+    \item \textbf{Acoplamiento Presión-Velocidad:} Se utilizó el algoritmo \textbf{PIMPLE}, que combina la robustez de SIMPLE con la precisión temporal de PISO. Esto permitió utilizar pasos de tiempo grandes mediante el esquema \texttt{localEuler} (pseudo-transitorio) para acelerar la convergencia hacia el estado estacionario.
+    \item \textbf{Variable de Presión:} Se resolvió la presión dinámica reducida $p_{rgh} = p - \rho \mathbf{g} \cdot \mathbf{x}$, lo que simplifica la definición de las condiciones de borde hidrostáticas.
+\end{itemize}
+
+Las condiciones de borde empleadas se resumen en la Tabla \ref{tab:bc_setup}.
+
+\begin{table}[H]
+\centering
+\caption{Condiciones de borde para las simulaciones con superficie libre (VoF).}
+\label{tab:bc_setup}
+\small
+\begin{tabular}{lccccc}
+\toprule
+\textbf{Variable} & \textbf{Entrada (Inlet)} & \textbf{Salida (Outlet)} & \textbf{Atmósfera} & \textbf{Casco} \\
+\midrule
+$U$ (Velocidad) & \texttt{fixedValue} & \texttt{inletOutlet} & \texttt{pressureInletOutlet} & \texttt{noSlip} \\
+$p_{rgh}$ (Presión) & \texttt{fixedFluxPressure} & \texttt{zeroGradient} & \texttt{totalPressure} & \texttt{fixedFluxPressure} \\
+$\alpha_{water}$ (Fase) & \texttt{fixedValue} & \texttt{variableHeightFlowRate} & \texttt{inletOutlet} & \texttt{zeroGradient} \\
+Turbulencia ($k, \omega$) & \texttt{fixedValue} & \texttt{inletOutlet} & \texttt{inletOutlet} & \texttt{WallFunctions} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsubsection{2. Simulación de Doble Cuerpo (Double Body)}
+Para la determinación del factor de forma $(1+k)$ y el estudio de la resistencia viscosa pura ($C_V$), se utilizó la aproximación de doble cuerpo.
+
+\begin{itemize}
+    \item \textbf{Dominio:} La superficie libre se sustituyó por un plano de simetría (\texttt{symmetryPlane}), simulando el flujo alrededor del casco sumergido y su imagen especular.
+    \item \textbf{Física:} Flujo monofásico (agua) sin gravedad ni formación de olas.
+    \item \textbf{Solucionador:} Se empleó \texttt{pimpleFoam} (algoritmo PIMPLE), resolviendo las ecuaciones RANS en estado estacionario (Steady-State).
+\end{itemize}
+
+Esta configuración permite aislar la resistencia friccional ($R_F$) y la resistencia de presión viscosa ($R_{PV}$) eliminando por completo la componente de resistencia por olas ($R_W$), tal como se requiere para el cálculo numérico del factor de forma.
+
+\subsection{Modelado de la Turbulencia}
+
+Para el cierre de las ecuaciones RANS, se evaluaron cuatro modelos de turbulencia con el fin de determinar su impacto en el factor de forma (análisis presentado en el Capítulo 4). El modelo base seleccionado para las simulaciones fue el **$k-\omega$ SST (Shear Stress Transport)** de Menter.
+
+Este modelo fue elegido por su capacidad híbrida: utiliza la formulación $k-\omega$ en las cercanías de la pared, lo que es robusto para resolver gradientes de presión adversos y separación de flujo en la popa (crítico para el pesquero analizado), y conmuta a $k-\varepsilon$ en el flujo libre, evitando la sensibilidad a las condiciones de borde de entrada.
+
+En las paredes del casco, se utilizaron condiciones de borde tipo función de pared adaptativa (ej. \texttt{kLowReWallFunction}, \texttt{omegaWallFunction}), que permiten una transición suave entre la resolución de la subcapa viscosa y la ley logarítmica dependiendo del refinamiento de la malla ($y^+$).
+
+\subsection{Estrategia de Verificación y Validación}
+
+La convergencia numérica se monitoreó observando los residuos de las ecuaciones (con criterio de parada $< 10^{-5}$) y, principalmente, la estabilidad de las fuerzas integradas sobre el casco (Resistencia, Sustentación, Momento). Se consideró la simulación convergida cuando las oscilaciones de la fuerza de resistencia se mantuvieron por debajo del 1\% de su valor medio durante un intervalo de tiempo significativo.
+
+Para la validación, los resultados numéricos de resistencia total ($C_T$) se compararon directamente con los datos experimentales obtenidos en el LabHiNO, evaluando el error relativo porcentual para distintas velocidades de Froude.

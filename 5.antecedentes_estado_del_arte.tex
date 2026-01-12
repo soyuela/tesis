@@ -1,1 +1,607 @@
 \chapter{Antecedentes y estado del arte}
+
+\section{Fundamentos de Mecánica de Fluidos}
+
+El análisis hidrodinámico de un buque requiere la formulación precisa de las leyes que gobiernan el movimiento del agua alrededor del casco. A diferencia de la mecánica de cuerpos rígidos, donde el movimiento se describe mediante un número finito de grados de libertad, la mecánica de fluidos trata con un medio continuo deformable, lo que implica infinitos grados de libertad y requiere un tratamiento basado en la teoría de campos \cite{birk2019}.
+
+En esta sección se establecen las propiedades físicas del fluido, se define el marco cinemático (Euleriano) y se deducen las ecuaciones de conservación de masa y momento (Navier-Stokes). Finalmente, se adimensionalizan estas ecuaciones para revelar los parámetros de semejanza fundamentales que rigen el problema: los números de Reynolds y Froude.
+
+\subsection{Hipótesis del Medio Continuo y Propiedades Físicas}
+
+La hipótesis del medio continuo asume que la materia está distribuida de manera continua en el espacio, ignorando la estructura molecular discreta y los vacíos intermoleculares. Esto permite definir propiedades de campo (como densidad y velocidad) que son funciones continuas y diferenciables del espacio y el tiempo.
+
+\subsubsection{Densidad e Incompresibilidad}
+La densidad $\rho$, definida como la masa por unidad de volumen, es una propiedad termodinámica fundamental. Para las condiciones operativas típicas de un buque pesquero (números de Mach muy bajos), el agua se comporta como un fluido incompresible. Matemáticamente, esto implica que la densidad de una partícula fluida permanece constante a lo largo de su trayectoria:
+
+\begin{equation}
+    \frac{D\rho}{Dt} = 0
+\end{equation}
+
+Si además el fluido es homogéneo (sin estratificación salina o térmica significativa en el dominio de interés), se asume $\rho = \text{cte}$ en todo el espacio. Para agua de mar estándar a 15$^{\circ}$C, la ITTC recomienda un valor de $\rho \approx 1026.0 \, \text{kg/m}^3$ \cite{birk2019}.
+
+\subsubsection{Viscosidad}
+La viscosidad es la propiedad que determina la resistencia del fluido a los esfuerzos cortantes (deformación angular). En hidrodinámica naval, se asume que el agua es un \textbf{fluido newtoniano}, lo que significa que existe una relación lineal entre el esfuerzo cortante aplicado y la tasa de deformación angular del fluido.
+
+\begin{itemize}
+    \item \textbf{Viscosidad Dinámica ($\mu$):} Es el coeficiente de proporcionalidad en la ley de viscosidad de Newton. Sus unidades son $[\text{Pa}\cdot\text{s}]$.
+    \item \textbf{Viscosidad Cinemática ($\nu$):} Dado que en las ecuaciones de movimiento las fuerzas viscosas compiten frecuentemente con las inerciales, es conveniente definir la viscosidad cinemática como:
+    \begin{equation}
+        \nu = \frac{\mu}{\rho}
+    \end{equation}
+    Este parámetro, con unidades $[\text{m}^2/\text{s}]$, es el que gobierna la difusión de la cantidad de movimiento y, como se detallará en la Sección \ref{sec:adimensionalizacion}, define el Número de Reynolds \cite{birk2019}.
+\end{itemize}
+
+\subsection{Cinemática del Campo de Flujo}
+
+Para describir el movimiento del fluido, se adopta el \textbf{enfoque Euleriano}. En lugar de seguir partículas individuales (enfoque Lagrangiano), se analizan las variaciones de las propiedades del flujo en puntos fijos del espacio $\mathbf{x} = (x, y, z)$ a medida que transcurre el tiempo $t$.
+
+Las variables principales a resolver son el campo de velocidad vectorial $\mathbf{v}$ y el campo de presión escalar $p$:
+\begin{equation}
+    \mathbf{v}(\mathbf{x}, t) = u \mathbf{i} + v \mathbf{j} + w \mathbf{k} \quad ; \quad p = p(\mathbf{x}, t)
+\end{equation}
+
+\subsubsection{La Derivada Sustancial}
+Para aplicar las leyes de la física (como la Segunda Ley de Newton) que rigen sobre una partícula de masa fija, dentro de un marco de referencia Euleriano, es necesario utilizar la \textbf{derivada sustancial} (o material), denotada como $D/Dt$. Esta derivada conecta la tasa de cambio experimentada por una partícula en movimiento con las variaciones observadas en un punto fijo \cite{birk2019}:
+
+\begin{equation}
+    \frac{D(\cdot)}{Dt} = \underbrace{\frac{\partial (\cdot)}{\partial t}}_{\text{Término local}} + \underbrace{(\mathbf{v} \cdot \nabla)(\cdot)}_{\text{Término convectivo}}
+\end{equation}
+
+El término convectivo $(\mathbf{v} \cdot \nabla)$ representa el cambio de la propiedad debido al transporte de la partícula hacia una región con diferentes valores espaciales. Este término es no lineal y es la fuente de gran parte de la complejidad matemática en la hidrodinámica.
+
+\subsection{Leyes de Conservación}
+
+El modelo matemático se construye sobre dos principios fundamentales de conservación aplicados a un volumen de control infinitesimal fijo en el espacio.
+
+\subsubsection{Conservación de la Masa (Ecuación de Continuidad)}
+El principio de conservación de masa establece que la tasa de cambio de masa dentro de un volumen de control fijo $V$ debe ser igual al flujo neto de masa a través de su superficie $S$. Para un elemento infinitesimal, esto se traduce en la ecuación diferencial de continuidad.
+
+Para un fluido incompresible ($\rho = \text{cte}$), el término de variación temporal de la densidad desaparece, y la ecuación se simplifica a la condición de divergencia nula del campo de velocidad \cite{birk2019}:
+
+\begin{equation}
+    \nabla \cdot \mathbf{v} = \frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} + \frac{\partial w}{\partial z} = 0
+\end{equation}
+
+Esta ecuación impone una restricción cinemática estricta: el volumen de cualquier partícula fluida debe conservarse, aunque su forma cambie.
+
+\subsubsection{Conservación del Momento (Ecuaciones de Navier-Stokes)}
+Aplicando la Segunda Ley de Newton a un elemento fluido infinitesimal, la tasa de cambio de cantidad de movimiento ($\rho D\mathbf{v}/Dt$) debe equilibrarse con la suma de las fuerzas externas que actúan sobre él. Estas fuerzas se clasifican en:
+
+\begin{enumerate}
+    \item \textbf{Fuerzas másicas (o de cuerpo):} Actúan sobre la masa del fluido. La principal es la gravedad, representada por el vector aceleración gravitatoria $\mathbf{g} = (0, 0, -g)^T$.
+    \item \textbf{Fuerzas superficiales:} Surgen de la interacción del elemento fluido con el medio circundante a través de tensiones normales y tangenciales.
+\end{enumerate}
+
+El estado de tensiones se describe mediante el tensor de esfuerzos $\sigma_{ij}$. Para un fluido newtoniano isotrópico, y aplicando la hipótesis de Stokes (que relaciona la viscosidad con la deformación), el tensor de esfuerzos se descompone en una parte de presión termodinámica $p$ y una parte viscosa proporcional a la tasa de deformación \cite{birk2019}:
+
+\begin{equation}
+    \sigma_{ij} = -p \delta_{ij} + \mu \left( \frac{\partial u_i}{\partial x_j} + \frac{\partial u_j}{\partial x_i} \right)
+\end{equation}
+
+Introduciendo este modelo constitutivo en la ecuación de balance de momento, se obtienen las célebres \textbf{Ecuaciones de Navier-Stokes} para flujo incompresible y viscoso:
+
+\begin{equation} \label{eq:NS_dim}
+    \rho \left( \frac{\partial \mathbf{v}}{\partial t} + (\mathbf{v} \cdot \nabla)\mathbf{v} \right) = -\nabla p + \mu \nabla^2 \mathbf{v} + \rho \mathbf{g}
+\end{equation}
+
+Donde cada término representa una densidad de fuerza por unidad de volumen:
+\begin{itemize}
+    \item $\rho (\dots)$: Fuerzas de inercia (local + convectiva).
+    \item $-\nabla p$: Fuerzas debidas al gradiente de presión.
+    \item $\mu \nabla^2 \mathbf{v}$: Fuerzas viscosas (difusión de momento).
+    \item $\rho \mathbf{g}$: Fuerzas gravitatorias.
+\end{itemize}
+
+\subsection{Adimensionalización y Parámetros de Semejanza}\label{sec:adimensionalizacion}
+
+Las ecuaciones (\ref{eq:NS_dim}) describen el flujo en términos de variables físicas dimensionales. Para generalizar el problema y establecer las bases de la teoría de modelos (escalado), es necesario adimensionalizar estas ecuaciones. Esto nos permitirá descubrir qué parámetros gobiernan realmente la física del flujo, independientemente del tamaño del buque.
+
+Definimos las siguientes variables adimensionales (marcadas con asterisco), utilizando como escalas de referencia la eslora del buque ($L$) y la velocidad de avance ($U$):
+
+\begin{equation}
+    \mathbf{x}^* = \frac{\mathbf{x}}{L}, \quad \mathbf{v}^* = \frac{\mathbf{v}}{U}, \quad t^* = \frac{t U}{L}, \quad p^* = \frac{p}{\rho U^2}, \quad \mathbf{g}^* = \frac{\mathbf{g}}{g}
+\end{equation}
+
+Sustituyendo estas variables en la ecuación de Navier-Stokes (\ref{eq:NS_dim}), y dividiendo toda la ecuación por el factor inercial $\rho U^2 / L$, obtenemos la forma adimensional de la ecuación de conservación de momento \cite{birk2019}:
+
+\begin{equation} \label{eq:NS_adim}
+    \frac{\partial \mathbf{v}^*}{\partial t^*} + (\mathbf{v}^* \cdot \nabla^*) \mathbf{v}^* = -\nabla^* p^* + \left[ \frac{\mu}{\rho U L} \right] \nabla^{*2} \mathbf{v}^* + \left[ \frac{g L}{U^2} \right] \mathbf{g}^*
+\end{equation}
+
+De este proceso matemático emergen naturalmente dos grupos adimensionales que actúan como coeficientes de ponderación de las fuerzas viscosas y gravitatorias respecto a las inerciales:
+
+\subsubsection{El Número de Reynolds ($Re$)}
+El coeficiente del término viscoso es el inverso del Número de Reynolds:
+\begin{equation}
+    \frac{1}{Re} = \frac{\mu}{\rho U L} \implies Re = \frac{\rho U L}{\mu} = \frac{U L}{\nu}
+\end{equation}
+Este número representa la relación entre las \textbf{fuerzas de inercia} y las \textbf{fuerzas viscosas}.
+\begin{itemize}
+    \item Un $Re \ll 1$ indica un flujo dominado por la viscosidad (flujo laminar, Stokes).
+    \item Un $Re \gg 1$ indica predominio de la inercia. En buques a escala real, $Re$ es del orden de $10^9$, lo que implica que el término viscoso $\frac{1}{Re} \nabla^{*2} \mathbf{v}^*$ es numéricamente muy pequeño en la mayor parte del dominio, excepto en la capa límite donde los gradientes de velocidad $\nabla^{*2} \mathbf{v}^*$ son enormes.
+\end{itemize}
+
+\subsubsection{El Número de Froude ($Fr$)}
+El coeficiente del término gravitatorio es el inverso del cuadrado del Número de Froude:
+\begin{equation}
+    \frac{1}{Fr^2} = \frac{g L}{U^2} \implies Fr = \frac{U}{\sqrt{g L}}
+\end{equation}
+Este número representa la relación entre las \textbf{fuerzas de inercia} y las \textbf{fuerzas gravitatorias}. En hidrodinámica de superficie libre, el $Fr$ determina el patrón de olas generado por el buque. Dado que la presión hidrostática y la elevación de la superficie libre están ligadas a la gravedad, la similitud en la formación de olas depende exclusivamente de este parámetro.
+
+\vspace{0.5cm}
+
+En conclusión, la ecuación (\ref{eq:NS_adim}) demuestra que dos flujos geométricamente similares serán dinámicamente similares (es decir, tendrán el mismo campo de velocidades y presiones adimensionales) si y solo si poseen el mismo Número de Reynolds y el mismo Número de Froude. Esta exigencia simultánea plantea el problema fundamental del escalado en hidrodinámica naval, que se discutirá en secciones posteriores.
+
+\section{Teoría de la Capa Límite y Turbulencia}
+
+Como se dedujo en la sección anterior, los flujos alrededor de buques a escala real se caracterizan por Números de Reynolds extremadamente altos ($Re \approx 10^9$). En estas condiciones, el término viscoso de las ecuaciones de Navier-Stokes ($1/Re$) resulta despreciable en comparación con los términos inerciales en la mayor parte del dominio fluido.
+
+Sin embargo, la viscosidad no puede ignorarse por completo, ya que es la responsable de satisfacer la **condición de adherencia** (o no deslizamiento) en la superficie del casco ($\mathbf{v}_{pared} = 0$). En 1904, Ludwig Prandtl resolvió esta aparente contradicción introduciendo la \textbf{Teoría de la Capa Límite}. Esta hipótesis establece que, para altos $Re$, los efectos viscosos se confinan a una delgada región adyacente a la pared del cuerpo, mientras que el flujo exterior puede tratarse como no viscoso (potencial) \cite{birk2019}.
+
+\subsection{Definiciones y Espesores Integrales}
+
+Dentro de la capa límite, la velocidad tangencial del fluido $u(y)$ varía desde cero en la pared ($y=0$) hasta alcanzar asintóticamente la velocidad del flujo exterior $U_e$ ($y \to \infty$).
+
+Si bien el espesor físico de la capa límite ($\delta$) se define usualmente donde $u(y) = 0.99 U_e$, para el análisis de la resistencia al avance son más relevantes las definiciones integrales, que cuantifican el déficit de flujo causado por la viscosidad \cite{birk2019}:
+
+\subsubsection{Espesor de Desplazamiento ($\delta_1$)}
+Representa la distancia que las líneas de corriente del flujo exterior deben desplazarse hacia afuera para compensar la reducción de caudal másico dentro de la capa límite. Para un flujo incompresible 2D:
+
+\begin{equation}
+    \delta_1 = \int_{0}^{\delta} \left( 1 - \frac{u}{U_e} \right) dy
+\end{equation}
+
+Este concepto es fundamental para entender la \textbf{resistencia de presión viscosa}: la presencia de la capa límite "engrosa" virtualmente el cuerpo, modificando el campo de presiones efectivo que actúa sobre el casco.
+
+\subsubsection{Espesor de Cantidad de Movimiento ($\delta_2$)}
+Representa el déficit de flujo de cantidad de movimiento debido a la fricción. Se define como:
+
+\begin{equation}
+    \delta_2 = \int_{0}^{\delta} \frac{u}{U_e} \left( 1 - \frac{u}{U_e} \right) dy
+\end{equation}
+
+La evolución de $\delta_2$ a lo largo del casco está directamente relacionada con la fuerza de fricción total a través de la ecuación integral de von Kármán.
+
+\subsection{Regímenes de Flujo: Laminar, Transición y Turbulento}
+
+El flujo dentro de la capa límite puede presentarse en dos estados fundamentales:
+
+\begin{itemize}
+    \item \textbf{Laminar:} El fluido se mueve en láminas ordenadas paralelas a la pared. El intercambio de momento entre capas ocurre solo por difusión molecular (viscosidad $\mu$).
+    \item \textbf{Turbulento:} El movimiento es caótico y tridimensional. Se producen fluctuaciones de velocidad que generan un intercambio de momento mucho más intenso entre las capas fluidas. Esto resulta en un perfil de velocidad más "lleno" (mayor velocidad cerca de la pared) y un esfuerzo cortante en la pared ($\tau_w$) significativamente mayor que en el caso laminar.
+\end{itemize}
+
+La transición de laminar a turbulento ocurre cuando las perturbaciones en el flujo se amplifican. En hidrodinámica naval, esto suele ocurrir a un número de Reynolds crítico ($Re_x \approx 5 \times 10^5$). Dado que los modelos a escala operan a $Re$ menores que el buque real, es común inducir artificialmente la transición (mediante disparadores de turbulencia) para garantizar similitud cinemática en el régimen turbulento.
+
+\subsection{Estructura de la Capa Límite Turbulenta}
+
+Dado que la mayor parte del casco de un buque se encuentra bajo régimen turbulento, es crucial comprender su estructura. Cerca de la pared, el flujo turbulento presenta una estructura multicapa universal, escalada por la \textbf{velocidad de fricción} $u_\tau$:
+
+\begin{equation}
+    u_\tau = \sqrt{\frac{\tau_w}{\rho}}
+\end{equation}
+
+Se definen la velocidad adimensional $u^+$ y la distancia a la pared adimensional $y^+$:
+\begin{equation}
+    u^+ = \frac{u}{u_\tau}, \quad y^+ = \frac{y u_\tau}{\nu}
+\end{equation}
+
+Según la teoría clásica, el perfil de velocidad se divide en tres regiones \cite{birk2019}:
+
+\begin{enumerate}
+    \item \textbf{Subcapa Viscosa ($y^+ < 5$):} Muy cerca de la pared, el amortiguamiento viscoso domina sobre la turbulencia. La relación es lineal:
+    \begin{equation}
+        u^+ = y^+
+    \end{equation}
+    \item \textbf{Zona de Transición ($5 < y^+ < 30$):} Región donde los efectos viscosos y turbulentos son del mismo orden de magnitud.
+    \item \textbf{Región Logarítmica ($y^+ > 30$):} Aquí la turbulencia domina completamente. El perfil sigue la Ley de la Pared:
+    \begin{equation}
+        u^+ = \frac{1}{\kappa} \ln(y^+) + B
+    \end{equation}
+    Donde $\kappa \approx 0.41$ es la constante de von Kármán y $B \approx 5.0$.
+\end{enumerate}
+
+Esta estructura es la base de las \textit{Funciones de Pared} utilizadas en CFD (mencionadas en la metodología del Capítulo 3), que permiten modelar la fricción sin necesidad de refinar excesivamente la malla en la subcapa viscosa ($y^+ < 1$).
+
+\subsection{Separación del Flujo y Resistencia de Presión Viscosa}
+
+La separación de la capa límite es el fenómeno responsable de gran parte del factor de forma $(1+k)$ en buques de formas llenas, como los pesqueros analizados en esta tesis.
+
+A medida que el fluido avanza hacia la popa del buque, la geometría del casco se cierra, provocando una desaceleración del flujo y un aumento de la presión (recuperación de presión). Esto genera un **Gradiente de Presión Adverso** ($dp/dx > 0$).
+
+Dentro de la capa límite, las partículas fluidas cerca de la pared tienen poca energía cinética debido a la fricción. Si el gradiente adverso es suficientemente fuerte, estas partículas pueden detenerse e invertir su dirección. El punto donde el esfuerzo de corte en la pared se anula define la separación:
+
+\begin{equation}
+    \left( \frac{\partial u}{\partial y} \right)_{y=0} = 0 \implies \tau_w = 0 \quad (\text{Punto de Separación})
+\end{equation}
+
+Cuando el flujo se separa, las líneas de corriente se desprenden de la superficie, formando una zona de estela con recirculación y baja presión. Esto impide que la presión en la popa se recupere hasta los valores que tendría en un flujo ideal (Paradoja de D'Alembert), generando una fuerza neta de resistencia denominada **Resistencia Viscosa de Presión ($R_{VP}$)** \cite{birk2019}.
+
+\subsection{Modelado Matemático de la Turbulencia: Ecuaciones RANS}
+
+Las ecuaciones de Navier-Stokes (Ec. \ref{eq:NS_dim}) son válidas para flujos turbulentos. Sin embargo, resolver numéricamente todas las escalas de la turbulencia (desde los remolinos más grandes hasta la escala de Kolmogorov) requiere una potencia computacional inviable para aplicaciones navales (DNS - Direct Numerical Simulation).
+
+Para abordar esto, se aplica la **Descomposición de Reynolds**. Se asume que cualquier variable de flujo $\phi$ se compone de un valor medio temporal $\bar{\phi}$ y una fluctuación turbulenta $\phi'$:
+
+\begin{equation}
+    \mathbf{v} = \bar{\mathbf{v}} + \mathbf{v}' \quad ; \quad p = \bar{p} + p'
+\end{equation}
+
+Sustituyendo estas variables en las ecuaciones de Navier-Stokes y promediando en el tiempo, se obtienen las ecuaciones **RANS (Reynolds-Averaged Navier-Stokes)**. Para el momento lineal en la dirección $i$:
+
+\begin{equation}
+    \rho \frac{\partial \bar{u}_i}{\partial t} + \rho \bar{u}_j \frac{\partial \bar{u}_i}{\partial x_j} = -\frac{\partial \bar{p}}{\partial x_i} + \frac{\partial}{\partial x_j} \left( \mu \frac{\partial \bar{u}_i}{\partial x_j} - \rho \overline{u'_i u'_j} \right)
+\end{equation}
+
+\subsubsection{El Problema de Cierre y el Tensor de Esfuerzos de Reynolds}
+El proceso de promediado introduce un nuevo término desconocido: $-\rho \overline{u'_i u'_j}$, denominado **Tensor de Esfuerzos de Reynolds**. Este tensor representa la transferencia de cantidad de movimiento debida a las fluctuaciones turbulentas.
+
+Dado que ahora hay más incógnitas que ecuaciones, surge el "Problema de Cierre". Para resolver el sistema, es necesario modelar el tensor de Reynolds en función de las variables medias. La mayoría de los modelos CFD industriales (como los usados en OpenFOAM) emplean la **Hipótesis de la Viscosidad Turbulenta de Boussinesq**, que asume que los esfuerzos turbulentos son proporcionales a las tasas de deformación medias, análogamente a la viscosidad molecular:
+
+\begin{equation}
+    -\rho \overline{u'_i u'_j} = \mu_t \left( \frac{\partial \bar{u}_i}{\partial x_j} + \frac{\partial \bar{u}_j}{\partial x_i} \right) - \frac{2}{3} \rho k \delta_{ij}
+\end{equation}
+
+Donde $\mu_t$ es la **viscosidad turbulenta** (una propiedad del flujo, no del fluido) y $k$ es la energía cinética turbulenta. Los modelos de turbulencia, como el $k-\omega$ SST utilizado en esta tesis, consisten en ecuaciones de transporte adicionales para calcular $\mu_t$ y cerrar el sistema matemático \cite{birk2019}.
+
+\section{Componentes de la Resistencia al Avance}
+
+La predicción de la potencia requerida para propulsar un buque se basa en la descomposición de la resistencia total en componentes que pueden escalarse independientemente. Si bien la única fuerza medible físicamente es la resistencia total ($R_T$), la ingeniería naval ha desarrollado métodos de subdivisión basados en la naturaleza física de las fuerzas (tangenciales y normales) y en las leyes de semejanza que las gobiernan \cite{birk2019}.
+
+\subsection{Descomposición Física}
+
+La fuerza total que el fluido ejerce sobre el casco se obtiene integrando los esfuerzos superficiales sobre la superficie mojada $S$. Matemáticamente, la resistencia total ($R_T$) es la componente longitudinal de esta integral:
+
+\begin{equation}
+    R_T = \underbrace{\int_{S} \tau_w dS}_{\text{Resistencia Friccional } (R_F)} - \underbrace{\int_{S} p \cdot n_x dS}_{\text{Resistencia de Presión } (R_P)}
+\end{equation}
+
+Donde $\tau_w$ es el esfuerzo cortante en la pared, $p$ es la presión termodinámica y $n_x$ es la componente longitudinal del vector normal a la superficie. Esta formulación permite distinguir claramente las dos fuentes físicas de resistencia:
+
+\begin{enumerate}
+    \item \textbf{Resistencia Friccional ($R_F$):} Resulta de la integración de los esfuerzos tangenciales (viscosidad) sobre el casco.
+    \item \textbf{Resistencia de Presión ($R_P$):} Resulta de la integración de las fuerzas normales. Esta componente agrupa fenómenos de distinta naturaleza física: la generación de olas y los efectos viscosos de separación (presión viscosa).
+\end{enumerate}
+
+\subsection{Resistencia Friccional ($R_F$)}
+
+La resistencia friccional representa la mayor parte de la resistencia total en buques mercantes convencionales (aproximadamente el 70-80\% en buques lentos como petroleros y el 40-50\% en buques rápidos como portacontenedores o pesqueros) \cite{birk2019}.
+
+Su origen físico es el esfuerzo cortante en la pared ($\tau_w$) generado por el gradiente de velocidad en la subcapa viscosa de la capa límite:
+\begin{equation}
+    \tau_w = \mu \left( \frac{\partial u}{\partial y} \right)_{y=0}
+\end{equation}
+
+Dado que calcular $\tau_w$ punto a punto sobre un casco complejo es impracticable sin CFD, la hidrodinámica naval tradicional modela $R_F$ asumiendo que la fricción del buque es equivalente a la de una **placa plana** de igual longitud ($L$) y superficie mojada ($S$), moviéndose a la misma velocidad ($V$).
+
+El coeficiente de fricción se define como:
+\begin{equation}
+    C_F = \frac{R_F}{\frac{1}{2}\rho V^2 S}
+\end{equation}
+
+Este coeficiente depende exclusivamente del Número de Reynolds ($Re = \frac{VL}{\nu}$), y su evolución varía según el régimen de flujo \cite{birk2019}:
+
+\subsubsection{Régimen Laminar}
+Para bajos números de Reynolds ($Re < 5 \times 10^5$), el flujo en la capa límite es laminar. La solución analítica de Blasius para una placa plana establece que:
+\begin{equation}
+    C_{F, lam} = \frac{1.328}{\sqrt{Re}}
+\end{equation}
+Este régimen solo es relevante en modelos a escala muy pequeña o en la zona muy próxima a la proa.
+
+\subsubsection{Régimen Turbulento}
+A medida que $Re$ aumenta, la capa límite se vuelve turbulenta. El esfuerzo cortante en la pared aumenta significativamente debido al intercambio de momento transversal. No existe una solución analítica exacta, por lo que se recurre a fórmulas semi-empíricas. La más célebre es la línea de fricción de **Prandtl-Schlichting**:
+\begin{equation}
+    C_F = \frac{0.455}{(\log_{10} Re)^{2.58}}
+\end{equation}
+
+\subsubsection{La Línea de Correlación ITTC-1957}
+En 1957, la Conferencia Internacional de Canales de Remolque (ITTC) adoptó una fórmula estándar para la predicción de la resistencia friccional en la correlación modelo-buque. Esta fórmula, conocida como la línea \textbf{ITTC-57}, no es puramente física, sino una correlación matemático-estadística diseñada para ajustar los datos experimentales de la época:
+
+\begin{equation} \label{eq:ITTC57}
+    C_F = \frac{0.075}{(\log_{10} Re - 2)^2}
+\end{equation}
+
+Es crucial notar que esta línea incluye implícitamente cierto grado de resistencia de forma (aproximadamente un 12\% respecto a la fricción pura de placa plana en flujos 2D). Esta característica la convierte en una "línea de correlación" más que en una línea de fricción pura, lo que genera las discrepancias observadas en los análisis modernos mediante CFD y motiva el uso de Líneas de Fricción Numéricas (NFL) discutidas en el Capítulo 4 de esta tesis.
+
+\subsection{Resistencia de Presión Viscosa ($R_{VP}$)}
+
+Como se adelantó en la Sección 2.2, la presencia de la capa límite modifica el campo de presión efectivo alrededor del casco. El espesor de desplazamiento ($\delta_1$) de la capa límite actúa modificando la forma "vista" por el flujo exterior, especialmente en la popa, donde la capa límite es más gruesa.
+
+Esto impide la recuperación de presión en la zona de popa (Paradoja de D'Alembert), resultando en una fuerza neta de resistencia. Esta fuerza es de origen viscoso (causada por la capa límite) pero se manifiesta como una fuerza de presión.
+
+\begin{equation}
+    R_{VP} = \int_{S} (p_{inviscido} - p_{real}) \cdot n_x dS
+\end{equation}
+
+En buques de formas llenas (como los pesqueros analizados), donde pueden ocurrir desprendimientos de flujo, $R_{VP}$ puede adquirir valores considerables.
+
+\subsection{El Concepto de Resistencia Viscosa ($R_V$) y Factor de Forma ($k$)}
+
+Dado que tanto $R_F$ como $R_{VP}$ dependen de la viscosidad y del Número de Reynolds, la ITTC las agrupa en una única componente denominada **Resistencia Viscosa ($R_V$)**:
+
+\begin{equation}
+    R_V = R_F + R_{VP}
+\end{equation}
+
+En la década de 1950, Hughes propuso que la resistencia viscosa de un cuerpo tridimensional es proporcional a la fricción de una placa plana bidimensional, escalada por un factor constante que depende de la geometría del casco. Este factor se denomina **Factor de Forma** ($1+k$):
+
+\begin{equation}
+    R_V = (1+k) R_{F, placa}
+\end{equation}
+
+Donde $k$ representa el exceso de resistencia debido a la curvatura del casco (que aumenta la velocidad local y, por ende, la fricción) y a la pérdida de presión viscosa en popa.
+
+Esta hipótesis asume que $k$ es independiente del Número de Reynolds ($k_M = k_S$).
+
+\subsection{Resistencia por Olas ($R_W$)}
+
+Un buque que se mueve en la superficie libre genera un patrón de olas que transporta energía lejos del casco. Esta energía extraída del sistema de propulsión constituye la **Resistencia por Olas ($R_W$)**.
+
+Según la teoría lineal de olas, este patrón está compuesto por sistemas de olas divergentes y transversales (Patrón de Kelvin) que se originan principalmente en la proa y la popa. La interacción entre estos sistemas puede ser constructiva o destructiva dependiendo de la velocidad del buque, lo que da lugar a las características "jorobas y valles" en la curva de resistencia.
+
+A diferencia de las componentes viscosas, $R_W$ es un fenómeno gravitatorio y depende exclusivamente del Número de Froude ($Fr$).
+
+\subsection{Modelo de Descomposición de la ITTC-1978}
+
+La metodología estándar actual para la extrapolación de resistencia (Método ITTC-78) combina los conceptos anteriores en la siguiente fórmula para el coeficiente de resistencia total:
+
+\begin{equation}
+    C_T = (1+k) C_F(Re) + C_W(Fr)
+\end{equation}
+
+Esta ecuación es la base de la metodología experimental descrita en el Capítulo 3. El procedimiento asume que:
+\begin{enumerate}
+    \item $C_F$ se calcula con la línea ITTC-57 (Ec. \ref{eq:ITTC57}).
+    \item El factor de forma $k$ se determina experimentalmente a bajo Froude (donde $C_W \approx 0$).
+    \item $C_W$ obtenido en el modelo es idéntico al del buque (Similitud de Froude).
+\end{enumerate}
+
+Las limitaciones de este modelo, particularmente la invariancia de $k$ y la precisión de la línea $C_F$, constituyen el núcleo de la problemática abordada en el presente trabajo de investigación.
+
+\section{Teoría de Semejanza y Efectos de Escala}
+
+La predicción de la resistencia al avance de un buque a escala real a partir de ensayos con modelos físicos se basa en la teoría de la semejanza mecánica. Dado que es imposible resolver analíticamente las ecuaciones de Navier-Stokes para la compleja geometría de un casco, se recurre a la experimentación física bajo condiciones controladas que garanticen la similitud entre el flujo del modelo y el del prototipo (buque).
+
+Para que los resultados obtenidos en el laboratorio sean extrapolables, deben satisfacerse tres niveles de similitud: geométrica, cinemática y dinámica. Sin embargo, como se demostrará a continuación, la naturaleza física del agua impone restricciones que impiden alcanzar una similitud dinámica completa, dando lugar a los denominados "Efectos de Escala" que motivan esta investigación.
+
+\subsection{Análisis Dimensional}
+
+El comportamiento de un sistema físico está gobernado por variables dimensionales. El Teorema $\pi$ de Buckingham establece que cualquier relación física entre $n$ variables que involucren $k$ dimensiones fundamentales puede reducirse a una relación entre $n-k$ grupos adimensionales independientes.
+
+En el problema de la resistencia al avance ($R_T$) de un buque de superficie en aguas tranquilas, las variables relevantes son:
+\begin{itemize}
+    \item Variables geométricas: Longitud característica ($L$).
+    \item Variables cinemáticas: Velocidad ($V$).
+    \item Propiedades del fluido: Densidad ($\rho$), Viscosidad dinámica ($\mu$).
+    \item Fuerzas másicas: Aceleración de la gravedad ($g$).
+    \item Condiciones de borde: Presión estática ($p_0$).
+\end{itemize}
+
+El análisis dimensional permite agrupar estas variables en coeficientes adimensionales que caracterizan la física del flujo:
+
+\begin{equation}
+    C_T = f(Re, Fr, Eu)
+\end{equation}
+
+Donde:
+\begin{itemize}
+    \item \textbf{Coeficiente de Resistencia Total ($C_T$):}
+    \begin{equation}
+        C_T = \frac{R_T}{\frac{1}{2}\rho V^2 S}
+    \end{equation}
+    \item \textbf{Número de Reynolds ($Re$):} Relaciona fuerzas inerciales y viscosas.
+    \begin{equation}
+        Re = \frac{\rho V L}{\mu} = \frac{V L}{\nu}
+    \end{equation}
+    \item \textbf{Número de Froude ($Fr$):} Relaciona fuerzas inerciales y gravitatorias (formación de olas).
+    \begin{equation}
+        Fr = \frac{V}{\sqrt{g L}}
+    \end{equation}
+\end{itemize}
+
+Este resultado implica que dos buques geométricamente semejantes tendrán el mismo coeficiente de resistencia $C_T$ si y solo si navegan al mismo número de Reynolds y al mismo número de Froude simultáneamente.
+
+\subsection{Leyes de Semejanza}
+
+Para garantizar la validez de los ensayos, se definen las siguientes condiciones de semejanza entre el modelo (subíndice $M$) y el buque a escala real (subíndice $S$):
+
+\subsubsection{Semejanza Geométrica}
+Implica que todas las dimensiones lineales del modelo deben mantener una relación constante con las del buque. Se define el factor de escala $\lambda$:
+\begin{equation}
+    \lambda = \frac{L_S}{L_M} = \frac{B_S}{B_M} = \frac{T_S}{T_M}
+\end{equation}
+Consecuentemente, la relación de superficies es $S_S/S_M = \lambda^2$ y la de volúmenes es $\nabla_S/\nabla_M = \lambda^3$.
+
+\subsubsection{Semejanza Cinemática}
+Requiere que las líneas de corriente sean geométricamente similares y que las relaciones de velocidad entre puntos homólogos sean constantes. Esto se cumple automáticamente si se satisface la semejanza dinámica.
+
+\subsubsection{Semejanza Dinámica}
+Implica que la relación entre las fuerzas que actúan en puntos homólogos debe ser constante. Esto exige la igualdad de los números adimensionales que gobiernan las fuerzas relevantes:
+\begin{equation}
+    Re_M = Re_S \quad \text{y} \quad Fr_M = Fr_S
+\end{equation}
+
+\subsection{Similitud Dinámica Parcial y la Hipótesis de Froude}
+
+Al utilizar agua como fluido de trabajo tanto para el modelo como para el buque ($\nu_M \approx \nu_S$ y $g_M = g_S$), surge una contradicción física insalvable:
+
+\begin{itemize}
+    \item La \textbf{Igualdad de Froude} ($Fr_M = Fr_S$) impone una escala de velocidades:
+    \begin{equation}
+        \frac{V_S}{\sqrt{g L_S}} = \frac{V_M}{\sqrt{g L_M}} \implies V_M = \frac{V_S}{\sqrt{\lambda}}
+    \end{equation}
+    \item La \textbf{Igualdad de Reynolds} ($Re_M = Re_S$) impone una escala de velocidades inversa:
+    \begin{equation}
+        \frac{V_S L_S}{\nu} = \frac{V_M L_M}{\nu} \implies V_M = V_S \cdot \lambda
+    \end{equation}
+\end{itemize}
+
+Para un factor de escala típico ($\lambda = 20$), la condición de Froude requiere que el modelo vaya más lento que el buque ($V_M \approx 0.22 V_S$), mientras que la condición de Reynolds exigiría que fuera mucho más rápido ($V_M = 20 V_S$). Es imposible satisfacer ambas condiciones simultáneamente.
+
+Ante esta imposibilidad, William Froude propuso la hipótesis de \textbf{Similitud Dinámica Parcial}. Esta asume que la resistencia total puede descomponerse en dos partes independientes: una que depende solo de $Re$ (Viscosa) y otra que depende solo de $Fr$ (Residual/Olas):
+
+\begin{equation}
+    C_T(Re, Fr) = C_V(Re) + C_W(Fr)
+\end{equation}
+
+En la práctica experimental, se respeta la similitud de Froude para capturar correctamente la formación de olas (fuerzas gravitatorias dominantes), aceptando el error en la similitud de Reynolds. Este error se corrige analíticamente calculando la componente viscosa ($C_V$) mediante líneas de correlación empíricas (como ITTC-57), asumiendo que la física viscosa del modelo y el buque se relacionan predeciblemente.
+
+\subsection{El Factor de Forma $(1+k)$ y los Efectos de Escala}
+
+La metodología moderna (ITTC-78) refina la hipótesis de Froude introduciendo el concepto de Factor de Forma. Se reconoce que la resistencia viscosa de un casco tridimensional es mayor que la de una placa plana equivalente debido a dos efectos:
+1.  **Aceleración del flujo:** La curvatura del casco acelera el fluido localmente, aumentando la fricción.
+2.  **Efecto de presión:** El espesor de la capa límite en la popa impide la recuperación de presión (resistencia $R_{VP}$ definida en la Sección 2.3).
+
+El factor de forma $(1+k)$ cuantifica este incremento:
+\begin{equation}
+    C_V = (1+k) C_F
+\end{equation}
+
+\subsubsection{Determinación Experimental: Método de Prohaska}
+El valor de $k$ se determina experimentalmente asumiendo que, a números de Froude muy bajos ($0.1 < Fr < 0.2$), la resistencia por olas es despreciable o proporcional a $Fr^4$. Graficando $C_T/C_F$ vs $Fr^4/C_F$, la intersección con la ordenada al origen define el factor de forma:
+
+\begin{equation}
+    \frac{C_T}{C_F} = (1+k) + c \frac{Fr^4}{C_F}
+\end{equation}
+
+\subsubsection{Limitaciones y Efectos de Escala}
+La hipótesis fundamental del método ITTC es que el factor de forma es una constante geométrica, independiente del Número de Reynolds ($k_M = k_S$).
+
+Sin embargo, esta asunción ha sido cuestionada para buques de formas llenas o bajas relaciones de esbeltez ($L/B$), como los buques pesqueros. En estos casos, la componente de presión viscosa ($R_{VP}$) puede escalar de manera diferente a la fricción pura debido a fenómenos de separación de flujo en la popa que dependen fuertemente de $Re$. Si $k$ varía con la escala, la extrapolación estándar introduce errores sistemáticos en la predicción de potencia, problemática central que se aborda en el Capítulo 4 de esta tesis.
+
+\section{Métodos Numéricos en Hidrodinámica (CFD)}
+
+La complejidad de las ecuaciones de Navier-Stokes y la naturaleza no lineal de la superficie libre hacen imposible obtener soluciones analíticas exactas para el flujo alrededor de un buque real. La Dinámica de Fluidos Computacional (CFD) surge como la herramienta que permite resolver numéricamente estas ecuaciones mediante la discretización del dominio espacial y temporal.
+
+En el contexto de la hidrodinámica naval moderna, el CFD no reemplaza a los ensayos experimentales (EFD), sino que los complementa. Mientras que el EFD proporciona datos globales precisos (resistencia total, potencia) y sirve como validación final, el CFD permite acceder a variables locales del flujo (distribución de presión, campos de velocidad, vorticidad) que son difíciles o imposibles de medir en un canal de ensayos \cite{birk2019}.
+
+\subsection{El Método de Volúmenes Finitos (FVM)}
+
+Existen diversos métodos para discretizar las ecuaciones diferenciales parciales (Diferencias Finitas, Elementos Finitos), pero en hidrodinámica naval predomina el \textbf{Método de Volúmenes Finitos (FVM)}. Este método es la base del código \textit{OpenFOAM} utilizado en esta tesis.
+
+El FVM se basa directamente en la forma integral de las leyes de conservación. El dominio fluido se subdivide en un número finito de volúmenes de control contiguos (celdas) que no se solapan. Para una variable escalar genérica $\phi$ (que puede representar masa, momento o energía), la ecuación de transporte general en su forma integral para un volumen de control $V$ con superficie $S$ es:
+
+\begin{equation}
+    \underbrace{\frac{\partial}{\partial t} \int_V \rho \phi \, dV}_{\text{Término Temporal}} + \underbrace{\int_S \rho \phi \mathbf{v} \cdot \mathbf{n} \, dS}_{\text{Término Convectivo}} = \underbrace{\int_S \Gamma_\phi \nabla \phi \cdot \mathbf{n} \, dS}_{\text{Término Difusivo}} + \underbrace{\int_V S_\phi \, dV}_{\text{Término Fuente}}
+\end{equation}
+
+Donde $\Gamma_\phi$ es el coeficiente de difusión y $S_\phi$ representa las fuentes volumétricas.
+
+La principal ventaja del FVM es que es \textbf{conservativo por construcción}: el flujo que sale de una celda a través de una cara es idéntico al que entra en la celda adyacente, garantizando la conservación global de masa y momento independientemente de la calidad de la malla.
+
+\subsection{Acoplamiento Presión-Velocidad}
+
+Uno de los mayores desafíos en la simulación de flujos incompresibles (como el agua alrededor de un buque) es que no existe una ecuación de estado que vincule directamente la densidad con la presión (ya que $\rho = \text{cte}$). La presión no aparece explícitamente en la ecuación de continuidad ($\nabla \cdot \mathbf{v} = 0$), sino que actúa implícitamente como un multiplicador de Lagrange que asegura el cumplimiento de la conservación de la masa.
+
+Para resolver este acoplamiento, se utilizan algoritmos segregados que resuelven iterativamente las ecuaciones de momento y una ecuación de corrección de presión (ecuación de Poisson). Los algoritmos más comunes en aplicaciones navales son:
+
+\begin{itemize}
+    \item \textbf{SIMPLE (Semi-Implicit Method for Pressure Linked Equations):} Diseñado para flujos estacionarios.
+    \item \textbf{PISO (Pressure Implicit with Splitting of Operators):} Diseñado para flujos transitorios.
+    \item \textbf{PIMPLE:} Un híbrido utilizado en OpenFOAM que combina la robustez de SIMPLE con la precisión temporal de PISO, permitiendo el uso de pasos de tiempo más grandes (números de Courant $Co > 1$) manteniendo la estabilidad.
+\end{itemize}
+
+\subsection{Tratamiento de la Superficie Libre: Método VOF}
+
+La presencia de la interfaz aire-agua introduce una discontinuidad en las propiedades del fluido y una condición de borde dinámica compleja, ya que la posición de la superficie libre es parte de la solución y no se conoce a priori.
+
+Para capturar esta interfaz, se emplea el método de \textbf{Volumen de Fluido (VOF)}. Este método considera que los dos fluidos (aire y agua) son inmiscibles y comparten un único campo de velocidad y presión. Se introduce una función indicadora de fase, $\alpha$, definida en cada celda como la fracción de volumen ocupada por el agua:
+
+\begin{equation}
+    \alpha =
+    \begin{cases}
+    1 & \text{Agua pura} \\
+    0 & \text{Aire puro} \\
+    0 < \alpha < 1 & \text{Interfaz (Superficie Libre)}
+    \end{cases}
+\end{equation}
+
+Las propiedades físicas en cada celda se calculan como un promedio ponderado:
+\begin{equation}
+    \rho = \alpha \rho_{agua} + (1-\alpha) \rho_{aire}
+\end{equation}
+\begin{equation}
+    \mu = \alpha \mu_{agua} + (1-\alpha) \mu_{aire}
+\end{equation}
+
+La evolución de la superficie libre se determina resolviendo una ecuación de transporte convectivo para $\alpha$:
+
+\begin{equation}
+    \frac{\partial \alpha}{\partial t} + \nabla \cdot (\mathbf{v} \alpha) + \nabla \cdot [\mathbf{v}_r \alpha (1-\alpha)] = 0
+\end{equation}
+
+El último término de esta ecuación es un término de compresión artificial introducido en solvers como \texttt{interFoam} para contrarrestar la difusión numérica y mantener la nitidez de la interfaz, donde $\mathbf{v}_r$ es una velocidad relativa de compresión.
+
+\subsection{Cierre de la Turbulencia: Modelo $k-\omega$ SST}
+
+Como se discutió en la Sección 2.2, las ecuaciones RANS requieren un modelo de turbulencia para cerrar el tensor de esfuerzos de Reynolds. Para aplicaciones de resistencia al avance, el modelo estándar de la industria es el **$k-\omega$ SST (Shear Stress Transport)** propuesto por Menter.
+
+Este modelo combina lo mejor de dos mundos mediante una función de mezcla ($F_1$):
+\begin{enumerate}
+    \item En las regiones cercanas a la pared (capa límite), se comporta como el modelo $k-\omega$, que es robusto para integrar hasta la pared y soporta bien los gradientes de presión adversos sin requerir funciones de amortiguamiento complejas.
+    \item En el flujo libre (lejos de la pared), conmuta al modelo $k-\epsilon$, evitando la sensibilidad del $k-\omega$ a las condiciones de borde de entrada ("freestream sensitivity").
+\end{enumerate}
+
+Esta capacidad híbrida hace que el SST sea superior para predecir la separación del flujo en la popa de buques con formas llenas (como los pesqueros), donde modelos más simples (como el $k-\epsilon$ estándar) tienden a fallar, prediciendo una re-adhesión del flujo demasiado temprana y subestimando la resistencia de presión viscosa.
+
+\subsection{Tratamiento de Pared y $y^+$}
+
+La precisión en la predicción de la resistencia friccional depende críticamente de cómo se resuelve el flujo en la proximidad del casco. La resolución de la malla se cuantifica mediante la distancia adimensional a la pared, $y^+$:
+
+\begin{equation}
+    y^+ = \frac{y \, u_\tau}{\nu}
+\end{equation}
+
+Existen dos estrategias de modelado:
+\begin{itemize}
+    \item \textbf{Low-Re (Resolución de la subcapa):} Requiere mallas muy finas ($y^+ \approx 1$) para resolver los gradientes dentro de la subcapa viscosa. Es el enfoque más preciso pero computacionalmente costoso.
+    \item \textbf{High-Re (Funciones de Pared):} Utiliza mallas más gruesas ($y^+ > 30$) y asume que el flujo sigue la "Ley de la Pared" logarítmica. El esfuerzo de corte en la pared no se calcula directamente del gradiente de velocidad, sino que se impone algebraicamente.
+\end{itemize}
+
+Para la determinación precisa del factor de forma, se suele preferir un enfoque que resuelva la subcapa viscosa o utilice funciones de pared "insensibles a $y^+$" (escalables), capaces de adaptarse a diferentes regímenes de resolución de malla.
+
+\section{Aplicaciones combinadas CFD/EFD en predicción de potencia}
+
+Históricamente, la hidrodinámica experimental (EFD) y la computacional (CFD) se han considerado herramientas separadas e incluso competidoras. Sin embargo, el informe final del Comité de Especialistas en Métodos Combinados de la 29ª ITTC (2021) \cite{ITTC_Combined_2021} establece un cambio de paradigma: el enfoque moderno debe integrar ambas disciplinas para mejorar la precisión de las predicciones de potencia, aprovechando la fiabilidad de los datos experimentales y la capacidad de resolución del flujo de las simulaciones numéricas.
+
+El comité clasifica las metodologías combinadas en cinco categorías principales de aplicación, las cuales definen el estado del arte actual en la materia:
+
+\begin{enumerate}
+    \item \textbf{Derivación de nuevas relaciones empíricas:} Uso de CFD para verificar o desarrollar nuevas fórmulas de escalado para procesos EFD, tales como correcciones por aguas someras, estimaciones de rugosidad del casco o escalado de hélices en aguas abiertas.
+    \item \textbf{Determinación de componentes de escalado:} Uso de CFD para calcular un componente específico dentro del procedimiento de extrapolación estándar, siendo el caso más relevante y maduro la determinación numérica del factor de forma $(1+k)$.
+    \item \textbf{Optimización del diseño experimental:} Empleo de simulaciones numéricas previas para mejorar la configuración de los ensayos en canal. Ejemplos de esto incluyen la determinación de la ubicación óptima de los estimuladores de turbulencia, la corrección de efectos de bloqueo en el canal o la planificación de matrices de ensayo para pruebas de comportamiento en la mar (\textit{seakeeping}).
+    \item \textbf{Sintonización y validación cruzada:} Validación del modelo CFD a escala modelo para aumentar la confianza en la simulación a escala real (\textit{Full Scale}). Esto permite investigar efectos de escala en la estela y en el rendimiento de dispositivos de ahorro de energía (ESD) que no pueden capturarse completamente en el modelo físico debido a la disparidad en el número de Reynolds.
+    \item \textbf{Mejora de modelos físicos en CFD:} Uso de datos EFD de alta fidelidad para refinar las constantes en modelos de turbulencia o modelos de rugosidad dentro de los códigos numéricos.
+\end{enumerate}
+
+\subsection{Determinación del Factor de Forma asistida por CFD}
+
+Una de las aplicaciones más destacadas por la ITTC es la sustitución o complemento del método experimental de Prohaska por el cálculo numérico del factor de forma. El método tradicional de Prohaska presenta incertidumbres significativas en buques con proa bulbo o espejos de popa sumergidos, donde la generación de olas o la separación del flujo a bajas velocidades contaminan la medición de la resistencia viscosa.
+
+Para mitigar esto, la ITTC recomienda el uso de simulaciones RANS en configuración de \textbf{"Doble Cuerpo"} (\textit{Double Body}). En este enfoque, la superficie libre se reemplaza por un plano de simetría (condición de \textit{slip wall}), eliminando físicamente la resistencia por olas ($R_W = 0$). Esto permite aislar la componente viscosa ($C_V$) y calcular el factor de forma mediante la relación:
+
+\begin{equation}
+    (1+k) = \frac{C_{T,DB}}{C_{F,ref}}
+\end{equation}
+
+Donde $C_{T,DB}$ es el coeficiente de resistencia total obtenido de la simulación de doble cuerpo y $C_{F,ref}$ es el coeficiente de fricción de referencia.
+
+Estudios colaborativos presentados en el reporte de la ITTC demostraron que el uso de factores de forma basados en CFD reduce la dispersión en la predicción de potencia a escala real al compararse con pruebas de mar, ofreciendo una mayor robustez que el método puramente experimental en casos de geometrías complejas.
+
+Respecto a la línea de fricción a utilizar para $C_{F,ref}$, el comité reconoce la existencia de líneas de fricción numéricas (NFL) que eliminan la dependencia del factor de forma con el número de Reynolds. Sin embargo, la recomendación oficial vigente es \textbf{continuar utilizando la línea de correlación ITTC-1957}. Esta decisión conservadora se justifica en la necesidad de mantener la coherencia con las bases de datos de factores de correlación ($C_A$, $C_P$) existentes en los canales de experiencias, los cuales han sido calibrados históricamente utilizando dicha línea.
+
+\subsection{Investigación de Efectos de Escala y Estela}
+
+El enfoque combinado es fundamental para abordar problemas de escalado donde la similitud dinámica parcial (basada en Froude) es insuficiente. El reporte destaca el uso de CFD para investigar el efecto de escala en la estela nominal ($w_N$). Las simulaciones numéricas han demostrado que la contracción de la estela y la intensidad de los vórtices de sentina varían significativamente entre el modelo y el buque real, afectando la eficiencia propulsiva.
+
+Asimismo, se ha validado el uso de CFD para calcular el arrastre de apéndices y la interacción propulsor-casco, áreas donde los métodos empíricos tradicionales (como el método Beta para el escalado de apéndices) han mostrado limitaciones predictivas.
+
+\subsection{Aseguramiento de la Calidad (QA) en Métodos Combinados}
+
+Dada la variabilidad inherente a las configuraciones numéricas (mallas, modelos de turbulencia), la ITTC ha propuesto una nueva guía de procedimientos titulada \textit{"Quality Assurance in Ship CFD Applications"}. Esta guía establece que, para aplicar métodos combinados en predicciones comerciales contractuales o investigaciones académicas, cada organización debe:
+
+\begin{enumerate}
+    \item Desarrollar sus propias Guías de Mejores Prácticas (BPG) específicas para el código y el tipo de buque analizado.
+    \item Demostrar la incertidumbre de sus métodos híbridos mediante la verificación y validación (V\&V) rigurosa.
+    \item Realizar comparaciones estadísticas con grandes bases de datos de ensayos previos para cuantificar el error de comparación ($E = D - S$, donde $D$ es el dato experimental y $S$ la simulación).
+\end{enumerate}

@@ -3,6 +3,7 @@
 \setlist{nosep, leftmargin=*} 
 
 \begin{enumerate}
+  % --- CAPÍTULO 1 ---
   \item \textbf{Introducción general}
   \begin{enumerate}[label*=\arabic*.]
     \item Contexto y motivación del estudio
@@ -12,17 +13,18 @@
     \item Estructura de la tesis
   \end{enumerate}
 
-  \item \textbf{Antecedentes y estado del arte}
-  \begin{enumerate}[label*=\arabic*.]
-    \item Métodos experimentales en hidrodinámica naval (EFD)
-    \item Métodos numéricos (CFD) aplicados a buques
-    \item Factor de forma y su determinación (método Prohaska, CFD, híbridos)
-    \item Escalado de ensayos de hélices en aguas abiertas
-    \item Efectos de escala: similitud, Reynolds y Froude
-    \item Aplicaciones combinadas CFD/EFD en predicción de potencia
-    \item Síntesis del estado del arte y brechas identificadas
-  \end{enumerate}
+  % --- CAPÍTULO 2 (Aquí estaba el error) ---
+  \item \textbf{Fundamentos teóricos y Estado del Arte}
+  \begin{enumerate}[label*=\arabic*.] 
+    \item Fundamentos de Mecánica de Fluidos 
+    \item Teoría de la Capa Límite y Turbulencia 
+    \item Componentes de la Resistencia al Avance 
+    \item Teoría de Semejanza y Efectos de Escala 
+    \item Métodos Numéricos en Hidrodinámica (CFD) 
+    \item Aplicaciones combinadas CFD/EFD en predicción de potencia 
+  \end{enumerate} 
 
+  % --- CAPÍTULO 3 ---
   \item \textbf{Metodología general}
   \begin{enumerate}[label*=\arabic*.]
     \item Enfoque combinado CFD/EFD
@@ -34,6 +36,7 @@
     \item Estructura metodológica por ejes
   \end{enumerate}
 
+  % --- CAPÍTULO 4 ---
   \item \textbf{Eje 1: Resistencia al avance — Factor de forma}
   \begin{enumerate}[label*=\arabic*.]
     \item Determinación experimental y numérica del factor de forma
@@ -41,8 +44,8 @@
       \item Ensayos experimentales de resistencia al avance 
       \item Determinación experimental del factor de forma 
       \item Ensayos computacionales de resistencia al avance
-      \item Determinación computaciónal del factor de forma
-      \item Comparación EFD–CFD de coeficientes de resistencia y de fator de forma
+      \item Determinación computacional del factor de forma
+      \item Comparación EFD–CFD de coeficientes de resistencia y de factor de forma
       \item Discusión de incertidumbres y diferencias entre EFD y CFD
       \item Análisis de efectos de escala
       \item Conclusiones parciales
@@ -57,27 +60,27 @@
       \item Conclusiones parciales
     \end{enumerate}
     
-	\item Influencia de la popa sumergida en el factor de forma
-	\begin{enumerate}[label*=\arabic*.]
-  	 \item Introducción y motivación del estudio
-  	 \item Definiciones geométricas y parámetros característicos
-  	 \item Desarrollo del método 2-k
-  	 \item Aplicación al pesquero de referencia
-  	 \item Análisis comparativo de flujo
-  	 \item Conclusiones parciales
-\end{enumerate}    
+    \item Influencia de la popa sumergida en el factor de forma
+    \begin{enumerate}[label*=\arabic*.]
+       \item Introducción y motivación del estudio
+       \item Definiciones geométricas y parámetros característicos
+       \item Desarrollo del método 2-k
+       \item Aplicación al pesquero de referencia
+       \item Análisis comparativo de flujo
+       \item Conclusiones parciales
+    \end{enumerate}    
     
-    \item \text{Influencia del modelo de turbulencia en la determinación del factor de forma}
-	\begin{enumerate}[label*=\arabic*.]
-  	 \item Introducción y motivación del estudio
-  	 \item Metodología y configuración numérica
-  	 \item Modelos de turbulencia analizados ($k$–$\varepsilon$, $k$–$\varepsilon$ realizable, $k$–$\omega$, $k$–$\omega$ SST)
-  	 \item Resultados comparativos de resistencia viscosa
-  	 \item Efecto sobre el factor de forma
-  	 \item Descomposición de resistencia según origen friccional y de presión viscosa
-  	 \item Recomendaciones para selección de modelos en estudios de escala
-  	 \item Conclusiones parciales
-\end{enumerate}
+    \item Influencia del modelo de turbulencia en la determinación del factor de forma
+    \begin{enumerate}[label*=\arabic*.]
+       \item Introducción y motivación del estudio
+       \item Metodología y configuración numérica
+       \item Modelos de turbulencia analizados ($k$–$\varepsilon$, $k$–$\varepsilon$ realizable, $k$–$\omega$, $k$–$\omega$ SST)
+       \item Resultados comparativos de resistencia viscosa
+       \item Efecto sobre el factor de forma
+       \item Descomposición de resistencia según origen friccional y de presión viscosa
+       \item Recomendaciones para selección de modelos en estudios de escala
+       \item Conclusiones parciales
+    \end{enumerate}
 
     \item Efecto de la relación L/B en el factor de forma
     \begin{enumerate}[label*=\arabic*.]
@@ -90,11 +93,12 @@
     \end{enumerate}
   \end{enumerate}
 
+  % --- CAPÍTULO 5 ---
   \item \textbf{Eje 2: Propulsión — Ensayos de hélices en aguas abiertas}
   \begin{enumerate}[label*=\arabic*.]
     \item Metodología para el estudio de hélices en condiciones de aguas abiertas
     \item Resultados experimentales de hélices en ensayos de aguas abiertas
-    \item Resultados computacionales de hékuces en ensayos de aguas abiertas
+    \item Resultados computacionales de hélices en ensayos de aguas abiertas
     \item Comparación de métodos de extrapolación ITTC con CFD en escala real
     \item Efectos de escala  
     \item Efectos del modelo de turbulencia (turbulento o de transición) 
@@ -102,6 +106,7 @@
     \item Conclusiones parciales 
   \end{enumerate}
 
+  % --- CAPÍTULO 6 ---
   \item \textbf{Síntesis y aportes finales}
   \begin{enumerate}[label*=\arabic*.]
     \item Integración de resultados de resistencia y propulsión
