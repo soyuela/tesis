@@ -5,25 +5,27 @@
 
 Habiendo establecido en el Capítulo 2 los fundamentos físicos de la resistencia al avance y las bases teóricas de la mecánica de fluidos, este capítulo detalla la implementación práctica de las herramientas utilizadas en esta tesis. La investigación adopta una estrategia híbrida que vincula ensayos físicos en canal de remolque (EFD) con simulaciones numéricas de alta fidelidad (CFD).
 
-A continuación, se describen las instalaciones experimentales del Laboratorio de Hidrodinámica Naval y Oceánica (LabHiNO), las características geométricas de los modelos construidos y la instrumentación empleada. Posteriormente, se detalla la configuración del modelo numérico en \textit{OpenFOAM}, especificando el dominio computacional, las condiciones de contorno y los esquemas de discretización utilizados tanto para los ensayos de resistencia con superficie libre como para las simulaciones de doble cuerpo.
+A continuación, se describen las instalaciones experimentales del Canal de Experiencias de Arquitectura Naval (CEAN), las características geométricas de los modelos construidos y la instrumentación empleada. Posteriormente, se detalla la configuración del modelo numérico en \textit{OpenFOAM}, especificando el dominio computacional, las condiciones de contorno y los esquemas de discretización utilizados.
 
 \section{Metodología Experimental (EFD)}
 
-Los ensayos experimentales se llevaron a cabo en el canal de remolque del LabHiNO. Esta campaña tuvo como objetivo principal generar una base de datos de validación confiable para el modelo pesquero TPA y verificar el procedimiento mediante el buque de referencia KCS.
+Los ensayos experimentales se llevaron a cabo en el canal de remolque de la Universidad de Buenos Aires (UBA), Argentina. Esta campaña tuvo como objetivo principal generar una base de datos de validación confiable para el modelo pesquero TPA y verificar el procedimiento mediante el buque de referencia KCS.
 
 \subsection{Instalaciones: El Canal de Remolque}
 
-El canal de experiencias hidrodinámicas utilizado posee las dimensiones y capacidades necesarias para operar en el régimen de números de Reynolds y Froude requeridos por este estudio, minimizando efectos de bloqueo y de aguas someras.
+Los ensayos se realizaron en el **Canal de Experiencias de Arquitectura Naval (CEAN)**. Esta instalación cuenta con un vaso de hormigón rectilíneo con las siguientes dimensiones principales:
 
-Las características principales de la instalación son:
 \begin{itemize}
-    \item \textbf{Dimensiones del vaso:} [Largo] m $\times$ [Ancho] m $\times$ [Profundidad] m.
-    \item \textbf{Carro dinamométrico:} Tipo remolcador con control de velocidad de precisión ($\pm 1$ mm/s) y capacidad de velocidad máxima de [X] m/s.
+    \item \textbf{Longitud:} 72 m
+    \item \textbf{Ancho:} 3.6 m
+    \item \textbf{Profundidad:} 2.0 m
 \end{itemize}
+
+El canal está equipado con un carro dinamométrico capaz de alcanzar una velocidad máxima de **4.0 m/s**, lo cual cubre holgadamente el rango de velocidades de Froude requeridas para los modelos analizados en este estudio.
 
 \subsection{Modelos Físicos}
 
-Se construyeron y ensayaron dos modelos a escala, fabricados en [Material, ej: espuma de poliuretano de alta densidad / madera] y acabados con pintura de alto brillo para garantizar una superficie hidráulicamente lisa.
+Se construyeron y ensayaron dos modelos a escala, acabados con pintura de alto brillo para garantizar una superficie hidráulicamente lisa. Los modelos fueron lastrados hasta alcanzar el desplazamiento y la línea de flotación requeridos para cada condición de ensayo.
 
 \subsubsection{Modelo Pesquero TPA}
 El modelo principal de estudio, denominado TPA, representa un buque pesquero de baja esbeltez ($L/B < 4$) característico de la flota nacional. El modelo fue construido a escala $\lambda = 20$.
@@ -45,16 +47,16 @@ En la Figura \ref{fig:model_tpa}, se presentan las vistas del modelo físico ter
         \caption{Vista de perfil. Geometría de baja esbeltez típica de pesqueros.}
         \label{fig:tpa_side}
     \end{subfigure}
-    \caption{Modelo físico del pesquero TPA (Escala 1:20) preparado para ensayos en el LabHiNO.}
+    \caption{Modelo físico del pesquero TPA (Escala 1:20) preparado para ensayos en el CEAN.}
     \label{fig:model_tpa}
 \end{figure}
 
-El modelo se evaluó en tres condiciones de carga (ligero, medio y pesado) para barrer un rango operativo amplio y analizar la sensibilidad del factor de forma al calado.
+El modelo se evaluó en tres condiciones de carga (ligero, medio y pesado) para barrer un rango operativo amplio y analizar la sensibilidad del factor de forma al calado. Las áreas transversales medias del modelo representaron el 1\%, 1.1\% y 1.2\% del área transversal del tanque para las condiciones de carga ligera, media y pesada, respectivamente.
 
 \subsubsection{Modelo de Referencia KCS}
 Con el fin de verificar la calibración del canal y validar la metodología mediante comparación con bases de datos internacionales, se construyó un modelo del buque portacontenedores \textit{KRISO Container Ship} (KCS) a escala $\lambda = 79$.
 
-La Figura \ref{fig:model_kcs} muestra el modelo KCS. A diferencia del pesquero, este casco presenta una esbeltez elevada y una proa bulbo prominente diseñada para velocidades de servicio más altas ($Fr \approx 0.26$). La comparación entre la física del flujo de este casco esbelto y el casco lleno del TPA constituye uno de los ejes centrales del análisis de efectos de escala en esta tesis.
+La Figura \ref{fig:model_kcs} muestra el modelo KCS. A diferencia del pesquero, este casco presenta una esbeltez elevada y una proa bulbo prominente. La comparación entre la física del flujo de este casco esbelto y el casco lleno del TPA constituye uno de los ejes centrales del análisis de efectos de escala en esta tesis.
 
 \begin{figure}[htpb]
     \centering
@@ -77,48 +79,81 @@ La Figura \ref{fig:model_kcs} muestra el modelo KCS. A diferencia del pesquero, 
 
 \subsection{Instrumentación y Adquisición de Datos}
 
-La medición de la resistencia total al avance ($R_T$) se realizó mediante una celda de carga de precisión \textbf{Kempf \& Remmers R47}. Este dinamómetro permite registrar la fuerza longitudinal mientras libera los movimientos de hundimiento (\textit{sinkage}) y cabeceo (\textit{trim}), restringiendo los movimientos laterales y de guiñada.
+La medición de la resistencia total al avance ($R_T$) se realizó mediante una celda de carga de un solo componente marca \textbf{Kempf \& Remmers modelo R 47}. El transductor, diseñado para una carga a escala completa de $\pm 100$ N, posee una sensibilidad de aproximadamente $\pm 1$ mV/V de voltaje de alimentación.
 
-El sistema de adquisición de datos se configuró con los siguientes parámetros para garantizar la fidelidad de la señal:
+El montaje del modelo al carro dinamométrico se realizó vinculándolo a la celda de carga de manera tal que se restringieron los movimientos de avance (velocidad constante impuesta por el carro), deriva, guiñada y rolido. El sistema permitió que el modelo quedara **libre a cabeceo (\textit{trim}) y hundimiento (\textit{sinkage})**, conforme a los estándares para ensayos de resistencia al avance.
+
+El sistema de adquisición de datos se configuró con los siguientes parámetros:
 \begin{itemize}
-    \item \textbf{Frecuencia de muestreo:} 200 Hz. Esta alta frecuencia permite capturar no solo el valor medio de la resistencia, sino también la dinámica transitoria y las fluctuaciones asociadas al desprendimiento de vórtices.
-    \item \textbf{Post-procesamiento:} Se aplicó un filtro digital paso bajo de 4 Hz a la señal cruda para eliminar el ruido eléctrico y las vibraciones mecánicas de alta frecuencia propias del carro de remolque, preservando la respuesta hidrodinámica del modelo.
+    \item \textbf{Frecuencia de muestreo:} 200 Hz, permitiendo capturar la dinámica transitoria y las fluctuaciones.
+    \item \textbf{Post-procesamiento:} Se aplicó un filtro paso bajo de 4 Hz a la señal para eliminar el ruido eléctrico y vibraciones mecánicas de alta frecuencia.
 \end{itemize}
 
 \subsection{Procedimiento de Ensayo y Análisis de Incertidumbre}
 
-Se siguió el procedimiento estándar para ensayos de resistencia según la ITTC (7.5-02-02-01). La cuantificación de la incertidumbre se realizó considerando fuentes de error sistemático (bias) y aleatorio (precisión), incluyendo la calibración del dinamómetro, la precisión de la velocidad, y la temperatura del agua.
+Se siguió el procedimiento estándar para ensayos de resistencia según la ITTC (7.5-02-02-01).
 
-La incertidumbre combinada se calculó mediante el método de la raíz de la suma de los cuadrados (RSS). Como se detallará en la sección de resultados, se obtuvieron valores de incertidumbre expandida ($U_{95}$) del orden del 2\% para las velocidades medias y bajas, y menores al 1\% para las velocidades de diseño, lo cual se considera adecuado para validación CFD.
+Dado que el modelo ocupa una fracción del volumen del canal, la presencia de las paredes y el fondo acelera el flujo alrededor del casco (efecto de bloqueo). Aunque las relaciones de área transversal fueron bajas ($1\% - 1.2\%$), se aplicó la **corrección de bloqueo de Schuster** a los resultados experimentales para garantizar la consistencia con la condición de aguas ilimitadas, de acuerdo con el procedimiento de la ITTC \cite{ITTC_resistance}.
+
+\subsubsection*{Metodología de Análisis de Incertidumbre}
+
+El análisis de incertidumbre para la medición de resistencia requiere la consideración de todas las fuentes significativas de error. Estas incluyen las incertidumbres asociadas a la geometría del casco, la velocidad de remolque, la temperatura del agua, la calibración del dinamómetro y la repetibilidad de los ensayos. Los componentes de incertidumbre estándar se estimaron y combinaron para obtener la incertidumbre estándar total utilizando el método de la Raíz de la Suma de los Cuadrados (RSS, \textit{Root Sum Squares}) recomendado por la ITTC \cite{ITTC_uncertainty}.
+
+Se consideraron los siguientes componentes individuales:
+
+\begin{itemize}
+    \item \textbf{Geometría del casco:} La incertidumbre en el desplazamiento y la superficie mojada se cuantificó midiendo el lastre del modelo con una balanza de brazo portátil. Se asume que la incertidumbre geométrica no afecta el coeficiente de resistencia residual, sino que se propaga a través de la superficie mojada y la longitud característica.
+    
+    \item \textbf{Velocidad de remolque:} Se consideró el límite de sesgo (\textit{bias limit}) del carro dinamométrico. Este error se propaga a la medición de resistencia a través de la presión dinámica y el número de Reynolds.
+    
+    \item \textbf{Temperatura del agua:} Dado que la viscosidad del agua afecta directamente al número de Reynolds y a la resistencia friccional, se monitoreó la temperatura durante todos los ensayos, registrándose variaciones menores a 0.5 °C.
+    
+    \item \textbf{Dinamómetro:} El instrumento se calibró antes y después de cada ensayo. Se utilizó un ajuste de curva lineal, adoptando la desviación estándar de esta regresión como la incertidumbre estándar de calibración. La precisión de las pesas patrón utilizadas fue lo suficientemente alta como para considerar su incertidumbre despreciable.
+    
+    \item \textbf{Adquisición de datos (DAS):} Utilizando el dinamómetro R47 con una frecuencia de muestreo de 200 Hz y filtrado paso bajo a 4 Hz, la medición en cada velocidad se obtuvo promediando la historia temporal de la señal durante un intervalo de al menos 10 segundos. La incertidumbre estándar del promedio de la historia de muestreo resultó despreciable (promedio global de 0.0012\%), lo que confirma la estabilidad de la adquisición.
+    
+    \item \textbf{Repetibilidad:} Se tomó la media de las mediciones repetidas como la mejor estimación. El componente de incertidumbre estándar de la media de $N$ ensayos repetidos se estimó según el procedimiento de la ITTC.
+\end{itemize}
+
+Los valores cuantitativos finales de la incertidumbre combinada y expandida para las distintas velocidades de ensayo se presentan en detalle junto con los resultados experimentales en el Capítulo 4.
 
 \section{Metodología Numérica (CFD)}
 
-Las simulaciones numéricas se realizaron utilizando el código de código abierto \textbf{OpenFOAM} (versión 11), basado en el Método de Volúmenes Finitos (FVM). Este software permite el acceso total al código fuente, facilitando la implementación de condiciones de borde específicas y el control detallado de los esquemas numéricos.
+Las simulaciones numéricas se realizaron utilizando el código de código abierto \textbf{OpenFOAM} (versión 11), basado en el Método de Volúmenes Finitos (FVM).
 
 \subsection{Dominio Computacional y Mallado}
 
-Se definió un dominio computacional rectangular prismático, dimensionado para evitar la reflexión de olas y garantizar que las condiciones de borde no afecten el flujo alrededor del casco.
+Se definió un dominio computacional rectangular prismático dimensionado para evitar la reflexión de olas.
 \begin{itemize}
     \item \textbf{Entrada (Inlet):} Ubicada a $1.5 L_{pp}$ a proa del modelo.
-    \item \textbf{Salida (Outlet):} Ubicada a $2.5 L_{pp}$ a popa, permitiendo el desarrollo de la estela y evitando el reflujo.
-    \item \textbf{Límites laterales y fondo:} Ubicados a distancia suficiente para simular condiciones de aguas profundas.
+    \item \textbf{Salida (Outlet):} Ubicada a $2.5 L_{pp}$ a popa.
+    \item \textbf{Límites laterales y fondo:} Ubicados a distancia suficiente para simular aguas profundas.
 \end{itemize}
 
-El mallado se generó utilizando la herramienta \texttt{snappyHexMesh}, creando una malla predominantemente hexaédrica no estructurada con refinamientos locales en la superficie libre y la estela. Para resolver la capa límite turbulenta, se añadieron capas de prismas (\textit{boundary layers}) sobre la superficie del casco, ajustando la altura de la primera celda para obtener valores de $y^+$ compatibles con las funciones de pared utilizadas.
+El mallado se generó con \texttt{snappyHexMesh}, utilizando una estructura predominantemente hexaédrica no estructurada con refinamientos locales en la superficie libre y la estela, e inserción de capas de prismas en la superficie del casco para resolver la capa límite ($y^+$ controlado).
 
 \subsection{Configuración de los Casos de Estudio}
 
-Se emplearon dos configuraciones de simulación distintas según el objetivo físico del análisis. A continuación se detallan las condiciones de contorno específicas seleccionadas para garantizar la estabilidad y conservación de masa en el dominio.
+Se emplearon dos configuraciones de simulación distintas. A continuación se detallan las condiciones de contorno específicas seleccionadas para garantizar la estabilidad y conservación de masa en el dominio.
 
 \subsubsection{1. Simulación con Superficie Libre (Resistencia Total)}
 Esta configuración replica el ensayo de canal para obtener la resistencia total ($R_T$) y el campo de olas.
 
 \begin{itemize}
-    \item \textbf{Solucionador:} \texttt{interFoam}, utilizando el método VoF con compresión de interfaz (MULES).
-    \item \textbf{Acoplamiento PIMPLE:} Algoritmo híbrido PISO-SIMPLE configurado con 2 correcciones externas y 3 internas para permitir pasos de tiempo mayores ($Co_{max} \approx 1\dots5$) manteniendo la estabilidad.
+    \item \textbf{Solucionador:} \texttt{interFoam} (VoF con compresión de interfaz MULES).
+    \item \textbf{Algoritmo:} PIMPLE (híbrido PISO-SIMPLE).
 \end{itemize}
 
-Las condiciones de borde se resumen en la Tabla \ref{tab:bc_setup}. Se utilizaron abreviaturas para facilitar la lectura; las definiciones técnicas correspondientes a las librerías de \textit{OpenFOAM} se detallan a continuación.
+La Figura \ref{fig:dominio_metodologia} esquematiza el dominio computacional utilizado, mostrando la disposición de las condiciones de contorno.
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.6\textwidth]{images/domain}
+    \caption{Dominio computacional y condiciones de contorno para las simulaciones de resistencia con superficie libre.}
+    \label{fig:dominio_metodologia}
+\end{figure}
+
+Las condiciones de borde específicas se resumen en la Tabla \ref{tab:bc_setup}.
 
 \begin{table}[H]
 \centering
@@ -141,29 +176,58 @@ $\nu_t$ & calc. & calc. & calc. & nutkWF \\
 
 \noindent\textbf{Definición de condiciones de borde:}
 \begin{itemize}
-    \item \textbf{FV} (\texttt{fixedValue}): Valor fijo (Dirichlet).
-    \item \textbf{ZG} (\texttt{zeroGradient}): Gradiente normal nulo (Neumann).
-    \item \textbf{IO} (\texttt{inletOutlet}): Permite flujo reverso asignando un valor fijo si entra flujo, o gradiente cero si sale.
-    \item \textbf{FFP} (\texttt{fixedFluxPressure}): Ajusta el gradiente de presión para cumplir la continuidad del flujo másico en la pared.
-    \item \textbf{OPMV} (\texttt{outletPhaseMeanVelocity}): Mantiene una velocidad media de fase en la salida para conservar la masa global.
-    \item \textbf{PIOV} (\texttt{pressureInletOutletVelocity}): Velocidad dependiente del flujo de presión en parches abiertos.
-    \item \textbf{TP} (\texttt{totalPressure}): Presión total fija, permitiendo variaciones en la presión estática según la velocidad.
-    \item \textbf{MWV} (\texttt{movingWallVelocity}): Asigna la velocidad de la pared para mallas móviles o marcos de referencia en movimiento.
-    \item \textbf{VHFR} (\texttt{variableHeightFlowRate}): Permite que la altura de la superficie libre varíe libremente en la salida basándose en el flujo másico.
-    \item \textbf{kLRWF} (\texttt{kLowReWallFunction}): Función de pared para $k$ con tratamiento para alto y bajo Reynolds.
-    \item \textbf{oWF} (\texttt{omegaWallFunction}): Función de pared estándar para la tasa de disipación específica.
-    \item \textbf{nutkWF} (\texttt{nutkWallFunction}): Calcula la viscosidad turbulenta en la pared basada en $k$.
+    \item \textbf{FV} (\texttt{fixedValue}): Valor fijo.
+    \item \textbf{ZG} (\texttt{zeroGradient}): Gradiente nulo.
+    \item \textbf{IO} (\texttt{inletOutlet}): Permite flujo reverso.
+    \item \textbf{FFP} (\texttt{fixedFluxPressure}): Ajusta gradiente de presión por flujo másico.
+    \item \textbf{OPMV} (\texttt{outletPhaseMeanVelocity}): Velocidad media de fase en salida.
+    \item \textbf{PIOV} (\texttt{pressureInletOutletVelocity}): Velocidad dependiente de presión.
+    \item \textbf{TP} (\texttt{totalPressure}): Presión total fija.
+    \item \textbf{MWV} (\texttt{movingWallVelocity}): Velocidad de pared (cero relativo).
+    \item \textbf{VHFR} (\texttt{variableHeightFlowRate}): Altura variable de superficie libre.
+    \item \textbf{kLRWF} / \textbf{oWF} / \textbf{nutkWF}: Funciones de pared para turbulencia.
 \end{itemize}
 
 \subsubsection{2. Simulación de Doble Cuerpo (Double Body)}
-Esta configuración se utiliza exclusivamente para la determinación numérica del factor de forma $(1+k)$.
+
+Esta configuración se utiliza exclusivamente para aislar la resistencia viscosa ($R_V$) y determinar el factor de forma $(1+k)$. El término "Doble Cuerpo" hace referencia al concepto aerodinámico de reflejar el casco sumergido respecto al plano de flotación, generando un cuerpo equivalente completamente sumergido en un fluido infinito.
+
+\paragraph{Fundamento Físico y Dominio}
+En esta aproximación, la superficie libre se sustituye por una condición de \textbf{tapa rígida sin fricción} (\textit{frictionless rigid lid}). Geométricamente, el dominio se trunca en la línea de flotación estática ($z=0$), tal como se ilustra en la Figura \ref{fig:double_body_domain}.
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.6\textwidth]{images/esquema_malla}
+    \caption{Dominio reducido para simulación sin superficie libre (Doble Cuerpo), mostrando la condición de simetría en el plano de flotación.}
+    \label{fig:double_body_domain}
+\end{figure}
 
 \begin{itemize}
-    \item \textbf{Dominio:} La superficie libre se sustituye por un plano de simetría (\texttt{symmetryPlane}), simulando el flujo alrededor del casco sumergido y su imagen especular.
-    \item \textbf{Solucionador:} \texttt{simpleFoam} (Régimen estacionario).
+    \item \textbf{Plano de Simetría:} La frontera superior del dominio se define como un \texttt{symmetryPlane}. Matemáticamente, esto impone dos restricciones fundamentales:
+    \begin{enumerate}
+        \item Flujo impenetrable: La componente normal de la velocidad es nula ($ \mathbf{v} \cdot \mathbf{n} = 0 $).
+        \item Cero esfuerzo cortante: El gradiente normal de la velocidad tangencial es nulo ($\partial \mathbf{v}_t / \partial n = 0$).
+    \end{enumerate}
+    Esta configuración elimina la generación de olas ($R_W = 0$) y la energía potencial gravitatoria, permitiendo que la presión calculada corresponda únicamente a la presión hidrodinámica viscosa.
 \end{itemize}
 
-Al eliminar la gravedad y la deformación de la superficie libre, se obtiene directamente la resistencia viscosa pura ($R_V = R_F + R_{VP}$), permitiendo calcular el factor de forma como $1+k = C_V / C_{F,ITTC}$.
+\paragraph{Ventajas del Mallado}
+Al eliminar la necesidad de capturar la interfase aire-agua, se prescinde del refinamiento de malla vertical en la zona de superficie libre. Esto permite concentrar la densidad de celdas en la capa límite y, crucialmente, en la \textbf{estela viscosa} y la zona de recirculación del espejo de popa (\textit{transom}), optimizando el costo computacional global frente a las simulaciones VoF.
+
+\paragraph{Configuración Numérica (PIMPLE)}
+A diferencia de los enfoques estacionarios clásicos, en este trabajo se utilizó un solucionador transitorio (\textbf{\texttt{pimpleFoam}}) para resolver las ecuaciones RANS monofásicas.
+\begin{itemize}
+    \item \textbf{Justificación:} Se optó por la resolución transitoria para garantizar la estabilidad numérica frente a desprendimientos de flujo complejos y oscilantes en la zona del espejo de popa, los cuales suelen dificultar la convergencia de solucionadores estacionarios (tipo SIMPLE).
+    \item \textbf{Algoritmo:} Se utilizó el algoritmo PIMPLE, que permite utilizar pasos de tiempo grandes ($Co_{max} > 1$) manteniendo la estabilidad mediante correcciones externas en cada paso de tiempo.
+    \item \textbf{Convergencia:} La simulación se ejecutó hasta alcanzar un estado cuasi-estacionario donde las fuerzas hidrodinámicas oscilan en torno a un valor medio constante.
+\end{itemize}
+
+\paragraph{Cálculo del Factor de Forma}
+La fuerza longitudinal total ($R_V$) se obtuvo promediando la señal de resistencia en el intervalo de tiempo convergido. Esta fuerza se compone de la fricción tangencial ($R_F$) y la presión viscosa ($R_{PV}$). El factor de forma se determina finalmente como:
+\begin{equation}
+    (1+k) = \frac{\overline{C}_{T, DoubleBody}}{C_{F, ITTC57}}
+\end{equation}
+Donde $\overline{C}_{T, DoubleBody}$ es el coeficiente de resistencia medio obtenido de la simulación y $C_{F, ITTC57}$ es el coeficiente de fricción de la placa plana equivalente calculado analíticamente.
 
 \subsection{Modelado de la Turbulencia: Modelo $k$--$\omega$ SST} \label{sec:metodo_SST}
 
@@ -207,3 +271,54 @@ Esta formulación asegura que $\nu_t$ no crezca excesivamente en zonas de alta d
 {\sloppy
 En las superficies del casco, se emplearon condiciones de borde tipo función de pared adaptativa disponibles en \textit{OpenFOAM} (\texttt{kLowReWallFunction}, \texttt{omegaWallFunction}). Estas condiciones permiten una transición continua entre la integración directa de las ecuaciones hasta la pared (cuando la malla es fina, $y^+ \approx 1$) y el uso de leyes de pared logarítmicas (cuando $y^+ > 30$), asegurando la robustez de la solución independientemente de las variaciones locales de la calidad de la malla.
 \par}
+
+\section{Estrategia de Verificación y Validación (V\&V)}
+
+Para garantizar la fiabilidad de los resultados numéricos y cuantificar la incertidumbre de la simulación, se siguió el procedimiento estándar recomendado por la ITTC \cite{ITTC_uncertainty_CFD} y la ASME \cite{asme}, basado en las directrices de \citet{freitas}.
+
+\subsection{Estudio de Convergencia de Malla (GCI)}
+
+Se realizó un estudio de independencia de malla utilizando el método del Índice de Convergencia de Malla (GCI, \textit{Grid Convergence Index}). Este método, basado en la extrapolación de Richardson, permite cuantificar el error de discretización y evaluar la proximidad de la solución numérica al valor asintótico.
+
+El estudio se llevó a cabo utilizando tres mallas sistemáticamente refinadas: gruesa (\textit{coarse}, índice 3), media (\textit{medium}, índice 2) y fina (\textit{fine}, índice 1). La relación de refinamiento $r$ entre mallas sucesivas se mantuvo constante en $r = \sqrt{2}$, definida como:
+
+\begin{equation}
+r = \frac{h_{3}}{h_{2}} = \frac{h_{2}}{h_{1}} \approx \sqrt{2}
+\end{equation}
+
+donde $h$ representa el tamaño característico de la celda.
+
+\subsubsection{Procedimiento de Cálculo}
+
+En primer lugar, se define la diferencia de la solución numérica ($\epsilon$) entre dos mallas sucesivas. Siendo $\Phi$ la variable de interés (en este caso, el factor de forma $1+k$ o la resistencia total), se calcula:
+
+\begin{equation}
+    \epsilon_{21} = \Phi_{2} - \Phi_{1} \quad ; \quad \epsilon_{32} = \Phi_{3} - \Phi_{2}
+\end{equation}
+
+A partir de estas diferencias, se calcula la razón de convergencia $R$, que permite determinar el comportamiento del refinamiento:
+
+\begin{equation}
+    R = \frac{\epsilon_{21}}{\epsilon_{32}}
+\end{equation}
+
+Siguiendo los criterios establecidos por la ITTC (2008), el comportamiento de la convergencia se clasifica de la siguiente manera:
+\begin{itemize}
+    \item \textbf{Convergencia Monotónica ($0 < R < 1$):} La solución se acerca al valor asintótico de manera uniforme.
+    \item \textbf{Convergencia Oscilatoria ($R < 0$):} La solución oscila alrededor del valor asintótico. En este caso, la incertidumbre se estima basándose en la amplitud de la oscilación.
+    \item \textbf{Divergencia ($R > 1$):} La solución se aleja al refinar la malla (caso no válido).
+\end{itemize}
+
+Para los casos de convergencia (monotónica u oscilatoria acotada), se calcula el orden aparente de precisión $p$:
+
+\begin{equation}
+    p = \frac{\ln \left( \frac{\epsilon_{32}}{\epsilon_{21}} \right)}{\ln(r)}
+\end{equation}
+
+Finalmente, se determina el Índice de Convergencia de Malla para la malla fina ($GCI_{fine}$), incorporando un factor de seguridad $F_s = 1.25$ recomendado para estudios con tres mallas:
+
+\begin{equation}
+    GCI_{fine} = F_s \frac{ \left| \frac{\Phi_{1} - \Phi_{2}}{\Phi_{1}} \right| }{r^p - 1} \times 100 \%
+\end{equation}
+
+Los resultados detallados de este estudio, incluyendo los valores de $R$, $p$ y el $GCI$ resultante para cada velocidad, se presentan al inicio del Capítulo 4. Basado en dicho análisis, se seleccionó la **malla fina** para todas las simulaciones de producción presentadas en esta tesis.

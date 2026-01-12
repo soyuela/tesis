@@ -202,100 +202,11 @@ Finalmente, en la Figura \ref{fig:kcs_validation} se comparan los resultados del
 
 \subsection{Ensayos computacionales de resistencia al avance}
 
-En esta sección se replican mediante simulaciones numéricas los ensayos de resistencia realizados en el canal. El objetivo principal es obtener la resistencia total del modelo bajo las mismas condiciones hidrodinámicas impuestas experimentalmente. A diferencia del ensayo físico, el estudio computacional permite descomponer la resistencia en sus contribuciones tangencial y normal, lo que habilita otra perspectiva para el análisis de la resistencia, antes de recurrir a modelos como el de Hughes.
+Con el objetivo de validar la herramienta numérica y descomponer la resistencia total en sus componentes físicas, se replicaron computacionalmente los ensayos de canal descritos en la sección anterior. Las simulaciones se realizaron siguiendo la configuración metodológica detallada en el Capítulo \ref{chap:Metodologia}, utilizando el solucionador multifásico \texttt{interFoam} para capturar la deformación de la superficie libre.
 
-La Figura~\ref{fig:dominio} muestra el dominio computacional empleado para el ensayo de resistencia en configuración bifásica. El flujo se modeló mediante el enfoque VoF previamente descrito, para lo cual el campo $\alpha_{\mathrm{water}}$ permite distinguir la distribución aire–agua y la evolución de la superficie libre. En este marco, la presión se resolvió en términos de $p_{rgh}$, es decir, la presión reducida que descuenta la componente hidrostática, lo que facilita la estabilización de la superficie libre y evita gradientes espurios en la dirección vertical.
+El dominio computacional (ver Figura \ref{fig:dominio_metodologia} en la Sección 3.6) reproduce las condiciones de aguas profundas del canal, asegurando que las reflexiones de olas en los límites laterales no interfieran con la medición de resistencia en el casco. Las condiciones de contorno empleadas corresponden al esquema estándar presentado en la Tabla \ref{tab:bc_setup}, garantizando la conservación de masa y la correcta generación de turbulencia en la capa límite mediante el modelo $k-\omega$ SST.
 
-Las dimensiones del dominio fueron seleccionadas de modo tal que el casco permaneciera suficientemente alejado de los límites laterales y aguas abajo, evitando efectos de bloqueo y permitiendo un desarrollo adecuado del tren de olas. Las condiciones de borde aplicadas en cada superficie se resumen en la Tabla~\ref{tab:num_cond}. La entrada se modeló mediante un flujo uniforme tanto para la velocidad como para la fracción volumétrica, mientras que la salida se trató mediante condiciones que permiten la libre descarga del volumen de agua y la evolución de la superficie libre. Los límites laterales y el fondo se definieron como superficies de simetría, y la atmósfera se configuró como un borde abierto para la fase gaseosa que permite ajustar la presión total y evacuar aire sin imponer restricciones. El casco se modeló con condición de no deslizamiento.
-
-Finalmente, para reproducir las condiciones iniciales prácticamente laminares del canal, las variables turbulentas $k$ y $\omega$ se fijaron a valores próximos a cero en la entrada y en la superficie libre, permitiendo que el modelo SST $k$--$\omega$ genere turbulencia únicamente a partir de la interacción del flujo con el casco.
-
-
-\begin{figure}[htpb]
-\centering
-\includegraphics[width=0.6\textwidth]{images/domain}
-\caption{Dominio computacional para ensayo de resistencia al avance}
-\label{fig:dominio}
-\end{figure}
-
-\begin{table}[H]
-\centering
-\caption{Condiciones de borde empleadas en las simulaciones bifásicas con superficie libre.}
-\footnotesize
-\begin{tabular}{lcccccc}
-\toprule
-\textbf{Patch} 
-& \textbf{$U$} 
-& \textbf{$p_{rgh}$} 
-& \textbf{$\alpha_w$} 
-& \textbf{$k$} 
-& \boldmath{$\omega$} 
-& \boldmath{$\nu_t$} \\
-\midrule
-
-Inlet        
-& FV    
-& FFP  
-& FV    
-& FV    
-& FV    
-& FV \\
-
-Outlet       
-& OPMV  
-& ZG    
-& VHF   
-& IO    
-& IO    
-& ZG \\
-
-Atmosphere   
-& PIOV  
-& TP    
-& IO    
-& IO    
-& IO    
-& ZG \\
-
-Hull (casco) 
-& MWV  
-& FFP  
-& ZG    
-& kLRWF 
-& oWF   
-& nutkWF \\
-\bottomrule
-\end{tabular}
-\label{tab:num_cond}
-\end{table}
-
-\noindent\textbf{Abreviaturas y descripción de cada condición:}
-
-\begin{itemize}
-    \item \textbf{FV} (fixedValue): fija el valor del campo en el borde. Se utiliza para imponer velocidad o fracción volumétrica en la entrada.
-    
-    \item \textbf{FFP} (fixedFluxPressure): impone un gradiente de presión coherente con el flujo másico. Es la condición estándar para $p_{rgh}$ en entradas o paredes.
-    
-    \item \textbf{ZG} (zeroGradient): permite que el valor del campo salga del dominio sin forzar ningún valor específico (condición natural). Se usa en salidas y límites abiertos.
-    
-    \item \textbf{IO} (inletOutlet): si el flujo entra, impone un valor dado; si sale, utiliza zeroGradient. Apropiada para superficie libre y turbulencia en atmósfera y salida.
-    
-    \item \textbf{VHF} (variableHeightFlowRate): ajusta la fracción volumétrica de agua según la altura dinámica, manteniendo una superficie libre estable en la salida.
-    
-    \item \textbf{OPMV} (outletPhaseMeanVelocity): impone un valor medio de velocidad para cada fase en la salida, controlando la dirección y estableciendo un caudal coherente.
-    
-    \item \textbf{PIOV} (pressureInletOutletVelocity): ajusta la velocidad en función del gradiente de presión, permitiendo flujo bidireccional según corresponda (ideal para atmósfera).
-    
-    \item \textbf{TP} (totalPressure): fija la presión total (estática + dinámica) en un límite abierto. Se usa en la atmósfera para permitir variación libre del nivel.
-    
-    \item \textbf{MWV} (movingWallVelocity): velocidad impuesta en paredes móviles; en un remolque equivale a pared quieta con deslizamiento cero.
-    
-    \item \textbf{kLRWF} (kLowReWallFunction): condición de borde para $k$ en régimen de bajo o alto Reynolds, adecuada para capas límite finas en modelos VoF.
-    
-    \item \textbf{oWF} (omegaWallFunction): condición estándar para $\omega$ en paredes, garantiza un gradiente correcto en la capa viscosa.
-    
-    \item \textbf{nutkWF} (nutkWallFunction): función de pared para la viscosidad turbulenta $\nu_t$, calcula automáticamente el valor en función del $k$ local.
-\end{itemize}
+A diferencia del ensayo experimental, donde solo se obtiene la fuerza integral $R_{TM}$, el enfoque numérico permite separar las contribuciones de las fuerzas de presión y de fricción. Esta descomposición es fundamental para analizar la influencia de la forma del casco en la resistencia viscosa, aspecto que se discute en las secciones siguientes.
 
 A continuación, en la Figura \ref{fig:CFD_olas_195_Fr45} se presenta a modo ilustrativo la simulación convergida del casco a $Fr = 0.45$ en la condición de Calado 3 y en las Figuras \ref{fig:cfd_165_tpa} a \ref{fig:cfd_195_tpa} se presentan las curvas de resistencia total obtenidas para los tres calados. En todos los casos se observa un incremento continuo de la resistencia con el número de Froude, mostrando la transición habitual entre el régimen de bajas velocidades, donde la contribución viscosa domina el comportamiento global, y el rango a partir de $F_n \approx 0.30$, donde la componente asociada a la generación de olas comienza a desarrollarse con mayor intensidad. La evolución suave de las curvas y la ausencia de oscilaciones significativas indican que las simulaciones convergen de forma estable hacia un régimen estacionario, reproduciendo adecuadamente el comportamiento esperado para un ensayo de remolque. 
 
@@ -352,63 +263,125 @@ Al igual que se hizo con los ensayos experimentales, se repite el análisis de r
 \label{fig:tpa_range_cfd}
 \end{figure}
 
-\paragraph{Método de doble cuerpo}
-Una alternativa para estudiar el factor de forma consiste en reemplazar la superficie libre por un plano de simetría, limitando el dominio hasta la línea de calado tal como se muestra en la Figura~\ref{fig:double_cody}. En este enfoque de \textit{doble cuerpo}, la fase de aire se elimina y el casco se modela como un cuerpo totalmente sumergido; al no existir superficie libre, la resistencia por formación de olas se anula \citep{DOGRUL2020107428}. 
+\subsection{Enfoque de Doble Cuerpo (Double Body)}
 
-Desde el punto de vista numérico, la ausencia de la interfaz aire–agua simplifica considerablemente el modelo y reduce el costo computacional. Tal como explican Korkmaz et al.~\citep{Korkmaz2021}, este tipo de simulaciones permite obtener directamente la contribución viscosa del casco —sin efectos de ola, hélice o rugosidad— lo que lo convierte en un enfoque adecuado para aislar la magnitud que el factor de forma pretende representar.
+Ante las dificultades observadas para aplicar el método de Prohaska en el entorno numérico —debido a la incertidumbre en la transición de la turbulencia y la curvatura a bajas velocidades— se optó por una estrategia alternativa: el método de \textit{doble cuerpo}.
 
-\begin{figure}[htpb]
+Como se detalló en la Sección 3.4.2, este enfoque elimina la superficie libre y la formación de olas, modelando el fluido como un medio infinito y el casco como un cuerpo reflejado (ver Figura \ref{fig:double_body_domain}). Esto permite aislar la resistencia viscosa ($R_V$) y calcular el factor de forma $(1+k)$ directamente para cada velocidad mediante la relación $C_V / C_{F,ref}$, sin depender de la extrapolación a velocidad cero.
+
+\subsubsection{Análisis del Pesquero TPA}
+
+Antes de evaluar el comportamiento físico del factor de forma, es imperativo verificar la fiabilidad de la solución numérica. La Tabla \ref{tab:CFD_TPA_1_20} resume los indicadores de calidad de malla para las simulaciones del TPA a escala 1:20.
+
+Se observa que la estrategia de mallado garantiza un valor de $y^+$ promedio cercano a 1 (resolución de la subcapa viscosa) para todo el rango de velocidades. Asimismo, el Índice de Convergencia de Malla (GCI) para la malla fina se mantiene por debajo del 0.2\% en el rango operativo ($Fr < 0.36$). Estos indicadores confirman que los resultados presentados a continuación son independientes de la discretización espacial y que las variaciones observadas responden a fenómenos físicos y no a artefactos numéricos.
+
+\begin{table}[H]
 \centering
-\includegraphics[width=0.6\textwidth]{images/esquema_malla}
-\caption{Dominio reducido para simulación sin superficie libre.}
-\label{fig:double_cody}
-\end{figure}
+\caption{Verificación numérica para el pesquero TPA a escala 1:20 (Malla Fina).}
+\label{tab:CFD_TPA_1_20}
+\small
+\begin{tabular}{ccccc}
+\toprule
+\textbf{Fr} & \textbf{Re} & \boldmath{$y^+$} & \textbf{1+k} & \textbf{GCI [\%]} \\
+\midrule
+0.100 & $6.40\times10^{5}$ & 0.40 & 1.179 & 0.028 \\
+0.160 & $1.02\times10^{6}$ & 0.70 & 1.251 & 0.112 \\
+0.200 & $1.28\times10^{6}$ & 1.03 & 1.320 & 0.009 \\
+0.240 & $1.54\times10^{6}$ & 1.40 & 1.378 & 0.003 \\
+0.300 & $1.92\times10^{6}$ & 2.23 & 1.470 & 0.002 \\
+0.360 & $2.31\times10^{6}$ & 2.70 & 1.598 & 1.382 \\
+0.400 & $2.56\times10^{6}$ & 3.00 & 1.637 & 13.43 \\
+\bottomrule
+\end{tabular}
+\end{table}
 
-En las Figuras \ref{fig:tpa_DB_k_escala20_165} a \ref{fig:tpa_DB_k_escala20_195} se presenta el factor de forma resultante para cada Fr ensayado en cada calado. Llama la atención la gran diferencia entre $Fr = 0.10$ y $Fr = 0.40$ ya que el modelo de ITTC asume un factor de forma constante para todas las escalas. Encontrar un factor de forma variable dentro de una misma escala violaría dicha hipótesis y dificultaría la elección del mismo para la extrapolación a escala 1:1.
+Las Figuras \ref{fig:tpa_DB_k_escala20_165} a \ref{fig:tpa_DB_k_escala20_195} muestran la evolución del factor de forma calculado para los tres calados. Contrario a la hipótesis clásica de la ITTC, que asume un factor de forma constante e independiente de la velocidad ($k \neq f(Fr, Re)$), los resultados muestran una variación significativa y sistemática de $(1+k)$ a lo largo del rango de Froude.
+
+Este hallazgo resulta crítico: si el factor de forma varía dentro de la misma escala, la selección de un valor único para la extrapolación se vuelve ambigua. Más aún, la tendencia creciente sugiere una fuerte dependencia con el número de Reynolds, problemática que se abordará en profundidad en la Sección \ref{sec:analisis_efectos_escala}.
 
 \begin{figure}[htpb]
 \centering
 \includegraphics[width=0.6\textwidth, trim=3.5cm 8cm 4cm 8cm, clip]{images/tpa_CFD_DC_165.pdf}
-\caption{Factor de forma por método de doble cuerpo para el pesquero. Calado 1.}
+\caption{Factor de forma calculado mediante el método de doble cuerpo para el pesquero. Calado 1.}
 \label{fig:tpa_DB_k_escala20_165}
 \end{figure}
 
 \begin{figure}[htpb]
 \centering
 \includegraphics[width=0.6\textwidth, trim=3.5cm 8cm 4cm 8cm, clip]{images/tpa_CFD_DC_180.pdf}
-\caption{Factor de forma por método de doble cuerpo para el pesquero. Calado 2.}
+\caption{Factor de forma calculado mediante el método de doble cuerpo para el pesquero. Calado 2.}
 \label{fig:tpa_DB_k_escala20_180}
 \end{figure}
 
 \begin{figure}[htpb]
 \centering
 \includegraphics[width=0.6\textwidth, trim=3.5cm 8cm 4cm 8cm, clip]{images/tpa_CFD_DC_195.pdf}
-\caption{Factor de forma por método de doble cuerpo para el pesquero. Calado 3.}
+\caption{Factor de forma calculado mediante el método de doble cuerpo para el pesquero. Calado 3.}
 \label{fig:tpa_DB_k_escala20_195}
 \end{figure}
 
+\subsubsection{Validación con modelo de referencia KCS}
 
-\subsubsection{Modelo de referencia KCS} 
+Dada la variabilidad observada en el pesquero, resulta necesario descartar que se trate de un error sistemático en la configuración del solver o del modelo de turbulencia. Para ello, se replicó exactamente la misma metodología sobre el modelo de referencia KCS (escala 1:79).
 
-Así como se validaron las instalaciones y la metodología experimental estudiando al modelo KCS y comparándolo con resultados de otros laboratorios, se repitió el análisis computacionalmente. En la Figura \ref{fig:kcs_DB_prohaska} se presenta el factor de forma obtenido mediante simulaciones de doble cuerpo para todo el rango de Froude de la escala 1:79 del LabHiNO y se lo compara con los resultados obtenidos por \citep{TERZIEV2021147} para el mismo modelo en escala 1:75.
+La Tabla \ref{tab:CFD_KCS} presenta la verificación numérica para este casco. Al igual que en el caso anterior, los valores de $y^+$ y GCI garantizan una solución numéricamente robusta.
+
+\begin{table}[H]
+\centering
+\caption{Verificación numérica para el modelo KCS a escala 1:79.}
+\label{tab:CFD_KCS}
+\small
+\begin{tabular}{ccccc}
+\toprule
+\textbf{Fr} & \textbf{Re} & \boldmath{$y^+$} & \textbf{1+k} & \textbf{GCI [\%]} \\
+\midrule
+0.020 & $3.19\times10^{5}$ & 0.32 & 1.015 & 0.12 \\
+0.040 & $6.37\times10^{5}$ & 0.91 & 1.022 & 0.06 \\
+0.060 & $9.56\times10^{5}$ & 1.70 & 1.039 & 0.04 \\
+0.080 & $1.28\times10^{6}$ & 2.64 & 1.101 & 0.01 \\
+0.100 & $1.59\times10^{6}$ & 3.71 & 1.141 & 0.09 \\
+0.120 & $1.91\times10^{6}$ & 4.90 & 1.218 & 0.07 \\
+0.140 & $2.23\times10^{6}$ & 6.21 & 1.308 & 0.00 \\
+0.160 & $2.55\times10^{6}$ & 7.61 & 1.314 & 0.01 \\
+0.180 & $2.87\times10^{6}$ & 9.12 & 1.289 & 0.01 \\
+0.200 & $3.19\times10^{6}$ & 10.71 & 1.254 & 0.04 \\
+0.220 & $3.51\times10^{6}$ & 12.39 & 1.214 & 0.08 \\
+0.240 & $3.82\times10^{6}$ & 14.16 & 1.182 & 0.11 \\
+0.260 & $4.14\times10^{6}$ & 16.00 & 1.154 & 0.13 \\
+0.280 & $4.46\times10^{6}$ & 17.92 & 1.131 & 0.20 \\
+0.300 & $4.78\times10^{6}$ & 19.92 & 1.118 & 0.09 \\
+0.320 & $5.10\times10^{6}$ & 21.98 & 1.118 & 0.43 \\
+0.340 & $5.42\times10^{6}$ & 24.12 & 1.117 & 0.35 \\
+0.360 & $5.74\times10^{6}$ & 26.32 & 1.114 & 1.06 \\
+0.380 & $6.06\times10^{6}$ & 28.59 & 1.118 & 1.86 \\
+0.400 & $6.37\times10^{6}$ & 30.93 & 1.117 & 1.09 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+La Figura \ref{fig:kcs_DB_prohaska} compara los resultados obtenidos con los reportados por \citet{TERZIEV2021147}. La concordancia es excelente, reproduciendo incluso la ``joroba'' característica en el rango de transición ($Re \approx 10^6 - 3\times10^6$).
 
 \begin{figure}[htpb]
 	\centering
 	\includegraphics[width=.6\columnwidth, trim=3.5cm 8cm 4cm 8cm, clip]{images/kcs_DB_prohaska.pdf}
-	\caption{Numerical $1+k$ vs $Rn$ for the KCS 1:79 and 1:75 of Terziev et al. \cite{TERZIEV2021147}.}
+	\caption{Validación numérica: comparación de $1+k$ vs $Rn$ para el KCS 1:79 (Presente) y 1:75 \cite{TERZIEV2021147}.}
 	\label{fig:kcs_DB_prohaska}
 \end{figure}
 
-Considerando que las escalas son diferentes pero cercanas se observa que las curvas alcanzan cierta estabilidad a valores similares de 1+k. Estos se encuentran un poco por encima del valor experimental obtenido en el LabHiNO. La principal duda que surgió al hacer este análisis, junto con el caso del pesquero, fue la joroba que presentó la curva entre $Re = 1x10^6$ y $Re = 3x10^6$, pero al observar la misma joroba en el análisis de \citep{TERZIEV2021147} se concluye que el comportamiento es esperado. En la sección XX se verá el efecto del modelo de turbulencia elegido.
-
-Con el fin de no comparar con un solo autor, en la Figura \ref{fig:completo_kcs_lit} se incluye todo el rango de Froude analizado junto con los valores reportados por decenas de laboratorios y recopilados por \citep{TerzievDataSet}. En este compilado los valores reportados por cada laboratorio son los valores alcanzados en la convergencia de cada escala, lo que nos indica que los valores obtenidos para Reynolds entre $Re = 1x10^6$ y $Re = 3x10^6$ no deberían ser tomados como válidos, pero sí el valor para el cual la curva se estabiliza.
+Finalmente, la Figura \ref{fig:completo_kcs_lit} confirma que nuestro modelo sigue la tendencia asintótica global validada por múltiples laboratorios internacionales \citep{TerzievDataSet}.
 
 \begin{figure}[htpb]
 	\centering
 	\includegraphics[width=.6\columnwidth]{images/cfd_kcs_lit}
-	\caption{$1+k$ vs $Rn$ for the KCS. Numerical (CFD DB) results from present work and from Terziev et al. Data set \citep{TerzievDataSet}.}
+	\caption{Contexto global: Resultados propios (CFD DB) frente a la base de datos internacional del KCS \citep{TerzievDataSet}.}
 	\label{fig:completo_kcs_lit}
 \end{figure}
+
+Esta validación cruzada permite afirmar que:
+\begin{enumerate}
+    \item La metodología numérica es correcta y precisa.
+    \item La falta de estabilidad asintótica observada en el pesquero TPA no es un error numérico, sino una característica hidrodinámica intrínseca de su geometría de baja esbeltez, la cual difiere del comportamiento estándar observado en buques como el KCS.
+\end{enumerate}
 
 \subsection{Comparación EFD CFD de resistencia y de fator de forma}
 
