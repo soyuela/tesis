@@ -1036,13 +1036,19 @@ El esquema temporal fue \textit{localEuler} y se consideró convergencia cuando 
 Todas las simulaciones corresponden a dominio de doble cuerpo (sin superficie libre) y a flujo estacionario en torno a un casco completamente sumergido, como se describe en la Sección~\ref{fig:double_cody}.  
 Las condiciones de contorno se mantuvieron idénticas para los cuatro modelos de turbulencia, de modo que las diferencias observadas se deban exclusivamente al cierre turbulento.  
 
+% --- INSERTAR EN CAPÍTULO 4, SECCIÓN DE TURBULENCIA ---
+
 \subsection{Modelos de turbulencia analizados}
 
-A continuación se presenta en detalle la formulación y las diferencias conceptuales entre los modelos de turbulencia empleados en este trabajo, haciendo énfasis en los mecanismos físicos que pueden influir en la predicción de la resistencia viscosa y, en particular, del factor de forma $(1+k)$.
+A continuación se presenta la formulación y las diferencias conceptuales entre los modelos de turbulencia empleados para el análisis de sensibilidad. El objetivo es contrastar el modelo base (SST) con formulaciones alternativas para evaluar el impacto en la predicción de la resistencia viscosa y el factor de forma $(1+k)$.
 
-\paragraph{Modelo $k$--$\omega$}
+\paragraph{Modelo $k$--$\omega$ SST (Modelo de Referencia)}
 
-El modelo $k$--$\omega$ es un modelo RANS de dos ecuaciones que resuelve explícitamente la energía cinética turbulenta $k$ y la tasa específica de disipación $\omega$.  
+El modelo $k$--$\omega$ SST (\textit{Shear Stress Transport}) se utilizó como el estándar para todos los cálculos presentados en los capítulos anteriores. Su formulación detallada y la justificación de su elección se encuentran descritas en la Sección \ref{sec:metodo_SST} del Capítulo 3. En esta comparativa, sus resultados sirven como la línea base ('Baseline') frente a la cual se evalúan las desviaciones de los otros modelos.
+
+\paragraph{Modelo $k$--$\omega$ estándar}
+
+El modelo $k$--$\omega$ original (Wilcox) es un modelo RANS de dos ecuaciones que resuelve explícitamente la energía cinética turbulenta $k$ y la tasa específica de disipación $\omega$.  
 Las ecuaciones de transporte se escriben como:
 
 \begin{equation}
@@ -1071,31 +1077,11 @@ donde $P_k$ representa el término de producción de energía cinética turbulen
 \nu_t = \frac{k}{\omega}.
 \end{equation}
 
-Este modelo presenta una buena resolución de la capa límite viscosa sin necesidad de funciones de pared, lo que lo hace adecuado para flujos con gradientes de presión adversos. Sin embargo, su formulación es sensible a las condiciones de contorno impuestas para $\omega$ en regiones alejadas de la pared, lo que puede afectar la predicción del campo turbulento global.
-
-\paragraph{Modelo $k$--$\omega$ SST}
-
-El modelo $k$--$\omega$ SST (\textit{Shear Stress Transport}), introducido por \citet{Menter1994}, combina las ventajas del modelo $k$--$\omega$ cerca de la pared con las del modelo $k$--$\varepsilon$ en el flujo externo.  
-La transición entre ambos modelos se realiza mediante una función de mezcla $F_1$, de modo que:
-
-\begin{itemize}
-    \item en la región próxima a la pared ($F_1 \approx 1$), se utiliza la formulación $k$--$\omega$,
-    \item en el flujo externo ($F_1 \approx 0$), se adopta una formulación equivalente a $k$--$\varepsilon$.
-\end{itemize}
-
-Adicionalmente, el modelo SST introduce un limitador sobre la viscosidad turbulenta:
-
-\begin{equation}
-\nu_t = \frac{a_1 k}{\max(a_1 \omega, S F_2)},
-\end{equation}
-
-donde $S$ es la magnitud del tensor de tasa de deformación y $F_2$ es una segunda función de mezcla.  
-Este limitador reduce la sobreestimación de esfuerzos turbulentos en zonas con separación incipiente, mejorando la predicción de flujos con gradientes de presión adversos y regiones de estela, características relevantes en el análisis del factor de forma.
+Aunque este modelo presenta una buena resolución de la capa límite viscosa sin necesidad de funciones de amortiguamiento, es conocido por su fuerte sensibilidad a las condiciones de contorno de turbulencia en el flujo libre (\textit{freestream sensitivity}), lo que puede afectar la predicción del campo turbulento global si el dominio no es lo suficientemente grande.
 
 \paragraph{Modelo $k$--$\varepsilon$ estándar}
 
-El modelo $k$--$\varepsilon$ estándar es uno de los modelos de turbulencia más utilizados debido a su robustez numérica y bajo costo computacional.  
-Resuelve las ecuaciones de transporte para la energía cinética turbulenta $k$ y su tasa de disipación $\varepsilon$:
+El modelo $k$--$\varepsilon$ estándar es uno de los modelos de turbulencia más utilizados históricamente en ingeniería debido a su robustez numérica. Resuelve las ecuaciones de transporte para la energía cinética turbulenta $k$ y su tasa de disipación $\varepsilon$:
 
 \begin{equation}
 \frac{\partial k}{\partial t} + U_j \frac{\partial k}{\partial x_j}
@@ -1124,26 +1110,21 @@ La viscosidad turbulenta se define como:
 \nu_t = C_\mu \frac{k^2}{\varepsilon},
 \end{equation}
 
-con $C_\mu$ constante.  
-Este modelo asume equilibrio local entre producción y disipación y fue calibrado para flujos completamente turbulentos y alejados de la pared. Como consecuencia, tiende a sobreestimar la difusión turbulenta en la capa límite y no resulta adecuado para capturar con precisión efectos de separación o flujos con fuerte curvatura, lo que puede afectar la estimación del factor de forma.
+con $C_\mu$ constante. Este modelo asume equilibrio local entre producción y disipación y fue calibrado para flujos completamente turbulentos y alejados de la pared. Como consecuencia, tiende a sobreestimar la difusión turbulenta en la capa límite y no resulta adecuado para capturar con precisión efectos de separación bajo gradientes de presión adversos, tendiendo a predecir una re-adhesión del flujo demasiado temprana en la popa.
 
 \paragraph{Modelo $k$--$\varepsilon$ realizable}
 
-El modelo $k$--$\varepsilon$ realizable introduce modificaciones conceptuales al modelo estándar con el objetivo de cumplir restricciones matemáticas sobre los esfuerzos de Reynolds (\textit{realizability}).  
-En particular, el coeficiente $C_\mu$ deja de ser constante y pasa a depender del estado local del flujo, y la ecuación de $\varepsilon$ se reformula para mejorar la predicción de flujos con rotación, separación moderada y estelas.
+El modelo $k$--$\varepsilon$ realizable introduce modificaciones conceptuales al modelo estándar con el objetivo de cumplir restricciones matemáticas sobre los esfuerzos de Reynolds (\textit{realizability}), evitando la generación de energía cinética negativa en flujos con grandes deformaciones medias. 
+
+En particular, el coeficiente $C_\mu$ deja de ser constante y pasa a depender del estado local del flujo (tasa de deformación y rotación), y la ecuación de $\varepsilon$ se reformula para mejorar la predicción de flujos con rotación, separación moderada y estelas.
 
 La expresión general de la viscosidad turbulenta se escribe como:
 
 \begin{equation}
-\nu_t = C_\mu(\mathbf{U}, \nabla \mathbf{U}) \frac{k^2}{\varepsilon},
+\nu_t = C_\mu(\mathbf{U}, \nabla \mathbf{U}) \frac{k^2}{\varepsilon}.
 \end{equation}
 
-donde $C_\mu$ es una función del campo de velocidades y de la tasa de deformación.  
-Estas modificaciones permiten reducir la difusión excesiva característica del modelo estándar y mejorar la predicción de estructuras vorticosas coherentes, especialmente relevantes en la estela del casco y en regiones de presión adversa que influyen directamente en la componente viscosa de la resistencia.
-
-\vspace{0.5em}
-
-En conjunto, las diferencias entre estos modelos se reflejan principalmente en la predicción de la capa límite, la intensidad de la difusión turbulenta y la aparición o atenuación de zonas de separación. Estos aspectos resultan determinantes en la evaluación del término de presión viscosa y, en consecuencia, en la estimación del factor de forma $(1+k)$, como se analizará en la sección siguiente.
+Estas modificaciones permiten reducir la difusión excesiva característica del modelo estándar y mejorar la predicción de estructuras vorticosas coherentes. Se incluye en este análisis para evaluar si una formulación $k-\varepsilon$ mejorada puede acercarse a los resultados del modelo basado en $\omega$ para la determinación del factor de forma.
 
 
 \subsection{Comparación de resistencia viscosa}

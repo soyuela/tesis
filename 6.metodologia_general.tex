@@ -3,41 +3,93 @@
 
 \section{Introducción}
 
-Habiendo establecido en el Capítulo 2 los fundamentos físicos de la resistencia al avance y las bases teóricas de la mecánica de fluidos, este capítulo detalla la implementación práctica de las herramientas utilizadas. La investigación adopta una estrategia híbrida que vincula ensayos físicos en canal de remolque (EFD) con simulaciones numéricas de alta fidelidad (CFD).
+Habiendo establecido en el Capítulo 2 los fundamentos físicos de la resistencia al avance y las bases teóricas de la mecánica de fluidos, este capítulo detalla la implementación práctica de las herramientas utilizadas en esta tesis. La investigación adopta una estrategia híbrida que vincula ensayos físicos en canal de remolque (EFD) con simulaciones numéricas de alta fidelidad (CFD).
 
-A continuación se describen las instalaciones experimentales del Laboratorio de Hidrodinámica Naval y Oceánica (LabHiNO), los modelos físicos construidos y la instrumentación empleada. Posteriormente, se detalla la configuración del modelo numérico en \textit{OpenFOAM}, especificando el dominio computacional, las condiciones de contorno y los esquemas de discretización utilizados tanto para los ensayos de resistencia con superficie libre como para las simulaciones de doble cuerpo.
+A continuación, se describen las instalaciones experimentales del Laboratorio de Hidrodinámica Naval y Oceánica (LabHiNO), las características geométricas de los modelos construidos y la instrumentación empleada. Posteriormente, se detalla la configuración del modelo numérico en \textit{OpenFOAM}, especificando el dominio computacional, las condiciones de contorno y los esquemas de discretización utilizados tanto para los ensayos de resistencia con superficie libre como para las simulaciones de doble cuerpo.
 
 \section{Metodología Experimental (EFD)}
 
-Los ensayos experimentales se llevaron a cabo en el canal de remolque del LabHiNO. Esta campaña tuvo como objetivo principal generar una base de datos de validación confiable para el modelo pesquero TPA y el buque de referencia KCS.
+Los ensayos experimentales se llevaron a cabo en el canal de remolque del LabHiNO. Esta campaña tuvo como objetivo principal generar una base de datos de validación confiable para el modelo pesquero TPA y verificar el procedimiento mediante el buque de referencia KCS.
 
-\subsection{Instalaciones y Modelos}
+\subsection{Instalaciones: El Canal de Remolque}
 
-El canal de remolque utilizado posee las dimensiones y capacidades necesarias para operar en el régimen de números de Reynolds y Froude requeridos por este estudio, minimizando efectos de bloqueo y de aguas someras.
+El canal de experiencias hidrodinámicas utilizado posee las dimensiones y capacidades necesarias para operar en el régimen de números de Reynolds y Froude requeridos por este estudio, minimizando efectos de bloqueo y de aguas someras.
 
-Se construyeron y ensayaron dos modelos a escala:
-\begin{enumerate}
-    \item \textbf{Modelo Pesquero TPA:} Un casco de baja esbeltez ($L/B < 4$) representativo de la flota pesquera nacional. Se construyó a escala 1:20 y se evaluó en tres condiciones de calado (ligero, medio y pesado) para barrer un rango operativo amplio.
-    \item \textbf{Modelo de Referencia KCS:} El buque portacontenedores KRISO (MOERI) Container Ship, construido a escala 1:79. Este modelo se utilizó para la verificación del sistema de medición y la validación cruzada con bases de datos internacionales.
-\end{enumerate}
+Las características principales de la instalación son:
+\begin{itemize}
+    \item \textbf{Dimensiones del vaso:} [Largo] m $\times$ [Ancho] m $\times$ [Profundidad] m.
+    \item \textbf{Carro dinamométrico:} Tipo remolcador con control de velocidad de precisión ($\pm 1$ mm/s) y capacidad de velocidad máxima de [X] m/s.
+\end{itemize}
 
-Para asegurar la similitud cinemática en la capa límite y evitar la laminarización del flujo a bajas velocidades, se instalaron estimuladores de turbulencia (tiras de arena/studs) en la proa de ambos modelos, siguiendo las recomendaciones de la ITTC (Procedimiento 7.5-01-01-01).
+\subsection{Modelos Físicos}
+
+Se construyeron y ensayaron dos modelos a escala, fabricados en [Material, ej: espuma de poliuretano de alta densidad / madera] y acabados con pintura de alto brillo para garantizar una superficie hidráulicamente lisa.
+
+\subsubsection{Modelo Pesquero TPA}
+El modelo principal de estudio, denominado TPA, representa un buque pesquero de baja esbeltez ($L/B < 4$) característico de la flota nacional. El modelo fue construido a escala $\lambda = 20$.
+
+En la Figura \ref{fig:model_tpa}, se presentan las vistas del modelo físico terminado. Se pueden apreciar las marcas de las estaciones teóricas y la disposición de la proa con bulbo. Para asegurar la transición a régimen turbulento de la capa límite y evitar la laminarización del flujo a bajas velocidades, se instalaron estimuladores de turbulencia (studs cilíndricos de 3 mm de diámetro y 2 mm de altura) a un 5\% de la eslora desde la perpendicular de proa, siguiendo las recomendaciones de la ITTC (Procedimiento 7.5-01-01-01).
+
+\begin{figure}[htpb]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/tpa-pers.png}
+        \caption{Vista en perspectiva de proa. Se observan las marcas de calado y los estimuladores de turbulencia.}
+        \label{fig:tpa_pers}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/tpa-side.png}
+        \caption{Vista de perfil. Geometría de baja esbeltez típica de pesqueros.}
+        \label{fig:tpa_side}
+    \end{subfigure}
+    \caption{Modelo físico del pesquero TPA (Escala 1:20) preparado para ensayos en el LabHiNO.}
+    \label{fig:model_tpa}
+\end{figure}
+
+El modelo se evaluó en tres condiciones de carga (ligero, medio y pesado) para barrer un rango operativo amplio y analizar la sensibilidad del factor de forma al calado.
+
+\subsubsection{Modelo de Referencia KCS}
+Con el fin de verificar la calibración del canal y validar la metodología mediante comparación con bases de datos internacionales, se construyó un modelo del buque portacontenedores \textit{KRISO Container Ship} (KCS) a escala $\lambda = 79$.
+
+La Figura \ref{fig:model_kcs} muestra el modelo KCS. A diferencia del pesquero, este casco presenta una esbeltez elevada y una proa bulbo prominente diseñada para velocidades de servicio más altas ($Fr \approx 0.26$). La comparación entre la física del flujo de este casco esbelto y el casco lleno del TPA constituye uno de los ejes centrales del análisis de efectos de escala en esta tesis.
+
+\begin{figure}[htpb]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/kcs-pers.png}
+        \caption{Detalle de la proa bulbo del KCS.}
+        \label{fig:kcs_pers}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/kcs-side.png}
+        \caption{Vista de perfil del KCS. Nótese la gran esbeltez comparada con el TPA.}
+        \label{fig:kcs_side}
+    \end{subfigure}
+    \caption{Modelo físico del buque de referencia KCS (Escala 1:79).}
+    \label{fig:model_kcs}
+\end{figure}
 
 \subsection{Instrumentación y Adquisición de Datos}
 
 La medición de la resistencia total al avance ($R_T$) se realizó mediante una celda de carga de precisión \textbf{Kempf \& Remmers R47}. Este dinamómetro permite registrar la fuerza longitudinal mientras libera los movimientos de hundimiento (\textit{sinkage}) y cabeceo (\textit{trim}), restringiendo los movimientos laterales y de guiñada.
 
-El sistema de adquisición se configuró con los siguientes parámetros:
+El sistema de adquisición de datos se configuró con los siguientes parámetros para garantizar la fidelidad de la señal:
 \begin{itemize}
-    \item \textbf{Frecuencia de muestreo:} 200 Hz, para capturar la dinámica transitoria y las fluctuaciones turbulentas.
-    \item \textbf{Filtrado:} Se aplicó un filtro paso bajo de 4 Hz durante el post-procesamiento para eliminar el ruido eléctrico y las vibraciones mecánicas de alta frecuencia del carro, sin atenuar la respuesta física del modelo.
+    \item \textbf{Frecuencia de muestreo:} 200 Hz. Esta alta frecuencia permite capturar no solo el valor medio de la resistencia, sino también la dinámica transitoria y las fluctuaciones asociadas al desprendimiento de vórtices.
+    \item \textbf{Post-procesamiento:} Se aplicó un filtro digital paso bajo de 4 Hz a la señal cruda para eliminar el ruido eléctrico y las vibraciones mecánicas de alta frecuencia propias del carro de remolque, preservando la respuesta hidrodinámica del modelo.
 \end{itemize}
 
-\subsection{Análisis de Incertidumbre}
+\subsection{Procedimiento de Ensayo y Análisis de Incertidumbre}
 
-La cuantificación de la incertidumbre experimental se realizó siguiendo los estándares de la ITTC \cite{ITTC_uncertainty}. Se consideraron las fuentes de error sistemático (bias) y aleatorio (precisión), incluyendo la calibración del dinamómetro, la precisión de la velocidad del carro, la medición de la temperatura del agua y la repetibilidad de los ensayos.
+Se siguió el procedimiento estándar para ensayos de resistencia según la ITTC (7.5-02-02-01). La cuantificación de la incertidumbre se realizó considerando fuentes de error sistemático (bias) y aleatorio (precisión), incluyendo la calibración del dinamómetro, la precisión de la velocidad, y la temperatura del agua.
 
-La incertidumbre combinada se calculó mediante el método de la raíz de la suma de los cuadrados (RSS). Como se detalla en los resultados (Capítulo 4), se obtuvieron valores de incertidumbre expandida (95\% de confianza) inferiores al 1\% para las velocidades de diseño, validando la calidad de los datos para su uso en la comparación con CFD.
+La incertidumbre combinada se calculó mediante el método de la raíz de la suma de los cuadrados (RSS). Como se detallará en la sección de resultados, se obtuvieron valores de incertidumbre expandida ($U_{95}$) del orden del 2\% para las velocidades medias y bajas, y menores al 1\% para las velocidades de diseño, lo cual se considera adecuado para validación CFD.
 
 \section{Metodología Numérica (CFD)}
 
@@ -49,65 +101,109 @@ Se definió un dominio computacional rectangular prismático, dimensionado para 
 \begin{itemize}
     \item \textbf{Entrada (Inlet):} Ubicada a $1.5 L_{pp}$ a proa del modelo.
     \item \textbf{Salida (Outlet):} Ubicada a $2.5 L_{pp}$ a popa, permitiendo el desarrollo de la estela y evitando el reflujo.
-    \item \textbf{Límites laterales y fondo:} Ubicados a distancia suficiente para simular condiciones de aguas profundas y restringidas lateralmente solo por la simetría (medio cuerpo simulado).
+    \item \textbf{Límites laterales y fondo:} Ubicados a distancia suficiente para simular condiciones de aguas profundas.
 \end{itemize}
 
-El mallado se generó utilizando la herramienta \texttt{snappyHexMesh}, creando una malla predominantemente hexaédrica no estructurada. Se aplicaron refinamientos locales sucesivos en la zona de superficie libre (para capturar la elevación de ola) y en la cercanía del casco. Para resolver la capa límite turbulenta, se añadieron capas de prismas (\textit{boundary layers}) sobre la superficie del casco, ajustando la altura de la primera celda para obtener valores de $y^+$ compatibles con las funciones de pared utilizadas (rango $1 < y^+ < 300$).
+El mallado se generó utilizando la herramienta \texttt{snappyHexMesh}, creando una malla predominantemente hexaédrica no estructurada con refinamientos locales en la superficie libre y la estela. Para resolver la capa límite turbulenta, se añadieron capas de prismas (\textit{boundary layers}) sobre la superficie del casco, ajustando la altura de la primera celda para obtener valores de $y^+$ compatibles con las funciones de pared utilizadas.
 
-\subsection{Configuración Física y Numérica}
+\subsection{Configuración de los Casos de Estudio}
 
-Se emplearon dos configuraciones de simulación distintas según el objetivo del análisis:
+Se emplearon dos configuraciones de simulación distintas según el objetivo físico del análisis. A continuación se detallan las condiciones de contorno específicas seleccionadas para garantizar la estabilidad y conservación de masa en el dominio.
 
-\subsubsection{1. Simulación de Resistencia Total (Superficie Libre)}
-Para replicar los ensayos de canal y obtener la resistencia total ($R_T$), se utilizó el solucionador multifásico \textbf{interFoam} basado en el método \textbf{Volume of Fluid (VoF)}.
+\subsubsection{1. Simulación con Superficie Libre (Resistencia Total)}
+Esta configuración replica el ensayo de canal para obtener la resistencia total ($R_T$) y el campo de olas.
 
 \begin{itemize}
-    \item \textbf{Modelo de Flujo:} Bifásico (aire-agua), incompresible e isotérmico.
-    \item \textbf{Captura de Interfaz:} Se resolvió la ecuación de transporte para la fracción de volumen $\alpha_{water}$ con el término de compresión artificial de MULES para mantener la nitidez de la interfaz.
-    \item \textbf{Acoplamiento Presión-Velocidad:} Se utilizó el algoritmo \textbf{PIMPLE}, que combina la robustez de SIMPLE con la precisión temporal de PISO. Esto permitió utilizar pasos de tiempo grandes mediante el esquema \texttt{localEuler} (pseudo-transitorio) para acelerar la convergencia hacia el estado estacionario.
-    \item \textbf{Variable de Presión:} Se resolvió la presión dinámica reducida $p_{rgh} = p - \rho \mathbf{g} \cdot \mathbf{x}$, lo que simplifica la definición de las condiciones de borde hidrostáticas.
+    \item \textbf{Solucionador:} \texttt{interFoam}, utilizando el método VoF con compresión de interfaz (MULES).
+    \item \textbf{Acoplamiento PIMPLE:} Algoritmo híbrido PISO-SIMPLE configurado con 2 correcciones externas y 3 internas para permitir pasos de tiempo mayores ($Co_{max} \approx 1\dots5$) manteniendo la estabilidad.
 \end{itemize}
 
-Las condiciones de borde empleadas se resumen en la Tabla \ref{tab:bc_setup}.
+Las condiciones de borde se resumen en la Tabla \ref{tab:bc_setup}. Se utilizaron abreviaturas para facilitar la lectura; las definiciones técnicas correspondientes a las librerías de \textit{OpenFOAM} se detallan a continuación.
 
 \begin{table}[H]
 \centering
-\caption{Condiciones de borde para las simulaciones con superficie libre (VoF).}
+\caption{Condiciones de borde específicas para las simulaciones con superficie libre (VoF).}
 \label{tab:bc_setup}
 \small
-\begin{tabular}{lccccc}
+\begin{tabular}{lcccc}
 \toprule
-\textbf{Variable} & \textbf{Entrada (Inlet)} & \textbf{Salida (Outlet)} & \textbf{Atmósfera} & \textbf{Casco} \\
+\textbf{Variable} & \textbf{Entrada} & \textbf{Salida} & \textbf{Atmósfera} & \textbf{Casco} \\
 \midrule
-$U$ (Velocidad) & \texttt{fixedValue} & \texttt{inletOutlet} & \texttt{pressureInletOutlet} & \texttt{noSlip} \\
-$p_{rgh}$ (Presión) & \texttt{fixedFluxPressure} & \texttt{zeroGradient} & \texttt{totalPressure} & \texttt{fixedFluxPressure} \\
-$\alpha_{water}$ (Fase) & \texttt{fixedValue} & \texttt{variableHeightFlowRate} & \texttt{inletOutlet} & \texttt{zeroGradient} \\
-Turbulencia ($k, \omega$) & \texttt{fixedValue} & \texttt{inletOutlet} & \texttt{inletOutlet} & \texttt{WallFunctions} \\
+$U$ & FV & OPMV & PIOV & MWV \\
+$p_{rgh}$ & FFP & ZG & TP & FFP \\
+$\alpha_{water}$ & FV & VHFR & IO & ZG \\
+$k$ & FV & IO & IO & kLRWF \\
+$\omega$ & FV & IO & IO & oWF \\
+$\nu_t$ & calc. & calc. & calc. & nutkWF \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-\subsubsection{2. Simulación de Doble Cuerpo (Double Body)}
-Para la determinación del factor de forma $(1+k)$ y el estudio de la resistencia viscosa pura ($C_V$), se utilizó la aproximación de doble cuerpo.
-
+\noindent\textbf{Definición de condiciones de borde:}
 \begin{itemize}
-    \item \textbf{Dominio:} La superficie libre se sustituyó por un plano de simetría (\texttt{symmetryPlane}), simulando el flujo alrededor del casco sumergido y su imagen especular.
-    \item \textbf{Física:} Flujo monofásico (agua) sin gravedad ni formación de olas.
-    \item \textbf{Solucionador:} Se empleó \texttt{pimpleFoam} (algoritmo PIMPLE), resolviendo las ecuaciones RANS en estado estacionario (Steady-State).
+    \item \textbf{FV} (\texttt{fixedValue}): Valor fijo (Dirichlet).
+    \item \textbf{ZG} (\texttt{zeroGradient}): Gradiente normal nulo (Neumann).
+    \item \textbf{IO} (\texttt{inletOutlet}): Permite flujo reverso asignando un valor fijo si entra flujo, o gradiente cero si sale.
+    \item \textbf{FFP} (\texttt{fixedFluxPressure}): Ajusta el gradiente de presión para cumplir la continuidad del flujo másico en la pared.
+    \item \textbf{OPMV} (\texttt{outletPhaseMeanVelocity}): Mantiene una velocidad media de fase en la salida para conservar la masa global.
+    \item \textbf{PIOV} (\texttt{pressureInletOutletVelocity}): Velocidad dependiente del flujo de presión en parches abiertos.
+    \item \textbf{TP} (\texttt{totalPressure}): Presión total fija, permitiendo variaciones en la presión estática según la velocidad.
+    \item \textbf{MWV} (\texttt{movingWallVelocity}): Asigna la velocidad de la pared para mallas móviles o marcos de referencia en movimiento.
+    \item \textbf{VHFR} (\texttt{variableHeightFlowRate}): Permite que la altura de la superficie libre varíe libremente en la salida basándose en el flujo másico.
+    \item \textbf{kLRWF} (\texttt{kLowReWallFunction}): Función de pared para $k$ con tratamiento para alto y bajo Reynolds.
+    \item \textbf{oWF} (\texttt{omegaWallFunction}): Función de pared estándar para la tasa de disipación específica.
+    \item \textbf{nutkWF} (\texttt{nutkWallFunction}): Calcula la viscosidad turbulenta en la pared basada en $k$.
 \end{itemize}
 
-Esta configuración permite aislar la resistencia friccional ($R_F$) y la resistencia de presión viscosa ($R_{PV}$) eliminando por completo la componente de resistencia por olas ($R_W$), tal como se requiere para el cálculo numérico del factor de forma.
+\subsubsection{2. Simulación de Doble Cuerpo (Double Body)}
+Esta configuración se utiliza exclusivamente para la determinación numérica del factor de forma $(1+k)$.
 
-\subsection{Modelado de la Turbulencia}
+\begin{itemize}
+    \item \textbf{Dominio:} La superficie libre se sustituye por un plano de simetría (\texttt{symmetryPlane}), simulando el flujo alrededor del casco sumergido y su imagen especular.
+    \item \textbf{Solucionador:} \texttt{simpleFoam} (Régimen estacionario).
+\end{itemize}
 
-Para el cierre de las ecuaciones RANS, se evaluaron cuatro modelos de turbulencia con el fin de determinar su impacto en el factor de forma (análisis presentado en el Capítulo 4). El modelo base seleccionado para las simulaciones fue el **$k-\omega$ SST (Shear Stress Transport)** de Menter.
+Al eliminar la gravedad y la deformación de la superficie libre, se obtiene directamente la resistencia viscosa pura ($R_V = R_F + R_{VP}$), permitiendo calcular el factor de forma como $1+k = C_V / C_{F,ITTC}$.
 
-Este modelo fue elegido por su capacidad híbrida: utiliza la formulación $k-\omega$ en las cercanías de la pared, lo que es robusto para resolver gradientes de presión adversos y separación de flujo en la popa (crítico para el pesquero analizado), y conmuta a $k-\varepsilon$ en el flujo libre, evitando la sensibilidad a las condiciones de borde de entrada.
+\subsection{Modelado de la Turbulencia: Modelo $k$--$\omega$ SST} \label{sec:metodo_SST}
 
-En las paredes del casco, se utilizaron condiciones de borde tipo función de pared adaptativa (ej. \texttt{kLowReWallFunction}, \texttt{omegaWallFunction}), que permiten una transición suave entre la resolución de la subcapa viscosa y la ley logarítmica dependiendo del refinamiento de la malla ($y^+$).
+Para el cierre del sistema de ecuaciones RANS, se seleccionó el modelo \textbf{$k$--$\omega$ SST (Shear Stress Transport)}, desarrollado por \citet{Menter1994}. Este modelo se ha convertido en el estándar de la industria naval debido a su capacidad para predecir con mayor precisión el inicio y la magnitud de la separación del flujo bajo gradientes de presión adversos, una característica crítica en la hidrodinámica de popas de buques pesqueros.
 
-\subsection{Estrategia de Verificación y Validación}
+El modelo SST es una formulación híbrida de dos ecuaciones que resuelve el transporte de la energía cinética turbulenta ($k$) y la tasa específica de disipación ($\omega$). Su principal ventaja radica en la combinación zonal: utiliza la robusta formulación original $k$--$\omega$ de Wilcox en la región cercana a la pared (capa límite) y conmuta al modelo estándar $k$--$\varepsilon$ en la región de flujo libre. Esta estrategia evita la conocida sensibilidad del modelo $k$--$\omega$ a las condiciones de turbulencia en el borde de entrada (\textit{freestream sensitivity}).
 
-La convergencia numérica se monitoreó observando los residuos de las ecuaciones (con criterio de parada $< 10^{-5}$) y, principalmente, la estabilidad de las fuerzas integradas sobre el casco (Resistencia, Sustentación, Momento). Se consideró la simulación convergida cuando las oscilaciones de la fuerza de resistencia se mantuvieron por debajo del 1\% de su valor medio durante un intervalo de tiempo significativo.
+Las ecuaciones de transporte para $k$ y $\omega$ en el modelo SST son:
 
-Para la validación, los resultados numéricos de resistencia total ($C_T$) se compararon directamente con los datos experimentales obtenidos en el LabHiNO, evaluando el error relativo porcentual para distintas velocidades de Froude.
+\begin{equation}
+    \frac{\partial (\rho k)}{\partial t} + \frac{\partial (\rho U_i k)}{\partial x_i} = \tilde{P}_k - \beta^* \rho k \omega + \frac{\partial}{\partial x_i} \left[ (\mu + \sigma_k \mu_t) \frac{\partial k}{\partial x_i} \right]
+\end{equation}
+
+\begin{equation}
+    \frac{\partial (\rho \omega)}{\partial t} + \frac{\partial (\rho U_i \omega)}{\partial x_i} = \alpha \rho S^2 - \beta \rho \omega^2 + \frac{\partial}{\partial x_i} \left[ (\mu + \sigma_\omega \mu_t) \frac{\partial \omega}{\partial x_i} \right] + 2(1-F_1) \rho \sigma_{\omega 2} \frac{1}{\omega} \frac{\partial k}{\partial x_i} \frac{\partial \omega}{\partial x_i}
+\end{equation}
+
+Donde $\tilde{P}_k$ es el término de producción limitado de turbulencia y $\sigma_k$, $\sigma_\omega$, $\beta$ y $\alpha$ son coeficientes del modelo que se interpolan entre los valores del modelo $k$--$\omega$ y $k$--$\varepsilon$ mediante la función de mezcla $F_1$.
+
+El último término de la ecuación de $\omega$ representa la \textbf{difusión cruzada} (\textit{cross-diffusion}), que se activa únicamente en la zona de flujo libre ($F_1 \to 0$), permitiendo transformar matemáticamente el modelo $k$--$\varepsilon$ en una formulación basada en $\omega$.
+
+\paragraph{Definición de la Viscosidad Turbulenta}
+La diferencia fundamental del modelo SST respecto a los modelos estándar radica en la definición de la viscosidad turbulenta ($\nu_t$). En las capas límite sujetas a gradientes de presión adversos, la hipótesis estándar de Boussinesq sobreestima el esfuerzo cortante de Reynolds, lo que conduce a una predicción tardía de la separación del flujo.
+
+Para corregir esto, Menter introdujo un limitador basado en la hipótesis de Bradshaw, que establece que el esfuerzo cortante es proporcional a la energía cinética turbulenta en la mayor parte de la capa límite. La viscosidad turbulenta se calcula como:
+
+\begin{equation}
+    \nu_t = \frac{a_1 k}{\max(a_1 \omega, S F_2)}
+\end{equation}
+
+Donde:
+\begin{itemize}
+    \item $S = \sqrt{2 S_{ij} S_{ij}}$ es la magnitud del invariante de la tasa de deformación.
+    \item $a_1 = 0.31$ es una constante empírica (coeficiente de estructura de Bradshaw).
+    \item $F_2$ es una segunda función de mezcla que restringe el limitador a la capa límite.
+\end{itemize}
+
+Esta formulación asegura que $\nu_t$ no crezca excesivamente en zonas de alta deformación y baja vorticidad, permitiendo capturar correctamente la estructura de la estela y los vórtices en la popa del buque.
+
+\paragraph{Tratamiento de Pared}
+{\sloppy
+En las superficies del casco, se emplearon condiciones de borde tipo función de pared adaptativa disponibles en \textit{OpenFOAM} (\texttt{kLowReWallFunction}, \texttt{omegaWallFunction}). Estas condiciones permiten una transición continua entre la integración directa de las ecuaciones hasta la pared (cuando la malla es fina, $y^+ \approx 1$) y el uso de leyes de pared logarítmicas (cuando $y^+ > 30$), asegurando la robustez de la solución independientemente de las variaciones locales de la calidad de la malla.
+\par}
