@@ -924,40 +924,86 @@ De acuerdo con el criterio propuesto por \cite{korkmaz_wetted_transom}, el méto
 En el caso del presente pesquero, si bien la geometría de la popa presenta cierta inmersión, el grado de inmersión no alcanza los valores que justificarían la aplicación de dicha corrección.  
 No obstante, con el fin de verificar este aspecto, se analizan comparativamente las simulaciones \textbf{de cuerpo doble y con superficie libre}, tanto \textbf{en escala modelo como en escala real}, observando la estructura del flujo y la persistencia de la recirculación en popa.
 
-Este análisis permite confirmar si la zona de recirculación en la popa ---identificada en las figuras siguientes--- mantiene la coherencia entre escalas o si su intensidad decrece con el aumento del número de Reynolds.  
+Este análisis permite confirmar si la zona de recirculación en la popa, identificada en las figuras siguientes, mantiene la coherencia entre escalas o si su intensidad decrece con el aumento del número de Reynolds.  
 La evidencia obtenida indica que, aunque la recirculación está presente, su extensión e influencia sobre la resistencia total no ameritan una corrección del tipo 2--$k$ según propone \cite{korkmaz_wetted_transom}.
 
-\begin{figure}[htpb]
-	\centering
-	\includegraphics[width=.6\columnwidth]{images/195-016-consinsup-modelo.png}
-	\caption{Comparación de recirculación en popa sumergida. Calado 0.195, $Fr = 0.16$, escala modelo.}
-	\label{fig:tpa_recirculation_model016}
-\end{figure}
+Al contrastar los resultados de las simulaciones con superficie libre presentados en la Figura \ref{fig:recirculacion_comparativa1}, se observa que tanto para $Fr = 0.16$ como para $Fr = 0.36$ la estructura del flujo en la zona de la popa se mantiene sumamente estable entre escalas. No se aprecian desprendimientos nuevos ni variaciones morfológicas significativas en el núcleo de recirculación al pasar de la escala modelo a la escala buque, lo que indica que el efecto de la popa mojada no introduce distorsiones que requieran ser compensadas mediante cálculos adicionales en el proceso de extrapolación de la resistencia.
 
 \begin{figure}[htpb]
-	\centering
-	\includegraphics[width=.6\columnwidth]{images/195-016-consinsup-real.png}
-	\caption{Comparación de recirculación en popa sumergida. Calado 0.195, $Fr = 0.16$, escala real.}
-	\label{fig:tpa_recirculation_real016}
+    \centering
+    % Primera fila
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{images/195-016-consup-modelo.png}
+        \caption{Escala modelo, $Fr = 0.16$}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{images/195-016-consup-real.png}
+        \caption{Escala real, $Fr = 0.16$}
+    \end{subfigure}
+
+    \vspace{0.5cm} % Espacio vertical entre filas
+
+    % Segunda fila
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{images/195-036-consup-modelo.png}
+        \caption{Escala modelo, $Fr = 0.36$}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{images/195-036-consup-real.png}
+        \caption{Escala real, $Fr = 0.36$}
+    \end{subfigure}
+
+    \caption{Comparación de recirculación en popa sumergida para diferentes escalas y números de Froude (Calado 0.195). Casos con superficie libre.}
+    \label{fig:recirculacion_comparativa1}
 \end{figure}
+
+De manera análoga, en los casos de cuerpo doble (sin superficie libre) ilustrados en la Figura \ref{fig:recirculacion_comparativa2}, el comportamiento de la recirculación resulta consistente en todo el rango de velocidades y escalas analizadas. La ausencia de diferencias cualitativas en la topografía del flujo confirma que la influencia de la popa sumergida es independiente del número de Reynolds para este diseño particular, reforzando la decisión de prescindir de correcciones empíricas tipo 2--$k$ en la determinación de la resistencia total del buque.
 
 \begin{figure}[htpb]
-	\centering
-	\includegraphics[width=.6\columnwidth]{images/195-036-consinsup-modelo.png}
-	\caption{Comparación de recirculación en popa sumergida. Calado 0.195, $Fr = 0.36$, escala modelo.}
-	\label{fig:tpa_recirculation_model036}
+    \centering
+    % Primera fila
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{images/195-016-sinsup-modelo.png}
+        \caption{Escala modelo, $Fr = 0.16$}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{images/195-016-sinsup-real.png}
+        \caption{Escala real, $Fr = 0.16$}
+    \end{subfigure}
+
+    \vspace{0.5cm} % Espacio vertical entre filas
+
+    % Segunda fila
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{images/195-036-sinsup-modelo.png}
+        \caption{Escala modelo, $Fr = 0.36$}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{images/195-036-sinsup-real.png}
+        \caption{Escala real, $Fr = 0.36$}
+    \end{subfigure}
+
+    \caption{Comparación de recirculación en popa sumergida para diferentes escalas y números de Froude (Calado 0.195). Casos sin superficie libre.}
+    \label{fig:recirculacion_comparativa2}
 \end{figure}
 
-\begin{figure}[htpb]
-	\centering
-	\includegraphics[width=.6\columnwidth]{images/195-036-consinsup-real.png}
-	\caption{Comparación de recirculación en popa sumergida. Calado 0.195, $Fr = 0.36$, escala real.}
-	\label{fig:tpa_recirculation_real036}
-\end{figure}
-
-\textcolor{red}{Agregar integración de Cp en el espejo}
+Esta consistencia en la estructura del flujo refuerza lo observado en la Figura \ref{fig:cp_x}, donde las distribuciones de presión sobre las distintas líneas de agua muestran variaciones mínimas entre escalas. Este comportamiento se hace aún más evidente al analizar la Figura \ref{cp_stern}; en dicha vista de popa, la comparación cualitativa del $C_P$ entre la escala modelo y la escala real revela un patrón de presiones prácticamente idéntico. La persistencia de este déficit de presión inalterado confirma que los efectos viscosos no modifican sustancialmente el campo de presiones en las formas de popa, validando así la independencia de la escala en el fenómeno de la popa mojada y respaldando la decisión de no aplicar correcciones adicionales en la extrapolación.
 
 \subsection{Conclusiones parciales}
+
+En síntesis, los resultados permiten concluir que, para la geometría y condiciones operativas del TPA, el flujo en la zona del espejo de popa presenta una notable estabilidad frente al cambio de escala ya que la morfología de la recirculación y la distribución de presiones en las formas de popa permanecen prácticamente inalteradas. Esto permite aislar el fenómeno de la popa mojada y confirmar que, en este caso particular, la zona de baja presión en el espejo no es la fuente de las discrepancias observadas en el $(1+k)$ entre escalas. Por lo tanto, se justifica prescindir de la corrección 2--$k$, permitiendo centrar el análisis del efecto de escala en otros factores, como la influencia de la línea de fricción y el coeficiente de presión viscosa.
 
 \section{Efecto de la línea de fricción y posibles correcciones}\label{sec:linea_de_friccion}
 
