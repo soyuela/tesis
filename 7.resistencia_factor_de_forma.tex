@@ -50,28 +50,38 @@ Las Figuras~\ref{fig:resis_tpa_165} a \ref{fig:resis_tpa_195} muestran las curva
 
 
 \begin{figure}[htpb]
-\centering
-\includegraphics[width=0.6\textwidth]{images/efd-165}
-\caption{Resistencia al avance en función de Fr. Calado 1.}
-\label{fig:resis_tpa_165}
+     \centering
+     % --- Primera fila: Calados 1 y 2 ---
+     \begin{subfigure}[b]{0.45\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{images/efd-165}
+         \caption{Calado 1.}
+         \label{fig:resis_tpa_165}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.45\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{images/efd-180}
+         \caption{Calado 2.}
+         \label{fig:resis_tpa_180}
+     \end{subfigure}
+     
+     \vspace{0.5cm} % Espacio entre filas
+     
+     % --- Segunda fila: Calado 3 centrado ---
+     \begin{subfigure}[b]{0.45\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{images/efd-195}
+         \caption{Calado 3.}
+         \label{fig:resis_tpa_195}
+     \end{subfigure}
+     
+     \caption{Resistencia al avance (EFD) en función de Fr para diferentes calados.}
+     \label{fig:comparativa_efd_calados}
 \end{figure}
 
-\begin{figure}[htpb]
-\centering
-\includegraphics[width=0.6\textwidth]{images/efd-180}
-\caption{Resistencia al avance en función de Fr. Calado 2.}
-\label{fig:resis_tpa_180}
-\end{figure}
 
-\begin{figure}[htpb]
-\centering
-\includegraphics[width=0.6\textwidth]{images/efd-195}
-\caption{Resistencia al avance en función de Fr. Calado 3.}
-\label{fig:resis_tpa_195}
-\end{figure}
-
-
-\subsection{Determinación experimental del factor de forma.}
+\subsection{Determinación experimental del factor de forma}\label{sec:det_exp_fac_form}
 
 A partir de los resultados experimentales obtenidos para las distintas velocidades y condiciones de calado, se construyeron los diagramas del método de Prohaska, graficando $\frac{C_T}{C_F}$ frente a $\frac{F_n^4}{C_F}$ (Figura~\ref{fig:prohaska_tpa}).  
 Cada conjunto de puntos corresponde a un calado diferente del Pesquero 1.  
@@ -165,7 +175,7 @@ En síntesis, la desviación respecto de la recta teórica del método de Prohas
   \item Incertidumbres experimentales en la medición de resistencia total.
 \end{itemize}
 
-En las secciones XX XX XX se presenta el impacto de la proa bulbo, la popa espejo sumergida y la elección de la linea de correlación en la determinación del factor de forma.
+En las secciones \ref{sec:proa_bulbo}, \ref{sec:popa_sumergida} y \ref{sec:linea_de_friccion} se presenta el impacto de la proa bulbo, la popa espejo sumergida y la elección de la linea de correlación en la determinación del factor de forma.
 
 \vspace{1em}
 \subsubsection{Modelo de referencia KCS} 
@@ -223,30 +233,40 @@ A continuación, en la Figura \ref{fig:CFD_olas_195_Fr45} se presenta a modo ilu
 
 
 \begin{figure}[htpb]
-\centering
-\includegraphics[width=0.6\textwidth]{images/cfd-165}
-\caption{Resistencia al avance en función de Fr. Calado 1.}
-\label{fig:cfd_165_tpa}
+     \centering
+     % --- Primera fila (2 imágenes) ---
+     \begin{subfigure}[b]{0.45\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{images/cfd-165}
+         \caption{Calado 1.}
+         \label{fig:cfd_165_tpa}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.45\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{images/cfd-180}
+         \caption{Calado 2.}
+         \label{fig:cfd_180_tpa}
+     \end{subfigure}
+     
+     \vspace{0.5cm} % Espacio vertical entre filas
+     
+     % --- Segunda fila (1 imagen centrada) ---
+     \begin{subfigure}[b]{0.45\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{images/cfd-195}
+         \caption{Calado 3.}
+         \label{fig:cfd_195_tpa}
+     \end{subfigure}
+     
+     \caption{Resistencia al avance en función de Fr para diferentes calados.}
+     \label{fig:comparativa_calados}
 \end{figure}
 
-\begin{figure}[htpb]
-\centering
-\includegraphics[width=0.6\textwidth]{images/cfd-180}
-\caption{Resistencia al avance en función de Fr. Calado 2.}
-\label{fig:cfd_180_tpa}
-\end{figure}
 
-\begin{figure}[htpb]
-\centering
-\includegraphics[width=0.6\textwidth]{images/cfd-195}
-\caption{Resistencia al avance en función de Fr. Calado 3.}
-\label{fig:cfd_195_tpa}
-\end{figure}
+\subsection{Determinación numérica del factor de forma}\label{sec:det_num_fac_form}
 
-
-\subsection{Determinación numérica del factor de forma.}
-
-Para la determinación computacional del factor de forma se implementaron dos métodos. El primero fue repetir lo propuesto por Prohaska para lo tres calados con el dominio presentado en la Figura \ref{fig:dominio}, lo que permite una comparación directa con el ensayo experimental. Como sucedió en los ensayos experimentales, a bajas velocidades también se observa en los ensayos CFD una separación de los puntos respecto de la recta teórica esperada, pero esta vez de forma cóncava en lugar de convexa, como se ve en la Figura \ref{fig:prohaska_tpa_cfd}.
+Para la determinación computacional del factor de forma se implementaron dos métodos. El primero fue repetir lo propuesto por Prohaska para lo tres calados con el dominio presentado en la Figura \ref{fig:dominio_metodologia}, lo que permite una comparación directa con el ensayo experimental. Como sucedió en los ensayos experimentales, a bajas velocidades también se observa en los ensayos CFD una separación de los puntos respecto de la recta teórica esperada, pero esta vez de forma cóncava en lugar de convexa, como se ve en la Figura \ref{fig:prohaska_tpa_cfd}.
 
 
 \begin{figure}[htpb]
@@ -267,11 +287,11 @@ Al igual que se hizo con los ensayos experimentales, se repite el análisis de r
 \label{fig:tpa_range_cfd}
 \end{figure}
 
-\subsection{Enfoque de Doble Cuerpo (Double Body)}
+\subsection{Enfoque de Doble Cuerpo}
 
-Ante las dificultades observadas para aplicar el método de Prohaska en el entorno numérico —debido a la incertidumbre en la transición de la turbulencia y la curvatura a bajas velocidades— se optó por una estrategia alternativa: el método de \textit{doble cuerpo}.
+Ante las dificultades observadas para aplicar el método de Prohaska en el entorno numérico, debido a la incertidumbre en la transición de la turbulencia y la curvatura a bajas velocidades, se optó por una estrategia alternativa: el método de \textit{doble cuerpo}.
 
-Como se detalló en la Sección 3.4.2, este enfoque elimina la superficie libre y la formación de olas, modelando el fluido como un medio infinito y el casco como un cuerpo reflejado (ver Figura \ref{fig:double_body_domain}). Esto permite aislar la resistencia viscosa ($R_V$) y calcular el factor de forma $(1+k)$ directamente para cada velocidad mediante la relación $C_V / C_{F,ref}$, sin depender de la extrapolación a velocidad cero.
+Como se detalló en la Sección \ref{sec:doble_cuerpo}, este enfoque elimina la superficie libre y la formación de olas, modelando el fluido como un medio infinito y el casco como un cuerpo reflejado (ver Figura \ref{fig:double_body_domain}). Esto permite aislar la resistencia viscosa ($R_V$) y calcular el factor de forma $(1+k)$ directamente para cada velocidad mediante la relación $C_V / C_{F,ref}$, sin depender de la extrapolación a velocidad cero.
 
 \subsubsection{Análisis del Pesquero 1}
 
@@ -414,7 +434,7 @@ De la Figura \ref{fig:prohaska_tpa_efd_cfd_165} a la \ref{fig:prohaska_tpa_efd_c
 \label{fig:resis_tpa_efd_cfd_195}
 \end{figure}
 
-\paragraph{Factor de forma} Como fue mencionado en las secciones XX y XX, tanto para el cálculo experimental como para el computacional, no fue posible ajustar la recta esperada por el método Prohaska a bajas velocidades, como se ve en la comparación de la Figura \ref{fig:prohaska_tpa_efd_cfd_165} a la Figura Figura \ref{fig:prohaska_tpa_efd_cfd_195}. En los casos experimentales debido a la laminarización y en las simulaciones debido al uso de modelos de turbulencia que asumen flujos totalmente turbulentos, en flujos que están claramente en Reynolds de transición.
+\paragraph{Factor de forma} Como fue mencionado en las secciones \ref{sec:det_exp_fac_form} y \ref{sec:det_num_fac_form}, tanto para el cálculo experimental como para el computacional, no es posible ajustar la recta esperada por el método Prohaska a bajas velocidades, como se muestra en la comparación de la Figura \ref{fig:prohaska_tpa_efd_cfd_165} a la Figura Figura \ref{fig:prohaska_tpa_efd_cfd_195}. En los casos experimentales debido a la laminarización y en las simulaciones debido al uso de modelos de turbulencia que no logran reproducir esa laminarización, desarrollando un flujo completamente turbulento.
 
 \begin{figure}[htpb]
 \centering
@@ -441,47 +461,67 @@ De la Figura \ref{fig:prohaska_tpa_efd_cfd_165} a la \ref{fig:prohaska_tpa_efd_c
 A medida que se redujo el rango de Froude para la extrapolación de Prohaska se observó convergencia entre factor de forma experimental y computacional. Esto eliminó las diferencias encontradas a bajas velocidades y validó tanto los esquipos del laboratorio como la configuración numérica.
 
 \begin{figure}[htpb]
-\centering
-\includegraphics[width=0.6\textwidth]{images/efd_cfd_form_factor_tpa_165_range}
-\caption{Variación del factor de forma experimental $(1+k)$ para el Pesquero 1 en función del rango de Froude utilizado en el ajuste de Prohaska. Calado 1.}
-\label{fig:efd_cfd_165_tpa_range}
-\end{figure}
-
-\begin{figure}[htpb]
-\centering
-\includegraphics[width=0.6\textwidth]{images/efd_cfd_form_factor_tpa_165_range}
-\caption{Variación del factor de forma experimental $(1+k)$ para el Pesquero 1 en función del rango de Froude utilizado en el ajuste de Prohaska. Calado 2.}
-\label{fig:efd_cfd_180_tpa_range}
-\end{figure}
-
-\begin{figure}[htpb]
-\centering
-\includegraphics[width=0.6\textwidth]{images/efd_cfd_form_factor_tpa_165_range}
-\caption{Variación del factor de forma experimental $(1+k)$ para el Pesquero 1 en función del rango de Froude utilizado en el ajuste de Prohaska. Calado 3.}
-\label{fig:efd_cfd_195_tpa_range}
+     \centering
+     % --- Fila superior: Calados 1 y 2 ---
+     \begin{subfigure}[b]{0.48\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{images/efd_cfd_form_factor_tpa_165_range}
+         \caption{Calado 1.}
+         \label{fig:efd_cfd_165_tpa_range}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.48\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{images/efd_cfd_form_factor_tpa_180_range}
+         \caption{Calado 2.}
+         \label{fig:efd_cfd_180_tpa_range}
+     \end{subfigure}
+     
+     \vspace{0.5cm} % Espacio vertical entre filas
+     
+     % --- Fila inferior: Calado 3 centrado ---
+     \begin{subfigure}[b]{0.48\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{images/efd_cfd_form_factor_tpa_195_range}
+         \caption{Calado 3.}
+         \label{fig:efd_cfd_195_tpa_range}
+     \end{subfigure}
+     
+     \caption{Variación del factor de forma experimental $(1+k)$ para el Pesquero 1 en función del rango de Froude utilizado en el ajuste de Prohaska.}
+     \label{fig:comparativa_form_factor_range}
 \end{figure}
 
 En el caso de la comparación del médoto de Prohaska, ya sea experimental o computacional, con el método de doble cuerpo, surge un nuevo interrogante. Se observa en las Figuras \ref{fig:tpa_proj_DB_k_escala20_165} a \ref{fig:tpa_proj_DB_k_escala20_195} que el valor adoptado como válido por el análisis de reducción del rango de Froude cae en el rango $0.10 < Fr < 0.20$ de los obtenidos por el método de doble cuerpo. Esto puede deberse a que el Pesquero 1 esté siendo analizado en un rango de $Rn$ complicado para el modelo de turbulencia elegido, presentando la joroba observada en el análisis del KCS, o a algún comportamiento particular del factor de forma del Pesquero 1. Esto será analizado en la sección XX.
 
 \begin{figure}[htpb]
-\centering
-\includegraphics[width=0.6\textwidth, trim=3.5cm 8cm 4cm 8cm, clip]{images/tpa_CFD_DC_proj_165.pdf}
-\caption{Comparación de factor de forma experimental y computacional adoptado con valores obtenidos por método de doble cuerpo. Calado 1.}
-\label{fig:tpa_proj_DB_k_escala20_165}
-\end{figure}
-
-\begin{figure}[htpb]
-\centering
-\includegraphics[width=0.6\textwidth, trim=3.5cm 8cm 4cm 8cm, clip]{images/tpa_CFD_DC_proj_180.pdf}
-\caption{Comparación de factor de forma experimental y computacional adoptado con valores obtenidos por método de doble cuerpo. Calado 2.}
-\label{fig:tpa_proj_DB_k_escala20_180}
-\end{figure}
-
-\begin{figure}[htpb]
-\centering
-\includegraphics[width=0.6\textwidth, trim=3.5cm 8cm 4cm 8cm, clip]{images/tpa_CFD_DC_proj_195.pdf}
-\caption{Comparación de factor de forma experimental y computacional adoptado con valores obtenidos por método de doble cuerpo. Calado 3.}
-\label{fig:tpa_proj_DB_k_escala20_195}
+     \centering
+     % --- Primera fila: Calados 1 y 2 ---
+     \begin{subfigure}[b]{0.48\textwidth}
+         \centering
+         \includegraphics[width=\textwidth, trim=3.5cm 8cm 4cm 8cm, clip]{images/tpa_CFD_DC_proj_165.pdf}
+         \caption{Calado 1.}
+         \label{fig:tpa_proj_DB_k_escala20_165}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.48\textwidth}
+         \centering
+         \includegraphics[width=\textwidth, trim=3.5cm 8cm 4cm 8cm, clip]{images/tpa_CFD_DC_proj_180.pdf}
+         \caption{Calado 2.}
+         \label{fig:tpa_proj_DB_k_escala20_180}
+     \end{subfigure}
+     
+     \vspace{0.5cm} % Espacio entre filas
+     
+     % --- Segunda fila: Calado 3 centrado ---
+     \begin{subfigure}[b]{0.48\textwidth}
+         \centering
+         \includegraphics[width=\textwidth, trim=3.5cm 8cm 4cm 8cm, clip]{images/tpa_CFD_DC_proj_195.pdf}
+         \caption{Calado 3.}
+         \label{fig:tpa_proj_DB_k_escala20_195}
+     \end{subfigure}
+     
+     \caption{Comparación de factor de forma experimental y computacional adoptado con valores obtenidos por método de doble cuerpo para los tres calados analizados.}
+     \label{fig:comparativa_doble_cuerpo}
 \end{figure}
 
 \subsection{Discusión de incertidumbres y diferencias entre EFD y CFD}
@@ -696,7 +736,7 @@ La comparación entre escala modelo y escala real muestra que el efecto del núm
 
 El déficit persistente de presión en popa, prácticamente invariante con el número de Reynolds, constituye así el mecanismo físico principal que distingue a los cascos de baja esbeltez de los cascos esbeltos convencionales. En este tipo de geometrías, las pérdidas por presión viscosa dominan la resistencia viscosa total y limitan la validez de los supuestos clásicos de extrapolación, reforzando la necesidad de considerar explícitamente los efectos geométricos en la estimación del factor de forma.
 
-\section{Influencia de la proa bulbo en el factor de forma}
+\section{Influencia de la proa bulbo en el factor de forma}\label{sec:proa_bulbo}
 
 \subsection{Motivación y antecedentes sobre proa bulbo en pesqueros}
 
@@ -806,7 +846,7 @@ Esto indica que su efecto es esencialmente global, asociado a una redistribució
 En síntesis, el bulbo incrementa el factor de forma y la resistencia viscosa, pero a la vez reduce la resistencia por olas dentro del rango de diseño.  
 A calados reducidos, este balance resulta favorable para la resistencia total, mientras que a mayor calado el beneficio desaparece.   \textcolor{red}{Siento que queda corto por no tener análisis del resto de las escalas}
 
-\section{Influencia de la popa sumergida en el factor de forma}
+\section{Influencia de la popa sumergida en el factor de forma}\label{sec:popa_sumergida}
 
 \subsection{Introducción y motivación del estudio}
 

@@ -142,7 +142,7 @@ El mallado se generó con \texttt{snappyHexMesh}, utilizando una estructura pred
 
 Se emplearon dos configuraciones de simulación distintas. A continuación se detallan las condiciones de contorno específicas seleccionadas para garantizar la estabilidad y conservación de masa en el dominio.
 
-\subsubsection{1. Simulación con Superficie Libre (Resistencia Total)}
+\subsubsection{Simulación con Superficie Libre}
 Esta configuración replica el ensayo de canal para obtener la resistencia total ($R_T$) y el campo de olas.
 
 \begin{itemize}
@@ -154,7 +154,7 @@ La Figura \ref{fig:dominio_metodologia} esquematiza el dominio computacional uti
 
 \begin{figure}[htpb]
     \centering
-    \includegraphics[width=0.6\textwidth]{images/domain}
+    \includegraphics[width=0.6\textwidth]{images/domain.png}
     \caption{Dominio computacional y condiciones de contorno para las simulaciones de resistencia con superficie libre.}
     \label{fig:dominio_metodologia}
 \end{figure}
@@ -194,7 +194,7 @@ $\nu_t$ & calc. & calc. & calc. & nutkWF \\
     \item \textbf{kLRWF} / \textbf{oWF} / \textbf{nutkWF}: Funciones de pared para turbulencia.
 \end{itemize}
 
-\subsubsection{2. Simulación de Doble Cuerpo (Double Body)}
+\subsubsection{Simulación de Doble Cuerpo}\label{sec:doble_cuerpo}
 
 Esta configuración se utiliza exclusivamente para aislar la resistencia viscosa ($R_V$) y determinar el factor de forma $(1+k)$. El término "Doble Cuerpo" hace referencia al concepto aerodinámico de reflejar el casco sumergido respecto al plano de flotación, generando un cuerpo equivalente completamente sumergido en un fluido infinito.
 
