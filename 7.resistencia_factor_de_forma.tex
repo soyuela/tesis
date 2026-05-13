@@ -293,7 +293,7 @@ Para la determinación computacional del factor de forma se implementaron dos m�
 \label{fig:prohaska_tpa_cfd}
 \end{figure}
 
-Una posible razón para esta diferencia a bajas velocidades es el modelado de la turbulencia en los ensayos CFD estando en zona de transición de laminar a turbulenta, ya que se está utilizando el modelo k-omegaSST que no logra diferenciar zonas con capa límite laminar de aquellas con capa límite turbulenta, asumiendo que el modelo entero se encuentra en el segundo escenario. 
+La diferencia observada a bajas velocidades sugiere una deficiencia en el modelado de la zona de transición. Dado que el modelo $k-\omega$ SST asume un régimen turbulento, carece de la sensibilidad necesaria para capturar correctamente la transición entre las capas laminar y turbulenta en las simulaciones. El punto de transición suele verse adelantado por los modelos que asumen flujo turbulento. 
 
 Al igual que se hizo con los ensayos experimentales, se repite el análisis de rangos de Froude para el análisis computacional del factor de forma. A menos que se considere necesario resaltar alguna diferencia entre calados, de ahora en adelante los análisis se centrarán en el Calado 3. En la Figura \ref{fig:tpa_range_cfd} se presenta el factor de forma adoptado.
 
