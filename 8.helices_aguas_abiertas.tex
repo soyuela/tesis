@@ -1,0 +1,248 @@
+\chapter{Propulsión — Efectos de escala en hélices en aguas abiertas} \label{chap:helices}
+\minitoc
+
+\section{Introducción}
+\label{sec:helices_intro}
+
+% TODO: introducción del capítulo
+
+\section{Validación: hélice Wageningen B4-60 a escala modelo}
+\label{sec:helices_validacion}
+
+\subsection{Resultados experimentales: campaña LabHiNO y datos MARIN}
+\label{sec:helices_efd}
+
+La hélice de referencia para la validación es la B.4.60 de la serie Wageningen, con cuatro palas, diámetro $D = 0{,}140$~m, relación de paso $P/D = 0{,}81$ y relación de áreas $A_E/A_0 = 0{,}60$. Esta geometría fue ensayada experimentalmente en el canal de aguas abiertas del LabHiNO en condiciones de temperatura $T = 18{,}5$~°C, densidad $\rho = 101{,}811$~kg$\cdot$s$^2$/m$^4$ y viscosidad cinemática $\nu = 1{,}04 \times 10^{-6}$~m$^2$/s. La velocidad mínima de giro del ensayo fue $n = 16{,}99$~rps e inmersión del eje de 240~mm. La hoja de ensayo reporta $Re_n = 90\,406$ calculado según la formulación de Gutsche, que usa la cuerda a $r/R = 0{,}75$ y la velocidad resultante en esa sección como longitud y velocidad de referencia. A lo largo de este capítulo se adopta la definición convencional de la ITTC, $Re_n = n D^2 / \nu$, que es la empleada en el sweep de escala (Sección~\ref{sec:helices_escala}). Con esta definición, las condiciones del ensayo del LabHiNO corresponden a $Re_n = 3{,}20 \times 10^5$, prácticamente idéntico al del caso CFD de referencia ($Re_n = 3{,}20 \times 10^5$, $n = 17{,}00$~rps).
+
+Como referencia, se emplean los datos de la campaña experimental realizada en MARIN, sintetizados en los polinomios de regresión de \citet{oosterveld1975}, válidos a $Re_n = 2 \times 10^6$. Para la B.4.60 con $P/D = 0{,}81$ estos polinomios expresan $K_T$ y $K_Q$ como funciones de $J$ según la Ecuación~\ref{eq:polinomios_b460}, cuyos coeficientes se listan en la Tabla~\ref{tab:coef_polinomios_b460}.
+
+\begin{equation}
+K_T = \sum_{i=0}^{4} A_i \, J^i, \qquad K_Q = \sum_{i=0}^{4} B_i \, J^i
+\label{eq:polinomios_b460}
+\end{equation}
+
+\begin{table}[htpb]
+\centering
+\caption{Coeficientes de los polinomios de regresión de \citet{oosterveld1975} para la hélice B.4.60 con $P/D = 0{,}81$ ($Re_n = 2 \times 10^6$).}
+\label{tab:coef_polinomios_b460}
+\begin{tabular}{ccc}
+\hline
+$i$ & $A_i$ ($K_T$) & $B_i$ ($K_Q$) \\
+\hline
+0 & $\phantom{-}0{,}34290$ & $\phantom{-}0{,}04001$ \\
+1 & $-0{,}09347$ & $-0{,}00674$ \\
+2 & $-0{,}97734$ & $-0{,}10718$ \\
+3 & $\phantom{-}1{,}40708$ & $\phantom{-}0{,}17633$ \\
+4 & $-0{,}81087$ & $-0{,}11942$ \\
+\hline
+\end{tabular}
+\end{table}
+
+La Tabla~\ref{tab:comparacion_efd_marin} presenta la comparación entre los resultados del ensayo del LabHiNO ($Re_n = 3{,}20 \times 10^5$) y los valores calculados mediante los polinomios de Oosterveld ($Re_n = 2 \times 10^6$) para el rango $J = 0{,}00$--$0{,}80$.
+
+\begin{table}[htpb]
+\centering
+\caption{Comparación de $K_T$ y $10K_Q$ entre el ensayo del LabHiNO ($Re_n = 90\,406$) y los polinomios de \citet{oosterveld1975} ($Re_n = 2 \times 10^6$). Las diferencias se expresan en porcentaje respecto de MARIN.}
+\label{tab:comparacion_efd_marin}
+\small
+\begin{tabular}{ccccccc}
+\hline
+\multirow{2}{*}{$J$} & \multicolumn{3}{c}{$K_T$} & \multicolumn{3}{c}{$10K_Q$} \\
+\cmidrule(lr){2-4} \cmidrule(lr){5-7}
+ & MARIN & LabHiNO & $\Delta$~[\%] & MARIN & LabHiNO & $\Delta$~[\%] \\
+\hline
+    0{,}00 & 0{,}3429 & 0{,}3430 & $+0{,}03$ & 0{,}4001 & 0{,}4010 & $+0{,}22$ \\
+    0{,}05 & 0{,}3360 & 0{,}3360 & $+0{,}01$ & 0{,}3943 & 0{,}3950 & $+0{,}19$ \\
+    0{,}10 & 0{,}3251 & 0{,}3250 & $-0{,}03$ & 0{,}3843 & 0{,}3850 & $+0{,}19$ \\
+    0{,}15 & 0{,}3112 & 0{,}3110 & $-0{,}07$ & 0{,}3712 & 0{,}3720 & $+0{,}21$ \\
+    0{,}20 & 0{,}2951 & 0{,}2950 & $-0{,}02$ & 0{,}3559 & 0{,}3570 & $+0{,}30$ \\
+    0{,}25 & 0{,}2773 & 0{,}2770 & $-0{,}10$ & 0{,}3391 & 0{,}3400 & $+0{,}25$ \\
+    0{,}30 & 0{,}2583 & 0{,}2580 & $-0{,}12$ & 0{,}3214 & 0{,}3220 & $+0{,}20$ \\
+    0{,}35 & 0{,}2386 & 0{,}2390 & $+0{,}16$ & 0{,}3029 & 0{,}3040 & $+0{,}36$ \\
+    0{,}40 & 0{,}2184 & 0{,}2180 & $-0{,}20$ & 0{,}2839 & 0{,}2850 & $+0{,}38$ \\
+    0{,}45 & 0{,}1979 & 0{,}1980 & $+0{,}05$ & 0{,}2644 & 0{,}2650 & $+0{,}21$ \\
+    0{,}50 & 0{,}1770 & 0{,}1770 & $-0{,}02$ & 0{,}2442 & 0{,}2450 & $+0{,}32$ \\
+    0{,}55 & 0{,}1557 & 0{,}1560 & $+0{,}16$ & 0{,}2229 & 0{,}2240 & $+0{,}49$ \\
+    0{,}60 & 0{,}1338 & 0{,}1340 & $+0{,}14$ & 0{,}1999 & 0{,}2010 & $+0{,}54$ \\
+    0{,}65 & 0{,}1109 & 0{,}1110 & $+0{,}10$ & 0{,}1745 & 0{,}1750 & $+0{,}27$ \\
+    0{,}70 & 0{,}0865 & 0{,}0870 & $+0{,}56$ & 0{,}1458 & 0{,}1470 & $+0{,}81$ \\
+    0{,}75 & 0{,}0601 & 0{,}0600 & $-0{,}15$ & 0{,}1127 & 0{,}1130 & $+0{,}26$ \\
+    0{,}80 & 0{,}0309 & 0{,}0310 & $+0{,}26$ & 0{,}0739 & 0{,}0750 & $+1{,}50$ \\
+\hline
+\end{tabular}
+\end{table}
+
+La comparación revela un comportamiento notable: a pesar de la diferencia de casi un orden de magnitud en $Re_n$ entre ambas fuentes, los valores de $K_T$ obtenidos en el LabHiNO y los de MARIN son prácticamente idénticos, con desviaciones inferiores al $0{,}6\%$ en todo el rango de $J$. El coeficiente de par $10K_Q$, en cambio, presenta una diferencia sistemáticamente positiva —el LabHiNO arroja valores levemente superiores a los de MARIN en todos los puntos— que refleja el mayor nivel de fricción sobre las palas a menor Reynolds. Esta diferencia permanece por debajo del $1{,}5\%$ en la mayor parte del rango operativo, alcanzando su valor máximo en $J = 0{,}80$. La reducida magnitud de los efectos de escala en $K_T$ para esta hélice contrasta con el comportamiento esperado por el procedimiento ITTC-78 y con los resultados de otras geometrías documentados en la literatura \citep{krasilnikov2016cfd}, y constituye en sí mismo un resultado de interés que se analiza en profundidad en la Sección~\ref{sec:helices_escala}.
+
+\subsection{Comparación CFD vs EFD: SST y SST-LM}
+\label{sec:helices_cfd_efd}
+
+Las simulaciones numéricas de la hélice B.4.60 a escala modelo ($D = 0{,}140$~m, $J = 0{,}5$) se realizaron con los modelos de turbulencia $k$-$\omega$ SST y SST-LM, siguiendo la configuración detallada en el Capítulo~\ref{chap:Metodologia}. Los resultados obtenidos se comparan en la Tabla~\ref{tab:cfd_efd_b460} con las dos fuentes experimentales disponibles para $J = 0{,}5$.
+
+\begin{table}[htpb]
+\centering
+\caption{Comparación de $K_T$, $10K_Q$ y $\eta_0$ a $J = 0{,}5$ entre las fuentes experimentales y las simulaciones CFD. Las diferencias se expresan respecto del ensayo LabHiNO.}
+\label{tab:cfd_efd_b460}
+\begin{tabular}{lcccc}
+\hline
+Fuente & $Re_n$ & $K_T$ & $10K_Q$ & $\eta_0$ \\
+\hline
+LabHiNO (EFD)                    & $3{,}20 \times 10^5$ & $0{,}177$ & $0{,}245$ & $0{,}575$ \\
+MARIN -- \citet{oosterveld1975}  & $2{,}0 \times 10^6$  & $0{,}177$ & $0{,}244$ & $0{,}577$ \\
+CFD SST                          & $3{,}20 \times 10^5$ & $0{,}185$ ~~$(+4{,}6\%)$ & $0{,}276$ ~~$(+12{,}7\%)$ & $0{,}534$ \\
+CFD SST-LM                       & $3{,}20 \times 10^5$ & $0{,}190$ ~~$(+7{,}3\%)$ & $0{,}264$ ~~$(+7{,}8\%)$  & $0{,}573$ \\
+\hline
+\end{tabular}
+\end{table}
+
+El modelo SST sobreestima tanto $K_T$ como $10K_Q$ respecto del ensayo del LabHiNO, con errores de $+4{,}6\%$ y $+12{,}7\%$ respectivamente. Este comportamiento es consistente con lo documentado por \citet{rijpkema2015viscous} y \citet{baltazar2018transition}: a $Re_n = 3{,}20 \times 10^5$ el flujo sobre las palas se encuentra en régimen transicional, y el SST fuerza una transición prematura que sobreestima la extensión turbulenta, elevando artificialmente la fricción y con ella el par. El modelo SST-LM mejora significativamente la predicción de $10K_Q$ (error reducido de $+12{,}7\%$ a $+7{,}8\%$) al resolver la intermitencia de la capa límite, y reproduce la eficiencia $\eta_0$ con gran precisión ($0{,}573$ frente a $0{,}575$), aunque introduce un ligero incremento en el error de $K_T$ ($+7{,}3\%$).
+
+Cabe señalar que parte de las diferencias observadas entre CFD y EFD son inherentes a la metodología numérica y no reflejan necesariamente limitaciones del modelo de turbulencia. La geometría computacional de la hélice se construye a partir de las ecuaciones paramétricas de la serie Wageningen, sin acceso a los planos exactos del modelo físico ensayado en el laboratorio. En la práctica, los detalles geométricos del borde de ataque, el borde de salida y especialmente el extremo de pala (\textit{tip}) quedan a criterio del mallador, ya que las series sistemáticas no los especifican de forma unívoca. Estas zonas tienen una influencia desproporcionada sobre $K_T$ y $K_Q$: pequeñas diferencias en el radio del borde de ataque modifican la extensión de la zona de baja presión en el extradós, y la geometría del tip condiciona la intensidad del vórtice de punta, que contribuye tanto al empuje como al par. Diferencias del orden del $5$--$10\%$ en $K_T$ y $K_Q$ entre distintas discretizaciones geométricas de una misma hélice de serie son por lo tanto esperables y han sido documentadas en la literatura \citep{gaggero2018transition}. En este contexto, el acuerdo obtenido con el SST-LM debe considerarse satisfactorio.
+
+
+
+\section{Efectos de escala en la hélice B4-60}
+\label{sec:helices_escala}
+
+\subsection{Sweep de diámetros: $D = 0{,}14$ a $8{,}0$~m}
+\label{sec:helices_sweep}
+
+Con el objetivo de cuantificar los efectos de escala sobre los coeficientes hidrodinámicos de la hélice B4-60, se realizó una campaña de simulaciones CFD con el modelo SST para seis diámetros en el rango $D = 0{,}14$--$8{,}0$~m, manteniendo $J = 0{,}5$ en todos los casos. La geometría se obtuvo escalando uniformemente la malla de D=0.14~m mediante la transformación $\lambda = D_i / D_{ref}$, siguiendo la metodología de \citet{gaggero2018transition}. Las velocidades de giro y de avance se ajustaron para conservar $J$ y reproducir condiciones de aguas profundas en todos los casos. La Tabla~\ref{tab:sweep_b460} resume las condiciones de cada simulación junto con los resultados de $K_T$, $10K_Q$ y $\eta_0$.
+
+\begin{table}[htpb]
+\centering
+\caption{Resultados del sweep de escala para la hélice B4-60 a $J = 0{,}5$, modelo SST. Los coeficientes $K_T$ y $K_Q$ se descomponen en contribuciones de presión (p) y fricción (f).}
+\label{tab:sweep_b460}
+\small
+\begin{tabular}{ccccccccc}
+\hline
+$D$ [m] & $n$ [rps] & $Re_n$ & $K_T$ & $K_{Tp}$ & $K_{Tf}$ & $10K_Q$ & $10K_{Qp}$ & $10K_{Qf}$ \\
+\hline
+$0{,}14$ & $17{,}00$ & $3{,}2 \times 10^5$ & $0{,}1862$ & $0{,}1897$ & $-0{,}0035$ & $0{,}2703$ & $0{,}2384$ & $0{,}0319$ \\
+$0{,}50$ & $10{,}00$ & $2{,}4 \times 10^6$ & $0{,}1881$ & $0{,}1910$ & $-0{,}0029$ & $0{,}2649$ & $0{,}2395$ & $0{,}0254$ \\
+$1{,}00$ & $10{,}00$ & $9{,}6 \times 10^6$ & $0{,}1910$ & $0{,}1931$ & $-0{,}0020$ & $0{,}2599$ & $0{,}2418$ & $0{,}0182$ \\
+$2{,}00$ & $5{,}00$  & $1{,}9 \times 10^7$ & $0{,}1934$ & $0{,}1952$ & $-0{,}0018$ & $0{,}2608$ & $0{,}2448$ & $0{,}0160$ \\
+$4{,}00$ & $2{,}50$  & $3{,}8 \times 10^7$ & $0{,}1942$ & $0{,}1958$ & $-0{,}0016$ & $0{,}2599$ & $0{,}2456$ & $0{,}0143$ \\
+$8{,}00$ & $1{,}25$  & $7{,}7 \times 10^7$ & $0{,}1949$ & $0{,}1964$ & $-0{,}0014$ & $0{,}2593$ & $0{,}2464$ & $0{,}0129$ \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Variación de $K_T$ y $K_Q$ con Reynolds}
+\label{sec:helices_kt_kq_re}
+
+Los resultados del sweep muestran que $K_T$ aumenta monótonamente con $Re_n$, pasando de $0{,}1862$ a $D=0{,}14$~m hasta $0{,}1949$ a $D=8{,}0$~m, lo que representa un incremento total de $\Delta K_T = +0{,}0088$ ($+4{,}7\%$). El coeficiente de par $10K_Q$, en cambio, disminuye de $0{,}2703$ a $0{,}2593$, con una reducción de $-0{,}0110$ ($-4{,}1\%$). Ambas tendencias son físicamente consistentes: al aumentar $Re_n$ la capa límite se adelgaza, la resistencia friccional se reduce y la distribución de presiones sobre las palas se modifica favorablemente, elevando el empuje y reduciendo el par. El resultado neto es un incremento de la eficiencia en aguas abiertas de $\eta_0 = 0{,}5482$ a $\eta_0 = 0{,}5982$, equivalente a $+9{,}1\%$ respecto al caso de escala modelo.
+
+\begin{figure}[htpb]
+\centering
+\includegraphics[width=0.75\textwidth]{images/fig1_Kt_Re.png}
+\caption{Coeficientes $K_T$, $K_{Tp}$ y $K_{Tf}$ en función del número de Reynolds $Re_n = nD^2/\nu$ para el sweep de escala B4-60 a $J=0{,}5$. Se incluye la predicción del procedimiento ITTC-78 como referencia.}
+\label{fig:kt_vs_re}
+\end{figure}
+
+\subsection{Descomposición friccional/presión ($\Delta K_{Tf}$, $\Delta K_{Tp}$, $\Delta K_{Qf}$, $\Delta K_{Qp}$)}
+\label{sec:helices_descomposicion}
+
+La descomposición de las fuerzas e integración de momentos que realiza OpenFOAM permite separar las contribuciones friccional y de presión a $K_T$ y $K_Q$ para cada escala. La Tabla~\ref{tab:delta_sweep_b460} presenta las variaciones acumuladas respecto a la referencia $D = 0{,}14$~m.
+
+\begin{table}[htpb]
+\centering
+\caption{Variaciones de $K_T$ y $10K_Q$ respecto a $D=0{,}14$~m, descompuestas en contribuciones de presión y fricción. La columna $\Delta K_{Tp}/\Delta K_T$ indica la fracción del efecto de escala atribuible a la componente de presión.}
+\label{tab:delta_sweep_b460}
+\small
+\begin{tabular}{cccccccc}
+\hline
+$D$ [m] & $\Delta K_T$ & $\Delta K_{Tp}$ & $\Delta K_{Tf}$ & $\frac{\Delta K_{Tp}}{\Delta K_T}$ & $10\Delta K_Q$ & $10\Delta K_{Qp}$ & $10\Delta K_{Qf}$ \\
+\hline
+$0{,}50$ & $+0{,}0019$ & $+0{,}0013$ & $+0{,}0006$ & $68{,}9\%$ & $-0{,}0054$ & $+0{,}0011$ & $-0{,}0065$ \\
+$1{,}00$ & $+0{,}0048$ & $+0{,}0034$ & $+0{,}0014$ & $70{,}3\%$ & $-0{,}0104$ & $+0{,}0034$ & $-0{,}0137$ \\
+$2{,}00$ & $+0{,}0072$ & $+0{,}0055$ & $+0{,}0017$ & $76{,}6\%$ & $-0{,}0095$ & $+0{,}0064$ & $-0{,}0159$ \\
+$4{,}00$ & $+0{,}0080$ & $+0{,}0061$ & $+0{,}0019$ & $76{,}6\%$ & $-0{,}0103$ & $+0{,}0072$ & $-0{,}0176$ \\
+$8{,}00$ & $+0{,}0087$ & $+0{,}0067$ & $+0{,}0020$ & $76{,}8\%$ & $-0{,}0109$ & $+0{,}0080$ & $-0{,}0190$ \\
+\hline
+\end{tabular}
+\end{table}
+
+El resultado más significativo de esta descomposición es que la componente de presión domina el efecto de escala en $K_T$: entre $D=1{,}0$ y $D=8{,}0$~m, la fracción $\Delta K_{Tp}/\Delta K_T$ se estabiliza en torno al $76$--$77\%$. Esto implica que aproximadamente tres cuartas partes del incremento de empuje al pasar de escala modelo a escala real no provienen de la reducción de fricción, sino de cambios en la distribución de presiones sobre las palas asociados al adelgazamiento de la capa límite. En $K_Q$, el comportamiento es diferente: $\Delta K_{Qp}$ es positivo (el par de presión aumenta ligeramente con la escala) mientras que $\Delta K_{Qf}$ es negativo y de mayor magnitud, de modo que la reducción total de par está dominada por la componente friccional. Este comportamiento asimétrico entre empuje y par tiene implicaciones directas para la evaluación de los métodos de extrapolación, que se analizan en la sección siguiente.
+
+\begin{figure}[htpb]
+\centering
+\includegraphics[width=0.95\textwidth]{images/fig2_delta_descomp.png}
+\caption{Variación porcentual de $\Delta K_T$ (izquierda) y $\Delta K_Q$ (derecha) respecto al caso de referencia $D=0{,}14$~m, descompuesta en contribuciones de presión y fricción. Se incluye la predicción del ITTC-78.}
+\label{fig:delta_descomp}
+\end{figure}
+
+\subsection{Comparación con el procedimiento ITTC-78}
+\label{sec:helices_ittc78}
+
+El procedimiento ITTC-78 corrige los coeficientes hidrodinámicos de modelo a escala real mediante la diferencia de coeficiente de fricción de placa plana $\Delta C_D$ evaluada a $r/R = 0{,}75$, según las expresiones presentadas en el Capítulo~\ref{chap:Metodologia}. Esta corrección asume implícitamente que el efecto de escala es de naturaleza puramente friccional, es decir, que $\Delta K_{Tp} = 0$. Los resultados del CFD demuestran que esta hipótesis es incorrecta para la B4-60.
+
+La Tabla~\ref{tab:ittc_vs_cfd} compara las predicciones del ITTC-78 y del CFD para $D = 8{,}0$~m, tomando $D = 0{,}14$~m como referencia de modelo.
+
+\begin{table}[htpb]
+\centering
+\caption{Comparación entre ITTC-78 y CFD a $D = 8{,}0$~m ($J = 0{,}5$), tomando $D = 0{,}14$~m como referencia.}
+\label{tab:ittc_vs_cfd}
+\begin{tabular}{lccc}
+\hline
+ & ITTC-78 & CFD SST & Diferencia \\
+\hline
+$K_T$   & $0{,}1862$ & $0{,}1949$ & $+0{,}0087$ $(+4{,}7\%)$ \\
+$10K_Q$ & $0{,}2618$ & $0{,}2593$ & $-0{,}0025$ $(-1{,}0\%)$ \\
+$\eta_0$ & $0{,}5540$ & $0{,}5982$ & $+0{,}0442$ $(+8{,}0\%)$ \\
+\hline
+\end{tabular}
+\end{table}
+
+El ITTC-78 subestima $K_T$ en $+4{,}7\%$ respecto al CFD a escala real, precisamente porque no contempla el incremento de la componente de presión. Para $10K_Q$ la diferencia es menor ($-1{,}0\%$), dado que las contribuciones friccional y de presión evolucionan en sentidos opuestos y se compensan parcialmente. El efecto acumulado sobre la eficiencia es significativo: el ITTC-78 predice $\eta_0 = 0{,}554$ frente a $\eta_0 = 0{,}598$ del CFD, una diferencia de $+8{,}0\%$ que representaría una subestimación relevante en el diseño de la instalación propulsora.
+
+\begin{figure}[htpb]
+\centering
+\includegraphics[width=0.95\textwidth]{images/fig4_gap_fraccion.png}
+\caption{Izquierda: diferencia $K_{T,\mathrm{CFD}} - K_{T,\mathrm{ITTC}}$ en función del diámetro. Derecha: fracción del efecto de escala en $K_T$ atribuible a la componente de presión ($\Delta K_{Tp}/\Delta K_T$), comparada con datos de la literatura para otras geometrías.}
+\label{fig:gap_fraccion}
+\end{figure}
+
+\begin{figure}[htpb]
+\centering
+\includegraphics[width=0.95\textwidth]{images/fig3_delta_vs_D.png}
+\caption{Variación de $\Delta K_T$ (izquierda) y $10\,\Delta K_Q$ (derecha) en función del diámetro, con descomposición en componentes de presión y fricción. Se incluye la predicción del ITTC-78.}
+\label{fig:delta_vs_D}
+\end{figure}
+
+\subsection{Eficiencia en escala real: comparación de métodos}
+\label{sec:helices_eficiencia}
+
+La Figura~\ref{fig:eficiencia_metodos} compara la evolución de $\eta_0$ con $Re_n$ para tres alternativas de extrapolación: el procedimiento ITTC-78 (M1), el CFD SST directo (M2) y la aplicación sin corrección del diagrama de modelo (M3). En $Re_n \approx 3{,}2 \times 10^5$ (D=0.14~m, escala modelo) los tres métodos coinciden por definición. A medida que $Re_n$ crece, M2 y M1 divergen progresivamente: a $D=8{,}0$~m ($Re_n \approx 7{,}7 \times 10^7$) el CFD predice un incremento de eficiencia de $+9{,}1\%$ respecto al modelo, mientras que el ITTC-78 solo estima $+1{,}1\%$. La diferencia entre ambos métodos, de $+8{,}0\%$ a la mayor escala analizada, refleja la contribución ignorada de la componente de presión al efecto de escala.
+
+\begin{figure}[htpb]
+\centering
+\includegraphics[width=0.95\textwidth]{images/fig2b_eficiencia.png}
+\caption{Eficiencia en aguas abiertas $\eta_0$ (izquierda) y variación porcentual $\Delta\eta_0$ respecto al modelo (derecha) en función de $Re_n$, para los métodos ITTC-78 (M1), CFD SST (M2) y sin corrección (M3). Hélice B4-60, $J = 0{,}5$.}
+\label{fig:eficiencia_metodos}
+\end{figure}
+
+
+
+\section{Efectos transicionales: hélice coreana}
+\label{sec:helices_transicion}
+
+\subsection{Datos experimentales y rango de Reynolds}
+\label{sec:helices_coreana_efd}
+
+% TODO
+
+\subsection{Predicción del chichón con SST-LM}
+\label{sec:helices_chichon}
+
+% TODO
+
+\subsection{Sensibilidad a las condiciones de turbulencia de entrada}
+\label{sec:helices_sensibilidad_tu}
+
+% TODO
+
+\section{Conclusiones parciales}
+\label{sec:helices_conclusiones}
+
+% TODO
