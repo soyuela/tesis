@@ -1,0 +1,25 @@
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {3.1}Introducción}{\reset@font\mtcSfont 15}{section.3.1}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {3.2}Metodología Experimental (EFD)}{\reset@font\mtcSfont 15}{section.3.2}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.2.1}Instalaciones: El Canal de Remolque}{\reset@font\mtcSSfont 15}{subsection.3.2.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.2.2}Modelos Físicos }{\reset@font\mtcSSfont 15}{subsection.3.2.2}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {3.2.2.1}Modelo Pesquero 1}{\reset@font\mtcSSSfont 16}{subsubsection.3.2.2.1}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {3.2.2.2}Modelo de Referencia KCS}{\reset@font\mtcSSSfont 16}{subsubsection.3.2.2.2}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {3.2.2.3}Modelo Pesquero 2}{\reset@font\mtcSSSfont 17}{subsubsection.3.2.2.3}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {3.2.2.4}Modelo Pesquero 3}{\reset@font\mtcSSSfont 17}{subsubsection.3.2.2.4}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.2.3}Instrumentación y Adquisición de Datos}{\reset@font\mtcSSfont 17}{subsection.3.2.3}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.2.4}Procedimiento de Ensayo y Análisis de Incertidumbre}{\reset@font\mtcSSfont 17}{subsection.3.2.4}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {3.3}Metodología Numérica (CFD)}{\reset@font\mtcSfont 18}{section.3.3}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.3.1}Dominio Computacional y Mallado}{\reset@font\mtcSSfont 18}{subsection.3.3.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.3.2}Configuración de los Casos de Estudio}{\reset@font\mtcSSfont 19}{subsection.3.3.2}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {3.3.2.1}Simulación con Superficie Libre}{\reset@font\mtcSSSfont 19}{subsubsection.3.3.2.1}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {3.3.2.2}Simulación de Doble Cuerpo}{\reset@font\mtcSSSfont 20}{subsubsection.3.3.2.2}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Fundamento Físico y Dominio}{\reset@font\mtcPfont 20}{section*.11}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Ventajas del Mallado}{\reset@font\mtcPfont 20}{section*.13}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Configuración Numérica (PIMPLE)}{\reset@font\mtcPfont 21}{section*.14}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Cálculo del Factor de Forma}{\reset@font\mtcPfont 21}{section*.15}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.3.3}Modelado de la Turbulencia: Modelo $k$--$\omega $ SST}{\reset@font\mtcSSfont 21}{subsection.3.3.3}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Definición de la Viscosidad Turbulenta}{\reset@font\mtcPfont 22}{section*.16}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Tratamiento de Pared}{\reset@font\mtcPfont 22}{section*.17}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {3.4}Estrategia de Verificación y Validación (V\&V)}{\reset@font\mtcSfont 22}{section.3.4}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {3.4.1}Estudio de Convergencia de Malla (GCI)}{\reset@font\mtcSSfont 22}{subsection.3.4.1}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode \numberline {3.4.1.1}Procedimiento de Cálculo}{\reset@font\mtcSSSfont 23}{subsubsection.3.4.1.1}}

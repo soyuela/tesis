@@ -224,25 +224,180 @@ La Figura~\ref{fig:eficiencia_metodos} compara la evolución de $\eta_0$ con $Re
 
 
 
-\section{Efectos transicionales: hélice coreana}
-\label{sec:helices_transicion}
+% ============================================================
+%  Sección 5.4 — Efectos transicionales: hélice coreana
+% ============================================================
+
+\section{Efectos de transición laminar-turbulenta: hélice coreana}
+\label{sec:helice_coreana}
+
+El análisis de la hélice Wageningen B4-60 presentado en la sección anterior se realizó
+íntegramente con el modelo SST en régimen completamente turbulento, lo cual es apropiado
+para el barrido de escalas donde los diámetros de interés operan a números de Reynolds
+suficientemente elevados. Sin embargo, a escala de modelo la capa límite sobre el álabe
+puede contener regiones laminares de extensión significativa, y su tratamiento numérico
+requiere modelos capaces de reproducir la transición laminar-turbulenta. Esta sección
+aborda ese problema a través del análisis de una hélice de cuatro álabes, cuyas
+características geométricas principales se resumen en la
+Tabla~\ref{tab:geom_coreana}.
+
+\begin{table}[h!]
+\centering
+\caption{Características geométricas principales de la hélice coreana.}
+\label{tab:geom_coreana}
+\begin{tabular}{lcc}
+\hline
+Parámetro & Símbolo & Valor \\
+\hline
+Diámetro de modelo        & $D$             & 0.250~m      \\
+Número de álabes          & $Z$             & 4            \\
+Relación de paso a $r/R=0.7$ & $P/D$        & 0.721        \\
+Relación de área desarrollada & $A_E/A_0$   & 0.431        \\
+Relación espesor-cuerda a $r/R=0.7$ & $t/D$ & 0.0156       \\
+Ángulo de escora (\textit{skew}) & ---       & $16.8^\circ$ \\
+Factor de escala          & ---             & 39.44        \\
+\hline
+\end{tabular}
+\end{table}
 
 \subsection{Datos experimentales y rango de Reynolds}
-\label{sec:helices_coreana_efd}
+\label{sec:coreana_efd}
 
-% TODO
+Los datos experimentales utilizados como referencia fueron obtenidos en túnel de
+cavitación por los fabricantes de la hélice. Los ensayos en aguas abiertas cubrieron
+coeficientes de avance $J$ entre 0.3 y 0.6 para cinco velocidades de rotación: 10.33,
+15.00, 22.50, 29.17 y 36.33~rps, con una densidad del agua de
+$\rho = 997.77$~kg/m$^3$ y viscosidad cinemática
+$\nu = 0.9565 \times 10^{-6}$~m$^2$/s a 22~°C.
 
-\subsection{Predicción del chichón con SST-LM}
-\label{sec:helices_chichon}
+El número de Reynolds se define aquí a partir de la cuerda local a $r/R = 0.7$ y de
+la velocidad resultante en esa sección:
 
-% TODO
+\begin{equation}
+    Re_c = \frac{V_\text{ref} \, c_{0.7R}}{\nu},
+    \qquad
+    V_\text{ref} = \sqrt{U^2 + (\pi n \cdot 0.7D)^2}
+    \label{eq:Re_c}
+\end{equation}
 
-\subsection{Sensibilidad a las condiciones de turbulencia de entrada}
-\label{sec:helices_sensibilidad_tu}
+donde $U = J n D$ es la velocidad de avance. Con la cuerda estimada
+$c_{0.7R} \approx 0.234\,D = 58.5$~mm, el rango de $Re_c$ explorado
+experimentalmente a $J = 0.5$ es
+$[0.36,\,0.52,\,0.77,\,1.00,\,1.25] \times 10^6$, abarcando desde el régimen
+claramente subcrítico hasta valores próximos al umbral de turbulencia plena para
+perfiles de álabe marino.
 
-% TODO
+Este rango resulta especialmente relevante porque contiene el denominado
+\textit{chichón} o \textit{transitional bump}: la región de Reynolds en torno a
+$Re_c \sim 5 \times 10^5$ donde la capa límite experimenta la transición
+laminar-turbulenta y las fuerzas sobre el álabe exhiben un comportamiento
+no monótono, con un incremento local de $K_T$ y $10K_Q$ que ningún modelo
+completamente turbulento es capaz de reproducir.
 
-\section{Conclusiones parciales}
-\label{sec:helices_conclusiones}
+\subsection{Configuración numérica}
+\label{sec:coreana_cfd}
+
+Las simulaciones CFD se realizaron con StarCCM+ resolviendo las ecuaciones RANS en
+marco de referencia en rotación. Se emplearon dos modelos de turbulencia:
+
+\begin{itemize}
+    \item \textbf{SST $k$-$\omega$ completamente turbulento} (\textit{Fully Turbulent}):
+    trata la capa límite como turbulenta desde el borde de ataque, sin modelar la
+    transición. Constituye la referencia para evaluar el impacto del modelo de
+    transición.
+
+    \item \textbf{SST-LM ($\gamma$-$\widetilde{Re}_{\theta t}$)}: modelo de cuatro
+    ecuaciones que acopla dos ecuaciones de transporte adicionales —para la
+    intermitencia $\gamma$ y el número de Reynolds de inicio de transición
+    $\widetilde{Re}_{\theta t}$— al modelo SST base. La transición se desencadena
+    localmente en función de la intensidad turbulenta local y el gradiente de presión,
+    sin requerir información integral de la capa límite.
+\end{itemize}
+
+Las simulaciones con SST-LM se realizaron para tres niveles de intensidad turbulenta
+efectiva en el plano del disco: $Tu = 1.0\%$, $1.4\%$ y $1.8\%$. Siguiendo la
+metodología de \citet{Gaggero2020}, los parámetros de turbulencia se especificaron en
+la condición de entrada de manera que la intensidad decaiga hasta el valor objetivo al
+atravesar la distancia entrada-disco, de modo que $Tu$ en el disco es el parámetro
+físicamente relevante. Tal como documentan \citet{Baltazar2021}, la relación de
+viscosidad turbulenta $\mu_t/\mu$ en la entrada se ajusta para controlar esa tasa de
+decaimiento; una vez fijada la $Tu$ objetivo en el disco, variaciones adicionales de
+$\mu_t/\mu$ producen efectos secundarios sobre las predicciones de fuerza.
+
+Las simulaciones se realizaron a las mismas velocidades de rotación que los ensayos
+experimentales (10.33 a 36.33~rps), con densidad
+$\rho = 998.71$~kg/m$^3$ y viscosidad
+$\nu = 1.0034 \times 10^{-6}$~m$^2$/s a 20~°C.
+
+\subsection{Sensibilidad a la intensidad turbulenta y comparación con datos
+experimentales}
+\label{sec:coreana_resultados}
+
+La Figura~\ref{fig:coreana_KT} presenta los coeficientes $K_T$ y $10K_Q$ en función
+del número de Reynolds $Re_c$ para $J = 0.3$, $0.4$, $0.5$ y $0.6$, comparando las
+predicciones del modelo SST, las tres configuraciones SST-LM y los datos
+experimentales.
+
+% \begin{figure}[h!]
+%     \centering
+%     \includegraphics[width=\textwidth]{figuras/coreana_KT_Re.png}
+%     \caption{$K_T$ y $10K_Q$ en función de $Re_c$ para distintos valores de $J$.
+%     Comparación entre SST completamente turbulento, SST-LM con $Tu = 1.0\%$,
+%     $1.4\%$ y $1.8\%$ en el disco, y datos experimentales.}
+%     \label{fig:coreana_KT}
+% \end{figure}
+
+El modelo SST completamente turbulento predice coeficientes prácticamente
+insensibles al $Re_c$: tanto $K_T$ como $10K_Q$ resultan cuasi-constantes en todo el
+rango de velocidades de rotación ensayado. Este comportamiento es esperado, ya que el
+modelo no tiene mecanismo para distinguir entre una capa límite laminar y una
+turbulenta; la única variación proviene del cambio de viscosidad efectiva con el
+número de Reynolds, que a estos niveles es marginal.
+
+Los resultados con SST-LM exhiben un comportamiento cualitativamente distinto: para
+los Reynolds más bajos ($Re_c \leq 5 \times 10^5$) el modelo predice valores de
+$K_T$ y $10K_Q$ superiores a los del SST, mientras que para Reynolds elevados
+($Re_c \geq 10^6$) ambos modelos convergen hacia predicciones similares. Este
+incremento a bajo $Re_c$ es precisamente la manifestación del \textit{chichón
+transicional}: la presencia de flujo laminar sobre una fracción significativa del
+álabe genera un efecto de \textit{cambering} aerodinámico —las líneas de corriente
+radialmente orientadas características de la capa límite laminar modifican la
+distribución de presión sobre el dorso del álabe, incrementando la succión y por ende
+tanto el empuje como el par— tal como describe \citet{Gaggero2020} para la VP1304 y
+\citet{Baltazar2021} para la S6368.
+
+La intensidad turbulenta en el disco actúa como parámetro de ajuste del punto de
+inicio de la transición: a mayor $Tu$, la transición se adelanta hacia el borde de
+ataque y la región laminar se reduce, aproximando el resultado al caso completamente
+turbulento. En consecuencia, la configuración $Tu = 1.8\%$ produce el chichón menos
+pronunciado, mientras que $Tu = 1.0\%$ maximiza la extensión de flujo laminar y
+amplifica las diferencias con respecto al SST.
+
+La comparación con los datos experimentales permite identificar cuál de las
+configuraciones SST-LM representa mejor las condiciones reales del túnel de
+cavitación. Los ensayos muestran claramente la presencia del chichón: los
+coeficientes experimentales son notoriamente superiores a los predichos por el SST a
+$Re_c$ bajos y convergen hacia éste a Reynolds elevados, confirmando que la capa
+límite del modelo opera en régimen de transición en el rango ensayado. La
+configuración SST-LM con $Tu = 1.4\%$ ofrece en general el mejor acuerdo cuantitativo
+con los datos, mientras que $Tu = 1.0\%$ tiende a sobreestimar el efecto transicional
+y $Tu = 1.8\%$ lo subestima.
+
+La descomposición de $K_T$ en contribuciones de presión ($K_{Tp}$) y fricción
+($K_{Tf}$), disponible en las simulaciones CFD, permite interpretar el mecanismo con
+mayor precisión. A $Re_c$ bajos, $K_{Tp}$ es notoriamente superior en los cálculos
+SST-LM respecto al SST, mientras que $K_{Tf}$ —negativo, pues la fricción se opone
+al empuje— es menos negativo en presencia de flujo laminar (menor arrastre viscoso).
+El incremento neto de $K_T$ resulta dominado por la componente de presión, en
+consonancia con los resultados del Capítulo anterior para la B4-60 y con los reportados
+en la literatura para hélices convencionales operando en el régimen crítico de Reynolds.
+
+Estos resultados subrayan que el modelo SST, al imponer turbulencia plena desde el
+borde de ataque, es incapaz de reproducir el comportamiento experimental en la escala
+de modelo para esta hélice. La elección del modelo de turbulencia no es, por tanto,
+un detalle numérico menor: condiciona de manera fundamental la validez de las
+predicciones a escala de modelo y, en consecuencia, la confiabilidad del proceso de
+extrapolación a escala real.
+EOF
 
 % TODO
