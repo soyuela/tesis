@@ -13,7 +13,7 @@ Los ensayos experimentales se llevaron a cabo en el canal de remolque de la Univ
 
 \subsection{Instalaciones: El Canal de Remolque}
 
-Los ensayos se realizaron en el **Canal de Experiencias de Arquitectura Naval (CEAN)**. Esta instalación cuenta con un vaso de hormigón rectilíneo con las siguientes dimensiones principales:
+Los ensayos se realizaron en el \textbf{Canal de Experiencias de Arquitectura Naval (CEAN)}. Esta instalación cuenta con un vaso de hormigón rectilíneo con las siguientes dimensiones principales:
 
 \begin{itemize}
     \item \textbf{Longitud:} 72 m
@@ -21,14 +21,14 @@ Los ensayos se realizaron en el **Canal de Experiencias de Arquitectura Naval (C
     \item \textbf{Profundidad:} 2.0 m
 \end{itemize}
 
-El canal está equipado con un carro dinamométrico capaz de alcanzar una velocidad máxima de **4.0 m/s**, lo cual cubre holgadamente el rango de velocidades de Froude requeridas para los modelos analizados en este estudio.
+El canal está equipado con un carro dinamométrico capaz de alcanzar una velocidad máxima de \textbf{4.0 m/s}, lo cual cubre holgadamente el rango de velocidades de Froude requeridas para los modelos analizados en este estudio.
 
 \subsection{Modelos Físicos \label{presentacion_TPA}}
 
 Se fabricaron y ensayaron cuatro modelos a escala, de los cuales tres son pesqueros diseñados por astilleros argentinos y uno un portacotenedres de referencia. Todos fueron acabados con pintura de alto brillo para garantizar una superficie hidráulicamente lisa. A continuación se presentan los mismos.
 
 \subsubsection{Modelo Pesquero 1}
-El modelo principal de estudio, diseñado por el astillero "TecnoPesca Argentina", representa un buque pesquero de baja esbeltez ($L/B < 4$) característico de la flota nacional. El modelo fue construido a escala $\lambda = 20$.
+El primer modelo estudiado, de ahora en más \textit{P1}, diseñado por el astillero "TecnoPesca Argentina", representa un buque pesquero de baja esbeltez ($L/B < 4$) característico de la flota nacional. El modelo fue construido a escala $\lambda = 20$.
 
 En la Figura \ref{fig:model_tpa}, se presentan las vistas del modelo físico terminado. Se pueden apreciar las marcas de las estaciones teóricas y la disposición de la proa con bulbo. Para asegurar la transición a régimen turbulento de la capa límite y evitar la laminarización del flujo a bajas velocidades, se instalaron estimuladores de turbulencia (studs cilíndricos de 3 mm de diámetro y 2 mm de altura) a un 5\% de la eslora desde la perpendicular de proa, siguiendo las recomendaciones de la ITTC (Procedimiento 7.5-01-01-01).
 
@@ -87,7 +87,7 @@ El tercer perquero analizado fue diseñado y construido por el Astillero Naval F
 
 La medición de la resistencia total al avance ($R_T$) se realizó mediante una celda de carga de un solo componente marca \textbf{Kempf \& Remmers modelo R 47}. El transductor, diseñado para una carga a escala completa de $\pm 100$ N, posee una sensibilidad de aproximadamente $\pm 1$ mV/V de voltaje de alimentación.
 
-El montaje del modelo al carro dinamométrico se realizó vinculándolo a la celda de carga de manera tal que se restringieron los movimientos de avance (velocidad constante impuesta por el carro), deriva, guiñada y rolido. El sistema permitió que el modelo quedara **libre a cabeceo (\textit{trim}) y hundimiento (\textit{sinkage})**, conforme a los estándares para ensayos de resistencia al avance.
+El montaje del modelo al carro dinamométrico se realizó vinculándolo a la celda de carga de manera tal que se restringieron los movimientos de avance (velocidad constante impuesta por el carro), deriva, guiñada y rolido. El sistema permitió que el modelo quedara \textbf{libre a cabeceo (\textit{trim}) y hundimiento (\textit{sinkage})}, conforme a los estándares para ensayos de resistencia al avance.
 
 El sistema de adquisición de datos se configuró con los siguientes parámetros:
 \begin{itemize}
@@ -99,7 +99,7 @@ El sistema de adquisición de datos se configuró con los siguientes parámetros
 
 Se siguió el procedimiento estándar para ensayos de resistencia según la ITTC (7.5-02-02-01).
 
-Dado que el modelo ocupa una fracción del volumen del canal, la presencia de las paredes y el fondo acelera el flujo alrededor del casco (efecto de bloqueo). Aunque las relaciones de área transversal fueron bajas ($1\% - 1.2\%$), se aplicó la **corrección de bloqueo de Schuster** a los resultados experimentales para garantizar la consistencia con la condición de aguas ilimitadas, de acuerdo con el procedimiento de la ITTC \cite{ITTC_resistance}.
+Dado que el modelo ocupa una fracción del volumen del canal, la presencia de las paredes y el fondo acelera el flujo alrededor del casco (efecto de bloqueo). Aunque las relaciones de área transversal fueron bajas ($1\% - 1.2\%$), se aplicó la \textbf{corrección de bloqueo de Schuster} a los resultados experimentales para garantizar la consistencia con la condición de aguas ilimitadas, de acuerdo con el procedimiento de la ITTC \cite{ITTC_resistance}.
 
 \subsubsection*{Metodología de Análisis de Incertidumbre}
 
@@ -327,4 +327,69 @@ Finalmente, se determina el Índice de Convergencia de Malla para la malla fina 
     GCI_{fine} = F_s \frac{ \left| \frac{\Phi_{1} - \Phi_{2}}{\Phi_{1}} \right| }{r^p - 1} \times 100 \%
 \end{equation}
 
-Los resultados detallados de este estudio, incluyendo los valores de $R$, $p$ y el $GCI$ resultante para cada velocidad, se presentan al inicio del Capítulo 4. Basado en dicho análisis, se seleccionó la **malla fina** para todas las simulaciones de producción presentadas en esta tesis.
+Los resultados detallados de este estudio, incluyendo los valores de $R$, $p$ y el $GCI$ resultante para cada velocidad, se presentan al inicio del Capítulo 4. Basado en dicho análisis, se seleccionó la \textbf{malla fina} para todas las simulaciones de producción presentadas en esta tesis.
+
+\subsubsection{Resultado de convergencia de malla}
+
+REESCRIBIR ESTA SECCIÓN
+
+Antes de evaluar el comportamiento físico del factor de forma, es imperativo verificar la fiabilidad de la solución numérica. La Tabla \ref{tab:CFD_TPA_1_20} resume los indicadores de calidad de malla para las simulaciones del \textit{P1} a escala 1:20.
+
+Se observa que la estrategia de mallado garantiza un valor de $y^+$ promedio cercano a 1 (resolución de la subcapa viscosa) para todo el rango de velocidades. Asimismo, el GCI para la malla fina se mantiene por debajo del 0.2\% en el rango operativo de interés ($F_n \leq 0.36$). Para las velocidades superiores ($F_n \geq 0.36$), el GCI aumenta notablemente debido a la mayor complejidad del campo de flujo en ese régimen; no obstante, estas condiciones quedan fuera del rango operativo relevante del buque. En conjunto, estos indicadores confirman que los resultados presentados a continuación son independientes de la discretización espacial y que las variaciones observadas responden a fenómenos físicos y no tienen origen numérico.
+
+\begin{table}[H]
+\centering
+\caption{Verificación numérica para el \textit{P1} a escala 1:20 (Malla Fina) en Calado 3.}
+\label{tab:CFD_TPA_1_20}
+\small
+\begin{tabular}{ccccc}
+\toprule
+\textbf{Fr} & \textbf{Re} & \boldmath{$y^+$} & \textbf{1+k} & \textbf{GCI [\%]} \\
+\midrule
+0.100 & $6.40\times10^{5}$ & 0.40 & 1.179 & 0.028 \\
+0.160 & $1.02\times10^{6}$ & 0.70 & 1.251 & 0.112 \\
+0.200 & $1.28\times10^{6}$ & 1.03 & 1.320 & 0.009 \\
+0.240 & $1.54\times10^{6}$ & 1.40 & 1.378 & 0.003 \\
+0.300 & $1.92\times10^{6}$ & 2.23 & 1.470 & 0.002 \\
+0.360 & $2.31\times10^{6}$ & 2.70 & 1.598 & 1.382 \\
+0.400 & $2.56\times10^{6}$ & 3.00 & 1.637 & 13.43 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+La Tabla~\ref{tab:CFD_KCS} presenta la verificación numérica para el modelo 
+KCS a escala 1:79. Los valores de $y^+$ y GCI garantizan una solución 
+numéricamente robusta en todo el rango operativo.
+
+\begin{table}[H]
+\centering
+\caption{Verificación numérica para el modelo KCS a escala 1:79.}
+\label{tab:CFD_KCS}
+\small
+\begin{tabular}{ccccc}
+\toprule
+\textbf{Fr} & \textbf{Re} & \boldmath{$y^+$} & \textbf{1+k} & \textbf{GCI [\%]} \\
+\midrule
+0.020 & $3.19\times10^{5}$ & 0.32 & 1.015 & 0.12 \\
+0.040 & $6.37\times10^{5}$ & 0.91 & 1.022 & 0.06 \\
+0.060 & $9.56\times10^{5}$ & 1.70 & 1.039 & 0.04 \\
+0.080 & $1.28\times10^{6}$ & 2.64 & 1.101 & 0.01 \\
+0.100 & $1.59\times10^{6}$ & 3.71 & 1.141 & 0.09 \\
+0.120 & $1.91\times10^{6}$ & 4.90 & 1.218 & 0.07 \\
+0.140 & $2.23\times10^{6}$ & 6.21 & 1.308 & 0.00 \\
+0.160 & $2.55\times10^{6}$ & 7.61 & 1.314 & 0.01 \\
+0.180 & $2.87\times10^{6}$ & 9.12 & 1.289 & 0.01 \\
+0.200 & $3.19\times10^{6}$ & 10.71 & 1.254 & 0.04 \\
+0.220 & $3.51\times10^{6}$ & 12.39 & 1.214 & 0.08 \\
+0.240 & $3.82\times10^{6}$ & 14.16 & 1.182 & 0.11 \\
+0.260 & $4.14\times10^{6}$ & 16.00 & 1.154 & 0.13 \\
+0.280 & $4.46\times10^{6}$ & 17.92 & 1.131 & 0.20 \\
+0.300 & $4.78\times10^{6}$ & 19.92 & 1.118 & 0.09 \\
+0.320 & $5.10\times10^{6}$ & 21.98 & 1.118 & 0.43 \\
+0.340 & $5.42\times10^{6}$ & 24.12 & 1.117 & 0.35 \\
+0.360 & $5.74\times10^{6}$ & 26.32 & 1.114 & 1.06 \\
+0.380 & $6.06\times10^{6}$ & 28.59 & 1.118 & 1.86 \\
+0.400 & $6.37\times10^{6}$ & 30.93 & 1.117 & 1.09 \\
+\bottomrule
+\end{tabular}
+\end{table}
