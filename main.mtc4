@@ -32,27 +32,27 @@
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.3.1}Introducción y motivación del estudio}{\reset@font\mtcSSfont 66}{subsection.4.3.1}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.3.2}Definiciones geométricas y parámetros característicos}{\reset@font\mtcSSfont 66}{subsection.4.3.2}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.3.3}Desarrollo del método 2--$k$}{\reset@font\mtcSSfont 67}{subsection.4.3.3}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.3.4}Aplicación al Pesquero~1}{\reset@font\mtcSSfont 68}{subsection.4.3.4}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.3.5}Análisis comparativo de flujo}{\reset@font\mtcSSfont 69}{subsection.4.3.5}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.3.4}Análisis comparativo de flujo}{\reset@font\mtcSSfont 68}{subsection.4.3.4}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.3.5}Aplicación al Pesquero~1}{\reset@font\mtcSSfont 70}{subsection.4.3.5}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.3.6}Conclusiones parciales}{\reset@font\mtcSSfont 70}{subsection.4.3.6}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.4}Efecto de la línea de fricción y posibles correcciones}{\reset@font\mtcSfont 70}{section.4.4}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.4}Efecto de la línea de fricción}{\reset@font\mtcSfont 71}{section.4.4}}
 {\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.5}Efecto de los modelos de turbulencia}{\reset@font\mtcSfont 72}{section.4.5}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.5.1}Introducción y motivación del estudio}{\reset@font\mtcSSfont 72}{subsection.4.5.1}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.5.2}Metodología y configuración numérica}{\reset@font\mtcSSfont 72}{subsection.4.5.2}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.5.3}Modelos de turbulencia analizados}{\reset@font\mtcSSfont 72}{subsection.4.5.3}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Modelo $k$--$\omega $ SST (Modelo de Referencia)}{\reset@font\mtcPfont 72}{section*.83}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Modelo $k$--$\omega $ estándar}{\reset@font\mtcPfont 73}{section*.84}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Modelo $k$--$\omega $ SST}{\reset@font\mtcPfont 72}{section*.83}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Modelo $k$--$\omega $ estándar}{\reset@font\mtcPfont 72}{section*.84}}
 {\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Modelo $k$--$\varepsilon $ estándar}{\reset@font\mtcPfont 73}{section*.85}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Modelo $k$--$\varepsilon $ realizable}{\reset@font\mtcPfont 74}{section*.86}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Modelo $k$--$\varepsilon $ realizable}{\reset@font\mtcPfont 73}{section*.86}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.5.4}Comparación de resistencia viscosa}{\reset@font\mtcSSfont 74}{subsection.4.5.4}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.5.5}Efecto sobre el factor de forma}{\reset@font\mtcSSfont 75}{subsection.4.5.5}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.5.5}Efecto sobre el factor de forma}{\reset@font\mtcSSfont 74}{subsection.4.5.5}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.5.6}Descomposición de la resistencia según origen friccional y de presión viscosa}{\reset@font\mtcSSfont 76}{subsection.4.5.6}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.5.7}Recomendaciones para la selección de modelos en estudios de escala}{\reset@font\mtcSSfont 78}{subsection.4.5.7}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.5.8}Conclusiones parciales}{\reset@font\mtcSSfont 78}{subsection.4.5.8}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.6}Efecto de la relación de aspecto L/B}{\reset@font\mtcSfont 79}{section.4.6}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.6.1}Motivación y observaciones sobre L/B en cascos de baja esbeltez}{\reset@font\mtcSSfont 79}{subsection.4.6.1}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.6}Efecto de la relación de aspecto L/B}{\reset@font\mtcSfont 78}{section.4.6}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.6.1}Motivación y observaciones sobre L/B en cascos de baja esbeltez}{\reset@font\mtcSSfont 78}{subsection.4.6.1}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.6.2}Análisis CFD y comparación de presión y resistencia viscosa}{\reset@font\mtcSSfont 79}{subsection.4.6.2}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.6.3}Presentación de pesqueros con distintos L/B}{\reset@font\mtcSSfont 82}{subsection.4.6.3}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.6.4}Generalización del comportamiento observado y formulación empírica}{\reset@font\mtcSSfont 82}{subsection.4.6.4}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.6.5}Implicancias para el escalado y la extrapolación de resultados}{\reset@font\mtcSSfont 84}{subsection.4.6.5}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.6.6}Conclusiones parciales}{\reset@font\mtcSSfont 85}{subsection.4.6.6}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.6.3}Presentación de pesqueros con distintos L/B}{\reset@font\mtcSSfont 80}{subsection.4.6.3}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.6.4}Generalización del comportamiento observado y formulación empírica}{\reset@font\mtcSSfont 81}{subsection.4.6.4}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.6.5}Implicancias para el escalado y la extrapolación de resultados}{\reset@font\mtcSSfont 83}{subsection.4.6.5}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.6.6}Conclusiones parciales}{\reset@font\mtcSSfont 84}{subsection.4.6.6}}

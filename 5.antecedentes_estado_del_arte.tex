@@ -25,7 +25,27 @@ La corrección de la componente viscosa entre escalas requiere una referencia pa
 %
 Es crucial señalar que esta expresión no es una línea de fricción pura de placa plana, sino una \textit{línea de correlación modelo--buque}. Como reconoció explícitamente la ITTC al adoptarla, embebe implícitamente un factor de forma de aproximadamente $1{,}09$ y fue concebida como ``solución interina para fines prácticos de ingeniería'' \citep{ITTC_Performance_prediction}. Esta característica, junto con su pendiente excesivamente pronunciada a bajos números de Reynolds (en el rango típico de los modelos de laboratorio), genera una dependencia espuria del factor de forma con el número de Reynolds cuando se la utiliza como referencia de fricción pura, cuestión analizada en profundidad por \citet{KORKMAZ2022112590}.
 
-Como alternativas, diversas \textbf{líneas de fricción numéricas} (\textit{Numerical Friction Lines}, NFL) han sido derivadas mediante simulaciones CFD de placa plana a distintos Reynolds \citep{wang2015numericalFL, Korkmaz2019NumericalFL}. Estas líneas, calculadas con el mismo código y modelo de turbulencia que se emplea para el casco, producen factores de forma prácticamente independientes de la escala. Sin embargo, la ITTC recomienda continuar utilizando la ITTC-57 para mantener coherencia con las bases de datos históricas de factores de correlación $C_A$ y $C_P$ \citep{ITTC_Combined_2021}.
+Como alternativas, diversas \textbf{líneas de fricción numéricas} 
+(\textit{Numerical Friction Lines}, NFL) han sido derivadas mediante 
+simulaciones CFD de placa plana a distintos Reynolds 
+\citep{wang2015numericalFL, Korkmaz2019NumericalFL}. Estas líneas, 
+calculadas con el mismo código y modelo de turbulencia que se emplea para 
+el casco, producen factores de forma prácticamente independientes de la 
+escala para cascos desnudos de esbeltez moderada, reduciendo en gran medida 
+el efecto de escala espurio asociado a la pendiente de la ITTC-57. Sin 
+embargo, la ITTC recomienda continuar utilizando la ITTC-57 para mantener 
+coherencia con las bases de datos históricas de factores de correlación 
+$C_A$ y $C_P$ \citep{ITTC_Combined_2021}. Cabe señalar que esta mejora no 
+es universal: en configuraciones con apéndices, o en cascos donde la 
+resistencia por presión viscosa $C_{PV}$ constituye una fracción 
+significativa de la resistencia viscosa total, el factor de forma puede 
+continuar mostrando variaciones apreciables con el número de Reynolds 
+incluso al emplear NFL, lo que indica que la hipótesis de 
+proporcionalidad entre resistencia viscosa y fricción de placa plana 
+resulta insuficiente en flujos tridimensionales complejos 
+\citep{wang2015numericalFL}. Este es precisamente el caso de los pesqueros 
+de baja esbeltez analizados en esta tesis, como se documenta en el 
+Capítulo~\ref{cap:resistencia_factor_de_forma}.
 
 % TODO: figura comparando ITTC-57, Schoenherr, Grigson y NFL.
 % Candidato: Fig.~2.1 de Korkmaz (2023) o figura propia del cap.~4.

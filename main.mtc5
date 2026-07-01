@@ -1,14 +1,14 @@
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {5.1}Introducción}{\reset@font\mtcSfont 87}{section.5.1}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {5.2}Validación: hélice Wageningen B4-60 a escala modelo}{\reset@font\mtcSfont 87}{section.5.2}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.2.1}Resultados experimentales: campaña LabHiNO y datos MARIN}{\reset@font\mtcSSfont 87}{subsection.5.2.1}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.2.2}Comparación CFD vs EFD: SST y SST-LM}{\reset@font\mtcSSfont 89}{subsection.5.2.2}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {5.3}Efectos de escala en la hélice B4-60}{\reset@font\mtcSfont 90}{section.5.3}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.3.1}Sweep de diámetros: $D = 0{,}14$ a $8{,}0$~m}{\reset@font\mtcSSfont 90}{subsection.5.3.1}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.3.2}Variación de $K_T$ y $K_Q$ con Reynolds}{\reset@font\mtcSSfont 90}{subsection.5.3.2}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.3.3}Descomposición friccional/presión ($\Delta K_{Tf}$, $\Delta K_{Tp}$, $\Delta K_{Qf}$, $\Delta K_{Qp}$)}{\reset@font\mtcSSfont 91}{subsection.5.3.3}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.3.4}Comparación con el procedimiento ITTC-78}{\reset@font\mtcSSfont 92}{subsection.5.3.4}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.3.5}Eficiencia en escala real: comparación de métodos}{\reset@font\mtcSSfont 94}{subsection.5.3.5}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {5.4}Efectos de transición laminar-turbulenta: hélice coreana}{\reset@font\mtcSfont 94}{section.5.4}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.4.1}Datos experimentales y rango de Reynolds}{\reset@font\mtcSSfont 95}{subsection.5.4.1}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.4.2}Configuración numérica}{\reset@font\mtcSSfont 95}{subsection.5.4.2}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.4.3}Sensibilidad a la intensidad turbulenta y comparación con datos experimentales}{\reset@font\mtcSSfont 96}{subsection.5.4.3}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {5.1}Introducción}{\reset@font\mtcSfont 86}{section.5.1}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {5.2}Validación: hélice Wageningen B4-60 a escala modelo}{\reset@font\mtcSfont 86}{section.5.2}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.2.1}Resultados experimentales: campaña LabHiNO y datos MARIN}{\reset@font\mtcSSfont 86}{subsection.5.2.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.2.2}Comparación CFD vs EFD: SST y SST-LM}{\reset@font\mtcSSfont 88}{subsection.5.2.2}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {5.3}Efectos de escala en la hélice B4-60}{\reset@font\mtcSfont 89}{section.5.3}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.3.1}Sweep de diámetros: $D = 0{,}14$ a $8{,}0$~m}{\reset@font\mtcSSfont 89}{subsection.5.3.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.3.2}Variación de $K_T$ y $K_Q$ con Reynolds}{\reset@font\mtcSSfont 89}{subsection.5.3.2}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.3.3}Descomposición friccional/presión ($\Delta K_{Tf}$, $\Delta K_{Tp}$, $\Delta K_{Qf}$, $\Delta K_{Qp}$)}{\reset@font\mtcSSfont 90}{subsection.5.3.3}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.3.4}Comparación con el procedimiento ITTC-78}{\reset@font\mtcSSfont 91}{subsection.5.3.4}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.3.5}Eficiencia en escala real: comparación de métodos}{\reset@font\mtcSSfont 93}{subsection.5.3.5}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {5.4}Efectos de transición laminar-turbulenta: hélice coreana}{\reset@font\mtcSfont 93}{section.5.4}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.4.1}Datos experimentales y rango de Reynolds}{\reset@font\mtcSSfont 94}{subsection.5.4.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.4.2}Configuración numérica}{\reset@font\mtcSSfont 94}{subsection.5.4.2}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.4.3}Sensibilidad a la intensidad turbulenta y comparación con datos experimentales}{\reset@font\mtcSSfont 95}{subsection.5.4.3}}
