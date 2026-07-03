@@ -874,7 +874,27 @@ el \textit{P1}, mientras que para el KCS es cercana al 8\%. Además, el valor
 final de $(1+k)$ del \textit{P1} resulta casi un 50\% superior al del KCS, 
 valor no encontrado en la literatura de hidrodinámica naval al día de hoy.
 
-Al aplicar la recta de \citet{gomezgarcia} (Sección~\ref{sec:factor_de_forma_antec}) 
+Para verificar que este comportamiento no es exclusivo del \textit{P1}, 
+se extendió el análisis CFD DB a los otros dos pesqueros analizados en 
+esta tesis (\textit{P2}, $L/B = 3{,}23$; \textit{P3}, $L/B = 2{,}85$). 
+La Figura~\ref{fig:Re_formfactor} muestra la evolución de $(1+k)$ con 
+$R_n$ para los cuatro cascos. Los tres pesqueros presentan el mismo 
+comportamiento creciente y no asintótico observado en el \textit{P1}, en 
+marcado contraste con la estabilización del KCS. Esta consistencia 
+confirma que la falta de valor asintótico de $(1+k)$ no es una 
+singularidad del \textit{P1}, sino una característica común a los 
+pesqueros estudiados. Las causas geométricas de este comportamiento se 
+analizan en profundidad en la Sección~\ref{sec:generalizacion_LB}.
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=.6\textwidth, trim=3.5cm 8cm 4cm 8cm, clip]{./images/completo_log_kcs_lit_tpa_jpa_contessi.pdf}
+    \caption{Evolución de $(1+k)$ con el número de Reynolds para el KCS 
+    y los tres pesqueros analizados.}
+    \label{fig:Re_formfactor}
+\end{figure}
+
+Al aplicar el método de la recta de \citet{gomezgarcia} (Sección~\ref{sec:factor_de_forma_antec}) 
 a los resultados propios del \textit{P1}, la pendiente obtenida resulta 
 completamente distinta a la reportada por los autores, alcanzando un valor 
 de $17.2$ frente al $1.851$ original (Figura~\ref{fig:gomez-garcia-nuestro}). 
@@ -1969,8 +1989,7 @@ extrapolaciones o comparaciones con datos experimentales.
 
 Como ha sido mencionado en las Secciones (VERIFICAR Y CORREGIR \ref{sec:doble_cuerpo}, \ref{sec:analisis_efectos_escala} y \ref{sec:descomposicion_de_la_res_viscosa}), los métodos tradicionales de extrapolación de resistencia, ampliamente validados para buques mercantes esbeltos, asumen que el factor de forma $(1+k)$ tiende a estabilizarse conforme aumenta el número de Reynolds. Sin embargo, este supuesto no ha sido verificado para cascos con baja relación de aspecto $L/B$, típicos de la flota pesquera. Estudios recientes han mostrado que este tipo de geometrías presenta estelas más anchas, mayores regiones de presión adversa y estructuras vorticosas persistentes en popa, factores que pueden incrementar significativamente la presión viscosa y alterar la evolución esperada de $(1+k)$ como hemos presentado en la Sección \ref{sec:analisis_efectos_escala}.
 
-En esta sección se mostrará la incapacidad de los métodos empíricos para la estimación del factor de forma en el \textit{P1} y luego luego se extenderá el análisis al Pesquero 2 y 3, que cuentan con distintas razones $L/B$, para identificar tendencias generalizables.
-
+En esta sección se mostrará la incapacidad de los métodos empíricos para la estimación del factor de forma en el \textit{P1} y luego se extenderá el análisis al Pesquero 2 y 3, que cuentan con distintas razones $L/B$, para identificar tendencias generalizables.
 
 \subsection{Análisis CFD y comparación de presión y resistencia viscosa}
 
@@ -1994,19 +2013,66 @@ impide que el cociente se estabilice dentro del rango de escalas analizado.
 
 Al comparar el valor de $(1+k)$ obtenido para el \textit{P1} con 
 correlaciones empíricas desarrolladas para buques mercantes, surge una 
-doble inconsistencia. Por un lado, el valor de $(1+k) \approx 1.73$ 
+doble inconsistencia. Por un lado, el valor de $(1+k) \approx 1{,}73$ 
 obtenido por CFD DB a escala buque no tiene precedente en la literatura 
 de hidrodinámica naval: no se ha encontrado un valor comparable para 
-ningún casco desnudo documentado hasta la fecha. Por otro lado, entre 
-los parámetros geométricos que definen la forma del casco ($C_B$, $L/B$, 
-$B/T$, $S/L^2$, $L/\nabla^{1/3}$), la relación $L/B$ del \textit{P1} 
-es la que más se aparta de los valores contemplados en dichas 
-formulaciones: en todos los casos, el \textit{P1} tiene un $L/B$ que cae 
-fuera del rango de validez de las correlaciones disponibles. Como 
-consecuencia, las fórmulas disponibles no reproducen los altos valores 
-observados mediante CFD DB para escala buque. La Figura~\ref{empiricos} 
-ilustra este problema, mostrando una alta dispersión entre correlaciones 
-y la falta de coincidencia con los resultados numéricos y experimentales.
+ningún casco desnudo documentado hasta la fecha. Por otro lado, las 
+fórmulas empíricas consideradas fueron desarrolladas a partir de ensayos 
+con buques mercantes de esbeltez convencional. Entre los parámetros 
+geométricos de entrada de estas correlaciones ($C_B$, $L/B$, $B/T$, 
+$S/L^2$, $L/\nabla^{1/3}$), la relación $L/B = 3{,}75$ del \textit{P1} 
+resulta notablemente inferior a la de los buques mercantes típicos para 
+los cuales fueron calibradas, lo que compromete la aplicabilidad de estas 
+expresiones a este tipo de casco. Como consecuencia, las fórmulas 
+disponibles no reproducen los altos valores observados mediante CFD DB 
+para escala buque. La Tabla~\ref{tab:empiricos} presenta las expresiones 
+utilizadas y los valores obtenidos para el \textit{P1}, y la 
+Figura~\ref{empiricos} ilustra la alta dispersión entre correlaciones y 
+la falta de coincidencia con los resultados numéricos y experimentales.
+
+\begin{table}[htpb]
+\centering
+\caption{Correlaciones empíricas para la estimación del factor de forma 
+$(1+k)$ y valores obtenidos para el \textit{P1} 
+($L = 34{,}8$~m, $B = 9{,}28$~m, $T = 3{,}9$~m, 
+$S = 449{,}6$~m$^2$, $C_B = 0{,}64$, $\nabla = 152{,}0$~m$^3$).}
+\label{tab:empiricos}
+\small
+\begin{tabularx}{\textwidth}{lXc}
+\toprule
+\textbf{Método} & \textbf{Expresión} & \boldmath{$(1+k)$} \\
+\midrule
+\citet{molland2017ship} (Watanabe) &
+$\displaystyle 1 + k = 1 - 0{,}095 + 
+\frac{25{,}6\,C_B}{(L/B)^2\,\sqrt{B/T}}$ &
+$1{,}660$ \\[10pt]
+
+\citet{conn1968results} &
+$\displaystyle 1 + k = 1 + 18{,}7
+\left(\frac{C_B\,B}{L}\right)^{2}$ &
+$1{,}545$ \\[10pt]
+
+\citet{grigson2000planar} &
+$\displaystyle 1 + k = 1 + 0{,}028 + 3{,}3\,
+\frac{S}{L^2}\sqrt{\frac{C_B\,B}{L}}$ &
+$1{,}534$ \\[10pt]
+
+\citet{wright1984viscous} &
+$\displaystyle 1 + k = 2{,}48\,
+C_B^{0{,}1526}\,
+\left(\frac{B}{T}\right)^{0{,}0533}\,
+\left(\frac{B}{L}\right)^{0{,}3856}$ &
+$1{,}457$ \\[10pt]
+
+\citet{couser1997calm} &
+$\displaystyle 1 + k = 2{,}76\,
+\left(\frac{L}{\nabla^{1/3}}\right)^{-0{,}4}$ &
+$1{,}616$ \\[10pt]
+
+Prohaska (EFD, presente trabajo) & --- & $1{,}19$ \\
+\bottomrule
+\end{tabularx}
+\end{table}
 
 \begin{figure}[htpb]
     \centering
@@ -2041,6 +2107,46 @@ obtenidos por CFD DB para el \textit{P1} ($L/B = 3.53$) y para el KCS
 ($L/B = 7.14$, datos de \citet{TerzievDataSet}), representados en 
 función de $l/d = L/B$.
 
+La Tabla~\ref{tab:aerodinamicos} presenta las expresiones de las 
+correlaciones aerodinámicas consideradas en la Figura~\ref{aerodynamics}.
+
+\begin{table}[htpb]
+\centering
+\caption{Correlaciones aerodinámicas de factor de forma para cuerpos de 
+revolución en función de la razón de esbeltez $l/d$.}
+\label{tab:aerodinamicos}
+\small
+\begin{tabularx}{\textwidth}{lX}
+\toprule
+\textbf{Método} & \textbf{Expresión} \\
+\midrule
+\citet{hoerner1965drag} &
+$\displaystyle \mathrm{FF} = 1 + 
+\frac{1{,}5}{(l/d)^{1{,}5}} + 
+\frac{7}{(l/d)^{3}}$ \\[10pt]
+
+\citet{torenbeek2010synthesis} &
+$\displaystyle \mathrm{FF} = 1 + 
+\frac{2{,}2}{(l/d)^{1{,}5}} + 
+\frac{3{,}8}{(l/d)^{3}}$ \\[10pt]
+
+\citet{shevell1989fundamentals} &
+$\displaystyle \mathrm{FF} = 2{,}939 - 0{,}7666\,\frac{l}{d} + 
+0{,}1328\left(\frac{l}{d}\right)^{2}
+- 0{,}01074\left(\frac{l}{d}\right)^{3}
++ 3{,}275\times10^{-4}\left(\frac{l}{d}\right)^{4}$ \\[10pt]
+
+\citet{raymer2019aircraft} (Raymer new) &
+$\displaystyle \mathrm{FF} = 0{,}9 + 0{,}0025\,\frac{l}{d} + 
+\frac{5}{(l/d)^{1{,}5}}$ \\[10pt]
+
+\citet{roskam1987airplane} &
+$\displaystyle \mathrm{FF} = 1 + 0{,}0025\,\frac{l}{d} + 
+\frac{60}{(l/d)^{3}}$ \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
 \begin{figure}[htpb]
     \centering
     \includegraphics[width=.6\textwidth, trim=3.5cm 8cm 4cm 8cm, clip]{./images/aerodynamics.pdf}
@@ -2052,8 +2158,15 @@ función de $l/d = L/B$.
     \label{aerodynamics}
 \end{figure}
 
-El valor del KCS coincide con la curva de \citet{hoerner1965drag}, coherente con su alta esbeltez y con el rango para el que dicha curva fue derivada originalmente. El valor del \textit{P1}, en cambio, muestra mayor afinidad con la curva ``Raymer New'' \citep{raymer2019aircraft}, ajustada 
-específicamente para cuerpos de menor esbeltez. Es notable que correlaciones provenientes de un campo de estudio diferente, pero que incluyen valores de $l/d$ suficientemente bajos como para abarcar la geometría del \textit{P1}, reproduzcan los resultados CFD con mayor fidelidad que las correlaciones navales tradicionales.
+El valor del KCS coincide con la curva de \citet{hoerner1965drag}, coherente 
+con su alta esbeltez y con el rango para el que dicha curva fue derivada 
+originalmente. El valor del \textit{P1}, en cambio, muestra mayor afinidad 
+con la curva ``Raymer New'' \citep{raymer2019aircraft}, ajustada 
+específicamente para cuerpos de menor esbeltez. Es notable que correlaciones 
+provenientes de un campo de estudio diferente, pero que incluyen valores de 
+$l/d$ suficientemente bajos como para abarcar la geometría del \textit{P1}, 
+reproduzcan los resultados CFD con mayor fidelidad que las correlaciones 
+navales tradicionales.
 
 Este hallazgo sugiere que, para cascos con baja razón $L/B$, las 
 correlaciones aerodinámicas representan mejor la dependencia geométrica del 
@@ -2063,7 +2176,17 @@ para valores de $L/B$ significativamente más altos.
 
 \subsection{Presentación de pesqueros con distintos L/B}
 
-Para evaluar de manera sistemática el efecto de la esbeltez, se agregaron dos pesqueros al análisis con relación $L/B$ de 3.23 y 2.85. La Figura~\ref{fig:LB_comparisson} presenta estas geometrías junto con el \textit{P1} y el KCS, todas escaladas a la misma eslora con el fin de resaltar las diferencias morfológicas asociadas al ancho relativo, volumen transversal y forma de popa.
+Los tres pesqueros analizados en esta tesis, presentados en la 
+Sección~\ref{sec:presentacion_modelos} junto con el KCS, fueron 
+seleccionados precisamente por cubrir un rango de relaciones de esbeltez 
+$L/B$ distintas: $3{,}53$ (\textit{P1}), $3{,}23$ (\textit{P2}) y 
+$2{,}85$ (\textit{P3}). Esta diversidad geométrica permite evaluar de 
+manera sistemática si el comportamiento observado para el \textit{P1} 
+constituye un caso aislado o refleja una tendencia estructural asociada 
+a la baja esbeltez. La Figura~\ref{fig:LB_comparisson} presenta las 
+cuatro geometrías escaladas a la misma eslora, con el fin de resaltar 
+las diferencias morfológicas asociadas al ancho relativo, volumen 
+transversal y forma de popa.
 
 \begin{figure}[h!]
     \centering
@@ -2109,14 +2232,12 @@ Al disminuir $L/B$, las secciones transversales se vuelven más robustas y la tr
 
 \subsection{Generalización del comportamiento observado y formulación empírica}\label{sec:generalizacion_LB}
 
-La Figura~\ref{fig:Re_formfactor} resume la evolución del factor de forma para los cuatro cascos analizados. Mientras que el KCS reproduce el comportamiento esperado, incremento inicial y posterior estabilización del valor de $(1+k)$ conforme se desarrolla la capa límite turbulenta, los tres pesqueros presentan un crecimiento continuo y no asintótico incluso hacia escala real.
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=.6\textwidth, trim=3.5cm 8cm 4cm 8cm, clip]{./images/completo_log_kcs_lit_tpa_jpa_contessi.pdf}
-    \caption{Evolución de $(1+k)$ con el número de Reynolds para el KCS y los tres pesqueros analizados.}
-    \label{fig:Re_formfactor}
-\end{figure}
+Como se mostró en la Figura~\ref{fig:Re_formfactor} de la 
+Sección~\ref{sec:analisis_efectos_escala}, los tres pesqueros presentan 
+un crecimiento continuo y no asintótico de $(1+k)$ incluso hacia escala 
+buque, en marcado contraste con el KCS, que exhibe el incremento inicial 
+y posterior estabilización esperados conforme se desarrolla la capa límite 
+turbulenta.
 
 La consistencia entre los tres modelos confirma que este comportamiento no es propio de un caso aislado, sino un rasgo estructural de cascos con $L/B < 4$. A medida que disminuye la esbeltez, aumenta el componente de presión viscosa y, en consecuencia, el factor de forma. La tendencia creciente y no asintótica en los pesqueros sugiere que la influencia de la presión viscosa domina su comportamiento hidrodinámico incluso en condiciones de escala real.
 
@@ -2138,34 +2259,58 @@ El gráfico revela una tendencia clara:
 
 Estos resultados sugieren que, para cascos de baja esbeltez, la relación entre $(1+k)$ y $L/B$ se comporta de manera análoga a la que se observa en cuerpos de revolución evaluados en aerodinámica. En consecuencia, la utilización directa de correlaciones aerodinámicas provee un marco más apropiado para interpretar la evolución del factor de forma en esta clase de buques que las fórmulas navales tradicionales, desarrolladas para valores significativamente más altos de $L/B$.
 
-Este hallazgo abre la posibilidad de desarrollar una formulación empírica específica para pesqueros de baja esbeltez, que incorpore explícitamente la razón geométrica $L/B$ y permita predecir el comportamiento de $(1+k)$ a escala real sin necesidad de extrapolar correlaciones fuera de su rango de validez.
+Este hallazgo abre la posibilidad de desarrollar una formulación empírica específica para pesqueros de baja esbeltez que permita predecir el comportamiento de $(1+k)$ a escala buque sin necesidad de extrapolar correlaciones que fueron diseñadas en base a buques considerablemente más esbeltos.
 
 
 \subsection{Implicancias para el escalado y la extrapolación de resultados}
 
-La marcada dependencia del factor de forma con el número de Reynolds, observada en los pesqueros analizados, tiene consecuencias directas sobre la extrapolación de resistencia y la estimación de la potencia efectiva a escala real. En particular, los valores elevados de $(1+k)$ obtenidos para cascos de baja esbeltez, junto con su crecimiento sostenido hacia altas escalas, desafían el supuesto central del método ITTC: la igualdad entre los factores de forma del modelo y del buque ($k_{M} = k_{S}$).
+La marcada dependencia del factor de forma con el número de Reynolds, 
+observada en los pesqueros analizados, tiene consecuencias directas sobre 
+la extrapolación de resistencia y la estimación de la potencia efectiva a 
+escala buque. En particular, los valores elevados de $(1+k)$ obtenidos para 
+estos cascos, junto con su crecimiento sostenido hacia altas escalas, 
+desafían el supuesto central del método ITTC: la igualdad entre los factores 
+de forma del modelo y del buque ($k_{M} = k_{S}$).
 
-De acuerdo con el procedimiento estándar de predicción de potencia \citep{ITTC_Performance_prediction}, la resistencia total del buque puede expresarse como:
+Como se desarrolla en la Sección~\ref{sec:prediccion_potencia}, el 
+procedimiento estándar de predicción de potencia \citep{ITTC_Performance_prediction} 
+estima la resistencia total del buque como:
+%
 \begin{equation}
-    C_{TS} = (1+k_S)\,C_{FS0} + C_W + \Delta C_F + C_A,
+    C_{TS} = (1 + k_S)\,C_{FS0} + C_W + \Delta C_F + C_A
 \end{equation}
-donde $C_{FS0}$ se calcula mediante la línea ITTC–57, $C_W$ se obtiene a partir del modelo físico como residuo de la descomposición viscosa,
-y $(\Delta C_F, C_A)$ corresponden a las correcciones por rugosidad y correlación recomendadas por ITTC. Este método supone no sólo que $k_S = k_M$, sino también que la razón de resistencia viscosa–friccional permanece constante entre modelo y buque.
+%
+donde $C_{FS0}$ es el coeficiente de fricción del buque calculado mediante 
+la línea ITTC-57, $C_W$ es el coeficiente de resistencia por formación de 
+olas obtenido del modelo físico como residuo de la descomposición viscosa, 
+y $\Delta C_F$ y $C_A$ corresponden a las correcciones por rugosidad y 
+correlación recomendadas por la ITTC. Este método supone que $k_S = k_M$, 
+es decir, que el factor de forma es independiente de la escala.
 
-Sin embargo, los resultados CFD DB demostraron que este supuesto no se cumple para cascos con baja relación de aspecto $L/B$. Para estos buques, el fuerte incremento de $(1+k)$ con $Re$ implica que:
-\[
-k_S \gg k_M,
-\]
-lo que significa que la extrapolación tradicional subestima sistemáticamente la resistencia viscosa del buque y, por ende, la potencia efectiva necesaria.
+Sin embargo, los resultados CFD DB demostraron que este supuesto no se 
+cumple para los pesqueros estudiados. El fuerte incremento de $(1+k)$ con 
+$Re$ implica que:
+%
+\begin{equation}
+    k_S \gg k_M,
+\end{equation}
+%
+lo que significa que la extrapolación tradicional subestima sistemáticamente 
+la resistencia viscosa del buque y, por ende, la potencia efectiva necesaria.
 
-La resistencia total del buque en escala real puede calcularse como:
+La resistencia total del buque a escala buque y la potencia efectiva se 
+obtienen como (Sección~\ref{sec:prediccion_potencia}):
+%
 \begin{equation}
-    R_{TS} = \tfrac{1}{2}\rho V_S^2 S_S C_{TS},
+    R_{TS} = \tfrac{1}{2}\,\rho\,V_S^2\,S_S\,C_{TS}
 \end{equation}
-y la potencia efectiva requerida para remolcarlo es:
+%
 \begin{equation}
-    P_{ES} = R_{TS} V_S.
+    P_{ES} = R_{TS}\,V_S
 \end{equation}
+%
+donde $\rho$ es la densidad del agua, $V_S$ la velocidad del buque y $S_S$ 
+la superficie mojada a escala buque.
 
 Para cuantificar la magnitud del error introducido por la selección de un valor inapropiado de $k$, se compararon tres enfoques (Tablas~\ref{tbl:metodos_abs} y \ref{tbl:metodos_delta}):
 

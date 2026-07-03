@@ -4,7 +4,7 @@
 \section{El problema de la extrapolación modelo--buque}
 \label{sec:extrapolacion}
 
-La predicción de la resistencia al avance de un buque a escala real a partir de ensayos con modelos físicos se basa en la \textbf{similitud dinámica}. Dos flujos alrededor de cuerpos geométricamente semejantes son dinámicamente similares si comparten los mismos grupos adimensionales que gobiernan la física del flujo. Para el caso de un buque de superficie en aguas tranquilas, las ecuaciones de Navier-Stokes adimensionalizadas revelan dos parámetros fundamentales: el \textbf{número de Reynolds} $Re = VL/\nu$, que expresa la relación entre fuerzas inerciales y viscosas, y el \textbf{número de Froude} $Fr = V/\sqrt{gL}$, que expresa la relación entre fuerzas inerciales y gravitatorias. La similitud dinámica completa requeriría igualdad simultánea de ambos parámetros entre modelo ($M$) y buque real ($S$):
+La predicción de la resistencia al avance de un buque a escala real a partir de ensayos con modelos físicos se basa en la \textbf{similitud dinámica}. Dos flujos alrededor de cuerpos geométricamente semejantes son dinámicamente similares si comparten los mismos grupos adimensionales que gobiernan la física del flujo. Para el caso de un buque de superficie en aguas tranquilas, las ecuaciones de Navier-Stokes adimensionalizadas revelan dos parámetros fundamentales: el \textbf{número de Reynolds} $Re = VL/\nu$, que expresa la relación entre fuerzas inerciales y viscosas, y el \textbf{número de Froude} $Fr = V/\sqrt{gL}$, que expresa la relación entre fuerzas inerciales y gravitatorias. La similitud dinámica completa requeriría igualdad simultánea de ambos parámetros entre modelo ($M$) y buque ($S$):
 %
 \begin{equation}
     Re_M = Re_S \qquad \text{y} \qquad Fr_M = Fr_S
@@ -13,6 +13,21 @@ La predicción de la resistencia al avance de un buque a escala real a partir de
 Sin embargo, al utilizar agua en ambas escalas ($\nu_M \approx \nu_S$, $g_M = g_S$), estas dos condiciones imponen escalas de velocidad contradictorias. La igualdad de Froude exige $V_M = V_S / \sqrt{\lambda}$, mientras que la igualdad de Reynolds exige $V_M = V_S \cdot \lambda$, siendo $\lambda = L_S / L_M$ el factor de escala lineal. Para valores típicos de $\lambda$ entre 20 y 80, es imposible satisfacer ambas condiciones simultáneamente con agua como fluido de trabajo \citep{birk2019}.
 
 La solución práctica, establecida históricamente por William Froude, consiste en respetar la similitud de Froude durante los ensayos (capturando correctamente la generación de olas) y corregir analíticamente la diferencia en la componente viscosa. Esta \textbf{similitud dinámica parcial} introduce los denominados \textit{efectos de escala}: diferencias sistemáticas entre el flujo de modelo y el del buque real que no están capturadas por la extrapolación estándar y que constituyen la problemática central de esta tesis.
+
+% [AGREGADO] Definición del esquema de adimensionalización y convención de subíndices
+Para cuantificar la resistencia de manera independiente de la escala, se trabaja con el \textbf{coeficiente adimensional de resistencia total}:
+%
+\begin{equation}\label{eq:CT}
+    C_T = \frac{R_T}{\tfrac{1}{2}\,\rho\,V^2\,S}
+\end{equation}
+%
+donde $R_T$ es la fuerza de resistencia total, $\rho$ la densidad del agua,
+$V$ la velocidad de avance y $S$ la superficie mojada del casco. De manera
+análoga se definen los coeficientes de resistencia viscosa $C_V$, friccional
+$C_F$, por presión viscosa $C_{PV}$ y por formación de olas $C_W$, todos
+referidos a la misma presión dinámica y superficie mojada. Los subíndices
+$M$ y $S$ se utilizan a lo largo de esta tesis para distinguir las
+magnitudes correspondientes al modelo y al buque respectivamente.
 
 \subsection{La línea de correlación ITTC-57}
 \label{sec:ITTC57}
@@ -25,26 +40,26 @@ La corrección de la componente viscosa entre escalas requiere una referencia pa
 %
 Es crucial señalar que esta expresión no es una línea de fricción pura de placa plana, sino una \textit{línea de correlación modelo--buque}. Como reconoció explícitamente la ITTC al adoptarla, embebe implícitamente un factor de forma de aproximadamente $1{,}09$ y fue concebida como ``solución interina para fines prácticos de ingeniería'' \citep{ITTC_Performance_prediction}. Esta característica, junto con su pendiente excesivamente pronunciada a bajos números de Reynolds (en el rango típico de los modelos de laboratorio), genera una dependencia espuria del factor de forma con el número de Reynolds cuando se la utiliza como referencia de fricción pura, cuestión analizada en profundidad por \citet{KORKMAZ2022112590}.
 
-Como alternativas, diversas \textbf{líneas de fricción numéricas} 
-(\textit{Numerical Friction Lines}, NFL) han sido derivadas mediante 
-simulaciones CFD de placa plana a distintos Reynolds 
-\citep{wang2015numericalFL, Korkmaz2019NumericalFL}. Estas líneas, 
-calculadas con el mismo código y modelo de turbulencia que se emplea para 
-el casco, producen factores de forma prácticamente independientes de la 
-escala para cascos desnudos de esbeltez moderada, reduciendo en gran medida 
-el efecto de escala espurio asociado a la pendiente de la ITTC-57. Sin 
-embargo, la ITTC recomienda continuar utilizando la ITTC-57 para mantener 
-coherencia con las bases de datos históricas de factores de correlación 
-$C_A$ y $C_P$ \citep{ITTC_Combined_2021}. Cabe señalar que esta mejora no 
-es universal: en configuraciones con apéndices, o en cascos donde la 
-resistencia por presión viscosa $C_{PV}$ constituye una fracción 
-significativa de la resistencia viscosa total, el factor de forma puede 
-continuar mostrando variaciones apreciables con el número de Reynolds 
-incluso al emplear NFL, lo que indica que la hipótesis de 
-proporcionalidad entre resistencia viscosa y fricción de placa plana 
-resulta insuficiente en flujos tridimensionales complejos 
-\citep{wang2015numericalFL}. Este es precisamente el caso de los pesqueros 
-de baja esbeltez analizados en esta tesis, como se documenta en el 
+Como alternativas, diversas \textbf{líneas de fricción numéricas}
+(\textit{Numerical Friction Lines}, NFL) han sido derivadas mediante
+simulaciones CFD de placa plana a distintos Reynolds
+\citep{wang2015numericalFL, Korkmaz2019NumericalFL}. Estas líneas,
+calculadas con el mismo código y modelo de turbulencia que se emplea para
+el casco, producen factores de forma prácticamente independientes de la
+escala para cascos desnudos de esbeltez moderada, reduciendo en gran medida
+el efecto de escala espurio asociado a la pendiente de la ITTC-57. Sin
+embargo, la ITTC recomienda continuar utilizando la ITTC-57 para mantener
+coherencia con las bases de datos históricas de factores de correlación
+$C_A$ y $C_P$ \citep{ITTC_Combined_2021}. Cabe señalar que esta mejora no
+es universal: en configuraciones con apéndices, o en cascos donde la
+resistencia por presión viscosa $C_{PV}$ constituye una fracción
+significativa de la resistencia viscosa total, el factor de forma puede
+continuar mostrando variaciones apreciables con el número de Reynolds
+incluso al emplear NFL, lo que indica que la hipótesis de
+proporcionalidad entre resistencia viscosa y fricción de placa plana
+resulta insuficiente en flujos tridimensionales complejos
+\citep{wang2015numericalFL}. Este es precisamente el caso de los pesqueros
+de baja esbeltez analizados en esta tesis, como se documenta en el
 Capítulo~\ref{cap:resistencia_factor_de_forma}.
 
 % TODO: figura comparando ITTC-57, Schoenherr, Grigson y NFL.
@@ -59,7 +74,13 @@ En 1954, Hughes propuso que la resistencia viscosa de un casco tridimensional es
     C_V = (1+k)\, C_{F0}
 \end{equation}
 %
-donde $C_V = C_F + C_{PV}$ es el coeficiente de resistencia viscosa total (fricción, $C_F$, más resistencia de presión viscosa, $C_{PV}$) y $C_{F0}$ es el coeficiente de la línea de referencia. La hipótesis fundamental es que $k$ depende únicamente de la geometría del casco y es \textit{independiente del número de Reynolds}: $k_M = k_S$.
+% [AGREGADO] Definición explícita de variables y subíndices
+donde $C_V = C_F + C_{PV}$ es el coeficiente de resistencia viscosa total
+(fricción, $C_F$, más resistencia de presión viscosa, $C_{PV}$), $C_{F0}$
+es el coeficiente de la línea de referencia y $k$ es el factor de forma.
+La hipótesis fundamental es que $k$ depende únicamente de la geometría del
+casco y es \textit{independiente del número de Reynolds}: $k_M = k_S$,
+donde los subíndices $M$ y $S$ refieren a modelo y buque respectivamente.
 
 Esta hipótesis tiene una justificación física clara en condiciones ideales: para un casco esbelto con flujo completamente turbulento y sin separación, la capa límite es delgada en toda la superficie y la distribución de presiones viscosas escala de manera análoga a la fricción. En esas condiciones, $C_{PV} / C_{F0}$ es efectivamente constante con $Re$ y el factor de forma captura solo la amplificación geométrica tridimensional respecto a la placa plana. Sin embargo, esta situación ideal dista de la realidad en dos sentidos. Por un lado, el flujo en el modelo es necesariamente a menor número de Reynolds que en el buque real, lo que implica que la capa límite es proporcionalmente más gruesa, el gradiente de presión adverso en la popa está más amortiguado y la posible zona de separación es más extensa en el modelo que en el buque. Por otro lado, la línea ITTC-57 no es una línea de fricción pura sino una línea de correlación con pendiente excesiva a bajos $Re$, lo que introduce una distorsión sistemática en el valor de $k$ calculado con ella.
 
@@ -68,7 +89,7 @@ Ambos efectos actúan en el mismo sentido: $k_M > k_S$ cuando se utiliza ITTC-57
 \begin{figure}[htpb]
 \centering
 \includegraphics[width=0.6\textwidth]{images/gomez-garcia.png}
-\caption{Linealidad del factor de forma con la escala, propuesta por 
+\caption{Linealidad del factor de forma con la escala, propuesta por
 \citet{gomezgarcia}.}
 \label{fig:gomez-garcia}
 \end{figure}
@@ -78,7 +99,7 @@ En la misma línea, \citet{keh-sik-min} presenta el comportamiento del factor de
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.6\textwidth]{images/keh-sik-min-2.png}
-\caption{Curva de corrección del factor de forma y factor de forma terminal 
+\caption{Curva de corrección del factor de forma y factor de forma terminal
 propuestos por \citet{keh-sik-min}.}
 \label{fig:keh-sik-2}
 \end{figure}
@@ -98,7 +119,12 @@ El procedimiento experimental estándar para determinar $k$ fue propuesto por \c
     \frac{C_T}{C_{F0}} = (1+k) + c\,\frac{Fr^n}{C_{F0}}
 \end{equation}
 %
-Graficando $C_T / C_{F0}$ frente a $Fr^n / C_{F0}$, la extrapolación lineal al origen de la ordenada proporciona $(1+k)$, tal como se ilustra en la Figura~\ref{fig:prohaska_esquema}.
+% [AGREGADO] Definición de c y n
+donde $c$ es una constante de ajuste y $n$ es el exponente de la ley de
+olas, típicamente entre 4 y 6. Graficando $C_T / C_{F0}$ frente a
+$Fr^n / C_{F0}$, la extrapolación lineal al origen de la ordenada
+proporciona $(1+k)$, tal como se ilustra en la
+Figura~\ref{fig:prohaska_esquema}.
 
 \begin{figure}[htbp]
     \centering
@@ -145,7 +171,19 @@ Una alternativa al método de Prohaska consiste en calcular numéricamente el fa
     (1+k) = \frac{C_{T,\,\text{DB}}}{C_{F0}}
 \end{equation}
 %
-La principal ventaja del enfoque es que elimina la contaminación por olas en la determinación experimental de $C_V$, que es la mayor fuente de incertidumbre del método de Prohaska a bajas velocidades. La configuración de doble cuerpo permite además concentrar la resolución de la malla en la capa límite y la estela viscosa de popa, optimizando el costo computacional frente a las simulaciones con superficie libre. Cabe señalar, sin embargo, que la condición de simetría impuesta en la frontera superior puede distorsionar el campo de presiones en la zona de la proa bulbo cuando esta se encuentra próxima a la superficie libre, por lo que su aplicación requiere verificar que la geometría simulada no se vea afectada por esta limitación.
+% [AGREGADO] Definición de C_{T,DB}
+donde $C_{T,\,\text{DB}}$ es el coeficiente de resistencia total obtenido
+de la simulación de doble cuerpo. La principal ventaja del enfoque es que
+elimina la contaminación por olas en la determinación experimental de
+$C_V$, que es la mayor fuente de incertidumbre del método de Prohaska a
+bajas velocidades. La configuración de doble cuerpo permite además
+concentrar la resolución de la malla en la capa límite y la estela viscosa
+de popa, optimizando el costo computacional frente a las simulaciones con
+superficie libre. Cabe señalar, sin embargo, que la condición de simetría
+impuesta en la frontera superior puede distorsionar el campo de presiones
+en la zona de la proa bulbo cuando esta se encuentra próxima a la
+superficie libre, por lo que su aplicación requiere verificar que la
+geometría simulada no se vea afectada por esta limitación.
 
 \subsection{Estado del arte: estudio colaborativo ITTC y cascos pesqueros}
 \label{sec:estado_arte_ff}
@@ -209,7 +247,8 @@ Los ensayos POW se realizan típicamente a $Re_n$ entre $2\times10^5$ y $2\times
 
 Las referencias fundamentales para la predicción numérica de este fenómeno son \citet{baltazar2018transition} y \citet{gaggero2018transition}. \citeauthor{baltazar2018transition} compararon SST y el modelo de transición $\gamma$--$\widetilde{Re}_{\theta t}$ para dos hélices, obteniendo mejor acuerdo con los diagramas experimentales con el modelo de transición en el rango $Re_n = 10^5$--$10^6$. \citet{gaggero2018transition} obtuvieron resultados consistentes en OpenFOAM con el modelo $k$-$k_L$-$\omega$, destacando la alta sensibilidad a las condiciones de turbulencia en la entrada del dominio.
 
-La implicación directa para la extrapolación ITTC-78 es que, si el ensayo de modelo se realiza en el rango del chichón, los valores de $K_T$ y $K_Q$ medidos no son representativos del comportamiento turbulento que el método asume y la corrección $\Delta C_D$ puede introducir errores sistemáticos de signo indefinido. Este argumento se desarrolla en el Capítulo~\ref{chap:helices} a través de la hélice coreana cuyos datos experimentales fueron provistos por un instituto coreano % TODO: agregar nombre del instituto y corresponde la cita, y que fue simulada numéricamente en el LabHiNO (Laboratorio de Hidrodinámica Naval y Oceánica, UBA). Sus $Re_n$ de modelo se ubican precisamente en este rango conflictivo.
+La implicación directa para la extrapolación ITTC-78 es que, si el ensayo de modelo se realiza en el rango del chichón, los valores de $K_T$ y $K_Q$ medidos no son representativos del comportamiento turbulento que el método asume y la corrección $\Delta C_D$ puede introducir errores sistemáticos de signo indefinido. Este argumento se desarrolla en el Capítulo~\ref{chap:helices} a través de la hélice coreana cuyos datos experimentales fueron provistos por un instituto coreano % TODO: agregar nombre del instituto y corresponde la cita,
+y que fue simulada numéricamente en el LabHiNO (Laboratorio de Hidrodinámica Naval y Oceánica, UBA). Sus $Re_n$ de modelo se ubican precisamente en este rango conflictivo.
 
 % TODO: figura mostrando el chichón en K_T / K_Q vs Re_n.
 % Candidato: curvas propias de la hélice coreana o figura de Baltazar (2018)/Rijpkema (2015).

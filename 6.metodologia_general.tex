@@ -25,10 +25,10 @@ El canal está equipado con un carro dinamométrico capaz de alcanzar una veloci
 
 \subsection{Modelos Físicos \label{presentacion_TPA}}
 
-Se fabricaron y ensayaron cuatro modelos a escala, de los cuales tres son pesqueros diseñados por astilleros argentinos y uno un portacotenedres de referencia. Todos fueron acabados con pintura de alto brillo para garantizar una superficie hidráulicamente lisa. A continuación se presentan los mismos.
+Se fabricaron y ensayaron cuatro modelos a escala, de los cuales tres son pesqueros diseñados por astilleros argentinos y uno un portacontenedores de referencia. Todos fueron acabados con pintura de alto brillo para garantizar una superficie hidráulicamente lisa. A continuación se presentan los mismos.
 
 \subsubsection{Modelo Pesquero 1}
-El primer modelo estudiado, de ahora en más \textit{P1}, diseñado por el astillero "TecnoPesca Argentina", representa un buque pesquero de baja esbeltez ($L/B < 4$) característico de la flota nacional. El modelo fue construido a escala $\lambda = 20$.
+El primer modelo estudiado, de ahora en más \textit{P1}, diseñado por el astillero ``TecnoPesca Argentina'', representa un buque pesquero de baja esbeltez ($L/B < 4$) característico de la flota nacional. El modelo fue construido a escala $\lambda = 20$.
 
 En la Figura \ref{fig:model_tpa}, se presentan las vistas del modelo físico terminado. Se pueden apreciar las marcas de las estaciones teóricas y la disposición de la proa con bulbo. Para asegurar la transición a régimen turbulento de la capa límite y evitar la laminarización del flujo a bajas velocidades, se instalaron estimuladores de turbulencia (studs cilíndricos de 3 mm de diámetro y 2 mm de altura) a un 5\% de la eslora desde la perpendicular de proa, siguiendo las recomendaciones de la ITTC (Procedimiento 7.5-01-01-01).
 
@@ -81,8 +81,8 @@ La Figura \ref{fig:model_kcs} muestra el modelo KCS. A diferencia del Pesquero 1
 El segundo pesquero analizado fue diseñado y construido por el astillero JPA S.A.
 
 \subsubsection{Modelo Pesquero 3}
-El tercer perquero analizado fue diseñado y construido por el Astillero Naval Federico Contessi y Cía. S.A.
- 
+El tercer pesquero analizado fue diseñado y construido por el Astillero Naval Federico Contessi y Cía. S.A.
+
 \subsection{Instrumentación y Adquisición de Datos}
 
 La medición de la resistencia total al avance ($R_T$) se realizó mediante una celda de carga de un solo componente marca \textbf{Kempf \& Remmers modelo R 47}. El transductor, diseñado para una carga a escala completa de $\pm 100$ N, posee una sensibilidad de aproximadamente $\pm 1$ mV/V de voltaje de alimentación.
@@ -109,19 +109,78 @@ Se consideraron los siguientes componentes individuales:
 
 \begin{itemize}
     \item \textbf{Geometría del casco:} La incertidumbre en el desplazamiento y la superficie mojada se cuantificó midiendo el lastre del modelo con una balanza de brazo portátil. Se asume que la incertidumbre geométrica no afecta el coeficiente de resistencia residual, sino que se propaga a través de la superficie mojada y la longitud característica.
-    
+
     \item \textbf{Velocidad de remolque:} Se consideró el límite de sesgo (\textit{bias limit}) del carro dinamométrico. Este error se propaga a la medición de resistencia a través de la presión dinámica y el número de Reynolds.
-    
+
     \item \textbf{Temperatura del agua:} Dado que la viscosidad del agua afecta directamente al número de Reynolds y a la resistencia friccional, se monitoreó la temperatura durante todos los ensayos, registrándose variaciones menores a 0.5 °C.
-    
+
     \item \textbf{Dinamómetro:} El instrumento se calibró antes y después de cada ensayo. Se utilizó un ajuste de curva lineal, adoptando la desviación estándar de esta regresión como la incertidumbre estándar de calibración. La precisión de las pesas patrón utilizadas fue lo suficientemente alta como para considerar su incertidumbre despreciable.
-    
+
     \item \textbf{Adquisición de datos (DAS):} Utilizando el dinamómetro R47 con una frecuencia de muestreo de 200 Hz y filtrado paso bajo a 4 Hz, la medición en cada velocidad se obtuvo promediando la historia temporal de la señal durante un intervalo de al menos 10 segundos. La incertidumbre estándar del promedio de la historia de muestreo resultó despreciable (promedio global de 0.0012\%), lo que confirma la estabilidad de la adquisición.
-    
+
     \item \textbf{Repetibilidad:} Se tomó la media de las mediciones repetidas como la mejor estimación. El componente de incertidumbre estándar de la media de $N$ ensayos repetidos se estimó según el procedimiento de la ITTC.
 \end{itemize}
 
-Los valores cuantitativos finales de la incertidumbre combinada y expandida para las distintas velocidades de ensayo se presentan en detalle junto con los resultados experimentales en el Capítulo 4.
+Los valores cuantitativos finales de la incertidumbre combinada y expandida para las distintas velocidades de ensayo se presentan en detalle junto con los resultados experimentales en el Capítulo~\ref{cap:resistencia_factor_de_forma}.
+
+\section{Procedimiento de extrapolación modelo--buque}
+\label{sec:prediccion_potencia}
+
+Una vez obtenida la resistencia del modelo mediante ensayos experimentales
+o simulaciones numéricas, el paso siguiente consiste en extrapolar estos
+resultados a escala buque. El procedimiento estándar recomendado por la
+ITTC \citep{ITTC_Performance_prediction} se basa en la descomposición de
+la resistencia total en sus componentes viscosa y de formación de olas,
+escalando cada una de manera independiente.
+
+El coeficiente de resistencia total del modelo se descompone como:
+%
+\begin{equation}
+    C_{TM} = (1 + k)\,C_{FM0} + C_W
+\end{equation}
+%
+donde $C_{FM0}$ es el coeficiente de fricción del modelo calculado mediante
+la línea ITTC-57 (Sección~\ref{sec:ITTC57}) al número de Reynolds del
+modelo, $(1+k)$ es el factor de forma determinado según los métodos
+descritos en el Capítulo~\ref{cap:resistencia_factor_de_forma}, y $C_W$
+es el coeficiente de resistencia por formación de olas, obtenido como
+residuo:
+%
+\begin{equation}
+    C_W = C_{TM} - (1+k)\,C_{FM0}
+\end{equation}
+
+La hipótesis central del método es que $C_W$ es independiente del número
+de Reynolds y escala directamente con el número de Froude. Bajo este
+supuesto, la resistencia total del buque a escala buque se estima como:
+%
+\begin{equation}\label{eq:CTS}
+    C_{TS} = (1 + k_S)\,C_{FS0} + C_W + \Delta C_F + C_A
+\end{equation}
+%
+donde $C_{FS0}$ es el coeficiente de fricción del buque calculado mediante
+la línea ITTC-57 al número de Reynolds del buque, $k_S$ es el factor de
+forma a escala buque, $\Delta C_F$ es la corrección por rugosidad de la
+superficie y $C_A$ es el coeficiente de correlación modelo--buque, ambos
+recomendados por la ITTC \citep{ITTC_Performance_prediction}.
+
+El método estándar asume $k_S = k_M$, es decir, que el factor de forma es
+independiente de la escala. Como se analiza en profundidad en el
+Capítulo~\ref{cap:resistencia_factor_de_forma}, esta hipótesis no se
+cumple para los pesqueros estudiados en esta tesis.
+
+La resistencia total del buque y la potencia efectiva se obtienen como:
+%
+\begin{equation}
+    R_{TS} = \tfrac{1}{2}\,\rho\,V_S^2\,S_S\,C_{TS}
+\end{equation}
+%
+\begin{equation}
+    P_{ES} = R_{TS}\,V_S
+\end{equation}
+%
+donde $\rho$ es la densidad del agua, $V_S$ la velocidad del buque y $S_S$
+la superficie mojada a escala buque.
 
 \section{Metodología Numérica (CFD)}
 
@@ -196,7 +255,7 @@ $\nu_t$ & calc. & calc. & calc. & nutkWF \\
 
 \subsubsection{Simulación de Doble Cuerpo}\label{sec:doble_cuerpo}
 
-Esta configuración se utiliza exclusivamente para aislar la resistencia viscosa ($R_V$) y determinar el factor de forma $(1+k)$. El término "Doble Cuerpo" hace referencia al concepto aerodinámico de reflejar el casco sumergido respecto al plano de flotación, generando un cuerpo equivalente completamente sumergido en un fluido infinito.
+Esta configuración se utiliza exclusivamente para aislar la resistencia viscosa ($R_V$) y determinar el factor de forma $(1+k)$. El término ``Doble Cuerpo'' hace referencia al concepto aerodinámico de reflejar el casco sumergido respecto al plano de flotación, generando un cuerpo equivalente completamente sumergido en un fluido infinito.
 
 \paragraph{Fundamento Físico y Dominio}
 En esta aproximación, la superficie libre se sustituye por una condición de \textbf{tapa rígida sin fricción} (\textit{frictionless rigid lid}). Geométricamente, el dominio se trunca en la línea de flotación estática ($z=0$), tal como se ilustra en la Figura \ref{fig:double_body_domain}.
@@ -211,7 +270,7 @@ En esta aproximación, la superficie libre se sustituye por una condición de \t
 \begin{itemize}
     \item \textbf{Plano de Simetría:} La frontera superior del dominio se define como un \texttt{symmetryPlane}. Matemáticamente, esto impone dos restricciones fundamentales:
     \begin{enumerate}
-        \item Flujo impenetrable: La componente normal de la velocidad es nula ($ \mathbf{v} \cdot \mathbf{n} = 0 $).
+        \item Flujo impenetrable: La componente normal de la velocidad es nula ($\mathbf{v} \cdot \mathbf{n} = 0$).
         \item Cero esfuerzo cortante: El gradiente normal de la velocidad tangencial es nulo ($\partial \mathbf{v}_t / \partial n = 0$).
     \end{enumerate}
     Esta configuración elimina la generación de olas ($R_W = 0$) y la energía potencial gravitatoria, permitiendo que la presión calculada corresponda únicamente a la presión hidrodinámica viscosa.
@@ -229,13 +288,20 @@ A diferencia de los enfoques estacionarios clásicos, en este trabajo se utiliz�
 \end{itemize}
 
 \paragraph{Cálculo del Factor de Forma}
-La fuerza longitudinal total ($R_V$) se obtuvo promediando la señal de resistencia en el intervalo de tiempo convergido. Esta fuerza se compone de la fricción tangencial ($R_F$) y la presión viscosa ($R_{PV}$). El factor de forma se determina finalmente como:
+La resistencia viscosa total $R_V$, compuesta por la fricción tangencial $R_F$
+y la presión viscosa $R_{PV}$, se obtuvo promediando la señal de resistencia
+en el intervalo de tiempo convergido. El factor de forma se determina como:
+%
 \begin{equation}
-    (1+k) = \frac{\overline{C}_{T, DoubleBody}}{C_{F, ITTC57}}
+    (1+k) = \frac{\overline{C}_{T,\,\text{DB}}}{C_{F0}}
 \end{equation}
-Donde $\overline{C}_{T, DoubleBody}$ es el coeficiente de resistencia medio obtenido de la simulación y $C_{F, ITTC57}$ es el coeficiente de fricción de la placa plana equivalente calculado analíticamente.
+%
+donde $\overline{C}_{T,\,\text{DB}}$ es el coeficiente de resistencia total
+medio obtenido de la simulación de doble cuerpo y $C_{F0}$ es el coeficiente
+de la línea ITTC-57, definido en la Sección~\ref{sec:ITTC57}.
 
-\subsection{Modelado de la Turbulencia: Modelo $k$--$\omega$ SST} \label{sec:metodo_SST}
+\subsection{Modelado de la Turbulencia: Modelo $k$--$\omega$ SST}
+\label{sec:metodo_SST}
 
 Para el cierre del sistema de ecuaciones RANS, se seleccionó el modelo \textbf{$k$--$\omega$ SST (Shear Stress Transport)}, desarrollado por \citet{Menter1994}. Este modelo se ha convertido en el estándar de la industria naval debido a su capacidad para predecir con mayor precisión el inicio y la magnitud de la separación del flujo bajo gradientes de presión adversos, una característica crítica en la hidrodinámica de popas de buques pesqueros.
 
@@ -251,7 +317,13 @@ Las ecuaciones de transporte para $k$ y $\omega$ en el modelo SST son:
     \frac{\partial (\rho \omega)}{\partial t} + \frac{\partial (\rho U_i \omega)}{\partial x_i} = \alpha \rho S^2 - \beta \rho \omega^2 + \frac{\partial}{\partial x_i} \left[ (\mu + \sigma_\omega \mu_t) \frac{\partial \omega}{\partial x_i} \right] + 2(1-F_1) \rho \sigma_{\omega 2} \frac{1}{\omega} \frac{\partial k}{\partial x_i} \frac{\partial \omega}{\partial x_i}
 \end{equation}
 
-Donde $\tilde{P}_k$ es el término de producción limitado de turbulencia y $\sigma_k$, $\sigma_\omega$, $\beta$ y $\alpha$ son coeficientes del modelo que se interpolan entre los valores del modelo $k$--$\omega$ y $k$--$\varepsilon$ mediante la función de mezcla $F_1$.
+donde $\rho$ es la densidad del fluido, $U_i$ la componente $i$ de la
+velocidad, $\mu$ la viscosidad dinámica molecular, $\mu_t$ la viscosidad
+turbulenta dinámica, $\tilde{P}_k$ el término de producción limitado de
+turbulencia, $F_1$ la función de mezcla del modelo SST, y $\sigma_k$,
+$\sigma_\omega$, $\beta$, $\beta^*$ y $\alpha$ son coeficientes del modelo
+interpolados mediante $F_1$ entre los valores de los modelos
+$k$--$\omega$ y $k$--$\varepsilon$.
 
 El último término de la ecuación de $\omega$ representa la \textbf{difusión cruzada} (\textit{cross-diffusion}), que se activa únicamente en la zona de flujo libre ($F_1 \to 0$), permitiendo transformar matemáticamente el modelo $k$--$\varepsilon$ en una formulación basada en $\omega$.
 
@@ -264,9 +336,9 @@ Para corregir esto, Menter introdujo un limitador basado en la hipótesis de Bra
     \nu_t = \frac{a_1 k}{\max(a_1 \omega, S F_2)}
 \end{equation}
 
-Donde:
+donde:
 \begin{itemize}
-    \item $S = \sqrt{2 S_{ij} S_{ij}}$ es la magnitud del invariante de la tasa de deformación.
+    \item $S = \sqrt{2 S_{ij} S_{ij}}$ es la magnitud del invariante de la tasa de deformación, con $S_{ij} = \tfrac{1}{2}(\partial U_i/\partial x_j + \partial U_j/\partial x_i)$ el tensor de tasa de deformación.
     \item $a_1 = 0.31$ es una constante empírica (coeficiente de estructura de Bradshaw).
     \item $F_2$ es una segunda función de mezcla que restringe el limitador a la capa límite.
 \end{itemize}
@@ -282,7 +354,8 @@ En las superficies del casco, se emplearon condiciones de borde tipo función de
 
 Para garantizar la fiabilidad de los resultados numéricos y cuantificar la incertidumbre de la simulación, se siguió el procedimiento estándar recomendado por la ITTC \cite{ITTC_uncertainty_CFD} y la ASME \cite{asme}, basado en las directrices de \citet{freitas}.
 
-\subsection{Estudio de Convergencia de Malla (GCI)} \label{sec:convergencia_de_malla}
+\subsection{Estudio de Convergencia de Malla (GCI)}
+\label{sec:convergencia_de_malla}
 
 Se realizó un estudio de independencia de malla utilizando el método del Índice de Convergencia de Malla (GCI, \textit{Grid Convergence Index}). Este método, basado en la extrapolación de Richardson, permite cuantificar el error de discretización y evaluar la proximidad de la solución numérica al valor asintótico.
 
@@ -296,13 +369,15 @@ donde $h$ representa el tamaño característico de la celda.
 
 \subsubsection{Procedimiento de Cálculo}
 
-En primer lugar, se define la diferencia de la solución numérica ($\epsilon$) entre dos mallas sucesivas. Siendo $\Phi$ la variable de interés (en este caso, el factor de forma $1+k$ o la resistencia total), se calcula:
+En primer lugar, se define la diferencia de la solución numérica entre dos mallas sucesivas. Siendo $\Phi$ la variable de interés (en este caso, el factor de forma $1+k$ o la resistencia total), se calcula:
 
 \begin{equation}
     \epsilon_{21} = \Phi_{2} - \Phi_{1} \quad ; \quad \epsilon_{32} = \Phi_{3} - \Phi_{2}
 \end{equation}
 
-A partir de estas diferencias, se calcula la razón de convergencia $R$, que permite determinar el comportamiento del refinamiento:
+donde los subíndices indican la malla correspondiente (1: fina, 2: media,
+3: gruesa). A partir de estas diferencias, se calcula la razón de
+convergencia $R$:
 
 \begin{equation}
     R = \frac{\epsilon_{21}}{\epsilon_{32}}
@@ -321,17 +396,20 @@ Para los casos de convergencia (monotónica u oscilatoria acotada), se calcula e
     p = \frac{\ln \left( \frac{\epsilon_{32}}{\epsilon_{21}} \right)}{\ln(r)}
 \end{equation}
 
-Finalmente, se determina el Índice de Convergencia de Malla para la malla fina ($GCI_{fine}$), incorporando un factor de seguridad $F_s = 1.25$ recomendado para estudios con tres mallas:
+Finalmente, se determina el Índice de Convergencia de Malla para la malla fina ($GCI_{fine}$):
 
 \begin{equation}
     GCI_{fine} = F_s \frac{ \left| \frac{\Phi_{1} - \Phi_{2}}{\Phi_{1}} \right| }{r^p - 1} \times 100 \%
 \end{equation}
 
-Los resultados detallados de este estudio, incluyendo los valores de $R$, $p$ y el $GCI$ resultante para cada velocidad, se presentan al inicio del Capítulo 4. Basado en dicho análisis, se seleccionó la \textbf{malla fina} para todas las simulaciones de producción presentadas en esta tesis.
+donde $F_s = 1{,}25$ es el factor de seguridad recomendado por la ITTC
+para estudios con tres mallas \citep{ITTC_uncertainty_CFD}.
+
+Los resultados detallados de este estudio, incluyendo los valores de $R$, $p$ y el $GCI$ resultante para cada velocidad, se presentan al inicio del Capítulo~\ref{cap:resistencia_factor_de_forma}. Basado en dicho análisis, se seleccionó la \textbf{malla fina} para todas las simulaciones de producción presentadas en esta tesis.
 
 \subsubsection{Resultado de convergencia de malla}
 
-REESCRIBIR ESTA SECCIÓN
+% TODO: REESCRIBIR ESTA SECCIÓN
 
 Antes de evaluar el comportamiento físico del factor de forma, es imperativo verificar la fiabilidad de la solución numérica. La Tabla \ref{tab:CFD_TPA_1_20} resume los indicadores de calidad de malla para las simulaciones del \textit{P1} a escala 1:20.
 
@@ -357,8 +435,8 @@ Se observa que la estrategia de mallado garantiza un valor de $y^+$ promedio cer
 \end{tabular}
 \end{table}
 
-La Tabla~\ref{tab:CFD_KCS} presenta la verificación numérica para el modelo 
-KCS a escala 1:79. Los valores de $y^+$ y GCI garantizan una solución 
+La Tabla~\ref{tab:CFD_KCS} presenta la verificación numérica para el modelo
+KCS a escala 1:79. Los valores de $y^+$ y GCI garantizan una solución
 numéricamente robusta en todo el rango operativo.
 
 \begin{table}[H]
