@@ -163,7 +163,7 @@ $8{,}00$ & $+0{,}0087$ & $+0{,}0067$ & $+0{,}0020$ & $76{,}8\%$ & $-0{,}0109$ & 
 \end{tabular}
 \end{table}
 
-El resultado más significativo de esta descomposición es que la componente de presión domina el efecto de escala en $K_T$: entre $D=1{,}0$ y $D=8{,}0$~m, la fracción $\Delta K_{Tp}/\Delta K_T$ se estabiliza en torno al $76$--$77\%$. Esto implica que aproximadamente tres cuartas partes del incremento de empuje al pasar de escala modelo a escala real no provienen de la reducción de fricción, sino de cambios en la distribución de presiones sobre las palas asociados al adelgazamiento de la capa límite. En $K_Q$, el comportamiento es diferente: $\Delta K_{Qp}$ es positivo (el par de presión aumenta ligeramente con la escala) mientras que $\Delta K_{Qf}$ es negativo y de mayor magnitud, de modo que la reducción total de par está dominada por la componente friccional. Este comportamiento asimétrico entre empuje y par tiene implicaciones directas para la evaluación de los métodos de extrapolación, que se analizan en la sección siguiente.
+El resultado más significativo de esta descomposición es que la componente de presión domina el efecto de escala en $K_T$: entre $D=1{,}0$ y $D=8{,}0$~m, la fracción $\Delta K_{Tp}/\Delta K_T$ se estabiliza en torno al $76$--$77\%$. Esto implica que aproximadamente tres cuartas partes del incremento de empuje al pasar de escala modelo a escala buque no provienen de la reducción de fricción, sino de cambios en la distribución de presiones sobre las palas asociados al adelgazamiento de la capa límite. En $K_Q$, el comportamiento es diferente: $\Delta K_{Qp}$ es positivo (el par de presión aumenta ligeramente con la escala) mientras que $\Delta K_{Qf}$ es negativo y de mayor magnitud, de modo que la reducción total de par está dominada por la componente friccional. Este comportamiento asimétrico entre empuje y par tiene implicaciones directas para la evaluación de los métodos de extrapolación, que se analizan en la sección siguiente.
 
 \begin{figure}[htpb]
 \centering
@@ -175,7 +175,7 @@ El resultado más significativo de esta descomposición es que la componente de 
 \subsection{Comparación con el procedimiento ITTC-78}
 \label{sec:helices_ittc78}
 
-El procedimiento ITTC-78 corrige los coeficientes hidrodinámicos de modelo a escala real mediante la diferencia de coeficiente de fricción de placa plana $\Delta C_D$ evaluada a $r/R = 0{,}75$, según las expresiones presentadas en el Capítulo~\ref{chap:Metodologia}. Esta corrección asume implícitamente que el efecto de escala es de naturaleza puramente friccional, es decir, que $\Delta K_{Tp} = 0$. Los resultados del CFD demuestran que esta hipótesis es incorrecta para la B4-60.
+El procedimiento ITTC-78 corrige los coeficientes hidrodinámicos de modelo a escala buque mediante la diferencia de coeficiente de fricción de placa plana $\Delta C_D$ evaluada a $r/R = 0{,}75$, según las expresiones presentadas en el Capítulo~\ref{chap:Metodologia}. Esta corrección asume implícitamente que el efecto de escala es de naturaleza puramente friccional, es decir, que $\Delta K_{Tp} = 0$. Los resultados del CFD demuestran que esta hipótesis es incorrecta para la B4-60.
 
 La Tabla~\ref{tab:ittc_vs_cfd} compara las predicciones del ITTC-78 y del CFD para $D = 8{,}0$~m, tomando $D = 0{,}14$~m como referencia de modelo.
 
@@ -194,7 +194,7 @@ $\eta_0$ & $0{,}5540$ & $0{,}5982$ & $+0{,}0442$ $(+8{,}0\%)$ \\
 \end{tabular}
 \end{table}
 
-El ITTC-78 subestima $K_T$ en $+4{,}7\%$ respecto al CFD a escala real, precisamente porque no contempla el incremento de la componente de presión. Para $10K_Q$ la diferencia es menor ($-1{,}0\%$), dado que las contribuciones friccional y de presión evolucionan en sentidos opuestos y se compensan parcialmente. El efecto acumulado sobre la eficiencia es significativo: el ITTC-78 predice $\eta_0 = 0{,}554$ frente a $\eta_0 = 0{,}598$ del CFD, una diferencia de $+8{,}0\%$ que representaría una subestimación relevante en el diseño de la instalación propulsora.
+El ITTC-78 subestima $K_T$ en $+4{,}7\%$ respecto al CFD a escala buque, precisamente porque no contempla el incremento de la componente de presión. Para $10K_Q$ la diferencia es menor ($-1{,}0\%$), dado que las contribuciones friccional y de presión evolucionan en sentidos opuestos y se compensan parcialmente. El efecto acumulado sobre la eficiencia es significativo: el ITTC-78 predice $\eta_0 = 0{,}554$ frente a $\eta_0 = 0{,}598$ del CFD, una diferencia de $+8{,}0\%$ que representaría una subestimación relevante en el diseño de la instalación propulsora.
 
 \begin{figure}[htpb]
 \centering
@@ -210,7 +210,7 @@ El ITTC-78 subestima $K_T$ en $+4{,}7\%$ respecto al CFD a escala real, precisam
 \label{fig:delta_vs_D}
 \end{figure}
 
-\subsection{Eficiencia en escala real: comparación de métodos}
+\subsection{Eficiencia en escala buque: comparación de métodos}
 \label{sec:helices_eficiencia}
 
 La Figura~\ref{fig:eficiencia_metodos} compara la evolución de $\eta_0$ con $Re_n$ para tres alternativas de extrapolación: el procedimiento ITTC-78 (M1), el CFD SST directo (M2) y la aplicación sin corrección del diagrama de modelo (M3). En $Re_n \approx 3{,}2 \times 10^5$ (D=0.14~m, escala modelo) los tres métodos coinciden por definición. A medida que $Re_n$ crece, M2 y M1 divergen progresivamente: a $D=8{,}0$~m ($Re_n \approx 7{,}7 \times 10^7$) el CFD predice un incremento de eficiencia de $+9{,}1\%$ respecto al modelo, mientras que el ITTC-78 solo estima $+1{,}1\%$. La diferencia entre ambos métodos, de $+8{,}0\%$ a la mayor escala analizada, refleja la contribución ignorada de la componente de presión al efecto de escala.
@@ -397,7 +397,7 @@ borde de ataque, es incapaz de reproducir el comportamiento experimental en la e
 de modelo para esta hélice. La elección del modelo de turbulencia no es, por tanto,
 un detalle numérico menor: condiciona de manera fundamental la validez de las
 predicciones a escala de modelo y, en consecuencia, la confiabilidad del proceso de
-extrapolación a escala real.
+extrapolación a escala buque.
 EOF
 
 % TODO

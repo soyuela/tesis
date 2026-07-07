@@ -471,7 +471,7 @@ Como se detalló en la Sección \ref{sec:doble_cuerpo}, este enfoque elimina la 
 
 La Figura \ref{fig:tpa_DB_k_evolucion} muestra la distribución del factor de forma calculado para los tres calados analizados empleando la configuración de malla verificada en la Sección~\ref{sec:convergencia_de_malla}. Contrario a la hipótesis clásica de la ITTC, que asume un factor de forma constante e independiente de la velocidad ($k \neq f(F_n, R_n)$), los resultados obtenidos revelan una variación significativa y sistemática de $(1+k)$ a lo largo del rango de Froude evaluado.
 
-Este hallazgo resulta crítico: si el factor de forma varía de manera apreciable dentro de la misma escala, la selección de un valor único para el proceso de extrapolación a buque real se vuelve inherentemente ambigua. Más aún, la tendencia creciente observada sugiere una fuerte dependencia con el número de Reynolds, una problemática de efectos de escala que se abordará en profundidad en la Sección \ref{sec:analisis_efectos_escala}.
+Este hallazgo resulta crítico: si el factor de forma varía de manera apreciable dentro de la misma escala, la selección de un valor único para el proceso de extrapolación a escala buque se vuelve inherentemente ambigua. Más aún, la tendencia creciente observada sugiere una fuerte dependencia con el número de Reynolds, una problemática de efectos de escala que se abordará en profundidad en la Sección \ref{sec:analisis_efectos_escala}.
 
 \begin{figure}[htpb]
     \centering
@@ -864,7 +864,7 @@ transición.
 
 Por otro lado, se observa en la Figura que la variación de $(1+k)$ con $R_n$ 
 disminuye para el KCS a valores altos de $R_n$, mientras que para el 
-\textit{P1} la tendencia creciente persiste hasta la escala real (1:1), sin 
+\textit{P1} la tendencia creciente persiste hasta la escala buque (1:1), sin 
 alcanzar un valor asintótico dentro del rango analizado.
 
 El impacto de $R_n$ sobre el valor de $(1+k)$ es considerablemente más 
@@ -1064,7 +1064,7 @@ $C_{PV}$ con el número de Reynolds.
 
 Las Figuras~\ref{cp_bow}, \ref{cp_stern}, \ref{cp_bottom} y \ref{cp_side} 
 muestran la distribución de $C_P$ sobre el casco del \textit{P1} para escala 
-modelo (1:20) y escala real (1:1), a $F_n=0.2$, vistas desde la proa, la 
+modelo (1:20) y escala buque (1:1), a $F_n=0.2$, vistas desde la proa, la 
 popa, el fondo y el costado respectivamente.
 
 \begin{figure}
@@ -1117,7 +1117,7 @@ longitudinal se expresa como $x/L$, donde $x/L = 0$ corresponde a la
 perpendicular de proa. Se observa un déficit persistente de presión en la 
 región de popa para todos los $R_n$, en las tres líneas de agua analizadas, 
 con variaciones mínimas entre escalas. La diferencia entre el caso a escala 
-modelo ($R_n=1.3\times10^6$) y el de escala real ($R_n=1.1\times10^8$) es del 
+modelo ($R_n=1.3\times10^6$) y el de escala buque ($R_n=1.1\times10^8$) es del 
 orden de $\Delta C_P = 0.01$--$0.02$, lo que indica que la recuperación de 
 presión en popa es extremadamente débil y poco sensible a los efectos 
 inerciales del flujo. Estos resultados cuantitativos son plenamente 
@@ -1160,9 +1160,9 @@ que conduce a pérdidas viscosas significativas asociadas a gradientes de
 presión adversos y a la persistencia de estructuras vorticosas de gran 
 escala.
 
-La comparación entre escala modelo y escala real muestra que el efecto del 
+La comparación entre escala modelo y escala buque muestra que el efecto del 
 número de Reynolds sobre la distribución de presiones es reducido. Si bien a 
-escala real se aprecia una recuperación de presión levemente mayor, las 
+escala buque se aprecia una recuperación de presión levemente mayor, las 
 diferencias cuantitativas son pequeñas y se traducen únicamente en una 
 disminución muy moderada de $C_{PV}$. Como se discutió en la 
 Sección~\ref{sec:descomposicion_de_la_res_viscosa}, esta leve disminución 
@@ -1480,9 +1480,9 @@ Este último se expresa como:
 k_{tr} \simeq \frac{C_{tr,S}}{C_{F,S}}
 \end{equation}
 
-donde $C_{tr,S}$ representa la contribución viscosa adicional debida al vórtice de recirculación, y $C_{F,S}$ el coeficiente de fricción a escala real.
+donde $C_{tr,S}$ representa la contribución viscosa adicional debida al vórtice de recirculación, y $C_{F,S}$ el coeficiente de fricción a escala buque.
 
-El valor de $k_{tr}$ puede estimarse empíricamente mediante correlaciones con parámetros geométricos del espejo (secciones 6.3 y 7 de \cite{korkmaz_wetted_transom}) o mediante CFD comparativo entre modelo y escala real:
+El valor de $k_{tr}$ puede estimarse empíricamente mediante correlaciones con parámetros geométricos del espejo (secciones 6.3 y 7 de \cite{korkmaz_wetted_transom}) o mediante CFD comparativo entre modelo y escala buque:
 
 \begin{equation}
 k_{tr} = k_S - k_M
@@ -1966,7 +1966,7 @@ formular las siguientes recomendaciones prácticas:
     cuya formulación híbrida ofrece un comportamiento estable tanto en la capa límite como en el flujo externo.
     \item Mantener una resolución de malla coherente con el modelo seleccionado, especialmente en términos de $y^+$.
     \item Evaluar explícitamente la sensibilidad del factor de forma al modelo de turbulencia cuando se trabaja a bajos $Re$, en particular 
-    antes de emplear $(1+k)$ como base para extrapolaciones a escala real.
+    antes de emplear $(1+k)$ como base para extrapolaciones a escala buque.
     \item Aplicar los modelos $k$--$\varepsilon$ con cautela en regímenes transicionales, dado que su mayor sensibilidad paramétrica puede 
     conducir a una sobreestimación del efecto viscoso global.
 \end{itemize}
@@ -2227,7 +2227,7 @@ transversal y forma de popa.
     \label{fig:LB_comparisson}
 \end{figure}
 
-Al disminuir $L/B$, las secciones transversales se vuelven más robustas y la transición hacia la popa más abrupta, lo que favorece la aparición de regiones extensas de presión adversa y el desprendimiento de estructuras vorticosas de gran escala. Estas características inducen mayores valores de $C_{PV}$ y explican la persistencia de la presión viscosa incluso a escala real. A pesar de sus diferencias individuales, los tres pesqueros comparten proporciones y distribución volumétrica similares, lo que sugiere la presencia de un comportamiento hidrodinámico común asociado a la baja esbeltez.
+Al disminuir $L/B$, las secciones transversales se vuelven más robustas y la transición hacia la popa más abrupta, lo que favorece la aparición de regiones extensas de presión adversa y el desprendimiento de estructuras vorticosas de gran escala. Estas características inducen mayores valores de $C_{PV}$ y explican la persistencia de la presión viscosa incluso a escala buque. A pesar de sus diferencias individuales, los tres pesqueros comparten proporciones y distribución volumétrica similares, lo que sugiere la presencia de un comportamiento hidrodinámico común asociado a la baja esbeltez.
 
 
 \subsection{Generalización del comportamiento observado y formulación empírica}\label{sec:generalizacion_LB}
@@ -2239,7 +2239,7 @@ buque, en marcado contraste con el KCS, que exhibe el incremento inicial
 y posterior estabilización esperados conforme se desarrolla la capa límite 
 turbulenta.
 
-La consistencia entre los tres modelos confirma que este comportamiento no es propio de un caso aislado, sino un rasgo estructural de cascos con $L/B < 4$. A medida que disminuye la esbeltez, aumenta el componente de presión viscosa y, en consecuencia, el factor de forma. La tendencia creciente y no asintótica en los pesqueros sugiere que la influencia de la presión viscosa domina su comportamiento hidrodinámico incluso en condiciones de escala real.
+La consistencia entre los tres modelos confirma que este comportamiento no es propio de un caso aislado, sino un rasgo estructural de cascos con $L/B < 4$. A medida que disminuye la esbeltez, aumenta el componente de presión viscosa y, en consecuencia, el factor de forma. La tendencia creciente y no asintótica en los pesqueros sugiere que la influencia de la presión viscosa domina su comportamiento hidrodinámico incluso en condiciones de escala buque.
 
 Para interpretar esta dependencia geométrica, se recurrió nuevamente a correlaciones aerodinámicas desarrolladas para cuerpos de revolución, donde el factor de forma se expresa en función de la razón de esbeltez $l/d$. La Figura~\ref{fig:aero_comparison_full} incorpora simultáneamente las diferentes curvas aerodinámicas clásicas junto con los valores de $(1+k)$ provenientes de CFD DB para los cuatro cascos estudiados, todos representados en términos de $l/d = L/B$.
 
@@ -2385,14 +2385,14 @@ $Fn$ & $v_S$ & $v_S$ & Method 2 vs 1 & Method 3 vs 1 \\
 Los resultados muestran que asumir $k=0$ (método 3) produce una \textbf{sobreestimación moderada} de la potencia efectiva ($\approx
 5\%$). En cambio, el método de doble $k$ basado en CFD DB (método 2) arroja una \textbf{potencia un 13–17$\%$ mayor} que la obtenida mediante el enfoque ITTC (método 1), diferencia atribuible al mayor valor de $k_S$ predicho numéricamente.
 
-Estas discrepancias, del orden del 15$\%$ en términos de potencia instalada, son suficientemente significativas como para justificar una validación mediante pruebas de mar. Además, sugieren que las correlaciones empíricas introducidas en la Sección \ref{sec:generalizacion_LB}, originadas en aeronáutica y dependientes de la razón de esbeltez, podrían ser utilizadas como una estimación preliminar de $k_S$ de forma más confiable que las metodologías navales actuales. Esto permitiría implementar un método de extrapolación de doble $k$, donde $k_M$ se obtenga de CFD DB a escala modelo y $k_S$ de una correlación basada en $L/B$, evitando la necesidad de simulaciones CFD a escala real.
+Estas discrepancias, del orden del 15$\%$ en términos de potencia instalada, son suficientemente significativas como para justificar una validación mediante pruebas de mar. Además, sugieren que las correlaciones empíricas introducidas en la Sección \ref{sec:generalizacion_LB}, originadas en aeronáutica y dependientes de la razón de esbeltez, podrían ser utilizadas como una estimación preliminar de $k_S$ de forma más confiable que las metodologías navales actuales. Esto permitiría implementar un método de extrapolación de doble $k$, donde $k_M$ se obtenga de CFD DB a escala modelo y $k_S$ de una correlación basada en $L/B$, evitando la necesidad de simulaciones CFD a escala buque.
 
 El desarrollo de una curva específica de $(1+k)$ en función de $L/B$ para cascos pesqueros, particularmente para el rango $L/B < 4$, aparece por lo tanto como un paso clave para mejorar la predicción de resistencia y potencia efectiva en este tipo de buques.
 
 
 \subsection{Conclusiones parciales}
 
-La comparación con correlaciones empíricas desarrolladas para buques mercantes confirma la incapacidad de dichas formulaciones para reproducir los valores de $(1+k)$ obtenidos para el \textit{P1}, tanto a escala modelo como hacia escala real. En contraste, las correlaciones aerodinámicas basadas en cuerpos de revolución muestran una correspondencia notable con los resultados CFD DB, ubicando al KCS y a los pesqueros en regiones coherentes con su respectiva esbeltez geométrica.
+La comparación con correlaciones empíricas desarrolladas para buques mercantes confirma la incapacidad de dichas formulaciones para reproducir los valores de $(1+k)$ obtenidos para el \textit{P1}, tanto a escala modelo como hacia escala buque. En contraste, las correlaciones aerodinámicas basadas en cuerpos de revolución muestran una correspondencia notable con los resultados CFD DB, ubicando al KCS y a los pesqueros en regiones coherentes con su respectiva esbeltez geométrica.
 
 La incorporación de dos pesqueros adicionales con distintas relaciones $L/B$ refuerza esta observación: los tres cascos, pese a sus diferencias geométricas particulares, presentan un comportamiento hidrodinámico consistente, caracterizado por valores elevados y no asintóticos del factor de forma. Esta consistencia indica que la dependencia de $(1+k)$ con la relación de aspecto constituye un rasgo estructural de los cascos pesqueros de baja esbeltez y no una singularidad del \textit{P1}.
 
