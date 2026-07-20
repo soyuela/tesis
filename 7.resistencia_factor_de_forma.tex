@@ -191,7 +191,7 @@ mejora del ajuste.
     \label{fig:tpa_range}
 \end{figure}
 
-En la Tabla \ref{tab:form_factors} se presenta el factor de forma calculado para cada calado analizado, reduciendo en cada caso el rango de Fn analizado
+En la Tabla \ref{tab:form_factors} se presenta el factor de forma calculado para cada calado analizado, reduciendo en cada caso el rango de Fn analizado.
 
 \begin{table}[H]
 \centering
@@ -232,14 +232,18 @@ y \ref{sec:linea_de_friccion}.
 \vspace{1em}
 \subsubsection{Modelo de referencia KCS}
 
-Con el objetivo de establecer una referencia de comportamiento conocido para 
-el factor de forma y verificar que los resultados obtenidos en el LabHiNO son 
-consistentes con los reportados en la literatura internacional, se realizó una 
-segunda campaña experimental utilizando el modelo KCS (escala 1:79). Este 
-buque ha sido ampliamente ensayado por diversos laboratorios internacionales 
-(KRISO, MARIN, SSPA, Hyundai), y su comportamiento de $(1+k)$ en función de 
-$Rn$ está bien documentado, lo que permite una comparación directa con datos 
-de referencia consolidados.
+Con el objetivo de analizar el comportamiento hidrodinámico de un casco 
+de referencia y establecer una comparación directa con el \textit{P1}, 
+se realizó una segunda campaña experimental utilizando el modelo KCS 
+(escala 1:79). Este buque portacontenedores, ampliamente ensayado por 
+laboratorios internacionales (KRISO, MARIN, SSPA, Hyundai), satisface 
+adecuadamente los supuestos del método de Prohaska y es representativo 
+de los cascos para los cuales fue desarrollado: flujo adherido en la 
+región de popa, popa espejo sin inmersión significativa y componente de 
+olas proporcional a $Fr^4$ en el rango de bajas velocidades. La 
+comparación entre ambos cascos permite identificar qué fenómenos 
+hidrodinámicos son propios del \textit{P1} y cuáles responden al 
+comportamiento esperable para un casco de desplazamiento convencional.
 
 El factor de forma experimental se determinó mediante el método de Prohaska, 
 siguiendo el mismo procedimiento de ajuste aplicado al modelo \textit{P1}. 
@@ -580,24 +584,33 @@ cuales se observan diferencias se encuentran fuera del rango de operación
 del \textit{P1}.
 
 \begin{figure}[htpb]
-\centering
-\includegraphics[width=0.6\textwidth]{images/efd-cfd-165}
-\caption{Resistencia al avance del \textit{P1} en función de $F_n$. Calado 1.}
-\label{fig:resis_tpa_efd_cfd_165}
-\end{figure}
+     \centering
+     \begin{subfigure}[b]{0.45\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{images/efd-cfd-165}
+         \caption{Calado 1.}
+         \label{fig:resis_tpa_efd_cfd_165}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.45\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{images/efd-cfd-180}
+         \caption{Calado 2.}
+         \label{fig:resis_tpa_efd_cfd_180}
+     \end{subfigure}
 
-\begin{figure}[htpb]
-\centering
-\includegraphics[width=0.6\textwidth]{images/efd-cfd-180}
-\caption{Resistencia al avance del \textit{P1} en función de $F_n$. Calado 2.}
-\label{fig:resis_tpa_efd_cfd_180}
-\end{figure}
+     \vspace{0.5cm}
 
-\begin{figure}[htpb]
-\centering
-\includegraphics[width=0.6\textwidth]{images/efd-cfd-195}
-\caption{Resistencia al avance del \textit{P1} en función de $F_n$. Calado 3.}
-\label{fig:resis_tpa_efd_cfd_195}
+     \begin{subfigure}[b]{0.45\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{images/efd-cfd-195}
+         \caption{Calado 3.}
+         \label{fig:resis_tpa_efd_cfd_195}
+     \end{subfigure}
+
+     \caption{Resistencia al avance del \textit{P1} en función de $Fr$. 
+     Comparación EFD--CFD para los tres calados.}
+     \label{fig:comparativa_efd_cfd_calados}
 \end{figure}
 
 \paragraph{Factor de forma} Como fue mencionado en las secciones 
@@ -1176,7 +1189,7 @@ resistencia viscosa total y limitan la validez de los supuestos clásicos de
 extrapolación, reforzando la necesidad de considerar explícitamente los 
 efectos geométricos en la estimación del factor de forma.
 
-\section{Influencia de la proa bulbo en el factor de forma}
+\section{Influencia de la proa bulbo en el factor de forma}\label{sec:proa_bulbo}
 
 \subsection{Motivación y antecedentes sobre proa bulbo en pesqueros}
 
@@ -1995,7 +2008,16 @@ extrapolaciones o comparaciones con datos experimentales.
 
 \subsection{Motivación y observaciones sobre L/B en cascos de baja esbeltez}
 
-Como ha sido mencionado en las Secciones (VERIFICAR Y CORREGIR \ref{sec:doble_cuerpo}, \ref{sec:analisis_efectos_escala} y \ref{sec:descomposicion_de_la_res_viscosa}), los métodos tradicionales de extrapolación de resistencia, ampliamente validados para buques mercantes esbeltos, asumen que el factor de forma $(1+k)$ tiende a estabilizarse conforme aumenta el número de Reynolds. Sin embargo, este supuesto no ha sido verificado para cascos con baja relación de aspecto $L/B$, típicos de la flota pesquera. Estudios recientes han mostrado que este tipo de geometrías presenta estelas más anchas, mayores regiones de presión adversa y estructuras vorticosas persistentes en popa, factores que pueden incrementar significativamente la presión viscosa y alterar la evolución esperada de $(1+k)$ como hemos presentado en la Sección \ref{sec:analisis_efectos_escala}.
+Como se demostró en las Secciones~\ref{sec:analisis_efectos_escala} 
+y~\ref{sec:descomposicion_de_la_res_viscosa}, los métodos tradicionales 
+de extrapolación de resistencia, ampliamente validados para buques 
+mercantes esbeltos, asumen que el factor de forma $(1+k)$ tiende a 
+estabilizarse conforme aumenta el número de Reynolds. Sin embargo, este 
+supuesto no se cumple para el \textit{P1}, donde las estructuras 
+vorticosas longitudinales desprendidas de la quilla y el pantoque generan 
+estelas más anchas y pérdidas viscosas por presión que persisten hasta la 
+escala buque, impidiendo la estabilización de $(1+k)$ dentro del rango 
+analizado.
 
 En esta sección se mostrará la incapacidad de los métodos empíricos para la estimación del factor de forma en el \textit{P1} y luego se extenderá el análisis al Pesquero 2 y 3, que cuentan con distintas razones $L/B$, para identificar tendencias generalizables.
 
@@ -2325,11 +2347,13 @@ Para cuantificar la magnitud del error introducido por la selección de un valor
 \begin{itemize}
     \item \textbf{Método 1 (ITTC–EFD)}: $k_M = k_S$, obtenido por el método de Prohaska en modelo.
     \item \textbf{Método 2 (CFD–EFD, doble k)}: valores distintos de $k_M$ y $k_S$, determinados mediante CFD DB para modelo y buque. La idea es propuesta por \cite{korkmaz_wetted_transom} pero en su caso la diferencia nace exclusivamente de la popa sumergida, mientras que según la presente tesis la necesidad surge de los efectos de escala presentados en la Sección \ref{sec:descomposicion_de_la_res_viscosa} (Cpv).
-    \item \textbf{Método 3 ($k = 0$)}: empleado cuando no es posible determinar el factor de forma mediante ensayos; asume resistencia viscosa puramente friccional.
+    \item \textbf{Método 3 ($k = 0$)}: empleado cuando no es posible determinar el factor de forma ni experimentalmente ni mediante CFD; asume resistencia viscosa puramente friccional, equivalente a tratar el casco como una placa plana. Provee una cota de referencia para cuantificar el error asociado a ignorar completamente los efectos de forma.
+
 \end{itemize}
 
 \begin{table*}[htbp]
-\caption{$C_{TS}$, $R_{TS}$ y $P_{ES}$ estimados mediante tres enfoques distintos para la determinación de $k_M$ y $k_S$.}
+\caption{$C_{TS}$, $R_{TS}$ y $P_{ES}$ estimados mediante tres enfoques distintos para velocidades de operación del \textit{P1}.}
+
 \label{tbl:metodos_abs}
 \scriptsize
 \centering
@@ -2390,8 +2414,9 @@ $Fn$ & $v_S$ & $v_S$ & Method 2 vs 1 & Method 3 vs 1 \\
 
 
 
-Los resultados muestran que asumir $k=0$ (método 3) produce una \textbf{sobreestimación moderada} de la potencia efectiva ($\approx
-5\%$). En cambio, el método de doble $k$ basado en CFD DB (método 2) arroja una \textbf{potencia un 13–17$\%$ mayor} que la obtenida mediante el enfoque ITTC (método 1), diferencia atribuible al mayor valor de $k_S$ predicho numéricamente.
+Los resultados muestran que asumir $k=0$ (método 3) produce una sobreestimación de la potencia efectiva de aproximadamente $5\%$ respecto al método estándar ITTC. Como era de esperar, este método sobreestima la resistencia al ignorar la contribución viscosa de la forma del casco; sin embargo, su utilidad radica en que provee una referencia cuando no se dispone de ningún ensayo ni simulación para estimar el factor de forma, permitiendo acotar el error esperado.
+
+En cambio, el método de doble $k$ basado en CFD DB (método 2) arroja una \textbf{potencia un 13–17$\%$ mayor} que la obtenida mediante el enfoque ITTC (método 1), diferencia atribuible al mayor valor de $k_S$ predicho numéricamente.
 
 Estas discrepancias, del orden del 15$\%$ en términos de potencia instalada, son suficientemente significativas como para justificar una validación mediante pruebas de mar. Además, sugieren que las correlaciones empíricas introducidas en la Sección \ref{sec:generalizacion_LB}, originadas en aeronáutica y dependientes de la razón de esbeltez, podrían ser utilizadas como una estimación preliminar de $k_S$ de forma más confiable que las metodologías navales actuales. Esto permitiría implementar un método de extrapolación de doble $k$, donde $k_M$ se obtenga de CFD DB a escala modelo y $k_S$ de una correlación basada en $L/B$, evitando la necesidad de simulaciones CFD a escala buque.
 
