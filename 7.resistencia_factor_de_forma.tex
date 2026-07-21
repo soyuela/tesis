@@ -143,7 +143,7 @@ Sin embargo, en los tres calados se observa una ligera curvatura en los puntos e
 
 \begin{figure}[htpb]
 \centering
-\includegraphics[width=0.6\textwidth, trim=3.5cm 8cm 4cm 8cm, clip]{images/prohaska_tpa_comparacion.pdf}
+\includegraphics[width=0.6\textwidth]{images/prohaska_tpa_comparacion.pdf}
 \caption{Diagramas del método de Prohaska para los tres calados del \textit{P1}. La desviación respecto de la linealidad teórica se acentúa a bajos números de Froude.}
 \label{fig:prohaska_tpa}
 \end{figure}
@@ -181,13 +181,13 @@ mejora del ajuste.
 
 \begin{figure}[htpb]
     \centering
-    \includegraphics[width=.6\columnwidth, trim=3.5cm 8cm 4cm 8cm, clip]
+    \includegraphics[width=.6\columnwidth]
         {images/efd_form_factor_tpa_range.pdf}
-    \caption{Variación del factor de forma experimental $(1+k)$ para el 
-    \textit{P1} en función del límite inferior del rango de Froude utilizado 
-    en el ajuste de Prohaska, con límite superior fijo en $F_n = 0.20$. 
-    El cuadrado rojo indica el valor adoptado. Calado~3; los demás calados 
-    presentaron comportamiento análogo.}
+    \caption{Variación del factor de forma $(1+k)$ al modificar el límite 
+inferior del rango de Froude (puntos azules), manteniendo el superior 
+en $F_n = 0.20$. La línea roja indica el valor de $(1+k)$ adoptado 
+mediante el método de Prohaska en el rango $0.15 < F_n < 0.20$. 
+Calado~3; comportamiento análogo en otros calados.}
     \label{fig:tpa_range}
 \end{figure}
 
@@ -266,11 +266,13 @@ conjunto favorecen el cumplimiento de los supuestos del método.
 
 \begin{figure}[htpb]
 \centering
-\includegraphics[width=0.6\textwidth, trim=3.5cm 8cm 4cm 8cm, clip]{images/prohaska_kcs.pdf}
-\caption{Diagrama de Prohaska para el modelo KCS. Se grafica $C_{TM}/C_{F0}$ 
-frente a $Fn^4/C_{F0}$, donde $C_{F0}$ es el coeficiente de fricción de placa 
-plana al $Rn$ del modelo según la línea ITTC-57. La recta de regresión se 
-obtuvo mediante el método de York \citep{york}.}
+\includegraphics[width=0.6\textwidth]{images/prohaska_kcs.pdf}
+\caption{Diagrama de Prohaska para el modelo KCS. Se grafica 
+$C_{TM}/C_{F0}$ frente a $F_n^4/C_{F0}$, donde $C_{F0}$ es el 
+coeficiente de fricción de placa plana al $Rn$ del modelo según 
+la línea ITTC-57. La línea continua representa el ajuste por 
+mínimos cuadrados, cuya extrapolación al origen permite obtener 
+el valor de $1+k$.}
 \label{fig:prohaska_kcs}
 \end{figure}
 
@@ -285,7 +287,7 @@ adoptado fue $(1+k) = 1.06$, correspondiente al rango $0.13 < F_n < 0.20$.
 
 \begin{figure}[htpb]
 \centering
-\includegraphics[width=0.6\textwidth, trim=3.5cm 8cm 4cm 8cm, clip]{images/efd_form_factor_kcs_range.pdf}
+\includegraphics[width=0.6\textwidth]{images/efd_form_factor_kcs_range.pdf}
 \caption{Variación del factor de forma $(1+k)$ para el modelo KCS en función 
 del límite inferior del rango de Froude utilizado en el ajuste de Prohaska, 
 con límite superior fijo en $F_n = 0.20$. El cuadrado rojo indica el valor 
@@ -303,11 +305,11 @@ ensayada.
 
 \begin{figure}[htpb]
 \centering
-\includegraphics[width=0.6\textwidth]{images/efd_kcs_lit.png}
+\includegraphics[width=0.6\textwidth]{images/efd_kcs_lit.pdf}
 \caption{Comparación del factor de forma $(1+k)$ del KCS obtenido en el 
-LabHiNO (punto rojo) con resultados de distintos laboratorios internacionales 
-recopilados por \citet{TerzievDataSet} (puntos amarillos), en función del 
-número de Reynolds.}
+LabHiNO (punto rojo) con resultados experimentales históricos del KCS 
+compilados de literatura internacional por \citet{TerzievDataSet} 
+(puntos amarillos), en función del número de Reynolds.}
 \label{fig:kcs_validation}
 \end{figure}
 
@@ -1201,21 +1203,26 @@ reducir la resistencia por formación de olas en el rango de velocidades de
 servicio, mediante la generación de un sistema de ondas que interfiera 
 destructivamente con el tren de olas producido por el resto del casco.
 
-Como se discutió en la Sección~\ref{sec:prohaska_antec}, \citet{korkmaz_cfd_2021} 
-reportaron que la geometría de la proa bulbo puede tener un impacto 
-significativo en la aplicabilidad del método de Prohaska, llegando a 
-introducir curvaturas marcadas en el diagrama que obligan a restringir 
-severamente el rango de $F_n$ analizado, o incluso a descartar el método. 
-Si bien dicho antecedente corresponde específicamente al método de Prohaska, 
-motiva la siguiente pregunta de investigación: \textit{¿es la proa bulbo 
-responsable, total o parcialmente, de la falta de un valor asintótico de 
-$(1+k)$ con la escala observada para el \textit{P1} en la 
-Sección~\ref{sec:analisis_efectos_escala}, en contraste con el 
-comportamiento del KCS?} Para responder esta pregunta, en esta sección se 
-aísla el efecto de la proa bulbo sobre el factor de forma del \textit{P1} 
-determinado mediante el método de doble cuerpo a escala modelo, evaluando 
-si su presencia o ausencia modifica la tendencia creciente de $(1+k)$ con 
-$F_n$ observada previamente.
+Como se discutió en la Sección~\ref{sec:prohaska_antec}, 
+\citet{korkmaz_cfd_2021} reportaron que la geometría de la proa bulbo puede 
+tener un impacto significativo en la aplicabilidad del método de Prohaska, 
+llegando a introducir curvaturas marcadas en el diagrama que obligan a 
+restringir severamente el rango de $F_n$ analizado, o incluso a descartar el 
+método. El efecto se atribuye a la proximidad del bulbo a la superficie 
+libre, que genera un sistema de ondas propio cuya interacción con el tren de 
+proa no responde a la ley $F_n^4$ supuesta por el método.
+
+El \textit{P1} presenta ambas anomalías: la curvatura cóncava a bajos 
+números de Froude en su diagrama de Prohaska 
+(Sección~\ref{sec:det_num_fac_form}) y la ausencia de un valor asintótico de 
+$(1+k)$ con la velocidad y con la escala 
+(Sección~\ref{sec:analisis_efectos_escala}), en contraste con el 
+comportamiento del KCS. Ambas observaciones motivan la pregunta de 
+investigación que organiza esta sección: \textit{¿es la proa bulbo 
+responsable, total o parcialmente, de dichas anomalías?} Para responderla se 
+repite el procedimiento completo de determinación del factor de forma sobre 
+una variante del casco sin bulbo, de modo que cualquier comportamiento que 
+persista en esa configuración no pueda atribuirse a su presencia.
 
 \subsection{Modelos numéricos}
 
@@ -1223,12 +1230,26 @@ Para aislar el efecto del bulbo se generó un modelo modificado del
 \textit{P1} a escala 1:20, denominado ``Ctrl+Z'' en alusión al comando de 
 deshacer, en referencia a que revierte la tendencia actual de incorporar 
 proas bulbo en el diseño de pesqueros. El criterio de modificación consistió 
-en eliminar el bulbo del modelo original manteniendo sin cambios todas las 
-demás dimensiones del casco, de modo que ambos modelos resulten comparables 
-y la única diferencia geométrica entre ellos sea la presencia o ausencia del 
-bulbo. Este análisis se realizó exclusivamente a escala modelo, en una etapa 
-temprana de la investigación, previa a la extensión del estudio a escalas 
-mayores presentada en la Sección~\ref{sec:analisis_efectos_escala}.
+en eliminar el bulbo del modelo original manteniendo sin cambios el resto de 
+la geometría del casco, de modo que ambos modelos resulten comparables y la 
+única diferencia entre ellos sea la presencia o ausencia del bulbo. Este 
+análisis se realizó exclusivamente a escala modelo, en una etapa temprana de 
+la investigación, previa a la extensión del estudio a escalas mayores 
+presentada en la Sección~\ref{sec:analisis_efectos_escala}.
+
+Dado que el bulbo se encuentra completamente sumergido, su eliminación no 
+modifica la eslora de flotación, que permanece idéntica en ambas 
+configuraciones y define por lo tanto un mismo número de Froude para una 
+misma velocidad. Sí se modifica, en cambio, la eslora mojada, que se reduce 
+de $1{,}634$ a $1{,}515$~m para $T = 0{,}165$~m y de $1{,}641$ a $1{,}575$~m 
+para $T = 0{,}195$~m. Esta distinción es relevante porque es la eslora 
+mojada la que interviene en el número de Reynolds y, en consecuencia, en el 
+coeficiente de fricción de referencia $C_{F0}$ empleado para la 
+descomposición: a igual velocidad, la configuración con bulbo opera a un 
+$Re$ mayor y por lo tanto a un $C_{F0}$ menor. Todas las comparaciones 
+presentadas a continuación se realizan a igual número de Froude, es decir, a 
+igual velocidad, empleando para cada configuración su propia eslora mojada 
+en el cálculo de $Re$.
 
 La Figura~\ref{fig:tpa_y_ctrlZ} presenta, para ambos modelos, la vista de 
 perfil con la curva de áreas superpuesta (en rojo) y la vista en perspectiva 
@@ -1270,8 +1291,8 @@ en todo el rango de operación}
 Para evaluar el impacto de la proa bulbo sobre la resistencia del 
 \textit{P1}, se compararon las curvas de resistencia total ($C_T$), viscosa 
 ($C_V$) y por olas ($C_W$) en función del número de Froude, para los dos 
-modelos (con y sin bulbo) y los dos calados disponibles ($T = 0.165$~m y 
-$T = 0.195$~m). El coeficiente $C_T$ se obtuvo directamente de las 
+modelos (con y sin bulbo) y los dos calados disponibles ($T = 0{,}165$~m y 
+$T = 0{,}195$~m). El coeficiente $C_T$ se obtuvo directamente de las 
 simulaciones bifásicas con superficie libre para cada configuración. El 
 coeficiente $C_V$ se calculó como:
 %
@@ -1285,96 +1306,165 @@ bifásicas: para el modelo original con bulbo, el valor validado contra el
 ensayo experimental (Sección~\ref{sec:det_exp_fac_form}); para el modelo 
 Ctrl+Z, el valor obtenido aplicando el mismo procedimiento a sus 
 simulaciones, sin contar con un ensayo experimental propio de validación. 
-Los diagramas de Prohaska correspondientes a ambas configuraciones se 
-presentan en las Figuras~\ref{fig:prohaska_bulbo_165} y 
-\ref{fig:prohaska_bulbo_195}. En ambos calados se observa que la curvatura 
-cóncava a bajos números de Froude, ya identificada para el modelo original 
-en la Sección~\ref{sec:det_num_fac_form}, se reproduce con igual intensidad 
-en la configuración Ctrl+Z, lo que indica que el bulbo no es su causa: la 
-desviación respecto de la recta teórica es una característica propia del 
-resto del casco.
 Finalmente, el coeficiente de resistencia por olas se obtuvo como residuo:
 %
 \begin{equation}
     C_W = C_T - C_V
 \end{equation}
 
-\paragraph{Calado $T = 0.165$~m} La Figura~\ref{fig:Ct_bulbo_165} muestra que 
-la configuración con bulbo reduce la resistencia total a partir de 
-$F_n \approx 0.25$, coincidiendo con la velocidad de diseño del bulbo. A 
-menores velocidades, las curvas son prácticamente coincidentes. La 
-Figura~\ref{fig:Cw_bulbo_165} muestra que esta mejora en $C_T$ se explica por 
-una reducción de la resistencia por olas en ese mismo rango de velocidades, 
-consistente con la función destructiva esperada del bulbo. La 
-Figura~\ref{fig:Cv_bulbo_165} muestra que la resistencia viscosa entre ambas 
-configuraciones permanece prácticamente coincidente en todo el rango, lo que 
-indica que para este calado el efecto del bulbo es esencialmente sobre la 
-componente de olas.
+Los diagramas de Prohaska correspondientes a ambas configuraciones se 
+presentan en las Figuras~\ref{fig:prohaska_bulbo_165} y 
+\ref{fig:prohaska_bulbo_195}. En ambos calados se observa que la curvatura 
+cóncava a bajos números de Froude, ya identificada para el modelo original 
+en la Sección~\ref{sec:det_num_fac_form}, se reproduce con igual intensidad 
+en la configuración Ctrl+Z. Este resultado permite descartar la primera de 
+las hipótesis planteadas: la deformación del diagrama de Prohaska no 
+responde a la presencia del bulbo, sino que constituye una característica 
+propia del resto del casco. La anomalía reportada por 
+\citet{korkmaz_cfd_2021} para cascos con bulbo próximo a la superficie libre 
+no explica, por lo tanto, el comportamiento observado en el \textit{P1}.
+
+Descartada la proa bulbo, subsisten dos de las causas enumeradas en la 
+Sección~\ref{sec:prohaska_antec}: la geometría del resto del casco y el 
+modelado numérico de la zona de transición. Ambas configuraciones fueron 
+simuladas con el mismo cierre turbulento ($k$--$\omega$ SST) y operan en el 
+mismo rango de números de Reynolds, de modo que la comparación entre ellas 
+no permite discriminar entre ambos orígenes: el adelantamiento del punto de 
+transición que introduce un modelo formulado para régimen enteramente 
+turbulento, discutido en la Sección~\ref{sec:det_num_fac_form}, afecta por 
+igual a los dos casos y no puede aislarse eliminando el bulbo.
+
+Existe, no obstante, un indicio a favor del origen numérico. Como se señaló 
+en la Sección~\ref{sec:det_num_fac_form}, la desviación observada en los 
+ensayos experimentales es convexa, mientras que la de las simulaciones es 
+cóncava. Este cambio de signo sugiere que la concavidad no reproduce un 
+fenómeno físico del casco sino que constituye un artefacto de la 
+simulación, asociado a la incapacidad del modelo de turbulencia empleado 
+para representar la fracción de capa límite que permanece laminar a los 
+$Re$ de escala modelo. Dirimir definitivamente esta cuestión requeriría 
+repetir las simulaciones con un modelo de transición del tipo 
+$\gamma$--$\widetilde{Re}_{\theta t}$ (Sección~\ref{sec:modelos_transicion}), 
+lo que excede el alcance de esta sección y queda planteado como línea de 
+trabajo futuro.
 
 \begin{figure}[htpb]
 	\centering
-	\includegraphics[width=.6\columnwidth]{images/Ct-consinbulbo-165.png}
-	\caption{Comparación de resistencia total entre \textit{P1} con y sin 
-	bulbo ($T = 0.165$ m).}
-	\label{fig:Ct_bulbo_165}
+	\includegraphics[width=.9\columnwidth]{images/prohaska-bulbo-ctrlz-165.png}
+	\caption{Diagrama de Prohaska comparando modelos con y sin bulbo 
+	($T = 0{,}165$~m).}
+	\label{fig:prohaska_bulbo_165}
 \end{figure}
 
 \begin{figure}[htpb]
 	\centering
-	\includegraphics[width=.6\columnwidth]{images/Cw-consinbulbo-165.png}
-	\caption{Comparación de resistencia por olas entre \textit{P1} con y sin 
-	bulbo ($T = 0.165$ m).}
-	\label{fig:Cw_bulbo_165}
+	\includegraphics[width=.9\columnwidth]{images/prohaska-bulbo-ctrlz-195.png}
+	\caption{Diagrama de Prohaska comparando modelos con y sin bulbo 
+	($T = 0{,}195$~m).}
+	\label{fig:prohaska_bulbo_195}
 \end{figure}
 
+\paragraph{Calado $T = 0{,}165$~m} La Figura~\ref{fig:Ct_bulbo_165} muestra 
+que la configuración con bulbo reduce la resistencia total a partir de 
+$F_n \approx 0{,}25$, coincidiendo con la velocidad de diseño del bulbo. Por 
+debajo de dicho valor ambas curvas se mantienen dentro de $5\times10^{-4}$ 
+en $C_T$, sin diferencias apreciables entre configuraciones, con la 
+excepción del punto $F_n \approx 0{,}24$, inmediatamente anterior al cruce, 
+donde la configuración con bulbo presenta un incremento localizado de la 
+resistencia total. La Figura~\ref{fig:Cw_bulbo_165} muestra que la mejora 
+observada a velocidades altas se explica por una reducción de la resistencia 
+por olas en ese mismo rango, consistente con la función destructiva esperada 
+del bulbo. La Figura~\ref{fig:Cv_bulbo_165} muestra que la resistencia 
+viscosa de la configuración con bulbo resulta levemente superior en todo el 
+rango, entre un $1$ y un $1{,}5$\,\%, diferencia reducida pero de signo 
+constante y consistente con el mayor factor de forma determinado para esta 
+configuración.
+
 \begin{figure}[htpb]
-	\centering
-	\includegraphics[width=.6\columnwidth]{images/Cv-consinbulbo-165.png}
-	\caption{Comparación de resistencia viscosa entre \textit{P1} con y sin 
-	bulbo ($T = 0.165$ m).}
-	\label{fig:Cv_bulbo_165}
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/Ct-consinbulbo-165.png}
+        \caption{Resistencia total.}
+        \label{fig:Ct_bulbo_165}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/Cw-consinbulbo-165.png}
+        \caption{Resistencia por olas.}
+        \label{fig:Cw_bulbo_165}
+    \end{subfigure}
+
+    \vspace{0.6cm}
+
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/Cv-consinbulbo-165.png}
+        \caption{Resistencia viscosa.}
+        \label{fig:Cv_bulbo_165}
+    \end{subfigure}
+
+    \caption{Descomposición de la resistencia del \textit{P1} con y sin proa 
+    bulbo para el calado $T = 0{,}165$~m.}
+    \label{fig:coef_bulbo_165}
 \end{figure}
 
-\paragraph{Calado $T = 0.195$~m} Para este calado, la Figura~\ref{fig:Ct_bulbo_195} 
-muestra que la configuración con bulbo no presenta una mejora neta en 
-resistencia total en el rango analizado. La Figura~\ref{fig:Cw_bulbo_195} 
-confirma que el bulbo continúa reduciendo $C_W$ a partir de su velocidad de 
-diseño, de manera similar al calado anterior. Sin embargo, la 
-Figura~\ref{fig:Cv_bulbo_195} muestra que esta reducción se ve compensada por 
-un incremento de $C_V$ en la configuración con bulbo, probablemente asociado 
-al aumento de la superficie mojada efectiva y a la mayor separación entre el 
-bulbo y la superficie libre a este calado más profundo. Este último aspecto 
-podría además alterar la interacción entre las ondas generadas por el bulbo 
-y las del casco, reduciendo la interferencia destructiva que justifica su 
-función.
+\paragraph{Calado $T = 0{,}195$~m} Para este calado, la 
+Figura~\ref{fig:Ct_bulbo_195} muestra que la configuración con bulbo no 
+presenta una mejora neta en resistencia total: la diferencia entre ambas 
+curvas oscila a lo largo del rango sin definir una tendencia, alternando 
+tramos favorables y desfavorables al bulbo. La 
+Figura~\ref{fig:Cv_bulbo_195} muestra que las resistencias viscosas de ambas 
+configuraciones resultan prácticamente indistinguibles, de modo que la 
+diferencia observada en $C_T$ se explica enteramente por la componente de 
+olas. En efecto, la Figura~\ref{fig:Cw_bulbo_195} muestra que el bulbo 
+reduce $C_W$ en el entorno de $F_n \approx 0{,}20$--$0{,}30$, pero pierde 
+ese beneficio por encima de $F_n \approx 0{,}35$, donde la tendencia se 
+invierte y la configuración con bulbo pasa a presentar una resistencia por 
+olas superior a la del casco desnudo.
+
+Este comportamiento resulta consistente con la mayor sumergencia del bulbo a 
+este calado. Al aumentar su distancia a la superficie libre se modifica el 
+sistema de ondas que genera, tanto en amplitud como en fase, de manera que 
+la interferencia destructiva con el tren de olas del casco deja de resultar 
+favorable en el extremo alto del rango de operación. El beneficio 
+hidrodinámico del bulbo aparece así como fuertemente dependiente de la 
+condición de carga.
 
 \begin{figure}[htpb]
-	\centering
-	\includegraphics[width=.6\columnwidth]{images/Ct-consinbulbo-195.png}
-	\caption{Comparación de resistencia total entre \textit{P1} con y sin 
-	bulbo ($T = 0.195$ m).}
-	\label{fig:Ct_bulbo_195}
-\end{figure}
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/Ct-consinbulbo-195.png}
+        \caption{Resistencia total.}
+        \label{fig:Ct_bulbo_195}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/Cw-consinbulbo-195.png}
+        \caption{Resistencia por olas.}
+        \label{fig:Cw_bulbo_195}
+    \end{subfigure}
 
-\begin{figure}[htpb]
-	\centering
-	\includegraphics[width=.6\columnwidth]{images/Cw-consinbulbo-195.png}
-	\caption{Comparación de resistencia por olas entre \textit{P1} con y sin 
-	bulbo ($T = 0.195$ m).}
-	\label{fig:Cw_bulbo_195}
-\end{figure}
+    \vspace{0.6cm}
 
-\begin{figure}[htpb]
-	\centering
-	\includegraphics[width=.6\columnwidth]{images/Cv-consinbulbo-195.png}
-	\caption{Comparación de resistencia viscosa entre \textit{P1} con y sin 
-	bulbo ($T = 0.195$ m).}
-	\label{fig:Cv_bulbo_195}
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/Cv-consinbulbo-195.png}
+        \caption{Resistencia viscosa. Ambas configuraciones resultan 
+        indistinguibles en todo el rango.}
+        \label{fig:Cv_bulbo_195}
+    \end{subfigure}
+
+    \caption{Descomposición de la resistencia del \textit{P1} con y sin proa 
+    bulbo para el calado $T = 0{,}195$~m.}
+    \label{fig:coef_bulbo_195}
 \end{figure}
 
 Estos resultados, desde el punto de vista hidrodinámico, obligan a repensar 
-el diseño de la proa de los pesqueros. Sin embargo, como fue mencionado en la 
-introducción, el bulbo ayuda a aumentar la capacidad de carga del buque. 
+el diseño de la proa de los pesqueros. Sin embargo, como fue mencionado en 
+la introducción, el bulbo ayuda a aumentar la capacidad de carga del buque. 
 Aunque su efecto hidrodinámico pueda ser desfavorable según el calado, es 
 posible que el análisis económico muestre que la ganancia en capacidad de 
 carga supere la pérdida asociada a un diseño no optimizado 
@@ -1382,57 +1472,112 @@ hidrodinámicamente.
 
 \subsection{Efecto sobre el factor de forma}
 
-El análisis de esta sección busca responder si la proa bulbo es responsable, 
-total o parcialmente, de la falta de un valor asintótico de $(1+k)$ con la 
-escala observada para el \textit{P1} en la Sección~\ref{sec:analisis_efectos_escala}, 
-en contraste con el comportamiento del KCS.
+\paragraph{Efecto sobre el valor de $(1+k)$} La aplicación del método de 
+Prohaska a las simulaciones bifásicas de ambas configuraciones arroja los 
+valores reunidos en la Tabla~\ref{tab:k_bulbo_ctrlz}. El bulbo incrementa el 
+factor de forma en los dos calados analizados, lo cual es consistente con el 
+aumento de resistencia por presión viscosa asociado a un cuerpo adicional en 
+la proa. La magnitud del efecto, sin embargo, difiere de manera marcada 
+entre condiciones de carga: mientras que a $T = 0{,}165$~m el incremento 
+alcanza el $3{,}0$\,\%, a $T = 0{,}195$~m se reduce a $0{,}9$\,\%.
 
-Una posible preocupación al aplicar la metodología de doble cuerpo (DB) al 
-casco con bulbo era la validez de la hipótesis de simetría con respecto al 
-plano de crujía, ya que el bulbo se encuentra próximo a la superficie libre 
-y su efecto hidrodinámico podría no reflejarse de manera simétrica en un 
-dominio semiespacial.
+\begin{table}[htpb]
+\centering
+\caption{Factor de forma $(1+k)$ obtenido por el método de Prohaska para 
+ambas configuraciones de proa, junto con el rango de $F_n$ empleado en cada 
+regresión.}
+\label{tab:k_bulbo_ctrlz}
+\begin{tabular}{llcc}
+\hline
+Calado & Configuración & Rango de $F_n$ & $(1+k)$ \\
+\hline
+\multirow{2}{*}{$T = 0{,}165$~m} & Con bulbo & $0{,}13$--$0{,}20$ & $1{,}204$ \\
+                                 & Ctrl+Z    & $0{,}14$--$0{,}20$ & $1{,}169$ \\
+\hline
+\multirow{2}{*}{$T = 0{,}195$~m} & Con bulbo & $0{,}14$--$0{,}20$ & $1{,}215$ \\
+                                 & Ctrl+Z    & $0{,}16$--$0{,}20$ & $1{,}204$ \\
+\hline
+\end{tabular}
+\end{table}
 
-Sin embargo, la comparación de los resultados de $(1+k)$ entre las 
-configuraciones con y sin bulbo (Figuras~\ref{fig:k_bulbo_165} y 
-\ref{fig:k_bulbo_195}) muestra que ambos casos presentan la misma tendencia 
-con la velocidad: el bulbo incrementa los valores absolutos del factor de 
-forma, pero no modifica la pendiente de crecimiento con el número de Froude. 
-Esto indica que su efecto es esencialmente global, asociado a una 
-redistribución de las presiones viscosas, y que la ausencia de estabilización 
-de $(1+k)$ con la escala no puede atribuirse a la presencia del bulbo: el 
-mismo comportamiento creciente se observa también en el modelo sin bulbo 
-(Ctrl+Z), a escala modelo.
+Esta dependencia con el calado resulta coherente con el mecanismo propuesto 
+en la literatura: si la contribución del bulbo al factor de forma está 
+asociada a su proximidad a la superficie libre, al aumentar el calado el 
+bulbo queda más sumergido y su influencia se atenúa. El resultado es 
+consistente, además, con el comportamiento de la componente de olas descrito 
+en la subsección anterior, donde el beneficio del bulbo también se 
+desvanecía al aumentar el calado.
+
+\paragraph{Efecto sobre la tendencia de $(1+k)$ con la velocidad} La 
+comparación de las curvas de $(1+k)$ determinadas por doble cuerpo 
+(Figuras~\ref{fig:k_bulbo_165} y \ref{fig:k_bulbo_195}) permite abordar la 
+segunda de las hipótesis planteadas. Ambas configuraciones presentan un 
+crecimiento sostenido de $(1+k)$ con la velocidad, de magnitud comparable, 
+sin alcanzar un valor asintótico en el rango analizado. El bulbo desplaza 
+las curvas hacia valores mayores, en línea con lo indicado en la 
+Tabla~\ref{tab:k_bulbo_ctrlz}, pero no introduce ni modifica 
+sustancialmente la tendencia creciente.
+
+Cabe señalar que la determinación por doble cuerpo del casco con bulbo debe 
+interpretarse con cautela en cuanto a sus valores absolutos, dado que la 
+condición de simetría impuesta en la frontera superior del dominio puede 
+distorsionar el campo de presiones en la zona de proa cuando el bulbo se 
+encuentra próximo a dicha frontera, tal como se discutió en la 
+Sección~\ref{sec:cfd_ff_antec}. El análisis presentado aquí se apoya, por lo 
+tanto, en la comparación de tendencias entre configuraciones y no en el 
+nivel absoluto de cada curva.
 
 \begin{figure}[htpb]
-	\centering
-	\includegraphics[width=.6\columnwidth]{images/k-consinbulbo-165.png}
-	\caption{Comparación del factor de forma $(1+k)$ entre \textit{P1} con y 
-	sin bulbo ($T = 0.165$ m).}
-	\label{fig:k_bulbo_165}
-\end{figure}
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/k-consinbulbo-165.png}
+        \caption{$T = 0{,}165$~m.}
+        \label{fig:k_bulbo_165}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/k-consinbulbo-195.png}
+        \caption{$T = 0{,}195$~m.}
+        \label{fig:k_bulbo_195}
+    \end{subfigure}
 
-\begin{figure}[htpb]
-	\centering
-	\includegraphics[width=.6\columnwidth]{images/k-consinbulbo-195.png}
-	\caption{Comparación del factor de forma $(1+k)$ entre \textit{P1} con y 
-	sin bulbo ($T = 0.195$ m).}
-	\label{fig:k_bulbo_195}
+    \caption{Factor de forma $(1+k)$ del \textit{P1} con y sin proa bulbo en 
+    función del número de Froude, para ambos calados.}
+    \label{fig:k_bulbo}
 \end{figure}
 
 \subsection{Conclusiones parciales}
 
-En síntesis, el bulbo incrementa el factor de forma y la resistencia 
-viscosa, pero a la vez reduce la resistencia por olas dentro del rango de 
-diseño. A calados reducidos, este balance resulta favorable para la 
-resistencia total, mientras que a mayor calado el beneficio desaparece. 
-Respecto a la pregunta que motivó este análisis, los resultados indican que 
-la proa bulbo no es responsable de la falta de estabilización de $(1+k)$ con 
-la escala observada para el \textit{P1}: dicho comportamiento persiste de 
-manera análoga en el modelo sin bulbo, lo que descarta al bulbo como causa 
-principal y refuerza la necesidad de buscar dicha causa en otras 
-características geométricas del casco, como su baja relación $L/B$, 
-analizada en la Sección~\ref{sec:generalizacion_LB}.
+El análisis comparativo entre el \textit{P1} y su variante sin bulbo 
+permite extraer tres conclusiones.
+
+En primer lugar, el bulbo modifica el valor del factor de forma determinado 
+por el método de Prohaska, incrementándolo en ambos calados, con un efecto 
+tres veces mayor en la condición de carga ligera que en la pesada. Esta 
+dependencia con el calado es consistente con un mecanismo gobernado por la 
+proximidad del bulbo a la superficie libre.
+
+En segundo lugar, el bulbo incrementa la resistencia viscosa y reduce la 
+resistencia por olas dentro de su rango de diseño, pero el balance resultante 
+depende fuertemente de la condición de carga. A calado reducido resulta 
+favorable para la resistencia total por encima de $F_n \approx 0{,}25$, 
+mientras que a mayor calado el beneficio desaparece e incluso se invierte en 
+el extremo alto del rango de operación.
+
+En tercer lugar, y respecto de la pregunta que motivó este análisis, ni la 
+curvatura del diagrama de Prohaska a bajos números de Froude ni la ausencia 
+de estabilización de $(1+k)$ con la velocidad pueden atribuirse a la 
+presencia del bulbo: ambos comportamientos persisten de manera análoga en el 
+modelo Ctrl+Z. Este resultado descarta al bulbo como causa principal y 
+refuerza la necesidad de buscar dicha causa en otras características 
+geométricas del casco, como su baja relación $L/B$, analizada en la 
+Sección~\ref{sec:generalizacion_LB}. Cabe precisar que, en el caso 
+particular de la curvatura del diagrama de Prohaska, el análisis aquí 
+presentado descarta al bulbo pero no permite distinguir entre un origen 
+geométrico y uno numérico asociado al modelado de la transición, dado que 
+ambas configuraciones comparten el mismo cierre turbulento.
 
 \section{Influencia de la popa sumergida en el factor de forma}\label{sec:popa_sumergida}
 

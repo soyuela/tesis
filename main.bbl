@@ -1,0 +1,373 @@
+\begin{thebibliography}{49}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[26th ITTC Resistance~Committee(2011)]{ITTC_resistance}
+26th ITTC Resistance~Committee.
+\newblock \emph{ITTC – Recommended Procedures and Guidelines - Resistance
+  Test}.
+\newblock ITTC, 2011.
+
+\bibitem[28th ITTC Propulsion~Committee(2017)]{ITTC_Performance_prediction}
+28th ITTC Propulsion~Committee.
+\newblock \emph{ITTC – Recommended Procedures and Guidelines - 1978 ITTC
+  Performance Prediction Method}.
+\newblock ITTC, 2017.
+
+\bibitem[28th ITTC Quality Systems~Group(2017)]{ITTC_uncertainty}
+28th ITTC Quality Systems~Group.
+\newblock \emph{ITTC - General Guidelines for Uncertainty Analisys in
+  Resistance Tests}.
+\newblock ITTC, 2017.
+
+\bibitem[{American Society of Mechanical Engineers}(2009)]{asme}
+{American Society of Mechanical Engineers}.
+\newblock \emph{Standard for Verification and Validation in Computational Fluid
+  Dynamics and Heat Transfer: An American National Standard}.
+\newblock American Society of Mechanical Engineers, 2009.
+
+\bibitem[Baltazar et~al.(2018)Baltazar, Rijpkema, and Falc{\~{a}}o~de
+  Campos]{baltazar2018transition}
+Jo{\~{a}}o Baltazar, Douwe Rijpkema, and Jos\'{e}~A.C. Falc{\~{a}}o~de Campos.
+\newblock On the use of the $\gamma$--$\widetilde{Re}_{\theta t}$ transition
+  model for the prediction of the propeller performance at model-scale.
+\newblock \emph{Ocean Engineering}, 170:\penalty0 9--21, 2018.
+\newblock \doi{10.1016/j.oceaneng.2018.10.007}.
+
+\bibitem[Birk(2019)]{birk2019}
+Lothar Birk.
+\newblock \emph{Fundamentals of Ship Hydrodynamics: Fluid Mechanics, Ship
+  Resistance and Propulsion}.
+\newblock Wiley, 2019.
+\newblock ISBN 9781118855485.
+
+\bibitem[Conn and Ferguson(1968)]{conn1968results}
+J.F.C. Conn and A.M. Ferguson.
+\newblock Results obtained with a series of geometrically similar models.
+\newblock \emph{Transactions of the Royal Institution of Naval Architects},
+  110:\penalty0 255--300, 1968.
+
+\bibitem[Couser et~al.(1997)Couser, Molland, Armstrong, and
+  Utama]{couser1997calm}
+P.R. Couser, A.F. Molland, N.A. Armstrong, and I.K.A.P. Utama.
+\newblock Calm water powering prediction for high speed catamarans.
+\newblock In \emph{Proceedings of 4th International Conference on Fast Sea
+  Transportation, FAST’97}, Sydney, 1997.
+
+\bibitem[Dogrul et~al.(2020)Dogrul, Song, and Demirel]{DOGRUL2020107428}
+Ali Dogrul, Soonseok Song, and Yigit~Kemal Demirel.
+\newblock Scale effect on ship resistance components and form factor.
+\newblock \emph{Ocean Engineering}, 209:\penalty0 107428, 2020.
+\newblock ISSN 0029-8018.
+\newblock \doi{https://doi.org/10.1016/j.oceaneng.2020.107428}.
+\newblock URL
+  \url{https://www.sciencedirect.com/science/article/pii/S0029801820304534}.
+
+\bibitem[et~al.(2016)]{krasilnikov2016cfd}
+Bhattacharyya et~al.
+\newblock A {CFD}-based scaling approach for ducted propellers.
+\newblock \emph{Ocean Engineering}, 125:\penalty0 11--31, 2016.
+\newblock \doi{10.1016/j.oceaneng.2016.07.061}.
+
+\bibitem[Gaggero and Villa(2018)]{gaggero2018transition}
+Stefano Gaggero and Diego Villa.
+\newblock Improving model scale propeller performance prediction using the
+  {$k$--$k_L$--$\omega$} transition model in {OpenFOAM}.
+\newblock \emph{International Shipbuilding Progress}, 65:\penalty0 187--226,
+  2018.
+\newblock \doi{10.3233/ISP-180150}.
+
+\bibitem[Garcia-Gómez(2000)]{gomezgarcia}
+A.~Garcia-Gómez.
+\newblock On the form factor scale effect.
+\newblock \emph{Ocean Engineering}, 27\penalty0 (1):\penalty0 97--109, 2000.
+\newblock ISSN 0029-8018.
+\newblock \doi{https://doi.org/10.1016/S0029-8018(98)00042-0}.
+\newblock URL
+  \url{https://www.sciencedirect.com/science/article/pii/S0029801898000420}.
+
+\bibitem[Grigson(2000)]{grigson2000planar}
+C.W.B. Grigson.
+\newblock A planar friction algorithm and its use in analysing hull resistance.
+\newblock \emph{Transactions of the Royal Institution of Naval Architects},
+  142:\penalty0 76--115, 2000.
+
+\bibitem[Hoerner(1965)]{hoerner1965drag}
+Sighard~F. Hoerner.
+\newblock \emph{Fluid-Dynamic Drag: Practical Information on Aerodynamic Drag
+  and Hydrodynamic Resistance}.
+\newblock Published by the Author, Bakersfield, CA, 1965.
+
+\bibitem[{ITTC Specialist Committee on CFD and EFD Combined
+  Methods}(2021)]{ITTC_Combined_2021}
+{ITTC Specialist Committee on CFD and EFD Combined Methods}.
+\newblock Final report and recommendations to the 29th {ITTC}.
+\newblock Technical report, International Towing Tank Conference, 2021.
+
+\bibitem[Karim et~al.(2011)Karim, Rahman, and Alim]{Karim}
+Mashud Karim, MM~Rahman, and M.~A. Alim.
+\newblock Performance of sst k-$\omega$ turbulence model for computation of
+  viscous drag of axisymmetric underwater bodies.
+\newblock \emph{International Journal of Engineering}, 24, 07 2011.
+
+\bibitem[Korkmaz et~al.(2019)Korkmaz, Werner, and
+  Bensow]{Korkmaz2019NumericalFL}
+Kadir~Burak Korkmaz, Sofia Werner, and Rickard~E. Bensow.
+\newblock Numerical friction lines for cfd based form factor determination
+  method.
+\newblock 2019.
+\newblock URL \url{https://api.semanticscholar.org/CorpusID:166226119}.
+
+\bibitem[Korkmaz et~al.(2021{\natexlab{a}})Korkmaz, Werner, and
+  Bensow]{korkmaz-verif-and-valid-cfd-efd}
+Kadir~Burak Korkmaz, Sofia Werner, and Rickard Bensow.
+\newblock Verification and validation of cfd based form factors as a combined
+  cfd/efd method.
+\newblock \emph{Journal of Marine Science and Engineering}, 9\penalty0 (1),
+  2021{\natexlab{a}}.
+\newblock ISSN 2077-1312.
+\newblock \doi{10.3390/jmse9010075}.
+\newblock URL \url{https://www.mdpi.com/2077-1312/9/1/75}.
+
+\bibitem[Korkmaz et~al.(2021{\natexlab{b}})Korkmaz, Werner, Sakamoto, Queutey,
+  Deng, Yuling, Guoxiang, Maki, Ye, Akinturk, Sayeed, Hino, Zhao, Tezdogan,
+  Demirel, and Bensow]{korkmaz_cfd_2021}
+Kadir~Burak Korkmaz, Sofia Werner, Nobuaki Sakamoto, Patrick Queutey, Ganbo
+  Deng, Gao Yuling, Dong Guoxiang, Kevin Maki, Haixuan Ye, Ayhan Akinturk,
+  Tanvir Sayeed, Takanori Hino, Feng Zhao, Tahsin Tezdogan, Yigit~Kemal
+  Demirel, and Rickard Bensow.
+\newblock {CFD} based form factor determination method.
+\newblock \emph{Ocean Engineering}, 220:\penalty0 108451, 2021{\natexlab{b}}.
+
+\bibitem[Korkmaz et~al.(2022{\natexlab{a}})Korkmaz, Werner, and
+  Bensow]{KORKMAZ2022112590}
+Kadir~Burak Korkmaz, Sofia Werner, and Rickard Bensow.
+\newblock Scaling of wetted-transom resistance for improved full-scale ship
+  performance predictions.
+\newblock \emph{Ocean Engineering}, 266:\penalty0 112590, 2022{\natexlab{a}}.
+\newblock ISSN 0029-8018.
+\newblock \doi{https://doi.org/10.1016/j.oceaneng.2022.112590}.
+
+\bibitem[Korkmaz et~al.(2022{\natexlab{b}})Korkmaz, Werner, and
+  Bensow]{korkmaz_wetted_transom}
+Kadir~Burak Korkmaz, Sofia Werner, and Rickard Bensow.
+\newblock Scaling of wetted-transom resistance for improved full-scale ship
+  performance predictions.
+\newblock \emph{Ocean Engineering}, 266:\penalty0 112590, 2022{\natexlab{b}}.
+\newblock ISSN 0029-8018.
+\newblock \doi{https://doi.org/10.1016/j.oceaneng.2022.112590}.
+\newblock URL
+  \url{https://www.sciencedirect.com/science/article/pii/S002980182201873X}.
+
+\bibitem[Langtry and Menter(2009)]{langtry2009}
+Robin~B. Langtry and Florian~R. Menter.
+\newblock Correlation-based transition modeling for unstructured parallelized
+  computational fluid dynamics codes.
+\newblock \emph{AIAA Journal}, 47\penalty0 (12):\penalty0 2894--2906, 2009.
+\newblock \doi{10.2514/1.42362}.
+
+\bibitem[Launder and Spalding(1974)]{Launder1974}
+Brian~E. Launder and D.~B. Spalding.
+\newblock The numerical computation of turbulent flows.
+\newblock \emph{Computer Methods in Applied Mechanics and Engineering},
+  3\penalty0 (2):\penalty0 269--289, 1974.
+\newblock \doi{10.1016/0045-7825(74)90029-2}.
+
+\bibitem[Menter(1994)]{Menter1994}
+Florian~R. Menter.
+\newblock Two-equation eddy-viscosity turbulence models for engineering
+  applications.
+\newblock \emph{AIAA Journal}, 32\penalty0 (8):\penalty0 1598--1605, 1994.
+\newblock \doi{10.2514/3.12149}.
+
+\bibitem[Min and Kang(2010)]{keh-sik-min}
+Keh-Sik Min and Seon-Hyung Kang.
+\newblock Study on the form factor and full-scale ship resistance prediction
+  method.
+\newblock \emph{Journal of Marine Science and Technology}, 15\penalty0
+  (2):\penalty0 108--118, 2010.
+\newblock ISSN 1437-8213.
+\newblock \doi{10.1007/s00773-009-0077-y}.
+\newblock URL \url{https://doi.org/10.1007/s00773-009-0077-y}.
+
+\bibitem[Molland et~al.(2017)Molland, Turnock, and Hudson]{molland2017ship}
+Anthony~F. Molland, Stephen~R. Turnock, and Dominic~A. Hudson.
+\newblock \emph{Ship Resistance and Propulsion: Practical Estimation of Ship
+  Propulsive Power}.
+\newblock Cambridge University Press, Cambridge, 2 edition, 2017.
+\newblock ISBN 9781107142060.
+
+\bibitem[Oosterveld and van Oossanen(1975)]{oosterveld1975}
+M.W.C. Oosterveld and P.~van Oossanen.
+\newblock Further computer-analyzed data of the {Wageningen} {B}-screw series.
+\newblock \emph{International Shipbuilding Progress}, 22\penalty0
+  (251):\penalty0 3--14, 1975.
+
+\bibitem[Oyuela et~al.(2026)Oyuela, D{\'{i}}az-Ojeda, Otero, and
+  Sosa]{oyuela2026oceaneng}
+S.~Oyuela, H.R. D{\'{i}}az-Ojeda, A.D. Otero, and R.~Sosa.
+\newblock Combined {CFD-EFD} methods applied to determining the form factor of
+  vessels with very low length to beam ratio.
+\newblock \emph{Ocean Engineering}, 352:\penalty0 124211, 2026.
+\newblock \doi{10.1016/j.oceaneng.2026.124211}.
+
+\bibitem[Oyuela et~al.(2024)Oyuela, D{\'{i}}az-Ojeda, P\'{e}rez~Arribas, Otero,
+  and Sosa]{oyuela2024jmse}
+Sebastian Oyuela, H\'{e}ctor~Rub\'{e}n D{\'{i}}az-Ojeda, Francisco
+  P\'{e}rez~Arribas, Alejandro~Daniel Otero, and Roberto Sosa.
+\newblock Investigating fishing vessel hydrodynamics by using {EFD} and {CFD}
+  tools, with focus on total ship resistance and its components.
+\newblock \emph{Journal of Marine Science and Engineering}, 12\penalty0
+  (4):\penalty0 622, 2024.
+\newblock \doi{10.3390/jmse12040622}.
+
+\bibitem[Oyuela et~al.(2025)Oyuela, D{\'{i}}az-Ojeda, Otero, and
+  Sosa]{oyuela2025mecanica}
+Sebasti\'{a}n Oyuela, H\'{e}ctor~R. D{\'{i}}az-Ojeda, Alejandro~D. Otero, and
+  Roberto Sosa.
+\newblock Influence of turbulence model on the form factor determination of
+  fishing vessels.
+\newblock \emph{Mec\'{a}nica Computacional}, 42\penalty0 (3):\penalty0
+  443--452, 2025.
+
+\bibitem[Peravali et~al.(2016)Peravali, Bensow, Gyllenram, and
+  Shiri]{peravali2016}
+Suresh~Kumar Peravali, Rickard Bensow, Wubing Gyllenram, and Abolfazl Shiri.
+\newblock An investigation on {ITTC}~78 scaling method for unconventional
+  propellers.
+\newblock In \emph{11th International Conference on Hydrodynamics (ICHD 2016)},
+  2016.
+
+\bibitem[Prohaska(1966)]{prohaska1966}
+CW~Prohaska.
+\newblock A simple method for evaluation of the form facter and low speed wave
+  resistance.
+\newblock \emph{Proceedings of 11th ITTC}, pages 65--66, 1966.
+
+\bibitem[Raven(2016)]{Raven2016}
+H.~C. Raven.
+\newblock A new correction procedure for shallow-water effects in ship speed
+  trials.
+\newblock In \emph{13th International Symposium on Practical Design of Ships
+  (PRADS 2016)}, Copenhagen, Denmark, September 2016.
+\newblock MARIN report.
+
+\bibitem[Raymer(2019)]{raymer2019aircraft}
+Daniel~P. Raymer.
+\newblock \emph{Aircraft Design: A Conceptual Approach}.
+\newblock AIAA Education Series. AIAA, Reston, VA, 6 edition, 2019.
+\newblock ISBN 9781624104933.
+
+\bibitem[Rijpkema et~al.(2015)Rijpkema, Baltazar, and Falc{\~{a}}o~de
+  Campos]{rijpkema2015viscous}
+D.~Rijpkema, J.~Baltazar, and J.A.C. Falc{\~{a}}o~de Campos.
+\newblock Viscous flow simulations of propellers in different reynolds number
+  regimes.
+\newblock \emph{Fourth International Symposium on Marine Propulsors (SMP'15)},
+  2015.
+
+\bibitem[Roskam(1987)]{roskam1987airplane}
+Jan Roskam.
+\newblock \emph{Airplane Design}.
+\newblock Roskam Aviation and Engineering Corp., Ottawa, KS, 1987.
+
+\bibitem[Shevell(1989)]{shevell1989fundamentals}
+Richard~S. Shevell.
+\newblock \emph{Fundamentals of Flight}.
+\newblock Prentice–Hall, Upper Saddle River, NJ, 2 edition, 1989.
+\newblock ISBN 9780133400680.
+
+\bibitem[Shih et~al.(1995)Shih, Liou, Shabbir, Yang, and Zhu]{Shih1994}
+Tsan-Hsing Shih, William~W. Liou, Aamir Shabbir, Zhigang Yang, and Jiang Zhu.
+\newblock A new $k$-$\varepsilon$ eddy viscosity model for high {Reynolds}
+  number turbulent flows.
+\newblock \emph{Computers \& Fluids}, 24\penalty0 (3):\penalty0 227--238, 1995.
+\newblock \doi{10.1016/0045-7930(94)00032-T}.
+
+\bibitem[Song et~al.(2019)Song, Demirel, Atlar, Dai, and
+  Turan]{cp_recovery_kcs}
+Soonseok Song, Yigit Demirel, Mehmet Atlar, Saishuai Dai, and Osman Turan.
+\newblock Validation of the cfd approach for modelling roughness effect on ship
+  resistance.
+\newblock 10 2019.
+
+\bibitem[Starke et~al.(2025)Starke, Raven, and Pouw]{starke2025}
+A.~R. Starke, H.~C. Raven, and C.~P. Pouw.
+\newblock Resistance extrapolation for ships with a wetted transom stern.
+\newblock In \emph{XI International Conference on Computational Methods in
+  Marine Engineering (MARINE 2025)}, Edinburgh, Scotland, 2025.
+
+\bibitem[Terziev et~al.(2020)Terziev, Tezdogan, Demirel, Villa, Mizzi, and
+  Incecik]{TerzievDataSet}
+M.~Terziev, T.~Tezdogan, Y.~K. Demirel, D.~Villa, S.~Mizzi, and A.~Incecik.
+\newblock Data for: "exploring the effects of speed and scale on a ship’s
+  form factor using cfd", December 2020.
+
+\bibitem[Terziev et~al.(2021)Terziev, Tezdogan, Demirel, Villa, Mizzi, and
+  Incecik]{TERZIEV2021147}
+Momchil Terziev, Tahsin Tezdogan, Yigit~Kemal Demirel, Diego Villa, Simon
+  Mizzi, and Atilla Incecik.
+\newblock Exploring the effects of speed and scale on a ship’s form factor
+  using cfd.
+\newblock \emph{International Journal of Naval Architecture and Ocean
+  Engineering}, 13:\penalty0 147--162, 2021.
+\newblock ISSN 2092-6782.
+\newblock \doi{https://doi.org/10.1016/j.ijnaoe.2020.12.002}.
+
+\bibitem[Torenbeek(2010)]{torenbeek2010synthesis}
+E.~Torenbeek.
+\newblock \emph{Synthesis of Subsonic Airplane Design: An Introduction to the
+  Preliminary Design of Subsonic General Aviation and Transport Aircraft, with
+  Emphasis on Layout, Aerodynamic Design, Propulsion and Performance}.
+\newblock Springer, Dordrecht, The Netherlands, 2010.
+\newblock ISBN 9789048129924.
+
+\bibitem[Troost(1940)]{troost1940}
+L.~Troost.
+\newblock Open water test series with modern propeller forms.
+\newblock In \emph{Transactions of the North East Coast Institution of
+  Engineers and Shipbuilders}, volume~54, 1940.
+
+\bibitem[Wang et~al.(2015)Wang, Xiong, Shi, and Liu]{wang2015numericalFL}
+Zhan-zhi Wang, Ying Xiong, Li-pan Shi, and Zhi-hua Liu.
+\newblock A numerical flat plate friction line and its application.
+\newblock \emph{Journal of Hydrodynamics}, 27\penalty0 (3):\penalty0 383--393,
+  2015.
+\newblock \doi{10.1016/S1001-6058(15)60496-6}.
+
+\bibitem[Wilcox(1988)]{Wilcox1988}
+David~C. Wilcox.
+\newblock Reassessment of the scale-determining equation for advanced
+  turbulence models.
+\newblock \emph{AIAA Journal}, 26\penalty0 (11):\penalty0 1299--1310, 1988.
+\newblock \doi{10.2514/3.10041}.
+
+\bibitem[Wright(1984)]{wright1984viscous}
+B.D.W. Wright.
+\newblock Apparent viscous levels of resistance of a series of model geosims.
+\newblock Technical Report WG/H99, BSRA, 1984.
+
+\bibitem[York et~al.(2004)York, Evensen, Martinez, and De~Basabe~Delgado]{york}
+Derek York, Norman~M. Evensen, Margarita~Lopez Martinez, and Jonás
+  De~Basabe~Delgado.
+\newblock Unified equations for the slope, intercept, and standard errors of
+  the best straight line.
+\newblock \emph{American Journal of Physics}, 72\penalty0 (3):\penalty0
+  367--375, 03 2004.
+\newblock ISSN 0002-9505.
+\newblock \doi{10.1119/1.1632486}.
+\newblock URL \url{https://doi.org/10.1119/1.1632486}.
+
+\bibitem[Zeng et~al.(2019)Zeng, Hekkenberg, and Thill]{ZENG2019106434}
+Qingsong Zeng, Robert Hekkenberg, and Cornel Thill.
+\newblock On the viscous resistance of ships sailing in shallow water.
+\newblock \emph{Ocean Engineering}, 190:\penalty0 106434, 2019.
+\newblock ISSN 0029-8018.
+\newblock \doi{https://doi.org/10.1016/j.oceaneng.2019.106434}.
+\newblock URL
+  \url{https://www.sciencedirect.com/science/article/pii/S0029801819305827}.
+
+\end{thebibliography}
