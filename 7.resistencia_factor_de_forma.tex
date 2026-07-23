@@ -421,7 +421,7 @@ Para la determinación computacional del factor de forma se implementaron dos m�
 
 \begin{figure}[htpb]
 \centering
-\includegraphics[width=0.6\textwidth, trim=3.5cm 8cm 4cm 8cm, clip]{images/prohaska_tpa_cfd_comparacion.pdf}
+\includegraphics[width=0.6\textwidth]{images/prohaska_tpa_cfd_comparacion.pdf}
 \caption{Diagramas del método de Prohaska para los tres calados del \textit{P1}. La desviación respecto de la linealidad teórica se acentúa a bajos números de Froude.}
 \label{fig:prohaska_tpa_cfd}
 \end{figure}
@@ -437,7 +437,7 @@ condición de plena carga y resulta el más representativo del régimen de opera
 
 \begin{figure}[htpb]
 	\centering
-	\includegraphics[width=.6\columnwidth, trim=3.5cm 8cm 4cm 8cm, clip]{images/cfd_form_factor_tpa_195_range.pdf}
+	\includegraphics[width=.6\columnwidth]{images/cfd_form_factor_tpa_195_range.pdf}
 	\caption{Variación del factor de forma experimental $(1+k)$ para el \textit{P1} en función del rango de Froude utilizado en el ajuste de Prohaska. Calado 3}
 \label{fig:tpa_range_cfd}
 \end{figure}
@@ -484,14 +484,14 @@ Este hallazgo resulta crítico: si el factor de forma varía de manera apreciabl
     % Primera fila: Calado 1 y Calado 2
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
-        \includegraphics[width=\textwidth, trim=3.5cm 8cm 4cm 8cm, clip]{images/tpa_CFD_DC_165.pdf}
+        \includegraphics[width=\textwidth]{images/tpa_CFD_DC_165.pdf}
         \caption{Calado 1 (T1: 0.165 m)}
         \label{fig:k_165}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
-        \includegraphics[width=\textwidth, trim=3.5cm 8cm 4cm 8cm, clip]{images/tpa_CFD_DC_180.pdf}
+        \includegraphics[width=\textwidth]{images/tpa_CFD_DC_180.pdf}
         \caption{Calado 2 (T2: 0.180 m)}
         \label{fig:k_180}
     \end{subfigure}
@@ -501,7 +501,7 @@ Este hallazgo resulta crítico: si el factor de forma varía de manera apreciabl
     % Segunda fila: Calado 3 centrado
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
-        \includegraphics[width=\textwidth, trim=3.5cm 8cm 4cm 8cm, clip]{images/tpa_CFD_DC_195.pdf}
+        \includegraphics[width=\textwidth]{images/tpa_CFD_DC_195.pdf}
         \caption{Calado 3 (T3: 0.195 m)}
         \label{fig:k_195}
     \end{subfigure}
@@ -534,7 +534,7 @@ Sección~\ref{sec:det_num_fac_form}.
 
 \begin{figure}[htpb]
     \centering
-    \includegraphics[width=.6\columnwidth, trim=3.5cm 8cm 4cm 8cm, clip]
+    \includegraphics[width=.6\columnwidth]
         {images/kcs_DB_prohaska.pdf}
     \caption{Comparación de $1+k$ numérico vs $R_n$ para el KCS 1:79 (escala LabHiNO) y 1:75 \citep{TERZIEV2021147}.}
     \label{fig:kcs_DB_prohaska}
@@ -546,7 +546,7 @@ internacionales \citep{TerzievDataSet}.
 
 \begin{figure}[htpb]
     \centering
-    \includegraphics[width=.6\columnwidth]{images/cfd_kcs_lit}
+    \includegraphics[width=.6\columnwidth]{images/cfd_kcs_lit.pdf}
     \caption{Factor de forma (1+k) del KCS propio (CFD DB) frente a la base de datos \citep{TerzievDataSet}.}
     \label{fig:completo_kcs_lit}
 \end{figure}
@@ -639,25 +639,22 @@ correctamente la zona de transición a bajos $Re$.
 
 \begin{figure}[htpb]
 \centering
-\includegraphics[width=0.6\textwidth]{images/prohaska-efd-cfd-165}
-\caption{Diagrama de Prohaska del \textit{P1} comparando EFD (D2) y CFD (D1) 
-en función de $Fn^4/C_{F0}$. Calado 1.}
+\includegraphics[width=0.6\textwidth]{images/prohaska-efd-cfd-165.pdf}
+\caption{Diagrama de Prohaska del \textit{P1} comparando EFD y CFD. Calado 1.}
 \label{fig:prohaska_tpa_efd_cfd_165}
 \end{figure}
 
 \begin{figure}[htpb]
 \centering
-\includegraphics[width=0.6\textwidth]{images/prohaska-efd-cfd-180}
-\caption{Diagrama de Prohaska del \textit{P1} comparando EFD (D2) y CFD (D1) 
-en función de $Fn^4/C_{F0}$. Calado 2.}
+\includegraphics[width=0.6\textwidth]{images/prohaska-efd-cfd-180.pdf}
+\caption{Diagrama de Prohaska del \textit{P1} comparando EFD y CFD. Calado 2.}
 \label{fig:prohaska_tpa_efd_cfd_180}
 \end{figure}
 
 \begin{figure}[htpb]
 \centering
-\includegraphics[width=0.6\textwidth]{images/prohaska-efd-cfd-195}
-\caption{Diagrama de Prohaska del \textit{P1} comparando EFD (D2) y CFD (D1) 
-en función de $Fn^4/C_{F0}$. Calado 3.}
+\includegraphics[width=0.6\textwidth]{images/prohaska-efd-cfd-195.pdf}
+\caption{Diagrama de Prohaska del \textit{P1} comparando EFD y CFD. Calado 3.}
 \label{fig:prohaska_tpa_efd_cfd_195}
 \end{figure}
 
@@ -719,18 +716,18 @@ curva de $(1+k)$ que en realidad varía con $F_n$ (o $R_n$) en todo el rango
 operativo del buque, comportamiento que ya fue observado para el KCS y que 
 será analizado en profundidad en la Sección~\ref{sec:analisis_efectos_escala}.
 
-\begin{figure}[htpb]
+\begin{figure}[H]
      \centering
      \begin{subfigure}[b]{0.48\textwidth}
          \centering
-         \includegraphics[width=\textwidth, trim=3.5cm 8cm 4cm 8cm, clip]{images/tpa_CFD_DC_proj_165.pdf}
+         \includegraphics[width=\textwidth]{images/tpa_CFD_DC_proj_165.pdf}
          \caption{Calado 1.}
          \label{fig:tpa_proj_DB_k_escala20_165}
      \end{subfigure}
      \hfill
      \begin{subfigure}[b]{0.48\textwidth}
          \centering
-         \includegraphics[width=\textwidth, trim=3.5cm 8cm 4cm 8cm, clip]{images/tpa_CFD_DC_proj_180.pdf}
+         \includegraphics[width=\textwidth]{images/tpa_CFD_DC_proj_180.pdf}
          \caption{Calado 2.}
          \label{fig:tpa_proj_DB_k_escala20_180}
      \end{subfigure}
@@ -739,7 +736,7 @@ será analizado en profundidad en la Sección~\ref{sec:analisis_efectos_escala}.
      
      \begin{subfigure}[b]{0.48\textwidth}
          \centering
-         \includegraphics[width=\textwidth, trim=3.5cm 8cm 4cm 8cm, clip]{images/tpa_CFD_DC_proj_195.pdf}
+         \includegraphics[width=\textwidth]{images/tpa_CFD_DC_proj_195.pdf}
          \caption{Calado 3.}
          \label{fig:tpa_proj_DB_k_escala20_195}
      \end{subfigure}
@@ -833,7 +830,7 @@ Prohaska en el presente trabajo, para el KCS a escala 1:79 y para el
 
 \begin{figure}[htpb]
 	\centering
-	\includegraphics[width=.6\columnwidth, trim=3.2cm 8cm 3.2cm 8cm, clip]{images/comparacion_total_kcs_tpa.pdf}
+	\includegraphics[width=.6\columnwidth]{images/comparacion_total_kcs_tpa.pdf}
 	\caption{$(1+k)$ frente a $R_n$ para el KCS (CFD DB, escalas 1:79 y 1:75 
 	de \citet{TERZIEV2021147}, y EFD a 1:79) y para el \textit{P1} (CFD DB y 
 	EFD, escala 1:20, Calado~3).}
@@ -856,7 +853,7 @@ evaluaron la escala 1:20 (ya presentada) y tres escalas adicionales, 1:10,
 
 \begin{figure}[htpb]
 	\centering
-	\includegraphics[width=.6\columnwidth, trim=3.2cm 8cm 3.2cm 8cm, clip]{images/completo_log_kcs_lit_tpa.pdf}
+	\includegraphics[width=.6\columnwidth]{images/completo_log_kcs_lit_tpa.pdf}
 	\caption{$(1+k)$ frente a $R_n$ para el KCS y el \textit{P1}, en escala 
 	logarítmica. Para el KCS se muestran los resultados propios obtenidos en 
 	el LabHiNO (CFD DB y Prohaska EFD, escala 1:79) junto con el conjunto de 
@@ -903,7 +900,7 @@ analizan en profundidad en la Sección~\ref{sec:generalizacion_LB}.
 
 \begin{figure}[htpb]
     \centering
-    \includegraphics[width=.6\textwidth, trim=3.5cm 8cm 4cm 8cm, clip]{./images/completo_log_kcs_lit_tpa_jpa_contessi.pdf}
+    \includegraphics[width=.6\textwidth]{./images/completo_log_kcs_lit_tpa_jpa_contessi.pdf}
     \caption{Evolución de $(1+k)$ con el número de Reynolds para el KCS 
     y los tres pesqueros analizados.}
     \label{fig:Re_formfactor}
@@ -918,7 +915,7 @@ Esta diferencia de un orden de magnitud indica que el método propuesto por
 
 \begin{figure}[htpb]
 \centering
-\includegraphics[width=0.6\textwidth]{images/gomez-garcia-nuestro.png}
+\includegraphics[width=0.6\textwidth]{images/gomez-garcia-nuestro.pdf}
 \caption{Linealidad del factor de forma con la escala para el \textit{P1}, 
 siguiendo el método de \citet{gomezgarcia}.}
 \label{fig:gomez-garcia-nuestro}
@@ -962,7 +959,7 @@ la línea de correlación ITTC-57 ($C_{F0}$) a efectos comparativos.
 
 \begin{figure}
 \centering
-\includegraphics[width=.6\columnwidth, trim=3.5cm 8cm 4cm 8cm, clip]{./images/descomposicion_coeficientes.pdf}
+\includegraphics[width=.6\columnwidth]{./images/descomposicion_coeficientes.pdf}
 \caption{Coeficientes $C_T$, $C_{PV}$ y $C_F$ obtenidos mediante CFD en 
 configuración de doble cuerpo, junto con la línea ITTC-57 ($C_{F0}$), en 
 función de $R_n$ para el \textit{P1}.}
@@ -992,7 +989,7 @@ resistencia viscosa total para este casco.
 
 \begin{figure}
 \centering
-\includegraphics[width=.6\columnwidth, trim=3.5cm 8cm 4cm 8cm, clip]{./images/kcs_tpa_descomposicion.pdf}
+\includegraphics[width=.6\columnwidth]{./images/kcs_tpa_descomposicion.pdf}
 \caption{$C_{PV}$ y $C_F$ obtenidos mediante CFD en doble cuerpo para el 
 \textit{P1} y para el KCS 1:79 (LabHiNO).}
 \label{cpv_friccion}
@@ -1349,7 +1346,7 @@ trabajo futuro.
 
 \begin{figure}[htpb]
 	\centering
-	\includegraphics[width=.9\columnwidth]{images/prohaska-bulbo-ctrlz-165.png}
+	\includegraphics[width=.9\columnwidth]{images/prohaska-bulbo-ctrlz-165.pdf}
 	\caption{Diagrama de Prohaska comparando modelos con y sin bulbo 
 	($T = 0{,}165$~m).}
 	\label{fig:prohaska_bulbo_165}
@@ -1357,7 +1354,7 @@ trabajo futuro.
 
 \begin{figure}[htpb]
 	\centering
-	\includegraphics[width=.9\columnwidth]{images/prohaska-bulbo-ctrlz-195.png}
+	\includegraphics[width=.9\columnwidth]{images/prohaska-bulbo-ctrlz-195.pdf}
 	\caption{Diagrama de Prohaska comparando modelos con y sin bulbo 
 	($T = 0{,}195$~m).}
 	\label{fig:prohaska_bulbo_195}
@@ -1383,14 +1380,14 @@ configuración.
     \centering
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{images/Ct-consinbulbo-165.png}
+        \includegraphics[width=\textwidth]{images/Ct-consinbulbo-165.pdf}
         \caption{Resistencia total.}
         \label{fig:Ct_bulbo_165}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{images/Cw-consinbulbo-165.png}
+        \includegraphics[width=\textwidth]{images/Cw-consinbulbo-165.pdf}
         \caption{Resistencia por olas.}
         \label{fig:Cw_bulbo_165}
     \end{subfigure}
@@ -1399,7 +1396,7 @@ configuración.
 
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{images/Cv-consinbulbo-165.png}
+        \includegraphics[width=\textwidth]{images/Cv-consinbulbo-165.pdf}
         \caption{Resistencia viscosa.}
         \label{fig:Cv_bulbo_165}
     \end{subfigure}
@@ -1435,14 +1432,14 @@ condición de carga.
     \centering
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{images/Ct-consinbulbo-195.png}
+        \includegraphics[width=\textwidth]{images/Ct-consinbulbo-195.pdf}
         \caption{Resistencia total.}
         \label{fig:Ct_bulbo_195}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{images/Cw-consinbulbo-195.png}
+        \includegraphics[width=\textwidth]{images/Cw-consinbulbo-195.pdf}
         \caption{Resistencia por olas.}
         \label{fig:Cw_bulbo_195}
     \end{subfigure}
@@ -1451,7 +1448,7 @@ condición de carga.
 
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{images/Cv-consinbulbo-195.png}
+        \includegraphics[width=\textwidth]{images/Cv-consinbulbo-195.pdf}
         \caption{Resistencia viscosa. Ambas configuraciones resultan 
         indistinguibles en todo el rango.}
         \label{fig:Cv_bulbo_195}
@@ -1531,14 +1528,14 @@ nivel absoluto de cada curva.
     \centering
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{images/k-consinbulbo-165.png}
+        \includegraphics[width=\textwidth]{images/k-consinbulbo-165.pdf}
         \caption{$T = 0{,}165$~m.}
         \label{fig:k_bulbo_165}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{images/k-consinbulbo-195.png}
+        \includegraphics[width=\textwidth]{images/k-consinbulbo-195.pdf}
         \caption{$T = 0{,}195$~m.}
         \label{fig:k_bulbo_195}
     \end{subfigure}
@@ -1831,7 +1828,7 @@ de Reynolds para el \textit{P1}, considerando la línea ITTC-57
 
 \begin{figure}[htpb]
 	\centering
-	\includegraphics[width=.6\columnwidth, trim=3.5cm 8cm 4cm 8cm, clip]{images/ittc-nfl.pdf}
+	\includegraphics[width=.6\columnwidth]{images/ittc-nfl.pdf}
 	\caption{Variación de $(1+k)$ en función de $R_n$ para el \textit{P1} 
 	empleando la línea ITTC-57 y la NFL de \citet{Korkmaz2019NumericalFL}.}
 	\label{ittc_nfl}
