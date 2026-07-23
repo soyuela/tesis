@@ -11,3 +11,5 @@
 *.lof
 *.lot
 *.pdf
+!images/*.pdf
+!images/**/*.pdf
