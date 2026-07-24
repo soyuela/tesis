@@ -1,53 +1,52 @@
-This is BibTeX, Version 0.99d (TeX Live 2025/Debian)
+This is BibTeX, Version 0.99d (TeX Live 2022/dev/Debian)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
 The style file: plainnat.bst
 Database file #1: referencias.bib
-Warning--I didn't find a database entry for "ITTC_uncertainty_CFD"
 Warning--I didn't find a database entry for "freitas"
 Warning--I didn't find a database entry for "Gaggero2020"
 Warning--I didn't find a database entry for "Baltazar2021"
 Warning--empty booktitle in Korkmaz2019NumericalFL
 Warning--empty booktitle in cp_recovery_kcs
-You've used 49 entries,
+You've used 53 entries,
             2773 wiz_defined-function locations,
-            931 strings with 14930 characters,
-and the built_in function-call counts, 22060 in all, are:
-= -- 1952
-> -- 1295
-< -- 29
-+ -- 447
-- -- 396
-* -- 1808
-:= -- 3518
-add.period$ -- 190
-call.type$ -- 49
-change.case$ -- 272
-chr.to.int$ -- 47
-cite$ -- 100
-duplicate$ -- 1012
-empty$ -- 1791
-format.name$ -- 457
-if$ -- 4564
+            953 strings with 15572 characters,
+and the built_in function-call counts, 23428 in all, are:
+= -- 2069
+> -- 1357
+< -- 33
++ -- 469
+- -- 414
+* -- 1886
+:= -- 3736
+add.period$ -- 204
+call.type$ -- 53
+change.case$ -- 289
+chr.to.int$ -- 51
+cite$ -- 108
+duplicate$ -- 1093
+empty$ -- 1923
+format.name$ -- 483
+if$ -- 4854
 int.to.chr$ -- 3
 int.to.str$ -- 1
-missing$ -- 57
-newline$ -- 295
-num.names$ -- 196
-pop$ -- 532
+missing$ -- 62
+newline$ -- 317
+num.names$ -- 212
+pop$ -- 573
 preamble$ -- 1
-purify$ -- 230
+purify$ -- 244
 quote$ -- 0
-skip$ -- 714
+skip$ -- 772
 stack$ -- 0
-substring$ -- 640
-swap$ -- 67
+substring$ -- 648
+swap$ -- 72
 text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 484
+type$ -- 523
 warning$ -- 2
-while$ -- 188
+while$ -- 200
 width$ -- 0
-write$ -- 720
-(There were 6 warnings)
+write$ -- 773
+(There were 5 warnings)

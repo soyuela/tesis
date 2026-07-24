@@ -84,17 +84,41 @@ donde los subíndices $M$ y $S$ refieren a modelo y buque respectivamente.
 
 Esta hipótesis tiene una justificación física clara en condiciones ideales: para un casco esbelto con flujo completamente turbulento y sin separación, la capa límite es delgada en toda la superficie y la distribución de presiones viscosas escala de manera análoga a la fricción. En esas condiciones, $C_{PV} / C_{F0}$ es efectivamente constante con $Re$ y el factor de forma captura solo la amplificación geométrica tridimensional respecto a la placa plana. Sin embargo, esta situación ideal dista de la realidad en dos sentidos. Por un lado, el flujo en el modelo es necesariamente a menor número de Reynolds que en el buque, lo que implica que la capa límite es proporcionalmente más gruesa, el gradiente de presión adverso en la popa está más amortiguado y la posible zona de separación es más extensa en el modelo que en el buque. Por otro lado, la línea ITTC-57 no es una línea de fricción pura sino una línea de correlación con pendiente excesiva a bajos $Re$, lo que introduce una distorsión sistemática en el valor de $k$ calculado con ella.
 
-Ambos efectos actúan en el mismo sentido: $k_M > k_S$ cuando se utiliza ITTC-57 como referencia. \citet{gomezgarcia} fue el primero en cuantificar esta dependencia de manera sistemática, analizando cuatro familias de geosims y encontrando que $k$ aumenta linealmente con el factor de escala $\lambda$ cuando se usa la ITTC-57, mientras que con la línea de Schoenherr la pendiente es significativamente menor. Concretamente, los autores proponen una recta de calibración con pendiente $1.851$ (Figura~\ref{fig:gomez-garcia}), obtenida a partir de la correlación entre los cuatro modelos ensayados, que permitiría en principio extrapolar el factor de forma desde cualquier escala intermedia hasta la escala buque. La implicación práctica es grave: aplicar el mismo $k$ al modelo y al buque subestima la resistencia viscosa a escala buque. \citet{ITTC_Combined_2021} estimaron que una extrapolación estándar con factor de forma constante puede subestimar la resistencia del buque en hasta un 10\%.
+Ambos efectos actúan de modo que el factor de forma aparente calculado con la
+ITTC-57 crece con el número de Reynolds, es decir $k_M < k_S$, por lo que
+aplicar el mismo $k$ al modelo y al buque \textbf{subestima} la resistencia
+viscosa a escala buque. \citet{gomezgarcia} fue el primero en cuantificar
+sistemáticamente esta dependencia, reanalizando quince modelos de cuatro
+familias de geosims. Para cada familia, el factor de forma determinado por
+Prohaska con la ITTC-57 \textit{disminuye} al aumentar la razón de escala
+$\lambda$ —equivalentemente, crece con el tamaño del modelo—, de modo que la
+extrapolación de la recta de regresión a $\lambda = 1$ predice un factor de
+forma de buque mayor que el de cualquier modelo. El efecto de escala
+resultante, $K_S - K_M$, crece linealmente con $\lambda$
+(Figura~\ref{fig:gomez-garcia}); forzando la recta por su valor teórico en el
+origen ($K_S - K_M = 0$ para $\lambda = 1$), \citet{gomezgarcia} propone la
+forma práctica
+%
+\begin{equation}
+    K_S - K_M = 1{,}91\,(\lambda - 1)\times 10^{-3},
+    \label{eq:gomezgarcia}
+\end{equation}
+%
+positiva para todo modelo ($\lambda > 1$), lo que confirma $k_M < k_S$. Con la
+línea de Schoenherr la pendiente resulta significativamente menor, dado que
+sus coeficientes de fricción a $Re$ de modelo son más próximos a los de escala
+buque que los de la ITTC-57. \citet{ITTC_Combined_2021} estimaron que una
+extrapolación estándar con factor de forma constante puede subestimar la
+resistencia del buque en hasta un 10\%.
 
 \begin{figure}[htpb]
 \centering
 \includegraphics[width=0.6\textwidth]{images/gomez-garcia.png}
-\caption{Linealidad del factor de forma con la escala, propuesta por
-\citet{gomezgarcia}.}
+\caption{Efecto de escala del factor de forma, $K_S - K_M$, en función de la razón de escala $\lambda$ para quince modelos de cuatro familias de geosims, con la recta de regresión de \citet{gomezgarcia}.}
 \label{fig:gomez-garcia}
 \end{figure}
 
-En la misma línea, \citet{keh-sik-min} presenta el comportamiento del factor de forma con $R_n$ para diferentes tipos de buques (Figura~\ref{fig:keh-sik-2}), proponiendo un \textbf{factor de forma terminal}, alcanzado al $R_n$ de operación en escala 1:1, y un \textbf{factor de corrección} que permite ajustar el valor hallado en la escala de ensayo según la escala de operación deseada, a partir de la curva mostrada en la figura.
+En la misma línea, \citet{keh-sik-min} presenta el comportamiento del factor de forma con $Re$ para diferentes tipos de buques (Figura~\ref{fig:keh-sik-2}), proponiendo un \textbf{factor de forma terminal}, alcanzado al $Re$ de operación en escala 1:1, y un \textbf{factor de corrección} que permite ajustar el valor hallado en la escala de ensayo según la escala de operación deseada, a partir de la curva mostrada en la figura.
 
 \begin{figure}[h]
 \centering
@@ -104,11 +128,28 @@ propuestos por \citet{keh-sik-min}.}
 \label{fig:keh-sik-2}
 \end{figure}
 
-La pregunta clave es en qué medida esta dependencia con $Re$ es un artefacto de la línea de referencia y en qué medida refleja física real. El estudio colaborativo ITTC con nueve organizaciones y siete códigos CFD \citep{korkmaz_cfd_2021} aportó evidencia concluyente: la dependencia de $k$ con $Re$ \textit{desaparece casi por completo} al reemplazar la ITTC-57 por líneas de fricción numéricas derivadas con el mismo código, al menos para cascos de esbeltez moderada como el KCS y el KVLCC2. Esto indica que la mayor parte de la dependencia observada es un artefacto de la pendiente incorrecta de la ITTC-57 a bajos números de Reynolds, y no un efecto físico inherente. \citet{DOGRUL2020107428} matizaron este resultado analizando KCS y KVLCC2: en ambos casos $C_{VP}$ disminuye con $Re$, pero mientras en el KCS esta caída es compensada por el aumento de $C_W$, dejando $C_R$ prácticamente constante y haciendo válida la extrapolación de Froude, en el KVLCC2 de mayor coeficiente de bloque $C_W$ permanece estable y la caída de $C_{VP}$ se traslada directamente a $C_R$, favoreciendo la extrapolación de Hughes. Esto indica que la elección del método de extrapolación más adecuado depende de la forma del casco. \citet{TERZIEV2021147} confirmaron adicionalmente que el factor de forma presenta una dependencia con el número de Froude a velocidades muy bajas ($Fr < 0{,}06$), vinculada a cambios en el asiento dinámico que modifican la forma efectiva del casco sumergido.
+La pregunta clave es en qué medida esta dependencia con $Re$ es un artefacto de la línea de referencia y en qué medida refleja física real. El estudio colaborativo ITTC con nueve organizaciones y siete códigos CFD \citep{korkmaz_cfd_2021} aportó evidencia concluyente: la dependencia de $k$ con $Re$ \textit{desaparece casi por completo} al reemplazar la ITTC-57 por líneas de fricción numéricas derivadas con el mismo código, al menos para cascos de esbeltez moderada como el KCS y el KVLCC2. Esto indica que la mayor parte de la dependencia observada es un artefacto de la pendiente incorrecta de la ITTC-57 a bajos números de Reynolds, y no un efecto físico inherente. \citet{DOGRUL2020107428} matizaron este resultado analizando KCS y KVLCC2: en ambos casos $C_{PV}$ disminuye con $Re$, pero mientras en el KCS esta caída es compensada por el aumento de $C_W$, dejando $C_R$ prácticamente constante y haciendo válida la extrapolación de Froude, en el KVLCC2 de mayor coeficiente de bloque $C_W$ permanece estable y la caída de $C_{PV}$ se traslada directamente a $C_R$, favoreciendo la extrapolación de Hughes. Esto indica que la elección del método de extrapolación más adecuado depende de la forma del casco. \citet{TERZIEV2021147} confirmaron adicionalmente que el factor de forma presenta una dependencia con el número de Froude a velocidades muy bajas ($Fr < 0{,}06$), vinculada a cambios en el asiento dinámico que modifican la forma efectiva del casco sumergido.
 
 El caso más severo de dependencia física real se produce cuando la popa del casco tiene el espejo sumergido y genera una zona de recirculación persistente. En esa configuración, el flujo de escala modelo y el flujo de escala buque difieren cualitativamente, no solo cuantitativamente, porque la velocidad crítica a la que el espejo ``ventila'' y pasa a flujo libre es diferente en las dos escalas \citep{ITTC_Combined_2021}. Para este caso, \citet{korkmaz_wetted_transom} proponen un \textbf{método de dos factores de forma} ($2k$) que distingue la contribución del cuerpo sin separación de la contribución adicional de la zona de transom, calculando ambas por CFD en escala modelo y buque respectivamente. Este refinamiento resulta especialmente relevador para los pesqueros de popa espejo con calado de lastre estudiados en esta tesis, donde el espejo puede quedar parcialmente sumergido, y se discute en detalle en el Capítulo~\ref{cap:resistencia_factor_de_forma}.
 
 Recientemente, \citet{starke2025} propusieron un método alternativo en el que el factor de forma se calcula para una versión del casco con la popa geométricamente cerrada, manteniendo la contribución del arrastre del transom y su zona de recirculación fuera del escalado viscoso. Verificado sobre 10 cascos, el método reduce el error de subestimación de la resistencia a escala buque a un rango de 0--3\%, frente al hasta 10\% del método estándar con un único factor de forma. La comparación sistemática de este enfoque con el método de dos factores de forma para los cascos pesqueros estudiados en esta tesis queda como línea de trabajo futuro.
+
+Sobre esta hipótesis, \citet{hughes1954} propuso también un procedimiento
+directo para determinar el factor de forma, conocido como \textit{método de
+bajas velocidades}. Consiste en ensayar el modelo a números de Froude
+suficientemente reducidos como para que la resistencia por olas resulte
+despreciable; en ese régimen la resistencia total se reduce a la componente
+viscosa, y el cociente $C_{TM}/C_{F0}$ tiende directamente a $(1+k)$ sin
+necesidad de extrapolación. El método presenta, sin embargo, limitaciones
+prácticas severas: al reducir la velocidad a valores muy bajos no puede
+garantizarse el flujo plenamente turbulento sobre el casco, incluso con
+estimuladores de turbulencia, y la precisión de la medición de resistencia
+se deteriora al disminuir la señal de fuerza \citep{lindgrenDyne1980}. Estas
+dificultades son precisamente las que motivaron el desarrollo del método de
+Prohaska, que evita ensayar en el régimen problemático extrapolando desde
+velocidades moderadas, y son también las que reaparecen, por vía de la
+laminarización parcial, en las desviaciones a bajos $Fr$ observadas en los
+ensayos de esta tesis.
 
 \subsection{El método de Prohaska}
 \label{sec:prohaska_antec}
@@ -135,11 +176,11 @@ Figura~\ref{fig:prohaska_esquema}.
 
 El método presenta, sin embargo, limitaciones bien documentadas. La sensibilidad del método a pequeñas incertidumbres de medición es elevada precisamente donde la señal de fuerza es más baja. Las fuentes de desviación pueden agruparse en tres categorías.
 
-La primera corresponde a efectos geométricos no lineales. La presencia de proas bulbo próximas a la superficie libre genera no linealidades en la curva a bajas velocidades que dificultan la extrapolación \citep{keh-sik-min, korkmaz_cfd_2021}. En \citet{korkmaz_cfd_2021} se analizaron dos modelos con geometrías casi idénticas (95\% de similitud) que mostraron comportamientos divergentes en la determinación del factor de forma mediante el método de Prohaska. Como se observa en la Figura~\ref{fig:comparativa_prohaska}, el primer modelo (Hull-1) presentó una marcada concavidad en la gráfica de $C_T/C_F$ frente a $Fn^n$ dentro del rango $0{,}1 < Fn < 0{,}2$, mientras que el segundo (Hull-2) mantuvo una tendencia lineal. Esta anomalía en el primer caso se atribuyó a un diseño de bulbo tipo \textit{goose-neck} con mayor concentración de volumen cerca de la superficie libre, lo cual genera sistemas de ondas cortos que no interactúan favorablemente con el tren de ondas de la proa a bajas velocidades. Este fenómeno se intensificó al ensayar el modelo en condición de lastre, donde la proximidad del bulbo a la superficie libre indujo una protuberancia significativa en la curva, dificultando la extrapolación precisa de la resistencia viscosa.
+La primera corresponde a efectos geométricos no lineales. La presencia de proas bulbo próximas a la superficie libre genera no linealidades en la curva a bajas velocidades que dificultan la extrapolación \citep{keh-sik-min, korkmaz_cfd_2021}. En \citet{korkmaz_cfd_2021} se analizaron dos modelos con geometrías casi idénticas (95\% de similitud) que mostraron comportamientos divergentes en la determinación del factor de forma mediante el método de Prohaska. Como se observa en la Figura~\ref{fig:comparativa_prohaska}, el primer modelo (Hull-1) presentó una marcada concavidad en la gráfica de $C_T/C_F$ frente a $Fr^n$ dentro del rango $0{,}1 < Fr < 0{,}2$, mientras que el segundo (Hull-2) mantuvo una tendencia lineal. Esta anomalía en el primer caso se atribuyó a un diseño de bulbo tipo \textit{goose-neck} con mayor concentración de volumen cerca de la superficie libre, lo cual genera sistemas de ondas cortos que no interactúan favorablemente con el tren de ondas de la proa a bajas velocidades. Este fenómeno se intensificó al ensayar el modelo en condición de lastre, donde la proximidad del bulbo a la superficie libre indujo una protuberancia significativa en la curva, dificultando la extrapolación precisa de la resistencia viscosa.
 
-La segunda fuente de desviación proviene de fenómenos viscosos asociados a la separación del flujo. Cualquier aparición de separación o desprendimiento de vórtices a baja velocidad contradice el supuesto fundamental del método, que presupone un flujo adherido en la condición de referencia. Los cascos con formas llenas pueden presentar pequeñas zonas de separación en la popa o bajo el espejo, especialmente cuando existen apéndices. Las observaciones originales de Prohaska sobre curvas convexas en buques de doble hélice responden a este tipo de efectos: los soportes, ejes o popas voluminosas generaban una resistencia adicional por presión (resistencia por vórtices) incluso a bajos $Fn$, resultando en valores de $C_T$ superiores a los esperados por fricción pura. De manera similar, la separación de flujo en popas espejo sumergidas genera no linealidades \citep{keh-sik-min, korkmaz_cfd_2021}. Una popa espejo parcialmente sumergida puede inducir separación en la estela a escala modelo, fenómeno que no necesariamente se reproduce a escala buque debido a diferencias en el número de Reynolds. Estos efectos, esencialmente viscosos, se traducen en un ``abultamiento'' en la curva de Prohaska por la aparición de un componente adicional de resistencia de forma. Prohaska advirtió que su método no debía aplicarse de forma automática cuando existe separación de flujo, señalando la dificultad de detectar estos fenómenos (por ejemplo, el desprendimiento en popas espejo o zonas de spray separadas en bulbos apenas aflorantes). Estudios más recientes de CFD \citep{korkmaz-verif-and-valid-cfd-efd} confirman que separaciones leves pueden provocar una disminución aparente del factor de forma al aumentar el número de Reynolds, dado que el flujo tiende a re-adherirse progresivamente a mayor velocidad.
+La segunda fuente de desviación proviene de fenómenos viscosos asociados a la separación del flujo. Cualquier aparición de separación o desprendimiento de vórtices a baja velocidad contradice el supuesto fundamental del método, que presupone un flujo adherido en la condición de referencia. Los cascos con formas llenas pueden presentar pequeñas zonas de separación en la popa o bajo el espejo, especialmente cuando existen apéndices. Las observaciones originales de Prohaska sobre curvas convexas en buques de doble hélice responden a este tipo de efectos: los soportes, ejes o popas voluminosas generaban una resistencia adicional por presión (resistencia por vórtices) incluso a bajos $Fr$, resultando en valores de $C_T$ superiores a los esperados por fricción pura. De manera similar, la separación de flujo en popas espejo sumergidas genera no linealidades \citep{keh-sik-min, korkmaz_cfd_2021}. Una popa espejo parcialmente sumergida puede inducir separación en la estela a escala modelo, fenómeno que no necesariamente se reproduce a escala buque debido a diferencias en el número de Reynolds. Estos efectos, esencialmente viscosos, se traducen en un ``abultamiento'' en la curva de Prohaska por la aparición de un componente adicional de resistencia de forma. Prohaska advirtió que su método no debía aplicarse de forma automática cuando existe separación de flujo, señalando la dificultad de detectar estos fenómenos (por ejemplo, el desprendimiento en popas espejo o zonas de spray separadas en bulbos apenas aflorantes). Estudios más recientes de CFD \citep{korkmaz-verif-and-valid-cfd-efd} confirman que separaciones leves pueden provocar una disminución aparente del factor de forma al aumentar el número de Reynolds, dado que el flujo tiende a re-adherirse progresivamente a mayor velocidad.
 
-La tercera fuente de desviación es de naturaleza analítica. Adicionalmente, la pendiente excesiva de la ITTC-57 a bajos $Re$ introduce una curvatura espuria en el diagrama de Prohaska \citep{ITTC_Combined_2021}. El método de Prohaska se basa en sustraer la resistencia por fricción estimada mediante la línea de correlación ITTC-1957 para aislar la resistencia residual. Si la línea de correlación no reproduce exactamente la fricción real del modelo, particularmente a bajos $Re$, la relación $C_T/C_F$ frente a $Fn$ puede inclinarse o curvarse. Varios autores han identificado la ITTC-57 como una de las causas de la aparente dependencia con la velocidad del factor de forma. La pendiente fija de dicha correlación (disminución logarítmica del coeficiente de fricción) resulta demasiado pronunciada en el rango de Reynolds característico de los ensayos, haciendo que el $C_F$ calculado disminuya más rápido que el real. Esto genera una curvatura convexa (valores crecientes de $C_T/C_F$ a medida que aumenta $Fn$), que desaparece al utilizar líneas de fricción numéricas derivadas de CFD para placas planas. En consecuencia, algunas ``jorobas'' o curvaturas no reflejan el comportamiento físico del modelo, sino que son una consecuencia analítica del método. Adicionalmente, la propia formulación de Prohaska incorpora una simplificación al asumir que la resistencia por olas varía como ${\sim}Fn^4$. Si la resistencia por olas real difiere de esta ley, por ejemplo, por la presencia de un sistema secundario de ondas, los puntos experimentales se apartan de la linealidad esperada. Estas limitaciones son especialmente relevantes para los pesqueros de baja esbeltez analizados en esta tesis, como se documenta en \citet{oyuela2024jmse}.
+La tercera fuente de desviación es de naturaleza analítica. Adicionalmente, la pendiente excesiva de la ITTC-57 a bajos $Re$ introduce una curvatura espuria en el diagrama de Prohaska \citep{ITTC_Combined_2021}. El método de Prohaska se basa en sustraer la resistencia por fricción estimada mediante la línea de correlación ITTC-1957 para aislar la resistencia residual. Si la línea de correlación no reproduce exactamente la fricción real del modelo, particularmente a bajos $Re$, la relación $C_T/C_F$ frente a $Fr$ puede inclinarse o curvarse. Varios autores han identificado la ITTC-57 como una de las causas de la aparente dependencia con la velocidad del factor de forma. La pendiente fija de dicha correlación (disminución logarítmica del coeficiente de fricción) resulta demasiado pronunciada en el rango de Reynolds característico de los ensayos, haciendo que el $C_F$ calculado disminuya más rápido que el real. Esto genera una curvatura convexa (valores crecientes de $C_T/C_F$ a medida que aumenta $Fr$), que desaparece al utilizar líneas de fricción numéricas derivadas de CFD para placas planas. En consecuencia, algunas ``jorobas'' o curvaturas no reflejan el comportamiento físico del modelo, sino que son una consecuencia analítica del método. Adicionalmente, la propia formulación de Prohaska incorpora una simplificación al asumir que la resistencia por olas varía como ${\sim}Fr^4$. Si la resistencia por olas real difiere de esta ley, por ejemplo, por la presencia de un sistema secundario de ondas, los puntos experimentales se apartan de la linealidad esperada. Estas limitaciones son especialmente relevantes para los pesqueros de baja esbeltez analizados en esta tesis, como se documenta en \citet{oyuela2024jmse}.
 
 \begin{figure}[htbp]
     \centering
@@ -160,30 +201,80 @@ La tercera fuente de desviación es de naturaleza analítica. Adicionalmente, la
     \label{fig:comparativa_prohaska}
 \end{figure}
 
+\subsection{El método de aproximación polinómica}
+\label{sec:polinomico_antec}
+
+El método de Prohaska asume una relación lineal entre la resistencia por
+olas y $Fr^4$, lo que equivale a retener únicamente el primer término de la
+expansión asintótica de la resistencia de generación de olas. Como se
+discutió en la Sección~\ref{sec:factor_de_forma_antec}, esta hipótesis
+pierde validez para cascos con proa bulbo próxima a la superficie libre o
+en condiciones de carga particulares, donde la curva de $C_{TM}/C_{F0}$
+frente a $Fr^4/C_{F0}$ deja de ser lineal y el ajuste al origen se vuelve
+ambiguo. Para estos casos, \citet{shiroseHirono1982} propusieron aproximar
+la resistencia por olas mediante una expresión polinómica general en $Fr$,
+%
+\begin{equation}
+    C_W = \sum_{j=N_1}^{N_2} a_j\, Fr^{\,j},
+    \label{eq:cw_polinomico}
+\end{equation}
+%
+donde los $a_j$ son los coeficientes del polinomio. Sustituyendo la
+Ecuación~\eqref{eq:cw_polinomico} en la descomposición de la resistencia
+total y dividiendo por el coeficiente de fricción de referencia se obtiene
+%
+\begin{equation}
+    \frac{C_{TM}}{C_{F0}} = (1+k) + \sum_{j=N_1}^{N_2} a_j\, Fr^{\,j},
+    \label{eq:prohaska_polinomico}
+\end{equation}
+%
+de modo que el factor de forma $(1+k)$ y los coeficientes $a_j$ se
+determinan de manera simultánea mediante un ajuste por cuadrados mínimos
+sobre los datos experimentales. La ordenada al origen de la regresión
+proporciona nuevamente $(1+k)$. Cabe notar que cuando $N_1 = N_2 = 4$ la
+Ecuación~\eqref{eq:prohaska_polinomico} se reduce exactamente al método de
+Prohaska, por lo que este último puede entenderse como un caso particular
+del método polinómico.
+
+La ventaja principal del método reside en su flexibilidad: al no imponer
+una única potencia de $Fr$, permite representar jorobas y valles en la
+curva de resistencia por olas y, por lo tanto, ajustar razonablemente el
+factor de forma incluso cuando los puntos experimentales no se alinean
+sobre una recta en el diagrama de Prohaska. Como contrapartida, requiere
+cubrir un rango amplio de números de Froude, incluyendo el régimen de
+bajas velocidades donde la incertidumbre de medición es mayor, y un número
+de corridas suficiente para ajustar de forma estable un polinomio de grado
+elevado. Cuando la región de bajas velocidades no está adecuadamente
+cubierta, la precisión del ajuste y del factor de forma resultante se ve
+comprometida. Este método se retoma en el
+Capítulo~\ref{cap:resistencia_factor_de_forma} como verificación
+independiente del valor de $(1+k)$ obtenido por Prohaska sobre un rango
+restringido, en los cascos pesqueros de baja esbeltez donde la curvatura
+del diagrama es más pronunciada.
+
 \section{Determinación del factor de forma asistida por CFD}
 \label{sec:cfd_ff_antec}
 
 \subsection{El enfoque de doble cuerpo}
 
-Una alternativa al método de Prohaska consiste en calcular numéricamente el factor de forma mediante simulaciones RANS en \textbf{configuración de doble cuerpo}, donde la superficie libre se reemplaza por un plano de simetría sin fricción. Al eliminar la generación de olas ($C_W = 0$), la resistencia total obtenida corresponde únicamente a la componente viscosa, y el factor de forma se obtiene como \citep{ITTC_Combined_2021}:
+El enfoque de doble cuerpo puede entenderse como la realización numérica de
+la idea original de \citet{hughes1954}: ambos métodos buscan obtener la
+resistencia total desprovista de su componente de generación de olas para
+aislar la resistencia viscosa. Mientras que el método de bajas velocidades
+suprime las olas reduciendo la velocidad de ensayo, con las limitaciones de
+turbulencia y precisión ya señaladas, la configuración de doble cuerpo las
+elimina por construcción al reemplazar la superficie libre por un plano de
+simetría. Esto libera al método de la restricción sobre el número de Froude: puede computarse cualquier velocidad de modelo, y de hecho cualquier número de Reynolds, con la única condición de que el flujo sea turbulento. El doble cuerpo recupera así la formulación de Hughes en las condiciones ideales para las que fue concebida, sin el compromiso experimental que la volvía impracticable.
+
+Formalmente, al eliminar la generación de olas ($C_W = 0$), la resistencia
+total obtenida en esta configuración corresponde únicamente a la componente
+viscosa, y el factor de forma se obtiene como \citep{ITTC_Combined_2021}:
 %
 \begin{equation}
-    (1+k) = \frac{C_{T,\,\text{DB}}}{C_{F0}}
+    (1+k) = \frac{C_V}{C_{F0}} = \frac{C_F + C_{PV}}{C_{F0}},
 \end{equation}
 %
-% [AGREGADO] Definición de C_{T,DB}
-donde $C_{T,\,\text{DB}}$ es el coeficiente de resistencia total obtenido
-de la simulación de doble cuerpo. La principal ventaja del enfoque es que
-elimina la contaminación por olas en la determinación experimental de
-$C_V$, que es la mayor fuente de incertidumbre del método de Prohaska a
-bajas velocidades. La configuración de doble cuerpo permite además
-concentrar la resolución de la malla en la capa límite y la estela viscosa
-de popa, optimizando el costo computacional frente a las simulaciones con
-superficie libre. Cabe señalar, sin embargo, que la condición de simetría
-impuesta en la frontera superior puede distorsionar el campo de presiones
-en la zona de la proa bulbo cuando esta se encuentra próxima a la
-superficie libre, por lo que su aplicación requiere verificar que la
-geometría simulada no se vea afectada por esta limitación.
+donde $C_V = C_F + C_{PV}$ es el coeficiente de resistencia viscosa obtenido de la simulación de doble cuerpo y $C_{F0}$ el coeficiente de la línea de referencia. La ventaja decisiva sobre el método de Prohaska es que el doble cuerpo elimina la contaminación por olas en la determinación de $C_V$ —la mayor fuente de incertidumbre de Prohaska a bajas velocidades— en lugar de intentar sustraerla por extrapolación. La configuración permite además concentrar la resolución de la malla en la capa límite y la estela viscosa de popa, optimizando el costo computacional frente a las simulaciones con superficie libre. Cabe señalar, sin embargo, que la condición de simetría impuesta en la frontera superior puede distorsionar el campo de presiones en la zona de la proa bulbo cuando esta se encuentra próxima a la superficie libre, por lo que su aplicación requiere verificar que la geometría simulada no se vea afectada por esta limitación.
 
 \subsection{Estado del arte: estudio colaborativo ITTC y cascos pesqueros}
 \label{sec:estado_arte_ff}

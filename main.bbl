@@ -1,4 +1,4 @@
-\begin{thebibliography}{49}
+\begin{thebibliography}{53}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -17,11 +17,18 @@
   Performance Prediction Method}.
 \newblock ITTC, 2017.
 
-\bibitem[28th ITTC Quality Systems~Group(2017)]{ITTC_uncertainty}
+\bibitem[28th ITTC Quality Systems~Group(2021)]{ITTC_uncertainty}
 28th ITTC Quality Systems~Group.
 \newblock \emph{ITTC - General Guidelines for Uncertainty Analisys in
   Resistance Tests}.
-\newblock ITTC, 2017.
+\newblock ITTC, 2021.
+
+\bibitem[30th ITTC Specialist Committee~on Combined
+  CFD/EFD~Methods(2024)]{ITTC_uncertainty_CFD}
+30th ITTC Specialist Committee~on Combined CFD/EFD~Methods.
+\newblock \emph{ITTC - Uncertainty Analysis in CFD Verification and Validation
+  Methodology and Procedures}.
+\newblock ITTC, 2024.
 
 \bibitem[{American Society of Mechanical Engineers}(2009)]{asme}
 {American Society of Mechanical Engineers}.
@@ -101,6 +108,12 @@ Sighard~F. Hoerner.
   and Hydrodynamic Resistance}.
 \newblock Published by the Author, Bakersfield, CA, 1965.
 
+\bibitem[Hughes(1954)]{hughes1954}
+G.~Hughes.
+\newblock Friction and form resistance in turbulent flow, and a proposed
+  formulation for use in model and ship correlation.
+\newblock \emph{Transactions of the Institution of Naval Architects}, 96, 1954.
+
 \bibitem[{ITTC Specialist Committee on CFD and EFD Combined
   Methods}(2021)]{ITTC_Combined_2021}
 {ITTC Specialist Committee on CFD and EFD Combined Methods}.
@@ -175,6 +188,12 @@ Brian~E. Launder and D.~B. Spalding.
 \newblock \emph{Computer Methods in Applied Mechanics and Engineering},
   3\penalty0 (2):\penalty0 269--289, 1974.
 \newblock \doi{10.1016/0045-7825(74)90029-2}.
+
+\bibitem[Lindgren and Dyne(1980)]{lindgrenDyne1980}
+H.~Lindgren and G.~Dyne.
+\newblock Ship performance prediction.
+\newblock \emph{SSPA}, 1980.
+\newblock VERIFICAR datos completos.
 
 \bibitem[Menter(1994)]{Menter1994}
 Florian~R. Menter.
@@ -286,6 +305,13 @@ Tsan-Hsing Shih, William~W. Liou, Aamir Shabbir, Zhigang Yang, and Jiang Zhu.
   number turbulent flows.
 \newblock \emph{Computers \& Fluids}, 24\penalty0 (3):\penalty0 227--238, 1995.
 \newblock \doi{10.1016/0045-7930(94)00032-T}.
+
+\bibitem[Shirose and Hirono(1982)]{shiroseHirono1982}
+Y.~Shirose and K.~Hirono.
+\newblock A study on the form factor determination.
+\newblock In \emph{Proceedings}, 1982.
+\newblock VERIFICAR datos completos: publicación japonesa citada por Korkmaz
+  (2023).
 
 \bibitem[Song et~al.(2019)Song, Demirel, Atlar, Dai, and
   Turan]{cp_recovery_kcs}
