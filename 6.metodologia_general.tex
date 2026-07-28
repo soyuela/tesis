@@ -9,7 +9,7 @@ A continuación, se describen las instalaciones experimentales del canal de prue
 
 \section{Metodología Experimental (EFD)}
 
-Los ensayos experimentales se llevaron a cabo en el canal de remolque de la Universidad de Buenos Aires (UBA), Argentina. Esta campaña tuvo como objetivo principal generar una base de datos de validación confiable para el modelo pesquero TPA y verificar el procedimiento mediante el buque de referencia KCS.
+Los ensayos experimentales se llevaron a cabo en el canal de remolque de la Universidad de Buenos Aires (UBA), Argentina. Esta campaña tuvo como objetivo principal generar una base de datos de validación confiable para los modelos pesqueros P1, P2 y P3 y comparar los resultados con el buque de referencia KCS.
 
 \subsection{Instalaciones: El Canal de Remolque}
 
@@ -247,12 +247,12 @@ como:
 %
 \footnote{La corrección por rugosidad corresponde a la formulación de Townsin
 y Dey, incorporada por la ITTC en 1990:
-$\Delta C_F = 0{,}044\big[(k_s/L_{WL})^{1/3} - 10\,Re_S^{-1/3}\big] + 0{,}000125$,
+$\Delta C_F = 0.044\big[(k_s/L_{WL})^{1/3} - 10\,Re_S^{-1/3}\big] + 0.000125$,
 donde $k_s$ es la altura de rugosidad equivalente —adoptada como
 $k_s = 150\,\mu\text{m}$ en ausencia de mediciones directas— y $Re_S$ el
 número de Reynolds del buque. El coeficiente de correlación, separado de la
 rugosidad por el 19.\textsuperscript{o} ITTC, se calcula como
-$C_A = (5{,}68 - 0{,}6\log_{10} Re_S)\times 10^{-3}$. Esta separación
+$C_A = (5.68 - 0.6\log_{10} Re_S)\times 10^{-3}$. Esta separación
 reemplaza la formulación combinada original de Bowden y Davison
 \citep{ITTC_Performance_prediction}.}
 
@@ -393,7 +393,15 @@ en el intervalo de tiempo convergido. El factor de forma se determina como:
 %
 donde $C_V = C_F + C_{PV}$ es el coeficiente de resistencia viscosa
 obtenido de la simulación de doble cuerpo y $C_{F0}$ es el coeficiente
-de la línea ITTC-57, definido en la Sección~\ref{sec:ITTC57}.
+de la línea ITTC-57, definido en la Sección~\ref{sec:ITTC57}. Se adopta la
+línea ITTC-57 como referencia de $C_{F0}$ para preservar la coherencia con
+los factores de correlación históricos, siguiendo la recomendación de la
+ITTC \citep{ITTC_Combined_2021}; el valor del factor de forma resultante
+depende, no obstante, de la línea de fricción elegida, y estudios recientes
+que emplean líneas de fricción numéricas \citep{quintuna2023} obtienen
+factores de forma sistemáticamente mayores y menos dependientes de la escala,
+por lo que los valores aquí reportados deben interpretarse siempre en
+relación con la línea de referencia empleada.
 
 \subsection{Modelado de la Turbulencia: Modelo $k$--$\omega$ SST}
 \label{sec:metodo_SST}
@@ -497,7 +505,7 @@ Finalmente, se determina el Índice de Convergencia de Malla para la malla fina 
     GCI_{fine} = F_s \frac{ \left| \frac{\Phi_{1} - \Phi_{2}}{\Phi_{1}} \right| }{r^p - 1} \times 100 \%
 \end{equation}
 
-donde $F_s = 1{,}25$ es el factor de seguridad recomendado por la ITTC
+donde $F_s = 1.25$ es el factor de seguridad recomendado por la ITTC
 para estudios con tres mallas \citep{ITTC_uncertainty_CFD}.
 
 Basado en este procedimiento, se seleccionó la \textbf{malla fina} para todas

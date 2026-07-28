@@ -1,4 +1,4 @@
-\begin{thebibliography}{53}
+\begin{thebibliography}{56}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -73,6 +73,13 @@ Ali Dogrul, Soonseok Song, and Yigit~Kemal Demirel.
 \newblock URL
   \url{https://www.sciencedirect.com/science/article/pii/S0029801820304534}.
 
+\bibitem[E\c{c}a and Hoekstra(2008)]{eca2008friction}
+L.~E\c{c}a and M.~Hoekstra.
+\newblock The numerical friction line.
+\newblock In \emph{Journal of Marine Science and Technology}, volume~13, pages
+  328--345, 2008.
+\newblock \doi{10.1007/s00773-008-0018-1}.
+
 \bibitem[et~al.(2016)]{krasilnikov2016cfd}
 Bhattacharyya et~al.
 \newblock A {CFD}-based scaling approach for ducted propellers.
@@ -125,6 +132,14 @@ Mashud Karim, MM~Rahman, and M.~A. Alim.
 \newblock Performance of sst k-$\omega$ turbulence model for computation of
   viscous drag of axisymmetric underwater bodies.
 \newblock \emph{International Journal of Engineering}, 24, 07 2011.
+
+\bibitem[Korkmaz(2023)]{korkmaz2023thesis}
+Kadir~Burak Korkmaz.
+\newblock \emph{Assessment of Experimental, Computational, and Combined
+  {EFD/CFD} Methods for Ship Performance Prediction}.
+\newblock {PhD} thesis, Chalmers University of Technology, G\"oteborg, Sweden,
+  2023.
+\newblock Department of Mechanics and Maritime Sciences.
 
 \bibitem[Korkmaz et~al.(2019)Korkmaz, Werner, and
   Bensow]{Korkmaz2019NumericalFL}
@@ -265,6 +280,16 @@ CW~Prohaska.
 \newblock A simple method for evaluation of the form facter and low speed wave
   resistance.
 \newblock \emph{Proceedings of 11th ITTC}, pages 65--66, 1966.
+
+\bibitem[Quintu{\~n}a~Rodr{\'i}guez(2023)]{quintuna2023}
+Mar{\'i}a~Tadea Quintu{\~n}a~Rodr{\'i}guez.
+\newblock Combined {EFD} and {CFD} approach using the form factor for full
+  scale ship powering prognosis.
+\newblock Master's thesis, Universit\'e de Li\`ege (Facult\'e des Sciences
+  appliqu\'ees), 2023.
+\newblock URL \url{http://hdl.handle.net/2268.2/18058}.
+\newblock Master thesis, ``Advanced Ship Design'' (EMSHIP); supervisor:
+  Philippe Rigo.
 
 \bibitem[Raven(2016)]{Raven2016}
 H.~C. Raven.

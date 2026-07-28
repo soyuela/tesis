@@ -475,11 +475,11 @@ número de Froude. Modelo de turbulencia: $k$--$\omega$ SST.}
 
 \vspace{0.4em}
 {\footnotesize\raggedright
-$^{a}$~El punto 1:20 / $Fr = 0{,}400$ presenta $GCI = 13{,}4\%$, atribuible a
+$^{a}$~El punto 1:20 / $Fr = 0{.}400$ presenta $GCI = 13{.}4\%$, atribuible a
 la complejidad del campo de flujo a alta velocidad; esta condición queda fuera
-del rango operativo del buque ($Fr \lesssim 0{,}36$) y no se considera en el
+del rango operativo del buque ($Fr \lesssim 0{.}36$) y no se considera en el
 análisis de efectos de escala.\\
-$^{b}$~El valor $1+k = 1{,}622$ en 1:10 / $Fr = 0{,}160$ ($y^+ = 9{,}0$) se
+$^{b}$~El valor $1+k = 1{.}622$ en 1:10 / $Fr = 0{.}160$ ($y^+ = 9{.}0$) se
 aparta de la tendencia de su columna; su ubicación en la región
 \textit{buffer}, por debajo del umbral de conmutación de la función de pared,
 sugiere un origen numérico asociado al tratamiento de pared más que físico.\par}
@@ -509,7 +509,7 @@ aproximadamente un 4\%, en consistencia con la mayor incertidumbre numérica de
 la componente de presión viscosa reportada para las simulaciones de doble
 cuerpo \citep{KORKMAZ2022112590}. Los resultados de escala buque, que son los
 que sustentan las conclusiones de esta tesis, resultan en cambio suaves y
-monótonos con el número de Reynolds ($1+k$ crece de $1{,}654$ a $1{,}745$ en el
+monótonos con el número de Reynolds ($1+k$ crece de $1{.}654$ a $1{.}745$ en el
 rango analizado), se ubican en el rango de $y^+$ válido para las funciones de
 pared y no presentan cambios de pendiente ni anomalías. La tendencia de
 $(1+k)$ a crecer con $Re$ sin alcanzar un valor asintótico es, por lo tanto,
@@ -594,7 +594,7 @@ correspondiente se resume en la Tabla~\ref{tab:CFD_KCS}.
 \end{table}
 
 A diferencia del \textit{P1}, el $y^+$ del KCS abarca desde la subcapa viscosa 
-($y^+ \approx 0{,}3$) hasta el borde superior de la capa logarítmica 
+($y^+ \approx 0{.}3$) hasta el borde superior de la capa logarítmica 
 ($y^+ \approx 31$), atravesando la región \textit{buffer}. Pese a ello, la 
 curva de $(1+k)$ resulta suave y sin cambios de pendiente, y el GCI se 
 mantiene por debajo del $2\%$ en todo el rango. Esta robustez frente al 
@@ -676,21 +676,21 @@ La validación formal se presenta para el Calado~2
 (Tabla~\ref{tab:validacion_efd_cfd}), cuyos ensayos y simulaciones cubren el
 rango operativo con una grilla de velocidades coincidente. El error de
 comparación se mantiene dentro de la incertidumbre de medición hasta
-$Fr \approx 0{,}26$, con un valor medio del orden del $1{,}5\%$ en ese
-intervalo. A partir de $Fr \approx 0{,}29$ el modelo numérico subestima la
+$Fr \approx 0{.}26$, con un valor medio del orden del $1{.}5\%$ en ese
+intervalo. A partir de $Fr \approx 0{.}29$ el modelo numérico subestima la
 resistencia de manera creciente; esta desviación es atribuible a la
 restricción de grados de libertad del modelo numérico —fijo en cabeceo y
 hundimiento, frente al modelo libre del ensayo— y no a un error del modelo
 físico, y ocurre además fuera del rango de operación del \textit{P1}. Los
-puntos de $Fr < 0{,}18$ se excluyen del análisis por la baja relación
+puntos de $Fr < 0{.}18$ se excluyen del análisis por la baja relación
 señal--ruido característica del régimen de baja resistencia.
 
 \begin{table}[htbp]
 \centering
 \caption{Validación EFD--CFD de la resistencia total del \textit{P1}
-(Calado~2, $T=0{,}180$~m) en el rango operativo. Error de comparación
+(Calado~2, $T=0{.}180$~m) en el rango operativo. Error de comparación
 $E\%D=(D-S)/D\times100$; incertidumbre de validación
-$U_{val}=\sqrt{U_D^2+U_{num}^2}\approx U_D$, siendo $U_{num}<0{,}2\%$
+$U_{val}=\sqrt{U_D^2+U_{num}^2}\approx U_D$, siendo $U_{num}<0{.}2\%$
 despreciable frente a $U_D$ en este rango.}
 \label{tab:validacion_efd_cfd}
 \small
@@ -699,22 +699,22 @@ despreciable frente a $U_D$ en este rango.}
 \textbf{Fr} & \boldmath{$E\%D$ [\%]} & \boldmath{$U_D$ [\%]} &
 \boldmath{$U_{val}$ [\%]} & \textbf{¿Validado?} \\
 \midrule
-0.20 & $-2{,}4$ & 3.7 & 3.7 & Sí \\
-0.22 & $-0{,}1$ & 3.1 & 3.1 & Sí \\
-0.24 & $\phantom{-}1{,}3$ & 2.6 & 2.6 & Sí \\
-0.26 & $\phantom{-}1{,}0$ & 2.0 & 2.0 & Sí \\
-0.29 & $\phantom{-}4{,}1$ & 1.7 & 1.7 & No \\
-0.32 & $\phantom{-}4{,}7$ & 1.4 & 1.4 & No \\
+0.20 & $-2{.}4$ & 3.7 & 3.7 & Sí \\
+0.22 & $-0{.}1$ & 3.1 & 3.1 & Sí \\
+0.24 & $\phantom{-}1{.}3$ & 2.6 & 2.6 & Sí \\
+0.26 & $\phantom{-}1{.}0$ & 2.0 & 2.0 & Sí \\
+0.29 & $\phantom{-}4{.}1$ & 1.7 & 1.7 & No \\
+0.32 & $\phantom{-}4{.}7$ & 1.4 & 1.4 & No \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 El mismo análisis se aplicó a los calados restantes. Para el Calado~1
-($T=0{,}165$~m), el error de comparación medio en el rango operativo es del
+($T=0{.}165$~m), el error de comparación medio en el rango operativo es del
 orden del $5\%$, mayor que en el Calado~2 y asociado a una mayor dispersión de
 las corridas CFD en esa condición; aun así se mantiene dentro de márgenes
 habituales para la predicción de resistencia por CFD. Para el Calado~3
-($T=0{,}195$~m), los ensayos experimentales y las simulaciones se realizaron
+($T=0{.}195$~m), los ensayos experimentales y las simulaciones se realizaron
 sobre grillas de $Fr$ no coincidentes, por lo que la comparación se efectúa
 interpolando la curva CFD a las velocidades ensayadas; sobre los puntos
 comparables del rango operativo, la concordancia entre las curvas experimental
@@ -1029,7 +1029,7 @@ valor no encontrado en la literatura de hidrodinámica naval al día de hoy.
 
 Para verificar que este comportamiento no es exclusivo del \textit{P1}, 
 se extendió el análisis CFD DB a los otros dos pesqueros analizados en 
-esta tesis (\textit{P2}, $L/B = 3{,}23$; \textit{P3}, $L/B = 2{,}85$). 
+esta tesis (\textit{P2}, $L/B = 3{.}23$; \textit{P3}, $L/B = 2{.}85$). 
 La Figura~\ref{fig:Re_formfactor} muestra la evolución de $(1+k)$ con 
 $Re$ para los cuatro cascos. Los tres pesqueros presentan el mismo 
 comportamiento creciente y no asintótico observado en el \textit{P1}, en 
@@ -1050,15 +1050,15 @@ analizan en profundidad en la Sección~\ref{sec:generalizacion_LB}.
 El método de \citet{gomezgarcia} (Sección~\ref{sec:factor_de_forma_antec})
 ofrece una prueba cuantitativa directa de cuán anómalo resulta el
 comportamiento del \textit{P1}. Aplicando su relación empírica
-[Ecuación~\eqref{eq:gomezgarcia}] a la escala del modelo ($\lambda = 20$), el efecto de escala predicho es $K_S - K_M \approx 1{,}91\times 19\times 10^{-3}= 0{,}036$. El valor obtenido por CFD de doble cuerpo para el \textit{P1} en el Calado~3, en cambio, es $k_S - k_M = 0{,}716 - 0{,}194 = 0{,}522$, es decir, aproximadamente catorce veces mayor que la predicción. La fórmula de \citet{gomezgarcia}, calibrada para estimar la corrección de escala del factor de forma, subestima en más de un orden de magnitud el efecto de escala real de este casco.
+[Ecuación~\eqref{eq:gomezgarcia}] a la escala del modelo ($\lambda = 20$), el efecto de escala predicho es $K_S - K_M \approx 1{.}91\times 19\times 10^{-3}= 0{.}036$. El valor obtenido por CFD de doble cuerpo para el \textit{P1} en el Calado~3, en cambio, es $k_S - k_M = 0{.}716 - 0{.}194 = 0{.}522$, es decir, aproximadamente catorce veces mayor que la predicción. La fórmula de \citet{gomezgarcia}, calibrada para estimar la corrección de escala del factor de forma, subestima en más de un orden de magnitud el efecto de escala real de este casco.
 
 Esta discrepancia no se limita a la magnitud, sino que alcanza a la propia
 forma funcional. Al ajustar el modelo lineal de \citet{gomezgarcia} —$K_S -
 K_M$ en función de $\lambda$— a los cuatro puntos de escala calculados para el \textit{P1} (1:20, 1:10, 1:5 y 1:1), la pendiente resultante es de
-$15{,}8\times 10^{-3}$, más de ocho veces la de $1{,}851\times 10^{-3}$ de la regresión original (Figura~\ref{fig:gomez-garcia-nuestro}). Más significativo aún es que el ajuste lineal del \textit{P1} arroja una ordenada al origen de $0{,}054$, de modo que predice un efecto de escala espurio de $K_S - K_M \approx 0{,}070$ en $\lambda = 1$, condición en la que necesariamente debe anularse. La regresión de \citet{gomezgarcia}, en cambio, satisface esta restricción física ($K_S - K_M \approx 0{,}001$ en $\lambda = 1$). El modelo lineal, por lo tanto, no puede recuperarse reescalando la pendiente: la hipótesis de linealidad en $\lambda$ sobre la que se apoya no se cumple para esta clase de casco.
+$15{.}8\times 10^{-3}$, más de ocho veces la de $1{.}851\times 10^{-3}$ de la regresión original (Figura~\ref{fig:gomez-garcia-nuestro}). Más significativo aún es que el ajuste lineal del \textit{P1} arroja una ordenada al origen de $0{.}054$, de modo que predice un efecto de escala espurio de $K_S - K_M \approx 0{.}070$ en $\lambda = 1$, condición en la que necesariamente debe anularse. La regresión de \citet{gomezgarcia}, en cambio, satisface esta restricción física ($K_S - K_M \approx 0{.}001$ en $\lambda = 1$). El modelo lineal, por lo tanto, no puede recuperarse reescalando la pendiente: la hipótesis de linealidad en $\lambda$ sobre la que se apoya no se cumple para esta clase de casco.
 
 El origen de esta inaplicabilidad es geométrico. Las cuatro familias de
-geosims sobre las que \citet{gomezgarcia} calibró su correlación corresponden a cascos esbeltos convencionales, con relaciones $L_{PP}/B$ comprendidas entre $6{,}98$ y $9{,}07$; ninguna se aproxima siquiera a la baja esbeltez del \textit{P1} ($L/B \approx 2{,}8$--$3{,}5$). La correlación se aplica, por lo tanto, fuera del dominio para el que fue derivada, en un régimen donde la resistencia por presión viscosa, despreciable en los cascos esbeltos de lamuestra original, pasa a ser una fracción dominante de la resistencia viscosa total, como se demuestra en la
+geosims sobre las que \citet{gomezgarcia} calibró su correlación corresponden a cascos esbeltos convencionales, con relaciones $L_{PP}/B$ comprendidas entre $6{.}98$ y $9{.}07$; ninguna se aproxima siquiera a la baja esbeltez del \textit{P1} ($L/B \approx 2{.}8$--$3{.}5$). La correlación se aplica, por lo tanto, fuera del dominio para el que fue derivada, en un régimen donde la resistencia por presión viscosa, despreciable en los cascos esbeltos de lamuestra original, pasa a ser una fracción dominante de la resistencia viscosa total, como se demuestra en la
 Sección~\ref{sec:descomposicion_de_la_res_viscosa}.
 
 \begin{figure}[htpb]
@@ -1429,8 +1429,8 @@ Dado que el bulbo se encuentra completamente sumergido, su eliminación no
 modifica la eslora de flotación, que permanece idéntica en ambas 
 configuraciones y define por lo tanto un mismo número de Froude para una 
 misma velocidad. Sí se modifica, en cambio, la eslora mojada, que se reduce 
-de $1{,}634$ a $1{,}515$~m para $T = 0{,}165$~m y de $1{,}641$ a $1{,}575$~m 
-para $T = 0{,}195$~m. Esta distinción es relevante porque es la eslora 
+de $1{.}634$ a $1{.}515$~m para $T = 0{.}165$~m y de $1{.}641$ a $1{.}575$~m 
+para $T = 0{.}195$~m. Esta distinción es relevante porque es la eslora 
 mojada la que interviene en el número de Reynolds y, en consecuencia, en el 
 coeficiente de fricción de referencia $C_{F0}$ empleado para la 
 descomposición: a igual velocidad, la configuración con bulbo opera a un 
@@ -1479,8 +1479,8 @@ en todo el rango de operación}
 Para evaluar el impacto de la proa bulbo sobre la resistencia del 
 \textit{P1}, se compararon las curvas de resistencia total ($C_T$), viscosa 
 ($C_V$) y por olas ($C_W$) en función del número de Froude, para los dos 
-modelos (con y sin bulbo) y los dos calados disponibles ($T = 0{,}165$~m y 
-$T = 0{,}195$~m). El coeficiente $C_T$ se obtuvo directamente de las 
+modelos (con y sin bulbo) y los dos calados disponibles ($T = 0{.}165$~m y 
+$T = 0{.}195$~m). El coeficiente $C_T$ se obtuvo directamente de las 
 simulaciones bifásicas con superficie libre para cada configuración. El 
 coeficiente $C_V$ se calculó como:
 %
@@ -1537,33 +1537,33 @@ trabajo futuro.
 
 \begin{figure}[htpb]
 	\centering
-	\includegraphics[width=.9\columnwidth]{images/prohaska-bulbo-ctrlz-165.pdf}
+	\includegraphics[width=.9\textwidth]{images/prohaska-bulbo-ctrlz-165.pdf}
 	\caption{Diagrama de Prohaska comparando modelos con y sin bulbo 
-	($T = 0{,}165$~m).}
+	($T = 0{.}165$~m).}
 	\label{fig:prohaska_bulbo_165}
 \end{figure}
 
 \begin{figure}[htpb]
 	\centering
-	\includegraphics[width=.9\columnwidth]{images/prohaska-bulbo-ctrlz-195.pdf}
+	\includegraphics[width=.9\textwidth]{images/prohaska-bulbo-ctrlz-195.pdf}
 	\caption{Diagrama de Prohaska comparando modelos con y sin bulbo 
-	($T = 0{,}195$~m).}
+	($T = 0{.}195$~m).}
 	\label{fig:prohaska_bulbo_195}
 \end{figure}
 
-\paragraph{Calado $T = 0{,}165$~m} La Figura~\ref{fig:Ct_bulbo_165} muestra 
+\paragraph{Calado $T = 0{.}165$~m} La Figura~\ref{fig:Ct_bulbo_165} muestra 
 que la configuración con bulbo reduce la resistencia total a partir de 
-$Fr \approx 0{,}25$, coincidiendo con la velocidad de diseño del bulbo. Por 
+$Fr \approx 0{.}25$, coincidiendo con la velocidad de diseño del bulbo. Por 
 debajo de dicho valor ambas curvas se mantienen dentro de $5\times10^{-4}$ 
 en $C_T$, sin diferencias apreciables entre configuraciones, con la 
-excepción del punto $Fr \approx 0{,}24$, inmediatamente anterior al cruce, 
+excepción del punto $Fr \approx 0{.}24$, inmediatamente anterior al cruce, 
 donde la configuración con bulbo presenta un incremento localizado de la 
 resistencia total. La Figura~\ref{fig:Cw_bulbo_165} muestra que la mejora 
 observada a velocidades altas se explica por una reducción de la resistencia 
 por olas en ese mismo rango, consistente con la función destructiva esperada 
 del bulbo. La Figura~\ref{fig:Cv_bulbo_165} muestra que la resistencia 
 viscosa de la configuración con bulbo resulta levemente superior en todo el 
-rango, entre un $1$ y un $1{,}5$\,\%, diferencia reducida pero de signo 
+rango, entre un $1$ y un $1{.}5$\,\%, diferencia reducida pero de signo 
 constante y consistente con el mayor factor de forma determinado para esta 
 configuración.
 
@@ -1593,11 +1593,11 @@ configuración.
     \end{subfigure}
 
     \caption{Descomposición de la resistencia del \textit{P1} con y sin proa 
-    bulbo para el calado $T = 0{,}165$~m.}
+    bulbo para el calado $T = 0{.}165$~m.}
     \label{fig:coef_bulbo_165}
 \end{figure}
 
-\paragraph{Calado $T = 0{,}195$~m} Para este calado, la 
+\paragraph{Calado $T = 0{.}195$~m} Para este calado, la 
 Figura~\ref{fig:Ct_bulbo_195} muestra que la configuración con bulbo no 
 presenta una mejora neta en resistencia total: la diferencia entre ambas 
 curvas oscila a lo largo del rango sin definir una tendencia, alternando 
@@ -1606,8 +1606,8 @@ Figura~\ref{fig:Cv_bulbo_195} muestra que las resistencias viscosas de ambas
 configuraciones resultan prácticamente indistinguibles, de modo que la 
 diferencia observada en $C_T$ se explica enteramente por la componente de 
 olas. En efecto, la Figura~\ref{fig:Cw_bulbo_195} muestra que el bulbo 
-reduce $C_W$ en el entorno de $Fr \approx 0{,}20$--$0{,}30$, pero pierde 
-ese beneficio por encima de $Fr \approx 0{,}35$, donde la tendencia se 
+reduce $C_W$ en el entorno de $Fr \approx 0{.}20$--$0{.}30$, pero pierde 
+ese beneficio por encima de $Fr \approx 0{.}35$, donde la tendencia se 
 invierte y la configuración con bulbo pasa a presentar una resistencia por 
 olas superior a la del casco desnudo.
 
@@ -1646,7 +1646,7 @@ condición de carga.
     \end{subfigure}
 
     \caption{Descomposición de la resistencia del \textit{P1} con y sin proa 
-    bulbo para el calado $T = 0{,}195$~m.}
+    bulbo para el calado $T = 0{.}195$~m.}
     \label{fig:coef_bulbo_195}
 \end{figure}
 
@@ -1666,8 +1666,8 @@ valores reunidos en la Tabla~\ref{tab:k_bulbo_ctrlz}. El bulbo incrementa el
 factor de forma en los dos calados analizados, lo cual es consistente con el 
 aumento de resistencia por presión viscosa asociado a un cuerpo adicional en 
 la proa. La magnitud del efecto, sin embargo, difiere de manera marcada 
-entre condiciones de carga: mientras que a $T = 0{,}165$~m el incremento 
-alcanza el $3{,}0$\,\%, a $T = 0{,}195$~m se reduce a $0{,}9$\,\%.
+entre condiciones de carga: mientras que a $T = 0{.}165$~m el incremento 
+alcanza el $3{.}0$\,\%, a $T = 0{.}195$~m se reduce a $0{.}9$\,\%.
 
 \begin{table}[htpb]
 \centering
@@ -1679,11 +1679,11 @@ regresión.}
 \hline
 Calado & Configuración & Rango de $Fr$ & $(1+k)$ \\
 \hline
-\multirow{2}{*}{$T = 0{,}165$~m} & Con bulbo & $0{,}13$--$0{,}20$ & $1{,}204$ \\
-                                 & Ctrl+Z    & $0{,}14$--$0{,}20$ & $1{,}169$ \\
+\multirow{2}{*}{$T = 0{.}165$~m} & Con bulbo & $0{.}13$--$0{.}20$ & $1{.}204$ \\
+                                 & Ctrl+Z    & $0{.}14$--$0{.}20$ & $1{.}169$ \\
 \hline
-\multirow{2}{*}{$T = 0{,}195$~m} & Con bulbo & $0{,}14$--$0{,}20$ & $1{,}215$ \\
-                                 & Ctrl+Z    & $0{,}16$--$0{,}20$ & $1{,}204$ \\
+\multirow{2}{*}{$T = 0{.}195$~m} & Con bulbo & $0{.}14$--$0{.}20$ & $1{.}215$ \\
+                                 & Ctrl+Z    & $0{.}16$--$0{.}20$ & $1{.}204$ \\
 \hline
 \end{tabular}
 \end{table}
@@ -1720,14 +1720,14 @@ nivel absoluto de cada curva.
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
         \includegraphics[width=\textwidth]{images/k-consinbulbo-165.pdf}
-        \caption{$T = 0{,}165$~m.}
+        \caption{$T = 0{.}165$~m.}
         \label{fig:k_bulbo_165}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
         \includegraphics[width=\textwidth]{images/k-consinbulbo-195.pdf}
-        \caption{$T = 0{,}195$~m.}
+        \caption{$T = 0{.}195$~m.}
         \label{fig:k_bulbo_195}
     \end{subfigure}
 
@@ -1750,7 +1750,7 @@ proximidad del bulbo a la superficie libre.
 En segundo lugar, el bulbo incrementa la resistencia viscosa y reduce la 
 resistencia por olas dentro de su rango de diseño, pero el balance resultante 
 depende fuertemente de la condición de carga. A calado reducido resulta 
-favorable para la resistencia total por encima de $Fr \approx 0{,}25$, 
+favorable para la resistencia total por encima de $Fr \approx 0{.}25$, 
 mientras que a mayor calado el beneficio desaparece e incluso se invierte en 
 el extremo alto del rango de operación.
 
@@ -1845,7 +1845,7 @@ k_{tr} = k_S - k_M
 Este punto es clave, ya que en \citet{korkmaz_wetted_transom} se atribuye la diferencia entre el factor de forma en escala modelo y en escala buque, en los casos de popa espejo sumergida, principalmente al flujo recirculante detrás del espejo. Esta interpretación se enmarca en el trabajo más amplio del mismo autor \citep{korkmaz_cfd_2021, korkmaz_wetted_transom}, donde se demuestra que la dependencia del factor de forma con el número de Reynolds desaparece casi por completo al sustituir la línea ITTC-57 por líneas de fricción numéricas derivadas del mismo código CFD, al menos para cascos de esbeltez moderada como el KCS y el KVLCC2. El efecto de la línea de correlación sobre el \textit{P1} se analiza en la Sección~\ref{sec:linea_de_friccion}. Para cascos de esa clase, donde $C_{PV}$ es comparativamente pequeño, este resultado es consistente con la hipótesis de Hughes: una vez eliminado el sesgo de la línea de referencia, el factor de forma resulta prácticamente independiente de la escala.
 
 De acuerdo con los resultados del autor, el método y las correcciones asociadas deben aplicarse cuando el espejo se encuentra \textbf{considerablemente sumergido}, es decir, para 
-$tr_{\mathrm{ratio}} > 0.025$. Para espejos poco sumergidos o parcialmente secos, el uso del método 2--$k$ no resulta necesario.
+$tr_{\mathrm{ratio}} > 0{.}025$. Para espejos poco sumergidos o parcialmente secos, el uso del método 2--$k$ no resulta necesario.
 
 \subsection{Análisis comparativo de flujo}
 
@@ -1860,8 +1860,8 @@ buque.
 
 Los resultados de las simulaciones con superficie libre, presentados en la 
 Figura~\ref{fig:recirculacion_comparativa1}, muestran que la estructura del 
-flujo en la zona de popa se mantiene estable entre escalas para $Fr = 0.16$ 
-y $Fr = 0.36$: no se registran desprendimientos nuevos ni variaciones 
+flujo en la zona de popa se mantiene estable entre escalas para $Fr = 0{.}16$ 
+y $Fr = 0{.}36$: no se registran desprendimientos nuevos ni variaciones 
 morfológicas significativas en el núcleo de recirculación al pasar de escala 
 modelo a escala buque.
 
@@ -1870,13 +1870,13 @@ modelo a escala buque.
     \begin{subfigure}{0.48\textwidth}
         \centering
         \includegraphics[width=\linewidth]{images/195-016-consup-modelo.png}
-        \caption{Escala modelo, $Fr = 0{,}16$}
+        \caption{Escala modelo, $Fr = 0{.}16$}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.48\textwidth}
         \centering
         \includegraphics[width=\linewidth]{images/195-016-consup-real.png}
-        \caption{Escala buque, $Fr = 0{,}16$}
+        \caption{Escala buque, $Fr = 0{.}16$}
     \end{subfigure}
 
     \vspace{0.5cm}
@@ -1884,17 +1884,17 @@ modelo a escala buque.
     \begin{subfigure}{0.48\textwidth}
         \centering
         \includegraphics[width=\linewidth]{images/195-036-consup-modelo.png}
-        \caption{Escala modelo, $Fr = 0{,}36$}
+        \caption{Escala modelo, $Fr = 0{.}36$}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.48\textwidth}
         \centering
         \includegraphics[width=\linewidth]{images/195-036-consup-real.png}
-        \caption{Escala buque, $Fr = 0{,}36$}
+        \caption{Escala buque, $Fr = 0{.}36$}
     \end{subfigure}
 
     \caption{Comparación de la recirculación en popa sumergida para distintas 
-    escalas y números de Froude (calado 0{,}195~m). Casos con superficie libre.}
+    escalas y números de Froude (calado 0{.}195~m). Casos con superficie libre.}
     \label{fig:recirculacion_comparativa1}
 \end{figure}
 
@@ -1907,13 +1907,13 @@ condición que, según \citet{korkmaz_wetted_transom}, origina el déficit de re
     \begin{subfigure}{0.48\textwidth}
         \centering
         \includegraphics[width=\linewidth]{images/195-016-sinsup-modelo.png}
-        \caption{Escala modelo, $Fr = 0{,}16$}
+        \caption{Escala modelo, $Fr = 0{.}16$}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.48\textwidth}
         \centering
         \includegraphics[width=\linewidth]{images/195-016-sinsup-real.png}
-        \caption{Escala buque, $Fr = 0{,}16$}
+        \caption{Escala buque, $Fr = 0{.}16$}
     \end{subfigure}
 
     \vspace{0.5cm}
@@ -1921,17 +1921,17 @@ condición que, según \citet{korkmaz_wetted_transom}, origina el déficit de re
     \begin{subfigure}{0.48\textwidth}
         \centering
         \includegraphics[width=\linewidth]{images/195-036-sinsup-modelo.png}
-        \caption{Escala modelo, $Fr = 0{,}36$}
+        \caption{Escala modelo, $Fr = 0{.}36$}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.48\textwidth}
         \centering
         \includegraphics[width=\linewidth]{images/195-036-sinsup-real.png}
-        \caption{Escala buque, $Fr = 0{,}36$}
+        \caption{Escala buque, $Fr = 0{.}36$}
     \end{subfigure}
 
     \caption{Comparación de la recirculación en popa sumergida para distintas 
-    escalas y números de Froude (calado 0{,}195~m). Casos sin superficie libre.}
+    escalas y números de Froude (calado 0{.}195~m). Casos sin superficie libre.}
     \label{fig:recirculacion_comparativa2}
 \end{figure}
 
@@ -1942,7 +1942,7 @@ La geometría de popa del Pesquero~1 presenta una inmersión del espejo que, seg
 \begin{table}[h]
 \centering
 \caption{Parámetros de popa sumergida del \textit{P1} en condición estática 
-($Fr = 0$, calado $T = 0.195$~m).}
+($Fr = 0$, calado $T = 0{.}195$~m).}
 \label{tab:tpa_transom_params}
 \small
 \begin{tabular}{lc}
@@ -1963,28 +1963,28 @@ $k_{tr}$                    & 0{.}025 \\
 \end{tabular}
 \end{table}
 
-El valor de $tr_{\text{ratio}} = 0.056$ supera el umbral de $0.025$ 
+El valor de $tr_{\text{ratio}} = 0{.}056$ supera el umbral de $0{.}025$ 
 establecido por \citet{korkmaz_wetted_transom}, por lo que corresponde aplicar 
 la corrección. El factor de forma de escala buque queda entonces:
 
 \begin{equation}
-    k_S = k_M + k_{tr} = 0{,}194 + 0{,}025 = 0{,}219
+    k_S = k_M + k_{tr} = 0{.}194 + 0{.}025 = 0{.}219
     \quad \Rightarrow \quad
-    (1+k_S) = 1{,}219
+    (1+k_S) = 1{.}219
 \end{equation}
 
 Sin embargo, para evaluar si este mecanismo explica la diferencia observada 
 entre escalas, es necesario compararlo con la magnitud total de esa diferencia. 
 Según los resultados de CFD DB presentados en la 
 Sección~\ref{sec:analisis_efectos_escala}, el valor de $(1+k)$ a escala buque 
-es de aproximadamente $1.716$ ($k_S = 0.716$), mientras que el valor adoptado 
-a escala modelo es $(1+k_M) = 1.194$ ($k_M = 0.194$). La diferencia total es:
+es de aproximadamente $1{.}716$ ($k_S = 0{.}716$), mientras que el valor adoptado 
+a escala modelo es $(1+k_M) = 1{.}194$ ($k_M = 0{.}194$). La diferencia total es:
 
 \begin{equation}
-    k_S - k_M = 0{,}716 - 0{,}194 = 0{,}522
+    k_S - k_M = 0{.}716 - 0{.}194 = 0{.}522
 \end{equation}
 
-La corrección de popa mojada $k_{tr} = 0.025$ representa apenas el $5\%$ de 
+La corrección de popa mojada $k_{tr} = 0{.}025$ representa apenas el $5\%$ de 
 esa diferencia. El método 2--$k$ de \citet{korkmaz_wetted_transom} fue 
 desarrollado para cascos donde la recirculación de popa espejo es el 
 mecanismo dominante del efecto de escala en el factor de forma; en el 
@@ -2000,7 +2000,7 @@ marginal.
 El análisis comparativo de flujo confirma que la estructura de recirculación en la zona del espejo de popa se mantiene estable frente al cambio de escala, tanto en las simulaciones con superficie libre como en las de doble cuerpo. 
 Esta persistencia de la recirculación con $Re$ es precisamente la condición que, según \citet{korkmaz_wetted_transom}, origina un déficit de resistencia viscosa en la extrapolación estándar y que justifica la aplicación del método 2--$k$.
 
-La aplicación del método al \textit{P1} arroja $k_{tr} = 0.025$, lo que representa aproximadamente el $5\%$ de la diferencia total observada entre el factor de forma a escala modelo y a escala buque ($k_S - k_M = 0.522$). 
+La aplicación del método al \textit{P1} arroja $k_{tr} = 0{.}025$, lo que representa aproximadamente el $5\%$ de la diferencia total observada entre el factor de forma a escala modelo y a escala buque ($k_S - k_M = 0{.}522$). 
 Este resultado permite cuantificar la contribución de la popa espejo sumergida al efecto de escala total y, al mismo tiempo, descartarla como causa principal: la diferencia predominante tiene su origen en la evolución de $C_{PV}$ asociada a las estructuras vorticosas de quilla y pantoque, cuyo mecanismo fue analizado en la Sección~\ref{sec:descomposicion_de_la_res_viscosa}. 
 El análisis del efecto de la línea de fricción, que completa el diagnóstico de los efectos de escala en el \textit{P1}, se presenta en la Sección~\ref{sec:linea_de_friccion}.
 
@@ -2376,14 +2376,14 @@ impide que el cociente se estabilice dentro del rango de escalas analizado.
 
 Al comparar el valor de $(1+k)$ obtenido para el \textit{P1} con 
 correlaciones empíricas desarrolladas para buques mercantes, surge una 
-doble inconsistencia. Por un lado, el valor de $(1+k) \approx 1{,}73$ 
+doble inconsistencia. Por un lado, el valor de $(1+k) \approx 1{.}73$ 
 obtenido por CFD DB a escala buque no tiene precedente en la literatura 
 de hidrodinámica naval: no se ha encontrado un valor comparable para 
 ningún casco desnudo documentado hasta la fecha. Por otro lado, las 
 fórmulas empíricas consideradas fueron desarrolladas a partir de ensayos 
 con buques mercantes de esbeltez convencional. Entre los parámetros 
 geométricos de entrada de estas correlaciones ($C_B$, $L/B$, $B/T$, 
-$S/L^2$, $L/\nabla^{1/3}$), la relación $L/B = 3{,}75$ del \textit{P1} 
+$S/L^2$, $L/\nabla^{1/3}$), la relación $L/B = 3{.}75$ del \textit{P1} 
 resulta notablemente inferior a la de los buques mercantes típicos para 
 los cuales fueron calibradas, lo que compromete la aplicabilidad de estas 
 expresiones a este tipo de casco. Como consecuencia, las fórmulas 
@@ -2397,8 +2397,8 @@ la falta de coincidencia con los resultados numéricos y experimentales.
 \centering
 \caption{Correlaciones empíricas para la estimación del factor de forma 
 $(1+k)$ y valores obtenidos para el \textit{P1} 
-($L = 34{,}8$~m, $B = 9{,}28$~m, $T = 3{,}9$~m, 
-$S = 449{,}6$~m$^2$, $C_B = 0{,}64$, $\nabla = 152{,}0$~m$^3$).}
+($L = 34{.}8$~m, $B = 9{.}28$~m, $T = 3{.}9$~m, 
+$S = 449{.}6$~m$^2$, $C_B = 0{.}64$, $\nabla = 152{.}0$~m$^3$).}
 \label{tab:empiricos}
 \small
 \begin{tabularx}{\textwidth}{lXc}
@@ -2406,33 +2406,33 @@ $S = 449{,}6$~m$^2$, $C_B = 0{,}64$, $\nabla = 152{,}0$~m$^3$).}
 \textbf{Método} & \textbf{Expresión} & \boldmath{$(1+k)$} \\
 \midrule
 \citet{molland2017ship} (Watanabe) &
-$\displaystyle 1 + k = 1 - 0{,}095 + 
-\frac{25{,}6\,C_B}{(L/B)^2\,\sqrt{B/T}}$ &
-$1{,}660$ \\[10pt]
+$\displaystyle 1 + k = 1 - 0{.}095 + 
+\frac{25{.}6\,C_B}{(L/B)^2\,\sqrt{B/T}}$ &
+$1{.}660$ \\[10pt]
 
 \citet{conn1968results} &
-$\displaystyle 1 + k = 1 + 18{,}7
+$\displaystyle 1 + k = 1 + 18{.}7
 \left(\frac{C_B\,B}{L}\right)^{2}$ &
-$1{,}545$ \\[10pt]
+$1{.}545$ \\[10pt]
 
 \citet{grigson2000planar} &
-$\displaystyle 1 + k = 1 + 0{,}028 + 3{,}3\,
+$\displaystyle 1 + k = 1 + 0{.}028 + 3{.}3\,
 \frac{S}{L^2}\sqrt{\frac{C_B\,B}{L}}$ &
-$1{,}534$ \\[10pt]
+$1{.}534$ \\[10pt]
 
 \citet{wright1984viscous} &
-$\displaystyle 1 + k = 2{,}48\,
-C_B^{0{,}1526}\,
-\left(\frac{B}{T}\right)^{0{,}0533}\,
-\left(\frac{B}{L}\right)^{0{,}3856}$ &
-$1{,}457$ \\[10pt]
+$\displaystyle 1 + k = 2{.}48\,
+C_B^{0{.}1526}\,
+\left(\frac{B}{T}\right)^{0{.}0533}\,
+\left(\frac{B}{L}\right)^{0{.}3856}$ &
+$1{.}457$ \\[10pt]
 
 \citet{couser1997calm} &
-$\displaystyle 1 + k = 2{,}76\,
-\left(\frac{L}{\nabla^{1/3}}\right)^{-0{,}4}$ &
-$1{,}616$ \\[10pt]
+$\displaystyle 1 + k = 2{.}76\,
+\left(\frac{L}{\nabla^{1/3}}\right)^{-0{.}4}$ &
+$1{.}616$ \\[10pt]
 
-Prohaska (EFD, presente trabajo) & --- & $1{,}19$ \\
+Prohaska (EFD, presente trabajo) & --- & $1{.}19$ \\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -2485,26 +2485,26 @@ revolución en función de la razón de esbeltez $l/d$.}
 \midrule
 \citet{hoerner1965drag} &
 $\displaystyle \mathrm{FF} = 1 + 
-\frac{1{,}5}{(l/d)^{1{,}5}} + 
+\frac{1{.}5}{(l/d)^{1{.}5}} + 
 \frac{7}{(l/d)^{3}}$ \\[10pt]
 
 \citet{torenbeek2010synthesis} &
 $\displaystyle \mathrm{FF} = 1 + 
-\frac{2{,}2}{(l/d)^{1{,}5}} + 
-\frac{3{,}8}{(l/d)^{3}}$ \\[10pt]
+\frac{2{.}2}{(l/d)^{1{.}5}} + 
+\frac{3{.}8}{(l/d)^{3}}$ \\[10pt]
 
 \citet{shevell1989fundamentals} &
-$\displaystyle \mathrm{FF} = 2{,}939 - 0{,}7666\,\frac{l}{d} + 
-0{,}1328\left(\frac{l}{d}\right)^{2}
-- 0{,}01074\left(\frac{l}{d}\right)^{3}
-+ 3{,}275\times10^{-4}\left(\frac{l}{d}\right)^{4}$ \\[10pt]
+$\displaystyle \mathrm{FF} = 2{.}939 - 0{.}7666\,\frac{l}{d} + 
+0{.}1328\left(\frac{l}{d}\right)^{2}
+- 0{.}01074\left(\frac{l}{d}\right)^{3}
++ 3{.}275\times10^{-4}\left(\frac{l}{d}\right)^{4}$ \\[10pt]
 
 \citet{raymer2019aircraft} (Raymer new) &
-$\displaystyle \mathrm{FF} = 0{,}9 + 0{,}0025\,\frac{l}{d} + 
-\frac{5}{(l/d)^{1{,}5}}$ \\[10pt]
+$\displaystyle \mathrm{FF} = 0{.}9 + 0{.}0025\,\frac{l}{d} + 
+\frac{5}{(l/d)^{1{.}5}}$ \\[10pt]
 
 \citet{roskam1987airplane} &
-$\displaystyle \mathrm{FF} = 1 + 0{,}0025\,\frac{l}{d} + 
+$\displaystyle \mathrm{FF} = 1 + 0{.}0025\,\frac{l}{d} + 
 \frac{60}{(l/d)^{3}}$ \\
 \bottomrule
 \end{tabularx}
@@ -2542,8 +2542,8 @@ para valores de $L/B$ significativamente más altos.
 Los tres pesqueros analizados en esta tesis, presentados en la 
 Sección~\ref{sec:presentacion_modelos} junto con el KCS, fueron 
 seleccionados precisamente por cubrir un rango de relaciones de esbeltez 
-$L/B$ distintas: $3{,}53$ (\textit{P1}), $3{,}23$ (\textit{P2}) y 
-$2{,}85$ (\textit{P3}). Esta diversidad geométrica permite evaluar de 
+$L/B$ distintas: $3{.}53$ (\textit{P1}), $3{.}23$ (\textit{P2}) y 
+$2{.}85$ (\textit{P3}). Esta diversidad geométrica permite evaluar de 
 manera sistemática si el comportamiento observado para el \textit{P1} 
 constituye un caso aislado o refleja una tendencia estructural asociada 
 a la baja esbeltez. La Figura~\ref{fig:LB_comparisson} presenta las 
