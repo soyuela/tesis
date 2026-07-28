@@ -165,15 +165,62 @@ EFD Prohaska ($k$) & 0.252 & 0.211 & 0.194 \\
 \label{tab:form_factors}
 \end{table}
 
-Finalmente, para cuantificar la incertidumbre asociada al ajuste lineal, se aplicó el método propuesto por \cite{york}, que considera errores en ambos ejes y proporciona intervalos de confianza para $(1+k)$.  
-La Figura~\ref{fig:york_tpa} ilustra un ejemplo del ajuste ponderado obtenido para el Calado 1.  
+Finalmente, para cuantificar la incertidumbre asociada al ajuste lineal
+de Prohaska, se aplicó el método propuesto por \citet{york}. A diferencia
+de una regresión por mínimos cuadrados ordinaria, que asume la variable
+independiente libre de error, el método de York resuelve el ajuste lineal
+ponderando cada punto por la incertidumbre de sus dos coordenadas y
+proporciona, además de la pendiente y la ordenada al origen, la
+incertidumbre de esta última, que en el diagrama de Prohaska corresponde
+directamente a $(1+k)$.
+
+En este caso, la coordenada horizontal $Fr^4/C_{F0}$ depende esencialmente
+de la velocidad del carro, cuya incertidumbre relativa ($0.07\%$, según la
+Tabla~\ref{tab:uncert_tpa}) es dos órdenes de magnitud menor que la de la
+resistencia. Por este motivo se consideró despreciable el error en el eje
+horizontal, con lo que el método de York se reduce a una regresión lineal
+ponderada por la incertidumbre de la coordenada vertical $C_{TM}/C_{F0}$.
+La incertidumbre de cada punto se obtuvo propagando la incertidumbre
+combinada de la resistencia $U_D$ (media de cuatro repeticiones;
+$5.35\%$, $2.04\%$ y $0.83\%$ para $Fr = 0.14$, $0.26$ y $0.37$
+respectivamente, interpolada linealmente en $Fr$) a la variable
+$C_{TM}/C_{F0}$, que es lineal en la resistencia medida.
+
+La Figura~\ref{fig:york_tpa} ilustra el ajuste ponderado obtenido para el
+Calado~1, y la Tabla~\ref{tab:york_tpa} reúne los valores de $(1+k)$ y su
+incertidumbre expandida para los tres calados. Los factores de forma
+resultantes coinciden, dentro de la milésima, con los obtenidos por
+regresión simple (Tabla~\ref{tab:form_factors}), lo que confirma que la
+ponderación no introduce sesgos apreciables en el valor central. Las
+incertidumbres asociadas, del orden de $\pm 0.10$ a $\pm 0.13$ (equivalentes
+a un $8$--$11\%$ de $(1+k)$), reflejan
+la fuerte sensibilidad del ajuste de Prohaska a la incertidumbre
+experimental de la resistencia en el reducido rango de velocidades
+empleado, y son coherentes con la dispersión observada en los diagramas.
 
 \begin{figure}[htpb]
 \centering
 \includegraphics[width=0.6\textwidth]{images/york.png}
-\caption{Ajuste lineal con ponderación mediante el método de York aplicado al \textit{P1} para la estimación de $(1+k)$ y su incertidumbre.}
+\caption{Ajuste lineal con ponderación mediante el método de York aplicado al \textit{P1} para la estimación de $(1+k)$ y su incertidumbre. Calado~1.}
 \label{fig:york_tpa}
 \end{figure}
+
+\begin{table}[H]
+\centering
+\caption{Factor de forma $(1+k)$ del \textit{P1} e incertidumbre expandida
+obtenidos mediante el método de York (error despreciable en el eje
+horizontal) para los tres calados.}
+\begin{tabular}{lccc}
+\hline
+ & \textbf{T1: 0.165 m} & \textbf{T2: 0.180 m} & \textbf{T3: 0.195 m} \\
+\hline
+$(1+k)$   & 1.235 & 1.194 & 1.190 \\
+$U(1+k)$  & $\pm 0.104$ & $\pm 0.129$ & $\pm 0.133$ \\
+$U(1+k)/(1+k)$ & $\pm 8.4\%$ & $\pm 10.8\%$ & $\pm 11.2\%$ \\
+\hline
+\end{tabular}
+\label{tab:york_tpa}
+\end{table}
 
 
 
@@ -243,6 +290,28 @@ observado en el \textit{P1}, el valor de $(1+k)$ se estabiliza rápidamente,
 con la excepción de los puntos más bajos ($Fr < 0.11$), donde se observa 
 una leve caída atribuible a posibles efectos de laminarización. El valor 
 adoptado fue $(1+k) = 1.06$, correspondiente al rango $0.13 < Fr < 0.20$.
+
+Sobre este mismo rango se aplicó el método de York descrito para el
+\textit{P1}, con el fin de cuantificar la incertidumbre del factor de forma
+del KCS. En este caso, la incertidumbre de la coordenada vertical se estimó
+directamente a partir de la dispersión de las repeticiones disponibles en
+cada velocidad, que fue del orden del $1$ al $5\%$ de la resistencia medida,
+propagándola luego a $C_{TM}/C_{F0}$. El ajuste ponderado arroja
+$(1+k) = 1.059 \pm 0.017$, esto es, una incertidumbre relativa de apenas el
+$\pm 1.6\%$.
+
+Este valor contrasta de manera marcada con el obtenido para el \textit{P1}
+(Tabla~\ref{tab:york_tpa}), cuya incertidumbre relativa se situaba entre el
+$8$ y el $11\%$. La diferencia es coherente con el comportamiento de ambos
+cascos frente al método de Prohaska: mientras que en el \textit{P1} los
+puntos experimentales se apartan de la recta teórica ---elevando la
+incertidumbre del ajuste---, en el KCS se alinean estrechamente sobre ella,
+lo que se traduce en una determinación mucho más precisa de $(1+k)$. Esta
+comparación cuantitativa respalda la observación cualitativa de que el KCS
+satisface los supuestos del método de Prohaska con mayor fidelidad que el
+\textit{P1}, y refuerza la conveniencia de recurrir al método de doble cuerpo
+para el \textit{P1}, donde el ajuste experimental resulta intrínsecamente
+menos confiable.
 
 \begin{figure}[htpb]
 \centering
