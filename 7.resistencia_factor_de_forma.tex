@@ -400,6 +400,30 @@ condición de plena carga y resulta el más representativo del régimen de opera
 \label{fig:tpa_range_cfd}
 \end{figure}
 
+Aplicando el mismo criterio de ajuste que en el caso experimental
+---regresión lineal sobre el rango $0.16 < Fr < 0.20$, donde la curva
+$C_{TM}/C_{F0}$ vs $Fr^4/C_{F0}$ se aproxima mejor a la linealidad teórica---
+se obtienen los valores de factor de forma numérico $(1+k)$ resumidos en la
+Tabla~\ref{tab:form_factors_cfd} para los tres calados. A diferencia del caso
+experimental, donde el factor de forma decrece monótonamente con el calado, los
+valores numéricos no siguen una tendencia uniforme, lo que refleja la mayor
+sensibilidad del ajuste de Prohaska en el entorno numérico a la curvatura
+introducida por el tratamiento de la transición en el modelo $k$--$\omega$ SST.
+
+\begin{table}[H]
+\centering
+\caption{Factor de forma $k$ para los tres calados del \textit{P1} obtenido
+por el método de Prohaska aplicado a las simulaciones CFD bifásicas.}
+\begin{tabular}{lccc}
+\hline
+\textbf{Método} & \textbf{T1: 0.165 m} & \textbf{T2: 0.180 m} & \textbf{T3: 0.195 m} \\
+\hline
+CFD Prohaska ($k$) & 0.193 & 0.314 & 0.254 \\
+\hline
+\end{tabular}
+\label{tab:form_factors_cfd}
+\end{table}
+
 \subsection{Enfoque de Doble Cuerpo}\label{sec:4.1.5_enfoque_doble_cuerpo}
 
 Ante las dificultades observadas para aplicar el método de Prohaska en el 
@@ -803,11 +827,14 @@ La Figura~\ref{fig:comparativa_form_factor_range} muestra, para cada calado,
 el valor de $(1+k)$ obtenido por Prohaska al variar el límite inferior del 
 rango de Froude considerado en la regresión, tanto para EFD como para CFD. 
 Se observa que, al restringir el rango a $0.13 < Fr < 0.18$ aproximadamente, 
-ambos enfoques convergen a un valor prácticamente idéntico, eliminando la 
-discrepancia inicial observada a bajas velocidades. Este resultado confirma 
-que, dentro del rango adecuado de aplicación del método, tanto el ensayo 
-experimental como la simulación numérica con superficie libre predicen el 
-mismo factor de forma para el \textit{P1}.
+la brecha entre ambos enfoques se reduce respecto de la observada a bajas 
+velocidades, si bien la magnitud de esa reducción depende del calado: la 
+coincidencia es prácticamente completa en el Calado~1, mientras que en los 
+Calados~2 y~3 persiste una diferencia entre el valor experimental y el 
+numérico. Este comportamiento indica que, dentro del rango adecuado de 
+aplicación del método, el ensayo experimental y la simulación numérica con 
+superficie libre predicen factores de forma del mismo orden para el 
+\textit{P1}, aunque no necesariamente idénticos.
 
 \begin{figure}[htpb]
      \centering
@@ -902,14 +929,44 @@ Las simulaciones CFD bifásicas reprodujeron de manera satisfactoria las curvas 
 En cuanto a la determinación del factor de forma mediante CFD, la aplicación directa del método de Prohaska mostró nuevamente desviaciones respecto de la recta teórica, aunque con una curvatura de signo opuesto a la observada experimentalmente. Esta diferencia pone de manifiesto una limitación conocida de los modelos RANS convencionales, que asumen flujo plenamente turbulento incluso en regímenes donde el flujo real se encuentra en transición. En consecuencia, tanto en EFD como en CFD, los puntos correspondientes a bajas velocidades no cumplen estrictamente los supuestos fundamentales del método de Prohaska, aunque por razones físicas y numéricas distintas.
 
 La comparación sistemática entre EFD y CFD mostró que, al restringir el 
-análisis a un rango adecuado de números de Froude, los valores de $(1+k)$ 
-obtenidos por ambos enfoques mediante el método de Prohaska convergen de 
-manera satisfactoria. Este resultado confirma que las discrepancias iniciales 
-no responden a errores sistemáticos de medición o modelado, sino a la 
-violación de los supuestos del método de Prohaska fuera de su rango óptimo de 
-aplicación. La adopción de un intervalo reducido y físicamente consistente 
-permitió reducir significativamente la dispersión y obtener valores 
-comparables entre ambos enfoques.
+análisis a un rango adecuado de números de Froude, la dispersión inicial del 
+método de Prohaska se reduce de manera apreciable en ambos enfoques. La 
+adopción de un intervalo acotado y físicamente consistente confirma que las 
+desviaciones observadas fuera de ese rango no responden a errores sistemáticos 
+de medición o modelado, sino a la violación de los supuestos del método de 
+Prohaska. Aun así, la concordancia entre los valores adoptados por cada enfoque 
+no es uniforme: resulta estrecha en el Calado~1, pero en los Calados~2 y~3 el 
+valor numérico se sitúa por encima del experimental. Esta discrepancia residual 
+es consistente con la curvatura de signo opuesto que presentan los diagramas de 
+Prohaska experimental y numérico, y pone de manifiesto que el ajuste conserva 
+una sensibilidad no despreciable al rango escogido y al tratamiento de la 
+transición, aun dentro del intervalo considerado óptimo.
+
+La Tabla~\ref{tab:form_factors_efd_cfd} reúne los valores de $(1+k)$ adoptados
+por el método de Prohaska para los tres calados, obtenidos a partir de los
+ensayos experimentales (EFD) y de las simulaciones numéricas (CFD). Se observa
+una coincidencia estrecha en el Calado~1, mientras que en los Calados~2 y~3 el
+valor numérico resulta superior al experimental. Esta dispersión es coherente
+con la curvatura de signo opuesto observada en los diagramas de Prohaska de
+ambos enfoques y con la mayor sensibilidad del ajuste numérico al tratamiento
+de la transición, y refuerza la conveniencia de recurrir al método de doble
+cuerpo como determinación independiente del factor de forma.
+
+\begin{table}[H]
+\centering
+\caption{Factor de forma $(1+k)$ del \textit{P1} adoptado mediante el método de
+Prohaska para los tres calados, a partir de los ensayos experimentales (EFD) y
+de las simulaciones numéricas (CFD).}
+\begin{tabular}{lccc}
+\hline
+\textbf{Enfoque} & \textbf{T1: 0.165 m} & \textbf{T2: 0.180 m} & \textbf{T3: 0.195 m} \\
+\hline
+EFD Prohaska $(1+k)$ & 1.235 & 1.195 & 1.193 \\
+CFD Prohaska $(1+k)$ & 1.193 & 1.314 & 1.254 \\
+\hline
+\end{tabular}
+\label{tab:form_factors_efd_cfd}
+\end{table}
 
 Por último, la comparación entre el método de Prohaska (experimental y 
 numérico) y el enfoque de doble cuerpo introdujo un nuevo elemento de análisis. 
@@ -933,9 +990,10 @@ En síntesis, los resultados obtenidos hasta acá indican que:
     \item Las simulaciones CFD con superficie libre reproducen adecuadamente 
     la resistencia total, pero introducen limitaciones adicionales en 
     regímenes transicionales debido a las hipótesis del modelo de turbulencia.
-    \item La concordancia entre EFD y CFD mejora significativamente cuando se 
-    restringe el análisis a rangos donde los supuestos físicos del método de 
-    Prohaska son razonablemente válidos.
+    \item La concordancia entre EFD y CFD mejora al restringir el análisis a 
+    rangos donde los supuestos físicos del método de Prohaska son razonablemente 
+    válidos, si bien subsiste una diferencia dependiente del calado que motiva 
+    recurrir al método de doble cuerpo como determinación independiente.
 \end{itemize}
 
 Estas observaciones establecen un marco sólido para los análisis posteriores, 
