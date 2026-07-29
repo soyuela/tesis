@@ -44,6 +44,13 @@ Jo{\~{a}}o Baltazar, Douwe Rijpkema, and Jos\'{e}~A.C. Falc{\~{a}}o~de Campos.
 \newblock \emph{Ocean Engineering}, 170:\penalty0 9--21, 2018.
 \newblock \doi{10.1016/j.oceaneng.2018.10.007}.
 
+\bibitem[Bhattacharyya et~al.(2016)Bhattacharyya, Krasilnikov, and
+  Steen]{krasilnikov2016cfd}
+Anirban Bhattacharyya, Vladimir Krasilnikov, and Sverre Steen.
+\newblock A {CFD}-based scaling approach for ducted propellers.
+\newblock \emph{Ocean Engineering}, 123:\penalty0 116--130, 2016.
+\newblock \doi{10.1016/j.oceaneng.2016.06.011}.
+
 \bibitem[Birk(2019)]{birk2019}
 Lothar Birk.
 \newblock \emph{Fundamentals of Ship Hydrodynamics: Fluid Mechanics, Ship
@@ -79,12 +86,6 @@ L.~E\c{c}a and M.~Hoekstra.
 \newblock In \emph{Journal of Marine Science and Technology}, volume~13, pages
   328--345, 2008.
 \newblock \doi{10.1007/s00773-008-0018-1}.
-
-\bibitem[et~al.(2016)]{krasilnikov2016cfd}
-Bhattacharyya et~al.
-\newblock A {CFD}-based scaling approach for ducted propellers.
-\newblock \emph{Ocean Engineering}, 125:\penalty0 11--31, 2016.
-\newblock \doi{10.1016/j.oceaneng.2016.07.061}.
 
 \bibitem[Gaggero and Villa(2018)]{gaggero2018transition}
 Stefano Gaggero and Diego Villa.

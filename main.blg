@@ -3,6 +3,19 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
 The style file: plainnat.bst
 Database file #1: referencias.bib
+Warning--I didn't find a database entry for "phantom_pesca_argentina"
+Warning--I didn't find a database entry for "confluencia_portuaria_mdp"
+Warning--I didn't find a database entry for "argenports_solimeno"
+Warning--I didn't find a database entry for "rotoplas_historia_pesca"
+Warning--I didn't find a database entry for "pesca_maritima_1989_2013"
+Warning--I didn't find a database entry for "argentina_gob_industria_naval"
+Warning--I didn't find a database entry for "padua_construccion_naval"
+Warning--I didn't find a database entry for "argentina_gob_pesca_2025"
+Warning--I didn't find a database entry for "pescare_exportaciones_2025"
+Warning--I didn't find a database entry for "argenports_industria_naval"
+Warning--I didn't find a database entry for "contessi_historia"
+Warning--I didn't find a database entry for "globalports_concesiones_mdp"
+Warning--I didn't find a database entry for "pescare_api_patagonia"
 Warning--I didn't find a database entry for "freitas"
 Warning--I didn't find a database entry for "Gaggero2020"
 Warning--I didn't find a database entry for "Baltazar2021"
@@ -11,36 +24,36 @@ Warning--empty booktitle in Korkmaz2019NumericalFL
 Warning--empty booktitle in cp_recovery_kcs
 You've used 56 entries,
             2773 wiz_defined-function locations,
-            973 strings with 16252 characters,
-and the built_in function-call counts, 24618 in all, are:
-= -- 2191
-> -- 1398
-< -- 38
-+ -- 484
-- -- 426
-* -- 1962
-:= -- 3922
+            986 strings with 16608 characters,
+and the built_in function-call counts, 24751 in all, are:
+= -- 2201
+> -- 1418
+< -- 37
++ -- 490
+- -- 432
+* -- 1983
+:= -- 3942
 add.period$ -- 217
 call.type$ -- 56
-change.case$ -- 302
+change.case$ -- 304
 chr.to.int$ -- 54
 cite$ -- 115
-duplicate$ -- 1156
-empty$ -- 2020
-format.name$ -- 500
-if$ -- 5108
+duplicate$ -- 1157
+empty$ -- 2023
+format.name$ -- 506
+if$ -- 5134
 int.to.chr$ -- 3
 int.to.str$ -- 1
 missing$ -- 63
 newline$ -- 336
 num.names$ -- 224
-pop$ -- 592
+pop$ -- 595
 preamble$ -- 1
-purify$ -- 254
+purify$ -- 256
 quote$ -- 0
-skip$ -- 825
+skip$ -- 827
 stack$ -- 0
-substring$ -- 686
+substring$ -- 692
 swap$ -- 86
 text.length$ -- 5
 text.prefix$ -- 0
@@ -50,4 +63,4 @@ warning$ -- 3
 while$ -- 212
 width$ -- 0
 write$ -- 822
-(There were 6 warnings)
+(There were 19 warnings)
