@@ -198,12 +198,38 @@ la fuerte sensibilidad del ajuste de Prohaska a la incertidumbre
 experimental de la resistencia en el reducido rango de velocidades
 empleado, y son coherentes con la dispersión observada en los diagramas.
 
+
 \begin{figure}[htpb]
-\centering
-\includegraphics[width=0.6\textwidth]{images/york.png}
-\caption{Ajuste lineal con ponderación mediante el método de York aplicado al \textit{P1} para la estimación de $(1+k)$ y su incertidumbre. Calado~1.}
-\label{fig:york_tpa}
+     \centering
+     \begin{subfigure}[b]{0.6\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{images/york_tpa_165.pdf}
+         \caption{Calado 1.}
+         \label{fig:york_165}
+     \end{subfigure}
+
+     \vspace{0.4cm}
+
+     \begin{subfigure}[b]{0.6\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{images/york_tpa_180.pdf}
+         \caption{Calado 2.}
+         \label{fig:york_180}
+     \end{subfigure}
+
+     \vspace{0.4cm}
+
+     \begin{subfigure}[b]{0.6\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{images/york_tpa_195.pdf}
+         \caption{Calado 3.}
+         \label{fig:york_195}
+     \end{subfigure}
+
+     \caption{Ajuste lineal con ponderación mediante el método de York aplicado al \textit{P1} para la estimación de $(1+k)$ y su incertidumbre.}
+     \label{fig:york_tpa}
 \end{figure}
+
 
 \begin{table}[H]
 \centering
@@ -289,7 +315,7 @@ manteniendo fijo el límite superior en $Fr = 0.20$. A diferencia de lo
 observado en el \textit{P1}, el valor de $(1+k)$ se estabiliza rápidamente, 
 con la excepción de los puntos más bajos ($Fr < 0.11$), donde se observa 
 una leve caída atribuible a posibles efectos de laminarización. El valor 
-adoptado fue $(1+k) = 1.06$, correspondiente al rango $0.13 < Fr < 0.20$.
+adoptado fue $(1+k) = 1.053$, correspondiente al rango $0.13 < Fr < 0.20$.
 
 Sobre este mismo rango se aplicó el método de York descrito para el
 \textit{P1}, con el fin de cuantificar la incertidumbre del factor de forma
@@ -297,8 +323,15 @@ del KCS. En este caso, la incertidumbre de la coordenada vertical se estimó
 directamente a partir de la dispersión de las repeticiones disponibles en
 cada velocidad, que fue del orden del $1$ al $5\%$ de la resistencia medida,
 propagándola luego a $C_{TM}/C_{F0}$. El ajuste ponderado arroja
-$(1+k) = 1.059 \pm 0.017$, esto es, una incertidumbre relativa de apenas el
-$\pm 1.6\%$.
+$(1+k) = 1.053 \pm 0.017$, esto es, una incertidumbre relativa de apenas el
+$\pm 1.6\%$ como se muestra en la Figura \ref{fig:york_kcs}.
+
+\begin{figure}[htpb]
+\centering
+\includegraphics[width=0.6\textwidth]{images/york_kcs.pdf}
+\caption{Ajuste lineal con ponderación mediante el método de York aplicado al \textit{KCS} para la estimación de $(1+k)$ y su incertidumbre.}
+\label{fig:york_kcs}
+\end{figure}
 
 Este valor contrasta de manera marcada con el obtenido para el \textit{P1}
 (Tabla~\ref{tab:york_tpa}), cuya incertidumbre relativa se situaba entre el
