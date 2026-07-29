@@ -201,31 +201,31 @@ empleado, y son coherentes con la dispersión observada en los diagramas.
 
 \begin{figure}[htpb]
      \centering
-     \begin{subfigure}[b]{0.6\textwidth}
+     % --- Primera fila: Calados 1 y 2 ---
+     \begin{subfigure}[b]{0.45\textwidth}
          \centering
          \includegraphics[width=\textwidth]{images/york_tpa_165.pdf}
          \caption{Calado 1.}
          \label{fig:york_165}
      \end{subfigure}
-
-     \vspace{0.4cm}
-
-     \begin{subfigure}[b]{0.6\textwidth}
+     \hfill
+     \begin{subfigure}[b]{0.45\textwidth}
          \centering
          \includegraphics[width=\textwidth]{images/york_tpa_180.pdf}
          \caption{Calado 2.}
          \label{fig:york_180}
      \end{subfigure}
-
-     \vspace{0.4cm}
-
-     \begin{subfigure}[b]{0.6\textwidth}
+     
+     \vspace{0.5cm} % Espacio entre filas
+     
+     % --- Segunda fila: Calado 3 centrado ---
+     \begin{subfigure}[b]{0.45\textwidth}
          \centering
          \includegraphics[width=\textwidth]{images/york_tpa_195.pdf}
          \caption{Calado 3.}
          \label{fig:york_195}
      \end{subfigure}
-
+     
      \caption{Ajuste lineal con ponderación mediante el método de York aplicado al \textit{P1} para la estimación de $(1+k)$ y su incertidumbre.}
      \label{fig:york_tpa}
 \end{figure}
@@ -322,9 +322,10 @@ Sobre este mismo rango se aplicó el método de York descrito para el
 del KCS. En este caso, la incertidumbre de la coordenada vertical se estimó
 directamente a partir de la dispersión de las repeticiones disponibles en
 cada velocidad, que fue del orden del $1$ al $5\%$ de la resistencia medida,
-propagándola luego a $C_{TM}/C_{F0}$. El ajuste ponderado arroja
-$(1+k) = 1.053 \pm 0.017$, esto es, una incertidumbre relativa de apenas el
-$\pm 1.6\%$ como se muestra en la Figura \ref{fig:york_kcs}.
+propagándola luego a $C_{TM}/C_{F0}$. El ajuste ponderado confirma el valor
+adoptado y le asocia una incertidumbre expandida de $\pm 0.019$, esto es, una
+incertidumbre relativa de apenas el $\pm 1.8\%$, como se muestra en la
+Figura~\ref{fig:york_kcs}.
 
 \begin{figure}[htpb]
 \centering
@@ -333,12 +334,23 @@ $\pm 1.6\%$ como se muestra en la Figura \ref{fig:york_kcs}.
 \label{fig:york_kcs}
 \end{figure}
 
+Conviene precisar que esta incertidumbre corresponde a la componente
+\emph{estadística} del ajuste ---la propagación de los errores aleatorios de
+medición a través de la regresión--- y resulta sensiblemente menor que la
+incertidumbre relativa de cada punto individual ($\sim 3\%$). Esta reducción
+no es anómala: la ordenada al origen es un parámetro determinado por el
+conjunto de las mediciones, de modo que su incertidumbre disminuye con el
+número de puntos y con su grado de alineación, de forma análoga a como la
+incertidumbre de un promedio decrece respecto de la de cada medición. Cabe
+señalar que este valor no incorpora eventuales errores sistemáticos, comunes
+a todas las corridas, que no se reducen por este mecanismo.
+
 Este valor contrasta de manera marcada con el obtenido para el \textit{P1}
 (Tabla~\ref{tab:york_tpa}), cuya incertidumbre relativa se situaba entre el
 $8$ y el $11\%$. La diferencia es coherente con el comportamiento de ambos
 cascos frente al método de Prohaska: mientras que en el \textit{P1} los
-puntos experimentales se apartan de la recta teórica ---elevando la
-incertidumbre del ajuste---, en el KCS se alinean estrechamente sobre ella,
+puntos experimentales se apartan de la recta teórica ---y son además mucho
+menos numerosos en el rango de ajuste---, en el KCS se alinean estrechamente sobre ella,
 lo que se traduce en una determinación mucho más precisa de $(1+k)$. Esta
 comparación cuantitativa respalda la observación cualitativa de que el KCS
 satisface los supuestos del método de Prohaska con mayor fidelidad que el
