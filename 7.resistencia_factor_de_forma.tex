@@ -315,17 +315,19 @@ manteniendo fijo el límite superior en $Fr = 0.20$. A diferencia de lo
 observado en el \textit{P1}, el valor de $(1+k)$ se estabiliza rápidamente, 
 con la excepción de los puntos más bajos ($Fr < 0.11$), donde se observa 
 una leve caída atribuible a posibles efectos de laminarización. El valor 
-adoptado fue $(1+k) = 1.053$, correspondiente al rango $0.13 < Fr < 0.20$.
+adoptado fue $(1+k) = 1.052$, correspondiente al rango $0.13 < Fr < 0.20$.
 
 Sobre este mismo rango se aplicó el método de York descrito para el
 \textit{P1}, con el fin de cuantificar la incertidumbre del factor de forma
-del KCS. En este caso, la incertidumbre de la coordenada vertical se estimó
-directamente a partir de la dispersión de las repeticiones disponibles en
-cada velocidad, que fue del orden del $1$ al $5\%$ de la resistencia medida,
-propagándola luego a $C_{TM}/C_{F0}$. El ajuste ponderado confirma el valor
-adoptado y le asocia una incertidumbre expandida de $\pm 0.019$, esto es, una
-incertidumbre relativa de apenas el $\pm 1.8\%$, como se muestra en la
-Figura~\ref{fig:york_kcs}.
+del KCS. Como cada punto del diagrama corresponde al promedio de varias
+corridas repetidas, se adoptó para la coordenada vertical una incertidumbre
+proporcional a la resistencia con un coeficiente de variación constante,
+igual al valor mediano observado en las repeticiones ($\sim 4\%$); este
+criterio evita que algún grupo con pocas corridas casualmente coincidentes
+reciba un peso desproporcionado en la regresión ponderada. El ajuste
+confirma el valor adoptado y le asocia una incertidumbre expandida de
+$\pm 0.024$, esto es, una incertidumbre relativa del $\pm 2.3\%$, como se
+muestra en la Figura~\ref{fig:york_kcs}.
 
 \begin{figure}[htpb]
 \centering
@@ -337,7 +339,7 @@ Figura~\ref{fig:york_kcs}.
 Conviene precisar que esta incertidumbre corresponde a la componente
 \emph{estadística} del ajuste ---la propagación de los errores aleatorios de
 medición a través de la regresión--- y resulta sensiblemente menor que la
-incertidumbre relativa de cada punto individual ($\sim 3\%$). Esta reducción
+incertidumbre relativa de cada punto individual ($\sim 4\%$). Esta reducción
 no es anómala: la ordenada al origen es un parámetro determinado por el
 conjunto de las mediciones, de modo que su incertidumbre disminuye con el
 número de puntos y con su grado de alineación, de forma análoga a como la
