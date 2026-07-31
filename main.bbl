@@ -1,4 +1,4 @@
-\begin{thebibliography}{56}
+\begin{thebibliography}{60}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -44,6 +44,15 @@ Jo{\~{a}}o Baltazar, Douwe Rijpkema, and Jos\'{e}~A.C. Falc{\~{a}}o~de Campos.
 \newblock \emph{Ocean Engineering}, 170:\penalty0 9--21, 2018.
 \newblock \doi{10.1016/j.oceaneng.2018.10.007}.
 
+\bibitem[Baltazar et~al.(2021)Baltazar, Rijpkema, and Falc{\~a}o~de
+  Campos]{Baltazar2021}
+Jo{\~a}o Baltazar, Douwe Rijpkema, and Jos{\'e} A.~C. Falc{\~a}o~de Campos.
+\newblock Prediction of the propeller performance at different {Reynolds}
+  number regimes with {RANS}.
+\newblock \emph{Journal of Marine Science and Engineering}, 9\penalty0
+  (10):\penalty0 1115, 2021.
+\newblock \doi{10.3390/jmse9101115}.
+
 \bibitem[Bhattacharyya et~al.(2016)Bhattacharyya, Krasilnikov, and
   Steen]{krasilnikov2016cfd}
 Anirban Bhattacharyya, Vladimir Krasilnikov, and Sverre Steen.
@@ -86,6 +95,26 @@ L.~E\c{c}a and M.~Hoekstra.
 \newblock In \emph{Journal of Marine Science and Technology}, volume~13, pages
   328--345, 2008.
 \newblock \doi{10.1007/s00773-008-0018-1}.
+
+\bibitem[Freitas(2002)]{freitas}
+Christopher~J. Freitas.
+\newblock The issue of numerical uncertainty.
+\newblock \emph{Applied Mathematical Modelling}, 26\penalty0 (2):\penalty0
+  237--248, 2002.
+\newblock \doi{10.1016/S0307-904X(01)00058-0}.
+
+\bibitem[Froude(1874)]{froude1874}
+William Froude.
+\newblock On experiments with {H.M.S.} {Greyhound}.
+\newblock \emph{Transactions of the Institution of Naval Architects},
+  15:\penalty0 36--73, 1874.
+
+\bibitem[Gaggero(2020)]{Gaggero2020}
+Stefano Gaggero.
+\newblock Influence of laminar-to-turbulent transition on model scale propeller
+  performances. {Part I}: Fully wetted conditions.
+\newblock \emph{Ships and Offshore Structures}, 2020.
+\newblock \doi{10.1080/17445302.2020.1863658}.
 
 \bibitem[Gaggero and Villa(2018)]{gaggero2018transition}
 Stefano Gaggero and Diego Villa.

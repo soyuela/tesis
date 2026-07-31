@@ -16,51 +16,48 @@ Warning--I didn't find a database entry for "argenports_industria_naval"
 Warning--I didn't find a database entry for "contessi_historia"
 Warning--I didn't find a database entry for "globalports_concesiones_mdp"
 Warning--I didn't find a database entry for "pescare_api_patagonia"
-Warning--I didn't find a database entry for "freitas"
-Warning--I didn't find a database entry for "Gaggero2020"
-Warning--I didn't find a database entry for "Baltazar2021"
 Warning--can't use both volume and number fields in eca2008friction
 Warning--empty booktitle in Korkmaz2019NumericalFL
 Warning--empty booktitle in cp_recovery_kcs
-You've used 56 entries,
+You've used 60 entries,
             2773 wiz_defined-function locations,
-            986 strings with 16608 characters,
-and the built_in function-call counts, 24751 in all, are:
-= -- 2201
-> -- 1418
-< -- 37
-+ -- 490
-- -- 432
-* -- 1983
-:= -- 3942
-add.period$ -- 217
-call.type$ -- 56
-change.case$ -- 304
-chr.to.int$ -- 54
-cite$ -- 115
-duplicate$ -- 1157
-empty$ -- 2023
-format.name$ -- 506
-if$ -- 5134
+            1005 strings with 17194 characters,
+and the built_in function-call counts, 26316 in all, are:
+= -- 2349
+> -- 1478
+< -- 40
++ -- 512
+- -- 450
+* -- 2101
+:= -- 4189
+add.period$ -- 232
+call.type$ -- 60
+change.case$ -- 322
+chr.to.int$ -- 58
+cite$ -- 123
+duplicate$ -- 1237
+empty$ -- 2168
+format.name$ -- 528
+if$ -- 5460
 int.to.chr$ -- 3
 int.to.str$ -- 1
-missing$ -- 63
-newline$ -- 336
-num.names$ -- 224
-pop$ -- 595
+missing$ -- 67
+newline$ -- 359
+num.names$ -- 240
+pop$ -- 625
 preamble$ -- 1
-purify$ -- 256
+purify$ -- 270
 quote$ -- 0
-skip$ -- 827
+skip$ -- 881
 stack$ -- 0
-substring$ -- 692
-swap$ -- 86
+substring$ -- 756
+swap$ -- 90
 text.length$ -- 5
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 556
+type$ -- 600
 warning$ -- 3
-while$ -- 212
+while$ -- 229
 width$ -- 0
-write$ -- 822
-(There were 19 warnings)
+write$ -- 879
+(There were 16 warnings)

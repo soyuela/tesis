@@ -10,11 +10,13 @@ La predicción de la resistencia al avance de un buque a escala buque a partir d
     Re_M = Re_S \qquad \text{y} \qquad Fr_M = Fr_S
 \end{equation}
 %
-Sin embargo, al utilizar agua en ambas escalas y al ser la gravedad la misma ($\nu_M \approx \nu_S$, $g_M = g_S$), estas dos condiciones imponen escalas de velocidad contradictorias. La igualdad de Froude exige $V_M = V_S / \sqrt{\lambda}$, mientras que la igualdad de Reynolds exige $V_M = V_S \cdot \lambda$, siendo $\lambda = L_S / L_M$ el factor de escala lineal. Para valores típicos de $\lambda$ entre 20 y 80, es imposible satisfacer ambas condiciones simultáneamente con agua como fluido de trabajo \citep{birk2019}.
+Sin embargo, al utilizar agua en ambas escalas y al ser la atracción gravitatoria la misma ($\nu_M \approx \nu_S$, $g_M = g_S$), estas dos condiciones imponen escalas de velocidad contradictorias. La igualdad de Froude exige $V_M = V_S / \sqrt{\lambda}$, mientras que la igualdad de Reynolds exige $V_M = V_S \cdot \lambda$, siendo $\lambda = L_S / L_M$ el factor de escala lineal. Para valores típicos de $\lambda$ entre 20 y 80, es imposible satisfacer ambas condiciones simultáneamente con agua como fluido de trabajo \citep{birk2019}.
 
-La solución práctica, establecida históricamente por William Froude, consiste en respetar la similitud de Froude durante los ensayos (capturando correctamente la generación de olas) y corregir analíticamente la diferencia en la componente viscosa. Esta \textbf{similitud dinámica parcial} introduce los denominados \textit{efectos de escala}: diferencias sistemáticas entre el flujo de modelo y el del buque buque que no están capturadas por la extrapolación estándar y que constituyen la problemática central de esta tesis.
+La solución práctica, establecida históricamente por William Froude
+\citep{froude1874}, consiste en respetar la similitud de Froude durante
+los ensayos (capturando correctamente la generación de olas) y corregir
+analíticamente la diferencia en la componente viscosa. Esta \textbf{similitud dinámica parcial} introduce los denominados \textit{efectos de escala}: diferencias sistemáticas entre el flujo de modelo y el del buque buque que no están capturadas por la extrapolación estándar y que constituyen la problemática central de esta tesis.
 
-% [AGREGADO] Definición del esquema de adimensionalización y convención de subíndices
 Para cuantificar la resistencia de manera independiente de la escala, se trabaja con el \textbf{coeficiente adimensional de resistencia total}:
 %
 \begin{equation}\label{eq:CT}
@@ -47,7 +49,7 @@ simulaciones CFD de placa plana a distintos Reynolds
 calculadas con el mismo código y modelo de turbulencia que se emplea para
 el casco, producen factores de forma prácticamente independientes de la
 escala para cascos desnudos de esbeltez moderada, reduciendo en gran medida
-el efecto de escala espurio asociado a la pendiente de la ITTC-57. En esta
+el efecto de escala espurio asociado a la pendiente de la ITTC-57 (Figura~\ref{fig:ittc_nfl_k}). En esta
 misma dirección, \citet{quintuna2023} determinó factores de forma por CFD de
 doble cuerpo para un buque multipropósito y un portacontenedores, y cuantificó
 que la diferencia del factor de forma entre escala modelo y escala buque se
@@ -95,6 +97,16 @@ entre todas las formulaciones se reducen de manera considerable.
     tomando la línea ITTC-57 como referencia. Adaptado de
     \citet{korkmaz2023thesis}.}
     \label{fig:lineas_friccion}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.7\textwidth]{images/ittc-vs-nfl-korkmaz.png}
+    \caption{Discrepancia entre el factor de forma de escala modelo y escala
+    buque en función de la inmersión del espejo, calculada con la línea ITTC-57
+    y con una línea de fricción numérica. El efecto de escala sobre $(1+k)$ se
+    reduce marcadamente al emplear la NFL. Adaptado de \citet{korkmaz2023thesis}.}
+    \label{fig:ittc_nfl_k}
 \end{figure}
 
 \subsection{El factor de forma $(1+k)$: hipótesis de Hughes y dependencia con $Re$}
