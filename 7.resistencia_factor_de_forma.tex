@@ -1,4 +1,4 @@
-\chapter{Resistencia al avance — Factor de forma} \label{cap:resistencia_factor_de_forma}
+\chapter{Resistencia al avance: factor de forma} \label{cap:resistencia_factor_de_forma}
 \mtcsettitle{minitoc}{Contenidos} 
 \minitoc
 
@@ -11,7 +11,7 @@ La presente sección aborda la construcción de la curva de resistencia y el cá
 
 Si bien los fundamentos teóricos, los criterios de similitud y los antecedentes metodológicos fueron discutidos previamente en los Capítulos \ref{chap:antecedentes} y \ref{chap:Metodologia}, esta sección constituye el primer punto donde dicha metodología se aplica de manera operativa. En particular, se detalla la campaña experimental realizada sobre el modelo \textit{P1}, mostrando los criterios de adquisición, la repetibilidad, el control de condiciones del canal y la estimación de incertidumbres asociadas. Estos elementos permiten evaluar la calidad de los datos y establecen un marco sólido para la comparación cuantitativa con los resultados CFD presentados en secciones posteriores.
 
-Asimismo, aunque esta sección se centra inicialmente en el modelo objetivo (\textit{P1}), el análisis experimental incluye también una campaña independiente con el modelo del portacontenedores KCS, presentada más adelante. La incorporación de este buque de referencia obedece al interés de complementar el análisis mediante la inclusión de una geometría radicalmente distinta a los pesqueros: una esbeltez mucho mayor ($L/B \approx 7.1$ vs. 2.8–3.5), una popa afinada con transición suave al codaste en contraste con la popa robusta de los pesqueros, y la ausencia de dormido significativo frente al dormido pronunciado de los buques pesqueros. Esta comparación permite examinar cómo la hidrodinámica del factor de forma varía cuando se introducen cambios fundamentales en las proporciones globales y la configuración local del casco.
+Asimismo aunque esta sección se centra inicialmente en el modelo objetivo (\textit{P1}), el análisis experimental incluye también una campaña independiente con el modelo del portacontenedores KCS, presentada más adelante. La incorporación de este buque de referencia obedece al interés de complementar el análisis mediante la inclusión de una geometría radicalmente distinta a los pesqueros: una esbeltez mucho mayor ($L/B \approx 7.1$ vs. 2.8–3.5), una popa afinada con transición suave al codaste en contraste con la popa robusta de los pesqueros, y la ausencia de dormido significativo frente al dormido pronunciado de los buques pesqueros. Esta comparación permite examinar cómo la hidrodinámica del factor de forma varía cuando se introducen cambios fundamentales en las proporciones globales y la configuración local del casco.
 
 \vspace{1em}
 
@@ -27,7 +27,7 @@ La resistencia total se midió mediante una celda de carga Kempf \& Remmers R47,
 
 El análisis de incertidumbre para los ensayos del modelo \textit{P1} sigue la metodología general detallada en la Sección~\ref{sec:analisis_incertidumbre_general}. Se realizaron cuatro repeticiones independientes de cada ensayo a cada velocidad, permitiendo evaluar tanto la dispersión entre ensayos como las incertidumbres instrumentales asociadas.
 
-En el modelo \textit{P1}, las fuentes dominantes de incertidumbre resultan ser la calibración del dinamómetro R47 y la dispersión entre repeticiones. La contribución relativa de estas componentes disminuye significativamente con el número de Froude: a $Fr = 0.14$, donde la resistencia total es mínima, la relación señal-ruido se deteriora y la incertidumbre relativa alcanza su máximo; a medida que aumenta la velocidad hacia $Fr = 0.37$, la resistencia crece cuadráticamente y la incertidumbre relativa desciende pronunciadamente. Este comportamiento es característico de ensayos de remolque y está cualitativamente acorde con el desempeño esperado.
+En el modelo \textit{P1}, las fuentes dominantes de incertidumbre resultan ser la calibración del dinamómetro R47 y la dispersión entre repeticiones. La contribución relativa de estas componentes disminuye significativamente con el número de Froude: a $Fr = 0.14$, donde la resistencia total es mínima, la relación señal-ruido se deteriora y la incertidumbre relativa alcanza su máximo. A medida que aumenta la velocidad hacia $Fr = 0.37$, la resistencia crece cuadráticamente y la incertidumbre relativa desciende pronunciadamente. Este comportamiento es característico de ensayos de remolque y está cualitativamente acorde con el desempeño esperado.
 
 La combinación de todas las componentes mediante el método RSS (Sección~\ref{sec:analisis_incertidumbre_general}) arrojó incertidumbres combinadas de $5.35\%$, $2.04\%$ y $0.83\%$ para $Fr = 0.14$, $0.26$ y $0.37$ respectivamente, niveles adecuados y consistentes con las recomendaciones de la ITTC. La Tabla~\ref{tab:uncert_tpa} presenta el desglose detallado de todas las componentes consideradas.
 
@@ -108,7 +108,7 @@ Sin embargo, en los tres calados se observa una ligera curvatura en los puntos e
 \end{figure}
 
 Una primera explicación de esta curvatura se relaciona con fenómenos de 
-\textit{laminarización} parcial del flujo a bajas velocidades, como se describe 
+``laminarización'' parcial del flujo a bajas velocidades, como se describe 
 en \cite{keh-sik-min}. En dichos regímenes, el flujo cercano a la proa puede 
 volverse transicional o parcialmente laminar, reduciendo el coeficiente de 
 fricción y alterando la pendiente esperada de la curva de Prohaska. A ello se 
@@ -146,7 +146,7 @@ mejora del ajuste.
 inferior del rango de Froude (puntos azules), manteniendo el superior 
 en $Fr = 0.20$. La línea roja indica el valor de $(1+k)$ adoptado 
 mediante el método de Prohaska en el rango $0.15 < Fr < 0.20$. 
-Calado~3; comportamiento análogo en otros calados.}
+Calado~3. Comportamiento análogo en otros calados.}
     \label{fig:tpa_range}
 \end{figure}
 
@@ -165,8 +165,8 @@ EFD Prohaska ($k$) & 0.252 & 0.211 & 0.194 \\
 \label{tab:form_factors}
 \end{table}
 
-Finalmente, para cuantificar la incertidumbre asociada al ajuste lineal
-de Prohaska, se aplicó el método propuesto por \citet{york}. A diferencia
+Finalmente para cuantificar la incertidumbre asociada al ajuste lineal
+de Prohaska, se aplicó el método propuesto en \citet{york}. A diferencia
 de una regresión por mínimos cuadrados ordinaria, que asume la variable
 independiente libre de error, el método de York resuelve el ajuste lineal
 ponderando cada punto por la incertidumbre de sus dos coordenadas y
@@ -181,7 +181,7 @@ resistencia. Por este motivo se consideró despreciable el error en el eje
 horizontal, con lo que el método de York se reduce a una regresión lineal
 ponderada por la incertidumbre de la coordenada vertical $C_{TM}/C_{F0}$.
 La incertidumbre de cada punto se obtuvo propagando la incertidumbre
-combinada de la resistencia $U_D$ (media de cuatro repeticiones;
+combinada de la resistencia $U_D$ (media de cuatro repeticiones,
 $5.35\%$, $2.04\%$ y $0.83\%$ para $Fr = 0.14$, $0.26$ y $0.37$
 respectivamente, interpolada linealmente en $Fr$) a la variable
 $C_{TM}/C_{F0}$, que es lineal en la resistencia medida.
@@ -322,7 +322,7 @@ Sobre este mismo rango se aplicó el método de York descrito para el
 del KCS. Como cada punto del diagrama corresponde al promedio de varias
 corridas repetidas, se adoptó para la coordenada vertical una incertidumbre
 proporcional a la resistencia con un coeficiente de variación constante,
-igual al valor mediano observado en las repeticiones ($\sim 4\%$); este
+igual al valor mediano observado en las repeticiones ($\sim 4\%$). Este
 criterio evita que algún grupo con pocas corridas casualmente coincidentes
 reciba un peso desproporcionado en la regresión ponderada. El ajuste
 confirma el valor adoptado y le asocia una incertidumbre expandida de
@@ -337,8 +337,8 @@ muestra en la Figura~\ref{fig:york_kcs}.
 \end{figure}
 
 Conviene precisar que esta incertidumbre corresponde a la componente
-\emph{estadística} del ajuste ---la propagación de los errores aleatorios de
-medición a través de la regresión--- y resulta sensiblemente menor que la
+\emph{estadística} del ajuste (la propagación de los errores aleatorios de
+medición a través de la regresión) y resulta sensiblemente menor que la
 incertidumbre relativa de cada punto individual ($\sim 4\%$). Esta reducción
 no es anómala: la ordenada al origen es un parámetro determinado por el
 conjunto de las mediciones, de modo que su incertidumbre disminuye con el
@@ -351,8 +351,8 @@ Este valor contrasta de manera marcada con el obtenido para el \textit{P1}
 (Tabla~\ref{tab:york_tpa}), cuya incertidumbre relativa se situaba entre el
 $8$ y el $11\%$. La diferencia es coherente con el comportamiento de ambos
 cascos frente al método de Prohaska: mientras que en el \textit{P1} los
-puntos experimentales se apartan de la recta teórica ---y son además mucho
-menos numerosos en el rango de ajuste---, en el KCS se alinean estrechamente sobre ella,
+puntos experimentales se apartan de la recta teórica, y son además mucho
+menos numerosos en el rango de ajuste, en el KCS se alinean estrechamente sobre ella,
 lo que se traduce en una determinación mucho más precisa de $(1+k)$. Esta
 comparación cuantitativa respalda la observación cualitativa de que el KCS
 satisface los supuestos del método de Prohaska con mayor fidelidad que el
@@ -370,8 +370,8 @@ adoptado.}
 \label{fig:kcs_range}
 \end{figure}
 
-Finalmente, la Figura~\ref{fig:kcs_validation} compara el valor obtenido en 
-el LabHiNO con los recopilados por \citet{TerzievDataSet} a partir de ensayos 
+Finalmente la Figura~\ref{fig:kcs_validation} compara el valor obtenido en 
+el LabHiNO con los recopilados en \citet{TerzievDataSet} a partir de ensayos 
 de distintos laboratorios internacionales. El punto del LabHiNO se ubica en 
 la zona de crecimiento de $(1+k)$ con $Re$, en perfecta concordancia con la 
 tendencia general de los datos de referencia, confirmando que el canal 
@@ -383,7 +383,7 @@ ensayada.
 \includegraphics[width=0.6\textwidth]{images/efd_kcs_lit.pdf}
 \caption{Comparación del factor de forma $(1+k)$ del KCS obtenido en el 
 LabHiNO (punto rojo) con resultados experimentales históricos del KCS 
-compilados de literatura internacional por \citet{TerzievDataSet} 
+compilados de literatura internacional en \citet{TerzievDataSet} 
 (puntos amarillos), en función del número de Reynolds.}
 \label{fig:kcs_validation}
 \end{figure}
@@ -440,8 +440,8 @@ diferentes condiciones de velocidad.
     \caption{Patrón de olas sobre el \textit{P1} para distintos $Fr$ y 
     Calado~3. \textbf{Columna izquierda}: modelo CFD. 
     \textbf{Columna derecha}: EFD. 
-    \textbf{Primera fila}: $Fr = 0.26$; \textbf{segunda fila}: $Fr = 0.37$; 
-    \textbf{tercera fila}: $Fr = 0.45$.}
+    \textbf{Primera fila}: $Fr = 0.26$. \textbf{Segunda fila}: $Fr = 0.37$. 
+    \textbf{Tercera fila}: $Fr = 0.45$.}
     \label{fig:3D-comparacion}
 \end{figure}
 
@@ -517,8 +517,8 @@ condición de plena carga y resulta el más representativo del régimen de opera
 \end{figure}
 
 Aplicando el mismo criterio de ajuste que en el caso experimental
----regresión lineal sobre el rango $0.16 < Fr < 0.20$, donde la curva
-$C_{TM}/C_{F0}$ vs $Fr^4/C_{F0}$ se aproxima mejor a la linealidad teórica---
+(regresión lineal sobre el rango $0.16 < Fr < 0.20$, donde la curva
+$C_{TM}/C_{F0}$ vs $Fr^4/C_{F0}$ se aproxima mejor a la linealidad teórica)
 se obtienen los valores de factor de forma numérico $(1+k)$ resumidos en la
 Tabla~\ref{tab:form_factors_cfd} para los tres calados. A diferencia del caso
 experimental, donde el factor de forma decrece monótonamente con el calado, los
@@ -546,7 +546,7 @@ Ante las dificultades observadas para aplicar el método de Prohaska en el
 entorno numérico, debido a la incertidumbre en la transición de la turbulencia 
 y la curvatura observada en el diagrama $C_{TM}/C_{F0}$ vs $Fr^4/C_{F0}$ a 
 bajas velocidades, se optó por una estrategia alternativa: el método de 
-\textit{doble cuerpo}, descripto en la Sección~\ref{sec:doble_cuerpo}.
+``doble cuerpo'', descripto en la Sección~\ref{sec:doble_cuerpo}.
 
 Como se detalló en la Sección \ref{sec:doble_cuerpo}, este enfoque elimina la superficie libre y la formación de olas, modelando el fluido como un medio infinito y el casco como un cuerpo reflejado (ver Figura \ref{fig:double_body_domain}). Esto permite aislar la resistencia viscosa ($R_V$) y calcular el factor de forma $(1+k)$ directamente para cada velocidad mediante la relación $C_V / C_{F0}$, sin depender de la extrapolación a velocidad cero.
 
@@ -616,12 +616,12 @@ número de Froude. Modelo de turbulencia: $k$--$\omega$ SST.}
 \vspace{0.4em}
 {\footnotesize\raggedright
 $^{a}$~El punto 1:20 / $Fr = 0{.}400$ presenta $GCI = 13{.}4\%$, atribuible a
-la complejidad del campo de flujo a alta velocidad; esta condición queda fuera
+la complejidad del campo de flujo a alta velocidad. Esta condición queda fuera
 del rango operativo del buque ($Fr \lesssim 0{.}36$) y no se considera en el
 análisis de efectos de escala.\\
 $^{b}$~El valor $1+k = 1{.}622$ en 1:10 / $Fr = 0{.}160$ ($y^+ = 9{.}0$) se
-aparta de la tendencia de su columna; su ubicación en la región
-\textit{buffer}, por debajo del umbral de conmutación de la función de pared,
+aparta de la tendencia de su columna. Su ubicación en la región
+``buffer'', por debajo del umbral de conmutación de la función de pared,
 sugiere un origen numérico asociado al tratamiento de pared más que físico.\par}
 \end{table}
 
@@ -633,11 +633,11 @@ viscosa ($y^+ \lesssim 5$), mientras que las mallas de escala buque ubican el
 primer centro de celda dentro de la capa logarítmica
 ($30 \lesssim y^+ \lesssim 300$), rango de operación previsto para el enfoque
 de funciones de pared. Las dos escalas intermedias (1:10 y 1:5) se sitúan
-mayormente en la región \textit{buffer} ($5 \lesssim y^+ \lesssim 30$). En
+mayormente en la región ``buffer'' ($5 \lesssim y^+ \lesssim 30$). En
 esta región, la formulación de $\omega$ empleada por el modelo $k$--$\omega$
 SST combina de forma continua las expresiones viscosa y logarítmica
 \citep{Menter1994}, lo que le confiere una relativa insensibilidad a la
-posición de la primera celda; no obstante, la región \textit{buffer}
+posición de la primera celda. No obstante, la región ``buffer''
 constituye el régimen de menor fiabilidad para el tratamiento de pared, por lo
 que las escalas intermedias deben interpretarse con mayor cautela que las
 escalas resuelta y de capa logarítmica.
@@ -655,7 +655,7 @@ pared y no presentan cambios de pendiente ni anomalías. La tendencia de
 $(1+k)$ a crecer con $Re$ sin alcanzar un valor asintótico es, por lo tanto,
 robusta: se sostiene tanto en la escala buque, resuelta en un régimen de pared
 adecuado, como en la consistencia global de la curva, aun cuando algunos
-puntos individuales de la región \textit{buffer} se dispersen en torno a ella.
+puntos individuales de la región ``buffer'' se dispersen en torno a ella.
 
 La Figura \ref{fig:tpa_DB_k_evolucion} muestra la distribución del factor de forma calculado para los tres calados analizados empleando la configuración de malla verificada en la Sección~\ref{sec:convergencia_de_malla}. Contrario a la hipótesis clásica de la ITTC, que asume un factor de forma constante e independiente de la velocidad ($k \neq f(Fr, Re)$), los resultados obtenidos revelan una variación significativa y sistemática de $(1+k)$ a lo largo del rango de Froude evaluado.
 
@@ -735,8 +735,8 @@ correspondiente se resume en la Tabla~\ref{tab:CFD_KCS}.
 
 A diferencia del \textit{P1}, el $y^+$ del KCS abarca desde la subcapa viscosa 
 ($y^+ \approx 0{.}3$) hasta el borde superior de la capa logarítmica 
-($y^+ \approx 31$), atravesando la región \textit{buffer}. Pese a ello, la 
-curva de $(1+k)$ resulta suave y sin cambios de pendiente, y el GCI se 
+($y^+ \approx 31$), atravesando la región ``buffer''. Pese a ello, la 
+curva de $(1+k)$ resulta suave y sin cambios abruptos de pendiente, y el GCI se 
 mantiene por debajo del $2\%$ en todo el rango. Esta robustez frente al 
 tratamiento de pared se explica por la reducida contribución de la presión 
 viscosa en este casco esbelto: al ser $C_{PV}$ una fracción pequeña de la 
@@ -745,11 +745,15 @@ poco sensible a la resolución de pared, en contraste con el \textit{P1}, donde
 $C_{PV}$ es comparable a $C_F$ (Sección~\ref{sec:descomposicion_de_la_res_viscosa}).
 
 La Figura~\ref{fig:kcs_DB_prohaska} compara los resultados obtenidos con los 
-reportados por \citet{TERZIEV2021147}. La concordancia es excelente, 
-reproduciendo incluso la joroba característica en el rango de transición 
-($Re \approx 10^6 - 3\times10^6$). Las líneas punteadas verticales indican 
-los límites del rango de Froude recomendado por la ITTC para la aplicación 
-del método de Prohaska ($Fr = 0.10$ y $Fr = 0.20$), correspondientes al 
+reportados en \citet{TERZIEV2021147}. La concordancia no es excelente: ambas 
+curvas presentan la joroba característica en el rango de transición 
+($Re \approx 10^6 - 3\times10^6$), pero desplazada entre sí, probablemente 
+como consecuencia de la pequeña diferencia de escala entre los modelos 
+(1:79 en este trabajo frente a 1:75 en \citet{TERZIEV2021147}). Fuera de ese 
+rango, en cambio, ambas curvas convergen hacia el mismo valor asintótico, 
+lo que indica una buena concordancia hacia altos números de Reynolds. Las 
+líneas punteadas verticales indican los límites del rango de Froude recomendado por la ITTC para la aplicación 
+del método de Prohaska ($Fr = 0{.}10$ y $Fr = 0{.}20$), correspondientes al 
 modelo KCS a escala 1:79 ensayado en el LabHiNO, mientras que la línea 
 horizontal continua representa el valor de $(1+k)$ adoptado a partir del 
 ensayo experimental (EFD Prohaska, LabHiNO). Se observa que el valor 
@@ -766,7 +770,7 @@ Sección~\ref{sec:det_num_fac_form}.
     \label{fig:kcs_DB_prohaska}
 \end{figure}
 
-Finalmente, la Figura~\ref{fig:completo_kcs_lit} confirma que los resultados 
+Finalmente la Figura~\ref{fig:completo_kcs_lit} confirma que los resultados 
 siguen la tendencia asintótica global validada por múltiples laboratorios 
 internacionales \citep{TerzievDataSet}.
 
@@ -818,9 +822,9 @@ rango operativo con una grilla de velocidades coincidente. El error de
 comparación se mantiene dentro de la incertidumbre de medición hasta
 $Fr \approx 0{.}26$, con un valor medio del orden del $1{.}5\%$ en ese
 intervalo. A partir de $Fr \approx 0{.}29$ el modelo numérico subestima la
-resistencia de manera creciente; esta desviación es atribuible a la
-restricción de grados de libertad del modelo numérico —fijo en cabeceo y
-hundimiento, frente al modelo libre del ensayo— y no a un error del modelo
+resistencia de manera creciente. Esta desviación es atribuible a la
+restricción de grados de libertad del modelo numérico (fijo en cabeceo y
+hundimiento, frente al modelo libre del ensayo) y no a un error del modelo
 físico, y ocurre además fuera del rango de operación del \textit{P1}. Los
 puntos de $Fr < 0{.}18$ se excluyen del análisis por la baja relación
 señal--ruido característica del régimen de baja resistencia.
@@ -829,7 +833,7 @@ señal--ruido característica del régimen de baja resistencia.
 \centering
 \caption{Validación EFD--CFD de la resistencia total del \textit{P1}
 (Calado~2, $T=0{.}180$~m) en el rango operativo. Error de comparación
-$E\%D=(D-S)/D\times100$; incertidumbre de validación
+$E\%D=(D-S)/D\times100$. Incertidumbre de validación
 $U_{val}=\sqrt{U_D^2+U_{num}^2}\approx U_D$, siendo $U_{num}<0{.}2\%$
 despreciable frente a $U_D$ en este rango.}
 \label{tab:validacion_efd_cfd}
@@ -852,11 +856,11 @@ despreciable frente a $U_D$ en este rango.}
 El mismo análisis se aplicó a los calados restantes. Para el Calado~1
 ($T=0{.}165$~m), el error de comparación medio en el rango operativo es del
 orden del $5\%$, mayor que en el Calado~2 y asociado a una mayor dispersión de
-las corridas CFD en esa condición; aun así se mantiene dentro de márgenes
+las corridas CFD en esa condición. Aun así se mantiene dentro de márgenes
 habituales para la predicción de resistencia por CFD. Para el Calado~3
 ($T=0{.}195$~m), los ensayos experimentales y las simulaciones se realizaron
 sobre grillas de $Fr$ no coincidentes, por lo que la comparación se efectúa
-interpolando la curva CFD a las velocidades ensayadas; sobre los puntos
+interpolando la curva CFD a las velocidades ensayadas. Sobre los puntos
 comparables del rango operativo, la concordancia entre las curvas experimental
 y computacional es del orden del $1$--$2\%$, consistente con la obtenida para
 los demás calados.
@@ -1038,7 +1042,7 @@ Los resultados presentados hasta el momento permiten realizar una primera discus
 
 Desde el punto de vista experimental, la campaña realizada en el canal del LabHiNO mostró un nivel de repetibilidad adecuado y valores de incertidumbre combinada compatibles con las recomendaciones de la ITTC, especialmente en el rango de velocidades de interés operativo. Las curvas de resistencia obtenidas para los distintos calados presentan una evolución continua y físicamente consistente, lo que indica una correcta adquisición de la fuerza de remolque y una adecuada calibración del sistema de medición. No obstante, como es habitual en este tipo de ensayos, las mayores incertidumbres relativas se concentran en el rango de bajas velocidades, donde la resistencia total es pequeña y el método de Prohaska resulta particularmente sensible a pequeñas variaciones en $C_T$.
 
-En este contexto, la aplicación del método de Prohaska a los datos experimentales evidenció desviaciones respecto de la linealidad teórica esperada, principalmente a bajos números de Froude. Tal comportamiento puede atribuirse a una combinación de factores: laminarización parcial del flujo, transición temprana, fenómenos viscosos locales asociados a la geometría del casco y limitaciones inherentes al uso de la línea de correlación ITTC-1957 en regímenes de Reynolds moderados. Estas desviaciones introducen una incertidumbre adicional en la estimación de $(1+k)$, que obliga a seleccionar cuidadosamente el rango de velocidades utilizado para la regresión lineal.
+En este contexto la aplicación del método de Prohaska a los datos experimentales evidenció desviaciones respecto de la linealidad teórica esperada, principalmente a bajos números de Froude. Tal comportamiento puede atribuirse a una combinación de factores: laminarización parcial del flujo, transición temprana, fenómenos viscosos locales asociados a la geometría del casco y limitaciones inherentes al uso de la línea de correlación ITTC-1957 en regímenes de Reynolds moderados. Estas desviaciones introducen una incertidumbre adicional en la estimación de $(1+k)$, que obliga a seleccionar cuidadosamente el rango de velocidades utilizado para la regresión lineal.
 
 Las simulaciones CFD bifásicas reprodujeron de manera satisfactoria las curvas de resistencia total obtenidas experimentalmente en un amplio rango de velocidades, lo que constituye una primera validación global del modelo numérico. Las pequeñas diferencias observadas a velocidades elevadas pueden explicarse por diferencias en las condiciones de contorno dinámicas del casco, dado que en los ensayos experimentales se permitió el libre movimiento vertical y de cabeceo, mientras que en las simulaciones el casco se mantuvo fijo. En cualquier caso, estas discrepancias aparecen fuera del rango de operación típico del buque y no afectan las conclusiones principales.
 
@@ -1136,7 +1140,7 @@ resultados presentados en las Figuras~\ref{fig:k_195} y \ref{fig:kcs_DB_prohaska
 se reúnen en la Figura~\ref{fig:comparacion_total_kcs_tpa}.
 
 La Figura~\ref{fig:comparacion_total_kcs_tpa} muestra los valores de $(1+k)$ 
-frente a $Re$ obtenidos mediante CFD \textit{double body} (DB) para el KCS 
+frente a $Re$ obtenidos mediante CFD ``double body'' (DB) para el KCS 
 a escala 1:79, el KCS a escala 1:75 de \citet{TERZIEV2021147} y el \textit{P1} 
 en escala modelo (1:20) para el Calado~3. El gráfico incluye además los 
 valores experimentales (EFD) de $(1+k)$ determinados mediante el método de 
@@ -1172,7 +1176,7 @@ evaluaron la escala 1:20 (ya presentada) y tres escalas adicionales, 1:10,
 	\caption{$(1+k)$ frente a $Re$ para el KCS y el \textit{P1}, en escala 
 	logarítmica. Para el KCS se muestran los resultados propios obtenidos en 
 	el LabHiNO (CFD DB y Prohaska EFD, escala 1:79) junto con el conjunto de 
-	datos recopilado por \citet{TerzievDataSet} (CFD DB y Prohaska, otras 
+	datos recopilado en \citet{TerzievDataSet} (CFD DB y Prohaska, otras 
 	escalas y laboratorios). Para el \textit{P1} se muestran únicamente 
 	resultados propios: CFD DB en las escalas 1:20, 1:10, 1:5 y 1:1, y el 
 	valor experimental obtenido por Prohaska en el LabHiNO (escala 1:20).}
@@ -1189,7 +1193,7 @@ pico aproximadamente en el mismo rango de $Re$. Como se mencionó previamente,
 este pico podría estar directamente asociado con la modelización de la 
 transición.
 
-Por otro lado, se observa en la Figura que la variación de $(1+k)$ con $Re$ 
+Por otro lado se observa en la Figura que la variación de $(1+k)$ con $Re$ 
 disminuye para el KCS a valores altos de $Re$, mientras que para el 
 \textit{P1} la tendencia creciente persiste hasta la escala buque (1:1), sin 
 alcanzar un valor asintótico dentro del rango analizado.
@@ -1203,7 +1207,7 @@ valor no encontrado en la literatura de hidrodinámica naval al día de hoy.
 
 Para verificar que este comportamiento no es exclusivo del \textit{P1}, 
 se extendió el análisis CFD DB a los otros dos pesqueros analizados en 
-esta tesis (\textit{P2}, $L/B = 3{.}23$; \textit{P3}, $L/B = 2{.}85$). 
+esta tesis (\textit{P2} con $L/B = 3{.}23$ y \textit{P3} con $L/B = 2{.}85$). 
 La Figura~\ref{fig:Re_formfactor} muestra la evolución de $(1+k)$ con 
 $Re$ para los cuatro cascos. Los tres pesqueros presentan el mismo 
 comportamiento creciente y no asintótico observado en el \textit{P1}, en 
@@ -1227,12 +1231,12 @@ comportamiento del \textit{P1}. Aplicando su relación empírica
 [Ecuación~\eqref{eq:gomezgarcia}] a la escala del modelo ($\lambda = 20$), el efecto de escala predicho es $K_S - K_M \approx 1{.}91\times 19\times 10^{-3}= 0{.}036$. El valor obtenido por CFD de doble cuerpo para el \textit{P1} en el Calado~3, en cambio, es $k_S - k_M = 0{.}716 - 0{.}194 = 0{.}522$, es decir, aproximadamente catorce veces mayor que la predicción. La fórmula de \citet{gomezgarcia}, calibrada para estimar la corrección de escala del factor de forma, subestima en más de un orden de magnitud el efecto de escala real de este casco.
 
 Esta discrepancia no se limita a la magnitud, sino que alcanza a la propia
-forma funcional. Al ajustar el modelo lineal de \citet{gomezgarcia} —$K_S -
-K_M$ en función de $\lambda$— a los cuatro puntos de escala calculados para el \textit{P1} (1:20, 1:10, 1:5 y 1:1), la pendiente resultante es de
+forma funcional. Al ajustar el modelo lineal de \citet{gomezgarcia} ($K_S -
+K_M$ en función de $\lambda$) a los cuatro puntos de escala calculados para el \textit{P1} (1:20, 1:10, 1:5 y 1:1), la pendiente resultante es de
 $15{.}8\times 10^{-3}$, más de ocho veces la de $1{.}851\times 10^{-3}$ de la regresión original (Figura~\ref{fig:gomez-garcia-nuestro}). Más significativo aún es que el ajuste lineal del \textit{P1} arroja una ordenada al origen de $0{.}054$, de modo que predice un efecto de escala espurio de $K_S - K_M \approx 0{.}070$ en $\lambda = 1$, condición en la que necesariamente debe anularse. La regresión de \citet{gomezgarcia}, en cambio, satisface esta restricción física ($K_S - K_M \approx 0{.}001$ en $\lambda = 1$). El modelo lineal, por lo tanto, no puede recuperarse reescalando la pendiente: la hipótesis de linealidad en $\lambda$ sobre la que se apoya no se cumple para esta clase de casco.
 
 El origen de esta inaplicabilidad es geométrico. Las cuatro familias de
-geosims sobre las que \citet{gomezgarcia} calibró su correlación corresponden a cascos esbeltos convencionales, con relaciones $L_{PP}/B$ comprendidas entre $6{.}98$ y $9{.}07$; ninguna se aproxima siquiera a la baja esbeltez del \textit{P1} ($L/B \approx 2{.}8$--$3{.}5$). La correlación se aplica, por lo tanto, fuera del dominio para el que fue derivada, en un régimen donde la resistencia por presión viscosa, despreciable en los cascos esbeltos de lamuestra original, pasa a ser una fracción dominante de la resistencia viscosa total, como se demuestra en la
+geosims utilizadas en \citet{gomezgarcia} para calibrar su correlación corresponden a cascos esbeltos convencionales, con relaciones $L_{PP}/B$ comprendidas entre $6{.}98$ y $9{.}07$. Ninguna se aproxima siquiera a la baja esbeltez del \textit{P1} ($L/B \approx 2{.}8$--$3{.}5$). La correlación se aplica, por lo tanto, fuera del dominio para el que fue derivada, en un régimen donde la resistencia por presión viscosa, despreciable en los cascos esbeltos de lamuestra original, pasa a ser una fracción dominante de la resistencia viscosa total, como se demuestra en la
 Sección~\ref{sec:descomposicion_de_la_res_viscosa}.
 
 \begin{figure}[htpb]
@@ -1260,7 +1264,7 @@ viscosa, lo que posibilita el análisis detallado que se presenta en esta
 sección. Esta descomposición se basa en la relación:
 %
 \begin{equation}
-    (1+k) = \frac{C_V}{C_{F0}} = \frac{C_F + C_{PV}}{C_{F0}}
+    (1+k) = \frac{C_V}{C_{F0}} = \frac{C_F + C_{PV}}{C_{F0}},
     \label{eq:descomposicion_1k}
 \end{equation}
 %
@@ -1330,7 +1334,7 @@ pantoque como la posible recirculación asociada a la popa espejo, cuya
 intensidad puede aumentar o mantenerse aproximadamente estable con $Re$. La 
 curva resultante de $C_{PV}(Re)$ surge de la superposición de estas dos 
 tendencias opuestas (capa límite vs. estructuras vorticosas). 
-Interpretaciones similares de doble mecanismo han sido reportadas por 
+Interpretaciones similares de doble mecanismo han sido reportadas en 
 \citet{ZENG2019106434} y \citet{Raven2016}, y son consistentes con los 
 estudios de escalado de popas mojadas de \citet{KORKMAZ2022112590}. El aporte 
 relativo de cada una de estas fuentes de vorticidad se analiza en detalle en 
@@ -1393,13 +1397,13 @@ formas llenas, originada por el gradiente de presión adverso que sigue a la
 región de baja presión del pantoque. A medida que aumenta $Re$, la
 influencia de la viscosidad disminuye, la separación se atenúa y la
 contribución de la resistencia de forma respecto de la viscosa se reduce,
-de modo que $(1+k)$ \textit{decrece} con la escala
+de modo que $(1+k)$ ``decrece'' con la escala
 \citep{korkmaz-verif-and-valid-cfd-efd}. El segundo es la
 \textbf{recirculación tras un espejo de popa sustancialmente sumergido},
 análoga al flujo sobre un escalón hacia atrás. A diferencia del anterior,
 esta estructura persiste al aumentar $Re$ y genera un incremento acotado
 del factor de forma entre modelo y buque, cuantificado mediante el
-\textit{transom form factor} $k_{tr}>0$ \citep{korkmaz_wetted_transom}; su
+``transom form factor'' $k_{tr}>0$ \citep{korkmaz_wetted_transom}. Su
 aplicación al \textit{P1} se analiza en la
 Sección~\ref{sec:popa_sumergida}.
 
@@ -1410,11 +1414,11 @@ de la quilla y el pantoque, cuya intensidad no se atenúa apreciablemente
 con $Re$, según se documentó mediante los contornos de velocidad
 (Figura~\ref{U_x_U_0}) y las iso-superficies de criterio Q
 (Figura~\ref{vortex}). Este mecanismo sostiene un valor elevado y poco
-sensible de $C_{PV}$, lo que hace que $(1+k)$ \textit{crezca} de manera
+sensible de $C_{PV}$, lo que hace que $(1+k)$ ``crezca'' de manera
 sostenida y sin alcanzar un valor asintótico dentro del rango de escalas
 analizado. El contraste de signo respecto de la separación tipo burbuja es
 significativo: mientras en aquel caso el aumento de $Re$ tiende a
-\textit{recuperar} el comportamiento de placa plana, en los pesqueros de
+``recuperar'' el comportamiento de placa plana, en los pesqueros de
 baja esbeltez el efecto tridimensional persiste hasta la escala buque. Esta
 diferencia es la que confiere carácter distintivo al resultado y la que
 explica por qué las correcciones concebidas para los dos primeros
@@ -1566,7 +1570,7 @@ servicio, mediante la generación de un sistema de ondas que interfiera
 destructivamente con el tren de olas producido por el resto del casco.
 
 Como se discutió en la Sección~\ref{sec:prohaska_antec}, 
-\citet{korkmaz_cfd_2021} reportaron que la geometría de la proa bulbo puede 
+en \citet{korkmaz_cfd_2021} se reportó que la geometría de la proa bulbo puede 
 tener un impacto significativo en la aplicabilidad del método de Prohaska, 
 llegando a introducir curvaturas marcadas en el diagrama que obligan a 
 restringir severamente el rango de $Fr$ analizado, o incluso a descartar el 
@@ -1580,8 +1584,8 @@ números de Froude en su diagrama de Prohaska
 $(1+k)$ con la velocidad y con la escala 
 (Sección~\ref{sec:analisis_efectos_escala}), en contraste con el 
 comportamiento del KCS. Ambas observaciones motivan la pregunta de 
-investigación que organiza esta sección: \textit{¿es la proa bulbo 
-responsable, total o parcialmente, de dichas anomalías?} Para responderla se 
+investigación que organiza esta sección: ``¿es la proa bulbo 
+responsable, total o parcialmente, de dichas anomalías?'' Para responderla se 
 repite el procedimiento completo de determinación del factor de forma sobre 
 una variante del casco sin bulbo, de modo que cualquier comportamiento que 
 persista en esa configuración no pueda atribuirse a su presencia.
@@ -1659,19 +1663,19 @@ simulaciones bifásicas con superficie libre para cada configuración. El
 coeficiente $C_V$ se calculó como:
 %
 \begin{equation}
-    C_V = (1+k)\, C_{F0}
+    C_V = (1+k)\, C_{F0},
 \end{equation}
 %
 empleando, para cada configuración, el factor de forma $k$ determinado 
 mediante el método de Prohaska a partir de sus propias simulaciones CFD 
 bifásicas: para el modelo original con bulbo, el valor validado contra el 
-ensayo experimental (Sección~\ref{sec:det_exp_fac_form}); para el modelo 
+ensayo experimental (Sección~\ref{sec:det_exp_fac_form}). Para el modelo 
 Ctrl+Z, el valor obtenido aplicando el mismo procedimiento a sus 
 simulaciones, sin contar con un ensayo experimental propio de validación. 
 Finalmente, el coeficiente de resistencia por olas se obtuvo como residuo:
 %
 \begin{equation}
-    C_W = C_T - C_V
+    C_W = C_T - C_V.
 \end{equation}
 
 Los diagramas de Prohaska correspondientes a ambas configuraciones se 
@@ -1682,7 +1686,7 @@ en la Sección~\ref{sec:det_num_fac_form}, se reproduce con igual intensidad
 en la configuración Ctrl+Z. Este resultado permite descartar la primera de 
 las hipótesis planteadas: la deformación del diagrama de Prohaska no 
 responde a la presencia del bulbo, sino que constituye una característica 
-propia del resto del casco. La anomalía reportada por 
+propia del resto del casco. La anomalía reportada en 
 \citet{korkmaz_cfd_2021} para cascos con bulbo próximo a la superficie libre 
 no explica, por lo tanto, el comportamiento observado en el \textit{P1}.
 
@@ -1945,8 +1949,8 @@ ambas configuraciones comparten el mismo cierre turbulento.
 
 \subsection{Introducción y motivación del estudio}
 
-El estudio de \cite{korkmaz_wetted_transom} analiza la influencia del flujo con \textit{popa mojada} (\textit{wetted-transom flow}) sobre la predicción de la resistencia total y la extrapolación ITTC--78.  
-Cuando el espejo de la popa se encuentra sustancialmente sumergido, ya sea por operar a baja velocidad o por calados elevados, se forma una \textbf{zona de recirculación} detrás del espejo, análoga al flujo que ocurre sobre un \textit{backward-facing step} o \textit{escalón hacia atrás}.  
+El estudio de \cite{korkmaz_wetted_transom} analiza la influencia del flujo con ``popa mojada'' (``wetted-transom flow'') sobre la predicción de la resistencia total y la extrapolación ITTC--78.  
+Cuando el espejo de la popa se encuentra sustancialmente sumergido, ya sea por operar a baja velocidad o por calados elevados, se forma una \textbf{zona de recirculación} detrás del espejo, análoga al flujo que ocurre sobre un ``backward-facing step'' o ``escalón hacia atrás''.  
 En este régimen, la presión en la arista del espejo no alcanza el valor atmosférico, el flujo se separa y se genera una región de baja presión con un vórtice persistente aguas abajo.
 
 \subsection{Definiciones geométricas y parámetros característicos}
@@ -1954,15 +1958,15 @@ En este régimen, la presión en la arista del espejo no alcanza el valor atmosf
 Para describir el grado de inmersión del espejo, \cite{korkmaz_wetted_transom} definió una serie de parámetros adimensionales (Fig.~\ref{fig:transom_defs}), los cuales se expresan mediante las siguientes relaciones:
 
 \begin{equation}
-Fr_{tr} = \frac{V}{\sqrt{g\,T_{tr}}}
+Fr_{tr} = \frac{V}{\sqrt{g\,T_{tr}}},
 \end{equation}
 
 \begin{equation}
-tr_{\mathrm{ratio}} = \frac{A_{tr}}{A_{\max}}
+tr_{\mathrm{ratio}} = \frac{A_{tr}}{A_{\max}},
 \end{equation}
 
 \begin{equation}
-tr_{\mathrm{fullness}} = \frac{A_{tr}}{2\,y_{tr}\,T_{tr}}
+tr_{\mathrm{fullness}} = \frac{A_{tr}}{2\,y_{tr}\,T_{tr}},
 \end{equation}
 
 donde:
@@ -1975,7 +1979,7 @@ donde:
   \item $V$ la velocidad correspondiente a la condición de análisis.
 \end{itemize}
 
-El número de Froude del transom $Fr_{tr}$ representa una medida del grado de ``seco o mojado'' del espejo:  
+El número de Froude de la popa espejo $Fr_{tr}$ representa una medida del grado de ``seco o mojado'' del espejo:  
 valores bajos indican flujo recirculante (popa mojada), mientras que valores altos ($Fr_{tr} > 3$) corresponden a popas secas o parcialmente mojadas.
 
 \begin{figure}[htpb]
@@ -1987,25 +1991,25 @@ valores bajos indican flujo recirculante (popa mojada), mientras que valores alt
 
 \subsection{Desarrollo del método 2--$k$}
 
-El método \textit{two-form-factor} o 2--$k$ fue propuesto para corregir el déficit de resistencia viscosa generado por la recirculación en popas sumergidas.  
+El método ``two-form-factor'' o 2--$k$ fue propuesto para corregir el déficit de resistencia viscosa generado por la recirculación en popas sumergidas.  
 El procedimiento parte de la descomposición clásica de la resistencia viscosa total:
 
 \begin{equation}
-C_{V} = (1 + k)\,C_{F0}
+C_{V} = (1 + k)\,C_{F0},
 \end{equation}
 
 donde $C_{F0}$ es el coeficiente de fricción de ITTC-57 y $(1+k)$ el factor de forma convencional.  
 En el caso de popas mojadas, el término $k$ se descompone en dos:
 
 \begin{equation}
-k_S = k_M + k_{tr}
+k_S = k_M + k_{tr},
 \end{equation}
 
-siendo $k_M$ el factor de forma obtenido para el modelo (por método de Prohaska o CFD doble cuerpo), y $k_{tr}$ un incremento asociado al flujo recirculante detrás del espejo, denominado \textit{transom form factor}.  
+siendo $k_M$ el factor de forma obtenido para el modelo (por método de Prohaska o CFD doble cuerpo), y $k_{tr}$ un incremento asociado al flujo recirculante detrás del espejo, denominado ``transom form factor''.  
 Este último se expresa como:
 
 \begin{equation}
-k_{tr} \simeq \frac{C_{tr,S}}{C_{F,S}}
+k_{tr} \simeq \frac{C_{tr,S}}{C_{F,S}},
 \end{equation}
 
 donde $C_{tr,S}$ representa la contribución viscosa adicional debida al vórtice de recirculación, y $C_{F,S}$ el coeficiente de fricción a escala buque.
@@ -2013,7 +2017,7 @@ donde $C_{tr,S}$ representa la contribución viscosa adicional debida al vórtic
 El valor de $k_{tr}$ puede estimarse empíricamente mediante correlaciones con parámetros geométricos del espejo (secciones 6.3 y 7 de \cite{korkmaz_wetted_transom}) o mediante CFD comparativo entre modelo y escala buque:
 
 \begin{equation}
-k_{tr} = k_S - k_M
+k_{tr} = k_S - k_M.
 \end{equation}
 
 Este punto es clave, ya que en \citet{korkmaz_wetted_transom} se atribuye la diferencia entre el factor de forma en escala modelo y en escala buque, en los casos de popa espejo sumergida, principalmente al flujo recirculante detrás del espejo. Esta interpretación se enmarca en el trabajo más amplio del mismo autor \citep{korkmaz_cfd_2021, korkmaz_wetted_transom}, donde se demuestra que la dependencia del factor de forma con el número de Reynolds desaparece casi por completo al sustituir la línea ITTC-57 por líneas de fricción numéricas derivadas del mismo código CFD, al menos para cascos de esbeltez moderada como el KCS y el KVLCC2. El efecto de la línea de correlación sobre el \textit{P1} se analiza en la Sección~\ref{sec:linea_de_friccion}. Para cascos de esa clase, donde $C_{PV}$ es comparativamente pequeño, este resultado es consistente con la hipótesis de Hughes: una vez eliminado el sesgo de la línea de referencia, el factor de forma resulta prácticamente independiente de la escala.
@@ -2111,7 +2115,7 @@ condición que, según \citet{korkmaz_wetted_transom}, origina el déficit de re
 
 \subsection{Aplicación al Pesquero~1}
 
-La geometría de popa del Pesquero~1 presenta una inmersión del espejo que, según los criterios establecidos por \citet{korkmaz_wetted_transom}, debe evaluarse en condición estática ($Fr = 0$), ya que el método demanda los parámetros geométricos correspondientes al buque en reposo. La Tabla~\ref{tab:tpa_transom_params} resume los parámetros calculados para esa condición.
+La geometría de popa del Pesquero~1 presenta una inmersión del espejo que, según los criterios establecidos en \citet{korkmaz_wetted_transom}, debe evaluarse en condición estática ($Fr = 0$), ya que el método demanda los parámetros geométricos correspondientes al buque en reposo. La Tabla~\ref{tab:tpa_transom_params} resume los parámetros calculados para esa condición.
 
 \begin{table}[h]
 \centering
@@ -2138,16 +2142,16 @@ $k_{tr}$                    & 0{.}025 \\
 \end{table}
 
 El valor de $tr_{\text{ratio}} = 0{.}056$ supera el umbral de $0{.}025$ 
-establecido por \citet{korkmaz_wetted_transom}, por lo que corresponde aplicar 
+establecido en \citet{korkmaz_wetted_transom}, por lo que corresponde aplicar 
 la corrección. El factor de forma de escala buque queda entonces:
 
 \begin{equation}
     k_S = k_M + k_{tr} = 0{.}194 + 0{.}025 = 0{.}219
     \quad \Rightarrow \quad
-    (1+k_S) = 1{.}219
+    (1+k_S) = 1{.}219.
 \end{equation}
 
-Sin embargo, para evaluar si este mecanismo explica la diferencia observada 
+Sin embargo para evaluar si este mecanismo explica la diferencia observada 
 entre escalas, es necesario compararlo con la magnitud total de esa diferencia. 
 Según los resultados de CFD DB presentados en la 
 Sección~\ref{sec:analisis_efectos_escala}, el valor de $(1+k)$ a escala buque 
@@ -2155,13 +2159,13 @@ es de aproximadamente $1{.}716$ ($k_S = 0{.}716$), mientras que el valor adoptad
 a escala modelo es $(1+k_M) = 1{.}194$ ($k_M = 0{.}194$). La diferencia total es:
 
 \begin{equation}
-    k_S - k_M = 0{.}716 - 0{.}194 = 0{.}522
+    k_S - k_M = 0{.}716 - 0{.}194 = 0{.}522.
 \end{equation}
 
 La corrección de popa mojada $k_{tr} = 0{.}025$ representa apenas el $5\%$ de 
 esa diferencia. El método 2--$k$ de \citet{korkmaz_wetted_transom} fue 
 desarrollado para cascos donde la recirculación de popa espejo es el 
-mecanismo dominante del efecto de escala en el factor de forma; en el 
+mecanismo dominante del efecto de escala en el factor de forma. En el 
 \textit{P1}, en cambio, la diferencia entre escalas está gobernada por la 
 evolución de $C_{PV}$ asociada a las estructuras vorticosas de quilla y 
 pantoque, cuya intensidad se mantiene estable con $Re$, como se demostró en 
@@ -2189,7 +2193,7 @@ explicar la variación de $(1+k)$ con $Re$ observada en el \textit{P1}.
 
 La Figura~\ref{ittc_nfl} presenta la variación de $(1+k)$ frente al número 
 de Reynolds para el \textit{P1}, considerando la línea ITTC-57 
-\citep{ITTC_resistance} y la NFL propuesta por \citet{Korkmaz2019NumericalFL}.
+\citep{ITTC_resistance} y la NFL propuesta en \citet{Korkmaz2019NumericalFL}.
 
 \begin{figure}[htpb]
 	\centering
@@ -2225,8 +2229,8 @@ Sección~\ref{sec:descomposicion_de_la_res_viscosa}.
 El modelado de la turbulencia constituye una de las principales fuentes de 
 incertidumbre en la simulación numérica de la resistencia viscosa. Los modelos 
 basados en las ecuaciones de Navier--Stokes promediadas por Reynolds (RANS) 
-introducen un cierre empírico a través de la denominada \textit{viscosidad 
-turbulenta}, cuyo valor depende del modelo de turbulencia seleccionado. Dado 
+introducen un cierre empírico a través de la denominada ``viscosidad 
+turbulenta'', cuyo valor depende del modelo de turbulencia seleccionado. Dado 
 que la estimación del factor de forma $(1+k)$ se basa en la partición entre 
 resistencia friccional y de presión viscosa, cualquier variación en la 
 predicción del campo de velocidades o en la distribución de esfuerzos de corte 
@@ -2260,7 +2264,7 @@ $(1+k)$.
 
 \paragraph{Modelo $k$--$\omega$ SST}
 
-El modelo $k$--$\omega$ SST (\textit{Shear Stress Transport}) fue utilizado 
+El modelo $k$--$\omega$ SST (``Shear Stress Transport'') fue utilizado 
 como modelo de referencia para todos los cálculos presentados en los capítulos 
 anteriores. Su formulación detallada y la justificación de su elección se 
 encuentran descritas en la Sección~\ref{sec:metodo_SST} del 
@@ -2308,7 +2312,7 @@ La viscosidad turbulenta se define como:
 Aunque este modelo presenta una buena resolución de la capa límite viscosa 
 sin necesidad de funciones de amortiguamiento, es conocido por su fuerte 
 sensibilidad a las condiciones de contorno de turbulencia en el flujo libre 
-(\textit{freestream sensitivity}), lo que puede afectar la predicción del 
+(``freestream sensitivity''), lo que puede afectar la predicción del 
 campo turbulento global si el dominio no es suficientemente grande.
 
 \paragraph{Modelo $k$--$\varepsilon$ estándar}
@@ -2357,7 +2361,7 @@ re-adhesión del flujo demasiado temprana en la popa.
 El modelo $k$--$\varepsilon$ realizable \citep{Shih1994} introduce 
 modificaciones conceptuales al modelo estándar con el objetivo de cumplir 
 restricciones matemáticas sobre los esfuerzos de Reynolds 
-(\textit{realizability}), evitando la generación de energía cinética negativa 
+(``realizability''), evitando la generación de energía cinética negativa 
 en flujos con grandes deformaciones medias. En particular, el coeficiente 
 $C_\mu$ deja de ser constante y pasa a depender del estado local del flujo 
 (tasa de deformación y rotación), y la ecuación de $\varepsilon$ se 
@@ -2386,7 +2390,7 @@ Entre los modelos evaluados, el $k$--$\omega$ SST predice los valores más
 bajos de $C_V$, mientras que el $k$--$\varepsilon$ estándar predice los 
 valores más altos. El modelo $k$--$\varepsilon$ realizable reduce parcialmente 
 esta discrepancia, situándose entre ambos. Este comportamiento coincide con 
-lo reportado por \citet{Karim}, quien observó una secuencia análoga en la 
+lo reportado en \citet{Karim}, donde se observó una secuencia análoga en la 
 predicción de la resistencia de cuerpos sumergidos a $Re = 2\times10^7$: la 
 mayor concordancia con los datos experimentales correspondió al $k$--$\omega$ 
 SST, seguido del $k$--$\varepsilon$ realizable, el $k$--$\varepsilon$ estándar 
@@ -2506,7 +2510,7 @@ A bajos números de Reynolds, las diferencias entre modelos son significativas y
 final del factor de forma. A medida que el flujo evoluciona hacia un régimen plenamente turbulento, esta sensibilidad se atenúa y las predicciones
 convergen progresivamente.
 
-En particular, los modelos $k$--$\varepsilon$ tienden a sobreestimar $(1+k)$ en el rango transicional, mientras que el $k$--$\omega$ SST presenta una
+En particular los modelos $k$--$\varepsilon$ tienden a sobreestimar $(1+k)$ en el rango transicional, mientras que el $k$--$\omega$ SST presenta una
 evolución más moderada y mejor alineada con el valor experimental. Esto confirma que la correcta interpretación del factor de forma en CFD requiere
 considerar explícitamente el régimen de flujo y el modelo de turbulencia empleado, especialmente cuando los resultados se utilizan como base para
 extrapolaciones o comparaciones con datos experimentales.
@@ -2631,8 +2635,7 @@ fricción turbulenta de placa plana por un factor de forma empírico
 dependiente de la razón de esbeltez del cuerpo, y por el área mojada. 
 El fuselaje se modela como un cuerpo de revolución, y el parámetro 
 geométrico principal es la razón de esbeltez $l/d$, directamente análoga 
-a $L/B$ en cascos de buques. \citet{hoerner1965drag} fue el primero en 
-derivar un factor de forma para cuerpos de revolución a partir de 
+a $L/B$ en cascos de buques. En \citet{hoerner1965drag} se derivó por primera vez un factor de forma para cuerpos de revolución a partir de 
 correlaciones con ensayos en túnel de viento, obteniendo una curva válida 
 para $l/d > 4.5$ que fue extrapolada hacia valores menores sin validación 
 experimental. Autores posteriores \citep{raymer2019aircraft, 
@@ -2814,7 +2817,7 @@ procedimiento estándar de predicción de potencia \citep{ITTC_Performance_predi
 estima la resistencia total del buque como:
 %
 \begin{equation}
-    C_{TS} = (1 + k_S)\,C_{FS0} + C_W + \Delta C_F + C_A
+    C_{TS} = (1 + k_S)\,C_{FS0} + C_W + \Delta C_F + C_A,
 \end{equation}
 %
 donde $C_{FS0}$ es el coeficiente de fricción del buque calculado mediante 
@@ -2824,7 +2827,7 @@ y $\Delta C_F$ y $C_A$ corresponden a las correcciones por rugosidad y
 correlación recomendadas por la ITTC. Este método supone que $k_S = k_M$, 
 es decir, que el factor de forma es independiente de la escala.
 
-Sin embargo, los resultados CFD DB demostraron que este supuesto no se 
+Sin embargo los resultados CFD DB demostraron que este supuesto no se 
 cumple para los pesqueros estudiados. El fuerte incremento de $(1+k)$ con 
 $Re$ implica que:
 %
@@ -2839,11 +2842,11 @@ La resistencia total del buque a escala buque y la potencia efectiva se
 obtienen como (Sección~\ref{sec:prediccion_potencia}):
 %
 \begin{equation}
-    R_{TS} = \tfrac{1}{2}\,\rho\,V_S^2\,S_S\,C_{TS}
+    R_{TS} = \tfrac{1}{2}\,\rho\,V_S^2\,S_S\,C_{TS},
 \end{equation}
 %
 \begin{equation}
-    P_{ES} = R_{TS}\,V_S
+    P_{ES} = R_{TS}\,V_S,
 \end{equation}
 %
 donde $\rho$ es la densidad del agua, $V_S$ la velocidad del buque y $S_S$ 
@@ -2854,7 +2857,7 @@ Para cuantificar la magnitud del error introducido por la selección de un valor
 \begin{itemize}
     \item \textbf{Método 1 (ITTC–EFD)}: $k_M = k_S$, obtenido por el método de Prohaska en modelo.
     \item \textbf{Método 2 (CFD–EFD, doble k)}: valores distintos de $k_M$ y $k_S$, determinados mediante CFD DB para modelo y buque. La idea es propuesta por \cite{korkmaz_wetted_transom} pero en su caso la diferencia nace exclusivamente de la popa sumergida, mientras que según la presente tesis la necesidad surge de los efectos de escala presentados en la Sección \ref{sec:descomposicion_de_la_res_viscosa} (Cpv).
-    \item \textbf{Método 3 ($k = 0$)}: empleado cuando no es posible determinar el factor de forma ni experimentalmente ni mediante CFD; asume resistencia viscosa puramente friccional, equivalente a tratar el casco como una placa plana. Provee una cota de referencia para cuantificar el error asociado a ignorar completamente los efectos de forma.
+    \item \textbf{Método 3 ($k = 0$)}: empleado cuando no es posible determinar el factor de forma ni experimentalmente ni mediante CFD. Asume resistencia viscosa puramente friccional, equivalente a tratar el casco como una placa plana. Provee una cota de referencia para cuantificar el error asociado a ignorar completamente los efectos de forma.
 
 \end{itemize}
 
@@ -2921,9 +2924,9 @@ $Fr$ & $v_S$ & $v_S$ & Method 2 vs 1 & Method 3 vs 1 \\
 
 
 
-Los resultados muestran que asumir $k=0$ (método 3) produce una sobreestimación de la potencia efectiva de aproximadamente $5\%$ respecto al método estándar ITTC. Como era de esperar, este método sobreestima la resistencia al ignorar la contribución viscosa de la forma del casco; sin embargo, su utilidad radica en que provee una referencia cuando no se dispone de ningún ensayo ni simulación para estimar el factor de forma, permitiendo acotar el error esperado.
+Los resultados muestran que asumir $k=0$ (método 3) produce una sobreestimación de la potencia efectiva de aproximadamente $5\%$ respecto al método estándar ITTC. Como era de esperar, este método sobreestima la resistencia al ignorar la contribución viscosa de la forma del casco. Sin embargo, su utilidad radica en que provee una referencia cuando no se dispone de ningún ensayo ni simulación para estimar el factor de forma, permitiendo acotar el error esperado.
 
-En cambio, el método de doble $k$ basado en CFD DB (método 2) arroja una \textbf{potencia un 13–17$\%$ mayor} que la obtenida mediante el enfoque ITTC (método 1), diferencia atribuible al mayor valor de $k_S$ predicho numéricamente.
+En cambio el método de doble $k$ basado en CFD DB (método 2) arroja una potencia un 13–17$\%$ mayor que la obtenida mediante el enfoque ITTC (método 1), diferencia atribuible al mayor valor de $k_S$ predicho numéricamente.
 
 Estas discrepancias, del orden del 15$\%$ en términos de potencia instalada, son suficientemente significativas como para justificar una validación mediante pruebas de mar. Además, sugieren que las correlaciones empíricas introducidas en la Sección \ref{sec:generalizacion_LB}, originadas en aeronáutica y dependientes de la razón de esbeltez, podrían ser utilizadas como una estimación preliminar de $k_S$ de forma más confiable que las metodologías navales actuales. Esto permitiría implementar un método de extrapolación de doble $k$, donde $k_M$ se obtenga de CFD DB a escala modelo y $k_S$ de una correlación basada en $L/B$, evitando la necesidad de simulaciones CFD a escala buque.
 
@@ -2936,4 +2939,4 @@ La comparación con correlaciones empíricas desarrolladas para buques mercantes
 
 La incorporación de dos pesqueros adicionales con distintas relaciones $L/B$ refuerza esta observación: los tres cascos, pese a sus diferencias geométricas particulares, presentan un comportamiento hidrodinámico consistente, caracterizado por valores elevados y no asintóticos del factor de forma. Esta consistencia indica que la dependencia de $(1+k)$ con la relación de aspecto constituye un rasgo estructural de los cascos pesqueros de baja esbeltez y no una singularidad del \textit{P1}.
 
-Finalmente, los resultados ponen de manifiesto que el supuesto fundamental del método ITTC (la igualdad entre los factores de forma del modelo y del buque) tiene incluso menor validez para este tipo de buques. Las diferencias observadas en la extrapolación de resistencia y potencia efectiva alcanzan magnitudes relevantes desde el punto de vista del diseño, lo que justifica la necesidad de enfoques alternativos. En este contexto, el uso combinado de CFD en configuración de doble cuerpo y correlaciones empíricas dependientes de $L/B$ emerge como una vía más consistente para la estimación del factor de forma en cascos pesqueros.
+Finalmente los resultados ponen de manifiesto que el supuesto fundamental del método ITTC (la igualdad entre los factores de forma del modelo y del buque) tiene incluso menor validez para este tipo de buques. Las diferencias observadas en la extrapolación de resistencia y potencia efectiva alcanzan magnitudes relevantes desde el punto de vista del diseño, lo que justifica la necesidad de enfoques alternativos. En este contexto, el uso combinado de CFD en configuración de doble cuerpo y correlaciones empíricas dependientes de $L/B$ emerge como una vía más consistente para la estimación del factor de forma en cascos pesqueros.

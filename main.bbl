@@ -103,12 +103,6 @@ Christopher~J. Freitas.
   237--248, 2002.
 \newblock \doi{10.1016/S0307-904X(01)00058-0}.
 
-\bibitem[Froude(1874)]{froude1874}
-William Froude.
-\newblock On experiments with {H.M.S.} {Greyhound}.
-\newblock \emph{Transactions of the Institution of Naval Architects},
-  15:\penalty0 36--73, 1874.
-
 \bibitem[Gaggero(2020)]{Gaggero2020}
 Stefano Gaggero.
 \newblock Influence of laminar-to-turbulent transition on model scale propeller
@@ -123,6 +117,14 @@ Stefano Gaggero and Diego Villa.
 \newblock \emph{International Shipbuilding Progress}, 65:\penalty0 187--226,
   2018.
 \newblock \doi{10.3233/ISP-180150}.
+
+\bibitem[Gallotti and Gaggero(2026)]{gallotti2026}
+Vittorio Gallotti and Stefano Gaggero.
+\newblock A {CFD} investigation on scale effects of open and ducted propellers.
+\newblock \emph{Journal of Marine Engineering \& Technology}, 2026.
+\newblock \doi{10.1080/20464177.2026.2647616}.
+\newblock Publicado online, marzo de 2026; volumen/n{\'u}mero pendientes de
+  asignaci{\'o}n definitiva.
 
 \bibitem[Garcia-Gómez(2000)]{gomezgarcia}
 A.~Garcia-Gómez.

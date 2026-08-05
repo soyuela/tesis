@@ -21,43 +21,43 @@ Warning--empty booktitle in Korkmaz2019NumericalFL
 Warning--empty booktitle in cp_recovery_kcs
 You've used 60 entries,
             2773 wiz_defined-function locations,
-            1005 strings with 17194 characters,
-and the built_in function-call counts, 26316 in all, are:
-= -- 2349
-> -- 1478
+            1006 strings with 17401 characters,
+and the built_in function-call counts, 26334 in all, are:
+= -- 2350
+> -- 1489
 < -- 40
-+ -- 512
-- -- 450
-* -- 2101
-:= -- 4189
-add.period$ -- 232
++ -- 515
+- -- 453
+* -- 2102
+:= -- 4195
+add.period$ -- 234
 call.type$ -- 60
-change.case$ -- 322
+change.case$ -- 323
 chr.to.int$ -- 58
 cite$ -- 123
-duplicate$ -- 1237
-empty$ -- 2168
-format.name$ -- 528
-if$ -- 5460
+duplicate$ -- 1236
+empty$ -- 2161
+format.name$ -- 533
+if$ -- 5464
 int.to.chr$ -- 3
 int.to.str$ -- 1
 missing$ -- 67
-newline$ -- 359
+newline$ -- 361
 num.names$ -- 240
-pop$ -- 625
+pop$ -- 626
 preamble$ -- 1
-purify$ -- 270
+purify$ -- 271
 quote$ -- 0
-skip$ -- 881
+skip$ -- 884
 stack$ -- 0
-substring$ -- 756
+substring$ -- 737
 swap$ -- 90
 text.length$ -- 5
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 600
 warning$ -- 3
-while$ -- 229
+while$ -- 227
 width$ -- 0
-write$ -- 879
+write$ -- 882
 (There were 16 warnings)
