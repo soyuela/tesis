@@ -1,4 +1,4 @@
-This is BibTeX, Version 0.99d (TeX Live 2025/Debian)
+This is BibTeX, Version 0.99d (TeX Live 2022/dev/Debian)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
 The style file: plainnat.bst
@@ -19,45 +19,45 @@ Warning--I didn't find a database entry for "pescare_api_patagonia"
 Warning--can't use both volume and number fields in eca2008friction
 Warning--empty booktitle in Korkmaz2019NumericalFL
 Warning--empty booktitle in cp_recovery_kcs
-You've used 60 entries,
+You've used 61 entries,
             2773 wiz_defined-function locations,
-            1006 strings with 17401 characters,
-and the built_in function-call counts, 26334 in all, are:
-= -- 2350
-> -- 1489
-< -- 40
-+ -- 515
-- -- 453
-* -- 2102
-:= -- 4195
-add.period$ -- 234
-call.type$ -- 60
-change.case$ -- 323
-chr.to.int$ -- 58
-cite$ -- 123
-duplicate$ -- 1236
-empty$ -- 2161
-format.name$ -- 533
-if$ -- 5464
+            1011 strings with 17476 characters,
+and the built_in function-call counts, 26702 in all, are:
+= -- 2386
+> -- 1499
+< -- 41
++ -- 519
+- -- 456
+* -- 2126
+:= -- 4252
+add.period$ -- 237
+call.type$ -- 61
+change.case$ -- 327
+chr.to.int$ -- 59
+cite$ -- 125
+duplicate$ -- 1256
+empty$ -- 2198
+format.name$ -- 537
+if$ -- 5541
 int.to.chr$ -- 3
 int.to.str$ -- 1
-missing$ -- 67
-newline$ -- 361
-num.names$ -- 240
-pop$ -- 626
+missing$ -- 68
+newline$ -- 366
+num.names$ -- 244
+pop$ -- 633
 preamble$ -- 1
-purify$ -- 271
+purify$ -- 274
 quote$ -- 0
-skip$ -- 884
+skip$ -- 897
 stack$ -- 0
-substring$ -- 737
-swap$ -- 90
+substring$ -- 758
+swap$ -- 91
 text.length$ -- 5
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 600
+type$ -- 611
 warning$ -- 3
-while$ -- 227
+while$ -- 232
 width$ -- 0
-write$ -- 882
+write$ -- 895
 (There were 16 warnings)

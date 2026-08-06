@@ -539,7 +539,7 @@ Tabla~\ref{tab:d6m_resultados} para evitar la ambigüedad entre ellas. La simula
 resolvió con el modelo $k$-$\omega$ SST completamente turbulento, ya que a estos $Re$
 la extensión de la capa límite laminar se vuelve despreciable y el modelo de
 transición SST-LM converge al resultado completamente turbulento, tal como se discutió
-en la Sección~\ref{sec:coreana_resultados}. Los resultados, para los tres coeficientes
+en la Sección~\ref{sec:coreana_resultados}. Los resultados, para los cinco coeficientes
 de avance calculados hasta el momento, se resumen en la Tabla~\ref{tab:d6m_resultados}.
 
 \begin{table}[htpb]
@@ -558,6 +558,8 @@ $J$ & $Re_n=nD^2/\nu$ & $Re_c$ (cuerda 0.7R) & $K_T$ & $K_Q$ & $\eta_0$ \\
 $0.30$ & $3.01\times10^7$ & $1.589\times10^7$ & $0.2045$ & $0.02200$ & $0.4438$ \\
 $0.35$ & $3.01\times10^7$ & $1.589\times10^7$ & $0.1853$ & $0.02050$ & $0.5037$ \\
 $0.40$ & $3.01\times10^7$ & $1.589\times10^7$ & $0.1658$ & $0.01892$ & $0.5578$ \\
+$0.50$ & $3.01\times10^7$ & $1.589\times10^7$ & $0.1254$ & $0.01546$ & $0.6452$ \\
+$0.60$ & $3.01\times10^7$ & $1.589\times10^7$ & $0.0830$ & $0.01145$ & $0.6922$ \\
 \hline
 \end{tabular}
 \end{table}
@@ -708,6 +710,25 @@ priori}, antes de tener cualquier dato de verificación.
 tensión se generó un segundo punto de referencia, a una escala intermedia entre el
 mayor $Re_c$ de modelo y el de la Tabla~\ref{tab:d6m_resultados} ($D=6$~m, $n=0.25$~rps,
 $Re_c\approx4.97\times10^6$), calculado de forma independiente al punto de $D=6$~m.
+Los resultados de esta corrida se resumen en la Tabla~\ref{tab:reint_resultados}.
+
+\begin{table}[htpb]
+\centering
+\caption{Resultados de la simulación intermedia a $D=6$~m, $n=0.25$~rps
+($Re_c\approx4.97\times10^6$), modelo SST completamente turbulento (OpenFOAM).}
+\label{tab:reint_resultados}
+\begin{tabular}{cccc}
+\hline
+$J$ & $K_T$ & $K_Q$ & $\eta_0$ \\
+\hline
+$0.30$ & $0.202732$ & $0.022043$ & $0.4391$ \\
+$0.35$ & $0.183646$ & $0.020550$ & $0.4978$ \\
+$0.40$ & $0.164096$ & $0.018977$ & $0.5505$ \\
+$0.50$ & $0.123811$ & $0.015548$ & $0.6337$ \\
+\hline
+\end{tabular}
+\end{table}
+
 En lugar de comparar dos fracciones fijas, se calibró --para cada uno de los dos
 puntos de escala grande por separado-- el valor de $f_p$ que anula exactamente el
 error medio de la extrapolación Fully Turbulent. Los resultados se resumen en la
@@ -723,10 +744,14 @@ de escala grande disponibles.}
 Punto de referencia & $Re_c$ & $J$ & $f_p$ calibrado \\
 \hline
 Intermedio & $4.97\times10^6$ & $0.30$ & $0.922$ \\
+Intermedio & $4.97\times10^6$ & $0.35$ & $0.920$ \\
 Intermedio & $4.97\times10^6$ & $0.40$ & $0.919$ \\
+Intermedio & $4.97\times10^6$ & $0.50$ & $0.918$ \\
 Grande     & $1.589\times10^7$ & $0.30$ & $0.908$ \\
 Grande     & $1.589\times10^7$ & $0.35$ & $0.905$ \\
 Grande     & $1.589\times10^7$ & $0.40$ & $0.903$ \\
+Grande     & $1.589\times10^7$ & $0.50$ & $0.901$ \\
+Grande     & $1.589\times10^7$ & $0.60$ & $0.896$ \\
 \hline
 \end{tabular}
 \end{table}
@@ -740,7 +765,7 @@ valor inferido del P1727.}
 \label{fig:fp_validacion}
 \end{figure}
 
-Los cinco valores calibrados caen en una banda angosta, $f_p\approx0.90$--$0.92$,
+Los nueve valores calibrados caen en una banda angosta, $f_p\approx0.90$--$0.92$,
 sensiblemente más cerca del extremo del P1727 ($\approx0.95$) que del de la B4-60
 ($\approx0.77$). Como los dos puntos de escala grande son independientes entre sí
 --ninguno se usó para calibrar el otro-- esta convergencia deja de ser un ajuste
