@@ -59,37 +59,27 @@ la media) $\times N^{1/2}$.}
 \label{tab:uncert_tpa}
 \end{table}
 
-Las Figuras~\ref{fig:resis_tpa_165} a \ref{fig:resis_tpa_195} muestran las curvas de resistencia total obtenidas para cada uno de los calados ensayados. En todos los casos se observa el comportamiento esperado para un modelo de buque de desplazamiento: la resistencia crece de manera aproximadamente cuadrática con la velocidad en el rango de bajos números de Froude, donde domina la componente viscosa, y aumenta con mayor pendiente a partir de aproximadamente $Fr \approx 0.30$, donde la componente de generación de olas, proporcional a una potencia entre 2 y 4 de $Fr$, comienza a adquirir mayor relevancia. Las mediciones presentan una evolución continua y consistente entre velocidades, sin discontinuidades ni dispersiones significativas, lo que indica una adquisición estable de la fuerza de remolque y un desempeño correcto del sistema experimental. Estas curvas constituyen la base para el análisis posterior, donde se descompondrá la resistencia total en sus componentes viscosa y de formación de olas.
+Las Figuras~\ref{fig:resis_tpa_165}, \ref{fig:resis_tpa_180} y \ref{fig:resis_tpa_195} muestran las curvas de resistencia total obtenidas para cada uno de los calados ensayados. En todos los casos se observa el comportamiento esperado para un modelo de buque de desplazamiento: la resistencia crece de manera aproximadamente cuadrática con la velocidad en el rango de bajos números de Froude, donde domina la componente viscosa, y aumenta con mayor pendiente a partir de aproximadamente $Fr \approx 0{.}30$, donde la componente de generación de olas, proporcional a una potencia entre 2 y 4 de $Fr$, comienza a adquirir mayor relevancia. Las mediciones presentan una evolución continua y consistente entre velocidades, sin discontinuidades ni dispersiones significativas, lo que indica una adquisición estable de la fuerza de remolque y un desempeño correcto del sistema experimental. Estas curvas constituyen la base para el análisis posterior, donde se descompondrá la resistencia total en sus componentes viscosa y de formación de olas.
 
 \begin{figure}[htpb]
-     \centering
-     % --- Primera fila: Calados 1 y 2 ---
-     \begin{subfigure}[b]{0.45\textwidth}
-         \centering
-         \includegraphics[width=\textwidth]{images/efd-165}
-         \caption{Calado 1.}
-         \label{fig:resis_tpa_165}
-     \end{subfigure}
-     \hfill
-     \begin{subfigure}[b]{0.45\textwidth}
-         \centering
-         \includegraphics[width=\textwidth]{images/efd-180}
-         \caption{Calado 2.}
-         \label{fig:resis_tpa_180}
-     \end{subfigure}
-     
-     \vspace{0.5cm} % Espacio entre filas
-     
-     % --- Segunda fila: Calado 3 centrado ---
-     \begin{subfigure}[b]{0.45\textwidth}
-         \centering
-         \includegraphics[width=\textwidth]{images/efd-195}
-         \caption{Calado 3.}
-         \label{fig:resis_tpa_195}
-     \end{subfigure}
-     
-     \caption{Resistencia al avance (EFD) en función de Fr para diferentes calados.}
-     \label{fig:comparativa_efd_calados}
+    \centering
+    \includegraphics[width=0.6\textwidth]{images/efd_165.pdf}
+    \caption{Resistencia total al avance (EFD) en función de $Fr$ para el Calado 1 (0.165\,m).}
+    \label{fig:resis_tpa_165}
+\end{figure}
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.6\textwidth]{images/efd_180.pdf}
+    \caption{Resistencia total al avance (EFD) en función de $Fr$ para el Calado 2 (0.180\,m).}
+    \label{fig:resis_tpa_180}
+\end{figure}
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.6\textwidth]{images/efd_195.pdf}
+    \caption{Resistencia total al avance (EFD) en función de $Fr$ para el Calado 3 (0.195\,m).}
+    \label{fig:resis_tpa_195}
 \end{figure}
 
 
@@ -200,14 +190,14 @@ empleado y son coherentes con la dispersión observada en los diagramas.
 \begin{figure}[htpb]
      \centering
      % --- Primera fila: Calados 1 y 2 ---
-     \begin{subfigure}[b]{0.45\textwidth}
+     \begin{subfigure}[b]{0.6\textwidth}
          \centering
          \includegraphics[width=\textwidth]{images/york_tpa_165.pdf}
          \caption{Calado 1.}
          \label{fig:york_165}
      \end{subfigure}
-     \hfill
-     \begin{subfigure}[b]{0.45\textwidth}
+     \vspace{0.5cm}
+     \begin{subfigure}[b]{0.6\textwidth}
          \centering
          \includegraphics[width=\textwidth]{images/york_tpa_180.pdf}
          \caption{Calado 2.}
@@ -217,7 +207,7 @@ empleado y son coherentes con la dispersión observada en los diagramas.
      \vspace{0.5cm} % Espacio entre filas
      
      % --- Segunda fila: Calado 3 centrado ---
-     \begin{subfigure}[b]{0.45\textwidth}
+     \begin{subfigure}[b]{0.6\textwidth}
          \centering
          \includegraphics[width=\textwidth]{images/york_tpa_195.pdf}
          \caption{Calado 3.}
@@ -443,7 +433,7 @@ diferentes condiciones de velocidad.
     \label{fig:3D-comparacion}
 \end{figure}
 
-En las Figuras~\ref{fig:cfd_165_tpa} a~\ref{fig:cfd_195_tpa} se presentan 
+En las Figuras~\ref{fig:cfd_165_tpa}, \ref{fig:cfd_180_tpa} y~\ref{fig:cfd_195_tpa} se presentan 
 las curvas de resistencia total obtenidas para los tres calados del 
 \textit{P1}. En todos los casos se observa un incremento continuo de la 
 resistencia con el número de Froude, mostrando la transición habitual entre 
@@ -456,33 +446,24 @@ un régimen estacionario, reproduciendo adecuadamente el comportamiento
 esperado para un ensayo de remolque.
 
 \begin{figure}[htpb]
-     \centering
-     \begin{subfigure}[b]{0.45\textwidth}
-         \centering
-         \includegraphics[width=\textwidth]{images/cfd-165}
-         \caption{Calado 1.}
-         \label{fig:cfd_165_tpa}
-     \end{subfigure}
-     \hfill
-     \begin{subfigure}[b]{0.45\textwidth}
-         \centering
-         \includegraphics[width=\textwidth]{images/cfd-180}
-         \caption{Calado 2.}
-         \label{fig:cfd_180_tpa}
-     \end{subfigure}
-     
-     \vspace{0.5cm}
-     
-     \begin{subfigure}[b]{0.45\textwidth}
-         \centering
-         \includegraphics[width=\textwidth]{images/cfd-195}
-         \caption{Calado 3.}
-         \label{fig:cfd_195_tpa}
-     \end{subfigure}
-     
-     \caption{Resistencia al avance del \textit{P1} obtenida por CFD en 
-     función de $Fr$ para los tres calados.}
-     \label{fig:comparativa_calados}
+    \centering
+    \includegraphics[width=0.6\textwidth]{images/cfd_165.pdf}
+    \caption{Resistencia total al avance del \textit{P1} obtenida por CFD en función de $Fr$ para el Calado 1 (0.165\,m).}
+    \label{fig:cfd_165_tpa}
+\end{figure}
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.6\textwidth]{images/cfd_180.pdf}
+    \caption{Resistencia total al avance del \textit{P1} obtenida por CFD en función de $Fr$ para el Calado 2 (0.180\,m).}
+    \label{fig:cfd_180_tpa}
+\end{figure}
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.6\textwidth]{images/cfd_195.pdf}
+    \caption{Resistencia total al avance del \textit{P1} obtenida por CFD en función de $Fr$ para el Calado 3 (0.195\,m).}
+    \label{fig:cfd_195_tpa}
 \end{figure}
 
 
@@ -662,14 +643,14 @@ Este hallazgo resulta crítico: si el factor de forma varía de manera apreciabl
 \begin{figure}[htpb]
     \centering
     % Primera fila: Calado 1 y Calado 2
-    \begin{subfigure}[b]{0.48\textwidth}
+    \begin{subfigure}[b]{0.6\textwidth}
         \centering
         \includegraphics[width=\textwidth]{images/tpa_CFD_DB_165.pdf}
         \caption{Calado 1 (T1: 0.165 m)}
         \label{fig:k_165}
     \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.48\textwidth}
+    \vspace{10pt} % Espacio entre filas
+    \begin{subfigure}[b]{0.6\textwidth}
         \centering
         \includegraphics[width=\textwidth]{images/tpa_CFD_DB_180.pdf}
         \caption{Calado 2 (T2: 0.180 m)}
@@ -679,7 +660,7 @@ Este hallazgo resulta crítico: si el factor de forma varía de manera apreciabl
     \vspace{10pt} % Espacio entre filas
     
     % Segunda fila: Calado 3 centrado
-    \begin{subfigure}[b]{0.48\textwidth}
+    \begin{subfigure}[b]{0.6\textwidth}
         \centering
         \includegraphics[width=\textwidth]{images/tpa_CFD_DB_195.pdf}
         \caption{Calado 3 (T3: 0.195 m)}
@@ -805,8 +786,8 @@ extensión, la configuración numérica empleada (dominio, malla, modelo de
 turbulencia y condiciones de contorno) utilizada en las simulaciones de 
 doble cuerpo presentadas en secciones posteriores.
 
-\paragraph{Resistencia} Las Figuras~\ref{fig:resis_tpa_efd_cfd_165}
-a~\ref{fig:resis_tpa_efd_cfd_195} comparan la resistencia experimental y
+\paragraph{Resistencia} Las Figuras~\ref{fig:resis_tpa_efd_cfd_165}, \ref{fig:resis_tpa_efd_cfd_180} 
+y~\ref{fig:resis_tpa_efd_cfd_195} comparan la resistencia experimental y
 computacional del \textit{P1} para los tres calados. Para cuantificar
 formalmente esta concordancia más allá de la inspección visual, se aplicó el
 procedimiento de validación de la ITTC \citep{ITTC_uncertainty_CFD},
@@ -872,33 +853,24 @@ las simulaciones de doble cuerpo, que carecen de contrapartida experimental
 directa (Sección~\ref{sec:4.1.5_enfoque_doble_cuerpo}).
 
 \begin{figure}[htpb]
-     \centering
-     \begin{subfigure}[b]{0.45\textwidth}
-         \centering
-         \includegraphics[width=\textwidth]{images/efd-cfd-165}
-         \caption{Calado 1.}
-         \label{fig:resis_tpa_efd_cfd_165}
-     \end{subfigure}
-     \hfill
-     \begin{subfigure}[b]{0.45\textwidth}
-         \centering
-         \includegraphics[width=\textwidth]{images/efd-cfd-180}
-         \caption{Calado 2.}
-         \label{fig:resis_tpa_efd_cfd_180}
-     \end{subfigure}
+    \centering
+    \includegraphics[width=0.6\textwidth]{images/efd_cfd_165.pdf}
+    \caption{Resistencia al avance del \textit{P1} en función de $Fr$. Comparación EFD--CFD para el Calado 1 (0.165\,m).}
+    \label{fig:resis_tpa_efd_cfd_165}
+\end{figure}
 
-     \vspace{0.5cm}
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.6\textwidth]{images/efd_cfd_180.pdf}
+    \caption{Resistencia al avance del \textit{P1} en función de $Fr$. Comparación EFD--CFD para el Calado 2 (0.180\,m).}
+    \label{fig:resis_tpa_efd_cfd_180}
+\end{figure}
 
-     \begin{subfigure}[b]{0.45\textwidth}
-         \centering
-         \includegraphics[width=\textwidth]{images/efd-cfd-195}
-         \caption{Calado 3.}
-         \label{fig:resis_tpa_efd_cfd_195}
-     \end{subfigure}
-
-     \caption{Resistencia al avance del \textit{P1} en función de $Fr$. 
-     Comparación EFD--CFD para los tres calados.}
-     \label{fig:comparativa_efd_cfd_calados}
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.6\textwidth]{images/efd_cfd_195.pdf}
+    \caption{Resistencia al avance del \textit{P1} en función de $Fr$. Comparación EFD--CFD para el Calado 3 (0.195\,m).}
+    \label{fig:resis_tpa_efd_cfd_195}
 \end{figure}
 
 \paragraph{Factor de forma} Como fue mencionado en las secciones 
@@ -941,9 +913,10 @@ correctamente la zona de transición a bajos $Re$.
 \label{fig:prohaska_tpa_efd_cfd_195}
 \end{figure}
 
-La Figura~\ref{fig:comparativa_form_factor_range} muestra, para cada calado, 
-el valor de $(1+k)$ obtenido por Prohaska al variar el límite inferior del 
-rango de Froude considerado en la regresión, tanto para EFD como para CFD. 
+Las Figuras~\ref{fig:efd_cfd_165_tpa_range}, \ref{fig:efd_cfd_180_tpa_range} 
+y \ref{fig:efd_cfd_195_tpa_range} muestran, para cada calado, el valor de 
+$(1+k)$ obtenido por Prohaska al variar el límite inferior del rango de 
+Froude considerado en la regresión, tanto para EFD como para CFD. 
 Se observa que, al restringir el rango a $0.13 < Fr < 0.18$ aproximadamente, 
 la brecha entre ambos enfoques se reduce respecto de la observada a bajas 
 velocidades, si bien la magnitud de esa reducción depende del calado: la 
@@ -955,41 +928,41 @@ superficie libre predicen factores de forma del mismo orden para el
 \textit{P1}, aunque no necesariamente idénticos.
 
 \begin{figure}[htpb]
-     \centering
-     \begin{subfigure}[b]{0.48\textwidth}
-         \centering
-         \includegraphics[width=\textwidth]{images/efd_cfd_form_factor_tpa_165_range}
-         \caption{Calado 1.}
-         \label{fig:efd_cfd_165_tpa_range}
-     \end{subfigure}
-     \hfill
-     \begin{subfigure}[b]{0.48\textwidth}
-         \centering
-         \includegraphics[width=\textwidth]{images/efd_cfd_form_factor_tpa_180_range}
-         \caption{Calado 2.}
-         \label{fig:efd_cfd_180_tpa_range}
-     \end{subfigure}
-     
-     \vspace{0.5cm}
-     
-     \begin{subfigure}[b]{0.48\textwidth}
-         \centering
-         \includegraphics[width=\textwidth]{images/efd_cfd_form_factor_tpa_195_range}
-         \caption{Calado 3.}
-         \label{fig:efd_cfd_195_tpa_range}
-     \end{subfigure}
-     
-     \caption{Variación del factor de forma $(1+k)$ del \textit{P1}, obtenido 
-     mediante el método de Prohaska a partir de EFD y CFD, en función del 
-     límite inferior del rango de Froude considerado en el ajuste.}
-     \label{fig:comparativa_form_factor_range}
+    \centering
+    \includegraphics[width=0.7\textwidth]{images/efd_cfd_form_factor_tpa_165_range}
+    \caption{Variación del factor de forma $(1+k)$ del \textit{P1} para el 
+    Calado~1, obtenido mediante el método de Prohaska a partir de EFD y CFD, 
+    en función del límite inferior del rango de Froude considerado en el 
+    ajuste.}
+    \label{fig:efd_cfd_165_tpa_range}
+\end{figure}
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.7\textwidth]{images/efd_cfd_form_factor_tpa_180_range}
+    \caption{Variación del factor de forma $(1+k)$ del \textit{P1} para el 
+    Calado~2, obtenido mediante el método de Prohaska a partir de EFD y CFD, 
+    en función del límite inferior del rango de Froude considerado en el 
+    ajuste.}
+    \label{fig:efd_cfd_180_tpa_range}
+\end{figure}
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.7\textwidth]{images/efd_cfd_form_factor_tpa_195_range}
+    \caption{Variación del factor de forma $(1+k)$ del \textit{P1} para el 
+    Calado~3, obtenido mediante el método de Prohaska a partir de EFD y CFD, 
+    en función del límite inferior del rango de Froude considerado en el 
+    ajuste.}
+    \label{fig:efd_cfd_195_tpa_range}
 \end{figure}
 
 Habiendo establecido un valor único y consistente de $(1+k)$ mediante Prohaska, 
 surge la pregunta de cómo se relaciona este valor con los resultados obtenidos 
 mediante el método de doble cuerpo, presentado en la 
-Sección~\ref{sec:doble_cuerpo}. La Figura~\ref{fig:comparativa_doble_cuerpo} 
-superpone, para cada calado, el valor adoptado por Prohaska (línea horizontal 
+Sección~\ref{sec:doble_cuerpo}. Las Figuras~\ref{fig:tpa_proj_DB_k_escala20_165}, 
+\ref{fig:tpa_proj_DB_k_escala20_180} y \ref{fig:tpa_proj_DB_k_escala20_195} 
+superponen, para cada calado, el valor adoptado por Prohaska (línea horizontal 
 roja) con los valores de $(1+k)$ obtenidos mediante el método de doble cuerpo, en función 
 de $Fr$ (puntos azules). Se observa que el valor de Prohaska coincide con los 
 resultados de doble cuerpo específicamente en el rango $0{.}10 < Fr < 0{.}20$, es 
@@ -1002,38 +975,36 @@ curva de $(1+k)$ que en realidad varía con $Fr$ (o $Re$) en todo el rango
 operativo del buque, comportamiento que ya fue observado para el KCS y que 
 será analizado en profundidad en la Sección~\ref{sec:analisis_efectos_escala}.
 
-\begin{figure}[H]
-     \centering
-     \begin{subfigure}[b]{0.48\textwidth}
-         \centering
-         \includegraphics[width=\textwidth]{images/tpa_CFD_DB_prohaska_165.pdf}
-         \caption{Calado 1.}
-         \label{fig:tpa_proj_DB_k_escala20_165}
-     \end{subfigure}
-     \hfill
-     \begin{subfigure}[b]{0.48\textwidth}
-         \centering
-         \includegraphics[width=\textwidth]{images/tpa_CFD_DB_prohaska_180.pdf}
-         \caption{Calado 2.}
-         \label{fig:tpa_proj_DB_k_escala20_180}
-     \end{subfigure}
-     
-     \vspace{0.5cm}
-     
-     \begin{subfigure}[b]{0.48\textwidth}
-         \centering
-         \includegraphics[width=\textwidth]{images/tpa_CFD_DB_prohaska_195.pdf}
-         \caption{Calado 3.}
-         \label{fig:tpa_proj_DB_k_escala20_195}
-     \end{subfigure}
-     
-     \caption{Comparación del valor de $(1+k)$ adoptado por Prohaska (EFD/CFD, 
-     línea roja) con la evolución de $(1+k)$ obtenida mediante el método de 
-     doble cuerpo (puntos azules) en función de $Fr$, para los tres calados 
-     del \textit{P1}.}
-     \label{fig:comparativa_doble_cuerpo}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{images/tpa_CFD_DB_prohaska_165.pdf}
+    \caption{Comparación entre el valor de $(1+k)$ adoptado por Prohaska 
+    (línea horizontal roja) y los valores obtenidos mediante el método de 
+    doble cuerpo en función de $Fr$ (puntos azules) para el \textit{P1}, 
+    Calado~1.}
+    \label{fig:tpa_proj_DB_k_escala20_165}
 \end{figure}
 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{images/tpa_CFD_DB_prohaska_180.pdf}
+    \caption{Comparación entre el valor de $(1+k)$ adoptado por Prohaska 
+    (línea horizontal roja) y los valores obtenidos mediante el método de 
+    doble cuerpo en función de $Fr$ (puntos azules) para el \textit{P1}, 
+    Calado~2.}
+    \label{fig:tpa_proj_DB_k_escala20_180}
+\end{figure}
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=0.6\textwidth]{images/tpa_CFD_DB_prohaska_195.pdf}
+    \caption{Comparación entre el valor de $(1+k)$ adoptado por Prohaska 
+    (línea horizontal roja) y los valores obtenidos mediante el método de 
+    doble cuerpo en función de $Fr$ (puntos azules) para el \textit{P1}, 
+    Calado~3.}
+    \label{fig:tpa_proj_DB_k_escala20_195}
+\end{figure}
+     
 \subsection{Discusión de incertidumbres y diferencias entre EFD y CFD}
 
 Los resultados presentados hasta el momento permiten realizar una primera discusión conjunta sobre las incertidumbres involucradas y las diferencias observadas entre los ensayos experimentales (EFD) y las simulaciones numéricas (CFD) en la determinación de la resistencia al avance y del factor de forma $(1+k)$.

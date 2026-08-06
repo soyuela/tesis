@@ -7,7 +7,9 @@ Cada figura muestra, en el diagrama de Prohaska (C_TM/C_F0 vs Fr^4/C_F0):
   * los puntos experimentales (rojos los usados en el ajuste, grises los descartados)
   * la recta de York (regresión ponderada, error despreciable en el eje X)
   * el punto (1+k) extrapolado en la ordenada, con su barra de incertidumbre
-  * las verticales Fr = 0.1 y Fr = 0.2 ubicadas en su x = Fr^4/C_F0 correcto
+  * las verticales Fr = 0.10 y Fr = 0.20 ubicadas en su x = Fr^4/C_F0 correcto,
+    con las etiquetas desplazadas hacia adentro (mismo criterio que el resto
+    de las figuras de la tesis)
 
 Incertidumbre de la coordenada vertical:
   - P1  : se propaga la incertidumbre combinada de la resistencia U_D
@@ -15,11 +17,13 @@ Incertidumbre de la coordenada vertical:
           interpolada linealmente en Fr).
   - KCS : se estima de la dispersión de las repeticiones disponibles a cada velocidad.
 
-Formato estandarizado tesis: 31/20 pt, figsize (12, 8), colores mate.
+Formato estandarizado tesis: 31/20 pt, figsize (12, 8), colores mate,
+eje X siempre con dos decimales.
 """
 
 import numpy as np
 import matplotlib.pyplot as plt
+from matplotlib.ticker import FuncFormatter
 from io import StringIO
 from collections import defaultdict
 from scipy import stats
@@ -184,7 +188,7 @@ def york_error_en_Y(X, Y, sY):
 
 def x_de_Fr(Fr_val, Lows, LFr):
     """Coordenada x = Fr^4/C_F0 correspondiente a un dado Fr (para las
-    verticales Fr = 0.1 y Fr = 0.2)."""
+    verticales Fr = 0.10 y Fr = 0.20)."""
     V = Fr_val * np.sqrt(g * LFr)
     Re = V * Lows / visc
     return Fr_val**4 / cf_ittc(Re)
@@ -198,7 +202,7 @@ def figura_york(X, Y, sY, ind, a, b, ua, xFr01, xFr02, fname,
                 visible=None):
     """Genera una figura de York.
     - xlim, ylim: límites de los ejes.
-    - lbl_y: altura Y de las etiquetas Fr=0.1 / Fr=0.2.
+    - lbl_y: altura Y de las etiquetas Fr=0.10 / Fr=0.20.
     - a_recta: ordenada usada para dibujar la recta y el punto extrapolado
       (si difiere de 'a'; p.ej. valor adoptado por Prohaska). Por defecto usa 'a'.
     - visible: máscara booleana de puntos a mostrar (para filtro de dispersión).
@@ -235,15 +239,18 @@ def figura_york(X, Y, sY, ind, a, b, ua, xFr01, xFr02, fname,
                 capthick=2, elinewidth=2, markeredgecolor='black', markeredgewidth=1.0,
                 zorder=5, label=r'$(1+k)$ extrapolado')
 
-    # verticales Fr = 0.1 y Fr = 0.2 en su x correcto
-    for xv, lbl in [(xFr01, 'Fr = 0.1'), (xFr02, 'Fr = 0.2')]:
-        ax.axvline(x=xv, color='black', linestyle=':', linewidth=2, alpha=0.6, zorder=1)
-        ax.text(xv, lbl_y, lbl, fontsize=17, ha='center', va='top',
-                bbox=dict(boxstyle='round,pad=0.2', facecolor='white', alpha=0.85,
-                          edgecolor='none'))
+    # verticales Fr = 0.10 y Fr = 0.20 en su x correcto, etiquetas hacia adentro
+    # (mismo criterio que el resto de las figuras de Prohaska de la tesis)
+    ax.axvline(x=xFr01, color='black', linestyle=(0, (1, 2)), linewidth=3.5,
+               dash_capstyle='round', alpha=0.7, zorder=1)
+    ax.axvline(x=xFr02, color='black', linestyle=(0, (1, 2)), linewidth=3.5,
+               dash_capstyle='round', alpha=0.7, zorder=1)
+    dx = 0.01 * (xlim[1] - xlim[0]) / 0.41   # separacion proporcional al ancho del eje
+    ax.text(xFr01 + dx, lbl_y, 'Fr = 0.10', fontsize=17, ha='left', va='top')
+    ax.text(xFr02 - dx, lbl_y, 'Fr = 0.20', fontsize=17, ha='right', va='top')
 
-    ax.set_xlabel(r'$Fr^{4}/C_{F0}$', fontsize=31)
-    ax.set_ylabel(r'$C_{TM}/C_{F0}$', fontsize=31)
+    ax.set_xlabel(r'$\mathrm{Fr}^{4}/\mathrm{C}_{F0}$', fontsize=31)
+    ax.set_ylabel(r'$\mathrm{C}_{TM}/\mathrm{C}_{F0}$', fontsize=31)
     ax.tick_params(labelsize=20)
     for s in ('top', 'right', 'bottom', 'left'):
         ax.spines[s].set_linewidth(1.5)
@@ -251,10 +258,13 @@ def figura_york(X, Y, sY, ind, a, b, ua, xFr01, xFr02, fname,
     if ylim is not None:
         ax.set_ylim(*ylim)
 
+    # eje X siempre con dos decimales (uniforme en todas las figuras)
+    ax.xaxis.set_major_formatter(FuncFormatter(lambda x, pos: f'{x:.2f}'))
+
     ax.text(0.30, 0.10, rf'$(1+k) = {a_recta:.3f} \pm {ua:.3f}$', fontsize=20,
             transform=ax.transAxes,
             bbox=dict(boxstyle='round', facecolor='white', alpha=0.9, edgecolor='gray'))
-    ax.legend(fontsize=18, loc='lower right', framealpha=0.95)
+    ax.legend(fontsize=20, loc='lower right', framealpha=0.95)
 
     plt.tight_layout()
     plt.savefig(f'{OUTPUT_DIR}/{fname}.pdf', format='pdf', bbox_inches='tight', pad_inches=0.1)
@@ -289,8 +299,11 @@ def generar_kcs():
     """KCS: se ajusta sobre los 25 puntos promediados (los del diagrama de
     Prohaska). El valor de (1+k) adoptado es el de Prohaska (mínimos cuadrados
     simple); York aporta la incertidumbre. Los sigma provienen de la dispersión
-    de las repeticiones crudas por velocidad. Un filtro de dispersión oculta los
-    puntos de muy baja velocidad con residuo > 2.5 sigma respecto de la recta."""
+    de las repeticiones crudas por velocidad, con un piso igual al CV mediano
+    para evitar que un par de repeticiones casi idénticas por azar (p.ej.
+    V=0.915: 2.661 y 2.666 N) domine el ajuste ponderado. Los puntos con
+    Fr < 0.13 quedan fuera del rango de ajuste y se muestran en gris, igual
+    que en las figuras del P1."""
     # 25 puntos promediados (V [m/s], R [N]) del diagrama de Prohaska del KCS
     prom = np.array([
         [0.566, 1.031], [0.650, 1.302], [0.652, 1.311], [0.650, 1.320],
@@ -311,8 +324,13 @@ def generar_kcs():
         grupos[round(v, 2)].append(n)
     cvs = [np.std(x, ddof=1) / np.mean(x) for x in grupos.values() if len(x) > 1]
     cv_med = np.median(cvs)
+    # sigma con piso: max(dispersion observada, cv_mediano*RTM). Sin el piso, un
+    # par de repeticiones casi idénticas por azar (p.ej. V=0.915: 2.661 y 2.666 N)
+    # queda con sigma artificialmente chica y domina el ajuste ponderado de York
+    # con un peso ~900x mayor al resto, subestimando la incertidumbre real.
     sigma_N = np.array([
-        np.std(grupos[round(v, 2)], ddof=1) if len(grupos[round(v, 2)]) > 1 else cv_med * rtm
+        max(np.std(grupos[round(v, 2)], ddof=1), cv_med * rtm) if len(grupos[round(v, 2)]) > 1
+        else cv_med * rtm
         for v, rtm in zip(V, RTM)
     ])
 
@@ -327,18 +345,12 @@ def generar_kcs():
     # York: para la pendiente de la recta y la incertidumbre de la ordenada
     a_york, b_york, ua = york_error_en_Y(X[ind], Y[ind], sY[ind])
 
-    # Filtro de dispersión: ocultar puntos con residuo > 2.5 sigma respecto
-    # de la recta de Prohaska (son los de muy baja velocidad, fuera del rango).
-    resid = Y - (i_ls + s_ls * X)
-    std_r = resid[ind].std()
-    visible = np.abs(resid) <= 2.5 * std_r
-
     figura_york(X, Y, sY, ind, a_prohaska, b_york, ua,
                 x_de_Fr(0.1, KCS['Lows'], KCS['LFr']),
                 x_de_Fr(0.2, KCS['Lows'], KCS['LFr']),
                 'york_kcs',
                 xlim=(-0.01, 0.46), ylim=(0.5, 1.8), lbl_y=1.72,
-                a_recta=a_prohaska, visible=visible)
+                a_recta=a_prohaska)
 
 
 # ============================================================================
