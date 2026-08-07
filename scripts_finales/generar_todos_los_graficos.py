@@ -459,8 +459,8 @@ def generar_prohaska_efd_cfd_comparacion():
         ax.plot(x_line, slope_cfd * x_line + intercept_cfd, color=color_cfd, linewidth=2.5, zorder=2)
         ax.plot(x_line, slope_efd * x_line + intercept_efd, color=color_efd, linewidth=2.5, zorder=2)
         
-        ax.axvline(x=x_marks[0], color='black', linestyle=':', linewidth=2, alpha=0.5, zorder=1)
-        ax.axvline(x=x_marks[1], color='black', linestyle=':', linewidth=2, alpha=0.5, zorder=1)
+        ax.axvline(x=x_marks[0], color='black', linestyle=':', linewidth=2.5, alpha=1.0, zorder=4)
+        ax.axvline(x=x_marks[1], color='black', linestyle=':', linewidth=2.5, alpha=1.0, zorder=4)
         ax.text(x_marks[0] + 0.01, 1.9, 'Fr = 0.10', fontsize=18, ha='left')
         ax.text(x_marks[1] - 0.01, 1.9, 'Fr = 0.20', fontsize=18, ha='right')
         
@@ -483,7 +483,6 @@ def generar_prohaska_efd_cfd_comparacion():
         plt.savefig(f'{OUTPUT_DIR}/{filename}', format='pdf', bbox_inches='tight', pad_inches=0.1)
         plt.close()
         print(f"✓ {filename}")
-
 
 # ============================================================================
 # 6. COMPARACIÓN RANGE EFD vs CFD (3 calados)

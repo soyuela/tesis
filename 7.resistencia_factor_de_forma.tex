@@ -11,7 +11,7 @@ La presente sección aborda la construcción de la curva de resistencia y el cá
 
 Si bien los fundamentos teóricos, los criterios de similitud y los antecedentes metodológicos fueron discutidos previamente en los Capítulos \ref{chap:antecedentes} y \ref{chap:Metodologia}, esta sección constituye el primer punto donde dicha metodología se aplica de manera operativa. En particular, se detalla la campaña experimental realizada sobre el modelo \textit{P1}, mostrando los criterios de adquisición, la repetibilidad, el control de condiciones del canal y la estimación de incertidumbres asociadas. Estos elementos permiten evaluar la calidad de los datos y establecen un marco sólido para la comparación cuantitativa con los resultados CFD presentados en secciones posteriores.
 
-Asimismo aunque esta sección se centra inicialmente en el modelo objetivo (\textit{P1}), el análisis experimental incluye también una campaña independiente con el modelo del portacontenedores KCS. La incorporación de este buque de referencia obedece al interés de complementar el análisis mediante la inclusión de una geometría radicalmente distinta a los pesqueros: una esbeltez mucho mayor ($L/B \approx 7.1$ vs. 2.8–3.5), una popa afinada con transición suave al codaste en contraste con la popa robusta de los pesqueros, y la ausencia de dormido significativo frente al dormido pronunciado de los buques pesqueros. Esta comparación permite examinar cómo la hidrodinámica del factor de forma varía cuando se introducen cambios fundamentales en las proporciones globales y la configuración local del casco.
+Asimismo aunque esta sección se centra inicialmente en el modelo objetivo (\textit{P1}), el análisis experimental incluye también una campaña independiente con el modelo del portacontenedores \textit{KCS}. La incorporación de este buque de referencia obedece al interés de complementar el análisis mediante la inclusión de una geometría radicalmente distinta a los pesqueros: una esbeltez mucho mayor ($L/B \approx 7.1$ vs. 2.8–3.5), una popa afinada con transición suave al codaste en contraste con la popa robusta de los pesqueros, y la ausencia de dormido significativo frente al dormido pronunciado de los buques pesqueros. Esta comparación permite examinar cómo la hidrodinámica del factor de forma varía cuando se introducen cambios fundamentales en las proporciones globales y la configuración local del casco.
 
 \vspace{1em}
 
@@ -93,7 +93,7 @@ Sin embargo, en los tres calados se observa una ligera curvatura en los puntos e
 \begin{figure}[htpb]
 \centering
 \includegraphics[width=0.6\textwidth]{images/prohaska_tpa_comparacion.pdf}
-\caption{Diagramas del método de Prohaska para los tres calados del \textit{P1}. La desviación respecto de la linealidad teórica se acentúa a bajos números de Froude.}
+\caption{Diagramas del método de Prohaska para los tres calados del \textit{P1}. La desviación respecto de la linealidad teórica se acentúa a bajos números de Froude. Las líneas verticales punteadas indican $Fr = 0{.}10$ y $Fr = 0{.}20$ para el \textit{P1}.}
 \label{fig:prohaska_tpa}
 \end{figure}
 
@@ -214,7 +214,7 @@ empleado y son coherentes con la dispersión observada en los diagramas.
          \label{fig:york_195}
      \end{subfigure}
      
-     \caption{Ajuste lineal con ponderación mediante el método de York aplicado al \textit{P1} para la estimación de $(1+k)$ y su incertidumbre.}
+     \caption{Ajuste lineal con ponderación mediante el método de York aplicado al \textit{P1} para la estimación de $(1+k)$ y su incertidumbre. Las líneas verticales punteadas indican $Fr = 0{.}10$ y $Fr = 0{.}20$ para el \textit{P1}.}
      \label{fig:york_tpa}
 \end{figure}
 
@@ -250,11 +250,11 @@ Secciones~\ref{sec:proa_bulbo}, \ref{sec:popa_sumergida}
 y \ref{sec:linea_de_friccion}.
 
 \vspace{1em}
-\subsubsection{Modelo de referencia KCS}
+\subsubsection{Modelo de referencia \textit{KCS}}
 
 Con el objetivo de analizar el comportamiento hidrodinámico de un casco 
 de referencia y establecer una comparación directa con el \textit{P1}, 
-se realizó una segunda campaña experimental utilizando el modelo KCS 
+se realizó una segunda campaña experimental utilizando el modelo \textit{KCS} 
 (escala 1:79). Este buque portacontenedores, ampliamente ensayado por 
 laboratorios internacionales (KRISO, MARIN, SSPA, Hyundai), satisface 
 adecuadamente los supuestos del método de Prohaska y es representativo 
@@ -273,11 +273,11 @@ coeficiente de fricción de placa plana evaluado al número de Reynolds del
 modelo según la línea ITTC-57. Los puntos experimentales presentan una buena 
 alineación sobre la recta de regresión en todo el rango analizado, en 
 contraste con el comportamiento observado en el \textit{P1}. Este resultado 
-es consistente con lo esperable para un casco como el KCS: la hipótesis de 
+es consistente con lo esperable para un casco como el \textit{KCS}: la hipótesis de 
 Hughes, que sustenta la descomposición de la resistencia viscosa, y la 
 aproximación de Prohaska, que supone que la resistencia por olas varía como 
 ${\sim}Fr^4$, se satisfacen con mayor facilidad cuando el flujo permanece 
-adherido y predominantemente turbulento. El KCS opera en un rango de Reynolds 
+adherido y predominantemente turbulento. El \textit{KCS} opera en un rango de Reynolds 
 más elevado que el \textit{P1} ($Re \approx 3{.}84 \times 10^6$ vs 
 $Re \approx 1{.}60 \times 10^6$ a velocidad de diseño), su proa bulbo opera 
 suficientemente alejada de la superficie libre en el rango de $Fr$ analizado, 
@@ -287,12 +287,12 @@ conjunto favorecen el cumplimiento de los supuestos del método.
 \begin{figure}[htpb]
 \centering
 \includegraphics[width=0.6\textwidth]{images/prohaska_kcs.pdf}
-\caption{Diagrama de Prohaska para el modelo KCS. Se grafica 
+\caption{Diagrama de Prohaska para el modelo \textit{KCS}. Se grafica 
 $C_{TM}/C_{F0}$ frente a $Fr^4/C_{F0}$, donde $C_{F0}$ es el 
 coeficiente de fricción de placa plana al $Re$ del modelo según 
 la línea ITTC-57. La línea continua representa el ajuste por 
 mínimos cuadrados, cuya extrapolación al origen permite obtener 
-el valor de $1+k$.}
+el valor de $1+k$. Las líneas verticales punteadas indican $Fr = 0{.}10$ y $Fr = 0{.}20$ para el \textit{KCS}.}
 \label{fig:prohaska_kcs}
 \end{figure}
 
@@ -307,7 +307,7 @@ adoptado fue $(1+k) = 1{.}052$, correspondiente al rango $0{.}13 < Fr < 0{.}20$.
 
 Sobre este mismo rango se aplicó el método de York descrito para el
 \textit{P1}, con el fin de cuantificar la incertidumbre del factor de forma
-del KCS. Como cada punto del diagrama corresponde al promedio de varias
+del \textit{KCS}. Como cada punto del diagrama corresponde al promedio de varias
 corridas repetidas, se adoptó para la coordenada vertical una incertidumbre
 proporcional a la resistencia con un coeficiente de variación constante,
 igual al valor mediano observado en las repeticiones ($\sim 4\%$). Este
@@ -320,7 +320,7 @@ muestra en la Figura~\ref{fig:york_kcs}.
 \begin{figure}[htpb]
 \centering
 \includegraphics[width=0.6\textwidth]{images/york_kcs.pdf}
-\caption{Ajuste lineal con ponderación mediante el método de York aplicado al \textit{KCS} para la estimación de $(1+k)$ y su incertidumbre.}
+\caption{Ajuste lineal con ponderación mediante el método de York aplicado al \textit{KCS} para la estimación de $(1+k)$ y su incertidumbre. Las líneas verticales punteadas indican $Fr = 0{.}10$ y $Fr = 0{.}20$ para el \textit{KCS}.}
 \label{fig:york_kcs}
 \end{figure}
 
@@ -340,9 +340,9 @@ Este valor contrasta de manera marcada con el obtenido para el \textit{P1}
 $8$ y el $11\%$. La diferencia es coherente con el comportamiento de ambos
 cascos frente al método de Prohaska: mientras que en el \textit{P1} los
 puntos experimentales se apartan de la recta teóric, y son además mucho
-menos numerosos en el rango de ajuste, en el KCS se alinean estrechamente sobre ella,
+menos numerosos en el rango de ajuste, en el \textit{KCS} se alinean estrechamente sobre ella,
 lo que se traduce en una determinación mucho más precisa de $(1+k)$. Esta
-comparación cuantitativa respalda la observación cualitativa de que el KCS
+comparación cuantitativa respalda la observación cualitativa de que el \textit{KCS}
 satisface los supuestos del método de Prohaska con mayor fidelidad que el
 \textit{P1}, y refuerza la conveniencia de recurrir al método de doble cuerpo
 para el \textit{P1}, donde el ajuste experimental resulta intrínsecamente
@@ -351,7 +351,7 @@ menos confiable.
 \begin{figure}[htpb]
 \centering
 \includegraphics[width=0.6\textwidth]{images/efd_form_factor_kcs_range.pdf}
-\caption{Variación del factor de forma $(1+k)$ para el modelo KCS en función 
+\caption{Variación del factor de forma $(1+k)$ para el modelo \textit{KCS} en función 
 del límite inferior del rango de Froude utilizado en el ajuste de Prohaska, 
 con límite superior fijo en $Fr = 0{.}20$. El cuadrado rojo indica el valor 
 adoptado.}
@@ -369,8 +369,8 @@ ensayada.
 \begin{figure}[htpb]
 \centering
 \includegraphics[width=0.6\textwidth]{images/efd_kcs_lit.pdf}
-\caption{Comparación del factor de forma $(1+k)$ del KCS obtenido en el 
-LabHiNO (punto rojo) con resultados experimentales históricos del KCS 
+\caption{Comparación del factor de forma $(1+k)$ del \textit{KCS} obtenido en el 
+LabHiNO (punto rojo) con resultados experimentales históricos del \textit{KCS} 
 compilados de literatura internacional en \citet{TerzievDataSet} 
 (puntos amarillos), en función del número de Reynolds.}
 \label{fig:kcs_validation}
@@ -475,7 +475,7 @@ Para la determinación computacional del factor de forma se implementaron dos m�
 \begin{figure}[htpb]
 \centering
 \includegraphics[width=0.6\textwidth]{images/prohaska_tpa_cfd_comparacion.pdf}
-\caption{Diagramas del método de Prohaska para los tres calados del \textit{P1}. La desviación respecto de la linealidad teórica se acentúa a bajos números de Froude.}
+\caption{Diagramas del método de Prohaska para los tres calados del \textit{P1}. La desviación respecto de la linealidad teórica se acentúa a bajos números de Froude. Las líneas verticales punteadas indican $Fr = 0{.}10$ y $Fr = 0{.}20$ para el \textit{P1}.}
 \label{fig:prohaska_tpa_cfd}
 \end{figure}
 
@@ -667,21 +667,21 @@ Este hallazgo resulta crítico: si el factor de forma varía de manera apreciabl
         \label{fig:k_195}
     \end{subfigure}
 
-    \caption{Factor de forma calculado mediante el método de doble cuerpo para el \textit{P1} en los tres calados analizados, en función de Froude.}
+    \caption{Factor de forma calculado mediante el método de doble cuerpo (DB) para el \textit{P1} en los tres calados analizados, en función de Froude.}
     \label{fig:tpa_DB_k_evolucion}
 \end{figure}
 
-\subsubsection{Validación con modelo de referencia KCS}
+\subsubsection{Validación con modelo de referencia \textit{KCS}}
 
 Dada la variabilidad observada en el \textit{P1}, resulta necesario descartar 
 que se trate de un error sistemático en la configuración del solver o del 
 modelo de turbulencia. Para ello, se replicó exactamente la misma metodología 
-sobre el modelo de referencia KCS (escala 1:79). La verificación numérica 
+sobre el modelo de referencia \textit{KCS} (escala 1:79). La verificación numérica 
 correspondiente se resume en la Tabla~\ref{tab:CFD_KCS}.
 
 \begin{table}[htbp]
 \centering
-\caption{Verificación numérica para el modelo KCS a escala 1:79.}
+\caption{Verificación numérica para el modelo \textit{KCS} a escala 1:79.}
 \label{tab:CFD_KCS}
 \small
 \begin{tabular}{ccccc}
@@ -712,7 +712,7 @@ correspondiente se resume en la Tabla~\ref{tab:CFD_KCS}.
 \end{tabular}
 \end{table}
 
-A diferencia del \textit{P1}, el $y^+$ del KCS abarca desde la subcapa viscosa 
+A diferencia del \textit{P1}, el $y^+$ del \textit{KCS} abarca desde la subcapa viscosa 
 ($y^+ \approx 0{.}3$) hasta el borde superior de la capa logarítmica 
 ($y^+ \approx 31$), atravesando la región ``buffer''. Pese a ello, la 
 curva de $(1+k)$ resulta suave y sin cambios abruptos de pendiente, y el GCI se 
@@ -737,7 +737,7 @@ rango, en cambio, ambas curvas convergen hacia el mismo valor asintótico,
 lo que indica una buena concordancia hacia altos números de Reynolds. Las 
 líneas punteadas verticales indican los límites del rango de Froude recomendado por la ITTC para la aplicación 
 del método de Prohaska ($Fr = 0{.}10$ y $Fr = 0{.}20$), correspondientes al 
-modelo KCS a escala 1:79 ensayado en el LabHiNO, mientras que la línea 
+modelo \textit{KCS} a escala 1:79 ensayado en el LabHiNO, mientras que la línea 
 horizontal continua representa el valor de $(1+k)$ adoptado a partir del 
 ensayo experimental (EFD Prohaska, LabHiNO). Se observa que el valor 
 experimental se ubica por debajo de los resultados CFD DB en ese rango, 
@@ -749,7 +749,7 @@ Sección~\ref{sec:det_num_fac_form}.
     \centering
     \includegraphics[width=.6\columnwidth]
         {images/kcs_DB_prohaska.pdf}
-    \caption{Comparación de $1+k$ numérico vs $Re$ para el KCS 1:79 (escala LabHiNO) y 1:75 \citep{TERZIEV2021147}.}
+    \caption{Comparación de $1+k$ numérico vs $Re$ para el \textit{KCS} 1:79 (escala LabHiNO) y 1:75 \citep{TERZIEV2021147}.}
     \label{fig:kcs_DB_prohaska}
 \end{figure}
 
@@ -759,7 +759,7 @@ siguen la tendencia asintótica global validada por múltiples laboratorios  \ci
 \begin{figure}[htpb]
     \centering
     \includegraphics[width=.6\columnwidth]{images/cfd_kcs_lit.pdf}
-    \caption{Factor de forma $(1+k)$ del KCS propio (CFD DB) frente a la base de datos \citep{TerzievDataSet}.}
+    \caption{Factor de forma $(1+k)$ del \textit{KCS} propio (CFD DB) frente a la base de datos \citep{TerzievDataSet}.}
     \label{fig:completo_kcs_lit}
 \end{figure}
 
@@ -895,21 +895,21 @@ correctamente la zona de transición a bajos $Re$.
 \begin{figure}[htpb]
 \centering
 \includegraphics[width=0.6\textwidth]{images/prohaska-efd-cfd-165.pdf}
-\caption{Diagrama de Prohaska del \textit{P1} comparando EFD y CFD. Calado 1.}
+\caption{Diagrama de Prohaska del \textit{P1} comparando EFD y CFD. Calado 1. Las líneas verticales punteadas indican $Fr = 0{.}10$ y $Fr = 0{.}20$ para el \textit{P1}.}
 \label{fig:prohaska_tpa_efd_cfd_165}
 \end{figure}
 
 \begin{figure}[htpb]
 \centering
 \includegraphics[width=0.6\textwidth]{images/prohaska-efd-cfd-180.pdf}
-\caption{Diagrama de Prohaska del \textit{P1} comparando EFD y CFD. Calado 2.}
+\caption{Diagrama de Prohaska del \textit{P1} comparando EFD y CFD. Calado 2. Las líneas verticales punteadas indican $Fr = 0{.}10$ y $Fr = 0{.}20$ para el \textit{P1}.}
 \label{fig:prohaska_tpa_efd_cfd_180}
 \end{figure}
 
 \begin{figure}[htpb]
 \centering
 \includegraphics[width=0.6\textwidth]{images/prohaska-efd-cfd-195.pdf}
-\caption{Diagrama de Prohaska del \textit{P1} comparando EFD y CFD. Calado 3.}
+\caption{Diagrama de Prohaska del \textit{P1} comparando EFD y CFD. Calado 3. Las líneas verticales punteadas indican $Fr = 0{.}10$ y $Fr = 0{.}20$ para el \textit{P1}.}
 \label{fig:prohaska_tpa_efd_cfd_195}
 \end{figure}
 
@@ -972,7 +972,7 @@ mientras que el valor de Prohaska permanece constante por definición. Esto
 sugiere que el método de Prohaska, al restringirse a un rango acotado de bajas 
 velocidades, podría estar capturando únicamente un punto particular de una 
 curva de $(1+k)$ que en realidad varía con $Fr$ (o $Re$) en todo el rango 
-operativo del buque, comportamiento que ya fue observado para el KCS y que 
+operativo del buque, comportamiento que ya fue observado para el \textit{KCS} y que 
 será analizado en profundidad en la Sección~\ref{sec:analisis_efectos_escala}.
 
 \begin{figure}[h]
@@ -980,7 +980,7 @@ será analizado en profundidad en la Sección~\ref{sec:analisis_efectos_escala}.
     \includegraphics[width=0.6\textwidth]{images/tpa_CFD_DB_prohaska_165.pdf}
     \caption{Comparación entre el valor de $(1+k)$ adoptado por Prohaska 
     (línea horizontal roja) y los valores obtenidos mediante el método de 
-    doble cuerpo en función de $Fr$ (puntos azules) para el \textit{P1}, 
+    doble cuerpo (DB) en función de $Fr$ (puntos azules) para el \textit{P1}, 
     Calado~1.}
     \label{fig:tpa_proj_DB_k_escala20_165}
 \end{figure}
@@ -990,7 +990,7 @@ será analizado en profundidad en la Sección~\ref{sec:analisis_efectos_escala}.
     \includegraphics[width=0.6\textwidth]{images/tpa_CFD_DB_prohaska_180.pdf}
     \caption{Comparación entre el valor de $(1+k)$ adoptado por Prohaska 
     (línea horizontal roja) y los valores obtenidos mediante el método de 
-    doble cuerpo en función de $Fr$ (puntos azules) para el \textit{P1}, 
+    doble cuerpo (DB) en función de $Fr$ (puntos azules) para el \textit{P1}, 
     Calado~2.}
     \label{fig:tpa_proj_DB_k_escala20_180}
 \end{figure}
@@ -1000,7 +1000,7 @@ será analizado en profundidad en la Sección~\ref{sec:analisis_efectos_escala}.
     \includegraphics[width=0.6\textwidth]{images/tpa_CFD_DB_prohaska_195.pdf}
     \caption{Comparación entre el valor de $(1+k)$ adoptado por Prohaska 
     (línea horizontal roja) y los valores obtenidos mediante el método de 
-    doble cuerpo en función de $Fr$ (puntos azules) para el \textit{P1}, 
+    doble cuerpo (DB) en función de $Fr$ (puntos azules) para el \textit{P1}, 
     Calado~3.}
     \label{fig:tpa_proj_DB_k_escala20_195}
 \end{figure}
@@ -1096,11 +1096,11 @@ observadas mediante el método de doble cuerpo.
 
 Con el fin de resaltar el comportamiento distintivo de $(1+k)$ en función de 
 $Re$ que se ha encontrado para el \textit{P1}, en esta subsección se compara 
-dicho comportamiento con el correspondiente al KCS. A diferencia de las 
+dicho comportamiento con el correspondiente al \textit{KCS}. A diferencia de las 
 secciones anteriores, donde $(1+k)$ se presentó en función de $Fr$ para un 
 único buque a una escala fija, aquí se opta por graficar en función de $Re$, 
 dado que esta variable permite comparar directamente resultados provenientes 
-de buques y escalas distintas (KCS a 1:79 y 1:75, y \textit{P1} a 1:20) en un 
+de buques y escalas distintas (\textit{KCS} a 1:79 y 1:75, y \textit{P1} a 1:20) en un 
 mismo eje, algo que $Fr$ no posibilita al depender únicamente de la velocidad 
 relativa a la eslora de cada modelo.
 
@@ -1109,17 +1109,17 @@ resultados presentados en las Figuras~\ref{fig:k_195} y \ref{fig:kcs_DB_prohaska
 se reúnen en la Figura~\ref{fig:comparacion_total_kcs_tpa}.
 
 La Figura~\ref{fig:comparacion_total_kcs_tpa} muestra los valores de $(1+k)$ 
-frente a $Re$ obtenidos mediante CFD ``double body'' (DB) para el KCS 
-a escala 1:79, el KCS a escala 1:75 de \citet{TERZIEV2021147} y el \textit{P1} 
+frente a $Re$ obtenidos mediante CFD ``double body'' (DB) para el \textit{KCS} 
+a escala 1:79, el \textit{KCS} a escala 1:75 de \citet{TERZIEV2021147} y el \textit{P1} 
 en escala modelo (1:20) para el Calado~3. El gráfico incluye además los 
 valores experimentales (EFD) de $(1+k)$ determinados mediante el método de 
-Prohaska en el presente trabajo, para el KCS a escala 1:79 y para el 
+Prohaska en el presente trabajo, para el \textit{KCS} a escala 1:79 y para el 
 \textit{P1}.
 
 \begin{figure}[htpb]
 	\centering
 	\includegraphics[width=.6\columnwidth]{images/comparacion_total_kcs_tpa.pdf}
-	\caption{$(1+k)$ frente a $Re$ para el KCS (CFD DB, escalas 1:79 y 1:75 
+	\caption{$(1+k)$ frente a $Re$ para el \textit{KCS} (CFD DB, escalas 1:79 y 1:75 
 	de \citet{TERZIEV2021147}, y EFD a 1:79) y para el \textit{P1} (CFD DB y 
 	EFD, escala 1:20, Calado~3).}
 	\label{fig:comparacion_total_kcs_tpa}
@@ -1127,8 +1127,8 @@ Prohaska en el presente trabajo, para el KCS a escala 1:79 y para el
 
 Es evidente que, dentro del rango de velocidades del modelo considerado, el 
 \textit{P1} no alcanza un valor asintótico de $(1+k)$, a diferencia de lo 
-observado en el KCS. Por consiguiente, y en contraste con el comportamiento 
-mostrado por el KCS, el valor de $(1+k)$ del \textit{P1} calculado mediante 
+observado en el \textit{KCS}. Por consiguiente, y en contraste con el comportamiento 
+mostrado por el \textit{KCS}, el valor de $(1+k)$ del \textit{P1} calculado mediante 
 CFD DB se desvía progresivamente del valor obtenido por el método de 
 Prohaska, ya sea numérica o experimentalmente, a medida que aumenta la 
 velocidad del modelo.
@@ -1142,8 +1142,8 @@ evaluaron la escala 1:20 (ya presentada) y tres escalas adicionales, 1:10,
 \begin{figure}[htpb]
 	\centering
 	\includegraphics[width=.6\columnwidth]{images/completo_log_kcs_lit_tpa.pdf}
-	\caption{$(1+k)$ frente a $Re$ para el KCS y el \textit{P1}, en escala 
-	logarítmica. Para el KCS se muestran los resultados propios obtenidos en 
+	\caption{$(1+k)$ frente a $Re$ para el \textit{KCS} y el \textit{P1}, en escala 
+	logarítmica. Para el \textit{KCS} se muestran los resultados propios obtenidos en 
 	el LabHiNO (CFD DB y Prohaska EFD, escala 1:79) junto con el conjunto de 
 	datos recopilado en \citet{TerzievDataSet} (CFD DB y Prohaska, otras 
 	escalas y laboratorios). Para el \textit{P1} se muestran únicamente 
@@ -1154,7 +1154,7 @@ evaluaron la escala 1:20 (ya presentada) y tres escalas adicionales, 1:10,
 
 La Figura~\ref{fig:comparacion_total_escalas_kcs_tpa} permite contextualizar 
 los resultados del \textit{P1} dentro de la tendencia general documentada para 
-el KCS en la literatura, y extender el análisis del \textit{P1} a un rango 
+el \textit{KCS} en la literatura, y extender el análisis del \textit{P1} a un rango 
 más amplio de $Re$ mediante simulaciones a distintas escalas geométricas.
 
 Se observa que el modelo CFD DB presenta, para ambos buques estudiados, un 
@@ -1163,15 +1163,15 @@ este pico podría estar directamente asociado con la modelización de la
 transición.
 
 Por otro lado se observa en la Figura que la variación de $(1+k)$ con $Re$ 
-disminuye para el KCS a valores altos de $Re$, mientras que para el 
+disminuye para el \textit{KCS} a valores altos de $Re$, mientras que para el 
 \textit{P1} la tendencia creciente persiste hasta la escala buque (1:1), sin 
 alcanzar un valor asintótico dentro del rango analizado.
 
 El impacto de $Re$ sobre el valor de $(1+k)$ es considerablemente más 
 pronunciado en el \textit{P1}. A modo ilustrativo, la diferencia entre el 
 valor de $(1+k)$ a bajo $Re$ y a alto $Re$ es aproximadamente del 40\% para 
-el \textit{P1}, mientras que para el KCS es cercana al 8\%. Además, el valor 
-final de $(1+k)$ del \textit{P1} resulta casi un 50\% superior al del KCS, 
+el \textit{P1}, mientras que para el \textit{KCS} es cercana al 8\%. Además, el valor 
+final de $(1+k)$ del \textit{P1} resulta casi un 50\% superior al del \textit{KCS}, 
 valor no encontrado en la literatura de hidrodinámica naval al día de hoy.
 
 Para verificar que este comportamiento no es exclusivo del \textit{P1}, 
@@ -1180,7 +1180,7 @@ esta tesis (\textit{P2} con $L/B = 3{.}23$ y \textit{P3} con $L/B = 2{.}85$).
 La Figura~\ref{fig:Re_formfactor} muestra la evolución de $(1+k)$ con 
 $Re$ para los cuatro cascos. Los tres pesqueros presentan el mismo 
 comportamiento creciente y no asintótico observado en el \textit{P1}, en 
-marcado contraste con la estabilización del KCS. Esta consistencia 
+marcado contraste con la estabilización del \textit{KCS}. Esta consistencia 
 confirma que la falta de valor asintótico de $(1+k)$ no es una 
 singularidad del \textit{P1}, sino una característica común a los 
 pesqueros estudiados. Las causas geométricas de este comportamiento se 
@@ -1189,7 +1189,7 @@ analizan en profundidad en la Sección~\ref{sec:generalizacion_LB}.
 \begin{figure}[htpb]
     \centering
     \includegraphics[width=.6\textwidth]{./images/completo_log_kcs_lit_tpa_jpa_contessi.pdf}
-    \caption{Evolución de $(1+k)$ con el número de Reynolds para el KCS 
+    \caption{Evolución de $(1+k)$ con el número de Reynolds para el \textit{KCS} 
     y los tres pesqueros analizados.}
     \label{fig:Re_formfactor}
 \end{figure}
@@ -1212,12 +1212,12 @@ Sección~\ref{sec:descomposicion_de_la_res_viscosa}.
 \centering
 \includegraphics[width=0.6\textwidth]{images/gomez-garcia-nuestro.pdf}
 \caption{Efecto de escala del factor de forma del \textit{P1}, $k_S - k_M$,
-en función de la razón de escala $\lambda$, con la recta de regresión lineal ajustada a los puntos calculados por CFD de doble cuerpo. Se incluye, para comparación, la recta de \citet{gomezgarcia}.}
+en función de la razón de escala $\lambda$, con la recta de regresión lineal ajustada a los puntos calculados por CFD de doble cuerpo (DB). Se incluye, para comparación, la recta de \citet{gomezgarcia}.}
 \label{fig:gomez-garcia-nuestro}
 \end{figure}
 
 De manera similar, el método de \citet{keh-sik-min} (Sección~\ref{sec:factor_de_forma_antec}) 
-podría ser aplicado exitosamente al KCS, dado que se observa dicho factor de 
+podría ser aplicado exitosamente al \textit{KCS}, dado que se observa dicho factor de 
 forma terminal a altos valores de $Re$, pero no así al \textit{P1}, donde 
 $(1+k)$ no alcanza un valor asintótico dentro del rango analizado. Esto 
 motiva la siguiente sección, donde se analizan las posibles razones de este 
@@ -1251,7 +1251,7 @@ La Figura~\ref{descomposicion_fuerzas} muestra $C_T$, $C_F$ y $C_{PV}$ obtenidos
 \centering
 \includegraphics[width=.6\columnwidth]{./images/descomposicion_coeficientes.pdf}
 \caption{Coeficientes $C_T$, $C_{PV}$ y $C_F$ obtenidos mediante CFD en 
-configuración de doble cuerpo, junto con la línea ITTC-57 ($C_{F0}$), en 
+configuración de doble cuerpo (DB), junto con la línea ITTC-57 ($C_{F0}$), en 
 función de $Re$ para el \textit{P1}.}
 \label{descomposicion_fuerzas}
 \end{figure}
@@ -1265,11 +1265,11 @@ denominador, genera el incremento sostenido de $(1+k)$ observado.
 
 Para analizar el comportamiento característico de $C_{PV}$, la 
 Figura~\ref{cpv_friccion} compara los valores de $C_F$ y $C_{PV}$ obtenidos 
-para el \textit{P1} y para el KCS. Se observa que, en todo el rango de 
+para el \textit{P1} y para el \textit{KCS}. Se observa que, en todo el rango de 
 Reynolds considerado, el valor de $C_{PV}$ del \textit{P1} es sustancialmente 
-superior al del KCS, y que dicha diferencia se mantiene prácticamente sin 
+superior al del \textit{KCS}, y que dicha diferencia se mantiene prácticamente sin 
 disminuir a medida que aumenta $Re$. Cualitativamente, mientras que en el 
-KCS $C_F$ domina ampliamente sobre $C_{PV}$ en todo el rango analizado, en el 
+\textit{KCS} $C_F$ domina ampliamente sobre $C_{PV}$ en todo el rango analizado, en el 
 \textit{P1} ambos coeficientes resultan de magnitud comparable, lo que indica 
 que la presión viscosa constituye una fracción mucho más significativa de la 
 resistencia viscosa total para este casco.
@@ -1277,8 +1277,8 @@ resistencia viscosa total para este casco.
 \begin{figure}
 \centering
 \includegraphics[width=.6\columnwidth]{./images/kcs_tpa_descomposicion.pdf}
-\caption{$C_{PV}$ y $C_F$ obtenidos mediante CFD en doble cuerpo para el 
-\textit{P1} y para el KCS 1:79 (LabHiNO).}
+\caption{$C_{PV}$ y $C_F$ obtenidos mediante CFD en doble cuerpo (DB) para el 
+\textit{P1} y para el \textit{KCS} 1:79 (LabHiNO).}
 \label{cpv_friccion}
 \end{figure}
 
@@ -1332,7 +1332,7 @@ a $Fr=0{.}2$.}
 
 En síntesis, la descomposición presentada en esta sección permite explicar el 
 comportamiento contrastante de $(1+k)$ entre ambos buques observado en la 
-Sección~\ref{sec:analisis_efectos_escala}. En el KCS, la contribución de 
+Sección~\ref{sec:analisis_efectos_escala}. En el \textit{KCS}, la contribución de 
 $C_{PV}$ al numerador de la Ecuación~\eqref{eq:descomposicion_1k} es 
 comparativamente pequeña frente a $C_F$, de modo que $(1+k)$ queda dominado 
 por el comportamiento de $C_F$, que sigue de cerca a $C_{F0}$ más allá de la 
@@ -1442,7 +1442,7 @@ escala 1:1.}
 \end{figure}
 
 Los resultados indican que la recuperación de presión en la zona de popa es 
-considerablemente menor que en cascos más hidrodinámicos, como el KCS 
+considerablemente menor que en cascos más hidrodinámicos, como el \textit{KCS} 
 \citep{cp_recovery_kcs}, lo cual explica los altos valores de $(1+k)$ 
 observados en este tipo de buques. En cuanto al efecto del número de 
 Reynolds sobre $C_P$, se observa una diferencia muy leve en la distribución 
@@ -1537,7 +1537,7 @@ números de Froude en su diagrama de Prohaska
 (Sección~\ref{sec:det_num_fac_form}) y la ausencia de un valor asintótico de 
 $(1+k)$ con la velocidad y con la escala 
 (Sección~\ref{sec:analisis_efectos_escala}), en contraste con el 
-comportamiento del KCS. Ambas observaciones motivan la pregunta de 
+comportamiento del \textit{KCS}. Ambas observaciones motivan la pregunta de 
 investigación que organiza esta sección: ``¿es la proa bulbo 
 responsable, total o parcialmente, de dichas anomalías?'' Para responderla se 
 repite el procedimiento completo de determinación del factor de forma sobre 
@@ -1673,7 +1673,7 @@ trabajo futuro.
 	\centering
 	\includegraphics[width=.9\textwidth]{images/prohaska-bulbo-ctrlz-165.pdf}
 	\caption{Diagrama de Prohaska comparando modelos con y sin bulbo 
-	($T = 0{.}165$~m).}
+	($T = 0{.}165$~m). Las líneas verticales punteadas indican $Fr = 0{.}10$ y $Fr = 0{.}20$ para el \textit{P1} (ambas configuraciones, con y sin bulbo, comparten el mismo rango de Froude).}
 	\label{fig:prohaska_bulbo_165}
 \end{figure}
 
@@ -1681,7 +1681,7 @@ trabajo futuro.
 	\centering
 	\includegraphics[width=.9\textwidth]{images/prohaska-bulbo-ctrlz-195.pdf}
 	\caption{Diagrama de Prohaska comparando modelos con y sin bulbo 
-	($T = 0{.}195$~m).}
+	($T = 0{.}195$~m). Las líneas verticales punteadas indican $Fr = 0{.}10$ y $Fr = 0{.}20$ para el \textit{P1} (ambas configuraciones, con y sin bulbo, comparten el mismo rango de Froude).}
 	\label{fig:prohaska_bulbo_195}
 \end{figure}
 
@@ -1865,7 +1865,7 @@ nivel absoluto de cada curva.
         \label{fig:k_bulbo_195}
     \end{subfigure}
 
-    \caption{Factor de forma $(1+k)$ del \textit{P1} con y sin proa bulbo en 
+    \caption{Factor de forma $(1+k)$ del \textit{P1} con y sin proa bulbo, obtenido mediante el método de doble cuerpo (DB), en 
     función del número de Froude, para ambos calados.}
     \label{fig:k_bulbo}
 \end{figure}
@@ -1976,7 +1976,7 @@ El valor de $k_{tr}$ puede estimarse empíricamente mediante correlaciones con p
 k_{tr} = k_S - k_M.
 \end{equation}
 
-Este punto es clave, ya que en \citet{korkmaz_wetted_transom} se atribuye la diferencia entre el factor de forma en escala modelo y en escala buque, en los casos de popa espejo sumergida, principalmente al flujo recirculante detrás del espejo. Esta interpretación se enmarca en el trabajo más amplio del mismo autor \citep{korkmaz_cfd_2021, korkmaz_wetted_transom}, donde se demuestra que la dependencia del factor de forma con el número de Reynolds desaparece casi por completo al sustituir la línea ITTC-57 por líneas de fricción numéricas derivadas del mismo código CFD, al menos para cascos de esbeltez moderada como el KCS y el KVLCC2. El efecto de la línea de correlación sobre el \textit{P1} se analiza en la Sección~\ref{sec:linea_de_friccion}. Para cascos de esa clase, donde $C_{PV}$ es comparativamente pequeño, este resultado es consistente con la hipótesis de Hughes: una vez eliminado el sesgo de la línea de referencia, el factor de forma resulta prácticamente independiente de la escala.
+Este punto es clave, ya que en \citet{korkmaz_wetted_transom} se atribuye la diferencia entre el factor de forma en escala modelo y en escala buque, en los casos de popa espejo sumergida, principalmente al flujo recirculante detrás del espejo. Esta interpretación se enmarca en el trabajo más amplio del mismo autor \citep{korkmaz_cfd_2021, korkmaz_wetted_transom}, donde se demuestra que la dependencia del factor de forma con el número de Reynolds desaparece casi por completo al sustituir la línea ITTC-57 por líneas de fricción numéricas derivadas del mismo código CFD, al menos para cascos de esbeltez moderada como el \textit{KCS} y el KVLCC2. El efecto de la línea de correlación sobre el \textit{P1} se analiza en la Sección~\ref{sec:linea_de_friccion}. Para cascos de esa clase, donde $C_{PV}$ es comparativamente pequeño, este resultado es consistente con la hipótesis de Hughes: una vez eliminado el sesgo de la línea de referencia, el factor de forma resulta prácticamente independiente de la escala.
 
 De acuerdo con los resultados del autor, el método y las correcciones asociadas deben aplicarse cuando el espejo se encuentra \textbf{considerablemente sumergido}, es decir, para 
 $tr_{\mathrm{ratio}} > 0{.}025$. Para espejos poco sumergidos o parcialmente secos, el uso del método 2--$k$ no resulta necesario.
@@ -2507,7 +2507,7 @@ En esta sección se mostrará la incapacidad de los métodos empíricos para la 
 Como se estableció en la Sección~\ref{sec:descomposicion_de_la_res_viscosa}, 
 la persistencia de $C_{PV}$ frente a la caída de $C_{F0}$ impide que 
 $(1+k)$ alcance un valor asintótico en el \textit{P1}, a diferencia de lo 
-observado en el KCS. Al comparar el valor de $(1+k)$ resultante con 
+observado en el \textit{KCS}. Al comparar el valor de $(1+k)$ resultante con 
 correlaciones empíricas desarrolladas para buques mercantes, surge una 
 doble inconsistencia. Por un lado, el valor de $(1+k) \approx 1{.}73$ 
 obtenido por CFD DB a escala buque no tiene precedente en la literatura 
@@ -2593,7 +2593,7 @@ Prohaska (EFD, presente trabajo) & --- & $1{.}19$ \\
 Para determinar si esta inconsistencia es propia del \textit{P1} o refleja 
 una limitación estructural de estas correlaciones frente a cascos de baja 
 esbeltez, se repitió el cálculo empleando los parámetros geométricos reales 
-del \textit{P2}, el \textit{P3} y el KCS, comparando en cada caso el 
+del \textit{P2}, el \textit{P3} y el \textit{KCS}, comparando en cada caso el 
 resultado de las cinco fórmulas contra el valor CFD DB a escala buque y el 
 valor EFD a escala modelo obtenidos para ese casco. La Figura~\ref{fig:empiricos_4cascos} 
 resume esta comparación.
@@ -2602,7 +2602,7 @@ resume esta comparación.
     \centering
     \includegraphics[width=.8\textwidth]{./images/empiricas_4cascos.pdf}
     \caption{Correlaciones empíricas de $(1+k)$ aplicadas al \textit{P1}, el 
-    \textit{P2}, el \textit{P3} y el KCS, comparadas con el valor CFD DB a 
+    \textit{P2}, el \textit{P3} y el \textit{KCS}, comparadas con el valor CFD DB a 
     escala buque (guion horizontal) y el valor EFD a escala modelo (cruz) 
     de cada casco.}
     \label{fig:empiricos_4cascos}
@@ -2613,7 +2613,7 @@ aislado del \textit{P1}, sino que se agrava sistemáticamente al disminuir
 $L/B$: para el \textit{P2} ($L/B=3{.}22$) y el \textit{P3} ($L/B=2{.}83$), 
 las cinco fórmulas subestiman el valor CFD DB a escala buque en una 
 proporción aún mayor que para el \textit{P1}, con diferencias que van del 
-$19\%$ al $42\%$ según la fórmula y el casco considerados. En cambio, para el KCS ($L/B=7{.}14$), un casco de 
+$19\%$ al $42\%$ según la fórmula y el casco considerados. En cambio, para el \textit{KCS} ($L/B=7{.}14$), un casco de 
 esbeltez convencional, las mismas correlaciones se aproximan razonablemente 
 tanto al valor CFD DB como al EFD, consistente con el régimen de $L/B$ para 
 el que fueron calibradas. Esta tendencia es además coherente con los valores 
@@ -2642,7 +2642,7 @@ torenbeek2010synthesis, roskam1987airplane, shevell1989fundamentals}
 continuaron ajustando estas correlaciones para extender su rango de 
 validez hacia cuerpos menos esbeltos. La Figura~\ref{aerodynamics} 
 superpone estas correlaciones con los valores de $(1+k)$ a escala buque 
-obtenidos por CFD DB para el \textit{P1} ($L/B = 3.53$) y para el KCS 
+obtenidos por CFD DB para el \textit{P1} ($L/B = 3.53$) y para el \textit{KCS} 
 ($L/B = 7.14$, datos de \citet{TerzievDataSet}), representados en 
 función de $l/d = L/B$.
 
@@ -2664,7 +2664,7 @@ torenbeek2010synthesis, roskam1987airplane, shevell1989fundamentals}
 continuaron ajustando estas correlaciones para extender su rango de 
 validez hacia cuerpos menos esbeltos. La Figura~\ref{aerodynamics} 
 superpone estas correlaciones con los valores de $(1+k)$ a escala buque 
-obtenidos por CFD DB para el \textit{P1} ($L/B = 3.53$) y para el KCS 
+obtenidos por CFD DB para el \textit{P1} ($L/B = 3.53$) y para el \textit{KCS} 
 ($L/B = 7.14$, datos de \citet{TerzievDataSet}), representados en 
 función de $l/d = L/B$.
 
@@ -2713,13 +2713,13 @@ $\displaystyle \mathrm{FF} = 1 + 0{.}0025\,\frac{l}{d} +
     \includegraphics[width=.6\textwidth]{./images/aerodynamics.pdf}
     \caption{Factores de forma para cuerpos de revolución en función de la 
     razón de esbeltez $l/d$ y comparación con valores CFD DB para el 
-    \textit{P1} y el KCS. Datos de \citep{hoerner1965drag, 
+    \textit{P1} y el \textit{KCS}. Datos de \citep{hoerner1965drag, 
     raymer2019aircraft, torenbeek2010synthesis, roskam1987airplane, 
     shevell1989fundamentals, TerzievDataSet}.}
     \label{aerodynamics}
 \end{figure}
 
-El valor del KCS coincide con la curva de \citet{hoerner1965drag}, coherente 
+El valor del \textit{KCS} coincide con la curva de \citet{hoerner1965drag}, coherente 
 con su alta esbeltez y con el rango para el que dicha curva fue derivada 
 originalmente. El valor del \textit{P1}, en cambio, muestra mayor afinidad 
 con la curva ``Raymer New'' \citep{raymer2019aircraft}, ajustada 
@@ -2738,7 +2738,7 @@ para valores de $L/B$ significativamente más altos.
 \subsection{Presentación de pesqueros con distintos L/B}
 
 Los tres pesqueros analizados en esta tesis, presentados en la 
-Sección~\ref{sec:presentacion_modelos} junto con el KCS, fueron 
+Sección~\ref{sec:presentacion_modelos} junto con el \textit{KCS}, fueron 
 seleccionados precisamente por cubrir un rango de relaciones de esbeltez 
 $L/B$ distintas: $3{.}53$ (\textit{P1}), $3{.}23$ (\textit{P2}) y 
 $2{.}85$ (\textit{P3}). Esta diversidad geométrica permite evaluar de 
@@ -2756,7 +2756,7 @@ transversal y forma de popa.
         \centering
         \vspace{1em}
         \footnotesize % controla el tamaño de texto
-        \textbf{KCS (L/B = 7.12)}\\[3em]
+        \textbf{\textit{KCS} (L/B = 7.12)}\\[3em]
         \textbf{Fishing Vessel 1 (L/B = 3.53)}\\[3.5em]
         \textbf{Fishing Vessel 2 (L/B = 3.23)}\\[3.5em]
         \textbf{Fishing Vessel 3 (L/B = 2.85)}
@@ -2796,7 +2796,7 @@ Al disminuir $L/B$, las secciones transversales se vuelven más robustas y la tr
 Como se mostró en la Figura~\ref{fig:Re_formfactor} de la 
 Sección~\ref{sec:analisis_efectos_escala}, los tres pesqueros presentan 
 un crecimiento continuo y no asintótico de $(1+k)$ incluso hacia escala 
-buque, en marcado contraste con el KCS, que exhibe el incremento inicial 
+buque, en marcado contraste con el \textit{KCS}, que exhibe el incremento inicial 
 y posterior estabilización esperados conforme se desarrolla la capa límite 
 turbulenta.
 
@@ -2807,13 +2807,13 @@ Para interpretar esta dependencia geométrica, se recurrió nuevamente a correla
 \begin{figure}[h]
     \centering
     \includegraphics[width=.6\textwidth]{./images/aerodynamics2.pdf}
-    \caption{Comparación entre correlaciones aerodinámicas de factor de forma y los valores $(1+k)$ obtenidos mediante CFD DB para los tres pesqueros y el KCS, representados en función de $l/d = L/B$.}
+    \caption{Comparación entre correlaciones aerodinámicas de factor de forma y los valores $(1+k)$ obtenidos mediante CFD DB para los tres pesqueros y el \textit{KCS}, representados en función de $l/d = L/B$.}
     \label{fig:aero_comparison_full}
 \end{figure}
 
 El gráfico revela una tendencia clara:  
 \begin{itemize}
-    \item El valor correspondiente al KCS se ubica en la región de altas esbelteces y coincide con la curva clásica de Hoerner, como era de esperar para un casco alargado.
+    \item El valor correspondiente al \textit{KCS} se ubica en la región de altas esbelteces y coincide con la curva clásica de Hoerner, como era de esperar para un casco alargado.
     \item Los tres pesqueros, caracterizados por $L/B < 4$, se agrupan en la región de cuerpos poco esbeltos y exhiben proximidad a las correlaciones propuestas por \cite{roskam1987airplane} y \cite{raymer2019aircraft}.
     \item La alineación de los tres pesqueros refuerza la existencia de un mecanismo geométrico común que explica sus elevados valores de $(1+k)$.
 \end{itemize}
@@ -2973,7 +2973,7 @@ El desarrollo de una curva específica de $(1+k)$ en función de $L/B$ para casc
 
 \subsection{Conclusiones parciales}
  
-La comparación con correlaciones empíricas desarrolladas para buques mercantes confirma la incapacidad de dichas formulaciones para reproducir los valores de $(1+k)$ obtenidos para el \textit{P1}, tanto a escala modelo como hacia escala buque. En contraste, las correlaciones aerodinámicas basadas en cuerpos de revolución muestran una correspondencia notable con los resultados CFD DB, ubicando al KCS y a los pesqueros en regiones coherentes con su respectiva esbeltez geométrica.
+La comparación con correlaciones empíricas desarrolladas para buques mercantes confirma la incapacidad de dichas formulaciones para reproducir los valores de $(1+k)$ obtenidos para el \textit{P1}, tanto a escala modelo como hacia escala buque. En contraste, las correlaciones aerodinámicas basadas en cuerpos de revolución muestran una correspondencia notable con los resultados CFD DB, ubicando al \textit{KCS} y a los pesqueros en regiones coherentes con su respectiva esbeltez geométrica.
  
 El comportamiento descrito no es exclusivo del \textit{P1}: los tres 
 pesqueros estudiados, \textit{P1}, \textit{P2} y \textit{P3}, pese a sus 
