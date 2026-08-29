@@ -230,11 +230,43 @@ La Figura~\ref{fig:eficiencia_metodos} compara la evolución de $\eta_0$ con $Re
 
 
 
+\subsection{Conclusiones parciales}
+
+El barrido de escala de la hélice B4-60, realizado en régimen completamente
+turbulento entre $D=0.14$ y $8.0$~m, muestra que el efecto de escala sobre sus
+coeficientes hidrodinámicos no es de naturaleza puramente friccional. El empuje crece
+de forma monótona con el número de Reynolds ($\Delta K_T=+4.7\%$) y el par disminuye
+($-4.1\%$), lo que se traduce en una ganancia de eficiencia en aguas abiertas de
+$+9.1\%$ a la mayor escala (Secciones~\ref{sec:helices_sweep}
+y~\ref{sec:helices_kt_kq_re}). La descomposición directa de fuerzas revela que ese
+aumento de empuje está dominado por la presión: la fracción $\Delta K_{Tp}/\Delta K_T$
+se estabiliza en torno al $76$--$77\%$ para $D\geq1$~m
+(Sección~\ref{sec:helices_descomposicion}), de modo que apenas una cuarta parte del
+efecto proviene de la reducción de fricción.
+
+El empuje y el par se comportan, sin embargo, de manera asimétrica. Mientras la
+componente de presión gobierna el efecto de escala sobre $K_T$, la reducción de par
+está dominada por la fricción --$\Delta K_{Qf}$ es negativo y de mayor magnitud que el
+pequeño $\Delta K_{Qp}$ positivo--. Esta asimetría explica por qué el procedimiento
+ITTC-78, que supone $\Delta K_{Tp}=0$, falla de forma distinta en cada coeficiente:
+subestima $K_T$ en $+4.7\%$ pero difiere en $K_Q$ solo un $-1.0\%$, donde las
+contribuciones friccional y de presión se compensan parcialmente
+(Sección~\ref{sec:helices_ittc78}).
+
+El efecto acumulado sobre la eficiencia es la consecuencia práctica más relevante: el
+ITTC-78 predice una ganancia de apenas $+1.1\%$ frente al $+9.1\%$ del CFD, una brecha
+de $+8.0\%$ a la mayor escala analizada (Sección~\ref{sec:helices_eficiencia}) que
+corresponde íntegramente a la contribución de presión que la corrección de placa plana
+ignora. Aun para una hélice convencional de área expandida moderada como la B4-60, el
+procedimiento clásico subestima así la ganancia de eficiencia a escala buque, con un
+sesgo conservador pero no despreciable para el dimensionamiento de la instalación
+propulsora.
+
 % ============================================================
-%  Sección 5.4: Efectos transicionales: hélice coreana
+%  Sección 5.4: Efectos transicionales: propulsor P206
 % ============================================================
 
-\section{Efectos de transición laminar-turbulenta: hélice coreana}
+\section{Efectos de transición laminar-turbulenta: propulsor P206}
 \label{sec:helice_coreana}
 
 El análisis de la hélice Wageningen B4-60 presentado en la sección anterior se realizó
@@ -249,7 +281,7 @@ Tabla~\ref{tab:geom_coreana}.
 
 \begin{table}[h!]
 \centering
-\caption{Características geométricas principales de la hélice coreana.}
+\caption{Características geométricas principales del propulsor P206.}
 \label{tab:geom_coreana}
 \begin{tabular}{lcc}
 \hline
@@ -327,26 +359,40 @@ Sección~\ref{sec:metodologia_helices_tu}.
 experimentales}
 \label{sec:coreana_resultados}
 
-La Figura~\ref{fig:coreana_KT} presenta los coeficientes $K_T$ y $10K_Q$ en función
-del número de Reynolds $Re_c$ para $J = 0.3$, $0.4$, $0.5$ y $0.6$, comparando las
-predicciones del modelo SST, las tres configuraciones SST-LM y los datos
-experimentales.
+La Figura~\ref{fig:coreana_KT_OF} presenta el coeficiente $K_T$ y la
+Figura~\ref{fig:coreana_KQ_OF} el coeficiente $10K_Q$, ambos en función del número de
+Reynolds $Re_c$ para $J = 0.3$, $0.4$, $0.5$ y $0.6$, obtenidos con OpenFOAM y
+comparando las predicciones del modelo SST completamente turbulento, las tres
+configuraciones SST-LM y los datos experimentales. La comparación equivalente con
+StarCCM se presenta en la Sección~\ref{sec:coreana_solvers}.
 
-% \begin{figure}[h!]
-%     \centering
-%     \includegraphics[width=\textwidth]{figuras/coreana_KT_Re.png}
-%     \caption{$K_T$ y $10K_Q$ en función de $Re_c$ para distintos valores de $J$.
-%     Comparación entre SST completamente turbulento, SST-LM con $Tu = 1.0\%$,
-%     $1.4\%$ y $1.8\%$ en el disco, y datos experimentales.}
-%     \label{fig:coreana_KT}
-% \end{figure}
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=\textwidth]{fig_coreana_KT_OF.pdf}
+    \caption{Coeficiente de empuje $K_T$ en función de $Re_c$ para cuatro valores de
+    $J$, calculado con \textbf{OpenFOAM}. Comparación entre el modelo SST completamente
+    turbulento, el modelo SST-LM con $Tu = 1.0\%$, $1.4\%$ y $1.8\%$ en el disco, y los
+    datos experimentales.}
+    \label{fig:coreana_KT_OF}
+\end{figure}
 
-El modelo SST completamente turbulento predice coeficientes prácticamente
-insensibles al $Re_c$: tanto $K_T$ como $10K_Q$ resultan cuasi-constantes en todo el
-rango de velocidades de rotación ensayado. Este comportamiento es esperado, ya que el
-modelo no tiene mecanismo para distinguir entre una capa límite laminar y una
-turbulenta. La única variación proviene del cambio de viscosidad efectiva con el
-número de Reynolds, que a estos niveles es marginal.
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=\textwidth]{fig_coreana_KQ_OF.pdf}
+    \caption{Coeficiente de par $10K_Q$ en función de $Re_c$ para cuatro valores de
+    $J$, calculado con \textbf{OpenFOAM}. Configuraciones análogas a las de la
+    Figura~\ref{fig:coreana_KT_OF}.}
+    \label{fig:coreana_KQ_OF}
+\end{figure}
+
+El modelo SST completamente turbulento predice coeficientes poco sensibles al
+$Re_c$: tanto $K_T$ como $10K_Q$ exhiben un crecimiento monótono leve en todo el rango
+de velocidades de rotación ensayado --del $2$--$3\%$ en las condiciones cargadas
+($J\leq0.40$) y de hasta un $6\%$ en las descargadas ($J=0.60$), entre el menor y el
+mayor $Re_c$ de modelo--. Este comportamiento es esperado, ya que el modelo no tiene
+mecanismo para distinguir entre una capa límite laminar y una turbulenta; la variación
+que sí predice proviene únicamente del cambio de viscosidad efectiva con el número de
+Reynolds.
 
 Los resultados con SST-LM exhiben un comportamiento cualitativamente distinto: para
 los Reynolds más bajos ($Re_c \leq 5 \times 10^5$) el modelo predice valores de
@@ -354,11 +400,16 @@ $K_T$ y $10K_Q$ superiores a los del SST, mientras que para Reynolds elevados
 ($Re_c \geq 10^6$) ambos modelos convergen hacia predicciones similares. Este
 incremento a bajo $Re_c$ es precisamente la manifestación del ``chichón
 transicional'': la presencia de flujo laminar sobre una fracción significativa del
-álabe genera un efecto de ``cambering'' aerodinámico: las líneas de corriente
-radialmente orientadas características de la capa límite laminar modifican la
-distribución de presión sobre el dorso del álabe, incrementando la succión y por ende
-tanto el empuje como el par, tal como se describe en \citet{Gaggero2020} para la VP1304 y
-en \citet{Baltazar2021} para la S6368.
+álabe reorienta las líneas de corriente de la capa límite en sentido más radial y
+altera la carga a lo largo de la envergadura, modificando la distribución de presión
+sobre el álabe. Este es el mecanismo que \citet{rijpkema2015viscous} infirió de los
+ensayos de ``paint test'', y que eleva tanto el empuje como el par respecto del caso
+completamente turbulento, en concordancia con lo reportado por \citet{Gaggero2020}
+para la VP1304 y \citet{Baltazar2021} para la S6368. Conviene anticipar --y se
+demuestra en la Sección~\ref{sec:coreana_diagnostico}-- que esta modificación de la
+presión \emph{no} se produce por un aumento del pico de succión, que resulta
+insensible al modelo de turbulencia, sino por una redistribución de la carga en otras
+zonas del álabe.
 
 La intensidad turbulenta en el disco actúa como parámetro de ajuste del punto de
 inicio de la transición: a mayor $Tu$, la transición se adelanta hacia el borde de
@@ -371,20 +422,95 @@ La comparación con los datos experimentales permite identificar cuál de las
 configuraciones SST-LM representa mejor las condiciones reales del túnel de
 cavitación. Los ensayos muestran claramente la presencia del chichón: los
 coeficientes experimentales son notoriamente superiores a los predichos por el SST a
-$Re_c$ bajos y convergen hacia éste a Reynolds elevados, confirmando que la capa
-límite del modelo opera en régimen de transición en el rango ensayado. La
+$Re_c$ bajos y se acercan a él a medida que $Re_c$ crece, confirmando que la capa
+límite del modelo opera en régimen de transición en el rango ensayado. Esa aproximación
+no llega a cerrarse dentro del rango de $Re_c$ ensayado: es prácticamente completa a
+$J\leq0.40$ (brecha residual de $0.6$--$2.5\%$ en el mayor $Re_c$ disponible), pero a
+$J=0.50$--$0.60$ persiste una diferencia apreciable de $5$ a $24\%$ incluso en ese
+punto; que el SST completamente turbulento y el ensayo terminen de converger a
+Reynolds aún mayores es, en esas condiciones, una expectativa razonable pero no
+verificada con los datos disponibles. La
 configuración SST-LM con $Tu = 1.4\%$ ofrece en general el mejor acuerdo cuantitativo
 con los datos, mientras que $Tu = 1.0\%$ tiende a sobreestimar el efecto transicional
 y $Tu = 1.8\%$ lo subestima.
 
-La descomposición de $K_T$ en contribuciones de presión ($K_{Tp}$) y fricción
-($K_{Tf}$), disponible en las simulaciones CFD, permite interpretar el mecanismo con
-mayor precisión. A $Re_c$ bajos, $K_{Tp}$ es notoriamente superior en los cálculos
-SST-LM respecto al SST, mientras que $K_{Tf}$ (negativo, pues la fricción se opone
-al empuje) es menos negativo en presencia de flujo laminar (menor arrastre viscoso).
-El incremento neto de $K_T$ resulta dominado por la componente de presión, en
-consonancia con los resultados de la Sección~\ref{sec:helices_escala} para la B4-60 y con los reportados
-en la literatura para hélices convencionales operando en el régimen crítico de Reynolds.
+Cuantitativamente, la amplitud del chichón experimental --medida como la diferencia
+relativa entre el $K_T$ del máximo y el del extremo de mayor $Re_c$-- crece con la
+descarga del propulsor, desde un $7.1\%$ a $J=0.30$ hasta un $16.3\%$ a $J=0.60$, con
+el máximo ubicado consistentemente en $Re_c = 0.52\times10^6$. El modelo SST-LM genera
+no-monotonía en cuatro a cinco de las seis combinaciones solver-$Tu$ según el $J$, pero
+en el mejor de los casos reproduce una amplitud de $3.4\%$ a $J=0.30$ y $10.4\%$ a
+$J=0.60$ --del orden de la mitad de la medida--, y solo combinaciones aisladas ubican
+el máximo en $Re_c = 0.52\times10^6$, ninguna de ellas de forma consistente para todos
+los $J$. Esta reproducción parcial es la que hace necesario el ejercicio de calibración
+de $Tu$ que sigue, y anticipa su resultado: como ningún $Tu$ único reproduce la forma de
+la curva, el nivel que mejor ajusta los datos necesariamente cambia de una condición de
+operación a otra.
+
+A diferencia del sweep de escala de la B4-60 (Sección~\ref{sec:helices_descomposicion}),
+la descomposición de fuerzas en componentes de presión y fricción
+(Ecuación~\ref{eq:adim_helices}) está disponible aquí únicamente para las
+configuraciones completamente turbulentas, no para las corridas SST-LM. El origen del
+desfasaje entre SST-LM y SST no puede, por tanto, leerse de forma directa de una
+descomposición, pero sí acotarse comparando las magnitudes en juego. La contribución
+friccional al empuje según la descomposición completamente turbulenta es pequeña,
+$|K_{Tf}| \approx 0.0018$--$0.0022$, del orden del $1\%$ de $K_T$, mientras que el
+SST-LM predice valores de $K_T$ entre un $4.8$ y un $6.7\%$ por encima del
+completamente turbulento a $Re_c = 0.36\times10^6$. Incluso si toda esa fricción se
+atribuyera al desfasaje, cubriría a lo sumo entre el $19$ y el $43\%$: el resto es,
+necesariamente, de origen de presión. El par lo
+confirma: $K_Q$ \emph{aumenta} con el SST-LM a $J = 0.30$--$0.40$ (entre $+0.6$ y
+$+1.6\%$), cuando un mecanismo puramente friccional lo \emph{reduciría}, ya que la
+fricción contribuye positivamente al par. Ambos hechos reproducen, para esta hélice,
+el comportamiento reportado por \citet{gaggero2018transition}: el mecanismo transicional
+no se limita a la fricción, sino que arrastra una contribución de presión, en
+consonancia con lo hallado en la Sección~\ref{sec:helices_escala} para la B4-60.
+
+\subsection{Diagnóstico seccional: dónde actúan la presión y la fricción}
+\label{sec:coreana_diagnostico}
+
+Para localizar sobre el álabe el cambio de presión implicado por el argumento anterior
+se analizaron los coeficientes locales $C_{pn}$ y $C_f$ (Ecuación~\ref{eq:cpn_cf_def})
+sobre el dorso del álabe, en cuatro radios ($r/R = 0.3$ a $0.9$, a $J = 0.5$ y para
+los dos $Re_c$ extremos). El resultado acota el problema en sentido negativo: el pico
+de $C_{pn}$ es prácticamente insensible al modelo de turbulencia --la dispersión entre
+el completamente turbulento y los tres niveles de $Tu$ se mantiene por debajo del
+$3.1\%$ en todos los radios--, de modo que el cambio de presión \emph{no} se produce
+por un desplazamiento del pico de succión y debe originarse en una redistribución de
+la carga en otras zonas (extensión en cuerda, carga sobre la cara de presión o región
+de punta); el pico es un valor puntual, mientras que $K_{Tp}$ es la integral de
+superficie de $p\,n_x$.
+
+El coeficiente $C_f$, en cambio, separa nítidamente las configuraciones: el
+completamente turbulento predice los valores más altos y el crecimiento más rápido
+hacia la punta. A $Re_c$ elevado, los niveles $Tu = 1.4\%$ y $1.8\%$ muestran un
+frente de transición marcado --un salto entre la zona de $C_f$ bajo y la de $C_f$
+alto-- cuya posición depende de $Tu$, mientras que $Tu = 1.0\%$ mantiene flujo
+predominantemente laminar sobre casi todo el álabe; a $Re_c$ bajo los tres niveles se
+comportan de forma similar. La dirección de la tensión de corte es visiblemente más
+radial en las regiones laminares: la fracción radial de $|\tau_w|$ aumenta de $0.19$
+en el caso completamente turbulento a $0.40$--$0.43$ en el SST-LM a $Re_c$ bajo. Esta
+reorientación es la que altera la carga a lo largo de la envergadura --el mecanismo
+inferido por \citet{rijpkema2015viscous} de los ``paint tests''-- y constituye la vía
+plausible por la cual la transición alcanza el campo de presión sin desplazar el pico
+de succión.
+
+% \begin{figure}[h!]
+%     \centering
+%     \includegraphics[width=0.5\textwidth]{figuras/coreana_cf_panel.png}
+%     \caption{Distribución espacial de $C_f$ sobre el dorso del álabe, para $J=0.5$,
+%     dos valores de $Re_c$ (fila superior: bajo; inferior: alto) y los cuatro niveles
+%     de turbulencia. Las flechas indican la dirección local de la tensión de corte.}
+%     \label{fig:coreana_cf_panel}
+% \end{figure}
+
+En síntesis, la transición se manifiesta de forma \emph{local} y nítida en el campo de fricción
+--el frente de transición y su sensibilidad a $Tu$ y $Re_c$--, mientras que el cambio
+acompañante en el empuje de presión integrado, dominante según el argumento de
+magnitud, no está localizado en el pico de succión y queda pendiente de resolver en
+detalle; cerrarlo requeriría aplicar la descomposición de la
+Ecuación~\ref{eq:adim_helices} a las corridas SST-LM, disponible aquí solo para las
+configuraciones completamente turbulentas.
 
 Estos resultados subrayan que el modelo SST, al imponer turbulencia plena desde el
 borde de ataque, es incapaz de reproducir el comportamiento experimental en la escala
@@ -400,28 +526,76 @@ La disponibilidad de resultados equivalentes en StarCCM+ y OpenFOAM para las mis
 ocho combinaciones de modelo de turbulencia (Fully Turbulent y SST-LM con
 $Tu = 1.0\%$, $1.4\%$ y $1.8\%$, en cada código) permite evaluar no solo qué
 configuración predice mejor $K_T$, sino también cuán sensible es esa conclusión a la
-elección del solver. La Tabla~\ref{tab:mae_global_coreana} resume el error absoluto
-medio (MAE) y el sesgo (bias) de $K_T$ de las nueve configuraciones frente a los 30
-puntos experimentales disponibles.
+elección del solver. Las Figuras~\ref{fig:coreana_KT_Star} y \ref{fig:coreana_KQ_Star}
+reproducen, para StarCCM+, las mismas curvas que las Figuras~\ref{fig:coreana_KT_OF}
+y \ref{fig:coreana_KQ_OF} mostraban para OpenFOAM. La comparación directa entre ambos
+códigos revela una diferencia cualitativa relevante: mientras que en OpenFOAM las
+configuraciones SST-LM tienden a producir curvas monótonas que se aproximan
+gradualmente al chichón experimental sin reproducir su forma, en StarCCM+ las mismas
+configuraciones exhiben una no-monotonía marcada, con un máximo local próximo al
+$Re_c \approx 0.52\times10^6$ del experimento. Es decir, el mismo modelo de transición,
+alimentado con el mismo $Tu$ en el disco, produce comportamientos cuantitativamente
+--y en parte cualitativamente-- distintos según el solver, lo que anticipa la
+conclusión sobre la no transferibilidad del parámetro entre códigos.
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=\textwidth]{fig_coreana_KT_Star.pdf}
+    \caption{Coeficiente de empuje $K_T$ en función de $Re_c$ para cuatro valores de
+    $J$, calculado con \textbf{StarCCM+}. Configuraciones análogas a las de la
+    Figura~\ref{fig:coreana_KT_OF}.}
+    \label{fig:coreana_KT_Star}
+\end{figure}
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=\textwidth]{fig_coreana_KQ_Star.pdf}
+    \caption{Coeficiente de par $10K_Q$ en función de $Re_c$ para cuatro valores de
+    $J$, calculado con \textbf{StarCCM+}. Configuraciones análogas a las de la
+    Figura~\ref{fig:coreana_KT_OF}.}
+    \label{fig:coreana_KQ_Star}
+\end{figure}
+
+Para cuantificar el acuerdo con el experimento se emplean dos métricas relativas.
+Sean $K_i^{\mathrm{CFD}}$ el valor calculado y $K_i^{\mathrm{EFD}}$ el experimental en
+el punto de operación $i$ ($i=1,\dots,N$); el error absoluto medio (MAE) y el sesgo
+(\emph{bias}) se definen, en porcentaje, como
+%
+\begin{equation}
+\mathrm{MAE} = \frac{100}{N}\sum_{i=1}^{N}
+\frac{\bigl|K_i^{\mathrm{CFD}}-K_i^{\mathrm{EFD}}\bigr|}{K_i^{\mathrm{EFD}}},
+\qquad
+\mathrm{sesgo} = \frac{100}{N}\sum_{i=1}^{N}
+\frac{K_i^{\mathrm{CFD}}-K_i^{\mathrm{EFD}}}{K_i^{\mathrm{EFD}}}.
+\label{eq:mae_bias}
+\end{equation}
+%
+El MAE mide la magnitud típica del desvío (siempre positivo) y el sesgo su signo
+--negativo si el modelo subestima, positivo si sobreestima--; ambos coinciden en valor
+absoluto cuando el error tiene el mismo signo en todos los puntos. La
+Tabla~\ref{tab:mae_global_coreana} resume el MAE y el sesgo de $K_T$ de las ocho
+configuraciones de solver/modelo frente a los $N=30$ puntos experimentales
+($J=0.30$--$0.65$; cinco $Re_c$ por seis $J$), salvo donde se indica un $N$ menor por
+puntos faltantes en la corrida correspondiente.
 
 \begin{table}[htpb]
 \centering
 \caption{Error absoluto medio (MAE) y sesgo de $K_T$ respecto de los datos
-experimentales, para las ocho configuraciones de solver/modelo de turbulencia
-evaluadas.}
+experimentales (Ecuación~\ref{eq:mae_bias}), para las ocho configuraciones de
+solver/modelo de turbulencia evaluadas.}
 \label{tab:mae_global_coreana}
-\begin{tabular}{clcc}
+\begin{tabular}{clccc}
 \hline
-Ranking & Configuración & MAE~[\%] & Bias~[\%] \\
+Ranking & Configuración & $N$ & MAE~[\%] & Bias~[\%] \\
 \hline
-1 & OpenFOAM, $Tu = 1.0\%$      & 3.38 & $-1.36$ \\
-2 & StarCCM+, $Tu = 1.4\%$      & 3.46 & $+1.52$ \\
-3 & StarCCM+, $Tu = 1.8\%$      & 3.69 & $-0.57$ \\
-4 & StarCCM+, $Tu = 1.0\%$      & 3.72 & $+3.00$ \\
-5 & OpenFOAM, $Tu = 1.4\%$      & 4.14 & $-3.56$ \\
-6 & OpenFOAM, $Tu = 1.8\%$      & 5.17 & $-4.94$ \\
-7 & StarCCM+, Fully Turbulent   & 5.86 & $-5.72$ \\
-8 & OpenFOAM, Fully Turbulent   & 8.23 & $-8.23$ \\
+1 & OpenFOAM, $Tu = 1.0\%$      & 30 & 3.38 & $-1.36$ \\
+2 & StarCCM+, $Tu = 1.4\%$      & 30 & 3.46 & $+1.52$ \\
+3 & StarCCM+, $Tu = 1.8\%$      & 30 & 3.69 & $-0.57$ \\
+4 & StarCCM+, $Tu = 1.0\%$      & 30 & 3.72 & $+3.00$ \\
+5 & OpenFOAM, $Tu = 1.4\%$      & 30 & 4.10 & $-3.34$ \\
+6 & OpenFOAM, $Tu = 1.8\%$      & 29 & 5.17 & $-4.94$ \\
+7 & StarCCM+, Fully Turbulent   & 30 & 5.86 & $-5.72$ \\
+8 & OpenFOAM, Fully Turbulent   & 30 & 8.24 & $-8.24$ \\
 \hline
 \end{tabular}
 \end{table}
@@ -436,6 +610,17 @@ configuraciones), mientras que StarCCM+ con $Tu = 1.0\%$ sobreestima
 ($+3.00\%$). Esto indica que el valor de $Tu$ óptimo no es un parámetro físico
 transferible entre solvers sin recalibración: un mismo $Tu = 1.0\%$ produce el mejor
 resultado global en OpenFOAM pero el peor de las tres variantes SST-LM en StarCCM+.
+
+Esta no transferibilidad se manifiesta también dentro de cada código si se examina,
+punto a punto, cuál es el $Tu$ que minimiza el error en cada combinación de $Re_c$ y
+$J$, en lugar del promedio global. El $Tu$ óptimo no es constante: sigue una tendencia
+sistemática con la carga del propulsor, favoreciendo los niveles bajos ($Tu=1.0\%$) en
+las condiciones descargadas ($J=0.60$--$0.65$) y los niveles altos ($Tu=1.4\%$--$1.8\%$)
+en las cargadas. Más aún, el $Tu$ óptimo punto a punto coincide entre los dos solvers en
+solo 16 de los 30 puntos experimentales ($53\%$). En conjunto, esto confirma que la
+intensidad turbulenta que mejor reproduce los datos no es una propiedad física
+transferible del ensayo, sino un parámetro de ajuste que depende de la condición de
+operación y del código: una herramienta de validación, no una constante del problema.
 
 La Tabla~\ref{tab:mae_re_coreana} desagrega el MAE por número de Reynolds. La
 condición $Re_c \approx 520\,000$ --la más próxima al centro del chichón-- concentra
@@ -473,49 +658,56 @@ la topología de la capa límite laminar sobre el álabe se vuelve más sensible
 modelo de transición como al solver empleado.
 
 Un resultado adicional, de utilidad práctica, surge de comparar el par $K_Q$ frente al
-empuje $K_T$. A diferencia de lo señalado en una versión preliminar de este análisis,
-el EFD del fabricante \textbf{sí reporta} $K_Q$ para la mayoría de las condiciones
-ensayadas (30 de los 30 puntos a $J=0.3$--$0.6$; los 5 puntos a $J=0.65$ no incluyen
-par). La Tabla~\ref{tab:mae_kq_coreana} resume el MAE y el sesgo de $K_Q$ de las ocho
-configuraciones frente al EFD, de forma análoga a la Tabla~\ref{tab:mae_global_coreana}
-para $K_T$.
+empuje $K_T$. El EFD del fabricante reporta $K_Q$ en las mismas condiciones que $K_T$
+--los 30 puntos, $J=0.30$--$0.65$--. Los CFD, en cambio, no cubren todos esos puntos:
+StarCCM+ no calculó par en ninguna condición de $J=0.65$ (20 puntos, en las cuatro
+variantes de turbulencia), por lo que su MAE se computa sobre $N=25$; OpenFOAM está
+prácticamente completo ($N=29$--$30$ según la configuración). La
+Tabla~\ref{tab:mae_kq_coreana} resume el MAE y el sesgo de $K_Q$
+(Ecuación~\ref{eq:mae_bias}) de las ocho configuraciones, de forma análoga a la
+Tabla~\ref{tab:mae_global_coreana} para $K_T$.
 
 \begin{table}[htpb]
 \centering
 \caption{Error absoluto medio (MAE) y sesgo de $K_Q$ respecto de los datos
-experimentales, para las ocho configuraciones de solver/modelo de turbulencia
-evaluadas.}
+experimentales (Ecuación~\ref{eq:mae_bias}), para las ocho configuraciones de
+solver/modelo de turbulencia evaluadas.}
 \label{tab:mae_kq_coreana}
-\begin{tabular}{clcc}
+\begin{tabular}{clccc}
 \hline
-Ranking & Configuración & MAE~[\%] & Bias~[\%] \\
+Ranking & Configuración & $N$ & MAE~[\%] & Bias~[\%] \\
 \hline
-1 & OpenFOAM, $Tu = 1.0\%$      & 2.90 & $-1.96$ \\
-2 & StarCCM+, Fully Turbulent   & 3.01 & $-1.91$ \\
-3 & OpenFOAM, $Tu = 1.4\%$      & 3.47 & $-2.80$ \\
-4 & StarCCM+, $Tu = 1.4\%$      & 3.62 & $+0.96$ \\
-5 & OpenFOAM, Fully Turbulent   & 3.65 & $-2.95$ \\
-6 & StarCCM+, $Tu = 1.8\%$      & 3.80 & $-0.88$ \\
-7 & OpenFOAM, $Tu = 1.8\%$      & 3.81 & $-3.20$ \\
-8 & StarCCM+, $Tu = 1.0\%$      & 3.97 & $+2.60$ \\
+1 & StarCCM+, Fully Turbulent   & 25 & 3.01 & $-1.91$ \\
+2 & StarCCM+, $Tu = 1.4\%$      & 25 & 3.62 & $+0.96$ \\
+3 & StarCCM+, $Tu = 1.8\%$      & 25 & 3.80 & $-0.88$ \\
+4 & StarCCM+, $Tu = 1.0\%$      & 25 & 3.97 & $+2.60$ \\
+5 & OpenFOAM, $Tu = 1.8\%$      & 29 & 4.56 & $-3.54$ \\
+6 & OpenFOAM, Fully Turbulent   & 30 & 4.62 & $-3.30$ \\
+7 & OpenFOAM, $Tu = 1.0\%$      & 30 & 4.69 & $-3.64$ \\
+8 & OpenFOAM, $Tu = 1.4\%$      & 30 & 4.85 & $-3.86$ \\
 \hline
 \end{tabular}
 \end{table}
 
-El ranking de $K_Q$ difiere notablemente del de $K_T$ (Tabla~\ref{tab:mae_global_coreana}):
-mientras que en $K_T$ las dos configuraciones Fully Turbulent ocupaban los últimos dos
-puestos, en $K_Q$ el \textbf{StarCCM+ Fully Turbulent ocupa el segundo mejor lugar}
-del ranking completo. Esto es consistente con la interpretación física ya discutida:
-el par está gobernado en mayor medida por la distribución de presiones y la curvatura
-del álabe, mecanismos que el modelo completamente turbulento captura razonablemente
-bien, mientras que el empuje es mucho más sensible a la extensión exacta de la región
-laminar sobre el extradós, que el Fully Turbulent no reproduce en absoluto. En
-consecuencia, los errores de $K_T$ y $K_Q$ no necesariamente se cancelan configuración
-por configuración al calcular la eficiencia $\eta_0 = J K_T / (2\pi K_Q)$ --dependen de
-qué tan correlacionados estén los signos de ambos errores en cada caso particular--
-pero la constatación de que $K_Q$ es gobernado por una física distinta a la de $K_T$
-en este rango de $Re$ es, en sí misma, un resultado relevante para decidir qué
-configuración priorizar según el objetivo del análisis (predicción de empuje vs. de
+El ranking de $K_Q$ (Tabla~\ref{tab:mae_kq_coreana}) invierte casi por completo al de
+$K_T$: las cuatro configuraciones StarCCM+ ocupan los primeros cuatro puestos y las
+cuatro de OpenFOAM los últimos cuatro, mientras que en $K_T$ el ranking se mezclaba
+entre solvers y las dos variantes Fully Turbulent quedaban últimas. Dos rasgos
+adicionales distinguen a $K_Q$ de $K_T$: dentro de cada solver, el nivel de $Tu$ apenas
+mueve el MAE de $K_Q$ (StarCCM+ entre $3.0$ y $4.0\%$; OpenFOAM entre $4.6$ y
+$4.9\%$, con la variante Fully Turbulent en el medio de su propio grupo en ambos
+casos), y el signo del sesgo es sistemático por solver: las cuatro configuraciones de
+OpenFOAM subestiman $K_Q$ ($-3.3$ a $-3.9\%$), mientras que StarCCM+ se reparte entre
+sesgo positivo y negativo según el nivel de $Tu$. En conjunto, esto sugiere que, para
+esta hélice, el par está gobernado por una física --distribución de presiones y
+curvatura del álabe-- en la que la elección del solver pesa más que la del modelo de
+transición, al revés de lo observado para el empuje en la Tabla~\ref{tab:mae_global_coreana}, donde el
+modelo de transición dominaba sobre el solver. Los errores de $K_T$ y $K_Q$ no
+necesariamente se cancelan configuración por configuración al calcular la eficiencia
+$\eta_0 = J K_T/(2\pi K_Q)$ --dependen de cuán correlacionados estén los signos de
+ambos errores en cada caso--, pero la constatación de que $K_Q$ responde a una
+sensibilidad distinta de la de $K_T$ es, en sí misma, relevante para decidir qué
+configuración priorizar según el objetivo del análisis (predicción de empuje frente a
 potencia absorbida).
 
 En conjunto, estos resultados constituyen un ejercicio de verificación cruzada poco
@@ -620,8 +812,19 @@ Media (val. abs.) & $2.54\%$ & $2.92\%$ & $2.87\%$ & $3.11\%$ & $3.07\%$ & $3.42
 \end{tabular}
 \end{table}
 
-El resultado más relevante de esta comparación no es la media, sino la dispersión de
-la columna EFD: el punto de $Re_c = 0.52\times10^6$ --que corresponde casi exactamente
+Se caracteriza la dispersión de cada columna --el rango de sus cinco predicciones de
+escala buque, una por $Re_c$ de ensayo, relativo a la referencia CFD resuelta
+directamente a esa escala--:
+%
+\begin{equation}
+\text{dispersión} = 100\,\frac{\max_i K_{T,S}^{i}-\min_i K_{T,S}^{i}}
+{K_{T,S}^{\mathrm{CFD}}},
+\label{eq:dispersion}
+\end{equation}
+%
+equivalente al rango de los errores de extrapolación de esa columna. El resultado más
+relevante de esta comparación no es la media, sino la dispersión de la columna EFD: el
+punto de $Re_c = 0.52\times10^6$ --que corresponde casi exactamente
 al centro del ``chichón'' identificado en la Sección~\ref{sec:chichon_antec}, donde el
 ensayo registra un $K_T$ anómalamente alto ($0.215$ para $J=0.3$)-- produce por sí
 solo un error de extrapolación de $+5.5$ a $+7.8\%$ según el $J$, muy por encima del
@@ -653,19 +856,59 @@ ITTC-78 ignora la componente de presión del efecto de escala, que para la B4-60
 representa entre el $69\%$ y el $77\%$ del $\Delta K_T$ total (fracción
 $\Delta K_{Tp}/\Delta K_T$, saturando para razones de escala $Re_S/Re_M \gtrsim 60$).
 
-Sin embargo, la B4-60 ($A_E/A_0=0.60$, sin escora) es geométricamente muy distinta de
-la hélice coreana. Un mejor punto de comparación surge del propeller P1727 analizado
+Sin embargo, la B4-60 ($A_E/A_0=0.60$, sin escora) es geométricamente muy distinta del
+P206. Un mejor punto de comparación surge del propeller P1727 analizado
 por \citet{gallotti2026}: con $Z=4$, $A_E/A_0=0.444$ y $c/D_{0.7R}=0.236$ --valores
 prácticamente idénticos a los del P206 ($A_E/A_0=0.431$, $c/D_{0.7R}=0.234$)-- y una
-escora de punta comparable ($25.7°$ frente a $16.8°$). Para el P1727, el mismo trabajo
-reporta un incremento de empuje a escala buque de hasta el $10\%$ bajo el modelo
-completamente turbulento, mientras que el procedimiento ITTC-78 aplicado a esa misma
-geometría predice apenas $0.2$--$0.55\%$. La fracción de presión implícita en esa
-comparación es, por lo tanto, sensiblemente mayor que la de la B4-60: del orden del
-$95$--$98\%$. Esto es cualitativamente consistente con lo reportado en el estudio
+escora de punta comparable ($25.7°$ frente a $16.8°$). Para el P1727, la descomposición directa de las fuerzas en sus componentes de
+presión y fricción --disponible para esta geometría-- permite medir la fracción de
+presión sin recurrir a inferencias indirectas. Tomando la condición de modelo
+completamente turbulenta como referencia y la de escala buque como objetivo (ambas
+turbulentas, sin transición), la fracción
+$f_p=\Delta K_{Tp}/\Delta K_T=\Delta K_{Tp}/(\Delta K_{Tp}+\Delta K_{Tf})$ resulta
+$\approx0.88$ en el rango de carga de interés ($J=0.30$--$0.40$), decreciente con $J$
+hasta $\approx0.80$ en condiciones descargadas y prácticamente insensible tanto a la
+velocidad de giro de modelo tomada como base como al $Re_c$ de escala buque objetivo.
+El efecto de escala completamente turbulento sobre el empuje asociado es del orden del
+$3$--$6\%$ --creciente con $J$ y decreciente con el rps de modelo, en coincidencia con
+lo que \citet{gallotti2026} reportan para esta hélice, y muy por encima de lo que
+predice el procedimiento ITTC-78 puramente friccional--. Esta fracción de presión
+elevada se ubica por encima de la de las hélices convencionales de área expandida
+moderada. Esto es cualitativamente consistente con lo reportado en el estudio
 sistemático de propulsores del mismo autor: el efecto de escala en $K_T$ crece al
 disminuir $A_E/A_0$, y tanto el P206 como el P1727 se ubican en el extremo inferior
 del rango de área expandida frente a la B4-60.
+
+Corresponde, no obstante, una salvedad sobre esta comparación. El P1727 no es una
+hélice convencional: es una geometría de punta rakeada (\emph{tip-raked}). Su fracción
+de presión elevada obedece en parte al área expandida reducida --cuerdas cortas,
+$Re_c$ bajo, capa límite dominada por la presión--, que el P206 comparte plenamente, y
+en parte al rake de punta, mecanismo que el P206 no comparte: la literatura sobre
+geometrías de punta modificada \citep{Baltazar2021,gallotti2026} muestra que a escala
+buque se debilita o anula la separación en la región de punta, agregando una
+contribución de presión adicional. Por ambos motivos cabría esperar, a priori, que el
+P1727 acotara por arriba el efecto del P206. La descomposición directa de sus fuerzas,
+sin embargo, arroja $f_p\approx0.88$ en el rango de interés, comparable al obtenido
+aquí para el P206 ($0.90$--$0.92$, Sección~\ref{sec:coreana_fp_correccion}) y no por
+encima de él: la expectativa de cota superior asociada al rake no llega a
+materializarse en los datos, y el P1727 se mantiene como una referencia externa de
+geometría casi idéntica, útil para situar el orden de magnitud del $f_p$.
+
+Conviene además fijar el otro extremo del intervalo con un ancla convencional del mismo
+estudio, para no mezclar fuentes ni metodologías. El propio trabajo de
+\citet{gallotti2026} analiza, con idéntico solver y procedimiento, la hélice
+convencional VP1304 ($Z=5$, $A_E/A_0=0.779$, sin rake de punta). De sus cifras de escala
+completamente turbulenta puede estimarse su fracción de presión: a $J=1$ la componente
+de presión del empuje crece en $\Delta K_{Tp}\approx+0.0096$ y la friccional entre
+$+0.0028$ y $+0.0041$ según el $rps$ de modelo, lo que arroja
+$f_p\approx0.70$--$0.77$. Este valor coincide de manera notable con el obtenido aquí
+para la B4-60 ($0.69$--$0.77$), pese a tratarse de hélices, solvers y campañas
+distintos, lo que refuerza la robustez del extremo convencional del intervalo. Queda
+así acotado un rango físicamente ordenado por área expandida: las hélices
+convencionales de área moderada (VP1304, B4-60) en $f_p\approx0.70$--$0.77$, y las de
+área reducida (el P206 y el P1727, de geometría casi idéntica) en una banda alta,
+$f_p\approx0.88$--$0.92$. El P206 y el P1727 caen prácticamente juntos pese al rake de
+punta de este último, sin la separación que sugería la inferencia indirecta previa.
 
 Se evaluó el impacto de ambas fracciones sobre la extrapolación Fully Turbulent de la
 Tabla~\ref{tab:ittc_efd_ft} (Ecuación de corrección extendida,
@@ -688,29 +931,29 @@ punto de referencia a $D=6$~m.}
 \hline
 Solo fricción (ITTC-78) & --- & $-2.92\%$ & $-3.11\%$ & $-3.42\%$ \\
 Fricción + presión (B4-60) & $0.73$ (interpolada por $Re$) & $-2.20\%$ & $-2.32\%$ & $-2.53\%$ \\
-Fricción + presión (P1727) & $\approx0.95$ & $+2.68\%$ & $+3.07\%$ & $+3.50\%$ \\
+Fricción + presión (P1727) & $\approx0.88$ & $-0.68\%$ & $-0.80\%$ & $-0.68\%$ \\
 \hline
 \end{tabular}
 \end{table}
 
-La fracción de la B4-60 reduce el sesgo casi a la mitad pero no lo elimina, mientras
-que la fracción inferida del P1727 sobrecorrige e invierte el signo del error.
+La fracción de la B4-60 reduce el sesgo casi a la mitad pero no lo elimina; la
+fracción medida del P1727 ($\approx0.88$), en cambio, lo reduce casi por completo y
+deja un error residual de apenas $-0.7$ a $-0.8\%$, el menor de las tres correcciones.
 
-Este resultado merece una lectura cuidadosa, porque a primera vista es
-contraintuitivo: la B4-60, geométricamente la más distinta de las tres hélices, es la
-que produce el menor error numérico al corregir la extrapolación; el P1727, mucho más
-parecido al P206 en $A_E/A_0$, $c/D_{0.7R}$ y presencia de escora, es el que peor
-funciona. Esto \textbf{no} debe interpretarse como evidencia de que la similitud
-geométrica sea irrelevante o de que la fracción de la B4-60 sea la más apropiada para
-el P206. Con un único punto de anclaje a escala grande, cualquier fracción que
-produzca un error pequeño en esa comparación puntual puede estar acertando por razones
-ajenas a la que se está evaluando --por ejemplo, compensando parcialmente una
-diferencia de escora, de $Re$ de referencia, o de carga ($J$) entre el P1727 y el
-P206 que no tiene relación directa con $A_E/A_0$--, del mismo modo que puede estar
-acertando por la razón correcta. La geometría más parecida no garantiza, por sí sola,
-que la fracción de presión transferida sea la más precisa en una única
-verificación; garantiza, en cambio, que sería la elección más razonable \emph{a
-priori}, antes de tener cualquier dato de verificación.
+Este resultado admite una lectura clara: la fracción medida del P1727 --la hélice
+geométricamente más parecida al P206 en $A_E/A_0$, $c/D_{0.7R}$ y presencia de escora--
+es la que mejor corrige la extrapolación, mientras que la de la B4-60, la más distinta
+de las tres, deja el mayor sesgo residual. El orden es el esperable si la fracción de
+presión está gobernada por la geometría: la hélice más similar transfiere mejor. Cabe,
+no obstante, la misma cautela metodológica que en cualquier ajuste sobre un único punto
+de anclaje a escala grande: un error pequeño en esa comparación puntual puede deberse
+en parte a compensaciones ajenas al $A_E/A_0$ --diferencias de escora, de $Re$ de
+referencia o de carga ($J$) entre el P1727 y el P206--, y no solo a la similitud de
+área expandida. La geometría más parecida no garantiza, por sí sola, que la fracción
+transferida sea la más precisa en una única verificación; garantiza, en cambio, que es
+la elección más razonable \emph{a priori}. Por eso el valor propio del P206, obtenido a
+continuación por dos vías independientes, sigue siendo la referencia central de esta
+sección, y el acuerdo del P1727 con él, un respaldo externo antes que su fundamento.
 
 \paragraph{Validación cruzada con un segundo punto de escala.} Para resolver esta
 tensión se generó un segundo punto de referencia, a una escala intermedia entre el
@@ -772,19 +1015,66 @@ valor inferido del P1727.}
 \end{figure}
 
 Los nueve valores calibrados caen en una banda angosta, $f_p\approx0.90$--$0.92$,
-sensiblemente más cerca del extremo del P1727 ($\approx0.95$) que del de la B4-60
-($\approx0.77$). Como los dos puntos de escala grande son independientes entre sí
+prácticamente coincidente con el valor medido para el P1727 ($\approx0.88$) y muy por
+encima del de la B4-60 ($\approx0.77$). Como los dos puntos de escala grande son independientes entre sí
 --ninguno se usó para calibrar el otro-- esta convergencia deja de ser un ajuste
 circular de un único dato y pasa a ser una verificación cruzada: la hipótesis de
 similitud geométrica con el P1727 resulta, en definitiva, la más sustentada de las
-dos, a pesar de que la B4-60 diera un error puntual menor en la primera comparación.
+dos, en coherencia con que la fracción medida del P1727 fuera también la que menor
+error puntual dejó en la primera comparación (Tabla~\ref{tab:fp_comparacion}).
 
-Un segundo detalle, más preliminar dado que surge de solo dos puntos, es que el $f_p$
-calibrado \textbf{disminuye levemente} al aumentar la escala ($0.92\to0.90$), en
-sentido opuesto a la curva de la B4-60, que crece con la razón de escala hasta
-saturar. Con dos puntos no alcanza para descartar que sea ruido numérico, pero de
-sostenerse con un tercer punto sería evidencia de que la forma funcional
-$f_p(Re)$ de la B4-60 --no solo su valor asintótico-- no es transferible al P206.
+Esta calibración, que infiere $f_p$ como el valor que anula el error de extrapolación,
+admite además una comprobación por una vía completamente independiente: la
+descomposición directa de las fuerzas de presión y fricción sobre la pala
+(Ecuación~\ref{eq:adim_helices}), aplicada a las mismas dos corridas completamente
+turbulentas a $D=6$~m. En lugar de inferir $f_p$ del error, esta ruta lo mide
+directamente como $\Delta K_{Tp}/\Delta K_T$ respecto de la condición de modelo. Los
+valores resultantes se presentan en la Tabla~\ref{tab:fp_directo}.
+
+\begin{table}[htpb]
+\centering
+\caption{Fracción de presión $f_p = \Delta K_{Tp}/\Delta K_T$ obtenida por
+descomposición directa de fuerzas (FT vs.\ FT), para los dos puntos de escala grande,
+en función de $J$.}
+\label{tab:fp_directo}
+\begin{tabular}{ccc}
+\hline
+$J$ & $f_p$ (Grande, $n=0.80$~rps) & $f_p$ (Intermedio, $n=0.25$~rps) \\
+\hline
+$0.30$ & $0.931$ & $0.928$ \\
+$0.35$ & $0.929$ & $0.927$ \\
+$0.40$ & $0.923$ & $0.920$ \\
+$0.50$ & $0.914$ & $0.915$ \\
+$0.60$ & $0.898$ & $0.904$ \\
+\hline
+\end{tabular}
+\end{table}
+
+La descomposición directa arroja $f_p$ entre $0.90$ y $0.93$, decreciente de forma
+monótona con $J$, y prácticamente insensible a la velocidad de giro a escala grande:
+los dos puntos difieren en menos de $0.01$ en todos los $J$, pese a diferir en un
+factor $3.2$ en $n$. Es también insensible a cuál de los cinco $Re_c$ de modelo se tome
+como base de la comparación (dispersión inferior a $0.01$ en todo $J$, y a $0.002$ en
+$J=0.30$), de modo que el valor es una propiedad del salto de escala y no del par
+particular de puntos de operación elegido. Lo relevante es que ambas rutas
+--calibración por anulación de error (Tabla~\ref{tab:fp_calibrado_dos_puntos}) y
+descomposición directa de fuerzas (Tabla~\ref{tab:fp_directo})-- convergen al mismo
+valor $f_p\approx0.90$--$0.92$ de manera independiente, lo que refuerza
+considerablemente la conclusión: no es un artefacto del procedimiento de calibración,
+sino una propiedad del campo de fuerzas de esta hélice.
+
+Un segundo detalle, más preliminar, es que el $f_p$ \emph{calibrado} disminuye
+levemente al aumentar la escala ($0.92\to0.90$ del punto intermedio al grande), en
+sentido opuesto a la curva de la B4-60, que crece con la razón de escala hasta saturar.
+Sin embargo, la descomposición directa de fuerzas (Tabla~\ref{tab:fp_directo}) no
+reproduce esa tendencia: los valores del punto intermedio y del grande difieren en
+menos de $0.01$ a cada $J$, es decir, son estadísticamente indistinguibles en escala.
+Que las dos rutas discrepen precisamente en este punto --el más fino de todo el
+análisis-- sugiere que la leve disminución observada en la calibración es, con toda
+probabilidad, ruido numérico del procedimiento de anulación de error y no una
+dependencia física de $f_p$ con $Re$. La variación robusta, presente en ambas rutas, es
+la disminución de $f_p$ con el coeficiente de avance $J$ (Tabla~\ref{tab:fp_directo}):
+la fracción de presión del efecto de escala es mayor en condiciones cargadas.
 
 La Figura~\ref{fig:error_dos_puntos} muestra el error de las tres correcciones
 (fricción sola, B4-60, P1727) en ambos puntos de validación, evidenciando que el
@@ -792,8 +1082,8 @@ orden relativo entre B4-60 y P1727 se invierte según la escala del punto de
 comparación --la B4-60 es más cercana en el punto grande, el P1727 en el
 intermedio-- lo cual es consistente con que ninguna de las dos fracciones fijas
 representa exactamente la física del P206, y con que el valor real esté, como
-sugiere la calibración directa, más próximo al $0.90$--$0.92$ que a cualquiera de los
-dos extremos de literatura.
+sugieren de forma concordante la calibración y la descomposición directa de fuerzas,
+más próximo al $0.90$--$0.92$ que a cualquiera de los dos extremos de literatura.
 
 \begin{figure}[htpb]
 \centering
@@ -807,7 +1097,96 @@ Con esto, la conclusión práctica de esta sección se puede fijar con más conf
 la de un ajuste de un solo punto: para hélices con $A_E/A_0$ reducido y escora
 significativa como el P206, la fracción de presión del efecto de escala en $K_T$ se
 ubica sensiblemente por encima de la observada en series sistemáticas convencionales
-como la B4-60, en la banda $f_p\approx0.90$--$0.92$. Queda como trabajo pendiente
---ahora de menor prioridad, dado que la tendencia ya está razonablemente acotada--
-sumar un tercer punto de escala para confirmar si la leve disminución de $f_p$ con
-$Re$ observada aquí se sostiene o es artefacto de la limitada cantidad de datos.
+como la B4-60, en la banda $f_p\approx0.90$--$0.92$. La coincidencia de esta banda por
+dos vías independientes --calibración por anulación de error y descomposición directa
+de fuerzas-- otorga a esta conclusión una solidez que un ajuste de un único punto no
+tendría. Queda como trabajo pendiente, ahora de baja prioridad, sumar un tercer punto
+de escala; su interés ya no es tanto acotar el valor central de $f_p$ --razonablemente
+fijado-- como dirimir la forma funcional $f_p(Re)$, sobre la que las dos rutas discrepan
+en el segundo decimal.
+
+\subsection{Implicaciones para el diseño de hélices pequeñas y modelos de disco
+actuador}
+\label{sec:coreana_implicaciones}
+
+Los dos mecanismos caracterizados en este capítulo --el efecto de escala clásico entre
+condiciones turbulentas y la transición laminar-turbulenta a escala de modelo-- comparten
+el mismo punto ciego del procedimiento ITTC-78, que supone que la totalidad del efecto de
+escala es friccional. Ambos, sin embargo, arrastran una contribución de presión que ese
+procedimiento no representa: para el primero, un $f_p\approx0.90$--$0.92$ implica que una
+corrección puramente friccional, por bien calibrada que esté, no puede por construcción dar
+cuenta de más del $8$--$10\%$ del efecto real sobre $K_T$; para el segundo, el desfasaje del
+modelo transicional respecto del completamente turbulento excede lo que la fricción puede
+aportar, y se manifiesta también en el par.
+
+Esta limitación tiene una consecuencia directa sobre una clase de aplicaciones cada vez más
+frecuente: los modelos de disco actuador empleados para representar el propulsor en
+simulaciones de autopropulsión o de interacción casco-hélice. Estos modelos toman como
+entrada una curva $K_T$-$K_Q$-$J$ --habitualmente la del ensayo de aguas abiertas a escala
+de modelo, o su extrapolación ITTC-78-- y devuelven el empuje y el par distribuidos sobre el
+disco. Si el propulsor real opera en régimen transicional, como ocurre en embarcaciones
+pequeñas y en modelos de ensayo, ninguna curva construida bajo la hipótesis completamente
+turbulenta lo representa fielmente, y el disco actuador devolverá empuje y par sesgados sin
+ningún indicador interno de la inconsistencia. El sesgo no es despreciable: la
+Sección~\ref{sec:coreana_resultados} muestra amplitudes de chichón de hasta el $16\%$ en
+$K_T$, y la Sección~\ref{sec:coreana_ittc_efd_ft} una subestimación sistemática de la extrapolación
+ITTC-78 de hasta el $8.5\%$. Para las embarcaciones de pequeño porte --pesqueros, lanchas de
+trabajo-- cuyos propulsores operan precisamente en el rango de $Re_c$ donde el chichón es más
+pronunciado, esto sugiere que la caracterización del régimen transicional no es un
+refinamiento académico sino una condición para predecir correctamente las prestaciones a
+escala real.
+
+\subsection{Conclusiones parciales}
+
+En el propulsor P206 --pequeño y de área expandida reducida-- la capa límite a escala
+de modelo opera en régimen transicional, y el modelo SST completamente turbulento
+--poco sensible a $Re_c$, con un crecimiento monótono leve de apenas $2$ a $6\%$ según
+la carga-- no alcanza a reproducir el comportamiento experimental
+(Sección~\ref{sec:coreana_resultados}). Los ensayos muestran una joroba transicional:
+coeficientes muy superiores a la predicción completamente turbulenta a $Re_c$ bajo,
+con una amplitud que crece al descargar el propulsor, del $7.1\%$ a $J=0.30$ al
+$16.3\%$ a $J=0.60$; la aproximación entre EFD y SST a medida que $Re_c$ crece es
+prácticamente completa a $J\leq0.40$ dentro del rango ensayado, pero a $J=0.50$--$0.60$
+persiste una brecha de $5$ a $24\%$ incluso en el mayor $Re_c$ disponible. El modelo
+SST-LM captura el mecanismo, pero con fidelidad variable --según el $J$ y el nivel de
+$Tu$ subestima o incluso sobrepasa la amplitud medida-- y, sobre todo, ningún valor
+único de intensidad turbulenta reproduce la forma de la curva en todo el rango: el
+$Tu$ que mejor ajusta cambia de una condición de operación a otra, lo que impide
+tratarlo como una propiedad transferible del modelo.
+
+La joroba tiene origen predominantemente de presión. La componente friccional es
+demasiado pequeña para dar cuenta del desfasaje entre SST-LM y SST --lo cubre a lo
+sumo en un $19$--$43\%$--, y el par lo confirma: \emph{aumenta} con el SST-LM, cuando
+la fricción, que contribuye positivamente al par, solo podría reducirlo
+(Sección~\ref{sec:coreana_resultados}). El diagnóstico seccional
+(Sección~\ref{sec:coreana_diagnostico}) localiza el efecto de la transición sobre la
+fricción --un frente de transición dependiente de $Tu$ y una tensión de corte
+marcadamente más radial, cuya fracción radial pasa de $0.19$ en el caso completamente
+turbulento a $0.40$--$0.43$ en el SST-LM-- pero muestra que el cambio de presión no
+ocurre en el pico de succión (insensible al modelo, por debajo del $3.1\%$): se trata
+de una redistribución de carga a lo largo de la envergadura, consistente con el
+mecanismo inferido de los ``paint tests''. La transición se manifiesta así de forma
+local y nítida en el campo de fricción, mientras que su efecto dominante sobre el
+empuje de presión integrado no está localizado.
+
+La calibración de $Tu$ resulta robusta entre solvers --OpenFOAM y StarCCM+
+(Sección~\ref{sec:coreana_solvers})-- y consistente con la validación a $D=6$~m
+(Sección~\ref{sec:coreana_d6m}). Trasladado a la extrapolación, el procedimiento
+ITTC-78, al suponer un efecto de escala puramente friccional, subestima de forma
+sistemática la corrección EFD$\rightarrow$buque hasta en un $8.5\%$
+(Sección~\ref{sec:coreana_ittc_efd_ft}). La descomposición directa fija la fracción de
+presión del efecto de escala del P206 en $f_p\approx0.90$--$0.92$
+(Sección~\ref{sec:coreana_fp_correccion}), de modo que una corrección friccional no
+puede dar cuenta de más del $8$--$10\%$ del efecto real; el P1727, hélice de área
+reducida geométricamente afín, confirma esa banda con $f_p\approx0.88$, muy por encima
+del $0.70$--$0.77$ de las hélices convencionales de área moderada.
+
+En conjunto, ambos mecanismos comprometen la fidelidad de las curvas de aguas abiertas
+que alimentan los modelos de disco actuador: construidas bajo la hipótesis
+completamente turbulenta o extrapoladas con el ITTC-78, sesgan el empuje y el par de
+un propulsor que opera en régimen transicional sin ningún indicador interno de la
+inconsistencia (Sección~\ref{sec:coreana_implicaciones}). Para embarcaciones de
+pequeño porte, cuyos propulsores trabajan justamente en el rango de $Re_c$ donde la
+joroba es más pronunciada, caracterizar el régimen transicional deja de ser un
+refinamiento académico para volverse una condición de la predicción correcta de
+prestaciones a escala real.
