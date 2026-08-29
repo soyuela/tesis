@@ -375,6 +375,18 @@ StarCCM se presenta en la Sección~\ref{sec:coreana_solvers}.
     datos experimentales.}
     \label{fig:coreana_KT_OF}
 \end{figure}
+<<<<<<< HEAD
+=======
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=\textwidth]{fig_coreana_KQ_OF.pdf}
+    \caption{Coeficiente de par $10K_Q$ en función de $Re_c$ para cuatro valores de
+    $J$, calculado con \textbf{OpenFOAM}. Configuraciones análogas a las de la
+    Figura~\ref{fig:coreana_KT_OF}.}
+    \label{fig:coreana_KQ_OF}
+\end{figure}
+>>>>>>> bf4ff4fd3cfbf25e8b7bd24d95dc39afad4efe91
 
 \begin{figure}[htpb]
     \centering
@@ -452,6 +464,7 @@ la descomposición de fuerzas en componentes de presión y fricción
 (Ecuación~\ref{eq:adim_helices}) está disponible aquí únicamente para las
 configuraciones completamente turbulentas, no para las corridas SST-LM. El origen del
 desfasaje entre SST-LM y SST no puede, por tanto, leerse de forma directa de una
+<<<<<<< HEAD
 descomposición, pero sí acotarse comparando las magnitudes en juego. La contribución
 friccional al empuje según la descomposición completamente turbulenta es pequeña,
 $|K_{Tf}| \approx 0.0018$--$0.0022$, del orden del $1\%$ de $K_T$, mientras que el
@@ -459,6 +472,15 @@ SST-LM predice valores de $K_T$ entre un $4.8$ y un $6.7\%$ por encima del
 completamente turbulento a $Re_c = 0.36\times10^6$. Incluso si toda esa fricción se
 atribuyera al desfasaje, cubriría a lo sumo entre el $19$ y el $43\%$: el resto es,
 necesariamente, de origen de presión. El par lo
+=======
+descomposición, pero sí acotarse mediante un argumento de magnitud. La contribución
+friccional al empuje según la descomposición completamente turbulenta es pequeña,
+$|K_{Tf}| \approx 0.0018$--$0.0022$, del orden del $1\%$ de $K_T$, mientras que el
+SST-LM predice valores de $K_T$ entre un $4.8$ y un $6.7\%$ por encima del
+completamente turbulento a $Re_c = 0.36\times10^6$. Aun para un álabe completamente
+libre de fricción, ésta podría explicar a lo sumo entre el $19$ y el $43\%$ de ese
+desfasaje: la mayor parte es, necesariamente, de origen de presión. El par lo
+>>>>>>> bf4ff4fd3cfbf25e8b7bd24d95dc39afad4efe91
 confirma: $K_Q$ \emph{aumenta} con el SST-LM a $J = 0.30$--$0.40$ (entre $+0.6$ y
 $+1.6\%$), cuando un mecanismo puramente friccional lo \emph{reduciría}, ya que la
 fricción contribuye positivamente al par. Ambos hechos reproducen, para esta hélice,
@@ -504,7 +526,11 @@ de succión.
 %     \label{fig:coreana_cf_panel}
 % \end{figure}
 
+<<<<<<< HEAD
 En síntesis, la transición se manifiesta de forma \emph{local} y nítida en el campo de fricción
+=======
+En síntesis, la transición deja una firma \emph{local} clara en el campo de fricción
+>>>>>>> bf4ff4fd3cfbf25e8b7bd24d95dc39afad4efe91
 --el frente de transición y su sensibilidad a $Tu$ y $Re_c$--, mientras que el cambio
 acompañante en el empuje de presión integrado, dominante según el argumento de
 magnitud, no está localizado en el pico de succión y queda pendiente de resolver en
@@ -556,6 +582,7 @@ conclusión sobre la no transferibilidad del parámetro entre códigos.
     \label{fig:coreana_KQ_Star}
 \end{figure}
 
+<<<<<<< HEAD
 Para cuantificar el acuerdo con el experimento se emplean dos métricas relativas.
 Sean $K_i^{\mathrm{CFD}}$ el valor calculado y $K_i^{\mathrm{EFD}}$ el experimental en
 el punto de operación $i$ ($i=1,\dots,N$); el error absoluto medio (MAE) y el sesgo
@@ -577,6 +604,11 @@ Tabla~\ref{tab:mae_global_coreana} resume el MAE y el sesgo de $K_T$ de las ocho
 configuraciones de solver/modelo frente a los $N=30$ puntos experimentales
 ($J=0.30$--$0.65$; cinco $Re_c$ por seis $J$), salvo donde se indica un $N$ menor por
 puntos faltantes en la corrida correspondiente.
+=======
+La Tabla~\ref{tab:mae_global_coreana} resume el error absoluto
+medio (MAE) y el sesgo (bias) de $K_T$ de las nueve configuraciones frente a los 30
+puntos experimentales disponibles.
+>>>>>>> bf4ff4fd3cfbf25e8b7bd24d95dc39afad4efe91
 
 \begin{table}[htpb]
 \centering
@@ -864,8 +896,12 @@ escora de punta comparable ($25.7°$ frente a $16.8°$). Para el P1727, la desco
 presión y fricción --disponible para esta geometría-- permite medir la fracción de
 presión sin recurrir a inferencias indirectas. Tomando la condición de modelo
 completamente turbulenta como referencia y la de escala buque como objetivo (ambas
+<<<<<<< HEAD
 turbulentas, sin transición), la fracción
 $f_p=\Delta K_{Tp}/\Delta K_T=\Delta K_{Tp}/(\Delta K_{Tp}+\Delta K_{Tf})$ resulta
+=======
+turbulentas, sin transición), la fracción $f_p=\Delta K_{Tp}/\Delta K_T$ resulta
+>>>>>>> bf4ff4fd3cfbf25e8b7bd24d95dc39afad4efe91
 $\approx0.88$ en el rango de carga de interés ($J=0.30$--$0.40$), decreciente con $J$
 hasta $\approx0.80$ en condiciones descargadas y prácticamente insensible tanto a la
 velocidad de giro de modelo tomada como base como al $Re_c$ de escala buque objetivo.
@@ -1134,6 +1170,7 @@ ITTC-78 de hasta el $8.5\%$. Para las embarcaciones de pequeño porte --pesquero
 trabajo-- cuyos propulsores operan precisamente en el rango de $Re_c$ donde el chichón es más
 pronunciado, esto sugiere que la caracterización del régimen transicional no es un
 refinamiento académico sino una condición para predecir correctamente las prestaciones a
+<<<<<<< HEAD
 escala real.
 
 \subsection{Conclusiones parciales}
@@ -1190,3 +1227,6 @@ pequeño porte, cuyos propulsores trabajan justamente en el rango de $Re_c$ dond
 joroba es más pronunciada, caracterizar el régimen transicional deja de ser un
 refinamiento académico para volverse una condición de la predicción correcta de
 prestaciones a escala real.
+=======
+escala real.
+>>>>>>> bf4ff4fd3cfbf25e8b7bd24d95dc39afad4efe91
