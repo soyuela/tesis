@@ -6,18 +6,23 @@
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.3.1}Sweep de diámetros: $D = 0.14$ a $8.0$~m}{\reset@font\mtcSSfont 116}{subsection.5.3.1}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.3.2}Variación de $K_T$ y $K_Q$ con Reynolds}{\reset@font\mtcSSfont 116}{subsection.5.3.2}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.3.3}Descomposición friccional/presión ($\Delta K_{Tf}$, $\Delta K_{Tp}$, $\Delta K_{Qf}$, $\Delta K_{Qp}$)}{\reset@font\mtcSSfont 117}{subsection.5.3.3}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.3.4}Comparación con el procedimiento ITTC-78}{\reset@font\mtcSSfont 118}{subsection.5.3.4}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.3.5}Eficiencia en escala buque: comparación de métodos}{\reset@font\mtcSSfont 120}{subsection.5.3.5}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.3.6}Conclusiones parciales}{\reset@font\mtcSSfont 120}{subsection.5.3.6}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {5.4}Efectos de transición laminar-turbulenta: hélice coreana}{\reset@font\mtcSfont 121}{section.5.4}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.4.1}Datos experimentales y rango de Reynolds}{\reset@font\mtcSSfont 121}{subsection.5.4.1}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.4.2}Configuración numérica}{\reset@font\mtcSSfont 122}{subsection.5.4.2}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.4.3}Sensibilidad a la intensidad turbulenta y comparación con datos experimentales}{\reset@font\mtcSSfont 122}{subsection.5.4.3}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.4.4}Diagnóstico seccional: dónde actúan la presión y la fricción}{\reset@font\mtcSSfont 125}{subsection.5.4.4}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.4.5}Comparación entre solvers: robustez de la calibración de $Tu$}{\reset@font\mtcSSfont 126}{subsection.5.4.5}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.4.6}Validación con una simulación a escala $D=6$ m}{\reset@font\mtcSSfont 130}{subsection.5.4.6}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.4.7}Extrapolación con el procedimiento ITTC-78: EFD vs. Fully Turbulent}{\reset@font\mtcSSfont 131}{subsection.5.4.7}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.4.8}Corrección de fricción y presión: fracciones de la B4-60 y del P1727}{\reset@font\mtcSSfont 132}{subsection.5.4.8}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Validación cruzada con un segundo punto de escala.}{\reset@font\mtcPfont 133}{section*.152}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.4.9}Implicaciones para el diseño de hélices pequeñas y modelos de disco actuador}{\reset@font\mtcSSfont 137}{subsection.5.4.9}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.4.10}Conclusiones parciales}{\reset@font\mtcSSfont 137}{subsection.5.4.10}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.3.4}Distribución superficial del efecto de escala en presión}{\reset@font\mtcSSfont 118}{subsection.5.3.4}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Distribución sobre la pala.}{\reset@font\mtcPfont 118}{section*.137}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Distribución radial.}{\reset@font\mtcPfont 119}{section*.139}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Convergencia con el número de Reynolds.}{\reset@font\mtcPfont 119}{section*.141}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Mecanismo seccional.}{\reset@font\mtcPfont 120}{section*.143}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.3.5}Comparación con el procedimiento ITTC-78}{\reset@font\mtcSSfont 123}{subsection.5.3.5}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.3.6}Eficiencia en escala buque: comparación de métodos}{\reset@font\mtcSSfont 124}{subsection.5.3.6}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.3.7}Conclusiones parciales}{\reset@font\mtcSSfont 125}{subsection.5.3.7}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {5.4}Efectos de transición laminar-turbulenta: propulsor P206}{\reset@font\mtcSfont 125}{section.5.4}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.4.1}Datos experimentales y rango de Reynolds}{\reset@font\mtcSSfont 125}{subsection.5.4.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.4.2}Configuración numérica}{\reset@font\mtcSSfont 126}{subsection.5.4.2}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.4.3}Sensibilidad a la intensidad turbulenta y comparación con datos experimentales}{\reset@font\mtcSSfont 126}{subsection.5.4.3}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.4.4}Diagnóstico seccional: dónde actúan la presión y la fricción}{\reset@font\mtcSSfont 130}{subsection.5.4.4}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.4.5}Comparación entre solvers: robustez de la calibración de $Tu$}{\reset@font\mtcSSfont 131}{subsection.5.4.5}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.4.6}Validación con una simulación a escala $D=6$ m}{\reset@font\mtcSSfont 135}{subsection.5.4.6}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.4.7}Extrapolación con el procedimiento ITTC-78: EFD vs. Fully Turbulent}{\reset@font\mtcSSfont 136}{subsection.5.4.7}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.4.8}Corrección de fricción y presión: fracciones de la B4-60 y del P1727}{\reset@font\mtcSSfont 137}{subsection.5.4.8}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Validación cruzada con un segundo punto de escala.}{\reset@font\mtcPfont 139}{section*.161}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.4.9}Implicaciones para el diseño de hélices pequeñas y modelos de disco actuador}{\reset@font\mtcSSfont 142}{subsection.5.4.9}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {5.4.10}Conclusiones parciales}{\reset@font\mtcSSfont 142}{subsection.5.4.10}}
