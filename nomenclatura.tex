@@ -1,30 +1,35 @@
 % ==========================================================================
 %  NOMENCLATURA  —  colocar en el front matter (antes de la Introducción)
-%  Requiere: \usepackage{tabular}
+%  Requiere: \usepackage{longtable}
 %  Tablas agrupadas por categoría. Adaptar/completar según capítulos finales.
 % ==========================================================================
 
+\chapter*{Nomenclatura}
+\addcontentsline{toc}{chapter}{Nomenclatura}
+\markboth{Nomenclatura}{Nomenclatura}
 
 \renewcommand{\arraystretch}{1.25}
 
 % --------------------------------------------------------------------------
 \section*{Números adimensionales}
-\begin{tabular}{@{}p{0.16\textwidth} p{0.78\textwidth}@{}}
+\begin{longtable}{@{}p{0.16\textwidth} p{0.78\textwidth}@{}}
 $Fr$        & Número de Froude, $Fr = V/\sqrt{gL}$ \\
 $Fr_M,\,Fr_S$ & Número de Froude en escala modelo y buque \\
 $Fr_{tr}$   & Número de Froude de la popa espejo, $Fr_{tr} = V/\sqrt{g\,T_{tr}}$ \\
 $Re$        & Número de Reynolds, $Re = VL/\nu$ \\
 $Re_M,\,Re_S$ & Número de Reynolds en escala modelo y buque \\
-$Re_n$      & Número de Reynolds de hélice (evaluado a $r/R = 0{,}75$) \\
-$Re_\theta$ & Número de Reynolds basado en el espesor de cantidad de movimiento (modelo de transición) \\
+$Re_n$      & Número de Reynolds de la hélice, $Re_n = n D^2/\nu$ (convención ITTC adoptada en esta tesis) \\
+$Re_c$      & Número de Reynolds seccional de la hélice basado en la cuerda a $r/R=0{,}7$, $Re_c = V_{\text{ref}}\,c_{0.7R}/\nu$ \\
+$\widetilde{Re}_{\theta t}$ & Número de Reynolds de transición basado en el espesor de cantidad de movimiento (variable de transporte del modelo de transición SST-LM) \\
 $y^+$       & Distancia adimensional a la pared (primer centro de celda) \\
 $C_B$       & Coeficiente de block \\
-$C_P$       & Coeficiente de presión, $C_P = (p-p_\infty)/\tfrac{1}{2}\rho V^2$ \\
-\end{tabular}
+$C_P$       & Coeficiente de presión sobre el casco, $C_P = (p-p_\infty)/\tfrac{1}{2}\rho V^2$ \\
+$C_p$       & Coeficiente de presión sobre la pala de la hélice, $C_p = (p-p_\infty)/\tfrac{1}{2}\rho V_{0.7R}^2$ \\
+\end{longtable}
 
 % --------------------------------------------------------------------------
 \section*{Coeficientes y fuerzas de resistencia}
-\begin{tabular}{@{}p{0.16\textwidth} p{0.78\textwidth}@{}}
+\begin{longtable}{@{}p{0.16\textwidth} p{0.78\textwidth}@{}}
 $C_T$              & Coeficiente de resistencia total \\
 $C_{TM},\,C_{TS}$  & Coeficiente de resistencia total en escala modelo y buque \\
 $C_F$              & Coeficiente de resistencia friccional \\
@@ -33,9 +38,11 @@ $C_{FM0},\,C_{FS0}$& Coeficiente de fricción de referencia en escala modelo y b
 $C_V$              & Coeficiente de resistencia viscosa, $C_V = C_F + C_{PV}$ \\
 $C_{PV}$           & Coeficiente de resistencia por presión viscosa \\
 $C_W$              & Coeficiente de resistencia por formación de olas \\
+$C_R$              & Coeficiente de resistencia residual (componente no friccional en la descomposición de Hughes/Froude) \\
 $\Delta C_F$       & Corrección por rugosidad de la superficie (Townsin \& Dey) \\
 $C_A$              & Coeficiente de correlación modelo--buque \\
 $C_{AAS}$          & Coeficiente de resistencia aerodinámica de la obra muerta \\
+$C_{tr,S}$         & Coeficiente de resistencia asociado al espejo de popa a escala buque \\
 $R_T$              & Fuerza de resistencia total \\
 $R_{TM},\,R_{TS}$  & Fuerza de resistencia total en escala modelo y buque \\
 $R_V$              & Resistencia viscosa \\
@@ -46,11 +53,11 @@ $k,\;(1+k)$        & Factor de forma \\
 $k_M,\,k_S$        & Factor de forma en escala modelo y buque \\
 $k_{tr}$           & Factor de forma del espejo  \\
 $P_E,\,P_{ES}$     & Potencia efectiva (buque) \\
-\end{tabular}
+\end{longtable}
 
 % --------------------------------------------------------------------------
 \section*{Geometría del casco y del espejo}
-\begin{tabular}{@{}p{0.16\textwidth} p{0.78\textwidth}@{}}
+\begin{longtable}{@{}p{0.16\textwidth} p{0.78\textwidth}@{}}
 $L_{WL}$    & Eslora en flotación \\
 $L_{PP}$    & Eslora entre perpendiculares \\
 $L_{OS}$    & Eslora total sumergida \\
@@ -68,32 +75,43 @@ $T_{tr}$    & Inmersión efectiva del borde inferior del espejo \\
 $y_{tr}$    & Semimanga en la intersección del espejo con la superficie libre \\
 $tr_{\text{ratio}}$    & Relación entre el área del espejo sumergido y la sección maestra, $A_{tr}/A_{\max}$ \\
 $tr_{\text{fullness}}$ & Coeficiente de llenado del espejo, $A_{tr}/(2\,y_{tr}\,T_{tr})$ \\
-\end{tabular}
+\end{longtable}
 
 % --------------------------------------------------------------------------
 \section*{Propulsión (hélices en aguas abiertas)}
-\begin{tabular}{@{}p{0.16\textwidth} p{0.78\textwidth}@{}}
+\begin{longtable}{@{}p{0.16\textwidth} p{0.78\textwidth}@{}}
 $K_T$       & Coeficiente de empuje, $K_T = T/(\rho n^2 D^4)$ \\
 $K_Q$       & Coeficiente de torque, $K_Q = Q/(\rho n^2 D^5)$ \\
+$K_{Tp},\,K_{Tf}$ & Componentes de presión y de fricción del coeficiente de empuje \\
+$K_{Qp},\,K_{Qf}$ & Componentes de presión y de fricción del coeficiente de torque \\
+$\Delta K_T$      & Efecto de escala sobre el coeficiente de empuje (diferencia entre escalas) \\
+$\Delta K_{Tp},\,\Delta K_{Tf}$ & Componentes de presión y de fricción del efecto de escala sobre $K_T$ \\
+$f_p$       & Fracción de presión del efecto de escala, $f_p = \Delta K_{Tp}/\Delta K_T$ \\
 $J$         & Coeficiente de avance, $J = V_a/(nD)$ \\
 $\eta_0$    & Rendimiento en aguas abiertas \\
 $T$         & Empuje \\
 $Q$         & Torque \\
 $n$         & Velocidad de giro [rev/s] \\
 $D$         & Diámetro de la hélice \\
-$V_a$       & Velocidad de avance \\
+$V_a$       & Velocidad de avance, $V_a = J\,n\,D$ \\
+$V_{\text{ref}},\,V_{0.7R}$ & Velocidad resultante en la sección $r/R=0{,}7$ de la pala \\
 $Z$         & Número de palas \\
 $A_E/A_0$   & Relación de área expandida \\
 $P/D$       & Relación paso--diámetro \\
 $r/R$       & Posición radial adimensional \\
 $c$         & Cuerda de la sección \\
+$c_{0.7R},\,c_{0.75}$ & Cuerda de la sección a $r/R=0{,}7$ y $r/R=0{,}75$ \\
+$D_{0.7R}$  & Diámetro de referencia en la sección $r/R=0{,}7$ (usado en $c/D_{0.7R}$) \\
+$C_f$       & Coeficiente de fricción local sobre la pala \\
+$C_{pn}$    & Coeficiente de presión normal local sobre la pala \\
 $C_D$       & Coeficiente de arrastre de perfil \\
+$C_{D,M},\,C_{D,S}$ & Coeficiente de arrastre de perfil en escala modelo y buque (ITTC-78) \\
 $\Delta C_D$& Corrección de arrastre de perfil (ITTC-78) \\
-\end{tabular}
+\end{longtable}
 
 % --------------------------------------------------------------------------
 \section*{Modelado numérico y turbulencia}
-\begin{tabular}{@{}p{0.16\textwidth} p{0.78\textwidth}@{}}
+\begin{longtable}{@{}p{0.16\textwidth} p{0.78\textwidth}@{}}
 $k$         & Energía cinética turbulenta \\
 $\omega$    & Tasa específica de disipación \\
 $\varepsilon$ & Tasa de disipación turbulenta \\
@@ -101,17 +119,24 @@ $\nu$       & Viscosidad cinemática molecular \\
 $\nu_t$     & Viscosidad cinemática turbulenta \\
 $\mu,\,\mu_t$ & Viscosidad dinámica molecular y turbulenta \\
 $\rho$      & Densidad del fluido \\
+$\tau_w$    & Esfuerzo cortante de pared \\
+$Tu$        & Intensidad turbulenta (evaluada en el plano del disco de la hélice) \\
+$\gamma$    & Intermitencia (variable de transporte del modelo de transición SST-LM) \\
 $F_1,\,F_2$ & Funciones de mezcla del modelo SST \\
 $P_k$       & Término de producción de turbulencia \\
 $S_{ij},\,S$& Tensor y magnitud de la tasa de deformación \\
 $a_1$       & Constante de Bradshaw ($=0{,}31$) \\
+$\alpha,\,\beta,\,\beta^*$ & Coeficientes de cierre del modelo $k$--$\omega$ SST \\
+$\sigma_k,\,\sigma_\omega,\,\sigma_{\omega 2}$ & Coeficientes de difusión del modelo $k$--$\omega$ SST \\
+$C_{\varepsilon 1},\,C_{\varepsilon 2}$ & Constantes del modelo $k$--$\varepsilon$ \\
+$Co_{max}$  & Número de Courant máximo \\
 $U_i,\,x_i$ & Componente $i$ de la velocidad y coordenada espacial \\
 $Q$         & Segundo invariante del gradiente de velocidad (criterio Q) \\
-\end{tabular}
+\end{longtable}
 
 % --------------------------------------------------------------------------
 \section*{Verificación, validación e incertidumbre}
-\begin{tabular}{@{}p{0.16\textwidth} p{0.78\textwidth}@{}}
+\begin{longtable}{@{}p{0.16\textwidth} p{0.78\textwidth}@{}}
 $GCI$       & Índice de convergencia de malla (\textit{Grid Convergence Index}) \\
 $R$         & Razón de convergencia \\
 $p$         & Orden aparente de precisión \\
@@ -128,16 +153,26 @@ $S$         & Resultado computacional (\textit{simulation}) \\
 $U_D$       & Incertidumbre experimental \\
 $U_{num}$   & Incertidumbre numérica \\
 $U_{val}$   & Incertidumbre de validación, $U_{val}=\sqrt{U_D^2+U_{num}^2}$ \\
-\end{tabular}
+MAE         & Error absoluto medio (\textit{Mean Absolute Error}) \\
+\end{longtable}
 
 % --------------------------------------------------------------------------
 \section*{Acrónimos}
-\begin{tabular}{@{}p{0.16\textwidth} p{0.78\textwidth}@{}}
+\begin{longtable}{@{}p{0.16\textwidth} p{0.78\textwidth}@{}}
 CFD     & \textit{Computational Fluid Dynamics} (dinámica de fluidos computacional) \\
 EFD     & \textit{Experimental Fluid Dynamics} (dinámica de fluidos experimental) \\
 RANS    & \textit{Reynolds-Averaged Navier--Stokes} \\
 SST     & \textit{Shear Stress Transport} (modelo de turbulencia) \\
+SST-LM  & Modelo de transición SST de Langtry--Menter ($\gamma$--$\widetilde{Re}_{\theta t}$) \\
+EASM    & \textit{Explicit Algebraic Stress Model} (modelo de esfuerzos algebraico explícito) \\
 VoF     & \textit{Volume of Fluid} \\
+MULES   & \textit{Multidimensional Universal Limiter for Explicit Solution} (compresión de interfaz en VoF) \\
+FVM     & Método de volúmenes finitos (\textit{Finite Volume Method}) \\
+SIMPLE  & \textit{Semi-Implicit Method for Pressure-Linked Equations} \\
+PISO    & \textit{Pressure-Implicit with Splitting of Operators} \\
+PIMPLE  & Algoritmo híbrido PISO--SIMPLE \\
+MRF     & Marco de referencia múltiple (\textit{Multiple Reference Frame}) \\
+AMI     & Interfaz de malla arbitraria (\textit{Arbitrary Mesh Interface}) \\
 DB      & Doble cuerpo (\textit{double body}) \\
 NFL     & Línea de fricción numérica (\textit{Numerical Friction Line}) \\
 ITTC    & \textit{International Towing Tank Conference} \\
@@ -145,13 +180,20 @@ ITTC-57 & Línea de correlación modelo--buque de la ITTC (1957) \\
 ITTC-78 & Método de predicción de potencia de la ITTC (1978) \\
 GCI     & Índice de convergencia de malla \\
 V\&V    & Verificación y validación \\
+MAE     & Error absoluto medio (\textit{Mean Absolute Error}) \\
+RSS     & Raíz de la suma de los cuadrados (\textit{Root Sum Squares}) \\
+RMS     & Raíz del valor cuadrático medio (\textit{Root Mean Square}) \\
 POW     & Ensayo de hélice en aguas abiertas (\textit{Propeller Open Water}) \\
 BPG     & Guías de buenas prácticas (\textit{Best Practice Guidelines}) \\
 LCB     & Centro longitudinal de carena (\textit{Longitudinal Centre of Buoyancy}) \\
-KCS     & \textit{KRISO Container Ship} \\ 
+KRISO   & \textit{Korea Research Institute of Ships and Ocean Engineering} \\
+KCS     & \textit{KRISO Container Ship} \\
 KVLCC2  & \textit{KRISO Very Large Crude Carrier}, versión 2 \\
 LabHiNO & Laboratorio de Hidrodinámica Naval y Oceánica (UBA) \\
+UBA     & Universidad de Buenos Aires \\
+MARIN   & \textit{Maritime Research Institute Netherlands} \\
+ASME    & \textit{American Society of Mechanical Engineers} \\
 IMO     & \textit{International Maritime Organisation} \\
-\end{tabular}
+\end{longtable}
 
 \renewcommand{\arraystretch}{1.0}

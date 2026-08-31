@@ -253,7 +253,7 @@ En conjunto, las Figuras~\ref{fig:dcp_map}--\ref{fig:cp_secciones} corroboran a 
 \subsection{Comparación con el procedimiento ITTC-78}
 \label{sec:helices_ittc78}
 
-El procedimiento ITTC-78 corrige los coeficientes hidrodinámicos de modelo a escala buque mediante la diferencia de coeficiente de fricción de placa plana $\Delta C_D$ evaluada a $r/R = 0.75$, según las expresiones presentadas en el Capítulo~\ref{chap:Metodologia}. Esta corrección asume implícitamente que el efecto de escala es de naturaleza puramente friccional, es decir, que $\Delta K_{Tp} = 0$. Los resultados del CFD demuestran que esta hipótesis es incorrecta para la B4-60.
+El procedimiento ITTC-78 corrige los coeficientes hidrodinámicos de modelo a escala buque mediante la diferencia de coeficiente de fricción de placa plana $\Delta C_D$ evaluada a $r/R = 0.75$, según las expresiones presentadas en la Sección~\ref{sec:ittc78_helices_metodo}. Esta corrección asume implícitamente que el efecto de escala es de naturaleza puramente friccional, es decir, que $\Delta K_{Tp} = 0$. Los resultados del CFD demuestran que esta hipótesis es incorrecta para la B4-60.
 
 La Tabla~\ref{tab:ittc_vs_cfd} compara las predicciones del ITTC-78 y del CFD para $D = 8.0$~m, tomando $D = 0.14$~m como referencia de modelo.
 
@@ -387,11 +387,11 @@ la velocidad resultante en esa sección:
 \begin{equation}
     Re_c = \frac{V_\text{ref} \, c_{0.7R}}{\nu},
     \qquad
-    V_\text{ref} = \sqrt{U^2 + (\pi n \cdot 0.7D)^2},
+    V_\text{ref} = \sqrt{V_a^2 + (\pi n \cdot 0.7D)^2},
     \label{eq:Re_c}
 \end{equation}
 
-donde $U = J n D$ es la velocidad de avance. Con la cuerda estimada
+donde $V_a = J n D$ es la velocidad de avance. Con la cuerda estimada
 $c_{0.7R} \approx 0.234\,D = 58.5$~mm, el rango de $Re_c$ explorado
 experimentalmente a $J = 0.5$ es
 $[0.36,\,0.52,\,0.77,\,1.00,\,1.25] \times 10^6$, abarcando desde el régimen
@@ -408,12 +408,15 @@ completamente turbulento es capaz de reproducir.
 \subsection{Configuración numérica}
 \label{sec:coreana_cfd}
 
-Las simulaciones se realizaron en paralelo con StarCCM+ y OpenFOAM, siguiendo la
-metodología general descripta en la Sección~\ref{sec:metodologia_helices}, con los
+Las simulaciones propias se realizaron con OpenFOAM, siguiendo la
+metodología general descripta en la Sección~\ref{sec:metodologia_helices} --incluido el
+dominio reducido de $90^\circ$ de la Figura~\ref{fg:helice_dominio}--, con los
 dos modelos de turbulencia allí presentados (SST completamente turbulento y SST-LM).
+Estos resultados se contrastan con los obtenidos en StarCCM+ por S.~Gaggero sobre la
+misma geometría, provistos para este trabajo como verificación cruzada entre códigos.
 A continuación se detallan únicamente los parámetros específicos de este caso.
 
-Las simulaciones en StarCCM+ se realizaron a las mismas velocidades de giro que los
+Las simulaciones en StarCCM+ (S.~Gaggero) se realizaron a las mismas velocidades de giro que los
 ensayos experimentales (10.33 a 36.33~rps), con densidad $\rho = 998.71$~kg/m$^3$ y
 viscosidad $\nu = 1.0034 \times 10^{-6}$~m$^2$/s a 20~°C.
 

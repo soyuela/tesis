@@ -1,63 +1,53 @@
-This is BibTeX, Version 0.99d (TeX Live 2022/dev/Debian)
+This is BibTeX, Version 0.99d (TeX Live 2025/Debian)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
 The style file: plainnat.bst
 Database file #1: referencias.bib
-Warning--I didn't find a database entry for "phantom_pesca_argentina"
-Warning--I didn't find a database entry for "confluencia_portuaria_mdp"
-Warning--I didn't find a database entry for "argenports_solimeno"
-Warning--I didn't find a database entry for "rotoplas_historia_pesca"
-Warning--I didn't find a database entry for "pesca_maritima_1989_2013"
-Warning--I didn't find a database entry for "argentina_gob_industria_naval"
-Warning--I didn't find a database entry for "padua_construccion_naval"
-Warning--I didn't find a database entry for "argentina_gob_pesca_2025"
-Warning--I didn't find a database entry for "pescare_exportaciones_2025"
-Warning--I didn't find a database entry for "argenports_industria_naval"
-Warning--I didn't find a database entry for "contessi_historia"
-Warning--I didn't find a database entry for "globalports_concesiones_mdp"
-Warning--I didn't find a database entry for "pescare_api_patagonia"
+Warning--I didn't find a database entry for "heinke2019"
+Warning--I didn't find a database entry for "ittc2024rp"
+Warning--I didn't find a database entry for "menter2003"
 Warning--can't use both volume and number fields in eca2008friction
 Warning--empty booktitle in Korkmaz2019NumericalFL
 Warning--empty booktitle in cp_recovery_kcs
-You've used 61 entries,
+You've used 74 entries,
             2773 wiz_defined-function locations,
-            1011 strings with 17476 characters,
-and the built_in function-call counts, 26702 in all, are:
-= -- 2386
-> -- 1499
-< -- 41
-+ -- 519
-- -- 456
-* -- 2126
-:= -- 4252
-add.period$ -- 237
-call.type$ -- 61
-change.case$ -- 327
-chr.to.int$ -- 59
-cite$ -- 125
-duplicate$ -- 1256
-empty$ -- 2198
-format.name$ -- 537
-if$ -- 5541
-int.to.chr$ -- 3
+            1053 strings with 20141 characters,
+and the built_in function-call counts, 30562 in all, are:
+= -- 2743
+> -- 1629
+< -- 54
++ -- 572
+- -- 495
+* -- 2289
+:= -- 4858
+add.period$ -- 290
+call.type$ -- 74
+change.case$ -- 380
+chr.to.int$ -- 71
+cite$ -- 151
+duplicate$ -- 1446
+empty$ -- 2600
+format.name$ -- 589
+if$ -- 6379
+int.to.chr$ -- 4
 int.to.str$ -- 1
-missing$ -- 68
-newline$ -- 366
-num.names$ -- 244
-pop$ -- 633
+missing$ -- 67
+newline$ -- 445
+num.names$ -- 296
+pop$ -- 787
 preamble$ -- 1
-purify$ -- 274
+purify$ -- 313
 quote$ -- 0
-skip$ -- 897
+skip$ -- 1048
 stack$ -- 0
-substring$ -- 758
-swap$ -- 91
+substring$ -- 765
+swap$ -- 105
 text.length$ -- 5
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 611
+type$ -- 754
 warning$ -- 3
-while$ -- 232
+while$ -- 269
 width$ -- 0
-write$ -- 895
-(There were 16 warnings)
+write$ -- 1079
+(There were 6 warnings)

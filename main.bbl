@@ -1,4 +1,4 @@
-\begin{thebibliography}{61}
+\begin{thebibliography}{74}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -36,6 +36,39 @@
   Dynamics and Heat Transfer: An American National Standard}.
 \newblock American Society of Mechanical Engineers, 2009.
 
+\bibitem[{Argenports}(2020)]{argenports_solimeno}
+{Argenports}.
+\newblock Despu{\'e}s de 30 a{\~n}os el grupo solimeno sumar{\'a} nuevo
+  pesquero construido en mar del plata.
+\newblock
+  \url{http://argenports.com/nota/despues-de-30-anos-el-grupo-solimeno-sumara-nuevo-pesquero-construido-en-mar-del-plata},
+  2020.
+\newblock Consultado el 29-08-2026.
+
+\bibitem[{Argenports}(2023)]{argenports_industria_naval}
+{Argenports}.
+\newblock La actividad pesquera argentina impulsa la industria naval nacional.
+\newblock
+  \url{https://argenports.com/nota/la-actividad-pesquera-argentina-impulsa-la-industria-naval-nacional},
+  2023.
+\newblock Consultado el 29-08-2026.
+
+\bibitem[{Armada Argentina}(2020)]{argentina_gob_industria_naval}
+{Armada Argentina}.
+\newblock Industria naval.
+\newblock
+  \url{https://www.argentina.gob.ar/armada/intereses-maritimos/industria-naval},
+  2020.
+\newblock Consultado el 29-08-2026.
+
+\bibitem[{Astillero Naval Federico Contessi y C{\'i}a.
+  S.A.}(2022)]{contessi_historia}
+{Astillero Naval Federico Contessi y C{\'i}a. S.A.}
+\newblock La historia del astillero.
+\newblock \url{http://www.astillerocontessi.com.ar/la-historia-del-astillero/},
+  2022.
+\newblock Consultado el 29-08-2026.
+
 \bibitem[Baltazar et~al.(2018)Baltazar, Rijpkema, and Falc{\~{a}}o~de
   Campos]{baltazar2018transition}
 Jo{\~{a}}o Baltazar, Douwe Rijpkema, and Jos\'{e}~A.C. Falc{\~{a}}o~de Campos.
@@ -66,6 +99,15 @@ Lothar Birk.
   Resistance and Propulsion}.
 \newblock Wiley, 2019.
 \newblock ISBN 9781118855485.
+
+\bibitem[{Confluencia Portuaria}(2026)]{confluencia_portuaria_mdp}
+{Confluencia Portuaria}.
+\newblock 100 a{\~n}os de puerto y mar: la tradici{\'o}n pesquera de mar del
+  plata.
+\newblock
+  \url{https://confluenciaportuaria.com.ar/puertos/100-anos-de-puerto-y-mar-la-tradicion-pesquera-de-mar-del-plata/},
+  2026.
+\newblock Consultado el 29-08-2026.
 
 \bibitem[Conn and Ferguson(1968)]{conn1968results}
 J.F.C. Conn and A.M. Ferguson.
@@ -103,11 +145,14 @@ Christopher~J. Freitas.
   237--248, 2002.
 \newblock \doi{10.1016/S0307-904X(01)00058-0}.
 
-\bibitem[Froude(1874)]{froude1874}
-William Froude.
-\newblock On experiments with {H.M.S.} {Greyhound}.
-\newblock \emph{Transactions of the Institution of Naval Architects},
-  15:\penalty0 36--73, 1874.
+\bibitem[Fr{\'i}as(2025)]{phantom_pesca_argentina}
+Jorge~A. Fr{\'i}as.
+\newblock La industria pesquera argentina: Desaf{\'i}os y controversias.
+\newblock
+  \url{https://phantom.net.ar/noticias/la-industria-pesquera-argentina-desafios-y-controversias/},
+  2025.
+\newblock Centro de Estudios Superiores del Mar Argentino / AACPyPP. Consultado
+  el 29-08-2026.
 
 \bibitem[Gaggero(2020)]{Gaggero2020}
 Stefano Gaggero.
@@ -141,6 +186,15 @@ A.~Garcia-Gómez.
 \newblock URL
   \url{https://www.sciencedirect.com/science/article/pii/S0029801898000420}.
 
+\bibitem[{Globalports}(2023)]{globalports_concesiones_mdp}
+{Globalports}.
+\newblock Concesiones a 20 a{\~n}os para astilleros en el puerto de mar del
+  plata.
+\newblock
+  \url{https://www.globalports.com.ar/concesiones-a-20-anos-para-astilleros-en-el-puerto-de-mar-del-plata/},
+  2023.
+\newblock Consultado el 29-08-2026.
+
 \bibitem[Grigson(2000)]{grigson2000planar}
 C.W.B. Grigson.
 \newblock A planar friction algorithm and its use in analysing hull resistance.
@@ -160,10 +214,19 @@ G.~Hughes.
 \newblock \emph{Transactions of the Institution of Naval Architects}, 96, 1954.
 
 \bibitem[{ITTC Specialist Committee on CFD and EFD Combined
-  Methods}(2021)]{ITTC_Combined_2021}
+  Methods}(2021{\natexlab{a}})]{ITTC_Combined_2021}
 {ITTC Specialist Committee on CFD and EFD Combined Methods}.
 \newblock Final report and recommendations to the 29th {ITTC}.
-\newblock Technical report, International Towing Tank Conference, 2021.
+\newblock Technical report, International Towing Tank Conference,
+  2021{\natexlab{a}}.
+
+\bibitem[{ITTC Specialist Committee on CFD and EFD Combined
+  Methods}(2021{\natexlab{b}})]{ittc2021combined}
+{ITTC Specialist Committee on CFD and EFD Combined Methods}.
+\newblock Final report and recommendations to the 29th {ITTC}.
+\newblock Proceedings of the 29th {ITTC}, International Towing Tank Conference,
+  2021{\natexlab{b}}.
+\newblock Specialist Committee on {CFD} and {EFD} Combined Methods.
 
 \bibitem[Karim et~al.(2011)Karim, Rahman, and Alim]{Karim}
 Mashud Karim, MM~Rahman, and M.~A. Alim.
@@ -272,6 +335,15 @@ Anthony~F. Molland, Stephen~R. Turnock, and Dominic~A. Hudson.
 \newblock Cambridge University Press, Cambridge, 2 edition, 2017.
 \newblock ISBN 9781107142060.
 
+\bibitem[Nudelman(2015)]{pesca_maritima_1989_2013}
+Jorge Nudelman.
+\newblock La pesca mar{\'i}tima en argentina (1989--2013): un caso de
+  apropiaci{\'o}n territorial.
+\newblock
+  \url{https://www.revistasipgh.org/index.php/regeo/article/download/218/221/392},
+  2015.
+\newblock Fuente acad{\'e}mica. Consultado el 29-08-2026.
+
 \bibitem[Oosterveld and van Oossanen(1975)]{oosterveld1975}
 M.W.C. Oosterveld and P.~van Oossanen.
 \newblock Further computer-analyzed data of the {Wageningen} {B}-screw series.
@@ -305,6 +377,13 @@ Sebasti\'{a}n Oyuela, H\'{e}ctor~R. D{\'{i}}az-Ojeda, Alejandro~D. Otero, and
 \newblock \emph{Mec\'{a}nica Computacional}, 42\penalty0 (3):\penalty0
   443--452, 2025.
 
+\bibitem[{Padua Materiales}(2021)]{padua_construccion_naval}
+{Padua Materiales}.
+\newblock Construcci{\'o}n naval en argentina: historia, industria y
+  astilleros.
+\newblock \url{https://paduamateriales.com/construccion-naval/}, 2021.
+\newblock Consultado el 29-08-2026.
+
 \bibitem[Peravali et~al.(2016)Peravali, Bensow, Gyllenram, and
   Shiri]{peravali2016}
 Suresh~Kumar Peravali, Rickard Bensow, Wubing Gyllenram, and Abolfazl Shiri.
@@ -312,6 +391,24 @@ Suresh~Kumar Peravali, Rickard Bensow, Wubing Gyllenram, and Abolfazl Shiri.
   propellers.
 \newblock In \emph{11th International Conference on Hydrodynamics (ICHD 2016)},
   2016.
+
+\bibitem[{Pescare}(2024)]{pescare_api_patagonia}
+{Pescare}.
+\newblock Celebraci{\'o}n de 20 a{\~n}os de astilleros patag{\'o}nicos
+  integrados.
+\newblock
+  \url{https://pescare.com.ar/celebracion-de-20-anos-de-astilleros-patagonicos-integrados-un-sitio-de-desarrollo-e-innovacion-en-la-industria-naval-patagonica/},
+  2024.
+\newblock Consultado el 29-08-2026.
+
+\bibitem[{Pescare}(2026)]{pescare_exportaciones_2025}
+{Pescare}.
+\newblock La pesca argentina logr{\'o} en 2025 el segundo mejor registro
+  hist{\'o}rico de exportaciones.
+\newblock
+  \url{https://pescare.com.ar/la-pesca-argentina-logro-en-2025-el-segundo-mejor-registro-historico-de-exportaciones/},
+  2026.
+\newblock Consultado el 29-08-2026.
 
 \bibitem[Prohaska(1966)]{prohaska1966}
 CW~Prohaska.
@@ -356,6 +453,14 @@ Jan Roskam.
 \newblock \emph{Airplane Design}.
 \newblock Roskam Aviation and Engineering Corp., Ottawa, KS, 1987.
 
+\bibitem[{Rotoplas Agroindustria}(2021)]{rotoplas_historia_pesca}
+{Rotoplas Agroindustria}.
+\newblock La historia de la industria pesquera en argentina.
+\newblock
+  \url{https://rotoplas.com.ar/agroindustria/la-historia-de-la-industria-pesquera-en-argentina/},
+  2021.
+\newblock Consultado el 29-08-2026.
+
 \bibitem[Shevell(1989)]{shevell1989fundamentals}
 Richard~S. Shevell.
 \newblock \emph{Fundamentals of Flight}.
@@ -388,6 +493,16 @@ A.~R. Starke, H.~C. Raven, and C.~P. Pouw.
 \newblock Resistance extrapolation for ships with a wetted transom stern.
 \newblock In \emph{XI International Conference on Computational Methods in
   Marine Engineering (MARINE 2025)}, Edinburgh, Scotland, 2025.
+
+\bibitem[{Subsecretar{\'i}a de Pesca y
+  Acuicultura}(2026)]{argentina_gob_pesca_2025}
+{Subsecretar{\'i}a de Pesca y Acuicultura}.
+\newblock La pesca argentina alcanz{\'o} en 2025 el segundo mejor registro
+  hist{\'o}rico de exportaciones.
+\newblock
+  \url{https://www.argentina.gob.ar/noticias/la-pesca-argentina-alcanzo-en-2025-el-segundo-mejor-registro-historico-de-exportaciones},
+  2026.
+\newblock Consultado el 29-08-2026.
 
 \bibitem[Terziev et~al.(2020)Terziev, Tezdogan, Demirel, Villa, Mizzi, and
   Incecik]{TerzievDataSet}

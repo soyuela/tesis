@@ -108,7 +108,7 @@ de desviación: como se discute en detalle en la Sección~\ref{sec:prohaska_ante
 las causas pueden agruparse en tres categorías: efectos geométricos no lineales 
 asociados a la proa bulbo, fenómenos viscosos de separación de flujo en popas 
 llenas o espejo sumergido, y curvaturas de naturaleza analítica introducidas 
-por la línea de correlación ITTC-1957 o por la aproximación ${\sim}Fr^4$ para 
+por la línea de correlación ITTC-57 o por la aproximación ${\sim}Fr^4$ para 
 la resistencia por olas.
 
 Dado que el análisis aplicado al \textit{P1} mostró cierta sensibilidad a los 
@@ -243,7 +243,7 @@ naturaleza: algunas pueden minimizarse acotando el rango de $Fr$ analizado
 (efectos viscosos por problemas de semejanza con $Re$), otras son inherentes 
 al método experimental (incertidumbre en la medición de resistencia total), 
 otras son propias de las hipótesis simplificativas del método (línea de 
-correlación ITTC-1957, aproximación ${\sim}Fr^4$) y otras son intrínsecas 
+correlación ITTC-57, aproximación ${\sim}Fr^4$) y otras son intrínsecas 
 a la geometría del casco (proa bulbo, popa espejo sumergida). Estas últimas 
 dos categorías se analizan en detalle en las 
 Secciones~\ref{sec:proa_bulbo}, \ref{sec:popa_sumergida} 
@@ -884,7 +884,7 @@ convexa, los puntos numéricos lo hacen de forma cóncava. Como se discutió en
 la Sección~\ref{sec:prohaska_antec}, esta desviación puede atribuirse a 
 múltiples causas, entre ellas la laminarización parcial del flujo, la 
 geometría de la proa bulbo, la separación de flujo en popa y el sesgo 
-introducido por la línea de correlación ITTC-1957. En el caso particular de 
+introducido por la línea de correlación ITTC-57. En el caso particular de 
 las simulaciones CFD, la curvatura cóncava observada es consistente con la 
 incapacidad del modelo de turbulencia $k$-$\omega$ SST de reproducir 
 correctamente la zona de transición a bajos $Re$.
@@ -1010,7 +1010,7 @@ Los resultados presentados hasta el momento permiten realizar una primera discus
 
 Desde el punto de vista experimental, la campaña realizada en el canal del LabHiNO mostró un nivel de repetibilidad adecuado y valores de incertidumbre combinada compatibles con las recomendaciones de la ITTC, especialmente en el rango de velocidades de interés operativo. Las curvas de resistencia obtenidas para los distintos calados presentan una evolución continua y físicamente consistente, lo que indica una correcta adquisición de la fuerza de remolque y una adecuada calibración del sistema de medición. No obstante, como es habitual en este tipo de ensayos, las mayores incertidumbres relativas se concentran en el rango de bajas velocidades, donde la resistencia total es pequeña y el método de Prohaska resulta particularmente sensible a pequeñas variaciones en $C_T$.
 
-En este contexto la aplicación del método de Prohaska a los datos experimentales evidenció desviaciones respecto de la linealidad teórica esperada, principalmente a bajos números de Froude. Tal comportamiento puede atribuirse a una combinación de factores: laminarización parcial del flujo, transición temprana, fenómenos viscosos locales asociados a la geometría del casco y limitaciones inherentes al uso de la línea de correlación ITTC-1957 en regímenes de Reynolds moderados. Estas desviaciones introducen una incertidumbre adicional en la estimación de $(1+k)$, que obliga a seleccionar cuidadosamente el rango de velocidades utilizado para la regresión lineal.
+En este contexto la aplicación del método de Prohaska a los datos experimentales evidenció desviaciones respecto de la linealidad teórica esperada, principalmente a bajos números de Froude. Tal comportamiento puede atribuirse a una combinación de factores: laminarización parcial del flujo, transición temprana, fenómenos viscosos locales asociados a la geometría del casco y limitaciones inherentes al uso de la línea de correlación ITTC-57 en regímenes de Reynolds moderados. Estas desviaciones introducen una incertidumbre adicional en la estimación de $(1+k)$, que obliga a seleccionar cuidadosamente el rango de velocidades utilizado para la regresión lineal.
 
 Las simulaciones CFD bifásicas reprodujeron de manera satisfactoria las curvas de resistencia total obtenidas experimentalmente en un amplio rango de velocidades, lo que constituye una primera validación global del modelo numérico. Las pequeñas diferencias observadas a velocidades elevadas pueden explicarse por diferencias en las condiciones de contorno dinámicas del casco, dado que en los ensayos experimentales se permitió el libre movimiento vertical y de cabeceo, mientras que en las simulaciones el casco se mantuvo fijo. En cualquier caso, estas discrepancias aparecen fuera del rango de operación típico del buque y no afectan las conclusiones principales.
 
@@ -1916,11 +1916,11 @@ Fr_{tr} = \frac{V}{\sqrt{g\,T_{tr}}},
 \end{equation}
 
 \begin{equation}
-tr_{\mathrm{ratio}} = \frac{A_{tr}}{A_{\max}},
+tr_{\text{ratio}} = \frac{A_{tr}}{A_{\max}},
 \end{equation}
 
 \begin{equation}
-tr_{\mathrm{fullness}} = \frac{A_{tr}}{2\,y_{tr}\,T_{tr}},
+tr_{\text{fullness}} = \frac{A_{tr}}{2\,y_{tr}\,T_{tr}},
 \end{equation}
 
 donde:
@@ -1977,7 +1977,7 @@ k_{tr} = k_S - k_M.
 Este punto es clave, ya que en \citet{korkmaz_wetted_transom} se atribuye la diferencia entre el factor de forma en escala modelo y en escala buque, en los casos de popa espejo sumergida, principalmente al flujo recirculante detrás del espejo. Esta interpretación se enmarca en el trabajo más amplio del mismo autor \citep{korkmaz_cfd_2021, korkmaz_wetted_transom}, donde se demuestra que la dependencia del factor de forma con el número de Reynolds desaparece casi por completo al sustituir la línea ITTC-57 por líneas de fricción numéricas derivadas del mismo código CFD, al menos para cascos de esbeltez moderada como el \textit{KCS} y el KVLCC2. El efecto de la línea de correlación sobre el \textit{P1} se analiza en la Sección~\ref{sec:linea_de_friccion}. Para cascos de esa clase, donde $C_{PV}$ es comparativamente pequeño, este resultado es consistente con la hipótesis de Hughes: una vez eliminado el sesgo de la línea de referencia, el factor de forma resulta prácticamente independiente de la escala.
 
 De acuerdo con los resultados del autor, el método y las correcciones asociadas deben aplicarse cuando el espejo se encuentra \textbf{considerablemente sumergido}, es decir, para 
-$tr_{\mathrm{ratio}} > 0{.}025$. Para espejos poco sumergidos o parcialmente secos, el uso del método 2--$k$ no resulta necesario.
+$tr_{\text{ratio}} > 0{.}025$. Para espejos poco sumergidos o parcialmente secos, el uso del método 2--$k$ no resulta necesario.
 
 \subsection{Análisis comparativo de flujo}
 

@@ -68,7 +68,7 @@ Eslora en flotación & L$_{WL}$ & {[}m{]} & 32.68 & 1.634 & 1.662 & 1.641\\
 Eslora total sumergida & L$_{OS}$ & {[}m{]} & 34.795 & 1.670 & 1.740 & 1.740\\
 Manga & B & {[}m{]} & 9.28 & 0.464 & 0.464 & 0.464\\
 Calado & T & {[}m{]} & 3.30 & 0.165 & 0.180 & 0.195\\
-Volumen de desplazamiento & V & {[}m$^3${]} & 599.40 & 0.075 & 0.085 & 0.095\\
+Volumen de desplazamiento & $\nabla$ & {[}m$^3${]} & 599.40 & 0.075 & 0.085 & 0.095\\
 Área de superficie mojada & S & {[}m$^2${]} & 392.67 & 0.982 & 1.058 & 1.124\\
 Coeficiente de bloque & C$_B$ & {[}-{]} & 0.60 & 0.60 & 0.61 & 0.64\\
 Desplazamiento (masa) & $\Delta$ & {[}t{]} & - & 75.0 & 85.0 & 95.0\\
@@ -93,7 +93,7 @@ Eslora en flotación& L$_{WL}$ & {[}m{]} & 25.100 & 2.510 \\
 Eslora total sumergida & L$_{OS}$ & {[}m{]} & 26.580 & 2.658 \\
 Manga & B & {[}m{]} & 7.800 & 0.780 \\
 Calado & T & {[}m{]} & 3.460 & 0.346 \\
-Volumen de desplazamiento & V & {[}m$^3${]} & 387.265 & 0.387 \\
+Volumen de desplazamiento & $\nabla$ & {[}m$^3${]} & 387.265 & 0.387 \\
 Área de superficie mojada & S & {[}m$^2${]} & 292.000 & 2.920 \\
 Coeficiente de bloque & C$_B$ & {[}-{]} & 0.577 & 0.571 \\
 Desplazamiento (masa) & $\Delta$ & {[}t{]} & 397.295 & 387.0 \\
@@ -118,7 +118,7 @@ Eslora en flotación & L$_{WL}$ & {[}m{]} & 22.050 & 1.696 \\
 Eslora total sumergida & L$_{OS}$ & {[}m{]} & 22.282 & 1.714 \\
 Manga & B & {[}m{]} & 7.800 & 0.600 \\
 Calado & T & {[}m{]} & 3.050 & 0.235 \\
-Volumen de desplazamiento & V & {[}m$^3${]} & 320.070 & 0.146 \\
+Volumen de desplazamiento & $\nabla$ & {[}m$^3${]} & 320.070 & 0.146 \\
 Área de superficie mojada & S & {[}m$^2${]} & 240.964 & 1.426 \\
 Coeficiente de bloque & C$_B$ & {[}-{]} & 0.643 & 0.608 \\
 Desplazamiento (masa) & $\Delta$ & {[}t{]} & 328.360 & 146.0 \\
@@ -146,7 +146,7 @@ Eslora en flotación & L$_{WL}$ & {[}m{]} & 230.000 & 2.911 \\
 Eslora total sumergida & L$_{OS}$ & {[}m{]} & 232.500 & 2.943 \\
 Manga & B & {[}m{]} & 32.200 & 0.408 \\
 Calado & T & {[}m{]} & 10.800 & 0.137 \\
-Volumen de desplazamiento & V & {[}m$^3${]} & 52030.000 & 0.106 \\
+Volumen de desplazamiento & $\nabla$ & {[}m$^3${]} & 52030.000 & 0.106 \\
 Área de superficie mojada & S & {[}m$^2${]} & 9530.000 & 1.527 \\
 Coeficiente de bloque & C$_B$ & {[}-{]} & 0.595 & 0.653 \\
 Desplazamiento (masa) & $\Delta$ & {[}t{]} & 51925.940 & 105.318 \\
@@ -214,7 +214,16 @@ Este comportamiento es consistente con lo esperado para ensayos de remolque y de
 
 Los valores cuantitativos finales de la incertidumbre combinada y expandida para las distintas velocidades de ensayo específicas se presentan en detalle junto con los resultados experimentales en el Capítulo~\ref{cap:resistencia_factor_de_forma}.
 
-\section{Procedimiento de extrapolación modelo--buque}
+\section{Procedimientos de extrapolación modelo--buque}
+\label{sec:extrapolacion_general}
+
+Las magnitudes obtenidas a escala de modelo --la resistencia del casco y las
+características de aguas abiertas del propulsor-- deben corregirse a escala buque antes
+de emplearse en la predicción de prestaciones. Ambas correcciones siguen el
+procedimiento estándar recomendado por la ITTC, cada una con su formulación propia, y
+se describen a continuación de forma paralela.
+
+\subsection{Extrapolación de la resistencia del casco}
 \label{sec:prediccion_potencia}
 
 Una vez obtenida la resistencia del modelo mediante ensayos experimentales
@@ -278,6 +287,88 @@ La resistencia total del buque y la potencia efectiva se obtienen como:
 donde $\rho$ es la densidad del agua, $V_S$ la velocidad del buque y $S_S$
 la superficie mojada a escala buque.
 
+\subsection{Extrapolación de las características del propulsor (procedimiento ITTC-78)}
+\label{sec:ittc78_helices_metodo}
+
+De forma análoga al escalado de la resistencia del casco, las características de
+aguas abiertas del propulsor obtenidas a escala de modelo --sea por ensayo o por
+simulación-- deben corregirse a escala buque antes de emplearse en la predicción de
+prestaciones. Las definiciones adimensionales de base ($K_T$, $K_Q$, $\eta_0$ y el
+número de Reynolds de hélice $Re_{co}$ a $r/R=0.75$) se introdujeron en el
+Capítulo~\ref{chap:antecedentes} (Sección~\ref{sec:pow_antec}), donde el número de
+Reynolds de hélice se define en la Ecuación~\eqref{eq:Re_helice}. El procedimiento estándar recomendado por la ITTC para este
+escalado es el método ITTC-78 \citep{ITTC_Performance_prediction}, que constituye el
+gemelo propulsivo de la extrapolación de casco descrita más arriba y la referencia
+frente a la cual se contrastan los resultados del Capítulo~\ref{chap:helices}.
+
+El método parte de una hipótesis central: el efecto de escala sobre el propulsor es de
+naturaleza \emph{puramente friccional}. Bajo este supuesto, la corrección se construye
+a partir de la variación del coeficiente de arrastre bidimensional de la sección de
+pala representativa, tomada a $r/R = 0.75$, entre las condiciones de modelo y de buque:
+%
+\begin{equation}
+    \Delta C_D = C_{D,M} - C_{D,S},
+    \label{eq:ittc78_deltacd}
+\end{equation}
+%
+donde los coeficientes de arrastre de modelo y de buque se evalúan, respectivamente,
+mediante
+%
+\begin{align}
+    C_{D,M} &= 2\left(1 + 2\,\frac{t}{c}\right)
+              \left[\frac{0.044}{Re_{co}^{\,1/6}} - \frac{5}{Re_{co}^{\,2/3}}\right],
+    \label{eq:ittc78_cdm}\\[4pt]
+    C_{D,S} &= 2\left(1 + 2\,\frac{t}{c}\right)
+              \left[1.89 + 1.62\,\log_{10}\!\left(\frac{c}{k_p}\right)\right]^{-2.5}.
+    \label{eq:ittc78_cds}
+\end{align}
+%
+En estas expresiones $c$ y $t$ son la cuerda y el espesor máximo de la sección a
+$r/R = 0.75$, $Re_{co}$ es el número de Reynolds local de esa sección definido en la
+Ecuación~\eqref{eq:Re_helice}, y $k_p$ es la rugosidad equivalente de la pala, para la
+que se adopta el valor estándar $k_p = 30\times10^{-6}$~m recomendado por la ITTC en
+ausencia de mediciones directas. El coeficiente $C_{D,M}$ responde a una ley de
+fricción dependiente del Reynolds, mientras que $C_{D,S}$ corresponde al régimen
+rugoso plenamente desarrollado propio de la escala buque.
+
+La diferencia $\Delta C_D$ se traslada a los coeficientes de empuje y de par mediante
+las correcciones
+%
+\begin{equation}
+    \Delta K_T = -\,\Delta C_D \; 0.3 \; \frac{P}{D} \; \frac{Z\,c}{D},
+    \qquad
+    \Delta K_Q = +\,\Delta C_D \; 0.25 \; \frac{Z\,c}{D},
+    \label{eq:ittc78_deltaKtKq}
+\end{equation}
+%
+donde $P/D$ es la relación de paso a $r/R = 0.75$, $Z$ el número de palas y $D$ el
+diámetro. Las características corregidas a escala buque resultan finalmente
+%
+\begin{equation}
+    K_{TS} = K_{TM} - \Delta K_T,
+    \qquad
+    K_{QS} = K_{QM} - \Delta K_Q,
+    \qquad
+    \eta_{0S} = \frac{J}{2\pi}\,\frac{K_{TS}}{K_{QS}}.
+    \label{eq:ittc78_KtKq_buque}
+\end{equation}
+%
+Dado que $\Delta C_D > 0$ (la sección de modelo, a menor Reynolds, presenta mayor
+arrastre), la Ecuación~\eqref{eq:ittc78_deltaKtKq} produce $\Delta K_T < 0$ y
+$\Delta K_Q > 0$; el empuje corregido \emph{aumenta} y el par \emph{disminuye} al pasar
+de modelo a buque, en el sentido físico esperado.
+
+Conviene subrayar la estructura de esta corrección, pues es el punto que el
+Capítulo~\ref{chap:helices} somete a escrutinio. Al construirse enteramente sobre
+$\Delta C_D$ --una diferencia de fricción de sección--, el método ITTC-78 asume de
+forma implícita que la contribución de presión al efecto de escala sobre el empuje es
+nula, esto es, $\Delta K_{Tp} = 0$. Toda la variación de $K_T$ con la escala se
+atribuye así a la reducción del arrastre friccional de la sección, y ninguna a la
+redistribución de la carga de presión asociada al adelgazamiento de la capa límite. La
+validez de esta hipótesis --y su falla para hélices de área expandida reducida-- se
+cuantifica en el Capítulo~\ref{chap:helices} mediante la descomposición directa de
+fuerzas que se define en la Sección~\ref{sec:metodologia_helices_descomp}.
+
 \section{Metodología Numérica (CFD)}
 
 Las simulaciones numéricas se realizaron utilizando el código de código abierto \textbf{OpenFOAM} (versión 11), basado en el Método de Volúmenes Finitos (FVM).
@@ -286,8 +377,8 @@ Las simulaciones numéricas se realizaron utilizando el código de código abier
 
 Se definió un dominio computacional rectangular prismático dimensionado para evitar la reflexión de olas.
 \begin{itemize}
-    \item \textbf{Entrada (Inlet):} Ubicada a $1.5 L_{pp}$ a proa del modelo.
-    \item \textbf{Salida (Outlet):} Ubicada a $2.5 L_{pp}$ a popa.
+    \item \textbf{Entrada (Inlet):} Ubicada a $1.5 L_{PP}$ a proa del modelo.
+    \item \textbf{Salida (Outlet):} Ubicada a $2.5 L_{PP}$ a popa.
     \item \textbf{Límites laterales y fondo:} Ubicados a distancia suficiente para simular aguas profundas.
 \end{itemize}
 
@@ -459,12 +550,14 @@ En las superficies del casco, se emplearon condiciones de borde tipo función de
 
 A diferencia de las simulaciones de resistencia del casco descriptas en la sección
 anterior, las simulaciones de hélices en aguas abiertas se resuelven en un marco de
-referencia solidario a la rotación del propulsor, sin superficie libre. Con el
-objetivo de evaluar la robustez de las predicciones frente a la elección del código
-de cálculo, este tipo de simulaciones se realizó en paralelo con dos solvers RANS de
-naturaleza distinta --StarCCM+ (comercial, solver acoplado) y OpenFOAM (código
-abierto, solver segregado)-- cuya configuración específica se detalla a
-continuación. Los casos de estudio particulares (geometría de la hélice, rango de
+referencia solidario a la rotación del propulsor, sin superficie libre. Las
+simulaciones propias de esta tesis se realizaron con OpenFOAM (código abierto, solver
+segregado), cuya configuración se detalla a continuación. Con el objetivo de evaluar la
+robustez de las predicciones frente a la elección del código de cálculo, estos
+resultados se contrastan además con simulaciones equivalentes obtenidas con StarCCM+
+(comercial, solver acoplado) por S.~Gaggero y provistas para este trabajo; al no
+haberse ejecutado ese código como parte de esta tesis, su configuración específica no
+se documenta aquí. Los casos de estudio particulares (geometría de la hélice, rango de
 $Re_n$ o $Re_c$ explorado, niveles de intensidad turbulenta ensayados) se presentan en
 el Capítulo~\ref{chap:helices} junto con los resultados.
 
@@ -475,14 +568,6 @@ como referencia, y el modelo de transición SST-LM
 ecuaciones de transporte adicionales para la intermitencia $\gamma$ y el número de
 Reynolds de inicio de transición $\widetilde{Re}_{\theta t}$, acopladas al modelo SST
 base.
-
-\subsection{Configuración en StarCCM+}
-\label{sec:metodologia_helices_starccm}
-
-Las simulaciones se resuelven en marco de referencia en rotación, empleando las
-ecuaciones RANS estacionarias. El dominio y el mallado específicos de cada caso
-(dimensiones, densidad de celdas, tratamiento de capa límite) se detallan junto con
-cada campaña de simulaciones en el Capítulo~\ref{chap:helices}.
 
 \subsection{Configuración en OpenFOAM}
 \label{sec:metodologia_helices_openfoam}
@@ -509,6 +594,58 @@ $\widetilde{Re}_{\theta t}$), con gradientes calculados mediante
 \texttt{meshWave}. En la entrada se impusieron condiciones de tipo
 \texttt{fixedValue} para $k$, $\omega$ y $\widetilde{Re}_{\theta t}$.
 
+\begin{figure}[htb]
+\centering
+\begin{minipage}[c]{0.55\textwidth}
+\centering
+% El \includegraphics es un nodo de TikZ y el scope redefine los ejes:
+% (0,0) = esquina inferior izquierda de la imagen, (1,1) = superior derecha.
+% Las coordenadas son fracciones de la imagen: no se mueven si cambia el width.
+% El trim recorta el margen blanco del render. Para recalibrar posiciones,
+% descomentar la grilla de ayuda de abajo y volver a comentarla despues.
+% --- estilos de anotacion (definidos localmente para que la figura sea
+%     autocontenida; si ya los tenes en el preambulo, esto es inofensivo) ---
+\usetikzlibrary{arrows.meta}
+\tikzset{
+  patchlbl/.style={font=\scriptsize\sffamily, text=white, inner sep=1pt},
+  leader/.style  ={->,>=Latex,line width=.35pt},
+  dim/.style     ={{Latex[length=3pt]}-{Latex[length=3pt]}, line width=.35pt, black},
+  wit/.style     ={line width=.3pt, black!55},
+  dimlbl/.style  ={font=\scriptsize, fill=white, inner sep=1pt},
+}
+\begin{tikzpicture}
+  \node[anchor=south west,inner sep=0] (img) at (0,0)
+    {\includegraphics[width=0.93\linewidth,trim=45bp 25bp 45bp 62bp,clip]{images/fig_helice_dominio.png}};
+  \begin{scope}[x={(img.south east)},y={(img.north west)}]
+    %\draw[help lines,xstep=.1,ystep=.1] (0,0) grid (1,1);
+    %\foreach \x in {0,...,9}{\node[font=\tiny,anchor=north] at (\x/10,0) {.\x};}
+    %\foreach \y in {0,...,9}{\node[font=\tiny,anchor=east]  at (0,\y/10) {.\y};}
+    % --- nombres de patch (texto blanco sobre las caras oscuras) ---
+    \node[patchlbl] at (0.30,0.59) {inlet};
+    \node[patchlbl] at (0.74,0.50) {outlet};
+    \node[patchlbl] at (0.73,0.76) {ext};
+    \node[patchlbl] at (0.57,0.25) {AMI\,1};
+    \node[patchlbl] (bl) at (0.46,0.28) {pala};
+    \draw[leader,white] (bl.south) -- (0.435,0.155);
+    % --- cotas axiales: linea paralela al eje, por debajo de la silueta ---
+    \draw[wit] (0.273,0.018) -- (0.293,-0.093);   % plano del inlet
+    \draw[wit] (0.427,0.100) -- (0.447,-0.011);   % plano de la helice
+    \draw[wit] (0.668,0.199) -- (0.688,0.088);    % plano del outlet
+    \draw[dim] (0.288,-0.069) -- node[dimlbl,sloped] {$2D$} (0.442,0.001);
+    \draw[dim] (0.442,0.001)  -- node[dimlbl,sloped] {$4D$} (0.683,0.112);
+    % --- cota radial: sobre el borde exterior del disco de entrada ---
+    \draw[wit] (0.273,0.018) -- (0.205,-0.048);
+    \draw[wit] (0.008,0.729) -- (-0.060,0.663);
+    \draw[dim] (-0.037,0.684) -- node[dimlbl,sloped] {$4D$} (0.228,-0.026);
+  \end{scope}
+\end{tikzpicture}
+\captionof{figure}{Dominio computacional empleado en las simulaciones (sector de
+$90^\circ$ con interfaz periódica AMI). Las distancias se expresan en diámetros de
+hélice $D$.}
+\label{fg:helice_dominio}
+\end{minipage}
+\end{figure}
+
 \subsection{Calibración de la intensidad turbulenta}
 \label{sec:metodologia_helices_tu}
 
@@ -526,6 +663,68 @@ se ajusta para controlar esa tasa de decaimiento; una vez fijado el $Tu$ objetiv
 el disco, variaciones adicionales de $\mu_t/\mu$ producen efectos secundarios sobre
 las predicciones de fuerza que deben tenerse en cuenta al interpretar la sensibilidad
 de los resultados a este parámetro.
+
+\subsection{Descomposición de fuerzas y coeficientes locales sobre la pala}
+\label{sec:metodologia_helices_descomp}
+
+El análisis de los efectos de escala del Capítulo~\ref{chap:helices} requiere ir más
+allá de los coeficientes integrales $K_T$ y $K_Q$ y separar las contribuciones de
+presión y de fricción a las fuerzas sobre la pala. Ambos códigos calculan el empuje y
+el par integrando sobre la superficie del álabe la tracción ejercida por el fluido,
+que se descompone de forma natural en un término de presión y uno viscoso. Siendo
+$\mathbf{n}$ la normal exterior, $\hat{\mathbf{e}}_x$ el versor del eje del propulsor
+(dirección del empuje), $\mathbf{r}$ el vector posición respecto del eje y
+$\boldsymbol{\tau}_w$ el vector de tensión de corte en la pared, el empuje $T$ y el par
+$Q$ se escriben como
+%
+\begin{align}
+    T &= \underbrace{\oint_S -(p - p_\infty)\,\mathbf{n}\cdot\hat{\mathbf{e}}_x \; dS}_{T_p}
+       + \underbrace{\oint_S \boldsymbol{\tau}_w\cdot\hat{\mathbf{e}}_x \; dS}_{T_f},
+       \label{eq:T_descomp}\\[4pt]
+    Q &= \underbrace{\oint_S -(p - p_\infty)\,(\mathbf{r}\times\mathbf{n})\cdot\hat{\mathbf{e}}_x \; dS}_{Q_p}
+       + \underbrace{\oint_S (\mathbf{r}\times\boldsymbol{\tau}_w)\cdot\hat{\mathbf{e}}_x \; dS}_{Q_f},
+       \label{eq:Q_descomp}
+\end{align}
+%
+donde el subíndice $p$ agrupa las contribuciones de presión y el subíndice $f$ las de
+fricción. Adimensionalizando cada término con las mismas magnitudes de referencia que
+$K_T$ y $K_Q$ (Capítulo~\ref{chap:antecedentes}, Sección~\ref{sec:pow_antec}) se
+obtienen las componentes
+%
+\begin{equation}
+    K_{Tp} = \frac{T_p}{\rho\,n^2 D^4}, \quad
+    K_{Tf} = \frac{T_f}{\rho\,n^2 D^4}, \quad
+    K_{Qp} = \frac{Q_p}{\rho\,n^2 D^5}, \quad
+    K_{Qf} = \frac{Q_f}{\rho\,n^2 D^5},
+    \label{eq:adim_helices}
+\end{equation}
+%
+que cumplen por construcción $K_T = K_{Tp} + K_{Tf}$ y $K_Q = K_{Qp} + K_{Qf}$. Esta
+separación es la que permite, en el Capítulo~\ref{chap:helices}, cuantificar la
+fracción del efecto de escala atribuible a la presión,
+$f_p = \Delta K_{Tp}/\Delta K_T$, y contrastarla con la hipótesis puramente friccional
+del procedimiento ITTC-78 (Sección~\ref{sec:ittc78_helices_metodo}), que equivale a
+suponer $\Delta K_{Tp} = 0$.
+
+Para localizar sobre la pala el origen de estas contribuciones se emplean, además de
+las magnitudes integrales, dos coeficientes locales de superficie: un coeficiente de
+presión y un coeficiente de fricción,
+%
+\begin{equation}
+    C_{pn} = \frac{p - p_\infty}{\tfrac{1}{2}\rho\,V_{\text{ref}}^2},
+    \qquad
+    C_f = \frac{|\boldsymbol{\tau}_w|}{\tfrac{1}{2}\rho\,V_{\text{ref}}^2},
+    \qquad
+    V_{\text{ref}}(r) = \sqrt{V_a^2 + (2\pi n r)^2},
+    \label{eq:cpn_cf_def}
+\end{equation}
+%
+donde $V_{\text{ref}}(r)$ es la velocidad resultante del flujo incidente en la sección
+de radio $r$ y $V_a = J n D$ la velocidad de avance. Estos coeficientes se evalúan
+punto a punto sobre el dorso y la cara del álabe para el diagnóstico seccional del
+Capítulo~\ref{chap:helices}; cuando se requiere una referencia común a toda la pala
+--por ejemplo, para comparar mapas de $C_p$ entre escalas-- se adopta como velocidad de
+referencia la resultante en la sección de $r/R = 0.7$, $V_{\text{ref}} = V_{0.7R}$.
 
 \section{Estrategia de Verificación y Validación (V\&V)}
 

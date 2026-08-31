@@ -15,7 +15,15 @@
 \usepackage{pdfpages}
 
 \usepackage{longtable}
-
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\tikzset{
+  patchlbl/.style={font=\scriptsize\sffamily, text=white, inner sep=1pt},
+  leader/.style  ={->,>=Latex,line width=.35pt},
+  dim/.style     ={{Latex[length=3pt]}-{Latex[length=3pt]}, line width=.35pt, black},
+  wit/.style     ={line width=.3pt, black!55},
+  dimlbl/.style  ={font=\scriptsize, fill=white, inner sep=1pt},
+}
 %Numbered subsubsections
 \setcounter{secnumdepth}{3} % default value for 'report' class is "2"
 %Idioma español
@@ -165,11 +173,10 @@ coltitle=black,center title}}
 \begin{document}
 
 \input{0.caratula}
-\tableofcontents
-\cleardoublepage
 \input{1.resumen}
 \input{2.agradecimientos}
-%\input{3.propuesta_indice}
+\tableofcontents
+\cleardoublepage
 \input{nomenclatura}
 \input{4.introduccion_general}
 \input{5.antecedentes_estado_del_arte}
