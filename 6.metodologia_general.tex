@@ -1,5 +1,7 @@
 \chapter{Metodología Experimental y Numérica}
 \label{chap:Metodologia}
+\mtcsettitle{minitoc}{Contenidos} 
+\minitoc
 
 \section{Introducción}
 
@@ -36,7 +38,7 @@ En la Figura \ref{fig:model_tpa}, se presentan las vistas del modelo físico ter
     \centering
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{images/tpa-pers.png}
+        \includegraphics[width=0.7\textwidth]{images/tpa-pers.png}
         \caption{Vista en perspectiva de proa. Se observan las marcas de calado y los estimuladores de turbulencia.}
         \label{fig:tpa_pers}
     \end{subfigure}
@@ -78,7 +80,26 @@ Desplazamiento (masa) & $\Delta$ & {[}t{]} & - & 75.0 & 85.0 & 95.0\\
 \end{table}
 
 \subsubsection{Modelo Pesquero 2}
-El tercer pesquero analizado, de ahora en más P3, fue diseñado y construido por el Astillero Naval Federico Contessi y Cía. S.A. El modelo fue construido a escala $\lambda = 10$ y ensayado en una sola condición de calado. La Tabla~\ref{tab:main_param_p3} resume sus características principales.
+El segundo pesquero analizado, de ahora en más P2, fue diseñado y construido por el Astillero Naval Federico Contessi y Cía. S.A. El modelo fue construido a escala $\lambda = 10$ y ensayado en una sola condición de calado. La Tabla~\ref{tab:main_param_p3} resume sus características principales.
+
+\begin{figure}[htpb]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=0.9\textwidth]{images/contessi-pers.png}
+        \caption{Vista en perspectiva de proa. Se observan las marcas de calado y los estimuladores de turbulencia.}
+        \label{fig:contessi_pers}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/contessi-side.png}
+        \caption{Vista de perfil. Geometría de baja esbeltez típica de pesqueros.}
+        \label{fig:contessi_side}
+    \end{subfigure}
+    \caption{Modelo físico del pesquero P2 (Escala 1:10) preparado para ensayos en el LabHiNO.}
+    \label{fig:model_contessi}
+\end{figure}
 
 \begin{table}[H]
 \caption{Características principales del pesquero P2.}
@@ -102,7 +123,27 @@ Desplazamiento (masa) & $\Delta$ & {[}t{]} & 397.295 & 387.0 \\
 \end{table}
 
 \subsubsection{Modelo Pesquero 3}
-El segundo pesquero analizado, de ahora en más P2, fue diseñado y construido por el astillero JPA S.A. El modelo fue construido a escala $\lambda = 13$ y ensayado en una sola condición de calado. La Tabla~\ref{tab:main_param_p2} resume sus características principales.
+El segundo pesquero analizado, de ahora en más P3, fue diseñado y construido por el astillero JPA S.A. El modelo fue construido a escala $\lambda = 13$ y ensayado en una sola condición de calado. La Tabla~\ref{tab:main_param_p3} resume sus características principales.
+
+\begin{figure}[htpb]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/jpa-pers.png}
+        \caption{Vista en perspectiva de proa. Se observan las marcas de calado y los estimuladores de turbulencia.}
+        \label{fig:jpa_pers}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/jpa-side.png}
+        \caption{Vista de perfil. Geometría de baja esbeltez típica de pesqueros.}
+        \label{fig:jpa_side}
+    \end{subfigure}
+    \caption{Modelo físico del pesquero P3 (Escala 1:13) preparado para ensayos en el LabHiNO.}
+    \label{fig:model_jpa}
+\end{figure}
+
 
 \begin{table}[H]
 \caption{Características principales del pesquero P3.}
@@ -130,6 +171,25 @@ Desplazamiento (masa) & $\Delta$ & {[}t{]} & 328.360 & 146.0 \\
 Con el fin de complementar el análisis mediante la inclusión de un buque completamente diferente a los pesqueros, se construyó un modelo del portacontenedores ``KRISO Container Ship'' (\textit{KCS}) a escala $\lambda = 79$. Este buque de alto valor referencial presenta características hidrodinámicas marcadamente distintas: una esbeltez muy superior (relación $L/B \approx 7.1$ vs. $L/B \approx 2.8$–$3.5$ para los pesqueros), una popa afinada con transición suave de cuerpo paralelo a codaste en contraste con la popa llena característica de los pesqueros, y la ausencia de dormido significativo frente al dormido pronunciado de los buques pesqueros. La Tabla~\ref{tab:main_param_kcs} resume sus características principales.
 
 La Figura \ref{fig:model_kcs} muestra el modelo \textit{KCS}, permitiendo comparar visualmente la geometría esbelta y refinada de este portacontenedores con la forma llena y robusta de los pesqueros argentinos. 
+
+\begin{figure}[htpb]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=0.7\textwidth]{images/kcs-pers.png}
+        \caption{Vista en perspectiva de proa. Se observan las marcas de calado y los estimuladores de turbulencia.}
+        \label{fig:kcs_pers}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/kcs-side.png}
+        \caption{Vista de perfil. Geometría de baja esbeltez típica de pesqueros.}
+        \label{fig:kcs_side}
+    \end{subfigure}
+    \caption{Modelo físico del pesquero P2 (Escala 1:10) preparado para ensayos en el LabHiNO.}
+    \label{fig:model_kcs}
+\end{figure}
 
 \begin{table}[H]
 \caption{Características principales del portacontenedores \textit{KCS}.}
@@ -839,3 +899,4 @@ que todo caso de estudio incluye su propia verificación numérica: la
 verificación del factor de forma y la resistencia se detalla en el
 Capítulo~\ref{cap:resistencia_factor_de_forma}, y la de los ensayos de
 propulsión en el Capítulo~\ref{chap:helices}.
+

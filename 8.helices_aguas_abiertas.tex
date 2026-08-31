@@ -1,4 +1,5 @@
 \chapter{Propulsión: efectos de escala en hélices en aguas abiertas} \label{chap:helices}
+\mtcsettitle{minitoc}{Contenidos} 
 \minitoc
 
 \section{Introducción}
@@ -8,7 +9,7 @@ El Capítulo~\ref{chap:antecedentes} presentó las limitaciones conocidas del pr
 
 El primer mecanismo, que en adelante se denomina efecto de escala clásico, es el cambio en la distribución de presión y fricción sobre la pala entre dos condiciones \emph{ambas} totalmente turbulentas, es decir, sin que intervenga la transición. Se caracteriza en las Secciones~\ref{sec:helices_validacion} y \ref{sec:helices_escala} mediante un barrido sistemático de diámetros de la hélice B4-60 de la serie Wageningen (de $D=0.14$ a $8.0$~m, a $J$ constante), resuelto con el modelo de turbulencia $k$-$\omega$ SST completamente turbulento. La Sección~\ref{sec:helices_validacion} valida primero la configuración numérica contra los datos experimentales propios del LabHiNO y contra los polinomios de regresión de \citet{oosterveld1975}, y la Sección~\ref{sec:helices_escala} presenta el sweep de escala propiamente dicho, con la descomposición de $K_T$ y $K_Q$ en sus componentes de presión y fricción y la comparación directa con la predicción de la ITTC-78.
 
-El segundo mecanismo, físicamente independiente del primero, es la presencia de un régimen de transición laminar-turbulenta sobre las palas dentro de la propia escala de modelo. Se aborda en la Sección~\ref{sec:helice_coreana} mediante una hélice de cuatro palas, de menor relación de áreas y con escora, ensayada en túnel de cavitación para cinco números de Reynolds de cuerda distintos. Los resultados muestran una protuberancia no monótona en $K_T$ y $K_Q$ en función del número de Reynolds --la joroba transicional introducida en la Sección~\ref{sec:chichon_antec}--, que el modelo totalmente turbulento no puede reproducir en ningún caso y que un modelo de transición ($\gamma$-$\widetilde{Re}_{\theta t}$, \citealp{langtry2009}), calibrado en la intensidad de turbulencia del disco y verificado en dos solvers independientes (OpenFOAM y StarCCM+), reproduce solo parcialmente. Esta sección evalúa además, mediante una simulación adicional a escala mayor, cómo se propaga esa dependencia del $Re_c$ de ensayo a través del procedimiento ITTC-78, y compara la fracción de presión obtenida para esta hélice con la de la B4-60 y con la reportada en la literatura para una geometría similar.
+El segundo mecanismo, físicamente independiente del primero, es la presencia de un régimen de transición laminar-turbulenta sobre las palas dentro de la propia escala de modelo. Se aborda en la Sección~\ref{sec:helice_coreana} mediante una hélice de cuatro palas, de menor relación de áreas y con skew, ensayada en túnel de cavitación para cinco números de Reynolds de cuerda distintos. Los resultados muestran una protuberancia no monótona en $K_T$ y $K_Q$ en función del número de Reynolds --la joroba transicional introducida en la Sección~\ref{sec:chichon_antec}--, que el modelo totalmente turbulento no puede reproducir en ningún caso y que un modelo de transición ($\gamma$-$\widetilde{Re}_{\theta t}$, \citealp{langtry2009}), calibrado en la intensidad de turbulencia del disco y verificado en dos solvers independientes (OpenFOAM y StarCCM+), reproduce solo parcialmente. Esta sección evalúa además, mediante una simulación adicional a escala mayor, cómo se propaga esa dependencia del $Re_c$ de ensayo a través del procedimiento ITTC-78, y compara la fracción de presión obtenida para esta hélice con la de la B4-60 y con la reportada en la literatura para una geometría similar.
 
 Ambas líneas de trabajo comparten el mismo punto ciego del procedimiento estándar --suponer que el efecto de escala es puramente friccional-- pero involucran fenómenos físicos distintos y, por lo tanto, requieren tratamientos numéricos y experimentales diferentes. Por esa razón se mantienen separadas a lo largo del capítulo, y solo se comparan explícitamente al final de la Sección~\ref{sec:helice_coreana}, donde se discute su contribución conjunta al error del procedimiento ITTC-78 frente a los datos experimentales. Cabe además una aclaración de notación que se mantiene a lo largo del capítulo: el efecto de escala clásico sobre la B4-60 (Secciones~\ref{sec:helices_validacion} y \ref{sec:helices_escala}) se caracteriza con la definición de Reynolds de rotación adoptada por la ITTC, $Re_n = nD^2/\nu$, mientras que el análisis transicional de la hélice de la Sección~\ref{sec:helice_coreana} emplea el número de Reynolds de cuerda local a $r/R=0.7$, $Re_c$, definido en la Ecuación~\ref{eq:Re_c}, por ser la convención habitual en la literatura sobre transición en hélices y la reportada en la hoja de ensayo del fabricante. Una síntesis de una parte de estos resultados, centrada en el efecto de escala clásico y en el mecanismo transicional para la hélice de la Sección~\ref{sec:helice_coreana}, fue elaborada como artículo de congreso independiente durante el desarrollo de esta tesis.
 
@@ -364,7 +365,7 @@ Número de álabes          & $Z$             & 4            \\
 Relación de paso a $r/R=0.7$ & $P/D$        & 0.721        \\
 Relación de área desarrollada & $A_E/A_0$   & 0.431        \\
 Relación espesor-cuerda a $r/R=0.7$ & $t/D$ & 0.0156       \\
-Ángulo de escora (``skew'') & ---       & $16.8^\circ$ \\
+Ángulo de skew & ---       & $16.8^\circ$ \\
 Factor de escala          & ---             & 39.44        \\
 \hline
 \end{tabular}
@@ -834,9 +835,7 @@ de avance calculados hasta el momento, se resumen en la Tabla~\ref{tab:d6m_resul
 \begin{table}[htpb]
 \centering
 \caption{Resultados de la simulación a $D=6$~m, $n=0.80$~rps, modelo SST
-completamente turbulento (OpenFOAM). Estos valores se toman como referencia de
-``escala grande'' para evaluar los distintos procedimientos de extrapolación.
-$Re_n$ y $Re_c$ son constantes para los tres $J$, siguiendo la misma convención de
+completamente turbulento (OpenFOAM). Estos valores se toman como referencia de ``escala grande'' para evaluar los distintos procedimientos de extrapolación. $Re_n$ y $Re_c$ son constantes para los tres $J$, siguiendo la misma convención de
 la Sección~\ref{sec:coreana_efd} (un único $Re_c$ por condición de rps, evaluado a
 $J=0.5$).}
 \label{tab:d6m_resultados}
@@ -947,11 +946,10 @@ ITTC-78 ignora la componente de presión del efecto de escala, que para la B4-60
 representa entre el $69\%$ y el $77\%$ del $\Delta K_T$ total (fracción
 $\Delta K_{Tp}/\Delta K_T$, saturando para razones de escala $Re_S/Re_M \gtrsim 60$).
 
-Sin embargo, la B4-60 ($A_E/A_0=0.60$, sin escora) es geométricamente muy distinta del
+Sin embargo, la B4-60 ($A_E/A_0=0.60$, sin skew) es geométricamente muy distinta del
 P206. Un mejor punto de comparación surge del propeller P1727 analizado
 por \citet{gallotti2026}: con $Z=4$, $A_E/A_0=0.444$ y $c/D_{0.7R}=0.236$ --valores
-prácticamente idénticos a los del P206 ($A_E/A_0=0.431$, $c/D_{0.7R}=0.234$)-- y una
-escora de punta comparable ($25.7°$ frente a $16.8°$). Para el P1727, la descomposición directa de las fuerzas en sus componentes de
+prácticamente idénticos a los del P206 ($A_E/A_0=0.431$, $c/D_{0.7R}=0.234$)-- y skew de punta comparable ($25.7°$ frente a $16.8°$). Para el P1727, la descomposición directa de las fuerzas en sus componentes de
 presión y fricción --disponible para esta geometría-- permite medir la fracción de
 presión sin recurrir a inferencias indirectas. Tomando la condición de modelo
 completamente turbulenta como referencia y la de escala buque como objetivo (ambas
@@ -1032,13 +1030,13 @@ fracción medida del P1727 ($\approx0.88$), en cambio, lo reduce casi por comple
 deja un error residual de apenas $-0.7$ a $-0.8\%$, el menor de las tres correcciones.
 
 Este resultado admite una lectura clara: la fracción medida del P1727 --la hélice
-geométricamente más parecida al P206 en $A_E/A_0$, $c/D_{0.7R}$ y presencia de escora--
+geométricamente más parecida al P206 en $A_E/A_0$, $c/D_{0.7R}$ y presencia de skew--
 es la que mejor corrige la extrapolación, mientras que la de la B4-60, la más distinta
 de las tres, deja el mayor sesgo residual. El orden es el esperable si la fracción de
 presión está gobernada por la geometría: la hélice más similar transfiere mejor. Cabe,
 no obstante, la misma cautela metodológica que en cualquier ajuste sobre un único punto
 de anclaje a escala grande: un error pequeño en esa comparación puntual puede deberse
-en parte a compensaciones ajenas al $A_E/A_0$ --diferencias de escora, de $Re$ de
+en parte a compensaciones ajenas al $A_E/A_0$ --diferencias de skew, de $Re$ de
 referencia o de carga ($J$) entre el P1727 y el P206--, y no solo a la similitud de
 área expandida. La geometría más parecida no garantiza, por sí sola, que la fracción
 transferida sea la más precisa en una única verificación; garantiza, en cambio, que es
@@ -1185,7 +1183,7 @@ validación, para las tres correcciones evaluadas y los tres $J$ calculados.}
 \end{figure}
 
 Con esto, la conclusión práctica de esta sección se puede fijar con más confianza que
-la de un ajuste de un solo punto: para hélices con $A_E/A_0$ reducido y escora
+la de un ajuste de un solo punto: para hélices con $A_E/A_0$ reducido y skew
 significativa como el P206, la fracción de presión del efecto de escala en $K_T$ se
 ubica sensiblemente por encima de la observada en series sistemáticas convencionales
 como la B4-60, en la banda $f_p\approx0.90$--$0.92$. La coincidencia de esta banda por
