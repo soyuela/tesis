@@ -53,14 +53,14 @@ En la Figura \ref{fig:model_tpa}, se presentan las vistas del modelo físico ter
 
 El modelo se evaluó en tres condiciones de carga (ligero, medio y pesado) para barrer un rango operativo amplio y analizar la sensibilidad del factor de forma al calado. Las áreas transversales medias del modelo representaron el 1\%, 1.1\% y 1.2\% del área transversal del tanque para las condiciones de carga ligera, media y pesada, respectivamente.
 
-La Tabla~\ref{tab:main_param_p1} resume las características geométricas y dinámicas del buque pesquero en escala real (T1) y del modelo en las tres condiciones de calado ensayadas (T1, T2 y T3).
+La Tabla~\ref{tab:main_param_p1} resume las características geométricas y dinámicas del buque pesquero en escala buque (T1) y del modelo en las tres condiciones de calado ensayadas (T1, T2 y T3).
 
 \begin{table}[H]
-\caption{Características principales del pesquero P1 en escala real y del modelo en tres condiciones de calado.}
+\caption{Características principales del pesquero P1 en escala buque y del modelo en tres condiciones de calado.}
 \centering
 \begin{tabularx}{\textwidth}{lllllll}
 \toprule
-\textbf{Característica}&\textbf{Símbolo}&\textbf{Unidad}&\textbf{Escala Real }&\textbf{Modelo} & \textbf{Modelo} & \textbf{Modelo}\\
+\textbf{Característica}&\textbf{Símbolo}&\textbf{Unidad}&\textbf{Escala Buque}&\textbf{Modelo} & \textbf{Modelo} & \textbf{Modelo}\\
  &  & & \textbf{T1} & \textbf{T1}& \textbf{T2} & \textbf{T3}\\
 \midrule
 Escala del modelo & $\lambda$ & {[}-{]} & - & 20 & 20 & 20\\
@@ -68,8 +68,8 @@ Eslora en flotación & L$_{WL}$ & {[}m{]} & 32.68 & 1.634 & 1.662 & 1.641\\
 Eslora total sumergida & L$_{OS}$ & {[}m{]} & 34.795 & 1.670 & 1.740 & 1.740\\
 Manga & B & {[}m{]} & 9.28 & 0.464 & 0.464 & 0.464\\
 Calado & T & {[}m{]} & 3.30 & 0.165 & 0.180 & 0.195\\
-Volumen de desplazamiento & $\nabla$ & {[}m$^3${]} & 599.40 & 0.075 & 0.085 & 0.095\\
-Área de superficie mojada & S & {[}m$^2${]} & 392.67 & 0.982 & 1.058 & 1.124\\
+Volumen de desp. & $\nabla$ & {[}m$^3${]} & 599.40 & 0.075 & 0.085 & 0.095\\
+Área de sup. mojada & S & {[}m$^2${]} & 392.67 & 0.982 & 1.058 & 1.124\\
 Coeficiente de bloque & C$_B$ & {[}-{]} & 0.60 & 0.60 & 0.61 & 0.64\\
 Desplazamiento (masa) & $\Delta$ & {[}t{]} & - & 75.0 & 85.0 & 95.0\\
 \bottomrule
@@ -81,20 +81,19 @@ Desplazamiento (masa) & $\Delta$ & {[}t{]} & - & 75.0 & 85.0 & 95.0\\
 El tercer pesquero analizado, de ahora en más P3, fue diseñado y construido por el Astillero Naval Federico Contessi y Cía. S.A. El modelo fue construido a escala $\lambda = 10$ y ensayado en una sola condición de calado. La Tabla~\ref{tab:main_param_p3} resume sus características principales.
 
 \begin{table}[H]
-\caption{Características principales del pesquero P3.}
+\caption{Características principales del pesquero P2.}
 \centering
 \begin{tabularx}{\textwidth}{lllll}
 \toprule
-\textbf{Característica}&\textbf{Símbolo}&\textbf{Unidad} & \textbf{Escala Real} & \textbf{Modelo (T1)}\\
- &  &  & (Buque) &  \\
+\textbf{Característica}&\textbf{Símbolo}&\textbf{Unidad} & \textbf{Escala Buque} & \textbf{Modelo (T1)}\\
 \midrule
 Escala del modelo & $\lambda$ & {[}-{]} & - & 10 \\
 Eslora en flotación& L$_{WL}$ & {[}m{]} & 25.100 & 2.510 \\
 Eslora total sumergida & L$_{OS}$ & {[}m{]} & 26.580 & 2.658 \\
 Manga & B & {[}m{]} & 7.800 & 0.780 \\
 Calado & T & {[}m{]} & 3.460 & 0.346 \\
-Volumen de desplazamiento & $\nabla$ & {[}m$^3${]} & 387.265 & 0.387 \\
-Área de superficie mojada & S & {[}m$^2${]} & 292.000 & 2.920 \\
+Volumen de desp. & $\nabla$ & {[}m$^3${]} & 387.265 & 0.387 \\
+Área de sup. mojada & S & {[}m$^2${]} & 292.000 & 2.920 \\
 Coeficiente de bloque & C$_B$ & {[}-{]} & 0.577 & 0.571 \\
 Desplazamiento (masa) & $\Delta$ & {[}t{]} & 397.295 & 387.0 \\
 \bottomrule
@@ -106,20 +105,19 @@ Desplazamiento (masa) & $\Delta$ & {[}t{]} & 397.295 & 387.0 \\
 El segundo pesquero analizado, de ahora en más P2, fue diseñado y construido por el astillero JPA S.A. El modelo fue construido a escala $\lambda = 13$ y ensayado en una sola condición de calado. La Tabla~\ref{tab:main_param_p2} resume sus características principales.
 
 \begin{table}[H]
-\caption{Características principales del pesquero P2.}
+\caption{Características principales del pesquero P3.}
 \centering
 \begin{tabularx}{\textwidth}{lllll}
 \toprule
-\textbf{Característica}&\textbf{Símbolo}&\textbf{Unidad} & \textbf{Escala Real} & \textbf{Modelo (T1)}\\
- &  &  & (Buque) &  \\
+\textbf{Característica}&\textbf{Símbolo}&\textbf{Unidad} & \textbf{Escala Buque} & \textbf{Modelo (T1)}\\
 \midrule
 Escala del modelo & $\lambda$ & {[}-{]} & - & 13 \\
 Eslora en flotación & L$_{WL}$ & {[}m{]} & 22.050 & 1.696 \\
 Eslora total sumergida & L$_{OS}$ & {[}m{]} & 22.282 & 1.714 \\
 Manga & B & {[}m{]} & 7.800 & 0.600 \\
 Calado & T & {[}m{]} & 3.050 & 0.235 \\
-Volumen de desplazamiento & $\nabla$ & {[}m$^3${]} & 320.070 & 0.146 \\
-Área de superficie mojada & S & {[}m$^2${]} & 240.964 & 1.426 \\
+Volumen de desp. & $\nabla$ & {[}m$^3${]} & 320.070 & 0.146 \\
+Área de sup. mojada & S & {[}m$^2${]} & 240.964 & 1.426 \\
 Coeficiente de bloque & C$_B$ & {[}-{]} & 0.643 & 0.608 \\
 Desplazamiento (masa) & $\Delta$ & {[}t{]} & 328.360 & 146.0 \\
 \bottomrule
@@ -138,16 +136,15 @@ La Figura \ref{fig:model_kcs} muestra el modelo \textit{KCS}, permitiendo compar
 \centering
 \begin{tabularx}{\textwidth}{lllll}
 \toprule
-\textbf{Característica}&\textbf{Símbolo}&\textbf{Unidad} & \textbf{Escala Real} & \textbf{Modelo}\\
- &  &  & (Buque) & (T1) \\
+\textbf{Característica}&\textbf{Símbolo}&\textbf{Unidad} & \textbf{Escala Buque} & \textbf{Modelo}\\
 \midrule
 Escala del modelo & $\lambda$ & {[}-{]} & - & 79 \\
 Eslora en flotación & L$_{WL}$ & {[}m{]} & 230.000 & 2.911 \\
 Eslora total sumergida & L$_{OS}$ & {[}m{]} & 232.500 & 2.943 \\
 Manga & B & {[}m{]} & 32.200 & 0.408 \\
 Calado & T & {[}m{]} & 10.800 & 0.137 \\
-Volumen de desplazamiento & $\nabla$ & {[}m$^3${]} & 52030.000 & 0.106 \\
-Área de superficie mojada & S & {[}m$^2${]} & 9530.000 & 1.527 \\
+Volumen de desp. & $\nabla$ & {[}m$^3${]} & 52030.000 & 0.106 \\
+Área de sup. mojada & S & {[}m$^2${]} & 9530.000 & 1.527 \\
 Coeficiente de bloque & C$_B$ & {[}-{]} & 0.595 & 0.653 \\
 Desplazamiento (masa) & $\Delta$ & {[}t{]} & 51925.940 & 105.318 \\
 \bottomrule
@@ -293,25 +290,56 @@ la superficie mojada a escala buque.
 De forma análoga al escalado de la resistencia del casco, las características de
 aguas abiertas del propulsor obtenidas a escala de modelo --sea por ensayo o por
 simulación-- deben corregirse a escala buque antes de emplearse en la predicción de
-prestaciones. Las definiciones adimensionales de base ($K_T$, $K_Q$, $\eta_0$ y el
-número de Reynolds de hélice $Re_{co}$ a $r/R=0.75$) se introdujeron en el
-Capítulo~\ref{chap:antecedentes} (Sección~\ref{sec:pow_antec}), donde el número de
-Reynolds de hélice se define en la Ecuación~\eqref{eq:Re_helice}. El procedimiento estándar recomendado por la ITTC para este
-escalado es el método ITTC-78 \citep{ITTC_Performance_prediction}, que constituye el
-gemelo propulsivo de la extrapolación de casco descrita más arriba y la referencia
-frente a la cual se contrastan los resultados del Capítulo~\ref{chap:helices}.
+prestaciones. Recordando las definiciones adimensionales introducidas en el
+Capítulo~\ref{chap:antecedentes} (Sección~\ref{sec:pow_antec}),
+%
+\begin{equation}
+    K_T = \frac{T}{\rho\,n^2 D^4}, \qquad
+    K_Q = \frac{Q}{\rho\,n^2 D^5}, \qquad
+    \eta_0 = \frac{J}{2\pi}\,\frac{K_T}{K_Q},
+    \label{eq:helice_adim_recall}
+\end{equation}
+%
+el procedimiento estándar recomendado por la ITTC para su escalado es el método
+ITTC-78 \citep{ITTC_Performance_prediction}, gemelo propulsivo de la extrapolación de
+casco descrita más arriba y referencia frente a la cual se contrastan los resultados
+del Capítulo~\ref{chap:helices}. El método parte de una hipótesis central: el efecto de
+escala sobre el propulsor es de naturaleza \emph{puramente friccional}.
 
-El método parte de una hipótesis central: el efecto de escala sobre el propulsor es de
-naturaleza \emph{puramente friccional}. Bajo este supuesto, la corrección se construye
-a partir de la variación del coeficiente de arrastre bidimensional de la sección de
-pala representativa, tomada a $r/R = 0.75$, entre las condiciones de modelo y de buque:
+La corrección mapea los coeficientes de modelo ($K_{TM}$, $K_{QM}$) a escala buque
+mediante
+%
+\begin{equation}
+    K_{TS} = K_{TM} - \Delta K_T, \qquad
+    K_{QS} = K_{QM} - \Delta K_Q, \qquad
+    \eta_{0S} = \frac{J}{2\pi}\,\frac{K_{TS}}{K_{QS}},
+    \label{eq:ittc78_KtKq_buque}
+\end{equation}
+%
+donde las correcciones de empuje y de par se obtienen a partir de la variación del
+coeficiente de arrastre de la sección de pala representativa (a $r/R = 0.75$),
+$\Delta C_D$, según
+%
+\begin{equation}
+    \Delta K_T = -\,\Delta C_D \; 0.3 \; \frac{P}{D} \; \frac{Z\,c}{D},
+    \qquad
+    \Delta K_Q = +\,\Delta C_D \; 0.25 \; \frac{Z\,c}{D},
+    \label{eq:ittc78_deltaKtKq}
+\end{equation}
+%
+con $P/D$ la relación de paso a $r/R = 0.75$, $Z$ el número de palas, $c$ la cuerda de
+la sección y $D$ el diámetro.
+
+La variación de arrastre $\Delta C_D$, introducida conceptualmente en el
+Capítulo~\ref{chap:antecedentes} (Sección~\ref{sec:ittc78_propulsor}), se construye como
+la diferencia entre las condiciones de modelo y de buque,
 %
 \begin{equation}
     \Delta C_D = C_{D,M} - C_{D,S},
     \label{eq:ittc78_deltacd}
 \end{equation}
 %
-donde los coeficientes de arrastre de modelo y de buque se evalúan, respectivamente,
+con los coeficientes de arrastre bidimensional de la sección evaluados, respectivamente,
 mediante
 %
 \begin{align}
@@ -323,36 +351,13 @@ mediante
     \label{eq:ittc78_cds}
 \end{align}
 %
-En estas expresiones $c$ y $t$ son la cuerda y el espesor máximo de la sección a
-$r/R = 0.75$, $Re_{co}$ es el número de Reynolds local de esa sección definido en la
-Ecuación~\eqref{eq:Re_helice}, y $k_p$ es la rugosidad equivalente de la pala, para la
-que se adopta el valor estándar $k_p = 30\times10^{-6}$~m recomendado por la ITTC en
-ausencia de mediciones directas. El coeficiente $C_{D,M}$ responde a una ley de
-fricción dependiente del Reynolds, mientras que $C_{D,S}$ corresponde al régimen
+Aquí $t$ es el espesor máximo de la sección a $r/R = 0.75$, $Re_{co}$ su número de
+Reynolds local (Ecuación~\eqref{eq:Re_helice}) y $k_p$ la rugosidad equivalente de la
+pala, para la que se adopta el valor estándar $k_p = 30\times10^{-6}$~m recomendado por
+la ITTC en ausencia de mediciones directas. El coeficiente $C_{D,M}$ responde a una ley
+de fricción dependiente del Reynolds, mientras que $C_{D,S}$ corresponde al régimen
 rugoso plenamente desarrollado propio de la escala buque.
 
-La diferencia $\Delta C_D$ se traslada a los coeficientes de empuje y de par mediante
-las correcciones
-%
-\begin{equation}
-    \Delta K_T = -\,\Delta C_D \; 0.3 \; \frac{P}{D} \; \frac{Z\,c}{D},
-    \qquad
-    \Delta K_Q = +\,\Delta C_D \; 0.25 \; \frac{Z\,c}{D},
-    \label{eq:ittc78_deltaKtKq}
-\end{equation}
-%
-donde $P/D$ es la relación de paso a $r/R = 0.75$, $Z$ el número de palas y $D$ el
-diámetro. Las características corregidas a escala buque resultan finalmente
-%
-\begin{equation}
-    K_{TS} = K_{TM} - \Delta K_T,
-    \qquad
-    K_{QS} = K_{QM} - \Delta K_Q,
-    \qquad
-    \eta_{0S} = \frac{J}{2\pi}\,\frac{K_{TS}}{K_{QS}}.
-    \label{eq:ittc78_KtKq_buque}
-\end{equation}
-%
 Dado que $\Delta C_D > 0$ (la sección de modelo, a menor Reynolds, presenta mayor
 arrastre), la Ecuación~\eqref{eq:ittc78_deltaKtKq} produce $\Delta K_T < 0$ y
 $\Delta K_Q > 0$; el empuje corregido \emph{aumenta} y el par \emph{disminuye} al pasar
@@ -608,7 +613,7 @@ $\widetilde{Re}_{\theta t}$), con gradientes calculados mediante
 \usetikzlibrary{arrows.meta}
 \tikzset{
   patchlbl/.style={font=\scriptsize\sffamily, text=white, inner sep=1pt},
-  leader/.style  ={->,>=Latex,line width=.35pt},
+  leader/.style  ={-{Latex},line width=.35pt},
   dim/.style     ={{Latex[length=3pt]}-{Latex[length=3pt]}, line width=.35pt, black},
   wit/.style     ={line width=.3pt, black!55},
   dimlbl/.style  ={font=\scriptsize, fill=white, inner sep=1pt},
@@ -650,19 +655,63 @@ hélice $D$.}
 \label{sec:metodologia_helices_tu}
 
 Las simulaciones con SST-LM requieren especificar el nivel de intensidad turbulenta
-($Tu$) en el plano del disco, parámetro del cual depende fuertemente el punto de
-inicio de la transición laminar-turbulenta. Siguiendo la metodología de
-\citet{Gaggero2020}, en ambos códigos las variables de turbulencia se mantienen
-congeladas desde la entrada del dominio hasta una distancia de $0.5D$ aguas arriba de
-la hélice, permitiendo su decaimiento únicamente en el tramo restante de $0.5D$ hasta
-el plano del disco. De este modo, $Tu$ en el disco --y no en la entrada-- es el
-parámetro físicamente relevante y comparable entre ambos solvers, independientemente
-de las diferencias de formulación de cada código. Tal como se documenta en
-\citet{Baltazar2021}, la relación de viscosidad turbulenta $\mu_t/\mu$ en la entrada
-se ajusta para controlar esa tasa de decaimiento; una vez fijado el $Tu$ objetivo en
-el disco, variaciones adicionales de $\mu_t/\mu$ producen efectos secundarios sobre
-las predicciones de fuerza que deben tenerse en cuenta al interpretar la sensibilidad
-de los resultados a este parámetro.
+($Tu$) en el plano del disco, parámetro del cual depende fuertemente el punto de inicio
+de la transición laminar--turbulenta. La intensidad turbulenta se relaciona con la
+energía cinética turbulenta $k$ y la velocidad de referencia $U$ mediante
+$Tu = \sqrt{2k/3}\,/\,U$, de modo que las condiciones de entrada de las variables de
+turbulencia quedan fijadas a partir del $Tu$ prescrito como
+%
+\begin{equation}
+    k = \frac{3}{2}\,\left(U\,Tu\right)^2,
+    \qquad
+    \omega = \frac{\rho\,k}{\mu\,(\mu_t/\mu)} = \frac{k}{\nu\,(\mu_t/\mu)},
+    \label{eq:tu_k_omega}
+\end{equation}
+%
+donde $\nu = \mu/\rho$ es la viscosidad cinemática y $\mu_t/\mu$ la relación de
+viscosidad turbulenta impuesta en la entrada, que sigue de la definición
+$\mu_t = \rho\,k/\omega$. Para el modelo de transición, además, el número de Reynolds de
+espesor de cantidad de movimiento transportado $\widetilde{Re}_{\theta t}$ se inicializa
+en la entrada mediante la correlación empírica de \citet{langtry2009} en función de
+$Tu$ (expresado en \%), en su forma sin gradiente de presión:
+%
+\begin{equation}
+    Re_{\theta t} =
+    \begin{cases}
+        1173.51 - 589.428\,Tu + \dfrac{0.2196}{Tu^{2}}, & Tu \le 1.3,\\[8pt]
+        331.50\,\left(Tu - 0.5658\right)^{-0.671}, & Tu > 1.3.
+    \end{cases}
+    \label{eq:tu_rethetat}
+\end{equation}
+%
+Siguiendo la metodología de \citet{Gaggero2020}, en ambos códigos las variables de
+turbulencia se mantienen congeladas desde la entrada del dominio hasta una distancia de
+$0.5D$ aguas arriba de la hélice, permitiendo su decaimiento únicamente en el tramo
+restante de $0.5D$ hasta el plano del disco. De este modo, $Tu$ en el disco --y no en la
+entrada-- es el parámetro físicamente relevante y comparable entre ambos solvers,
+independientemente de las diferencias de formulación de cada código.
+
+En ese tramo de decaimiento libre --sin producción-- la integración de las ecuaciones de
+transporte a lo largo de una línea de corriente admite solución analítica,
+%
+\begin{equation}
+    \omega(x) = \frac{\omega_0}{1 + \beta\,\omega_0\,x/U},
+    \qquad
+    k(x) = k_0\,\left(1 + \beta\,\omega_0\,x/U\right)^{-\beta^*/\beta},
+    \label{eq:tu_decay}
+\end{equation}
+%
+con $\beta^* = 0.09$ y $\beta$ las constantes de cierre del modelo SST, y el subíndice
+$0$ el valor de entrada. Puesto que $\omega_0 = k_0/[\nu\,(\mu_t/\mu)]$
+(Ecuación~\ref{eq:tu_k_omega}), una relación $\mu_t/\mu$ mayor implica un $\omega_0$
+menor y, por lo tanto, un decaimiento más lento de $k$: para un mismo $Tu$ de entrada se
+retiene más turbulencia hasta el disco. Tal como documenta \citet{Baltazar2021}, es
+precisamente $\mu_t/\mu$ en la entrada el parámetro que se ajusta para controlar esa
+tasa de decaimiento y hacer que el $Tu$ decaído coincida con el objetivo en el disco.
+Una vez fijado ese $Tu$ objetivo, variaciones adicionales de $\mu_t/\mu$ producen
+efectos secundarios sobre las predicciones de fuerza --a través del campo de $\mu_t$ que
+alcanza la pala-- que deben tenerse en cuenta al interpretar la sensibilidad de los
+resultados a este parámetro.
 
 \subsection{Descomposición de fuerzas y coeficientes locales sobre la pala}
 \label{sec:metodologia_helices_descomp}

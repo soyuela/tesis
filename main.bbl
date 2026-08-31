@@ -1,4 +1,4 @@
-\begin{thebibliography}{74}
+\begin{thebibliography}{77}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -201,6 +201,13 @@ C.W.B. Grigson.
 \newblock \emph{Transactions of the Royal Institution of Naval Architects},
   142:\penalty0 76--115, 2000.
 
+\bibitem[Heinke et~al.(2019)Heinke, Hellwig-Rieck, and L{\"u}bke]{heinke2019}
+H.-J. Heinke, K.~Hellwig-Rieck, and L.~L{\"u}bke.
+\newblock Influence of the {R}eynolds number on the open water characteristics
+  of propellers with short chord lengths.
+\newblock In \emph{Sixth International Symposium on Marine Propulsors
+  (SMP'19)}, Rome, Italy, 2019.
+
 \bibitem[Hoerner(1965)]{hoerner1965drag}
 Sighard~F. Hoerner.
 \newblock \emph{Fluid-Dynamic Drag: Practical Information on Aerodynamic Drag
@@ -212,6 +219,12 @@ G.~Hughes.
 \newblock Friction and form resistance in turbulent flow, and a proposed
   formulation for use in model and ship correlation.
 \newblock \emph{Transactions of the Institution of Naval Architects}, 96, 1954.
+
+\bibitem[{ITTC Resistance and Propulsion Committee}(2024)]{ittc2024rp}
+{ITTC Resistance and Propulsion Committee}.
+\newblock Final report and recommendations to the 30th {ITTC}.
+\newblock In \emph{Proceedings of the 30th International Towing Tank
+  Conference}, 2024.
 
 \bibitem[{ITTC Specialist Committee on CFD and EFD Combined
   Methods}(2021{\natexlab{a}})]{ITTC_Combined_2021}
@@ -317,6 +330,13 @@ Florian~R. Menter.
   applications.
 \newblock \emph{AIAA Journal}, 32\penalty0 (8):\penalty0 1598--1605, 1994.
 \newblock \doi{10.2514/3.12149}.
+
+\bibitem[Menter et~al.(2003)Menter, Kuntz, and Langtry]{menter2003}
+Florian~R. Menter, M.~Kuntz, and R.~Langtry.
+\newblock Ten years of industrial experience with the {SST} turbulence model.
+\newblock In K.~Hanjali\'c, Y.~Nagano, and M.~Tummers, editors,
+  \emph{Turbulence, Heat and Mass Transfer 4}, pages 625--632. Begell House,
+  2003.
 
 \bibitem[Min and Kang(2010)]{keh-sik-min}
 Keh-Sik Min and Seon-Hyung Kang.

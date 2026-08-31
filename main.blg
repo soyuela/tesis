@@ -3,51 +3,48 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
 The style file: plainnat.bst
 Database file #1: referencias.bib
-Warning--I didn't find a database entry for "heinke2019"
-Warning--I didn't find a database entry for "ittc2024rp"
-Warning--I didn't find a database entry for "menter2003"
 Warning--can't use both volume and number fields in eca2008friction
 Warning--empty booktitle in Korkmaz2019NumericalFL
 Warning--empty booktitle in cp_recovery_kcs
-You've used 74 entries,
+You've used 77 entries,
             2773 wiz_defined-function locations,
-            1053 strings with 20141 characters,
-and the built_in function-call counts, 30562 in all, are:
-= -- 2743
-> -- 1629
-< -- 54
-+ -- 572
-- -- 495
-* -- 2289
-:= -- 4858
-add.period$ -- 290
-call.type$ -- 74
-change.case$ -- 380
-chr.to.int$ -- 71
-cite$ -- 151
-duplicate$ -- 1446
-empty$ -- 2600
-format.name$ -- 589
-if$ -- 6379
+            1067 strings with 20743 characters,
+and the built_in function-call counts, 32027 in all, are:
+= -- 2870
+> -- 1710
+< -- 56
++ -- 599
+- -- 519
+* -- 2396
+:= -- 5075
+add.period$ -- 300
+call.type$ -- 77
+change.case$ -- 396
+chr.to.int$ -- 74
+cite$ -- 157
+duplicate$ -- 1526
+empty$ -- 2734
+format.name$ -- 616
+if$ -- 6701
 int.to.chr$ -- 4
 int.to.str$ -- 1
-missing$ -- 67
-newline$ -- 445
-num.names$ -- 296
-pop$ -- 787
+missing$ -- 70
+newline$ -- 460
+num.names$ -- 310
+pop$ -- 830
 preamble$ -- 1
-purify$ -- 313
+purify$ -- 326
 quote$ -- 0
-skip$ -- 1048
+skip$ -- 1101
 stack$ -- 0
-substring$ -- 765
-swap$ -- 105
-text.length$ -- 5
+substring$ -- 803
+swap$ -- 119
+text.length$ -- 6
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 754
+type$ -- 787
 warning$ -- 3
-while$ -- 269
+while$ -- 282
 width$ -- 0
-write$ -- 1079
-(There were 6 warnings)
+write$ -- 1118
+(There were 3 warnings)
