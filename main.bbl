@@ -1,4 +1,4 @@
-\begin{thebibliography}{77}
+\begin{thebibliography}{78}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -403,6 +403,13 @@ Sebasti\'{a}n Oyuela, H\'{e}ctor~R. D{\'{i}}az-Ojeda, Alejandro~D. Otero, and
   astilleros.
 \newblock \url{https://paduamateriales.com/construccion-naval/}, 2021.
 \newblock Consultado el 29-08-2026.
+
+\bibitem[Pawar and Brizzolara(2019)]{pawar2019relevance}
+S.~Pawar and S.~Brizzolara.
+\newblock Relevance of transition turbulent model for hydrodynamic
+  characteristics of low {R}eynolds number propeller.
+\newblock \emph{Applied Ocean Research}, 87:\penalty0 165--178, 2019.
+\newblock \doi{10.1016/j.apor.2019.02.018}.
 
 \bibitem[Peravali et~al.(2016)Peravali, Bensow, Gyllenram, and
   Shiri]{peravali2016}

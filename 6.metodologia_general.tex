@@ -5,7 +5,7 @@
 
 \section{Introducción}
 
-Habiendo establecido en el Capítulo 2 los fundamentos físicos de la resistencia al avance y las bases teóricas de la mecánica de fluidos, este capítulo detalla la implementación práctica de las herramientas utilizadas en esta tesis. La investigación adopta una estrategia híbrida que vincula ensayos físicos en canal de remolque (EFD) con simulaciones numéricas de alta fidelidad (CFD).
+Habiendo establecido en el Capítulo 2 los fundamentos físicos de la resistencia al avance y las bases teóricas de la mecánica de fluidos, este capítulo detalla la implementación práctica de las herramientas utilizadas en esta tesis. La investigación adopta una estrategia híbrida que vincula ensayos físicos en canal de remolque (EFD) con simulaciones numéricas (CFD).
 
 A continuación se describen las instalaciones experimentales del canal de pruebas del LabHiNO, las características geométricas de los modelos construidos y la instrumentación empleada. Posteriormente, se detalla la configuración del modelo numérico en ``OpenFOAM'', especificando el dominio computacional, las condiciones de contorno y los esquemas de discretización utilizados.
 
@@ -123,7 +123,7 @@ Desplazamiento (masa) & $\Delta$ & {[}t{]} & 397.295 & 387.0 \\
 \end{table}
 
 \subsubsection{Modelo Pesquero 3}
-El segundo pesquero analizado, de ahora en más P3, fue diseñado y construido por el astillero JPA S.A. El modelo fue construido a escala $\lambda = 13$ y ensayado en una sola condición de calado. La Tabla~\ref{tab:main_param_p3} resume sus características principales.
+El tercer pesquero analizado, de ahora en más P3, fue diseñado y construido por el astillero JPA S.A. El modelo fue construido a escala $\lambda = 13$ y ensayado en una sola condición de calado. La Tabla~\ref{tab:main_param_p3} resume sus características principales.
 
 \begin{figure}[htpb]
     \centering
@@ -212,11 +212,85 @@ Desplazamiento (masa) & $\Delta$ & {[}t{]} & 51925.940 & 105.318 \\
 \label{tab:main_param_kcs}
 \end{table}
 
+\subsection{Hélices de referencia \label{sec:presentacion_helices}}
+El estudio de propulsión de esta tesis (Capítulo~\ref{chap:helices}) se apoya en dos
+hélices de referencia de geometría conocida. La primera es la hélice seriada
+\textbf{Wageningen B4-60}, empleada para validar la configuración numérica de aguas
+abiertas contra resultados experimentales; sus datos provienen de campañas de archivo del
+LabHiNO previas a esta tesis. La segunda es el propulsor \textbf{P206}, una hélice de
+diseño convencional pero no seriada, cuyos datos experimentales fueron provistos por
+Hanwha Ocean y sobre la cual se estudian los efectos del régimen de transición
+laminar--turbulenta a escala de modelo.
+
+\subsubsection{Hélice Wageningen B4-60}
+La B4-60 pertenece a la serie sistemática de Wageningen, de cuatro palas y relación de
+área expandida $A_E/A_0 = 0.60$. La Figura~\ref{fig:pala_wageningen} muestra su geometría
+y la Tabla~\ref{tab:geom_wageningen} resume sus parámetros principales. Los ensayos de
+aguas abiertas de archivo se realizaron a una temperatura del agua de $18.5$~°C
+($\rho = 101.811$~kg$\cdot$s$^2$/m$^4$, $\nu = 1.04\times10^{-6}$~m$^2$/s) y una velocidad
+de giro de $n = 16.99$~rps, que corresponde a un número de Reynolds de ensayo
+$Re = 90\,406$ según la convención de la hoja de ensayo.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.55\textwidth]{images/pala_wageningen.png}
+    \caption{Geometría de la hélice de referencia Wageningen B4-60.}
+    \label{fig:pala_wageningen}
+\end{figure}
+
+\begin{table}[H]
+\centering
+\caption{Características geométricas principales de la hélice Wageningen B4-60.}
+\label{tab:geom_wageningen}
+\begin{tabular}{lcc}
+\hline
+Parámetro & Símbolo & Valor \\
+\hline
+Diámetro de modelo            & $D$           & 0.140~m \\
+Número de álabes              & $Z$           & 4       \\
+Relación de paso              & $P/D$         & 0.81    \\
+Relación de área expandida    & $A_E/A_0$     & 0.60    \\
+Ángulo de rake                & ---           & $0^\circ$ \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsubsection{Propulsor P206}
+El P206 es una hélice de cuatro palas, de área expandida reducida y con skew, cedida por
+Hanwha Ocean. La Figura~\ref{fig:pala_p206} muestra su geometría y la
+Tabla~\ref{tab:geom_coreana} resume sus parámetros principales.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.55\textwidth]{images/pala_p206.png}
+    \caption{Geometría del propulsor P206.}
+    \label{fig:pala_p206}
+\end{figure}
+
+\begin{table}[H]
+\centering
+\caption{Características geométricas principales del propulsor P206.}
+\label{tab:geom_coreana}
+\begin{tabular}{lcc}
+\hline
+Parámetro & Símbolo & Valor \\
+\hline
+Diámetro de modelo        & $D$             & 0.250~m      \\
+Número de álabes          & $Z$             & 4            \\
+Relación de paso a $r/R=0.7$ & $P/D$        & 0.721        \\
+Relación de área desarrollada & $A_E/A_0$   & 0.431        \\
+Relación espesor-cuerda a $r/R=0.7$ & $t/D$ & 0.0156       \\
+Ángulo de skew & ---       & $16.8^\circ$ \\
+Factor de escala          & ---             & 39.44        \\
+\hline
+\end{tabular}
+\end{table}
+
 \subsection{Instrumentación y Adquisición de Datos}
 
 La medición de la resistencia total al avance ($R_T$) se realizó mediante una celda de carga de un solo componente marca \textbf{Kempf \& Remmers modelo R 47}. El transductor, diseñado para una carga a escala completa de $\pm 100$ N, posee una sensibilidad de aproximadamente $\pm 1$ mV/V de voltaje de alimentación.
 
-El montaje del modelo al carro dinamométrico se realizó vinculándolo a la celda de carga de manera tal que se restringieron los movimientos de avance (velocidad constante impuesta por el carro), deriva, guiñada y rolido. El sistema permitió que el modelo quedara \textbf{libre a cabeceo (``trim'') y hundimiento (``sinkage'')}, conforme a los estándares para ensayos de resistencia al avance.
+El montaje del modelo al carro dinamométrico se realizó vinculándolo a la celda de carga de manera tal que se restringieron los movimientos de avance (velocidad constante impuesta por el carro), deriva (``sway''), guiñada (``yaw'') y rolido (``roll''). El sistema permitió que el modelo quedara \textbf{libre a cabeceo (``trim'') y hundimiento (``sinkage'')}, conforme a los estándares para ensayos de resistencia al avance.
 
 El sistema de adquisición de datos se configuró con los siguientes parámetros:
 \begin{itemize}
@@ -242,7 +316,7 @@ La resistencia total medida es función de múltiples variables independientes. 
 \begin{itemize}
     \item \textbf{Geometría del casco:} La incertidumbre en el desplazamiento y la superficie mojada se cuantificó midiendo el lastre del modelo con una balanza de brazo portátil. Asumiendo que la incertidumbre geométrica no afecta significativamente el coeficiente de resistencia residual, la propagación ocurre a través de la superficie mojada y la eslora representativa. La incertidumbre estándar en la masa de desplazamiento constituye la fuente primaria para esta componente.
 
-    \item \textbf{Velocidad de remolque:} Se consideró el límite de sesgo (``bias limit'') del carro dinamométrico. Este error se propaga a la medición de resistencia a través de la presión dinámica $q = \tfrac{1}{2}\rho V^2$ y en consecuencia al número de Reynolds. Para el rango operativo del LabHiNO, la precisión adoptada refleja la capacidad de control del sistema de remolque.
+    \item \textbf{Velocidad de remolque:} Se consideró el límite de sesgo del carro dinamométrico. Este error se propaga a la medición de resistencia a través de la presión dinámica $q = \tfrac{1}{2}\rho V^2$ y en consecuencia al número de Reynolds. Para el rango operativo del LabHiNO, la precisión adoptada refleja la capacidad de control del sistema de remolque.
 
     \item \textbf{Temperatura del agua:} Dado que la viscosidad cinemática $\nu$ es fuertemente dependiente de la temperatura, variaciones de la misma afectan directamente al número de Reynolds $Re = \tfrac{V \cdot L}{\nu}$ y a la componente friccional de la resistencia. Se monitoreó la temperatura durante todos los ensayos. Las variaciones observadas se mantuvieron por debajo de $0.5\,^\circ$C, lo que implica variaciones en la viscosidad del orden del 2\% en el rango de interés.
 
@@ -350,8 +424,8 @@ la superficie mojada a escala buque.
 De forma análoga al escalado de la resistencia del casco, las características de
 aguas abiertas del propulsor obtenidas a escala de modelo --sea por ensayo o por
 simulación-- deben corregirse a escala buque antes de emplearse en la predicción de
-prestaciones. Recordando las definiciones adimensionales introducidas en el
-Capítulo~\ref{chap:antecedentes} (Sección~\ref{sec:pow_antec}),
+prestaciones. Se recuerdan las definiciones adimensionales introducidas en el
+Capítulo~\ref{chap:antecedentes} (Sección~\ref{sec:pow_antec}):
 %
 \begin{equation}
     K_T = \frac{T}{\rho\,n^2 D^4}, \qquad
@@ -360,7 +434,9 @@ Capítulo~\ref{chap:antecedentes} (Sección~\ref{sec:pow_antec}),
     \label{eq:helice_adim_recall}
 \end{equation}
 %
-el procedimiento estándar recomendado por la ITTC para su escalado es el método
+donde $\eta_0$ es la eficiencia en aguas abiertas, es decir, el cociente entre la
+potencia útil desarrollada por el empuje ($T\,V_a$) y la potencia entregada al eje
+($2\pi n\,Q$) cuando la hélice opera en flujo uniforme. El procedimiento estándar recomendado por la ITTC para su escalado es el método
 ITTC-78 \citep{ITTC_Performance_prediction}, gemelo propulsivo de la extrapolación de
 casco descrita más arriba y referencia frente a la cual se contrastan los resultados
 del Capítulo~\ref{chap:helices}. El método parte de una hipótesis central: el efecto de
@@ -420,8 +496,7 @@ rugoso plenamente desarrollado propio de la escala buque.
 
 Dado que $\Delta C_D > 0$ (la sección de modelo, a menor Reynolds, presenta mayor
 arrastre), la Ecuación~\eqref{eq:ittc78_deltaKtKq} produce $\Delta K_T < 0$ y
-$\Delta K_Q > 0$; el empuje corregido \emph{aumenta} y el par \emph{disminuye} al pasar
-de modelo a buque, en el sentido físico esperado.
+$\Delta K_Q > 0$. Al introducir estos signos en la Ecuación~\eqref{eq:ittc78_KtKq_buque}, donde ambas correcciones se \emph{restan} de los valores de modelo ($K_{TS} = K_{TM} - \Delta K_T$ y $K_{QS} = K_{QM} - \Delta K_Q$), restar un $\Delta K_T$ negativo hace que el empuje corregido \emph{aumente}, mientras que restar un $\Delta K_Q$ positivo hace que el par \emph{disminuya} al pasar de modelo a buque, en el sentido físico esperado.
 
 Conviene subrayar la estructura de esta corrección, pues es el punto que el
 Capítulo~\ref{chap:helices} somete a escrutinio. Al construirse enteramente sobre
@@ -505,12 +580,52 @@ $\nu_t$ & calc. & calc. & calc. & nutkWF \\
     \item \textbf{kLRWF} / \textbf{oWF} / \textbf{nutkWF}: Funciones de pared para turbulencia.
 \end{itemize}
 
+\noindent\textbf{Esquemas de discretización:} los esquemas numéricos empleados en las simulaciones con superficie libre se resumen en el siguiente extracto del archivo \texttt{fvSchemes}:
+
+\begin{verbatim}
+ddtSchemes
+{
+    default         Euler;
+}
+gradSchemes
+{
+    default         Gauss linear;
+    limitedGrad     cellLimited Gauss linear 1;
+}
+divSchemes
+{
+    div(rhoPhi,U)   Gauss linearUpwind grad(U);
+    div(phi,U)   Gauss linearUpwind grad(U);
+    div(phi,alpha)  Gauss interfaceCompression vanLeer 1;
+    div(phi,k)      Gauss linearUpwind limitedGrad;
+    div(phi,omega)  Gauss linearUpwind limitedGrad;
+    div(((rho*nuEff)*dev2(T(grad(U))))) Gauss linear;
+    div((nuEff*dev2(T(grad(U))))) Gauss linear;
+}
+laplacianSchemes
+{
+    default         Gauss linear corrected;
+}
+interpolationSchemes
+{
+    default         linear;
+}
+snGradSchemes
+{
+    default         corrected;
+}
+wallDist
+{
+    method meshWave;
+}
+\end{verbatim}
+
 \subsubsection{Simulación de Doble Cuerpo}\label{sec:doble_cuerpo}
 
 Esta configuración se utiliza exclusivamente para aislar la resistencia viscosa ($R_V$) y determinar el factor de forma $(1+k)$. El término ``Doble Cuerpo'' hace referencia al concepto aerodinámico de reflejar el casco sumergido respecto al plano de flotación, generando un cuerpo equivalente completamente sumergido en un fluido infinito.
 
 \paragraph{Fundamento Físico y Dominio}
-En esta aproximación, la superficie libre se sustituye por una condición de \textbf{tapa rígida sin fricción} (``frictionless rigid lid''). Geométricamente, el dominio se trunca en la línea de flotación estática ($z=0$), tal como se ilustra en la Figura \ref{fig:double_body_domain}.
+En esta aproximación, la superficie libre se sustituye por una condición de \textbf{tapa rígida sin fricción}. Geométricamente, el dominio se trunca en la línea de flotación estática ($z=0$), tal como se ilustra en la Figura \ref{fig:double_body_domain}.
 
 \begin{figure}[htpb]
     \centering
@@ -535,7 +650,7 @@ Al eliminar la necesidad de capturar la interfase aire-agua, se prescinde del re
 A diferencia de los enfoques estacionarios clásicos, en este trabajo se utilizó un solucionador transitorio (\textbf{\texttt{pimpleFoam}}) para resolver las ecuaciones RANS monofásicas.
 \begin{itemize}
     \item \textbf{Justificación:} Se optó por la resolución transitoria para garantizar la estabilidad numérica frente a desprendimientos de flujo complejos y oscilantes en la zona del espejo de popa, los cuales suelen dificultar la convergencia de solucionadores estacionarios (tipo SIMPLE).
-    \item \textbf{Algoritmo:} Se utilizó el algoritmo PIMPLE, que permite utilizar pasos de tiempo grandes ($Co_{max} > 1$) manteniendo la estabilidad mediante correcciones externas en cada paso de tiempo.
+    \item \textbf{Algoritmo:} Se utilizó el algoritmo PIMPLE, que permite utilizar pasos de tiempo grandes (número de Courant $Co_{max} > 1$, siendo $Co = |\mathbf{u}|\,\Delta t/\Delta x$ una medida de cuántas celdas atraviesa el flujo en un paso de tiempo, de modo que $Co > 1$ significa que recorre más de una celda por paso) manteniendo la estabilidad mediante correcciones externas en cada paso de tiempo.
     \item \textbf{Convergencia:} La simulación se ejecutó hasta alcanzar un estado cuasi-estacionario donde las fuerzas hidrodinámicas oscilan en torno a un valor medio constante.
 \end{itemize}
 
@@ -565,7 +680,7 @@ relación con la línea de referencia empleada.
 
 Para el cierre del sistema de ecuaciones RANS, se seleccionó el modelo \textbf{$k$--$\omega$ SST (Shear Stress Transport)}, desarrollado en \citet{Menter1994}. Este modelo se ha convertido en el estándar de la industria naval debido a su capacidad para predecir con mayor precisión el inicio y la magnitud de la separación del flujo bajo gradientes de presión adversos, una característica crítica en la hidrodinámica de popas de buques pesqueros.
 
-El modelo SST es una formulación híbrida de dos ecuaciones que resuelve el transporte de la energía cinética turbulenta ($k$) y la tasa específica de disipación ($\omega$). Su principal ventaja radica en la combinación zonal: utiliza la robusta formulación original $k$--$\omega$ de Wilcox en la región cercana a la pared (capa límite) y conmuta al modelo estándar $k$--$\varepsilon$ en la región de flujo libre. Esta estrategia evita la conocida sensibilidad del modelo $k$--$\omega$ a las condiciones de turbulencia en el borde de entrada (``freestream sensitivity'').
+El modelo SST es una formulación híbrida de dos ecuaciones que resuelve el transporte de la energía cinética turbulenta ($k$) y la tasa específica de disipación ($\omega$). Su principal ventaja radica en la combinación zonal: utiliza la robusta formulación original $k$--$\omega$ de Wilcox en la región cercana a la pared (capa límite) y conmuta al modelo estándar $k$--$\varepsilon$ en la región de flujo libre. Esta estrategia evita la conocida sensibilidad del modelo $k$--$\omega$ a las condiciones de turbulencia en el borde de entrada.
 
 Las ecuaciones de transporte para $k$ y $\omega$ en el modelo SST son:
 
@@ -585,7 +700,7 @@ $\sigma_\omega$, $\beta$, $\beta^*$ y $\alpha$ son coeficientes del modelo
 interpolados mediante $F_1$ entre los valores de los modelos
 $k$--$\omega$ y $k$--$\varepsilon$.
 
-El último término de la ecuación de $\omega$ representa la \textbf{difusión cruzada} (``cross-diffusion''), que se activa únicamente en la zona de flujo libre ($F_1 \to 0$), permitiendo transformar matemáticamente el modelo $k$--$\varepsilon$ en una formulación basada en $\omega$.
+El último término de la ecuación de $\omega$ representa la \textbf{difusión cruzada}, que se activa únicamente en la zona de flujo libre ($F_1 \to 0$), permitiendo transformar matemáticamente el modelo $k$--$\varepsilon$ en una formulación basada en $\omega$.
 
 \paragraph{Definición de la Viscosidad Turbulenta}
 La diferencia fundamental del modelo SST respecto a los modelos estándar radica en la definición de la viscosidad turbulenta ($\nu_t$). En las capas límite sujetas a gradientes de presión adversos, la hipótesis estándar de Boussinesq sobreestima el esfuerzo cortante de Reynolds, lo que conduce a una predicción tardía de la separación del flujo.
@@ -895,8 +1010,4 @@ las simulaciones de producción presentadas en esta tesis. Los valores de
 verificación resultantes (razón de convergencia $R$, orden aparente $p$,
 resolución de pared $y^+$ e índice $GCI$ para cada velocidad y escala) se
 presentan junto con los resultados correspondientes en cada capítulo, de modo
-que todo caso de estudio incluye su propia verificación numérica: la
-verificación del factor de forma y la resistencia se detalla en el
-Capítulo~\ref{cap:resistencia_factor_de_forma}, y la de los ensayos de
-propulsión en el Capítulo~\ref{chap:helices}.
-
+que todo caso de estudio incluye su propia verificación numérica.

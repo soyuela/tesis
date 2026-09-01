@@ -6,45 +6,45 @@ Database file #1: referencias.bib
 Warning--can't use both volume and number fields in eca2008friction
 Warning--empty booktitle in Korkmaz2019NumericalFL
 Warning--empty booktitle in cp_recovery_kcs
-You've used 77 entries,
+You've used 78 entries,
             2773 wiz_defined-function locations,
-            1067 strings with 20743 characters,
-and the built_in function-call counts, 32027 in all, are:
-= -- 2870
-> -- 1710
-< -- 56
-+ -- 599
-- -- 519
-* -- 2396
-:= -- 5075
-add.period$ -- 300
-call.type$ -- 77
-change.case$ -- 396
-chr.to.int$ -- 74
-cite$ -- 157
-duplicate$ -- 1526
-empty$ -- 2734
-format.name$ -- 616
-if$ -- 6701
+            1074 strings with 20954 characters,
+and the built_in function-call counts, 32492 in all, are:
+= -- 2917
+> -- 1731
+< -- 57
++ -- 606
+- -- 525
+* -- 2432
+:= -- 5146
+add.period$ -- 304
+call.type$ -- 78
+change.case$ -- 401
+chr.to.int$ -- 75
+cite$ -- 159
+duplicate$ -- 1546
+empty$ -- 2773
+format.name$ -- 625
+if$ -- 6799
 int.to.chr$ -- 4
 int.to.str$ -- 1
-missing$ -- 70
-newline$ -- 460
-num.names$ -- 310
-pop$ -- 830
+missing$ -- 71
+newline$ -- 466
+num.names$ -- 314
+pop$ -- 837
 preamble$ -- 1
-purify$ -- 326
+purify$ -- 330
 quote$ -- 0
-skip$ -- 1101
+skip$ -- 1117
 stack$ -- 0
-substring$ -- 803
-swap$ -- 119
+substring$ -- 830
+swap$ -- 120
 text.length$ -- 6
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 787
+type$ -- 798
 warning$ -- 3
-while$ -- 282
+while$ -- 287
 width$ -- 0
-write$ -- 1118
+write$ -- 1133
 (There were 3 warnings)

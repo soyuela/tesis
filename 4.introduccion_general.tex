@@ -114,8 +114,8 @@ naval \citep{pescare_api_patagonia}. Es en este contexto de renovación de
 flota (con nuevas unidades de mayor porte y complejidad, construidas
 íntegramente en el país) que se enmarca el interés de la presente tesis: los
 buques pesqueros P1, P2 y P3 analizados en capítulos posteriores fueron
-diseñados y construidos, respectivamente, por TecnoPesca Argentina, JPA~S.A.\
-y el Astillero Naval Federico Contessi y Cía.\ S.A.
+diseñados y construidos, respectivamente, por TecnoPesca Argentina, el
+Astillero Naval Federico Contessi y Cía.\ S.A.\ y JPA~S.A.
 
 A pesar de esta vitalidad productiva, la ingeniería naval nacional dedicada a
 la predicción de potencia y al diseño hidrodinámico de estos buques continúa
@@ -132,28 +132,30 @@ central que se desarrolla en la siguiente sección.
 
 Como se detalla en profundidad en el Capítulo~\ref{chap:antecedentes}, la
 predicción de la potencia de un buque a escala real a partir de ensayos con
-modelos físicos requiere extrapolar los resultados obtenidos a números de
-Reynolds de laboratorio, varios órdenes de magnitud menores que los de
-operación real, mediante hipótesis, como la de Froude y la de Hughes, que
-fueron formuladas y calibradas fundamentalmente sobre cascos mercantes de
-esbeltez moderada a alta. El factor de forma $(1+k)$ (un coeficiente que mide
+modelos físicos obliga a extrapolar resultados obtenidos en el laboratorio,
+donde el número de Reynolds es forzosamente mucho menor que el de operación en
+escala buque, tanto en los ensayos de resistencia como en los de propulsión.
+Esa imposibilidad de igualar el número de Reynolds del buque (es decir, la
+falta de semejanza dinámica completa entre modelo y buque) es el origen de
+todos los efectos de escala que aborda esta tesis. La extrapolación se apoya en
+hipótesis, como la de Froude y la de Hughes, que fueron formuladas y calibradas
+fundamentalmente sobre cascos mercantes de esbeltez moderada a alta. El factor de forma $(1+k)$ (un coeficiente que mide
 cuánto excede la resistencia viscosa del casco a la de una placa plana
 equivalente, y pieza central de dicha
 extrapolación) se asume habitualmente constante e independiente de la escala;
-sin embargo, esta hipótesis descansa sobre una base empírica (modelos geométricamente semejantes de buques con $L/B$ típicamente superiores a~7) que excluye por completo a los cascos de baja esbeltez propios de la pesca de altura argentina, donde la
-resistencia por presión viscosa alcanza una magnitud comparable a la
-friccional. Como se muestra en el Capítulo~\ref{cap:resistencia_factor_de_forma},
+sin embargo, esta hipótesis descansa sobre una base empírica (modelos geométricamente semejantes de buques con $L/B$ típicamente superiores a~7) que excluye por completo a los cascos de baja esbeltez propios de la pesca de altura argentina. Como se muestra en el Capítulo~\ref{cap:resistencia_factor_de_forma},
 esta condición geométrica particular introduce efectos de escala
 sustancialmente más severos que los reportados en la literatura para buques
 esbeltos, con factores de forma que no alcanzan un valor asintótico incluso al
-extrapolar hasta la escala buque. Una problemática análoga, aunque de origen
-físico distinto (asociada al comportamiento no monótono de los coeficientes
-hidrodinámicos en el régimen de transición laminar--turbulenta), se presenta
+extrapolar hasta la escala buque. Una problemática análoga se presenta
 en la predicción de potencia de las hélices que propulsan a estos buques
-(Capítulo~\ref{chap:helices}). En ambos casos, la aplicación acrítica de los
-procedimientos estándar de la ITTC (International Towing Tank Conference),
-calibrados sobre geometrías de
-referencia mercantes y esbeltas, conduce a una subestimación sistemática de la
+(Capítulo~\ref{chap:helices}): además de operar el modelo y el propulsor a
+escala real a números de Reynolds muy distintos, se suma la posibilidad de que
+los efectos de la transición laminar--turbulenta resulten dominantes a escala
+de modelo, alterando las hipótesis sobre las que se apoya el método de
+extrapolación de los coeficientes de la hélice. En ambos casos, la aplicación
+acrítica de los procedimientos estándar de la ITTC (International Towing Tank
+Conference) conduce a una subestimación sistemática de la
 potencia requerida, con consecuencias directas sobre el dimensionamiento de
 la planta propulsora de los buques pesqueros nacionales.
 
@@ -176,7 +178,7 @@ del Atlántico Sur, mientras que una sobrestimación implica sobrecostos
 innecesarios en planta propulsora y consumo de combustible a lo largo de la
 vida útil de la embarcación. Los tres buques pesqueros analizados en esta tesis (P1, P2 y P3) no fueron
 seleccionados de manera arbitraria: sus astilleros, TecnoPesca Argentina,
-JPA~S.A.\ y el Astillero Naval Federico Contessi y Cía.\ S.A.\
+el Astillero Naval Federico Contessi y Cía.\ S.A.\ y JPA~S.A.\
 respectivamente, encargaron al LabHiNO (Laboratorio de Hidrodinámica Naval y
 Oceánica) el ensayo de sus modelos en el canal de
 remolque, en busca de una caracterización experimental confiable de la
@@ -222,7 +224,7 @@ clásicas de extrapolación modelo--buque para esta tipología de casco.
     base de validación para las simulaciones numéricas.
     \item Determinar el factor de forma $(1+k)$ de dichos buques mediante los
     métodos de Prohaska y de doble cuerpo, contrastando ambos enfoques entre
-    sí y frente a los resultados experimentales.
+    sí.
     \item Cuantificar la dependencia del factor de forma con el número de
     Reynolds sobre un rango de escalas geométricas que se extiende desde el
     modelo de ensayo hasta la escala buque, e identificar los mecanismos
@@ -236,7 +238,7 @@ clásicas de extrapolación modelo--buque para esta tipología de casco.
     como referencia) en
     ensayos de aguas abiertas, y compararlos con las predicciones del
     procedimiento estándar ITTC-78.
-    \item Evaluar sobre una hélice de diseño convencional cedida por un proveedor privado el comportamiento en condiciones clásicas
+    \item Evaluar sobre una hélice de diseño convencional, pero no seriada, cedida por un proveedor privado el comportamiento en condiciones clásicas
     de ensayo a escala de modelo y los efectos asociados al régimen de
     transición laminar--turbulenta, que se manifiesta cuando la capa límite
     sobre los álabes opera a números de Reynolds bajos con regiones laminares
@@ -267,8 +269,8 @@ influencia de la proa bulbo, la popa sumergida, el modelo de turbulencia y la
 relación $L/B$, extendiendo finalmente el análisis a los pesqueros P2 y P3. El
 Capítulo~\ref{chap:helices} aborda la segunda gran componente de la potencia
 propulsiva: presenta la validación y el análisis de efectos de escala de la
-hélice de referencia Wageningen B4-60 y, sobre el propulsor de paso variable
-P206, el estudio de los efectos del régimen de transición laminar--turbulenta
+hélice de referencia Wageningen B4-60 y, sobre el propulsor P206, el estudio
+de los efectos del régimen de transición laminar--turbulenta
 a escala de modelo. Finalmente, el Capítulo~\ref{cap:conclusiones_generales}
 integra los resultados de resistencia y propulsión, discute su impacto sobre
 la predicción de potencia y sobre la práctica de diseño y ensayo de buques
