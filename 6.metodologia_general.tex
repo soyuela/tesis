@@ -290,7 +290,14 @@ Factor de escala          & ---             & 39.44        \\
 
 La medición de la resistencia total al avance ($R_T$) se realizó mediante una celda de carga de un solo componente marca \textbf{Kempf \& Remmers modelo R 47}. El transductor, diseñado para una carga a escala completa de $\pm 100$ N, posee una sensibilidad de aproximadamente $\pm 1$ mV/V de voltaje de alimentación.
 
-El montaje del modelo al carro dinamométrico se realizó vinculándolo a la celda de carga de manera tal que se restringieron los movimientos de avance (velocidad constante impuesta por el carro), deriva (``sway''), guiñada (``yaw'') y rolido (``roll''). El sistema permitió que el modelo quedara \textbf{libre a cabeceo (``trim'') y hundimiento (``sinkage'')}, conforme a los estándares para ensayos de resistencia al avance.
+El montaje del modelo al carro dinamométrico se realizó vinculándolo a la celda de carga de manera tal que se restringieron los movimientos de avance (velocidad constante impuesta por el carro), deriva (``sway''), guiñada (``yaw'') y rolido (``roll''). El sistema permitió que el modelo quedara \textbf{libre a cabeceo (``trim'') y hundimiento (``sinkage'')}, conforme a los estándares para ensayos de resistencia al avance. El montaje se esquematiza en la Figura~\ref{fig:esquema_resistencia}.
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.75\textwidth]{images/esquema_resistencia.png}
+    \caption{Esquema del montaje del ensayo de resistencia: el modelo del casco se vincula al carro dinamométrico a través del poste de arrastre y la celda de carga, quedando libre en cabeceo y hundimiento mientras el carro impone la velocidad de avance. Adaptado de \citet{birk}.}
+    \label{fig:esquema_resistencia}
+\end{figure}
 
 El sistema de adquisición de datos se configuró con los siguientes parámetros:
 \begin{itemize}
@@ -344,6 +351,22 @@ Un hallazgo importante del análisis de incertidumbre es su dependencia funciona
 Este comportamiento es consistente con lo esperado para ensayos de remolque y debe ser considerado en la comparación cuantitativa con resultados numéricos.
 
 Los valores cuantitativos finales de la incertidumbre combinada y expandida para las distintas velocidades de ensayo específicas se presentan en detalle junto con los resultados experimentales en el Capítulo~\ref{cap:resistencia_factor_de_forma}.
+
+\subsection{Ensayo de aguas abiertas del propulsor}
+\label{sec:ensayo_aguas_abiertas}
+
+Las características hidrodinámicas de una hélice en flujo uniforme se obtienen mediante el \textbf{ensayo de aguas abiertas} (\emph{open-water test}), la contraparte para el propulsor del ensayo de resistencia del casco. A diferencia de este último, la hélice se ensaya \emph{aislada}, sin casco delante, de modo que el flujo que la alcanza es uniforme y libre de la estela del buque.
+
+La hélice se monta sobre un eje portahélice horizontal accionado por un \textbf{dinamómetro de aguas abiertas}, que mide simultáneamente el \textbf{empuje} $T$ (fuerza axial sobre el eje) y el \textbf{par} $Q$ (momento torsor), mientras registra la velocidad de giro $n$ y la velocidad de avance $V_a$. El conjunto puede remolcarse con el carro dinamométrico en el canal de remolque —caso de la hélice Wageningen B4-60, cuyos datos de archivo provienen del LabHiNO— o instalarse en un túnel de cavitación —caso del propulsor P206, ensayado por Hanwha Ocean—. En ambos casos el eje se alinea con la dirección de avance y se cumplen las condiciones normalizadas por la ITTC (7.5-02-03-02.1): la hélice se sumerge lo suficiente (inmersión del eje mayor a aproximadamente un diámetro sobre la punta) para evitar la deformación de la superficie libre y la ventilación, y el núcleo se carena para minimizar la interferencia del cubo.
+
+El ensayo se realiza a velocidad de giro $n$ constante, barriendo el \textbf{coeficiente de avance} $J = V_a/(nD)$ mediante la variación de la velocidad de avance $V_a$ (o, equivalentemente, de $n$). Las fuerzas medidas se adimensionalizan en el coeficiente de empuje $K_T$, el coeficiente de par $K_Q$ y la eficiencia en aguas abiertas $\eta_0$ (definidos en la Sección~\ref{sec:pow_antec}), cuyas curvas en función de $J$ constituyen el resultado del ensayo y la referencia experimental de validación empleada en el Capítulo~\ref{chap:helices}.
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.75\textwidth]{images/esquema_aguas_abiertas.png}
+    \caption{Esquema del ensayo de aguas abiertas: la hélice, montada sobre el eje portahélice accionado por el dinamómetro de aguas abiertas, opera en flujo uniforme sin casco mientras el carro impone la velocidad de avance $V_a$ y se mide el empuje $T$ y el par $Q$. Adaptado de \citet{birk}.}
+    \label{fig:esquema_aguas_abiertas}
+\end{figure}
 
 \section{Procedimientos de extrapolación modelo--buque}
 \label{sec:extrapolacion_general}
