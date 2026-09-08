@@ -64,21 +64,21 @@ Las Figuras~\ref{fig:resis_tpa_165}, \ref{fig:resis_tpa_180} y \ref{fig:resis_tp
 \begin{figure}[htpb]
     \centering
     \includegraphics[width=0.6\textwidth]{images/efd_165.pdf}
-    \caption{Resistencia total al avance (EFD) en función de $Fr$ para el Calado 1 (0.165\,m).}
+    \caption{Resistencia total al avance (EFD) en función de $Fr$ para el Calado 1 0.165\,m (T1).}
     \label{fig:resis_tpa_165}
 \end{figure}
 
 \begin{figure}[htpb]
     \centering
     \includegraphics[width=0.6\textwidth]{images/efd_180.pdf}
-    \caption{Resistencia total al avance (EFD) en función de $Fr$ para el Calado 2 (0.180\,m).}
+    \caption{Resistencia total al avance (EFD) en función de $Fr$ para el Calado 2 0.180\,m (T2).}
     \label{fig:resis_tpa_180}
 \end{figure}
 
 \begin{figure}[htpb]
     \centering
     \includegraphics[width=0.6\textwidth]{images/efd_195.pdf}
-    \caption{Resistencia total al avance (EFD) en función de $Fr$ para el Calado 3 (0.195\,m).}
+    \caption{Resistencia total al avance (EFD) en función de $Fr$ para el Calado 3 0.195\,m (T3).}
     \label{fig:resis_tpa_195}
 \end{figure}
 
@@ -168,7 +168,7 @@ de la velocidad del carro, cuya incertidumbre relativa ($0{.}07\%$, según la
 Tabla~\ref{tab:uncert_tpa}) es dos órdenes de magnitud menor que la de la
 resistencia. Por este motivo se consideró despreciable el error en el eje
 horizontal, con lo que el método de York se reduce a una regresión lineal
-ponderada por la incertidumbre de la coordenada vertical $C_{TM}/C_{F0}$.
+ponderada por la incertidumbre de la coordenada vertical $C_{T}/C_{F0}$.
 La incertidumbre de cada punto se obtuvo propagando la incertidumbre
 combinada de la resistencia $U_D$ (media de cuatro repeticiones,
 $5{.}35\%$, $2{.}04\%$ y $0{.}83\%$ para $Fr = 0{.}14$, $0{.}26$ y $0{.}37$
@@ -193,14 +193,14 @@ empleado y son coherentes con la dispersión observada en los diagramas.
      \begin{subfigure}[b]{0.6\textwidth}
          \centering
          \includegraphics[width=\textwidth]{images/york_tpa_165.pdf}
-         \caption{Calado 1.}
+         \caption{Calado T1.}
          \label{fig:york_165}
      \end{subfigure}
      \vspace{0.5cm}
      \begin{subfigure}[b]{0.6\textwidth}
          \centering
          \includegraphics[width=\textwidth]{images/york_tpa_180.pdf}
-         \caption{Calado 2.}
+         \caption{Calado T2.}
          \label{fig:york_180}
      \end{subfigure}
      
@@ -210,7 +210,7 @@ empleado y son coherentes con la dispersión observada en los diagramas.
      \begin{subfigure}[b]{0.6\textwidth}
          \centering
          \includegraphics[width=\textwidth]{images/york_tpa_195.pdf}
-         \caption{Calado 3.}
+         \caption{Calado T3.}
          \label{fig:york_195}
      \end{subfigure}
      
@@ -339,7 +339,7 @@ Este valor contrasta de manera marcada con el obtenido para el \textit{P1}
 (Tabla~\ref{tab:york_tpa}), cuya incertidumbre relativa se situaba entre el
 $8$ y el $11\%$. La diferencia es coherente con el comportamiento de ambos
 cascos frente al método de Prohaska: mientras que en el \textit{P1} los
-puntos experimentales se apartan de la recta teóric, y son además mucho
+puntos experimentales se apartan de la recta teórico, y son además mucho
 menos numerosos en el rango de ajuste, en el \textit{KCS} se alinean estrechamente sobre ella,
 lo que se traduce en una determinación mucho más precisa de $(1+k)$. Esta
 comparación cuantitativa respalda la observación cualitativa de que el \textit{KCS}
@@ -562,7 +562,7 @@ número de Froude. Modelo de turbulencia: $k$--$\omega$ SST.}
 \midrule
 \multicolumn{5}{c}{\textbf{Resolución de pared ($y^+$)}} \\[-0.3em]
 \multicolumn{5}{c}{\rule{\dimexpr\textwidth-2\tabcolsep}{0.2pt}} \\[0.4em]
-\textbf{0.100} & 0.40 & 8.42$^{c}$ & 12.0 & 108 \\
+\textbf{0.100} & 0.40 & 8.42 & 12.0 & 108 \\
 \textbf{0.160} & 0.70 & 9.00 & 17.0 & 168 \\
 \textbf{0.200} & 1.03 & 11.0 & 22.0 & 207 \\
 \textbf{0.240} & 1.40 & 11.4 & 26.0 & 245 \\
@@ -614,8 +614,7 @@ mayormente en la región "buffer" ($5 \lesssim y^+ \lesssim 30$). En
 esta región, la formulación de $\omega$ empleada por el modelo $k$--$\omega$
 SST combina de forma continua las expresiones viscosa y logarítmica
 \citep{Menter1994}, lo que le confiere una relativa insensibilidad a la
-posición de la primera celda. No obstante, la región "buffer"
-constituye el régimen de menor fiabilidad para el tratamiento de pared, por lo
+posición de la primera celda. No obstante, la región ``buffer'' constituye el régimen de menor fiabilidad para el tratamiento de pared, por lo
 que las escalas intermedias deben interpretarse con mayor cautela que las
 escalas resuelta y de capa logarítmica.
 
@@ -643,15 +642,15 @@ Este hallazgo resulta crítico: si el factor de forma varía de manera apreciabl
     % Primera fila: Calado 1 y Calado 2
     \begin{subfigure}[b]{0.6\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{images/tpa_CFD_DB_165.pdf}
-        \caption{Calado 1 (T1: 0.165 m)}
+        \includegraphics[width=\textwidth, height=0.25\textheight, keepaspectratio]{images/tpa_CFD_DB_165.pdf}
+        \caption{Calado T1}
         \label{fig:k_165}
     \end{subfigure}
     \vspace{10pt} % Espacio entre filas
     \begin{subfigure}[b]{0.6\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{images/tpa_CFD_DB_180.pdf}
-        \caption{Calado 2 (T2: 0.180 m)}
+        \includegraphics[width=\textwidth, height=0.25\textheight, keepaspectratio]{images/tpa_CFD_DB_180.pdf}
+        \caption{Calado T2}
         \label{fig:k_180}
     \end{subfigure}
     
@@ -660,8 +659,8 @@ Este hallazgo resulta crítico: si el factor de forma varía de manera apreciabl
     % Segunda fila: Calado 3 centrado
     \begin{subfigure}[b]{0.6\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{images/tpa_CFD_DB_195.pdf}
-        \caption{Calado 3 (T3: 0.195 m)}
+        \includegraphics[width=\textwidth, height=0.25\textheight, keepaspectratio]{images/tpa_CFD_DB_195.pdf}
+        \caption{Calado T3}
         \label{fig:k_195}
     \end{subfigure}
 
@@ -959,7 +958,7 @@ surge la pregunta de cómo se relaciona este valor con los resultados obtenidos
 mediante el método de doble cuerpo, presentado en la 
 Sección~\ref{sec:doble_cuerpo}. Las Figuras~\ref{fig:tpa_proj_DB_k_escala20_165}, 
 \ref{fig:tpa_proj_DB_k_escala20_180} y \ref{fig:tpa_proj_DB_k_escala20_195} 
-superponen, para cada calado, el valor adoptado por Prohaska (línea horizontal 
+superponen, para cada calado, el valor adoptado por Prohaska EFD (línea horizontal 
 roja) con los valores de $(1+k)$ obtenidos mediante el método de doble cuerpo, en función 
 de $Fr$ (puntos azules). Se observa que el valor de Prohaska coincide con los 
 resultados de doble cuerpo específicamente en el rango $0{.}10 < Fr < 0{.}20$, es 
@@ -975,7 +974,7 @@ será analizado en profundidad en la Sección~\ref{sec:analisis_efectos_escala}.
 \begin{figure}[htpb]
     \centering
     \includegraphics[width=0.6\textwidth]{images/tpa_CFD_DB_prohaska_165.pdf}
-    \caption{Comparación entre el valor de $(1+k)$ adoptado por Prohaska 
+    \caption{Comparación entre el valor de $(1+k)$ adoptado por Prohaska EFD
     (línea horizontal roja) y los valores obtenidos mediante el método de 
     doble cuerpo (DB) en función de $Fr$ (puntos azules) para el \textit{P1}, 
     Calado~1.}
@@ -985,7 +984,7 @@ será analizado en profundidad en la Sección~\ref{sec:analisis_efectos_escala}.
 \begin{figure}[htpb]
     \centering
     \includegraphics[width=0.6\textwidth]{images/tpa_CFD_DB_prohaska_180.pdf}
-    \caption{Comparación entre el valor de $(1+k)$ adoptado por Prohaska 
+    \caption{Comparación entre el valor de $(1+k)$ adoptado por Prohaska EFD
     (línea horizontal roja) y los valores obtenidos mediante el método de 
     doble cuerpo (DB) en función de $Fr$ (puntos azules) para el \textit{P1}, 
     Calado~2.}
@@ -995,7 +994,7 @@ será analizado en profundidad en la Sección~\ref{sec:analisis_efectos_escala}.
 \begin{figure}[htpb]
     \centering
     \includegraphics[width=0.6\textwidth]{images/tpa_CFD_DB_prohaska_195.pdf}
-    \caption{Comparación entre el valor de $(1+k)$ adoptado por Prohaska 
+    \caption{Comparación entre el valor de $(1+k)$ adoptado por Prohaska EFD
     (línea horizontal roja) y los valores obtenidos mediante el método de 
     doble cuerpo (DB) en función de $Fr$ (puntos azules) para el \textit{P1}, 
     Calado~3.}
@@ -1014,21 +1013,8 @@ En este contexto la aplicación del método de Prohaska a los datos experimental
 
 Las simulaciones CFD bifásicas reprodujeron de manera satisfactoria las curvas de resistencia total obtenidas experimentalmente en un amplio rango de velocidades, lo que constituye una primera validación global del modelo numérico. Las pequeñas diferencias observadas a velocidades elevadas pueden explicarse por diferencias en las condiciones de contorno dinámicas del casco, dado que en los ensayos experimentales se permitió el libre movimiento vertical y de cabeceo, mientras que en las simulaciones el casco se mantuvo fijo. En cualquier caso, estas discrepancias aparecen fuera del rango de operación típico del buque y no afectan las conclusiones principales.
 
-En cuanto a la determinación del factor de forma mediante CFD, la aplicación directa del método de Prohaska mostró nuevamente desviaciones respecto de la recta teórica, aunque con una curvatura de signo opuesto a la observada experimentalmente. Esta diferencia pone de manifiesto una limitación conocida de los modelos RANS convencionales, que asumen flujo plenamente turbulento incluso en regímenes donde el flujo real se encuentra en transición. En consecuencia, tanto en EFD como en CFD, los puntos correspondientes a bajas velocidades no cumplen estrictamente los supuestos fundamentales del método de Prohaska, aunque por razones físicas y numéricas distintas.
+En cuanto a la determinación del factor de forma mediante CFD, la aplicación directa del método de Prohaska mostró nuevamente desviaciones respecto de la recta teórica, aunque con una curvatura de signo opuesto a la observada experimentalmente. Esta diferencia pone de manifiesto una limitación conocida de los modelos RANS convencionales, que asumen flujo plenamente turbulento incluso en regímenes donde el flujo real se encuentra en transición. En consecuencia, tanto en EFD como en CFD, los puntos correspondientes a bajas velocidades no cumplen estrictamente los supuestos fundamentales del método de Prohaska, aunque por razones distintas.
 
-La comparación sistemática entre EFD y CFD mostró que, al restringir el 
-análisis a un rango adecuado de números de Froude, la dispersión inicial del 
-método de Prohaska se reduce de manera apreciable en ambos enfoques. La 
-adopción de un intervalo acotado y físicamente consistente confirma que las 
-desviaciones observadas fuera de ese rango no responden a errores sistemáticos 
-de medición o modelado, sino a la violación de los supuestos del método de 
-Prohaska. Aun así, la concordancia entre los valores adoptados por cada enfoque 
-no es uniforme: resulta estrecha en el Calado~1, pero en los Calados~2 y~3 el 
-valor numérico se sitúa por encima del experimental. Esta discrepancia residual 
-es consistente con la curvatura de signo opuesto que presentan los diagramas de 
-Prohaska experimental y numérico, y pone de manifiesto que el ajuste conserva 
-una sensibilidad no despreciable al rango escogido y al tratamiento de la 
-transición, aun dentro del intervalo considerado óptimo.
 
 La Tabla~\ref{tab:form_factors_efd_cfd} reúne los valores de $(1+k)$ adoptados
 por el método de Prohaska para los tres calados, obtenidos a partir de los
@@ -1196,14 +1182,14 @@ analizan en profundidad en la Sección~\ref{sec:generalizacion_LB}.
 El método de \citet{gomezgarcia} (Sección~\ref{sec:factor_de_forma_antec})
 ofrece una prueba cuantitativa directa de cuán anómalo resulta el
 comportamiento del \textit{P1}. Aplicando su relación empírica
-[Ecuación~\eqref{eq:gomezgarcia}] a la escala del modelo ($\lambda = 20$), el efecto de escala predicho es $K_S - K_M \approx 1{.}91\times 19\times 10^{-3}= 0{.}036$. El valor obtenido por CFD de doble cuerpo para el \textit{P1} en el Calado~3, en cambio, es $k_S - k_M = 0{.}716 - 0{.}194 = 0{.}522$, es decir, aproximadamente catorce veces mayor que la predicción. La fórmula de \citet{gomezgarcia}, calibrada para estimar la corrección de escala del factor de forma, subestima en más de un orden de magnitud el efecto de escala real de este casco.
+[Ecuación~\eqref{eq:gomezgarcia}] a la escala del modelo ($\lambda = 20$), el efecto de escala predicho es $K_S - K_M \approx 1{.}91\times 19\times 10^{-3}= 0{.}036$. El valor obtenido por CFD de doble cuerpo para el \textit{P1} en el Calado~3, en cambio, es $K_S - K_M = 0{.}716 - 0{.}194 = 0{.}522$, es decir, aproximadamente catorce veces mayor que la predicción. La fórmula de \citet{gomezgarcia}, calibrada para estimar la corrección de escala del factor de forma, subestima en más de un orden de magnitud el efecto de escala real de este casco.
 
 Esta discrepancia no se limita a la magnitud, sino que alcanza a la propia
 forma funcional. Al ajustar el modelo lineal de \citet{gomezgarcia} ($K_S -
-K_M$ en función de $\lambda$) a varuas escaladas calculadas para el \textit{P1} (1:20, 1:18, 1:16, 1:14, 1:12, 1:10, 1:7.5 1:5, 1:2.5 y 1:1), la pendiente resultante es de
+K_M$ en función de $\lambda$) a varias escaladas calculadas para el \textit{P1} (1:20, 1:18, 1:16, 1:14, 1:12, 1:10, 1:7.5 1:5, 1:2.5 y 1:1), únicamente a $Fr = 0.20$, la pendiente resultante es de
 $15{.}8\times 10^{-3}$, más de ocho veces la de $1{.}851\times 10^{-3}$ de la regresión original (Figura~\ref{fig:gomez-garcia-nuestro}). Más significativo aún es que el ajuste lineal del \textit{P1} arroja una ordenada al origen de $0{.}054$, de modo que predice un efecto de escala espurio de $K_S - K_M \approx 0{.}070$ en $\lambda = 1$, condición en la que necesariamente debe anularse. La regresión de \citet{gomezgarcia}, en cambio, satisface esta restricción física ($K_S - K_M \approx 0{.}001$ en $\lambda = 1$). El modelo lineal, por lo tanto, no puede recuperarse reescalando la pendiente: la hipótesis de linealidad en $\lambda$ sobre la que se apoya no se cumple para esta clase de casco.
 
-El origen de esta inaplicabilidad es geométrico. Las cuatro familias de
+Cabe mencionar que el origen de esta inaplicabilidad es geométrico. Las cuatro familias de
 cascos utilizadas en \citet{gomezgarcia} para calibrar su correlación corresponden a cascos esbeltos convencionales, con relaciones $L_{PP}/B$ comprendidas entre $6{.}98$ y $9{.}07$. Ninguna se aproxima siquiera a la baja esbeltez del los pesqueros analizados ($L/B \approx 2{.}8$--$3{.}5$). La correlación se aplica, por lo tanto, fuera del dominio para el que fue derivada, en un régimen donde la resistencia por presión viscosa, menor en los cascos esbeltos de la muestra original, pasa a ser una fracción dominante de la resistencia viscosa total, como se demuestra en la
 Sección~\ref{sec:descomposicion_de_la_res_viscosa}.
 
