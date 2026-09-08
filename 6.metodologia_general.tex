@@ -295,7 +295,7 @@ El montaje del modelo al carro dinamométrico se realizó vinculándolo a la cel
 \begin{figure}[htpb]
     \centering
     \includegraphics[width=0.75\textwidth]{images/esquema_resistencia.png}
-    \caption{Esquema del montaje del ensayo de resistencia: el modelo del casco se vincula al carro dinamométrico a través del poste de arrastre y la celda de carga, quedando libre en cabeceo y hundimiento mientras el carro impone la velocidad de avance. Adaptado de \citet{birk2019}.}
+    \caption{Esquema del montaje del ensayo de resistencia. Adaptado de \citet{molland2011maritime}.}
     \label{fig:esquema_resistencia}
 \end{figure}
 
@@ -355,7 +355,7 @@ Los valores cuantitativos finales de la incertidumbre combinada y expandida para
 \subsection{Ensayo de aguas abiertas del propulsor}
 \label{sec:ensayo_aguas_abiertas}
 
-Las características hidrodinámicas de una hélice en flujo uniforme se obtienen mediante el \textbf{ensayo de aguas abiertas} (\emph{open-water test}), la contraparte para el propulsor del ensayo de resistencia del casco. A diferencia de este último, la hélice se ensaya \emph{aislada}, sin casco delante, de modo que el flujo que la alcanza es uniforme y libre de la estela del buque.
+Las características hidrodinámicas de una hélice en flujo uniforme se obtienen mediante el \textbf{ensayo de aguas abiertas} (\emph{open-water test}), la contraparte para el propulsor del ensayo de resistencia del casco. A diferencia de este último, la hélice se ensaya \emph{aislada}, sin casco delante, de modo que el flujo que la alcanza es uniforme y libre de la estela del buque (véase la Figura~\ref{fig:esquema_aguas_abiertas}).
 
 La hélice se monta sobre un eje portahélice horizontal accionado por un \textbf{dinamómetro de aguas abiertas}, que mide simultáneamente el \textbf{empuje} $T$ (fuerza axial sobre el eje) y el \textbf{par} $Q$ (momento torsor), mientras registra la velocidad de giro $n$ y la velocidad de avance $V_a$. El conjunto puede remolcarse con el carro dinamométrico en el canal de remolque —caso de la hélice Wageningen B4-60, cuyos datos de archivo provienen del LabHiNO— o instalarse en un túnel de cavitación —caso del propulsor P206, ensayado por Hanwha Ocean—. En ambos casos el eje se alinea con la dirección de avance y se cumplen las condiciones normalizadas por la ITTC (7.5-02-03-02.1): la hélice se sumerge lo suficiente (inmersión del eje mayor a aproximadamente un diámetro sobre la punta) para evitar la deformación de la superficie libre y la ventilación, y el núcleo se carena para minimizar la interferencia del cubo.
 
@@ -364,7 +364,7 @@ El ensayo se realiza a velocidad de giro $n$ constante, barriendo el \textbf{coe
 \begin{figure}[htpb]
     \centering
     \includegraphics[width=0.9\textwidth]{images/esquema_aguas_abiertas.png}
-    \caption{Esquema del ensayo de aguas abiertas: la hélice, montada sobre el eje portahélice accionado por el dinamómetro de aguas abiertas, opera en flujo uniforme sin casco mientras el carro impone la velocidad de avance $V_a$ y se mide el empuje $T$ y el par $Q$. Adaptado de \citet{birk2019}.}
+    \caption{Esquema del ensayo de aguas abiertas. Adaptado de \citet{birk2019}.}
     \label{fig:esquema_aguas_abiertas}
 \end{figure}
 
@@ -535,6 +535,143 @@ fuerzas que se define en la Sección~\ref{sec:metodologia_helices_descomp}.
 \section{Metodología Numérica (CFD)}
 
 Las simulaciones numéricas se realizaron utilizando el código de código abierto \textbf{OpenFOAM} (versión 11), basado en el Método de Volúmenes Finitos (FVM).
+
+\subsection{Ecuaciones de gobierno}
+\label{sec:ecuaciones_gobierno}
+ 
+El flujo alrededor del casco se modela como el de un fluido newtoniano
+incompresible e isotérmico. Aplicando el promediado de Reynolds a las
+ecuaciones de Navier--Stokes, y descomponiendo la velocidad instantánea en
+su valor medio $U_i$ y su fluctuación $u_i'$, se obtienen las ecuaciones de
+continuidad y de cantidad de movimiento promediadas (RANS):
+%
+\begin{equation}\label{eq:continuidad}
+    \frac{\partial U_i}{\partial x_i} = 0,
+\end{equation}
+%
+\begin{equation}\label{eq:rans}
+    \frac{\partial (\rho U_i)}{\partial t}
+    + \frac{\partial (\rho U_i U_j)}{\partial x_j}
+    = -\frac{\partial p}{\partial x_i}
+    + \frac{\partial}{\partial x_j}
+      \left[ \mu \left( \frac{\partial U_i}{\partial x_j}
+      + \frac{\partial U_j}{\partial x_i} \right)
+      - \rho\,\overline{u_i' u_j'} \right]
+    + \rho\, g_i ,
+\end{equation}
+%
+donde $U_i$ es la componente $i$ de la velocidad media, $x_i$ la coordenada
+espacial correspondiente, $t$ el tiempo, $p$ la presión estática, $\rho$ la
+densidad del fluido, $\mu$ su viscosidad dinámica molecular y $g_i$ la
+componente $i$ de la aceleración de la gravedad. Se adopta la convención de
+suma sobre índices repetidos. El término $-\rho\,\overline{u_i' u_j'}$ es el
+tensor de esfuerzos de Reynolds, incógnita adicional que introduce el
+promediado y que requiere un modelo de cierre.
+ 
+El cierre se realiza mediante la hipótesis de Boussinesq, que supone que los
+esfuerzos turbulentos son proporcionales al tensor de tasa de deformación
+media a través de una viscosidad turbulenta $\mu_t = \rho\,\nu_t$:
+%
+\begin{equation}\label{eq:boussinesq}
+    -\rho\,\overline{u_i' u_j'} =
+    \mu_t \left( \frac{\partial U_i}{\partial x_j}
+    + \frac{\partial U_j}{\partial x_i} \right)
+    - \frac{2}{3}\,\rho\,k\,\delta_{ij},
+\end{equation}
+%
+donde $k = \tfrac{1}{2}\,\overline{u_i' u_i'}$ es la energía cinética
+turbulenta y $\delta_{ij}$ el delta de Kronecker. El modelo de turbulencia
+empleado para determinar $\nu_t$ se describe en la
+Sección~\ref{sec:metodo_SST}.
+ 
+\paragraph{Presión modificada}
+En las simulaciones con superficie libre el término gravitatorio se absorbe
+en la definición de una presión modificada,
+%
+\begin{equation}\label{eq:prgh}
+    p_{rgh} = p - \rho\, g_j x_j ,
+\end{equation}
+%
+que es la variable efectivamente resuelta por el solucionador. Esta
+formulación evita que la componente hidrostática domine el residuo de la
+ecuación de presión y permite imponer condiciones de borde de gradiente nulo
+sobre superficies verticales sin introducir un flujo espurio.
+ 
+\paragraph{Captura de la interfaz}
+La interfaz aire--agua se modela con el método de volumen de fluido (VoF),
+que introduce una fracción volumétrica de agua $\alpha_{water}$ definida
+como la fracción del volumen de cada celda ocupada por la fase líquida, de
+modo que $\alpha_{water} = 1$ en el agua, $\alpha_{water} = 0$ en el aire y
+$0 < \alpha_{water} < 1$ en las celdas atravesadas por la interfaz. Su
+transporte responde a
+%
+\begin{equation}\label{eq:vof}
+    \frac{\partial \alpha_{water}}{\partial t}
+    + \frac{\partial (U_j\, \alpha_{water})}{\partial x_j}
+    + \frac{\partial \left[ U_{r,j}\, \alpha_{water}
+      (1 - \alpha_{water}) \right]}{\partial x_j} = 0 ,
+\end{equation}
+%
+donde el tercer término es la compresión artificial de interfaz, con
+$U_{r,j}$ una velocidad relativa que actúa únicamente en la banda
+$0 < \alpha_{water} < 1$ y cuyo efecto es contrarrestar la difusión numérica
+de la interfaz. Su tratamiento acotado se resuelve mediante el algoritmo
+MULES. Las propiedades del fluido en cada celda se obtienen por mezcla
+ponderada de las de ambas fases,
+%
+\begin{equation}\label{eq:mezcla}
+    \rho = \alpha_{water}\,\rho_w + (1 - \alpha_{water})\,\rho_a ,
+    \qquad
+    \mu = \alpha_{water}\,\mu_w + (1 - \alpha_{water})\,\mu_a ,
+\end{equation}
+%
+con los subíndices $w$ y $a$ referidos al agua y al aire respectivamente.
+ 
+\paragraph{Magnitudes de pared y resolución de la capa límite}
+El esfuerzo cortante que el fluido ejerce sobre el casco,
+%
+\begin{equation}\label{eq:tauw}
+    \tau_w = \mu \left.\frac{\partial U_t}{\partial y}\right|_{y=0} ,
+\end{equation}
+%
+siendo $U_t$ la componente de la velocidad tangencial a la pared e $y$ la
+distancia normal a ella, define la velocidad de fricción
+$u_\tau = \sqrt{\tau_w/\rho}$ y, con ella, la distancia adimensional a la
+pared
+%
+\begin{equation}\label{eq:yplus}
+    y^+ = \frac{u_\tau\, y}{\nu} ,
+\end{equation}
+%
+evaluada en el centro de la primera celda adyacente al casco. El valor de
+$y^+$ determina si la capa límite se resuelve por integración directa hasta
+la pared ($y^+ \approx 1$) o mediante leyes de pared logarítmicas
+($y^+ > 30$), y es el parámetro de control del mallado prismático descrito
+en la sección siguiente.
+ 
+\paragraph{Integración de fuerzas}
+La resistencia al avance se obtiene integrando sobre la superficie mojada
+del casco $S$ la tracción ejercida por el fluido, separando la contribución
+normal de la tangencial:
+%
+\begin{equation}\label{eq:integracion_fuerzas}
+    R_T = \oint_S -(p - p_\infty)\,
+          \mathbf{n}\cdot\hat{\mathbf{e}}_x \; dS
+        + \oint_S \boldsymbol{\tau}_w \cdot
+          \hat{\mathbf{e}}_x \; dS ,
+\end{equation}
+%
+donde $\mathbf{n}$ es la normal exterior a la superficie,
+$\hat{\mathbf{e}}_x$ el versor en la dirección de avance,
+$\boldsymbol{\tau}_w$ el vector de tensión de corte en la pared y
+$p_\infty$ la presión de referencia de la corriente no perturbada. La
+segunda integral es la resistencia friccional $R_F$. En la configuración de
+doble cuerpo (Sección~\ref{sec:doble_cuerpo}) la integral de presión
+corresponde íntegramente a la resistencia por presión viscosa $R_{PV}$,
+mientras que en las simulaciones con superficie libre engloba además la
+componente de generación de olas $R_W$. Los coeficientes adimensionales
+asociados son los definidos en el Capítulo~\ref{chap:antecedentes},
+Ecuación~\eqref{eq:CT}.
 
 \subsection{Dominio Computacional y Mallado}
 

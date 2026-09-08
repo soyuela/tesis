@@ -1,4 +1,4 @@
-\begin{thebibliography}{78}
+\begin{thebibliography}{79}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -347,6 +347,13 @@ Keh-Sik Min and Seon-Hyung Kang.
 \newblock ISSN 1437-8213.
 \newblock \doi{10.1007/s00773-009-0077-y}.
 \newblock URL \url{https://doi.org/10.1007/s00773-009-0077-y}.
+
+\bibitem[Molland(2011)]{molland2011maritime}
+Anthony~F. Molland.
+\newblock \emph{The Maritime Engineering Reference Book: A Guide to Ship
+  Design, Construction and Operation}.
+\newblock Elsevier, 2011.
+\newblock ISBN 9780080560090.
 
 \bibitem[Molland et~al.(2017)Molland, Turnock, and Hudson]{molland2017ship}
 Anthony~F. Molland, Stephen~R. Turnock, and Dominic~A. Hudson.

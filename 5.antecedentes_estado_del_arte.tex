@@ -66,23 +66,12 @@ Esta hipótesis tiene una justificación física clara en condiciones ideales: p
  
 Sin embargo esta situación ideal dista de la realidad por dos motivos independientes. El primero es físico: el flujo en el modelo está necesariamente a menor número de Reynolds que en el buque, lo que implica que la capa límite es proporcionalmente más gruesa, el gradiente de presión adverso en la popa está más amortiguado y la posible zona de separación es más extensa en el modelo que en el buque. El segundo es metodológico: como se detalla en la Sección~\ref{sec:ITTC57}, la línea ITTC-57 no es una línea de fricción pura sino una línea de correlación con pendiente excesiva a bajos $Re$, lo que introduce una distorsión sistemática en el valor de $k$ calculado con ella.
  
-Ambos efectos actúan de modo que el factor de forma aparente calculado con la
-ITTC-57 crece con el número de Reynolds, es decir $k_M < k_S$, por lo que
-aplicar el mismo $k$ al modelo y al buque subestima la resistencia
-viscosa a escala buque. En \citet{gomezgarcia} se cuantificó por primera vez
-sistemáticamente esta dependencia, reanalizando quince modelos agrupados en cuatro
-familias de modelos geométricamente semejantes a distinta escala. Para cada familia, el factor de forma determinado por
-Prohaska con la ITTC-57 ``disminuye'' al aumentar la razón de escala
-$\lambda$ (equivalentemente a decir que crece con el tamaño del modelo), de modo que la
-extrapolación de la recta de regresión a $\lambda = 1$ predice un factor de
-forma de buque mayor que el de cualquier modelo. El efecto de escala
-resultante, $K_S - K_M$, crece linealmente con $\lambda$
-(Figura~\ref{fig:gomez-garcia}). Forzando la recta por su valor teórico en el
-origen ($K_S - K_M = 0$ para $\lambda = 1$), en \citet{gomezgarcia} se propone la
-forma práctica
+Ambos efectos actúan de modo que el factor de forma aparente calculado con la ITTC-57 crece con el número de Reynolds, es decir $k_M < k_S$, por lo que aplicar el mismo $k$ al modelo y al buque subestima la resistencia
+viscosa a escala buque. Con la convención de subíndices ya introducida, $k_M$ y $k_S$ denotan el factor de forma determinado a escala de modelo y a escala buque respectivamente, y su diferencia $k_S - k_M$ cuantifica el efecto de escala sobre el factor de forma. En \citet{gomezgarcia} se cuantificó por primera vez sistemáticamente esta dependencia, reanalizando quince modelos agrupados en cuatro familias de modelos geométricamente semejantes a distinta escala. Para cada familia, el factor de forma determinado por Prohaska con la ITTC-57 ``disminuye'' al aumentar la razón de escala $\lambda$ (equivalentemente a decir que crece con el tamaño del modelo), de modo que la extrapolación de la recta de regresión a $\lambda = 1$ predice un factor de forma de buque mayor que el de cualquier modelo. El efecto de escala resultante, $k_S - k_M$, crece linealmente con $\lambda$
+(Figura~\ref{fig:gomez-garcia}). Forzando la recta por su valor teórico en el origen ($k_S - k_M = 0$ para $\lambda = 1$), en \citet{gomezgarcia} se propone la forma práctica
 %
 \begin{equation}
-    K_S - K_M = 1.91\,(\lambda - 1)\times 10^{-3},
+    k_S - k_M = 1.91\,(\lambda - 1)\times 10^{-3},
     \label{eq:gomezgarcia}
 \end{equation}
 %
@@ -163,22 +152,10 @@ calculadas con el mismo código y modelo de turbulencia que se emplea para
 el casco, producen factores de forma prácticamente independientes de la
 escala para cascos desnudos de esbeltez moderada, reduciendo en gran medida
 el efecto de escala espurio asociado a la pendiente de la ITTC-57. En esta
-misma dirección, en \citet{quintuna2023} se determinaron factores de forma por CFD de
-doble cuerpo (método cuyo desarrollo metodológico se presenta en el
-Capítulo~\ref{chap:Metodologia}) para un buque multipropósito y un portacontenedores, y se cuantificó
-que la diferencia del factor de forma entre escala modelo y escala buque se
-reduce en promedio del $10.4\%$, al emplear la línea ITTC-57, al $6.4\%$ al
-utilizar una NFL derivada con el modelo $k$--$\omega$ SST, corroborando que los
-efectos de escala sobre $k$ son en buena parte un artefacto de la línea de
-referencia. Sin
+misma dirección, en \citet{quintuna2023} se determinaron factores de forma por CFD de doble cuerpo (método cuyo desarrollo metodológico se presenta en el Capítulo~\ref{chap:Metodologia}) para un buque multipropósito y un portacontenedores, y se cuantificó que la diferencia del factor de forma entre escala modelo y escala buque se reduce en promedio del $10.4\%$, al emplear la línea ITTC-57, al $6.4\%$ al utilizar una NFL derivada con el modelo $k$--$\omega$ SST, corroborando que los efectos de escala sobre $k$ son en buena parte un artefacto de la línea de referencia. Sin
 embargo, la ITTC recomienda continuar utilizando la ITTC-57 para mantener
 coherencia con las bases de datos históricas de factores de correlación
-$C_A$ y $C_P$ \citep{ITTC_Combined_2021}: coeficientes empíricos, calibrados
-a partir de pruebas a escala real, que ajustan la predicción extrapolada del
-ensayo para reconciliarla con el desempeño medido del buque (en particular,
-$C_A$ es el clásico margen de correlación modelo--buque de la resistencia, que
-engloba la rugosidad del casco y demás efectos no capturados por la línea de
-fricción). Cabe señalar que esta mejora no
+$C_A$ y $C_P$ \citep{ITTC_Combined_2021}: coeficientes empíricos, calibrados a partir de pruebas a escala real, que ajustan la predicción extrapolada del ensayo para reconciliarla con el desempeño medido del buque (en particular, $C_A$ es el clásico margen de correlación modelo--buque de la resistencia, que engloba la rugosidad del casco y demás efectos no capturados por la línea de fricción). Cabe señalar que esta mejora no
 es universal: en configuraciones con apéndices, o en cascos donde la
 resistencia por presión viscosa $C_{PV}$ constituye una fracción
 significativa de la resistencia viscosa total, el factor de forma puede
