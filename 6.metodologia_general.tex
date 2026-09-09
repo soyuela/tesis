@@ -560,7 +560,7 @@ continuidad y de cantidad de movimiento promediadas (RANS):
     + \rho\, g_i ,
 \end{equation}
 %
-donde $U_i$ es la componente $i$ de la velocidad media, $x_i$ la coordenada
+donde $U_i$ es la componente $i$ de la velocidad media --que en notación vectorial se denota $\mathbf{U}$--, $x_i$ la coordenada
 espacial correspondiente, $t$ el tiempo, $p$ la presión estática, $\rho$ la
 densidad del fluido, $\mu$ su viscosidad dinámica molecular y $g_i$ la
 componente $i$ de la aceleración de la gravedad. Se adopta la convención de
@@ -646,8 +646,7 @@ pared
 evaluada en el centro de la primera celda adyacente al casco. El valor de
 $y^+$ determina si la capa límite se resuelve por integración directa hasta
 la pared ($y^+ \approx 1$) o mediante leyes de pared logarítmicas
-($y^+ > 30$), y es el parámetro de control del mallado prismático descrito
-en la sección siguiente.
+($y^+ > 30$), y es el parámetro de control del mallado prismático descrito en la Sección~\ref{sec:mallado_general}
  
 \paragraph{Integración de fuerzas}
 La resistencia al avance se obtiene integrando sobre la superficie mojada
@@ -785,7 +784,7 @@ wallDist
 Esta configuración se utiliza exclusivamente para aislar la resistencia viscosa ($R_V$) y determinar el factor de forma $(1+k)$. El término ``Doble Cuerpo'' hace referencia al concepto aerodinámico de reflejar el casco sumergido respecto al plano de flotación, generando un cuerpo equivalente completamente sumergido en un fluido infinito.
 
 \paragraph{Fundamento Físico y Dominio}
-En esta aproximación, la superficie libre se sustituye por una condición de \textbf{tapa rígida sin fricción}. Geométricamente, el dominio se trunca en la línea de flotación estática ($z=0$), tal como se ilustra en la Figura \ref{fig:double_body_domain}.
+En esta aproximación, la superficie libre se sustituye por una condición de \textbf{tapa rígida sin fricción}. Geométricamente, el dominio se trunca en la línea de flotación estática, plano $z = 0$ del sistema de coordenadas, tal como se ilustra en la Figura~\ref{fig:double_body_domain}. Se adopta un sistema cartesiano con $x$ en la dirección longitudinal, positiva hacia popa, $y$ en la dirección transversal y $z$ vertical, positiva hacia arriba desde la flotación estática. En el contexto de capa límite, $y$ denota además la distancia normal a la pared, tal como se emplea en las Ecuaciones~\eqref{eq:tauw} e \eqref{eq:yplus}.
 
 \begin{figure}[htpb]
     \centering
@@ -795,10 +794,10 @@ En esta aproximación, la superficie libre se sustituye por una condición de \t
 \end{figure}
 
 \begin{itemize}
-    \item \textbf{Plano de Simetría:} La frontera superior del dominio se define como un \texttt{symmetryPlane}. Matemáticamente, esto impone dos restricciones fundamentales:
+        \item \textbf{Plano de Simetría:} La frontera superior del dominio se define como un \texttt{symmetryPlane}. Matemáticamente, esto impone dos restricciones fundamentales sobre el campo de velocidad $\mathbf{U}$ introducido en la Sección~\ref{sec:ecuaciones_gobierno}:
     \begin{enumerate}
-        \item Flujo impenetrable: La componente normal de la velocidad es nula ($\mathbf{v} \cdot \mathbf{n} = 0$).
-        \item Cero esfuerzo cortante: El gradiente normal de la velocidad tangencial es nulo ($\partial \mathbf{v}_t / \partial n = 0$).
+        \item Flujo impenetrable: la componente normal de la velocidad es nula, $\mathbf{U} \cdot \mathbf{n} = 0$, siendo $\mathbf{n}$ la normal a la frontera.
+        \item Cero esfuerzo cortante: el gradiente normal de la velocidad tangencial es nulo, $\partial \mathbf{U}_t / \partial y = 0$, con $y$ la distancia normal a la frontera.
     \end{enumerate}
     Esta configuración elimina la generación de olas ($R_W = 0$) y la energía potencial gravitatoria, permitiendo que la presión calculada corresponda únicamente a la presión hidrodinámica viscosa.
 \end{itemize}
@@ -810,7 +809,7 @@ Al eliminar la necesidad de capturar la interfase aire-agua, se prescinde del re
 A diferencia de los enfoques estacionarios clásicos, en este trabajo se utilizó un solucionador transitorio (\textbf{\texttt{pimpleFoam}}) para resolver las ecuaciones RANS monofásicas.
 \begin{itemize}
     \item \textbf{Justificación:} Se optó por la resolución transitoria para garantizar la estabilidad numérica frente a desprendimientos de flujo complejos y oscilantes en la zona del espejo de popa, los cuales suelen dificultar la convergencia de solucionadores estacionarios (tipo SIMPLE).
-    \item \textbf{Algoritmo:} Se utilizó el algoritmo PIMPLE, que permite utilizar pasos de tiempo grandes (número de Courant $Co_{max} > 1$, siendo $Co = |\mathbf{u}|\,\Delta t/\Delta x$ una medida de cuántas celdas atraviesa el flujo en un paso de tiempo, de modo que $Co > 1$ significa que recorre más de una celda por paso) manteniendo la estabilidad mediante correcciones externas en cada paso de tiempo.
+    \item \textbf{Algoritmo:} Se utilizó el algoritmo PIMPLE, que permite utilizar pasos de tiempo grandes (número de Courant $Co_{max} > 1$, siendo $Co = |\mathbf{U}|\,\Delta t/\Delta x$ una medida de cuántas celdas atraviesa el flujo en un paso de tiempo, con $\Delta t$ el paso temporal y $\Delta x$ el tamaño local de celda en la dirección del flujo, de modo que $Co > 1$ significa que recorre más de una celda por paso) manteniendo la estabilidad mediante correcciones externas en cada paso de tiempo.
     \item \textbf{Convergencia:} La simulación se ejecutó hasta alcanzar un estado cuasi-estacionario donde las fuerzas hidrodinámicas oscilan en torno a un valor medio constante.
 \end{itemize}
 
