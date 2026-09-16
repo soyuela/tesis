@@ -1,50 +1,51 @@
-This is BibTeX, Version 0.99d (TeX Live 2022/dev/Debian)
+This is BibTeX, Version 0.99d (TeX Live 2025/Debian)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
 The style file: plainnat.bst
 Database file #1: referencias.bib
+Warning--to sort, need editor, organization, or key in ITTC1957
 Warning--can't use both volume and number fields in eca2008friction
 Warning--empty booktitle in Korkmaz2019NumericalFL
 Warning--empty booktitle in cp_recovery_kcs
-You've used 79 entries,
+You've used 81 entries,
             2773 wiz_defined-function locations,
-            1079 strings with 21104 characters,
-and the built_in function-call counts, 32797 in all, are:
-= -- 2942
-> -- 1741
-< -- 58
-+ -- 610
-- -- 528
-* -- 2448
-:= -- 5197
-add.period$ -- 308
-call.type$ -- 79
-change.case$ -- 404
-chr.to.int$ -- 76
-cite$ -- 161
-duplicate$ -- 1566
-empty$ -- 2805
-format.name$ -- 629
-if$ -- 6863
-int.to.chr$ -- 4
+            1087 strings with 21367 characters,
+and the built_in function-call counts, 33353 in all, are:
+= -- 2993
+> -- 1751
+< -- 59
++ -- 616
+- -- 531
+* -- 2486
+:= -- 5270
+add.period$ -- 313
+call.type$ -- 81
+change.case$ -- 410
+chr.to.int$ -- 77
+cite$ -- 167
+duplicate$ -- 1607
+empty$ -- 2872
+format.name$ -- 633
+if$ -- 6987
+int.to.chr$ -- 5
 int.to.str$ -- 1
-missing$ -- 73
-newline$ -- 472
-num.names$ -- 318
-pop$ -- 848
+missing$ -- 74
+newline$ -- 481
+num.names$ -- 322
+pop$ -- 869
 preamble$ -- 1
-purify$ -- 333
+purify$ -- 338
 quote$ -- 0
-skip$ -- 1129
+skip$ -- 1150
 stack$ -- 0
-substring$ -- 832
-swap$ -- 121
+substring$ -- 837
+swap$ -- 125
 text.length$ -- 6
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 804
-warning$ -- 3
-while$ -- 290
+type$ -- 824
+warning$ -- 4
+while$ -- 293
 width$ -- 0
-write$ -- 1147
-(There were 3 warnings)
+write$ -- 1170
+(There were 4 warnings)

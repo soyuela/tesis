@@ -49,7 +49,7 @@ La Tabla~\ref{tab:comparacion_efd_marin} presenta la comparación entre los resu
 
 \begin{table}[htpb]
 \centering
-\caption{Comparación de $K_T$ y $10K_Q$ entre el ensayo del LabHiNO ($Re_n = 90\,406$) y los polinomios de \citet{oosterveld1975} ($Re_n = 2 \times 10^6$). Las diferencias se expresan en porcentaje respecto de MARIN.}
+\caption{Comparación de $K_T$ y $10K_Q$ entre el ensayo del LabHiNO ($Re_n = 3.20\times10^5$) y los polinomios de \citet{oosterveld1975}, ajustados a $Re_{c,0.75R} = 2 \times 10^6$. Las diferencias se expresan en porcentaje respecto de MARIN.}
 \label{tab:comparacion_efd_marin}
 \small
 \begin{tabular}{ccccccc}
@@ -521,7 +521,9 @@ $90\%$ (Tabla~\ref{tab:coreana_decomp})--, y la fricción aporta el resto menor 
 es un efecto friccional. En el par, en cambio, las contribuciones de presión y fricción
 se oponen: la parte friccional disminuye, como cabría esperar de una reducción del
 arrastre viscoso, mientras que la de presión aumenta y la compensa en gran medida, de
-modo que $K_Q$ varía poco (una leve alza de $+0.6$ a $+1.6\%$ a $J = 0.30$--$0.40$). Como
+modo que $K_Q$ varía poco (una leve alza de $+0.6$ a $+1.6\%$ a $J = 0.30$--$0.40$). 
+
+Se emplea aquí el operador $\delta$ para denotar la diferencia entre el cálculo sensible a la transición y el totalmente turbulento a una misma escala y punto de funcionamiento, $\delta K_T = K_T^{\text{SST-LM}} - K_T^{\text{SST}}$, en contraposición a $\Delta$, que en el resto de la tesis denota el efecto de escala. Como
 $\delta K_{Qp}$ y $\delta K_{Qf}$ son de magnitud similar y signo opuesto, su diferencia
 $\delta K_Q$ es pequeña, y una fracción de presión análoga a la del efecto de escala no
 resulta significativa para el par. Esta composición se mantiene al variar el nivel de
@@ -538,7 +540,7 @@ la Sección~\ref{sec:helices_escala} para la B4-60.
 \caption{Descomposición presión/fricción de la diferencia respecto del modelo
 completamente turbulento ($\delta K_{Ti} = K_{Ti}^{\mathrm{LM}} - K_{Ti}^{\mathrm{FT}}$,
 SST-LM a $Tu = 1.0\%$ frente al FT a igual $Re_c$ y $J$), para puntos representativos en
-los dos $Re_c$ extremos de la campaña.}
+los dos $Re_c$ extremos de la campaña. Las diferencias en empuje se expresan en porcentaje del valor totalmente turbulento; las de par se dan en valor absoluto, ya que la cancelación entre $\delta K_{Qp}$ y $\delta K_{Qf}$ hace que $\delta K_Q$ sea de magnitud muy pequeña y su expresión relativa resulte poco representativa.}
 \label{tab:coreana_decomp}
 \begin{tabular}{cccccc}
 \hline
@@ -556,10 +558,10 @@ $1.25$ & $0.60$ & $+11.5$ & $89$ & $+0.0010$ & $-0.0011$ \\
 \label{sec:coreana_diagnostico}
 
 Para localizar sobre el álabe el cambio de presión implicado por la descomposición anterior
-se analizaron los coeficientes locales $C_{pn}$ y $C_f$ (Ecuación~\ref{eq:cpn_cf_def})
+se analizaron los coeficientes locales $C_{p}$ y $C_f$ (Ecuación~\ref{eq:cpn_cf_def})
 sobre el dorso del álabe, en cuatro radios ($r/R = 0.3$ a $0.9$, a $J = 0.5$ y para
 los dos $Re_c$ extremos). El resultado acota el problema en sentido negativo: el pico
-de $C_{pn}$ es prácticamente insensible al modelo de turbulencia --la dispersión entre
+de $C_{p}$ es prácticamente insensible al modelo de turbulencia --la dispersión entre
 el completamente turbulento y los tres niveles de $Tu$ se mantiene por debajo del
 $3.1\%$ en todos los radios--, de modo que el cambio de presión \emph{no} se produce
 por un desplazamiento del pico de succión y debe originarse en una redistribución de
@@ -902,7 +904,7 @@ confundirse).
 \begin{table}[htpb]
 \centering
 \scriptsize
-\caption{Predicción de $K_{T,S}$ mediante ITTC-78 aplicado independientemente a cada
+\caption{Predicción de $K_{TS}$ mediante ITTC-78 aplicado independientemente a cada
 punto de $Re_c$ de modelo, a partir de EFD y de CFD Fully Turbulent. Diferencia
 porcentual respecto del valor de referencia a $D=6$~m (Tabla~\ref{tab:d6m_resultados}).}
 \label{tab:ittc_efd_ft}
@@ -925,7 +927,7 @@ Media (val. abs.) & $2.54\%$ & $2.92\%$ & $2.87\%$ & $3.11\%$ & $3.07\%$ & $3.42
 \begin{figure}[htpb]
     \centering
     \includegraphics[width=\textwidth]{images/fig_ittc78_vs_cfd_en.png}
-    \caption{Predicción de $K_{T,S}$ a escala buque mediante el procedimiento ITTC-78, aplicado a los cinco puntos CFD Fully Turbulent de escala modelo (panel a) y a cada uno de los cinco puntos experimentales de distinto $Re_c$ de modelo (panel b), comparado con el CFD Fully Turbulent resuelto directamente a escala buque (rombos negros).}
+    \caption{Predicción de $K_{TS}$ a escala buque mediante el procedimiento ITTC-78, aplicado a los cinco puntos CFD Fully Turbulent de escala modelo (panel a) y a cada uno de los cinco puntos experimentales de distinto $Re_c$ de modelo (panel b), comparado con el CFD Fully Turbulent resuelto directamente a escala buque (rombos negros).}
     \label{fig:coreana_ittc_vs_cfd}
 \end{figure}
 

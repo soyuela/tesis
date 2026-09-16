@@ -1,9 +1,12 @@
-\begin{thebibliography}{79}
+\begin{thebibliography}{81}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[ITT(1957)]{ITTC1957}
+\emph{Report of the {R}esistance {C}ommittee}, Madrid, 1957.
 
 \bibitem[26th ITTC Resistance~Committee(2011)]{ITTC_resistance}
 26th ITTC Resistance~Committee.
@@ -154,11 +157,18 @@ Jorge~A. Fr{\'i}as.
 \newblock Centro de Estudios Superiores del Mar Argentino / AACPyPP. Consultado
   el 29-08-2026.
 
-\bibitem[Gaggero(2020)]{Gaggero2020}
+\bibitem[Gaggero(2020{\natexlab{a}})]{Gaggero2020}
 Stefano Gaggero.
 \newblock Influence of laminar-to-turbulent transition on model scale propeller
   performances. {Part I}: Fully wetted conditions.
-\newblock \emph{Ships and Offshore Structures}, 2020.
+\newblock \emph{Ships and Offshore Structures}, 2020{\natexlab{a}}.
+\newblock \doi{10.1080/17445302.2020.1863658}.
+
+\bibitem[Gaggero(2020{\natexlab{b}})]{gaggero2021transition}
+Stefano Gaggero.
+\newblock Influence of laminar-to-turbulent transition on model scale propeller
+  performances. {P}art {I}: fully wetted conditions.
+\newblock \emph{Ships and Offshore Structures}, 2020{\natexlab{b}}.
 \newblock \doi{10.1080/17445302.2020.1863658}.
 
 \bibitem[Gaggero and Villa(2018)]{gaggero2018transition}

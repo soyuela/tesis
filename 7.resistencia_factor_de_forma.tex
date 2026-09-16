@@ -324,24 +324,19 @@ muestra en la Figura~\ref{fig:york_kcs}.
 \label{fig:york_kcs}
 \end{figure}
 
-Conviene precisar que esta incertidumbre corresponde a la componente
-\emph{estadística} del ajuste (la propagación de los errores aleatorios de
-medición a través de la regresión) y resulta sensiblemente menor que la
-incertidumbre relativa de cada punto individual ($\sim 4\%$). Esta reducción
-no es anómala: la ordenada al origen es un parámetro determinado por el
-conjunto de las mediciones, de modo que su incertidumbre disminuye con el
-número de puntos y con su grado de alineación, de forma análoga a como la
-incertidumbre de un promedio decrece respecto de la de cada medición. Cabe
-señalar que este valor no incorpora eventuales errores sistemáticos, comunes
-a todas las corridas, que no se reducen por este mecanismo.
+Conviene precisar que esta incertidumbre corresponde a la componente \emph{estadística} del ajuste (la propagación de los errores aleatorios de medición a través de la regresión) y resulta sensiblemente menor que la incertidumbre relativa de cada punto individual ($\sim 4\%$). Esta reducción no es anómala: aunque $(1+k)$ se obtiene por extrapolación a la abscisa nula, y la incertidumbre de una ordenada al origen crece con la distancia entre el centroide de los datos y el origen, en el \textit{KCS} los puntos son numerosos, se alinean estrechamente sobre la recta y su rango de ajuste se aproxima al origen, de modo que el término de palanca resulta pequeño y predomina el efecto del número de mediciones. Cabe señalar que este valor no incorpora eventuales errores sistemáticos, comunes a todas las corridas, que no se reducen por este mecanismo.
 
 Este valor contrasta de manera marcada con el obtenido para el \textit{P1}
 (Tabla~\ref{tab:york_tpa}), cuya incertidumbre relativa se situaba entre el
-$8$ y el $11\%$. La diferencia es coherente con el comportamiento de ambos
-cascos frente al método de Prohaska: mientras que en el \textit{P1} los
-puntos experimentales se apartan de la recta teórico, y son además mucho
-menos numerosos en el rango de ajuste, en el \textit{KCS} se alinean estrechamente sobre ella,
-lo que se traduce en una determinación mucho más precisa de $(1+k)$. Esta
+$8$ y el $11\%$, superior incluso a la de los puntos experimentales que la
+originan. La diferencia responde al mismo mecanismo: en el \textit{P1} los
+puntos experimentales se apartan de la recta teórica, son mucho menos
+numerosos en el rango de ajuste y su centroide queda más alejado del origen,
+con lo que el término de palanca de la extrapolación domina y amplifica la
+incertidumbre de la ordenada en lugar de reducirla; en el \textit{KCS}, en
+cambio, los puntos se alinean estrechamente sobre la recta y el rango de
+ajuste se aproxima al origen, lo que se traduce en una determinación mucho
+más precisa de $(1+k)$. Esta
 comparación cuantitativa respalda la observación cualitativa de que el \textit{KCS}
 satisface los supuestos del método de Prohaska con mayor fidelidad que el
 \textit{P1}, y refuerza la conveniencia de recurrir al método de doble cuerpo
@@ -1436,9 +1431,7 @@ disminución muy leve de $C_{PV}$ con $Re$ observada para este buque.
 
 Las Figuras~\ref{fig:cp_z0}, \ref{fig:cp_z5} y \ref{fig:cp_z75} presentan la 
 distribución longitudinal del coeficiente de presión $C_{P}(x/L)$ para 
-distintos números de Reynolds, sobre tres planos horizontales a profundidad 
-constante $z/T = 0$, $0{.}5$ y $0{.}75$ respectivamente, es decir, en la línea de 
-flotación, a medio calado sumergido y cerca del fondo. La coordenada 
+distintos números de Reynolds, sobre tres planos horizontales a profundidad constante $|z|/T = 0$, $0{.}5$ y $0{.}75$ respectivamente, es decir, en la línea de flotación, a medio calado sumergido y cerca del fondo. La coordenada 
 longitudinal se expresa como $x/L$, donde $x/L = 0$ corresponde a la 
 perpendicular de proa. Se observa un déficit persistente de presión en la 
 región de popa para todos los $Re$, en las tres líneas de agua analizadas, 
@@ -1448,7 +1441,7 @@ modelo ($Re=1{.}3\times10^6$) y el de escala buque ($Re=1{.}1\times10^8$) es del
 \begin{figure}[htpb]
     \centering
     \includegraphics[width=.6\columnwidth]{./images/z0.pdf}
-    \caption{Distribución de $C_{P}(x/L)$ sobre el plano $z/T = 0$ 
+    \caption{Distribución de $C_{P}(x/L)$ sobre el plano $|z|/T = 0$ 
     (línea de flotación). Se observa un déficit persistente de presión 
     en popa y variaciones mínimas entre escalas.}
     \label{fig:cp_z0}
@@ -1457,14 +1450,14 @@ modelo ($Re=1{.}3\times10^6$) y el de escala buque ($Re=1{.}1\times10^8$) es del
 \begin{figure}[htpb]
     \centering
     \includegraphics[width=.6\columnwidth]{./images/z5.pdf}
-    \caption{Distribución de $C_{P}(x/L)$ sobre el plano $z/T = 0{.}5$.}
+    \caption{Distribución de $C_{P}(x/L)$ sobre el plano $|z|/T = 0{.}5$.}
     \label{fig:cp_z5}
 \end{figure}
 
 \begin{figure}[htpb]
     \centering
     \includegraphics[width=.6\columnwidth]{./images/z75.pdf}
-    \caption{Distribución de $C_{P}(x/L)$ sobre el plano $z/T = 0{.}75$.}
+    \caption{Distribución de $C_{P}(x/L)$ sobre el plano $|z|/T = 0{.}75$.}
     \label{fig:cp_z75}
 \end{figure}
 
@@ -1948,18 +1941,18 @@ siendo $k_M$ el factor de forma obtenido para el modelo (por método de Prohaska
 Este último se expresa como:
 
 \begin{equation}
-k_{tr} \simeq \frac{C_{tr,S}}{C_{F,S}},
+k_{tr} \simeq \frac{C_{tr,S}}{C_{FS0}},
 \end{equation}
 
-donde $C_{tr,S}$ representa la contribución viscosa adicional debida al vórtice de recirculación, y $C_{F,S}$ el coeficiente de fricción a escala buque.
+donde $C_{tr,S}$ representa la contribución viscosa adicional debida al vórtice de recirculación, y $C_{FS0}$ el coeficiente de fricción a escala buque obtenido de la línea de fricción \citep{korkmaz_wetted_transom}.
 
-El valor de $k_{tr}$ puede estimarse empíricamente mediante correlaciones con parámetros geométricos del espejo (secciones 6.3 y 7 de \cite{korkmaz_wetted_transom}) o mediante CFD comparativo entre modelo y escala buque:
-
+El valor de $k_{tr}$ puede estimarse empíricamente mediante correlaciones con parámetros geométricos del espejo (secciones 6.3 y 7 de \cite{korkmaz_wetted_transom}), o bien por CFD comparativo entre modelo y escala buque, ya que bajo la hipótesis del método la diferencia total entre escalas coincide con la corrección de popa mojada:
+%
 \begin{equation}
-k_{tr} = k_S - k_M.
+k_S - k_M \simeq k_{tr}.
 \end{equation}
 
-Este punto es clave, ya que en \citet{korkmaz_wetted_transom} se atribuye la diferencia entre el factor de forma en escala modelo y en escala buque, en los casos de popa espejo sumergida, principalmente al flujo recirculante detrás del espejo. Esta interpretación se enmarca en el trabajo más amplio del mismo autor \citep{korkmaz_cfd_2021, korkmaz_wetted_transom}, donde se demuestra que la dependencia del factor de forma con el número de Reynolds desaparece casi por completo al sustituir la línea ITTC-57 por líneas de fricción numéricas derivadas del mismo código CFD, al menos para cascos de esbeltez moderada como el \textit{KCS} y el KVLCC2. El efecto de la línea de correlación sobre el \textit{P1} se analiza en la Sección~\ref{sec:linea_de_friccion}. Para cascos de esa clase, donde $C_{PV}$ es comparativamente pequeño, este resultado es consistente con la hipótesis de Hughes: una vez eliminado el sesgo de la línea de referencia, el factor de forma resulta prácticamente independiente de la escala.
+Este punto es clave, ya que en \citet{korkmaz_wetted_transom} se atribuye la diferencia entre el factor de forma en escala modelo y en escala buque, en los casos de popa espejo sumergida, principalmente al flujo recirculante detrás del espejo. Esta interpretación se enmarca en el trabajo más amplio del mismo autor \citep{korkmaz_cfd_2021, korkmaz_wetted_transom}, donde se demuestra que la dependencia del factor de forma con el número de Reynolds desaparece casi por completo al sustituir la línea ITTC-57 por líneas de fricción numéricas derivadas del mismo código CFD, al menos para cascos de esbeltez moderada como el \textit{KCS} y el KVLCC2. El efecto de la línea de correlación sobre el \textit{P1} se analiza en la Sección~\ref{sec:linea_de_friccion}. Para cascos de esa clase, donde $C_{PV}$ es comparativamente pequeño, este resultado es consistente con la hipótesis de Hughes: una vez eliminado el sesgo de la línea de referencia, el factor de forma resulta prácticamente independiente de la escala. En qué medida esta atribución se verifica para un casco de muy baja esbeltez es lo que se examina en la aplicación al \textit{P1}.
 
 De acuerdo con los resultados del autor, el método y las correcciones asociadas deben aplicarse cuando el espejo se encuentra \textbf{considerablemente sumergido}, es decir, para 
 $tr_{\text{ratio}} > 0{.}025$. Para espejos poco sumergidos o parcialmente secos, el uso del método 2--$k$ no resulta necesario.
@@ -2894,7 +2887,7 @@ Para cuantificar la magnitud del error introducido por la selección de un valor
 \cmidrule(lr){4-6}
 \cmidrule(lr){7-9}
 \cmidrule(lr){10-12}
- & $v_S$ & $v_S$ &
+ & $V_S$ & $V_S$ &
  $C_{TS}$ & $R_{TS}$ & $P_{ES}$ &
  $C_{TS}$ & $R_{TS}$ & $P_{ES}$ &
  $C_{TS}$ & $R_{TS}$ & $P_{ES}$ \\
@@ -2916,14 +2909,14 @@ Para cuantificar la magnitud del error introducido por la selección de un valor
 \end{table*}
 
 \begin{table}[htbp]
-\caption{Diferencias porcentuales en la potencia efectiva estimada respecto al método ITTC (Método 1).}
+\caption{Diferencias porcentuales en la potencia efectiva estimada respecto al método ITTC (Método 1), $\Delta P_{ES} = (P_{ES} - P_{ES,1})/P_{ES,1}\times 100$.}
 \label{tbl:metodos_delta}
 \scriptsize
 \centering
 
 \begin{tabular}{c c c c c}
 \toprule
-$Fr$ & $v_S$ & $v_S$ & Method 2 vs 1 & Method 3 vs 1 \\
+$Fr$ & $V_S$ & $V_S$ & Method 2 vs 1 & Method 3 vs 1 \\
      & {[m/s]} & {[kn]} & {$\Delta P_{ES}$ [\%]} & {$\Delta P_{ES}$ [\%]} \\
 \midrule
 0.26 & 4.71 & 9.16  & 16.7 & 6.6 \\

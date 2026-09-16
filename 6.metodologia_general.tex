@@ -226,10 +226,7 @@ laminar--turbulenta a escala de modelo.
 La B4-60 pertenece a la serie sistemática de Wageningen, de cuatro palas y relación de
 área expandida $A_E/A_0 = 0.60$. La Figura~\ref{fig:pala_wageningen} muestra su geometría
 y la Tabla~\ref{tab:geom_wageningen} resume sus parámetros principales. Los ensayos de
-aguas abiertas de archivo se realizaron a una temperatura del agua de $18.5$~°C
-($\rho = 101.811$~kg$\cdot$s$^2$/m$^4$, $\nu = 1.04\times10^{-6}$~m$^2$/s) y una velocidad
-de giro de $n = 16.99$~rps, que corresponde a un número de Reynolds de ensayo
-$Re = 90\,406$ según la convención de la hoja de ensayo.
+aguas abiertas de archivo se realizaron a una temperatura del agua de $18.5$~°C ($\rho = 998.4$~kg/m$^3$, $\nu = 1.04\times10^{-6}$~m$^2$/s) y una velocidad de giro de $n = 16.99$~rps. La hoja de ensayo consigna $Re = 90\,406$, calculado según la formulación de Gutsche, que emplea la cuerda y la velocidad resultante en la sección $r/R = 0.75$. En esta tesis se adopta la definición rotacional $Re_n = nD^2/\nu$, que para estas condiciones da $Re_n = 3.20\times10^5$ y, por construirse solo con parámetros globales de operación, caracteriza unívocamente el punto de funcionamiento con independencia del coeficiente de avance.
 
 \begin{figure}[H]
     \centering
@@ -279,11 +276,15 @@ Diámetro de modelo        & $D$             & 0.250~m      \\
 Número de álabes          & $Z$             & 4            \\
 Relación de paso a $r/R=0.7$ & $P/D$        & 0.721        \\
 Relación de área desarrollada & $A_E/A_0$   & 0.431        \\
-Relación espesor-cuerda a $r/R=0.7$ & $t/D$ & 0.0156       \\
+Relación espesor-diámetro a $r/R=0.7$ & $t_{\max}/D$ & 0.0156       \\
 Ángulo de skew & ---       & $16.8^\circ$ \\
-Factor de escala          & ---             & 39.44        \\
+Factor de escala          & $\lambda$       & 39.44        \\
 \hline
 \end{tabular}
+
+\vspace{0.4em}
+{\footnotesize\raggedright
+Nota: $t_{\max}$ es el espesor máximo de la sección de pala en la posición radial $r/R = 0.7$ y $D$ el diámetro del propulsor.\par}
 \end{table}
 
 \subsection{Instrumentación y Adquisición de Datos}
@@ -323,7 +324,7 @@ La resistencia total medida es función de múltiples variables independientes. 
 \begin{itemize}
     \item \textbf{Geometría del casco:} La incertidumbre en el desplazamiento y la superficie mojada se cuantificó midiendo el lastre del modelo con una balanza de brazo portátil. Asumiendo que la incertidumbre geométrica no afecta significativamente el coeficiente de resistencia residual, la propagación ocurre a través de la superficie mojada y la eslora representativa. La incertidumbre estándar en la masa de desplazamiento constituye la fuente primaria para esta componente.
 
-    \item \textbf{Velocidad de remolque:} Se consideró el límite de sesgo del carro dinamométrico. Este error se propaga a la medición de resistencia a través de la presión dinámica $q = \tfrac{1}{2}\rho V^2$ y en consecuencia al número de Reynolds. Para el rango operativo del LabHiNO, la precisión adoptada refleja la capacidad de control del sistema de remolque.
+    \item \textbf{Velocidad de remolque:} Se consideró el límite de sesgo del carro dinamométrico. Este error se propaga a la medición de resistencia a través de la presión dinámica del flujo, $q = \tfrac{1}{2}\rho V^2$, siendo $V$ la velocidad de remolque, y en consecuencia al número de Reynolds. Para el rango operativo del LabHiNO, la precisión adoptada refleja la capacidad de control del sistema de remolque.
 
     \item \textbf{Temperatura del agua:} Dado que la viscosidad cinemática $\nu$ es fuertemente dependiente de la temperatura, variaciones de la misma afectan directamente al número de Reynolds $Re = \tfrac{V \cdot L}{\nu}$ y a la componente friccional de la resistencia. Se monitoreó la temperatura durante todos los ensayos. Las variaciones observadas se mantuvieron por debajo de $0.5\,^\circ$C, lo que implica variaciones en la viscosidad del orden del 2\% en el rango de interés.
 
@@ -336,13 +337,17 @@ La resistencia total medida es función de múltiples variables independientes. 
 
 \paragraph{Combinación de componentes mediante RSS}
 
-Una vez estimadas todas las componentes individuales de incertidumbre, la incertidumbre combinada se calculó mediante:
+Una vez estimadas todas las componentes individuales de incertidumbre estándar $u_1, u_2, \dots, u_m$ --una por cada una de las $m$ fuentes de error enumeradas más arriba--, la incertidumbre estándar combinada se calculó suponiéndolas independientes entre sí, mediante:
 
 \begin{equation}
-u_c = \sqrt{u_1^2 + u_2^2 + \cdots + u_n^2}.
+u_c = \sqrt{u_1^2 + u_2^2 + \cdots + u_m^2}.
 \end{equation}
 
-La incertidumbre expandida, correspondiente a un nivel de confianza del 95\%, se obtuvo multiplicando la incertidumbre combinada por el factor de cobertura $k = 2$.
+La incertidumbre expandida $U_{95}$, correspondiente a un nivel de confianza del 95\%, se obtuvo multiplicando la incertidumbre combinada por un factor de cobertura $k_c = 2$:
+
+\begin{equation}
+U_{95} = k_c\, u_c = 2\,u_c .
+\end{equation}
 
 \paragraph{Comportamiento característico con el número de Froude}
 
@@ -413,8 +418,11 @@ como:
 y Dey, incorporada por la ITTC en 1990:
 $\Delta C_F = 0.044\big[(k_s/L_{WL})^{1/3} - 10\,Re_S^{-1/3}\big] + 0.000125$,
 donde $k_s$ es la altura de rugosidad equivalente (adoptada como
-$k_s = 150\,\mu\text{m}$ en ausencia de mediciones directas) y $Re_S$ el
-número de Reynolds del buque. El coeficiente de correlación, separado de la
+$k_s = 150\,\mu\text{m}$ en ausencia de mediciones directas), $L_{WL}$ la
+eslora en flotación --que es la que especifica la recomendación de la ITTC
+para este término-- y $Re_S$ el número de Reynolds del buque, calculado con
+$L_{OS}$ según la convención adoptada en el
+Capítulo~\ref{chap:antecedentes}. El coeficiente de correlación, separado de la
 rugosidad por el 19.\textsuperscript{o} ITTC, se calcula como
 $C_A = (5.68 - 0.6\log_{10} Re_S)\times 10^{-3}$. Esta separación
 reemplaza la formulación combinada original de Bowden y Davison
@@ -502,11 +510,11 @@ con los coeficientes de arrastre bidimensional de la sección evaluados, respect
 mediante
 %
 \begin{align}
-    C_{D,M} &= 2\left(1 + 2\,\frac{t}{c}\right)
-              \left[\frac{0.044}{Re_{co}^{\,1/6}} - \frac{5}{Re_{co}^{\,2/3}}\right],
+    C_{D,M} &= 2\left(1 + 2\,\frac{t_{\max}}{c_{0.75R}}\right)
+              \left[\frac{0.044}{Re_{c,0.75R}^{\,1/6}} - \frac{5}{Re_{c,0.75R}^{\,2/3}}\right],
     \label{eq:ittc78_cdm}\\[4pt]
-    C_{D,S} &= 2\left(1 + 2\,\frac{t}{c}\right)
-              \left[1.89 + 1.62\,\log_{10}\!\left(\frac{c}{k_p}\right)\right]^{-2.5}.
+    C_{D,S} &= 2\left(1 + 2\,\frac{t_{\max}}{c_{0.75R}}\right)
+              \left[1.89 + 1.62\,\log_{10}\!\left(\frac{c_{0.75R}}{k_{s,p}}\right)\right]^{-2.5}.
     \label{eq:ittc78_cds}
 \end{align}
 %
@@ -519,7 +527,9 @@ rugoso plenamente desarrollado propio de la escala buque.
 
 Dado que $\Delta C_D > 0$ (la sección de modelo, a menor Reynolds, presenta mayor
 arrastre), la Ecuación~\eqref{eq:ittc78_deltaKtKq} produce $\Delta K_T < 0$ y
-$\Delta K_Q > 0$. Al introducir estos signos en la Ecuación~\eqref{eq:ittc78_KtKq_buque}, donde ambas correcciones se \emph{restan} de los valores de modelo ($K_{TS} = K_{TM} - \Delta K_T$ y $K_{QS} = K_{QM} - \Delta K_Q$), restar un $\Delta K_T$ negativo hace que el empuje corregido \emph{aumente}, mientras que restar un $\Delta K_Q$ positivo hace que el par \emph{disminuya} al pasar de modelo a buque, en el sentido físico esperado.
+$\Delta K_Q > 0$. Al introducir estos signos en la Ecuación~\eqref{eq:ittc78_KtKq_buque}, donde ambas correcciones se \emph{restan} de los valores de modelo ($K_{TS} = K_{TM} - \Delta K_T$ y $K_{QS} = K_{QM} - \Delta K_Q$), restar un $\Delta K_T$ negativo hace que el empuje corregido \emph{aumente}, mientras que restar un $\Delta K_Q$ positivo hace que el par \emph{disminuya} al pasar de modelo a buque, en el sentido físico esperado. 
+
+Nótese que este $\Delta K_T$ tiene el signo opuesto al del incremento de escala definido en el Capítulo~\ref{chap:antecedentes} (Sección~\ref{sec:presion_escala}): allí $\Delta K_T = K_{TS} - K_{TM} > 0$ mide cuánto aumenta el empuje al pasar a escala buque, mientras que aquí es la cantidad que se resta del valor de modelo para producir ese mismo aumento. Ambas convenciones se relacionan por un cambio de signo y, en el Capítulo~\ref{chap:helices}, todas las comparaciones se expresan en la primera de ellas.
 
 Conviene subrayar la estructura de esta corrección, pues es el punto que el
 Capítulo~\ref{chap:helices} somete a escrutinio. Al construirse enteramente sobre
@@ -674,7 +684,8 @@ Ecuación~\eqref{eq:CT}.
 
 \subsection{Dominio Computacional y Mallado}
 
-Se definió un dominio computacional rectangular prismático dimensionado para evitar la reflexión de olas.
+Se definió un dominio computacional rectangular prismático dimensionado para evitar la reflexión de olas. Las distancias se expresan en esloras entre perpendiculares del modelo, $L_{PP}$.
+
 \begin{itemize}
     \item \textbf{Entrada (Inlet):} Ubicada a $1.5 L_{PP}$ a proa del modelo.
     \item \textbf{Salida (Outlet):} Ubicada a $2.5 L_{PP}$ a popa.
@@ -990,10 +1001,7 @@ hélice $D$.}
 
 Las simulaciones con SST-LM requieren especificar el nivel de intensidad turbulenta
 ($Tu$) en el plano del disco, parámetro del cual depende fuertemente el punto de inicio
-de la transición laminar--turbulenta. La intensidad turbulenta se relaciona con la
-energía cinética turbulenta $k$ y la velocidad de referencia $U$ mediante
-$Tu = \sqrt{2k/3}\,/\,U$, de modo que las condiciones de entrada de las variables de
-turbulencia quedan fijadas a partir del $Tu$ prescrito como
+de la transición laminar--turbulenta. La intensidad turbulenta se relaciona con la energía cinética turbulenta $k$ y la velocidad de referencia del flujo incidente $U$ --tomada como la velocidad axial impuesta en la entrada del dominio-- mediante $Tu = \sqrt{2k/3}\,/\,U$, de modo que las condiciones de entrada de las variables de turbulencia quedan fijadas a partir del $Tu$ prescrito como
 %
 \begin{equation}
     k = \frac{3}{2}\,\left(U\,Tu\right)^2,
@@ -1035,8 +1043,7 @@ transporte a lo largo de una línea de corriente admite solución analítica,
     \label{eq:tu_decay}
 \end{equation}
 %
-con $\beta^* = 0.09$ y $\beta$ las constantes de cierre del modelo SST, y el subíndice
-$0$ el valor de entrada. Puesto que $\omega_0 = k_0/[\nu\,(\mu_t/\mu)]$
+con $\beta^* = 0.09$ y $\beta$ las constantes de cierre del modelo SST, $x$ la distancia recorrida a lo largo de la línea de corriente desde la entrada del dominio, y el subíndice $0$ el valor de la variable correspondiente en esa entrada. Puesto que $\omega_0 = k_0/[\nu\,(\mu_t/\mu)]$
 (Ecuación~\ref{eq:tu_k_omega}), una relación $\mu_t/\mu$ mayor implica un $\omega_0$
 menor y, por lo tanto, un decaimiento más lento de $k$: para un mismo $Tu$ de entrada se
 retiene más turbulencia hasta el disco. Tal como documenta \citet{Baltazar2021}, es
@@ -1053,20 +1060,14 @@ resultados a este parámetro.
 El análisis de los efectos de escala del Capítulo~\ref{chap:helices} requiere ir más
 allá de los coeficientes integrales $K_T$ y $K_Q$ y separar las contribuciones de
 presión y de fricción a las fuerzas sobre la pala. Ambos códigos calculan el empuje y
-el par integrando sobre la superficie del álabe la tracción ejercida por el fluido,
-que se descompone de forma natural en un término de presión y uno viscoso. Siendo
-$\mathbf{n}$ la normal exterior, $\hat{\mathbf{e}}_x$ el versor del eje del propulsor
-(dirección del empuje), $\mathbf{r}$ el vector posición respecto del eje y
-$\boldsymbol{\tau}_w$ el vector de tensión de corte en la pared, el empuje $T$ y el par
-$Q$ se escriben como
+el par integrando sobre la superficie del álabe $A_b$ la tracción ejercida por el fluido, que se descompone de forma natural en un término de presión y uno viscoso, tal como se estableció para el casco en la Ecuación~\eqref{eq:integracion_fuerzas}. Siendo $\mathbf{n}$ la normal exterior, $\hat{\mathbf{e}}_x$ el versor del eje del propulsor (dirección del empuje), $\mathbf{r}$ el vector posición respecto del eje, $\boldsymbol{\tau}_w$ el vector de tensión de corte en la pared, $p$ la presión estática local sobre la pala y $p_\infty$ la presión de la corriente no perturbada, el empuje $T$ y el par $Q$ se escriben como
 %
 \begin{align}
-    T &= \underbrace{\oint_S -(p - p_\infty)\,\mathbf{n}\cdot\hat{\mathbf{e}}_x \; dS}_{T_p}
-       + \underbrace{\oint_S \boldsymbol{\tau}_w\cdot\hat{\mathbf{e}}_x \; dS}_{T_f},
-       \label{eq:T_descomp}\\[4pt]
-    Q &= \underbrace{\oint_S -(p - p_\infty)\,(\mathbf{r}\times\mathbf{n})\cdot\hat{\mathbf{e}}_x \; dS}_{Q_p}
-       + \underbrace{\oint_S (\mathbf{r}\times\boldsymbol{\tau}_w)\cdot\hat{\mathbf{e}}_x \; dS}_{Q_f},
-       \label{eq:Q_descomp}
+        T &= \underbrace{\oint_{A_b} -(p - p_\infty)\,\mathbf{n}\cdot\hat{\mathbf{e}}_x \; dA_b}_{T_p}
+       + \underbrace{\oint_{A_b} \boldsymbol{\tau}_w\cdot\hat{\mathbf{e}}_x \; dA_b}_{T_f},
+    \\
+    Q &= \underbrace{\oint_{A_b} -(p - p_\infty)\,(\mathbf{r}\times\mathbf{n})\cdot\hat{\mathbf{e}}_x \; dA_b}_{Q_p}
+       + \underbrace{\oint_{A_b} (\mathbf{r}\times\boldsymbol{\tau}_w)\cdot\hat{\mathbf{e}}_x \; dA_b}_{Q_f},
 \end{align}
 %
 donde el subíndice $p$ agrupa las contribuciones de presión y el subíndice $f$ las de
@@ -1094,16 +1095,13 @@ las magnitudes integrales, dos coeficientes locales de superficie: un coeficient
 presión y un coeficiente de fricción,
 %
 \begin{equation}
-    C_{pn} = \frac{p - p_\infty}{\tfrac{1}{2}\rho\,V_{\text{ref}}^2},
+        C_{p} = \frac{p - p_\infty}{\tfrac{1}{2}\rho\,V_{\text{ref}}^2},
     \qquad
     C_f = \frac{|\boldsymbol{\tau}_w|}{\tfrac{1}{2}\rho\,V_{\text{ref}}^2},
-    \qquad
-    V_{\text{ref}}(r) = \sqrt{V_a^2 + (2\pi n r)^2},
     \label{eq:cpn_cf_def}
 \end{equation}
 %
-donde $V_{\text{ref}}(r)$ es la velocidad resultante del flujo incidente en la sección
-de radio $r$ y $V_a = J n D$ la velocidad de avance. Estos coeficientes se evalúan
+donde $V_{\text{ref}}(r) = \sqrt{V_a^2 + (2\pi n r)^2}$ es la velocidad resultante del flujo incidente en la sección de radio $r$, definida en la Ecuación~\eqref{eq:Re_helice}, y $V_a = J n D$ la velocidad de avance. Estos coeficientes se evalúan
 punto a punto sobre el dorso y la cara del álabe para el diagnóstico seccional del
 Capítulo~\ref{chap:helices}; cuando se requiere una referencia común a toda la pala
 --por ejemplo, para comparar mapas de $C_p$ entre escalas-- se adopta como velocidad de
