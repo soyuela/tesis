@@ -253,7 +253,8 @@ través de la popa espejo, que en la condición de plena carga queda
 sustancialmente sumergida y genera separación (Sección~\ref{sec:popa_sumergida});
 y la tercera a través de la sensibilidad del valor de $(1+k)$ al rango de Froude
 retenido en la regresión. Una primera cuantificación conjunta de estos efectos
-para esta clase de cascos se presentó en \citet{oyuela2024jmse}.
+para esta clase de cascos, sobre el pesquero P1, se presentó en
+\citet{oyuela2024jmse}.
 
 \begin{figure}[htbp]
     \centering
@@ -345,7 +346,7 @@ Formalmente, al anularse la generación de olas, la resistencia
 total obtenida en esta configuración corresponde únicamente a la componente
 viscosa, y el factor de forma se obtiene como \citep{ITTC_Combined_2021}:
 %
-\begin{equation}
+\begin{equation}\label{eq:k_doble_cuerpo}
     (1+k) = \frac{C_V}{C_{F0}} = \frac{C_F + C_{PV}}{C_{F0}}.
 \end{equation}
 %
@@ -367,7 +368,7 @@ experimental.
 
 Esa evidencia proviene, sin embargo, de cascos de esbeltez moderada. Para cascos
 pesqueros con $L/B < 4$ el punto de partida es \citet{oyuela2024jmse}, donde se
-determinó el factor de forma de un pesquero por el método de doble cuerpo y se lo
+determinó el factor de forma del pesquero P1 por el método de doble cuerpo y se lo
 contrastó con el obtenido experimentalmente sobre el mismo casco en el LabHiNO
 (Laboratorio de Hidrodinámica Naval y Oceánica, UBA), verificando que el CFD
 reproduce el valor medido para cierto rango de $Fr$. Trabajos posteriores del mismo grupo ampliaron el
@@ -684,17 +685,17 @@ La \textbf{serie Wageningen B} es la familia sistemática de hélices de referen
 El \textbf{procedimiento ITTC-78} extrapola los resultados del ensayo POW de modelo a escala buque asumiendo que toda la diferencia entre escalas es de naturaleza friccional \citep{ITTC_Performance_prediction}. Su único insumo es la corrección del coeficiente de arrastre de perfil de la sección representativa, tomada a $r/R = 0.75$:
 %
 \begin{equation}
-    \Delta C_D = C_{D,M} - C_{D,S},
+    \Delta C_D = C_{DM} - C_{DS},
 \end{equation}
 %
-donde $C_{D,M}$ y $C_{D,S}$ son los coeficientes de arrastre del perfil equivalente en escala modelo y buque, estimados mediante correlaciones de placa plana 2D. El objetivo del método, sin embargo, no es $\Delta C_D$ en sí, sino corregir los coeficientes propulsivos: a partir de esa única diferencia de fricción se calculan las correcciones de empuje y de par, $\Delta K_T$ y $\Delta K_Q$, con las que se ajustan los valores de modelo a escala buque,
+donde $C_{DM}$ y $C_{DS}$ son los coeficientes de arrastre del perfil equivalente en escala modelo y buque, estimados mediante correlaciones de placa plana 2D. El objetivo del método, sin embargo, no es $\Delta C_D$ en sí, sino corregir los coeficientes propulsivos: a partir de esa única diferencia de fricción se calculan las correcciones de empuje y de par, $\Delta K_T$ y $\Delta K_Q$, con las que se ajustan los valores de modelo a escala buque,
 %
 \begin{equation}
     K_{TS} = K_{TM} - \Delta K_T, \qquad K_{QS} = K_{QM} - \Delta K_Q,
     \label{eq:ittc78_correcciones}
 \end{equation}
 %
-de modo que, siendo $\Delta C_D > 0$, resulta $\Delta K_T < 0$ y $\Delta K_Q > 0$: el empuje aumenta y el par disminuye al pasar de modelo a escala buque. Las expresiones completas de $\Delta K_T$ y $\Delta K_Q$ en función de $\Delta C_D$, junto con las correlaciones de placa plana para $C_{D,M}$ y $C_{D,S}$, se detallan en la Sección~\ref{sec:ittc78_helices_metodo}.
+de modo que, siendo $\Delta C_D > 0$, resulta $\Delta K_T < 0$ y $\Delta K_Q > 0$: el empuje aumenta y el par disminuye al pasar de modelo a escala buque. Las expresiones completas de $\Delta K_T$ y $\Delta K_Q$ en función de $\Delta C_D$, junto con las correlaciones de placa plana para $C_{DM}$ y $C_{DS}$, se detallan en la Sección~\ref{sec:ittc78_helices_metodo}.
  
 Este procedimiento tiene dos limitaciones fundamentales que motivan el trabajo original del Capítulo~\ref{chap:helices}. En primer lugar, ignora los cambios en la distribución de presiones sobre las palas al variar $Re$. En segundo lugar, no contempla el comportamiento no monótono de $K_T$ y $K_Q$ en el rango transicional en el que pueden encontrarse a escala de modelo.
  

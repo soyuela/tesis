@@ -7,15 +7,17 @@
 
 Este capítulo detalla la implementación práctica de las herramientas utilizadas en esta tesis. La investigación adopta una estrategia híbrida que vincula ensayos físicos en canal de remolque (EFD) con simulaciones numéricas (CFD).
 
-A continuación se describen las instalaciones experimentales del canal de pruebas del LabHiNO, las características geométricas de los modelos construidos y la instrumentación empleada. Posteriormente, se detalla la configuración del modelo numérico en ``OpenFOAM'', especificando el dominio computacional, las condiciones de contorno y los esquemas de discretización utilizados.
+A continuación se describe, en primer lugar, la metodología experimental: las instalaciones del canal de pruebas del LabHiNO y, por separado, los ensayos de resistencia de los modelos de buques y los ensayos de aguas abiertas de las hélices. Luego se presentan los procedimientos de extrapolación modelo--buque, uno para el casco y otro para el propulsor. Finalmente se detalla la metodología numérica: los fundamentos comunes a todas las simulaciones (ecuaciones de gobierno y modelo de turbulencia), la configuración de las simulaciones de resistencia del casco y la de las simulaciones de hélices en aguas abiertas, ambas en ``OpenFOAM''. El capítulo cierra con la estrategia de verificación y validación, común a ambos problemas.
 
 \section{Metodología Experimental (EFD)}
 
-Los ensayos experimentales se llevaron a cabo en el canal de remolque de la Universidad de Buenos Aires (UBA), Argentina. Esta campaña tuvo como objetivo principal generar una base de datos de validación confiable para modelos de los buques P1, P2 y P3 y comparar los resultados con el buque de referencia \textit{KCS}.
+Los ensayos experimentales se llevaron a cabo en el canal de remolque de la Universidad de Buenos Aires (UBA), Argentina. Esta campaña tuvo como objetivo principal generar una base de datos de validación confiable para modelos de buques pesqueros (P1, P2 y P3) y comparar los resultados con el buque de referencia \textit{KCS}.
+
+La sección se organiza en dos bloques. Tras describir las instalaciones, se presentan los ensayos de resistencia al avance de los modelos de buques (modelos, instrumentación y procedimiento) y, a continuación, los ensayos de aguas abiertas de los propulsores (hélices de referencia y procedimiento).
 
 \subsection{Instalaciones: El Canal de Remolque}
 
-Los ensayos se realizaron en el canal de remolque del LabHiNO. Esta instalación cuenta con un vaso de hormigón rectilíneo con las siguientes dimensiones principales:
+Los ensayos se realizaron en el canal de remolque del LabHiNO. Esta instalación cuenta con un tanque de hormigón rectilíneo con las siguientes dimensiones principales:
 
 \begin{itemize}
     \item \textbf{Longitud:} 72 m
@@ -25,9 +27,9 @@ Los ensayos se realizaron en el canal de remolque del LabHiNO. Esta instalación
 
 El canal está equipado con un carro capaz de alcanzar una velocidad máxima de 4.0 m/s, lo cual cubre holgadamente el rango de velocidades de Froude requeridas para los modelos analizados en este estudio.
 
-\subsection{Modelos Físicos \label{sec:presentacion_modelos}}
+\subsection{Modelos Físicos de Buques \label{sec:presentacion_modelos}}
 
-Se fabricaron y ensayaron cuatro modelos a escala, de los cuales tres son pesqueros diseñados por astilleros argentinos y uno un portacontenedores de referencia. Todos fueron acabados con pintura de alto brillo para garantizar una superficie hidráulicamente lisa. A continuación se presentan los mismos.
+Se fabricaron y ensayaron cuatro modelos a escala, de los cuales tres son pesqueros diseñados por astilleros argentinos y uno un portacontenedores de referencia. Todos fueron lijados y acabados con pintura mate, de modo de obtener una superficie hidráulicamente lisa. A continuación se presentan los mismos.
 
 \subsubsection{Modelo Pesquero 1}
 El primer modelo estudiado, de ahora en más \textit{P1} representa un buque pesquero de baja esbeltez ($L/B < 4$) característico de la flota nacional. El modelo fue construido a escala $\lambda = 20$.
@@ -80,7 +82,7 @@ Desplazamiento (masa) & $\Delta$ & {[}t{]} & - & 75.0 & 85.0 & 95.0\\
 \end{table}
 
 \subsubsection{Modelo Pesquero 2}
-El segundo pesquero analizado, de ahora en más P2 fue construido a escala $\lambda = 10$ y ensayado en una sola condición de calado. La Tabla~\ref{tab:main_param_p3} resume sus características principales.
+El segundo pesquero analizado, de ahora en más P2 fue construido a escala $\lambda = 10$ y ensayado en una sola condición de calado. La Tabla~\ref{tab:main_param_p2} resume sus características principales.
 
 \begin{figure}[htpb]
     \centering
@@ -184,7 +186,7 @@ La Figura \ref{fig:model_kcs} muestra el modelo \textit{KCS}, permitiendo compar
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
         \includegraphics[width=\textwidth]{images/kcs-side.png}
-        \caption{Vista de perfil. Geometría de baja esbeltez típica de pesqueros.}
+        \caption{Vista de perfil. Geometría esbelta y afinada del portacontenedores.}
         \label{fig:kcs_side}
     \end{subfigure}
     \caption{Modelo físico del KCS (Escala 1:79) preparado para ensayos en el LabHiNO.}
@@ -211,6 +213,74 @@ Desplazamiento (masa) & $\Delta$ & {[}t{]} & 51925.940 & 105.318 \\
 \end{tabularx}
 \label{tab:main_param_kcs}
 \end{table}
+
+\subsection{Resistencia al avance. Instrumentación y Adquisición de Datos}
+
+La medición de la resistencia total al avance ($R_T$) se realizó mediante una celda de carga de un solo componente marca \textbf{Kempf \& Remmers modelo R 47}. El transductor, diseñado para una carga a escala completa de $\pm 100$ N, posee una sensibilidad de aproximadamente $\pm 1$ mV/V de voltaje de alimentación.
+
+El montaje del modelo al carro se realizó vinculándolo a la celda de carga de manera tal que se restringieron los movimientos de avance (velocidad constante impuesta por el carro), deriva (``sway''), guiñada (``yaw'') y rolido (``roll''). El sistema permitió que el modelo quedara \textbf{libre a cabeceo (``pitch'') y hundimiento (``heave'')}, conforme a los estándares para ensayos de resistencia al avance. El montaje se esquematiza en la Figura~\ref{fig:esquema_resistencia}.
+
+\begin{figure}[htpb]
+    \centering
+    \includegraphics[width=0.75\textwidth]{images/esquema_resistencia.png}
+    \caption{Esquema del montaje del ensayo de resistencia. Adaptado de \citet{molland2011maritime}.}
+    \label{fig:esquema_resistencia}
+\end{figure}
+
+El sistema de adquisición de datos se configuró con los siguientes parámetros:
+\begin{itemize}
+    \item \textbf{Frecuencia de muestreo:} 200 Hz, permitiendo capturar la dinámica transitoria y las fluctuaciones.
+    \item \textbf{Post-procesamiento:} Se aplicó un filtro paso bajo de 4 Hz a la señal para eliminar el ruido eléctrico y vibraciones mecánicas de alta frecuencia.
+\end{itemize}
+
+\subsubsection{Procedimiento de Ensayo y Análisis de Incertidumbre}
+
+Se siguió el procedimiento estándar para ensayos de resistencia según la ITTC (7.5-02-02-01).
+
+Dado que el modelo ocupa una fracción del volumen del canal, la presencia de las paredes y el fondo acelera el flujo alrededor del casco (efecto de bloqueo). Aunque las relaciones de área transversal fueron bajas ($1\% - 1.2\%$), se aplicó la \textbf{corrección de bloqueo de Schuster} a los resultados experimentales para garantizar la consistencia con la condición de aguas ilimitadas, de acuerdo con el procedimiento de la ITTC \cite{ITTC_resistance}.
+
+\subsubsection*{Metodología de Análisis de Incertidumbre}
+\label{sec:analisis_incertidumbre_general}
+
+El análisis de incertidumbre para la medición de resistencia requiere la consideración exhaustiva de todas las fuentes significativas de error. El presente análisis sigue las directrices establecidas por la ITTC \cite{ITTC_uncertainty}, combinando componentes de incertidumbre mediante el método de la Raíz de la Suma de los Cuadrados (RSS, ``Root Sum Squares'').
+
+\paragraph{Componentes de incertidumbre consideradas}
+
+La resistencia total medida es función de múltiples variables independientes. Las incertidumbres se propagaron a través de cada una de estas dependencias:
+
+\begin{itemize}
+        \item \textbf{Velocidad de remolque:} Se consideró el límite de sesgo del carro. Este error se propaga a la medición de resistencia a través de la presión dinámica del flujo, $q = \tfrac{1}{2}\rho V^2$, siendo $V$ la velocidad de remolque, y en consecuencia al número de Reynolds. Para el rango operativo del LabHiNO, la precisión adoptada refleja la capacidad de control del sistema de remolque.
+
+    \item \textbf{Temperatura del agua:} Dado que la viscosidad cinemática $\nu$ depende de la temperatura, variaciones de la misma afectan directamente al número de Reynolds $Re = \tfrac{V \cdot L}{\nu}$ y a la componente friccional de la resistencia. Se monitoreó la temperatura durante todos los ensayos. Las variaciones observadas se mantuvieron por debajo de $0.5\,^\circ$C, lo que implica variaciones en la viscosidad del orden del 2\% en el rango de interés.
+
+    \item \textbf{Calibración del dinamómetro:} El transductor Kempf \& Remmers R47 se calibró antes y después de cada sesión de ensayo utilizando pesas patrón certificadas. Se ajustó una recta a los datos de calibración mediante regresión lineal, y la desviación estándar de esta regresión se adoptó como la incertidumbre estándar de calibración. Las pesas patrón empleadas fueron de precisión suficientemente alta como para considerarse su contribución despreciable.
+
+    \item \textbf{Adquisición de datos (DAS):} La señal del dinamómetro se adquirió a frecuencia de muestreo de 200 Hz y fue filtrada mediante un filtro pasa bajos de 4 Hz antes de ingresar al sistema de adquisición. El promedio de cada ensayo se calculó sobre la historia temporal durante intervalos de al menos 10 segundos. La incertidumbre estándar del promedio temporal fue evaluada para cada repetición, resultando en valores entre $0.0007\%$ y $0.003\%$. Estos valores resultan despreciables en comparación con otras fuentes de error, confirmando la estabilidad del sistema de adquisición.
+
+    \item \textbf{Repetibilidad:} Se realizaron múltiples repeticiones de cada ensayo a una misma velocidad. La media aritmética de estas repeticiones se adoptó como la mejor estimación de la resistencia. La incertidumbre estándar de la media de $N$ mediciones repetidas se estimó de acuerdo con el procedimiento de la ITTC, considerando tanto la dispersión entre repeticiones como el número de replicaciones.
+\end{itemize}
+
+\paragraph{Combinación de componentes mediante RSS}
+
+Una vez estimadas todas las componentes individuales de incertidumbre estándar $u_1, u_2, \dots, u_m$ --una por cada una de las $m$ fuentes de error enumeradas más arriba--, la incertidumbre estándar combinada se calculó suponiéndolas independientes entre sí, mediante:
+
+\begin{equation}
+u_c = \sqrt{u_1^2 + u_2^2 + \cdots + u_m^2}.
+\end{equation}
+
+La incertidumbre expandida $U_{95}$, correspondiente a un nivel de confianza del 95\%, se obtuvo multiplicando la incertidumbre combinada por un factor de cobertura $k_c = 2$:
+
+\begin{equation}
+U_{95} = k_c\, u_c = 2\,u_c .
+\end{equation}
+
+\paragraph{Comportamiento característico con el número de Froude}
+
+Un hallazgo importante del análisis de incertidumbre es su dependencia funcional con la velocidad de remolque (o equivalentemente, con el número de Froude). A bajos números de Froude, la resistencia total es pequeña y la relación señal-ruido del dinamómetro se deteriora, amplificando la incertidumbre relativa. En este régimen, la calibración del dinamómetro y la dispersión entre repeticiones constituyen las fuentes dominantes. A medida que aumenta la velocidad, la resistencia total crece y la incertidumbre relativa disminuye, mejorando la relación señal-ruido.
+
+Este comportamiento es consistente con lo esperado para ensayos de remolque y debe ser considerado en la comparación cuantitativa con resultados numéricos.
+
+Los valores cuantitativos finales de la incertidumbre combinada y expandida para las distintas velocidades de ensayo específicas se presentan en detalle junto con los resultados experimentales en el Capítulo~\ref{cap:resistencia_factor_de_forma}.
 
 \subsection{Hélices de referencia \label{sec:presentacion_helices}}
 El estudio de propulsión de esta tesis (Capítulo~\ref{chap:helices}) se apoya en dos
@@ -286,82 +356,22 @@ Relación espesor-diámetro a $r/R=0.7$ & $t_{\max}/D$ & 0.0156       \\
 Nota: $t_{\max}$ es el espesor máximo de la sección de pala en la posición radial $r/R = 0.7$ y $D$ el diámetro del propulsor.\par}
 \end{table}
 
-\subsection{Resistencia al avance. Instrumentación y Adquisición de Datos}
-
-La medición de la resistencia total al avance ($R_T$) se realizó mediante una celda de carga de un solo componente marca \textbf{Kempf \& Remmers modelo R 47}. El transductor, diseñado para una carga a escala completa de $\pm 100$ N, posee una sensibilidad de aproximadamente $\pm 1$ mV/V de voltaje de alimentación.
-
-El montaje del modelo al carro se realizó vinculándolo a la celda de carga de manera tal que se restringieron los movimientos de avance (velocidad constante impuesta por el carro), deriva (``sway''), guiñada (``yaw'') y rolido (``roll''). El sistema permitió que el modelo quedara \textbf{libre a cabeceo (``pitch'') y hundimiento (``heave'')}, conforme a los estándares para ensayos de resistencia al avance. El montaje se esquematiza en la Figura~\ref{fig:esquema_resistencia}.
-
-\begin{figure}[htpb]
-    \centering
-    \includegraphics[width=0.75\textwidth]{images/esquema_resistencia.png}
-    \caption{Esquema del montaje del ensayo de resistencia. Adaptado de \citet{molland2011maritime}.}
-    \label{fig:esquema_resistencia}
-\end{figure}
-
-El sistema de adquisición de datos se configuró con los siguientes parámetros:
-\begin{itemize}
-    \item \textbf{Frecuencia de muestreo:} 200 Hz, permitiendo capturar la dinámica transitoria y las fluctuaciones.
-    \item \textbf{Post-procesamiento:} Se aplicó un filtro paso bajo de 4 Hz a la señal para eliminar el ruido eléctrico y vibraciones mecánicas de alta frecuencia.
-\end{itemize}
-
-\subsubsection{Procedimiento de Ensayo y Análisis de Incertidumbre}
-
-Se siguió el procedimiento estándar para ensayos de resistencia según la ITTC (7.5-02-02-01).
-
-Dado que el modelo ocupa una fracción del volumen del canal, la presencia de las paredes y el fondo acelera el flujo alrededor del casco (efecto de bloqueo). Aunque las relaciones de área transversal fueron bajas ($1\% - 1.2\%$), se aplicó la \textbf{corrección de bloqueo de Schuster} a los resultados experimentales para garantizar la consistencia con la condición de aguas ilimitadas, de acuerdo con el procedimiento de la ITTC \cite{ITTC_resistance}.
-
-\subsubsection*{Metodología de Análisis de Incertidumbre}
-\label{sec:analisis_incertidumbre_general}
-
-El análisis de incertidumbre para la medición de resistencia requiere la consideración exhaustiva de todas las fuentes significativas de error. El presente análisis sigue las directrices establecidas por la ITTC \cite{ITTC_uncertainty}, combinando componentes de incertidumbre mediante el método de la Raíz de la Suma de los Cuadrados (RSS, ``Root Sum Squares'').
-
-\paragraph{Componentes de incertidumbre consideradas}
-
-La resistencia total medida es función de múltiples variables independientes. Las incertidumbres se propagaron a través de cada una de estas dependencias:
-
-\begin{itemize}
-        \item \textbf{Velocidad de remolque:} Se consideró el límite de sesgo del carro. Este error se propaga a la medición de resistencia a través de la presión dinámica del flujo, $q = \tfrac{1}{2}\rho V^2$, siendo $V$ la velocidad de remolque, y en consecuencia al número de Reynolds. Para el rango operativo del LabHiNO, la precisión adoptada refleja la capacidad de control del sistema de remolque.
-
-    \item \textbf{Temperatura del agua:} Dado que la viscosidad cinemática $\nu$ depende de la temperatura, variaciones de la misma afectan directamente al número de Reynolds $Re = \tfrac{V \cdot L}{\nu}$ y a la componente friccional de la resistencia. Se monitoreó la temperatura durante todos los ensayos. Las variaciones observadas se mantuvieron por debajo de $0.5\,^\circ$C, lo que implica variaciones en la viscosidad del orden del 2\% en el rango de interés.
-
-    \item \textbf{Calibración del dinamómetro:} El transductor Kempf \& Remmers R47 se calibró antes y después de cada sesión de ensayo utilizando pesas patrón certificadas. Se ajustó una recta a los datos de calibración mediante regresión lineal, y la desviación estándar de esta regresión se adoptó como la incertidumbre estándar de calibración. Las pesas patrón empleadas fueron de precisión suficientemente alta como para considerarse su contribución despreciable.
-
-    \item \textbf{Adquisición de datos (DAS):} La señal del dinamómetro se adquirió a frecuencia de muestreo de 200 Hz y fue filtrada mediante un filtro pasa bajos de 4 Hz antes de ingresar al sistema de adquisición. El promedio de cada ensayo se calculó sobre la historia temporal durante intervalos de al menos 10 segundos. La incertidumbre estándar del promedio temporal fue evaluada para cada repetición, resultando en valores entre $0.0007\%$ y $0.003\%$. Estos valores resultan despreciables en comparación con otras fuentes de error, confirmando la estabilidad del sistema de adquisición.
-
-    \item \textbf{Repetibilidad:} Se realizaron múltiples repeticiones de cada ensayo a una misma velocidad. La media aritmética de estas repeticiones se adoptó como la mejor estimación de la resistencia. La incertidumbre estándar de la media de $N$ mediciones repetidas se estimó de acuerdo con el procedimiento de la ITTC, considerando tanto la dispersión entre repeticiones como el número de replicaciones.
-\end{itemize}
-
-\paragraph{Combinación de componentes mediante RSS}
-
-Una vez estimadas todas las componentes individuales de incertidumbre estándar $u_1, u_2, \dots, u_m$ --una por cada una de las $m$ fuentes de error enumeradas más arriba--, la incertidumbre estándar combinada se calculó suponiéndolas independientes entre sí, mediante:
-
-\begin{equation}
-u_c = \sqrt{u_1^2 + u_2^2 + \cdots + u_m^2}.
-\end{equation}
-
-La incertidumbre expandida $U_{95}$, correspondiente a un nivel de confianza del 95\%, se obtuvo multiplicando la incertidumbre combinada por un factor de cobertura $k_c = 2$:
-
-\begin{equation}
-U_{95} = k_c\, u_c = 2\,u_c .
-\end{equation}
-
-\paragraph{Comportamiento característico con el número de Froude}
-
-Un hallazgo importante del análisis de incertidumbre es su dependencia funcional con la velocidad de remolque (o equivalentemente, con el número de Froude). A bajos números de Froude, la resistencia total es pequeña y la relación señal-ruido del dinamómetro se deteriora, amplificando la incertidumbre relativa. En este régimen, la calibración del dinamómetro y la dispersión entre repeticiones constituyen las fuentes dominantes. A medida que aumenta la velocidad, la resistencia total crece y la incertidumbre relativa disminuye, mejorando la relación señal-ruido.
-
-Este comportamiento es consistente con lo esperado para ensayos de remolque y debe ser considerado en la comparación cuantitativa con resultados numéricos.
-
-Los valores cuantitativos finales de la incertidumbre combinada y expandida para las distintas velocidades de ensayo específicas se presentan en detalle junto con los resultados experimentales en el Capítulo~\ref{cap:resistencia_factor_de_forma}.
-
 \subsection{Ensayo de aguas abiertas del propulsor}
 \label{sec:ensayo_aguas_abiertas}
 
 Las características hidrodinámicas de una hélice en flujo uniforme se obtienen mediante el \textbf{ensayo de aguas abiertas} (\emph{open-water test}), la contraparte para el propulsor del ensayo de resistencia del casco. La hélice se ensaya \emph{aislada}, sin casco delante, de modo que el flujo que la alcanza es uniforme y libre de la estela del buque (véase la Figura~\ref{fig:esquema_aguas_abiertas}).
 
-La hélice se monta sobre un eje portahélice horizontal accionado por un \textbf{dinamómetro de aguas abiertas}, que mide simultáneamente el \textbf{empuje} $T$ (fuerza axial sobre el eje) y el \textbf{par} $Q$ (momento torsor). El conjunto puede remolcarse con el carro en el canal de remolque —caso de la hélice Wageningen B4-60, cuyos datos de archivo provienen del LabHiNO— o instalarse en un túnel de cavitación —caso del propulsor P206, ensayado por Hanwha Ocean—. En ambos casos el eje se alinea con la dirección de avance y se cumplen las condiciones normalizadas por la ITTC (7.5-02-03-02.1): la hélice se sumerge lo suficiente (para los casos en canal, con inmersión del eje mayor a aproximadamente 1.5 D sobre la punta) para evitar la deformación de la superficie libre y la ventilación, y ee incluye un carenado en el cubo para minimizar su interferencia en el flujo.
+La hélice se monta sobre un eje portahélice horizontal accionado por un \textbf{dinamómetro de aguas abiertas}, que mide simultáneamente el \textbf{empuje} $T$ (fuerza axial sobre el eje) y el \textbf{par} $Q$ (momento torsor). El conjunto puede remolcarse con el carro en el canal de remolque —caso de la hélice Wageningen B4-60, cuyos datos de archivo provienen del LabHiNO— o instalarse en un túnel de cavitación —caso del propulsor P206, ensayado por Hanwha Ocean—. En ambos casos el eje se alinea con la dirección de avance y se cumplen las condiciones normalizadas por la ITTC (7.5-02-03-02.1): la hélice se sumerge lo suficiente (para los casos en canal, con una inmersión del eje de al menos 1.5 D) para evitar la deformación de la superficie libre y la ventilación, y se incluye un carenado en el cubo para minimizar su interferencia en el flujo.
 
 El ensayo se realiza a velocidad de giro $n$ constante, barriendo el \textbf{coeficiente de avance} $J = V_a/(nD)$ mediante la variación de la velocidad de avance $V_a$. Las fuerzas medidas se adimensionalizan en el coeficiente de empuje $K_T$, el coeficiente de par $K_Q$ y la eficiencia en aguas abiertas $\eta_0$ (definidos en la Sección~\ref{sec:pow_antec}), cuyas curvas en función de $J$ constituyen el resultado del ensayo y la referencia experimental de validación empleada en el Capítulo~\ref{chap:helices}.
+
+Cabe señalar que la información experimental de aguas abiertas disponible para ambas hélices
+se limita a los valores de $J$, $K_T$ y $K_Q$ --acompañados, en el caso de la B4-60, de las
+condiciones del ensayo y de un ajuste polinómico de las curvas--, sin datos sobre la
+instrumentación empleada ni sobre la incertidumbre de medición. Por este motivo, a diferencia del
+ensayo de resistencia del casco analizado en la sección anterior, no fue posible cuantificar
+la incertidumbre experimental de estas curvas, y la comparación con las simulaciones debe
+interpretarse teniendo en cuenta esta limitación.
 
 \begin{figure}[htpb]
     \centering
@@ -396,7 +406,7 @@ El coeficiente de resistencia total del modelo se descompone como:
 \end{equation}
 %
 donde $C_{FM0}$ es el coeficiente de fricción del modelo calculado mediante
-la línea ITTC-57 (Sección~\ref{sec:ITTC57}) al número de Reynolds del modelo, $k_M$ es el factor de forma a escala modelo, determinado por el método de Prohaska como propone la ITTC \citep{ITTC_Performance_prediction}, por métodos empíricos, o según los métodos descritos en el Capítulo~\ref{cap:resistencia_factor_de_forma}, y $C_W$ es el coeficiente de resistencia por formación de olas, calculado, una vez obtenido el $C_{TM}$ del ensayo, como::
+la línea ITTC-57 (Sección~\ref{sec:ITTC57}) al número de Reynolds del modelo, $k_M$ es el factor de forma a escala modelo, determinado por el método de Prohaska como propone la ITTC \citep{ITTC_Performance_prediction}, por métodos empíricos, o según los métodos descritos en el Capítulo~\ref{cap:resistencia_factor_de_forma}, y $C_W$ es el coeficiente de resistencia por formación de olas, calculado, una vez obtenido el $C_{TM}$ del ensayo, como:
 %
 \begin{equation}\label{eq:CW_residuo}
     C_W = C_{TM} - (1+k_M)\,C_{FM0} .
@@ -540,13 +550,14 @@ cuantifica en el Capítulo~\ref{chap:helices} mediante la descomposición direct
 fuerzas que se define en la Sección~\ref{sec:metodologia_helices_descomp}.
 
 \section{Metodología Numérica (CFD)}
+\label{sec:cfd}
 
-Las simulaciones numéricas se realizaron utilizando el código de código abierto \textbf{OpenFOAM} (versión 11), basado en el Método de Volúmenes Finitos (FVM).
+Las simulaciones numéricas se realizaron con el código abierto \textbf{OpenFOAM}, basado en el Método de Volúmenes Finitos (FVM); la versión empleada se indica en cada caso. La sección se organiza en tres partes: los fundamentos comunes a todas las simulaciones (ecuaciones de gobierno y modelo de turbulencia), la metodología específica de las simulaciones de resistencia del casco (Sección~\ref{sec:cfd_casco}) y la de las simulaciones de hélices en aguas abiertas (Sección~\ref{sec:metodologia_helices}).
 
 \subsection{Ecuaciones de gobierno}
 \label{sec:ecuaciones_gobierno}
  
-El flujo alrededor del casco se modela como el de un fluido newtoniano
+El flujo, tanto alrededor del casco como a través de la hélice, se modela como el de un fluido newtoniano
 incompresible e isotérmico. Aplicando el promediado de Reynolds a las
 ecuaciones de Navier--Stokes, y descomponiendo la velocidad instantánea en
 su valor medio $U_i$ y su fluctuación $u_i'$, se obtienen las ecuaciones de
@@ -591,6 +602,78 @@ turbulenta y $\delta_{ij}$ el delta de Kronecker. El modelo de turbulencia
 empleado para determinar $\nu_t$ se describe en la
 Sección~\ref{sec:metodo_SST}.
  
+\paragraph{Magnitudes de pared y resolución de la capa límite}
+El esfuerzo cortante que el fluido ejerce sobre una superficie sólida (el casco o la pala de la hélice),
+%
+\begin{equation}\label{eq:tauw}
+    \tau_w = \mu \left.\frac{\partial U_t}{\partial y}\right|_{y=0} ,
+\end{equation}
+%
+siendo $U_t$ la componente de la velocidad tangencial a la pared e $y$ la
+distancia normal a ella, define la velocidad de fricción
+$u_\tau = \sqrt{\tau_w/\rho}$ y, con ella, la distancia adimensional a la
+pared
+%
+\begin{equation}\label{eq:yplus}
+    y^+ = \frac{u_\tau\, y}{\nu} ,
+\end{equation}
+%
+evaluada en el centro de la primera celda adyacente a la pared. El valor de
+$y^+$ determina si la capa límite se resuelve por integración directa hasta
+la pared ($y^+ \approx 1$) o mediante leyes de pared logarítmicas
+($y^+ > 30$), y es el parámetro de control del mallado prismático descrito en las Secciones~\ref{sec:mallado_general} (casco) y~\ref{sec:metodologia_helices_openfoam} (hélice).
+ 
+\subsection{Modelado de la Turbulencia: Modelo $k$--$\omega$ SST}
+\label{sec:metodo_SST}
+
+Para el cierre del sistema de ecuaciones RANS, se seleccionó el modelo \textbf{$k$--$\omega$ SST (Shear Stress Transport)}, desarrollado en \citet{Menter1994}. Este modelo se ha convertido en el estándar de la industria naval debido a su capacidad para predecir con mayor precisión el inicio y la magnitud de la separación del flujo bajo gradientes de presión adversos, una característica crítica tanto en la hidrodinámica de las popas llenas de los buques pesqueros como en el flujo sobre las palas de una hélice.
+
+El modelo SST es una formulación híbrida de dos ecuaciones que resuelve el transporte de la energía cinética turbulenta ($k$) y la tasa específica de disipación ($\omega$). Su principal ventaja radica en la combinación zonal: utiliza la robusta formulación original $k$--$\omega$ de Wilcox en la región cercana a la pared (capa límite) y conmuta al modelo estándar $k$--$\varepsilon$ en la región de flujo libre. Esta estrategia evita la conocida sensibilidad del modelo $k$--$\omega$ a las condiciones de turbulencia en el borde de entrada.
+
+Las ecuaciones de transporte para $k$ y $\omega$ en el modelo SST son:
+
+\begin{equation}
+    \frac{\partial (\rho k)}{\partial t} + \frac{\partial (\rho U_i k)}{\partial x_i} = \tilde{P}_k - \beta^* \rho k \omega + \frac{\partial}{\partial x_i} \left[ (\mu + \sigma_k \mu_t) \frac{\partial k}{\partial x_i} \right],
+\end{equation}
+
+\begin{equation}
+    \frac{\partial (\rho \omega)}{\partial t} + \frac{\partial (\rho U_i \omega)}{\partial x_i} = \alpha \rho S^2 - \beta \rho \omega^2 + \frac{\partial}{\partial x_i} \left[ (\mu + \sigma_\omega \mu_t) \frac{\partial \omega}{\partial x_i} \right] + 2(1-F_1) \rho \sigma_{\omega 2} \frac{1}{\omega} \frac{\partial k}{\partial x_i} \frac{\partial \omega}{\partial x_i},
+\end{equation}
+
+donde $\rho$ es la densidad del fluido, $U_i$ la componente $i$ de la
+velocidad, $\mu$ la viscosidad dinámica molecular, $\mu_t$ la viscosidad
+turbulenta dinámica, $\tilde{P}_k$ el término de producción limitado de
+turbulencia, $F_1$ la función de mezcla del modelo SST, y $\sigma_k$,
+$\sigma_\omega$, $\beta$, $\beta^*$ y $\alpha$ son coeficientes del modelo
+interpolados mediante $F_1$ entre los valores de los modelos
+$k$--$\omega$ y $k$--$\varepsilon$.
+
+El último término de la ecuación de $\omega$ representa la \textbf{difusión cruzada}, que se activa únicamente en la zona de flujo libre ($F_1 \to 0$), permitiendo transformar matemáticamente el modelo $k$--$\varepsilon$ en una formulación basada en $\omega$.
+
+\paragraph{Definición de la Viscosidad Turbulenta}
+La diferencia fundamental del modelo SST respecto a los modelos estándar radica en la definición de la viscosidad turbulenta ($\nu_t$). En las capas límite sujetas a gradientes de presión adversos, la hipótesis estándar de Boussinesq sobreestima el esfuerzo cortante de Reynolds, lo que conduce a una predicción tardía de la separación del flujo.
+
+Para corregir esto, Menter introdujo un limitador basado en la hipótesis de Bradshaw, que establece que el esfuerzo cortante es proporcional a la energía cinética turbulenta en la mayor parte de la capa límite. La viscosidad turbulenta se calcula como:
+
+\begin{equation}
+    \nu_t = \frac{a_1 k}{\max(a_1 \omega, S F_2)},
+\end{equation}
+
+donde:
+\begin{itemize}
+    \item $S = \sqrt{2 S_{ij} S_{ij}}$ es la magnitud del invariante de la tasa de deformación, con $S_{ij} = \tfrac{1}{2}(\partial U_i/\partial x_j + \partial U_j/\partial x_i)$ el tensor de tasa de deformación.
+    \item $a_1 = 0.31$ es una constante empírica (coeficiente de estructura de Bradshaw).
+    \item $F_2$ es una segunda función de mezcla que restringe el limitador a la capa límite.
+\end{itemize}
+
+Esta formulación asegura que $\nu_t$ no crezca excesivamente en zonas de alta deformación y baja vorticidad, permitiendo capturar correctamente la estructura de la estela y de los vórtices, como los de la popa de un buque.
+
+\subsection{Simulaciones de resistencia del casco}
+\label{sec:cfd_casco}
+
+Las simulaciones de resistencia del casco se realizaron con \textbf{OpenFOAM} (versión 11). Se emplearon dos configuraciones de simulación: con superficie libre, que replica el ensayo de canal, y de doble cuerpo, destinada a aislar la resistencia viscosa y determinar el factor de forma. Se presentan primero la formulación del problema con superficie libre, la integración de fuerzas, el dominio con su mallado y el tratamiento de pared, y luego las condiciones de contorno específicas de cada configuración, seleccionadas para garantizar la estabilidad y la conservación de masa en el dominio.
+
+\subsubsection{Formulación con superficie libre}
 \paragraph{Presión modificada}
 En las simulaciones con superficie libre el término gravitatorio se absorbe
 en la definición de una presión modificada,
@@ -633,32 +716,11 @@ ponderada de las de ambas fases,
 \end{equation}
 %
 con los subíndices $w$ y $a$ referidos al agua y al aire respectivamente.
- 
-\paragraph{Magnitudes de pared y resolución de la capa límite}
-El esfuerzo cortante que el fluido ejerce sobre el casco,
-%
-\begin{equation}\label{eq:tauw}
-    \tau_w = \mu \left.\frac{\partial U_t}{\partial y}\right|_{y=0} ,
-\end{equation}
-%
-siendo $U_t$ la componente de la velocidad tangencial a la pared e $y$ la
-distancia normal a ella, define la velocidad de fricción
-$u_\tau = \sqrt{\tau_w/\rho}$ y, con ella, la distancia adimensional a la
-pared
-%
-\begin{equation}\label{eq:yplus}
-    y^+ = \frac{u_\tau\, y}{\nu} ,
-\end{equation}
-%
-evaluada en el centro de la primera celda adyacente al casco. El valor de
-$y^+$ determina si la capa límite se resuelve por integración directa hasta
-la pared ($y^+ \approx 1$) o mediante leyes de pared logarítmicas
-($y^+ > 30$), y es el parámetro de control del mallado prismático descrito en la Sección~\ref{sec:mallado_general}
- 
-\paragraph{Integración de fuerza}
+
+\subsubsection{Integración de fuerzas}
 La resistencia al avance se obtiene integrando sobre la superficie mojada
 del casco $S$ la fuerza ejercida por el fluido, separando la contribución
-normal de la tangencial y proyectando la fuerza resultante en la dirección del avance::
+normal de la tangencial y proyectando la fuerza resultante en la dirección del avance:
 %
 \begin{equation}\label{eq:integracion_fuerzas}
     R_T = \oint_S -(p - p_\infty)\,
@@ -679,7 +741,8 @@ componente de generación de olas $R_W$. Los coeficientes adimensionales
 asociados son los definidos en el Capítulo~\ref{chap:antecedentes},
 Ecuación~\eqref{eq:CT}.
 
-\subsection{Dominio Computacional y Mallado}
+\subsubsection{Dominio Computacional y Mallado}
+\label{sec:mallado_general}
 
 Se definió un dominio computacional rectangular prismático dimensionado para evitar la reflexión de olas. Las distancias se expresan en esloras entre perpendiculares del modelo, $L_{PP}$.
 
@@ -691,9 +754,10 @@ Se definió un dominio computacional rectangular prismático dimensionado para e
 
 El mallado se generó con \texttt{snappyHexMesh}, utilizando una estructura predominantemente hexaédrica no estructurada con refinamientos locales en la superficie libre y la estela, e inserción de capas de prismas en la superficie del casco para resolver la capa límite ($y^+$ controlado).
 
-\subsection{Configuración de los Casos de Estudio}
-
-Se emplearon dos configuraciones de simulación distintas. A continuación se detallan las condiciones de contorno específicas seleccionadas para garantizar la estabilidad y conservación de masa en el dominio.
+\subsubsection{Tratamiento de pared}
+{\sloppy
+En las superficies del casco, se emplearon condiciones de borde tipo función de pared adaptativa disponibles en ``OpenFOAM'' (\texttt{kLowReWallFunction}, \texttt{omegaWallFunction}). Estas condiciones permiten una transición continua entre la integración directa de las ecuaciones hasta la pared (cuando la malla es fina, $y^+ \approx 1$) y el uso de leyes de pared logarítmicas (cuando $y^+ > 30$), asegurando la robustez de la solución independientemente de las variaciones locales de la calidad de la malla.
+\par}
 
 \subsubsection{Simulación con Superficie Libre}
 Esta configuración replica el ensayo de canal para obtener la resistencia total ($R_T$) y el campo de olas.
@@ -824,79 +888,15 @@ A diferencia de los enfoques estacionarios clásicos, en este trabajo se utiliz�
 \paragraph{Cálculo del Factor de Forma}
 La resistencia viscosa total $R_V$, compuesta por la fricción tangencial $R_F$
 y la presión viscosa $R_{PV}$, se obtuvo promediando la señal de resistencia
-en el intervalo de tiempo convergido. El factor de forma se determina como:
-%
-\begin{equation}
-    (1+k) = \frac{C_V}{C_{F0}},
-\end{equation}
-%
-donde $C_V = C_F + C_{PV}$ es el coeficiente de resistencia viscosa
-obtenido de la simulación de doble cuerpo y $C_{F0}$ es el coeficiente
-de la línea ITTC-57, definido en la Sección~\ref{sec:ITTC57}. Se adopta la
-línea ITTC-57 como referencia de $C_{F0}$ para preservar la coherencia con
-los factores de correlación históricos, siguiendo la recomendación de la
-ITTC \citep{ITTC_Combined_2021}. El valor del factor de forma resultante
-depende, no obstante, de la línea de fricción elegida, y estudios recientes
-que emplean líneas de fricción numéricas \citep{quintuna2023} obtienen
-factores de forma sistemáticamente mayores y menos dependientes de la escala,
-por lo que los valores aquí reportados deben interpretarse siempre en
-relación con la línea de referencia empleada.
+en el intervalo de tiempo convergido. Con ella, el factor de forma se determina
+según la Ecuación~\eqref{eq:k_doble_cuerpo}, adoptando como $C_{F0}$ la línea
+ITTC-57 (Sección~\ref{sec:ITTC57}) por las razones discutidas en el
+Capítulo~\ref{chap:antecedentes}.
 
-\subsection{Modelado de la Turbulencia: Modelo $k$--$\omega$ SST}
-\label{sec:metodo_SST}
-
-Para el cierre del sistema de ecuaciones RANS, se seleccionó el modelo \textbf{$k$--$\omega$ SST (Shear Stress Transport)}, desarrollado en \citet{Menter1994}. Este modelo se ha convertido en el estándar de la industria naval debido a su capacidad para predecir con mayor precisión el inicio y la magnitud de la separación del flujo bajo gradientes de presión adversos, una característica crítica en la hidrodinámica de popas de buques pesqueros.
-
-El modelo SST es una formulación híbrida de dos ecuaciones que resuelve el transporte de la energía cinética turbulenta ($k$) y la tasa específica de disipación ($\omega$). Su principal ventaja radica en la combinación zonal: utiliza la robusta formulación original $k$--$\omega$ de Wilcox en la región cercana a la pared (capa límite) y conmuta al modelo estándar $k$--$\varepsilon$ en la región de flujo libre. Esta estrategia evita la conocida sensibilidad del modelo $k$--$\omega$ a las condiciones de turbulencia en el borde de entrada.
-
-Las ecuaciones de transporte para $k$ y $\omega$ en el modelo SST son:
-
-\begin{equation}
-    \frac{\partial (\rho k)}{\partial t} + \frac{\partial (\rho U_i k)}{\partial x_i} = \tilde{P}_k - \beta^* \rho k \omega + \frac{\partial}{\partial x_i} \left[ (\mu + \sigma_k \mu_t) \frac{\partial k}{\partial x_i} \right],
-\end{equation}
-
-\begin{equation}
-    \frac{\partial (\rho \omega)}{\partial t} + \frac{\partial (\rho U_i \omega)}{\partial x_i} = \alpha \rho S^2 - \beta \rho \omega^2 + \frac{\partial}{\partial x_i} \left[ (\mu + \sigma_\omega \mu_t) \frac{\partial \omega}{\partial x_i} \right] + 2(1-F_1) \rho \sigma_{\omega 2} \frac{1}{\omega} \frac{\partial k}{\partial x_i} \frac{\partial \omega}{\partial x_i},
-\end{equation}
-
-donde $\rho$ es la densidad del fluido, $U_i$ la componente $i$ de la
-velocidad, $\mu$ la viscosidad dinámica molecular, $\mu_t$ la viscosidad
-turbulenta dinámica, $\tilde{P}_k$ el término de producción limitado de
-turbulencia, $F_1$ la función de mezcla del modelo SST, y $\sigma_k$,
-$\sigma_\omega$, $\beta$, $\beta^*$ y $\alpha$ son coeficientes del modelo
-interpolados mediante $F_1$ entre los valores de los modelos
-$k$--$\omega$ y $k$--$\varepsilon$.
-
-El último término de la ecuación de $\omega$ representa la \textbf{difusión cruzada}, que se activa únicamente en la zona de flujo libre ($F_1 \to 0$), permitiendo transformar matemáticamente el modelo $k$--$\varepsilon$ en una formulación basada en $\omega$.
-
-\paragraph{Definición de la Viscosidad Turbulenta}
-La diferencia fundamental del modelo SST respecto a los modelos estándar radica en la definición de la viscosidad turbulenta ($\nu_t$). En las capas límite sujetas a gradientes de presión adversos, la hipótesis estándar de Boussinesq sobreestima el esfuerzo cortante de Reynolds, lo que conduce a una predicción tardía de la separación del flujo.
-
-Para corregir esto, Menter introdujo un limitador basado en la hipótesis de Bradshaw, que establece que el esfuerzo cortante es proporcional a la energía cinética turbulenta en la mayor parte de la capa límite. La viscosidad turbulenta se calcula como:
-
-\begin{equation}
-    \nu_t = \frac{a_1 k}{\max(a_1 \omega, S F_2)},
-\end{equation}
-
-donde:
-\begin{itemize}
-    \item $S = \sqrt{2 S_{ij} S_{ij}}$ es la magnitud del invariante de la tasa de deformación, con $S_{ij} = \tfrac{1}{2}(\partial U_i/\partial x_j + \partial U_j/\partial x_i)$ el tensor de tasa de deformación.
-    \item $a_1 = 0.31$ es una constante empírica (coeficiente de estructura de Bradshaw).
-    \item $F_2$ es una segunda función de mezcla que restringe el limitador a la capa límite.
-\end{itemize}
-
-Esta formulación asegura que $\nu_t$ no crezca excesivamente en zonas de alta deformación y baja vorticidad, permitiendo capturar correctamente la estructura de la estela y los vórtices en la popa del buque.
-
-\paragraph{Tratamiento de Pared}
-{\sloppy
-En las superficies del casco, se emplearon condiciones de borde tipo función de pared adaptativa disponibles en ``OpenFOAM'' (\texttt{kLowReWallFunction}, \texttt{omegaWallFunction}). Estas condiciones permiten una transición continua entre la integración directa de las ecuaciones hasta la pared (cuando la malla es fina, $y^+ \approx 1$) y el uso de leyes de pared logarítmicas (cuando $y^+ > 30$), asegurando la robustez de la solución independientemente de las variaciones locales de la calidad de la malla.
-\par}
-
-\section{Metodología Numérica para Hélices en Aguas Abiertas}
+\subsection{Metodología Numérica para Hélices en Aguas Abiertas}
 \label{sec:metodologia_helices}
 
-A diferencia de las simulaciones de resistencia del casco descriptas en la sección
-anterior, las simulaciones de hélices en aguas abiertas se resuelven en un marco de
+A diferencia de las simulaciones de resistencia del casco descriptas en la Sección~\ref{sec:cfd_casco}, las simulaciones de hélices en aguas abiertas se resuelven en un marco de
 referencia solidario a la rotación del propulsor, sin superficie libre. Las
 simulaciones propias de esta tesis se realizaron con OpenFOAM (código abierto, solver
 segregado), cuya configuración se detalla a continuación. Con el objetivo de evaluar la
@@ -916,7 +916,7 @@ ecuaciones de transporte adicionales para la intermitencia $\gamma$ y el número
 Reynolds de inicio de transición $\widetilde{Re}_{\theta t}$, acopladas al modelo SST
 base.
 
-\subsection{Configuración en OpenFOAM}
+\subsubsection{Configuración en OpenFOAM}
 \label{sec:metodologia_helices_openfoam}
 
 Las simulaciones se realizaron con \textbf{OpenFOAM~8}, empleando el solver
@@ -939,7 +939,10 @@ momento, \texttt{Gauss upwind} para $k$, $\omega$, $\gamma$ y
 $\widetilde{Re}_{\theta t}$), con gradientes calculados mediante
 \texttt{cellMDLimited Gauss linear} y distancia a la pared evaluada con el método
 \texttt{meshWave}. En la entrada se impusieron condiciones de tipo
-\texttt{fixedValue} para $k$, $\omega$ y $\widetilde{Re}_{\theta t}$.
+\texttt{fixedValue} para $k$, $\omega$ y $\widetilde{Re}_{\theta t}$. En la superficie de la pala se emplearon las funciones de pared
+\texttt{nutUSpaldingWallFunction} para $\nu_t$, \texttt{kqRWallFunction} para $k$ y
+\texttt{omegaWallFunction} para $\omega$; la primera, basada en la ley de pared de Spalding,
+es válida de manera continua desde la subcapa viscosa hasta la región logarítmica.
 
 \begin{figure}[htb]
 \centering
@@ -993,7 +996,7 @@ hélice $D$.}
 \end{minipage}
 \end{figure}
 
-\subsection{Calibración de la intensidad turbulenta}
+\subsubsection{Calibración de la intensidad turbulenta}
 \label{sec:metodologia_helices_tu}
 
 Las simulaciones con SST-LM requieren especificar el nivel de intensidad turbulenta
@@ -1051,13 +1054,13 @@ efectos secundarios sobre las predicciones de fuerza --a través del campo de $\
 alcanza la pala-- que deben tenerse en cuenta al interpretar la sensibilidad de los
 resultados a este parámetro.
 
-\subsection{Descomposición de fuerzas y coeficientes locales sobre la pala}
+\subsubsection{Descomposición de fuerzas y coeficientes locales sobre la pala}
 \label{sec:metodologia_helices_descomp}
 
 El análisis de los efectos de escala del Capítulo~\ref{chap:helices} requiere ir más
 allá de los coeficientes integrales $K_T$ y $K_Q$ y separar las contribuciones de
 presión y de fricción a las fuerzas sobre la pala. Ambos códigos calculan el empuje y
-el par integrando sobre la superficie del álabe $A_b$ la tracción ejercida por el fluido, que se descompone de forma natural en un término de presión y uno viscoso, tal como se estableció para el casco en la Ecuación~\eqref{eq:integracion_fuerzas}. Siendo $\mathbf{n}$ la normal exterior, $\hat{\mathbf{e}}_x$ el versor del eje del propulsor (dirección del empuje), $\mathbf{r}$ el vector posición respecto del eje, $\boldsymbol{\tau}_w$ el vector de tensión de corte en la pared, $p$ la presión estática local sobre la pala y $p_\infty$ la presión de la corriente no perturbada, el empuje $T$ y el par $Q$ se escriben como
+el par integrando sobre la superficie del álabe $A_b$ la fuerza ejercida por el fluido, que se descompone de forma natural en un término de presión y uno viscoso, tal como se estableció para el casco en la Ecuación~\eqref{eq:integracion_fuerzas}. Siendo $\mathbf{n}$ la normal exterior, $\hat{\mathbf{e}}_x$ el versor del eje del propulsor (dirección del empuje), $\mathbf{r}$ el vector posición respecto del eje, $\boldsymbol{\tau}_w$ el vector de tensión de corte en la pared, $p$ la presión estática local sobre la pala y $p_\infty$ la presión de la corriente no perturbada, el empuje $T$ y el par $Q$ se escriben como
 %
 \begin{align}
         T &= \underbrace{\oint_{A_b} -(p - p_\infty)\,\mathbf{n}\cdot\hat{\mathbf{e}}_x \; dA_b}_{T_p}
@@ -1106,7 +1109,7 @@ referencia la resultante en la sección de $r/R = 0.7$, $V_{\text{ref}} = V_{0.7
 
 \section{Estrategia de Verificación y Validación (V\&V)}
 
-Para garantizar la fiabilidad de los resultados numéricos y cuantificar la incertidumbre de la simulación, se siguió el procedimiento estándar recomendado por la ITTC \cite{ITTC_uncertainty_CFD} y la ASME \cite{asme}, basado en las directrices de \citet{freitas}.
+Para garantizar la fiabilidad de los resultados numéricos --tanto de las simulaciones de resistencia del casco como de las de hélices-- y cuantificar la incertidumbre de la simulación, se siguió el procedimiento estándar recomendado por la ITTC \cite{ITTC_uncertainty_CFD} y la ASME \cite{asme}, basado en las directrices de \citet{freitas}.
 
 \subsection{Estudio de Convergencia de Malla (GCI)}
 \label{sec:convergencia_de_malla}
@@ -1123,7 +1126,7 @@ donde $h$ representa el tamaño característico de la celda.
 
 \subsubsection{Procedimiento de Cálculo}
 
-En primer lugar, se define la diferencia de la solución numérica entre dos mallas sucesivas. Siendo $\Phi$ la variable de interés (en este caso, el factor de forma $1+k$ o la resistencia total), se calcula:
+En primer lugar, se define la diferencia de la solución numérica entre dos mallas sucesivas. Siendo $\Phi$ la variable de interés (por ejemplo, el factor de forma $1+k$ o la resistencia total en el casco, o los coeficientes $K_T$ y $K_Q$ en la hélice), se calcula:
 
 \begin{equation}
     \epsilon_{21} = \Phi_{2} - \Phi_{1}, \qquad \epsilon_{32} = \Phi_{3} - \Phi_{2},
