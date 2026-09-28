@@ -31,10 +31,6 @@ referidos a la misma presión dinámica y superficie mojada. Los subíndices
 $M$ y $S$ se utilizan a lo largo de esta tesis para distinguir las
 magnitudes correspondientes al modelo y al buque respectivamente.
 
-% ---------------------------------------------------------------------
-% [REESCRITO] Planteo explícito de la no similitud: separación Re / Fr,
-% hipótesis central de Hughes y forma final de C_TS.
-% ---------------------------------------------------------------------
 Con esta notación el problema de la no similitud puede plantearse de manera
 precisa. El coeficiente de resistencia total es función de los dos parámetros
 que gobiernan el flujo, $C_T = C_T(Re, Fr)$. El ensayo entrega un único valor
@@ -61,7 +57,7 @@ El primer término de la Ecuación~\eqref{eq:CT_decomposicion_hughes} es la
 resistencia viscosa total del casco,
 %
 \begin{equation}\label{eq:CV}
-    C_V = C_F + C_{PV},
+  (1+k)\,C_{F0}(Re) = C_V = C_F + C_{PV},
 \end{equation}
 %
 que reúne la fricción $C_F$, integral de los esfuerzos de corte sobre la
@@ -172,7 +168,7 @@ fundada menos en su exactitud que en ofrecer una formulación matemática
 conveniente para los cálculos de potencia \citep{ITTC1957}. Esa provisionalidad
 nunca se levantó: la línea sigue vigente hoy \citep{ITTC_Performance_prediction}.
 Embebe además implícitamente un factor de forma de aproximadamente $1.09$, y a
-ello se suma una pendiente excesivamentepronunciada en el rango de bajos números de Reynolds, propio de los modelos de
+ello se suma una pendiente excesivamente pronunciada en el rango de bajos números de Reynolds, propio de los modelos de
 laboratorio: allí la Ecuación~\eqref{eq:ITTC57} entrega valores de $C_{F0}$
 superiores a la fricción real de una placa plana y decrece con $Re$ más rápido
 que ésta. Dado que $(1+k)$ se obtiene como cociente $C_V/C_{F0}$, ambas
@@ -350,10 +346,10 @@ total obtenida en esta configuración corresponde únicamente a la componente
 viscosa, y el factor de forma se obtiene como \citep{ITTC_Combined_2021}:
 %
 \begin{equation}
-    (1+k) = \frac{C_V}{C_{F0}} = \frac{C_F + C_{PV}}{C_{F0}},
+    (1+k) = \frac{C_V}{C_{F0}} = \frac{C_F + C_{PV}}{C_{F0}}.
 \end{equation}
 %
-donde $C_V = C_F + C_{PV}$ es el coeficiente de resistencia viscosa obtenido de la simulación de doble cuerpo y $C_{F0}$ el coeficiente de la línea de referencia. La ventaja decisiva sobre el método de Prohaska es que el doble cuerpo elimina la contaminación por olas en la determinación de $C_V$ (la mayor fuente de incertidumbre de Prohaska a bajas velocidades) en lugar de intentar sustraerla por extrapolación. La configuración permite además concentrar la resolución de la malla en la capa límite y la estela viscosa de popa, optimizando el costo computacional frente a las simulaciones con superficie libre. Cabe señalar, sin embargo, que la condición de simetría impuesta en la frontera superior puede distorsionar el campo de presiones en la zona de la proa bulbo cuando esta se encuentra próxima a la superficie libre, por lo que su aplicación requiere verificar que la geometría simulada no se vea afectada por esta limitación. En efecto, en \citet{quintuna2023} se observó que, cuando existe un pequeño espacio entre el tope del bulbo y la superficie libre en reposo, la tapa rígida induce una separación de flujo en torno al bulbo que no se produce en las simulaciones con superficie libre, y que este efecto se atenúa al aumentar la inmersión de la proa mediante el asiento, en línea con lo señalado en \citet{korkmaz_cfd_2021}.
+La ventaja decisiva sobre el método de Prohaska es que el doble cuerpo elimina la contaminación por olas en la determinación de $C_V$ (la mayor fuente de incertidumbre de Prohaska a bajas velocidades) en lugar de intentar sustraerla por extrapolación. La configuración permite además concentrar la resolución de la malla en la capa límite y la estela viscosa de popa, optimizando el costo computacional frente a las simulaciones con superficie libre. Cabe señalar, sin embargo, que la condición de simetría impuesta en la frontera superior puede distorsionar el campo de presiones en la zona de la proa bulbo cuando esta se encuentra próxima a la superficie libre, por lo que su aplicación requiere verificar que la geometría simulada no se vea afectada por esta limitación. En efecto, en \citet{quintuna2023} se observó que, cuando existe un pequeño espacio entre el tope del bulbo y la superficie libre en reposo, la tapa rígida induce una separación de flujo en torno al bulbo que no se produce en las simulaciones con superficie libre, y que este efecto se atenúa al aumentar la inmersión de la proa mediante el asiento, en línea con lo señalado en \citet{korkmaz_cfd_2021}.
 
 \subsection{Resultados disponibles: de los cascos de referencia a los pesqueros de baja esbeltez}
 \label{sec:estado_arte_ff}
@@ -374,7 +370,7 @@ pesqueros con $L/B < 4$ el punto de partida es \citet{oyuela2024jmse}, donde se
 determinó el factor de forma de un pesquero por el método de doble cuerpo y se lo
 contrastó con el obtenido experimentalmente sobre el mismo casco en el LabHiNO
 (Laboratorio de Hidrodinámica Naval y Oceánica, UBA), verificando que el CFD
-reproduce el valor medido. Trabajos posteriores del mismo grupo ampliaron el
+reproduce el valor medido para cierto rango de $Fr$. Trabajos posteriores del mismo grupo ampliaron el
 análisis a la influencia del modelo de turbulencia \citep{oyuela2025mecanica} y a
 la comparación con el \textit{KCS} \citep{oyuela2026oceaneng}, que permite situar
 el comportamiento de estos cascos frente al de una geometría de referencia.
@@ -627,7 +623,21 @@ ciento.
 
 Cuando la popa del casco tiene el espejo sumergido, el flujo se separa en la arista y se forma detrás una zona de recirculación persistente. La inmersión del espejo se acentúa al aumentar el calado y al reducir la velocidad, de modo que el régimen recirculante es más probable en condición de plena carga y, dentro de ella, justamente en el rango de bajos $Fr$ sobre el que operan los métodos de determinación de $(1+k)$. En esa configuración, el flujo de escala modelo y el flujo de escala buque difieren cualitativamente, no solo cuantitativamente, porque la velocidad crítica a la que el espejo ``ventila'' y pasa a flujo libre es diferente en las dos escalas \citep{ITTC_Combined_2021}. Para este caso, en \citet{korkmaz_wetted_transom} se propone un \textbf{método de dos factores de forma} ($2k$) que distingue la contribución del cuerpo sin separación de la contribución adicional de la popa espejo, calculando ambas por CFD en escala modelo y buque respectivamente. El método incluye un criterio de aplicabilidad basado en el área sumergida del espejo relativa a la sección maestra. Los cascos pesqueros analizados en esta tesis superan ese umbral en su condición de plena carga, de modo que la corrección corresponde ser aplicada; cuánto explica del efecto de escala medido en ellos es una cuestión distinta, que se cuantifica en la Sección~\ref{sec:popa_sumergida}.
 
-Recientemente en \citet{starke2025} se propuso una variante en la que el factor de forma se calcula sobre una versión del casco con la popa geométricamente cerrada, dejando la resistencia de la popa espejo fuera del escalado viscoso (verificada sobre diez cascos, reduce la subestimación de la resistencia a escala buque a un $0$--$3\%$). Su comparación sistemática con el método de dos factores de forma para los cascos aquí estudiados queda como línea de trabajo futuro.
+En \citet{starke2025} se evaluó el procedimiento empleado por MARIN para
+cascos con popa espejo sumergida, en el que el factor de forma se calcula
+mediante simulaciones de doble cuerpo sobre una versión del casco prolongada
+suavemente en la popa, y no sobre el casco real. De este modo, la resistencia
+asociada a la popa espejo y a su zona de recirculación queda fuera del escalado
+viscoso, lo que equivale a suponer que no presenta efecto de escala. Las
+simulaciones realizadas para diez buques muestran que esa resistencia es similar
+en ambas escalas, aunque a menudo algo mayor en escala buque, por lo que el
+procedimiento subestima entre un $0$ y un $3\%$ la resistencia a escala buque
+obtenida por CFD de doble cuerpo, según la magnitud de la resistencia de la popa
+espejo. En cambio, la extrapolación directa con un factor de forma calculado
+sobre el casco con popa espejo conduce a subestimaciones de hasta un $10\%$.
+En ese mismo trabajo se compara el procedimiento con el método de dos factores
+de forma de \citet{korkmaz_wetted_transom}; su aplicación a los cascos aquí
+estudiados queda como línea de trabajo futuro.
  
  
 \section{Hidrodinámica de hélices en aguas abiertas}

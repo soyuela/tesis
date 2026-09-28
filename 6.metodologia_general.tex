@@ -5,13 +5,13 @@
 
 \section{Introducción}
 
-Habiendo establecido en el Capítulo 2 los fundamentos físicos de la resistencia al avance y las bases teóricas de la mecánica de fluidos, este capítulo detalla la implementación práctica de las herramientas utilizadas en esta tesis. La investigación adopta una estrategia híbrida que vincula ensayos físicos en canal de remolque (EFD) con simulaciones numéricas (CFD).
+Este capítulo detalla la implementación práctica de las herramientas utilizadas en esta tesis. La investigación adopta una estrategia híbrida que vincula ensayos físicos en canal de remolque (EFD) con simulaciones numéricas (CFD).
 
 A continuación se describen las instalaciones experimentales del canal de pruebas del LabHiNO, las características geométricas de los modelos construidos y la instrumentación empleada. Posteriormente, se detalla la configuración del modelo numérico en ``OpenFOAM'', especificando el dominio computacional, las condiciones de contorno y los esquemas de discretización utilizados.
 
 \section{Metodología Experimental (EFD)}
 
-Los ensayos experimentales se llevaron a cabo en el canal de remolque de la Universidad de Buenos Aires (UBA), Argentina. Esta campaña tuvo como objetivo principal generar una base de datos de validación confiable para los modelos pesqueros P1, P2 y P3 y comparar los resultados con el buque de referencia \textit{KCS}.
+Los ensayos experimentales se llevaron a cabo en el canal de remolque de la Universidad de Buenos Aires (UBA), Argentina. Esta campaña tuvo como objetivo principal generar una base de datos de validación confiable para modelos de los buques P1, P2 y P3 y comparar los resultados con el buque de referencia \textit{KCS}.
 
 \subsection{Instalaciones: El Canal de Remolque}
 
@@ -20,17 +20,17 @@ Los ensayos se realizaron en el canal de remolque del LabHiNO. Esta instalación
 \begin{itemize}
     \item \textbf{Longitud:} 72 m
     \item \textbf{Ancho:} 3.6 m
-    \item \textbf{Profundidad:} 2.0 m
+    \item \textbf{Profundidad:} hasta 2.0 m
 \end{itemize}
 
-El canal está equipado con un carro dinamométrico capaz de alcanzar una velocidad máxima de 4.0 m/s, lo cual cubre holgadamente el rango de velocidades de Froude requeridas para los modelos analizados en este estudio.
+El canal está equipado con un carro capaz de alcanzar una velocidad máxima de 4.0 m/s, lo cual cubre holgadamente el rango de velocidades de Froude requeridas para los modelos analizados en este estudio.
 
 \subsection{Modelos Físicos \label{sec:presentacion_modelos}}
 
 Se fabricaron y ensayaron cuatro modelos a escala, de los cuales tres son pesqueros diseñados por astilleros argentinos y uno un portacontenedores de referencia. Todos fueron acabados con pintura de alto brillo para garantizar una superficie hidráulicamente lisa. A continuación se presentan los mismos.
 
 \subsubsection{Modelo Pesquero 1}
-El primer modelo estudiado, de ahora en más \textit{P1}, diseñado por el astillero ``TecnoPesca Argentina'', representa un buque pesquero de baja esbeltez ($L/B < 4$) característico de la flota nacional. El modelo fue construido a escala $\lambda = 20$.
+El primer modelo estudiado, de ahora en más \textit{P1} representa un buque pesquero de baja esbeltez ($L/B < 4$) característico de la flota nacional. El modelo fue construido a escala $\lambda = 20$.
 
 En la Figura \ref{fig:model_tpa}, se presentan las vistas del modelo físico terminado. Se pueden apreciar las marcas de las diferentes secciones, lineas de agua y la disposición de la proa con bulbo. Para asegurar la transición a régimen turbulento de la capa límite y evitar la laminarización del flujo a bajas velocidades, se instalaron estimuladores de turbulencia (alambres cilíndricos de 3 mm de diámetro) a un 5\% de la eslora desde la perpendicular de proa, siguiendo las recomendaciones de la ITTC (Procedimiento 7.5-01-01-01).
 
@@ -49,13 +49,13 @@ En la Figura \ref{fig:model_tpa}, se presentan las vistas del modelo físico ter
         \caption{Vista de perfil. Geometría de baja esbeltez típica de pesqueros.}
         \label{fig:tpa_side}
     \end{subfigure}
-    \caption{Modelo físico del pesquero TPA (Escala 1:20) preparado para ensayos en el LabHiNO.}
+    \caption{Modelo físico del pesquero P1 (Escala 1:20) preparado para ensayos en el LabHiNO.}
     \label{fig:model_tpa}
 \end{figure}
 
-El modelo se evaluó en tres condiciones de carga (ligero, medio y pesado) para barrer un rango operativo amplio y analizar la sensibilidad del factor de forma al calado. Las áreas transversales medias del modelo representaron el 1\%, 1.1\% y 1.2\% del área transversal del tanque para las condiciones de carga ligera, media y pesada, respectivamente.
+El modelo se evaluó en tres condiciones de carga (ligero T1, medio T2 y pesado T3) para barrer un rango operativo amplio y analizar la sensibilidad del factor de forma al calado. Las áreas transversales medias del modelo representaron el 1\%, 1.1\% y 1.2\% del área transversal del tanque para las condiciones de carga ligera, media y pesada, respectivamente.
 
-La Tabla~\ref{tab:main_param_p1} resume las características geométricas y dinámicas del buque pesquero en escala buque (T1) y del modelo en las tres condiciones de calado ensayadas (T1, T2 y T3).
+La Tabla~\ref{tab:main_param_p1} resume las características geométricas y dinámicas del buque pesquero en escala buque y del modelo en las tres condiciones de calado ensayadas (T1, T2 y T3).
 
 \begin{table}[H]
 \caption{Características principales del pesquero P1 en escala buque y del modelo en tres condiciones de calado.}
@@ -63,7 +63,7 @@ La Tabla~\ref{tab:main_param_p1} resume las características geométricas y din�
 \begin{tabularx}{\textwidth}{lllllll}
 \toprule
 \textbf{Característica}&\textbf{Símbolo}&\textbf{Unidad}&\textbf{Escala Buque}&\textbf{Modelo} & \textbf{Modelo} & \textbf{Modelo}\\
- &  & & \textbf{T1} & \textbf{T1}& \textbf{T2} & \textbf{T3}\\
+ &  & &  & \textbf{T1}& \textbf{T2} & \textbf{T3}\\
 \midrule
 Escala del modelo & $\lambda$ & {[}-{]} & - & 20 & 20 & 20\\
 Eslora en flotación & L$_{WL}$ & {[}m{]} & 32.68 & 1.634 & 1.662 & 1.641\\
@@ -80,7 +80,7 @@ Desplazamiento (masa) & $\Delta$ & {[}t{]} & - & 75.0 & 85.0 & 95.0\\
 \end{table}
 
 \subsubsection{Modelo Pesquero 2}
-El segundo pesquero analizado, de ahora en más P2, fue diseñado y construido por el Astillero Naval Federico Contessi y Cía. S.A. El modelo fue construido a escala $\lambda = 10$ y ensayado en una sola condición de calado. La Tabla~\ref{tab:main_param_p3} resume sus características principales.
+El segundo pesquero analizado, de ahora en más P2 fue construido a escala $\lambda = 10$ y ensayado en una sola condición de calado. La Tabla~\ref{tab:main_param_p3} resume sus características principales.
 
 \begin{figure}[htpb]
     \centering
@@ -106,7 +106,7 @@ El segundo pesquero analizado, de ahora en más P2, fue diseñado y construido p
 \centering
 \begin{tabularx}{\textwidth}{lllll}
 \toprule
-\textbf{Característica}&\textbf{Símbolo}&\textbf{Unidad} & \textbf{Escala Buque} & \textbf{Modelo (T1)}\\
+\textbf{Característica}&\textbf{Símbolo}&\textbf{Unidad} & \textbf{Escala Buque} & \textbf{Modelo}\\
 \midrule
 Escala del modelo & $\lambda$ & {[}-{]} & - & 10 \\
 Eslora en flotación& L$_{WL}$ & {[}m{]} & 25.100 & 2.510 \\
@@ -123,7 +123,7 @@ Desplazamiento (masa) & $\Delta$ & {[}t{]} & 397.295 & 387.0 \\
 \end{table}
 
 \subsubsection{Modelo Pesquero 3}
-El tercer pesquero analizado, de ahora en más P3, fue diseñado y construido por el astillero JPA S.A. El modelo fue construido a escala $\lambda = 13$ y ensayado en una sola condición de calado. La Tabla~\ref{tab:main_param_p3} resume sus características principales.
+El tercer pesquero analizado, de ahora en más P3 fue construido a escala $\lambda = 13$ y ensayado en una sola condición de calado. La Tabla~\ref{tab:main_param_p3} resume sus características principales.
 
 \begin{figure}[htpb]
     \centering
@@ -150,7 +150,7 @@ El tercer pesquero analizado, de ahora en más P3, fue diseñado y construido po
 \centering
 \begin{tabularx}{\textwidth}{lllll}
 \toprule
-\textbf{Característica}&\textbf{Símbolo}&\textbf{Unidad} & \textbf{Escala Buque} & \textbf{Modelo (T1)}\\
+\textbf{Característica}&\textbf{Símbolo}&\textbf{Unidad} & \textbf{Escala Buque} & \textbf{Modelo}\\
 \midrule
 Escala del modelo & $\lambda$ & {[}-{]} & - & 13 \\
 Eslora en flotación & L$_{WL}$ & {[}m{]} & 22.050 & 1.696 \\
@@ -187,7 +187,7 @@ La Figura \ref{fig:model_kcs} muestra el modelo \textit{KCS}, permitiendo compar
         \caption{Vista de perfil. Geometría de baja esbeltez típica de pesqueros.}
         \label{fig:kcs_side}
     \end{subfigure}
-    \caption{Modelo físico del pesquero P2 (Escala 1:10) preparado para ensayos en el LabHiNO.}
+    \caption{Modelo físico del KCS (Escala 1:79) preparado para ensayos en el LabHiNO.}
     \label{fig:model_kcs}
 \end{figure}
 
@@ -245,7 +245,7 @@ Parámetro & Símbolo & Valor \\
 \hline
 Diámetro de modelo            & $D$           & 0.140~m \\
 Número de álabes              & $Z$           & 4       \\
-Relación de paso              & $P/D$         & 0.81    \\
+Relación de Paso Diámetro     & $P/D$         & 0.81    \\
 Relación de área expandida    & $A_E/A_0$     & 0.60    \\
 Ángulo de rake                & ---           & $0^\circ$ \\
 \hline
@@ -274,11 +274,10 @@ Parámetro & Símbolo & Valor \\
 \hline
 Diámetro de modelo        & $D$             & 0.250~m      \\
 Número de álabes          & $Z$             & 4            \\
-Relación de paso a $r/R=0.7$ & $P/D$        & 0.721        \\
+Relación de Paso Diámetro a $r/R=0.7$ & $P/D$        & 0.721        \\
 Relación de área desarrollada & $A_E/A_0$   & 0.431        \\
 Relación espesor-diámetro a $r/R=0.7$ & $t_{\max}/D$ & 0.0156       \\
 Ángulo de skew & ---       & $16.8^\circ$ \\
-Factor de escala          & $\lambda$       & 39.44        \\
 \hline
 \end{tabular}
 
@@ -287,11 +286,11 @@ Factor de escala          & $\lambda$       & 39.44        \\
 Nota: $t_{\max}$ es el espesor máximo de la sección de pala en la posición radial $r/R = 0.7$ y $D$ el diámetro del propulsor.\par}
 \end{table}
 
-\subsection{Instrumentación y Adquisición de Datos}
+\subsection{Resistencia al avance. Instrumentación y Adquisición de Datos}
 
 La medición de la resistencia total al avance ($R_T$) se realizó mediante una celda de carga de un solo componente marca \textbf{Kempf \& Remmers modelo R 47}. El transductor, diseñado para una carga a escala completa de $\pm 100$ N, posee una sensibilidad de aproximadamente $\pm 1$ mV/V de voltaje de alimentación.
 
-El montaje del modelo al carro dinamométrico se realizó vinculándolo a la celda de carga de manera tal que se restringieron los movimientos de avance (velocidad constante impuesta por el carro), deriva (``sway''), guiñada (``yaw'') y rolido (``roll''). El sistema permitió que el modelo quedara \textbf{libre a cabeceo (``trim'') y hundimiento (``sinkage'')}, conforme a los estándares para ensayos de resistencia al avance. El montaje se esquematiza en la Figura~\ref{fig:esquema_resistencia}.
+El montaje del modelo al carro se realizó vinculándolo a la celda de carga de manera tal que se restringieron los movimientos de avance (velocidad constante impuesta por el carro), deriva (``sway''), guiñada (``yaw'') y rolido (``roll''). El sistema permitió que el modelo quedara \textbf{libre a cabeceo (``pitch'') y hundimiento (``heave'')}, conforme a los estándares para ensayos de resistencia al avance. El montaje se esquematiza en la Figura~\ref{fig:esquema_resistencia}.
 
 \begin{figure}[htpb]
     \centering
@@ -306,7 +305,7 @@ El sistema de adquisición de datos se configuró con los siguientes parámetros
     \item \textbf{Post-procesamiento:} Se aplicó un filtro paso bajo de 4 Hz a la señal para eliminar el ruido eléctrico y vibraciones mecánicas de alta frecuencia.
 \end{itemize}
 
-\subsection{Procedimiento de Ensayo y Análisis de Incertidumbre}
+\subsubsection{Procedimiento de Ensayo y Análisis de Incertidumbre}
 
 Se siguió el procedimiento estándar para ensayos de resistencia según la ITTC (7.5-02-02-01).
 
@@ -322,11 +321,9 @@ El análisis de incertidumbre para la medición de resistencia requiere la consi
 La resistencia total medida es función de múltiples variables independientes. Las incertidumbres se propagaron a través de cada una de estas dependencias:
 
 \begin{itemize}
-    \item \textbf{Geometría del casco:} La incertidumbre en el desplazamiento y la superficie mojada se cuantificó midiendo el lastre del modelo con una balanza de brazo portátil. Asumiendo que la incertidumbre geométrica no afecta significativamente el coeficiente de resistencia residual, la propagación ocurre a través de la superficie mojada y la eslora representativa. La incertidumbre estándar en la masa de desplazamiento constituye la fuente primaria para esta componente.
+        \item \textbf{Velocidad de remolque:} Se consideró el límite de sesgo del carro. Este error se propaga a la medición de resistencia a través de la presión dinámica del flujo, $q = \tfrac{1}{2}\rho V^2$, siendo $V$ la velocidad de remolque, y en consecuencia al número de Reynolds. Para el rango operativo del LabHiNO, la precisión adoptada refleja la capacidad de control del sistema de remolque.
 
-    \item \textbf{Velocidad de remolque:} Se consideró el límite de sesgo del carro dinamométrico. Este error se propaga a la medición de resistencia a través de la presión dinámica del flujo, $q = \tfrac{1}{2}\rho V^2$, siendo $V$ la velocidad de remolque, y en consecuencia al número de Reynolds. Para el rango operativo del LabHiNO, la precisión adoptada refleja la capacidad de control del sistema de remolque.
-
-    \item \textbf{Temperatura del agua:} Dado que la viscosidad cinemática $\nu$ es fuertemente dependiente de la temperatura, variaciones de la misma afectan directamente al número de Reynolds $Re = \tfrac{V \cdot L}{\nu}$ y a la componente friccional de la resistencia. Se monitoreó la temperatura durante todos los ensayos. Las variaciones observadas se mantuvieron por debajo de $0.5\,^\circ$C, lo que implica variaciones en la viscosidad del orden del 2\% en el rango de interés.
+    \item \textbf{Temperatura del agua:} Dado que la viscosidad cinemática $\nu$ depende de la temperatura, variaciones de la misma afectan directamente al número de Reynolds $Re = \tfrac{V \cdot L}{\nu}$ y a la componente friccional de la resistencia. Se monitoreó la temperatura durante todos los ensayos. Las variaciones observadas se mantuvieron por debajo de $0.5\,^\circ$C, lo que implica variaciones en la viscosidad del orden del 2\% en el rango de interés.
 
     \item \textbf{Calibración del dinamómetro:} El transductor Kempf \& Remmers R47 se calibró antes y después de cada sesión de ensayo utilizando pesas patrón certificadas. Se ajustó una recta a los datos de calibración mediante regresión lineal, y la desviación estándar de esta regresión se adoptó como la incertidumbre estándar de calibración. Las pesas patrón empleadas fueron de precisión suficientemente alta como para considerarse su contribución despreciable.
 
@@ -360,16 +357,16 @@ Los valores cuantitativos finales de la incertidumbre combinada y expandida para
 \subsection{Ensayo de aguas abiertas del propulsor}
 \label{sec:ensayo_aguas_abiertas}
 
-Las características hidrodinámicas de una hélice en flujo uniforme se obtienen mediante el \textbf{ensayo de aguas abiertas} (\emph{open-water test}), la contraparte para el propulsor del ensayo de resistencia del casco. A diferencia de este último, la hélice se ensaya \emph{aislada}, sin casco delante, de modo que el flujo que la alcanza es uniforme y libre de la estela del buque (véase la Figura~\ref{fig:esquema_aguas_abiertas}).
+Las características hidrodinámicas de una hélice en flujo uniforme se obtienen mediante el \textbf{ensayo de aguas abiertas} (\emph{open-water test}), la contraparte para el propulsor del ensayo de resistencia del casco. La hélice se ensaya \emph{aislada}, sin casco delante, de modo que el flujo que la alcanza es uniforme y libre de la estela del buque (véase la Figura~\ref{fig:esquema_aguas_abiertas}).
 
-La hélice se monta sobre un eje portahélice horizontal accionado por un \textbf{dinamómetro de aguas abiertas}, que mide simultáneamente el \textbf{empuje} $T$ (fuerza axial sobre el eje) y el \textbf{par} $Q$ (momento torsor), mientras registra la velocidad de giro $n$ y la velocidad de avance $V_a$. El conjunto puede remolcarse con el carro dinamométrico en el canal de remolque —caso de la hélice Wageningen B4-60, cuyos datos de archivo provienen del LabHiNO— o instalarse en un túnel de cavitación —caso del propulsor P206, ensayado por Hanwha Ocean—. En ambos casos el eje se alinea con la dirección de avance y se cumplen las condiciones normalizadas por la ITTC (7.5-02-03-02.1): la hélice se sumerge lo suficiente (inmersión del eje mayor a aproximadamente un diámetro sobre la punta) para evitar la deformación de la superficie libre y la ventilación, y el núcleo se carena para minimizar la interferencia del cubo.
+La hélice se monta sobre un eje portahélice horizontal accionado por un \textbf{dinamómetro de aguas abiertas}, que mide simultáneamente el \textbf{empuje} $T$ (fuerza axial sobre el eje) y el \textbf{par} $Q$ (momento torsor). El conjunto puede remolcarse con el carro en el canal de remolque —caso de la hélice Wageningen B4-60, cuyos datos de archivo provienen del LabHiNO— o instalarse en un túnel de cavitación —caso del propulsor P206, ensayado por Hanwha Ocean—. En ambos casos el eje se alinea con la dirección de avance y se cumplen las condiciones normalizadas por la ITTC (7.5-02-03-02.1): la hélice se sumerge lo suficiente (para los casos en canal, con inmersión del eje mayor a aproximadamente 1.5 D sobre la punta) para evitar la deformación de la superficie libre y la ventilación, y ee incluye un carenado en el cubo para minimizar su interferencia en el flujo.
 
-El ensayo se realiza a velocidad de giro $n$ constante, barriendo el \textbf{coeficiente de avance} $J = V_a/(nD)$ mediante la variación de la velocidad de avance $V_a$ (o, equivalentemente, de $n$). Las fuerzas medidas se adimensionalizan en el coeficiente de empuje $K_T$, el coeficiente de par $K_Q$ y la eficiencia en aguas abiertas $\eta_0$ (definidos en la Sección~\ref{sec:pow_antec}), cuyas curvas en función de $J$ constituyen el resultado del ensayo y la referencia experimental de validación empleada en el Capítulo~\ref{chap:helices}.
+El ensayo se realiza a velocidad de giro $n$ constante, barriendo el \textbf{coeficiente de avance} $J = V_a/(nD)$ mediante la variación de la velocidad de avance $V_a$. Las fuerzas medidas se adimensionalizan en el coeficiente de empuje $K_T$, el coeficiente de par $K_Q$ y la eficiencia en aguas abiertas $\eta_0$ (definidos en la Sección~\ref{sec:pow_antec}), cuyas curvas en función de $J$ constituyen el resultado del ensayo y la referencia experimental de validación empleada en el Capítulo~\ref{chap:helices}.
 
 \begin{figure}[htpb]
     \centering
     \includegraphics[width=0.9\textwidth]{images/esquema_aguas_abiertas.png}
-    \caption{Esquema del ensayo de aguas abiertas. Adaptado de \citet{birk2019}.}
+    \caption{Esquema del ensayo de aguas abiertas en canal. Adaptado de \citet{birk2019}.}
     \label{fig:esquema_aguas_abiertas}
 \end{figure}
 
@@ -378,9 +375,9 @@ El ensayo se realiza a velocidad de giro $n$ constante, barriendo el \textbf{coe
 
 Las magnitudes obtenidas a escala de modelo --la resistencia del casco y las
 características de aguas abiertas del propulsor-- deben corregirse a escala buque antes
-de emplearse en la predicción de prestaciones. Ambas correcciones siguen el
+de emplearse en la predicción de potencia. Ambas correcciones siguen el
 procedimiento estándar recomendado por la ITTC, cada una con su formulación propia, y
-se describen a continuación de forma paralela.
+se describen a continuación.
 
 \subsection{Extrapolación de la resistencia del casco}
 \label{sec:prediccion_potencia}
@@ -399,7 +396,7 @@ El coeficiente de resistencia total del modelo se descompone como:
 \end{equation}
 %
 donde $C_{FM0}$ es el coeficiente de fricción del modelo calculado mediante
-la línea ITTC-57 (Sección~\ref{sec:ITTC57}) al número de Reynolds del modelo, $k_M$ es el factor de forma a escala modelo, determinado por el método de Prohaska como propone la ITTC \citep{ITTC_Performance_prediction}, por métodos empíricos, o según los métodos descritos en el Capítulo~\ref{cap:resistencia_factor_de_forma}, y $C_W$ es el coeficiente de resistencia por formación de olas, obtenido como residuo:
+la línea ITTC-57 (Sección~\ref{sec:ITTC57}) al número de Reynolds del modelo, $k_M$ es el factor de forma a escala modelo, determinado por el método de Prohaska como propone la ITTC \citep{ITTC_Performance_prediction}, por métodos empíricos, o según los métodos descritos en el Capítulo~\ref{cap:resistencia_factor_de_forma}, y $C_W$ es el coeficiente de resistencia por formación de olas, calculado, una vez obtenido el $C_{TM}$ del ensayo, como::
 %
 \begin{equation}\label{eq:CW_residuo}
     C_W = C_{TM} - (1+k_M)\,C_{FM0} .
@@ -434,9 +431,9 @@ donde $C_{FS0}$ es el coeficiente de fricción del buque calculado mediante la l
 Conviene subrayar la estructura de las Ecuaciones~\eqref{eq:CW_residuo}
 y~\eqref{eq:CTS}: la resistencia por olas $C_W$ se calcula con el factor de
 forma de modelo $k_M$ y se traslada sin modificación a la escala buque,
-mientras que la componente viscosa se escala con el factor de forma de buque $k_S$. El método estándar de la ITTC asume $k_S = k_M$, es decir, un factor de forma independiente de la escala, con lo que ambas ecuaciones se reducen al procedimiento clásico de un único factor de forma. Cuando, en cambio, se admite $k_S \neq k_M$, la formulación coincide con el método de dos factores de forma ($2k$) de \citet{korkmaz_wetted_transom}, en el que la componente viscosa se corrige por efectos de escala sin alterar la residual. Como se analiza en profundidad en el Capítulo~\ref{cap:resistencia_factor_de_forma}, la hipótesis $k_S = k_M$ no se cumple para los pesqueros estudiados en esta tesis, lo que hace necesario el uso de la formulación de dos factores de forma.
+mientras que la componente viscosa se escala con el factor de forma de buque $k_S$. El método estándar de la ITTC asume $k_S = k_M$, es decir, un factor de forma independiente de la escala, con lo que ambas ecuaciones se reducen al procedimiento clásico de un único factor de forma. Cuando, en cambio, se admite $k_S \neq k_M$, la formulación coincide con el método de dos factores de forma ($2k$) de \citet{korkmaz_wetted_transom}, en el que la componente viscosa se corrige por efectos de escala sin alterar la componente de olas. Como se analiza en profundidad en el Capítulo~\ref{cap:resistencia_factor_de_forma}, la hipótesis $k_S = k_M$ no se cumple para los pesqueros estudiados en esta tesis, lo que hace necesario el uso de la formulación de dos factores de forma.
 
-La resistencia total del buque y la potencia efectiva se obtienen como:
+La resistencia total del buque y la potencia efectiva de remolque se obtienen como:
 %
 \begin{equation}
     R_{TS} = \tfrac{1}{2}\,\rho\,V_S^2\,S_S\,C_{TS},
@@ -455,7 +452,7 @@ la superficie mojada a escala buque.
 De forma análoga al escalado de la resistencia del casco, las características de
 aguas abiertas del propulsor obtenidas a escala de modelo --sea por ensayo o por
 simulación-- deben corregirse a escala buque antes de emplearse en la predicción de
-prestaciones. Se recuerdan las definiciones adimensionales introducidas en el
+potencia. Se recuerdan las definiciones adimensionales introducidas en el
 Capítulo~\ref{chap:antecedentes} (Sección~\ref{sec:pow_antec}):
 %
 \begin{equation}
@@ -502,7 +499,7 @@ Capítulo~\ref{chap:antecedentes} (Sección~\ref{sec:ittc78_propulsor}), se cons
 la diferencia entre las condiciones de modelo y de buque,
 %
 \begin{equation}
-    \Delta C_D = C_{D,M} - C_{D,S},
+    \Delta C_D = C_{DM} - C_{DS},
     \label{eq:ittc78_deltacd}
 \end{equation}
 %
@@ -510,10 +507,10 @@ con los coeficientes de arrastre bidimensional de la sección evaluados, respect
 mediante
 %
 \begin{align}
-    C_{D,M} &= 2\left(1 + 2\,\frac{t_{\max}}{c_{0.75R}}\right)
+    C_{DM} &= 2\left(1 + 2\,\frac{t_{\max}}{c_{0.75R}}\right)
               \left[\frac{0.044}{Re_{c,0.75R}^{\,1/6}} - \frac{5}{Re_{c,0.75R}^{\,2/3}}\right],
     \label{eq:ittc78_cdm}\\[4pt]
-    C_{D,S} &= 2\left(1 + 2\,\frac{t_{\max}}{c_{0.75R}}\right)
+    C_{DS} &= 2\left(1 + 2\,\frac{t_{\max}}{c_{0.75R}}\right)
               \left[1.89 + 1.62\,\log_{10}\!\left(\frac{c_{0.75R}}{k_{s,p}}\right)\right]^{-2.5}.
     \label{eq:ittc78_cds}
 \end{align}
@@ -521,11 +518,11 @@ mediante
 Aquí $t$ es el espesor máximo de la sección a $r/R = 0.75$, $Re_{co}$ su número de
 Reynolds local (Ecuación~\eqref{eq:Re_helice}) y $k_p$ la rugosidad equivalente de la
 pala, para la que se adopta el valor estándar $k_p = 30\times10^{-6}$~m recomendado por
-la ITTC en ausencia de mediciones directas. El coeficiente $C_{D,M}$ responde a una ley
-de fricción dependiente del Reynolds, mientras que $C_{D,S}$ corresponde al régimen
+la ITTC en ausencia de mediciones directas. El coeficiente $C_{DM}$ responde a una ley
+de fricción dependiente del Reynolds, mientras que $C_{DS}$ corresponde al régimen
 rugoso plenamente desarrollado propio de la escala buque.
 
-Dado que $\Delta C_D > 0$ (la sección de modelo, a menor Reynolds, presenta mayor
+Dado que $\Delta C_D > 0$ (la sección de modelo, a menor Reynolds, presenta mayor coeficiente de
 arrastre), la Ecuación~\eqref{eq:ittc78_deltaKtKq} produce $\Delta K_T < 0$ y
 $\Delta K_Q > 0$. Al introducir estos signos en la Ecuación~\eqref{eq:ittc78_KtKq_buque}, donde ambas correcciones se \emph{restan} de los valores de modelo ($K_{TS} = K_{TM} - \Delta K_T$ y $K_{QS} = K_{QM} - \Delta K_Q$), restar un $\Delta K_T$ negativo hace que el empuje corregido \emph{aumente}, mientras que restar un $\Delta K_Q$ positivo hace que el par \emph{disminuya} al pasar de modelo a buque, en el sentido físico esperado. 
 
@@ -571,7 +568,7 @@ continuidad y de cantidad de movimiento promediadas (RANS):
 \end{equation}
 %
 donde $U_i$ es la componente $i$ de la velocidad media --que en notación vectorial se denota $\mathbf{U}$--, $x_i$ la coordenada
-espacial correspondiente, $t$ el tiempo, $p$ la presión estática, $\rho$ la
+espacial correspondiente, $t$ el tiempo, $p$ la presión hidrostática, $\rho$ la
 densidad del fluido, $\mu$ su viscosidad dinámica molecular y $g_i$ la
 componente $i$ de la aceleración de la gravedad. Se adopta la convención de
 suma sobre índices repetidos. El término $-\rho\,\overline{u_i' u_j'}$ es el
@@ -658,10 +655,10 @@ $y^+$ determina si la capa límite se resuelve por integración directa hasta
 la pared ($y^+ \approx 1$) o mediante leyes de pared logarítmicas
 ($y^+ > 30$), y es el parámetro de control del mallado prismático descrito en la Sección~\ref{sec:mallado_general}
  
-\paragraph{Integración de fuerzas}
+\paragraph{Integración de fuerza}
 La resistencia al avance se obtiene integrando sobre la superficie mojada
-del casco $S$ la tracción ejercida por el fluido, separando la contribución
-normal de la tangencial:
+del casco $S$ la fuerza ejercida por el fluido, separando la contribución
+normal de la tangencial y proyectando la fuerza resultante en la dirección del avance::
 %
 \begin{equation}\label{eq:integracion_fuerzas}
     R_T = \oint_S -(p - p_\infty)\,
@@ -807,7 +804,7 @@ En esta aproximación, la superficie libre se sustituye por una condición de \t
 \begin{itemize}
         \item \textbf{Plano de Simetría:} La frontera superior del dominio se define como un \texttt{symmetryPlane}. Matemáticamente, esto impone dos restricciones fundamentales sobre el campo de velocidad $\mathbf{U}$ introducido en la Sección~\ref{sec:ecuaciones_gobierno}:
     \begin{enumerate}
-        \item Flujo impenetrable: la componente normal de la velocidad es nula, $\mathbf{U} \cdot \mathbf{n} = 0$, siendo $\mathbf{n}$ la normal a la frontera.
+        \item Plano impermeable: la componente normal de la velocidad es nula, $\mathbf{U} \cdot \mathbf{n} = 0$, siendo $\mathbf{n}$ la normal a la frontera.
         \item Cero esfuerzo cortante: el gradiente normal de la velocidad tangencial es nulo, $\partial \mathbf{U}_t / \partial y = 0$, con $y$ la distancia normal a la frontera.
     \end{enumerate}
     Esta configuración elimina la generación de olas ($R_W = 0$) y la energía potencial gravitatoria, permitiendo que la presión calculada corresponda únicamente a la presión hidrodinámica viscosa.
@@ -1000,7 +997,7 @@ hélice $D$.}
 \label{sec:metodologia_helices_tu}
 
 Las simulaciones con SST-LM requieren especificar el nivel de intensidad turbulenta
-($Tu$) en el plano del disco, parámetro del cual depende fuertemente el punto de inicio
+($Tu$) en el plano de la hélice, parámetro del cual depende fuertemente el punto de inicio
 de la transición laminar--turbulenta. La intensidad turbulenta se relaciona con la energía cinética turbulenta $k$ y la velocidad de referencia del flujo incidente $U$ --tomada como la velocidad axial impuesta en la entrada del dominio-- mediante $Tu = \sqrt{2k/3}\,/\,U$, de modo que las condiciones de entrada de las variables de turbulencia quedan fijadas a partir del $Tu$ prescrito como
 %
 \begin{equation}
@@ -1029,7 +1026,7 @@ $Tu$ (expresado en \%), en su forma sin gradiente de presión:
 Siguiendo la metodología de \citet{Gaggero2020}, en ambos códigos las variables de
 turbulencia se mantienen congeladas desde la entrada del dominio hasta una distancia de
 $0.5D$ aguas arriba de la hélice, permitiendo su decaimiento únicamente en el tramo
-restante de $0.5D$ hasta el plano del disco. De este modo, $Tu$ en el disco --y no en la
+restante de $0.5D$ hasta el plano de la hélice. De este modo, $Tu$ en el disco --y no en la
 entrada-- es el parámetro físicamente relevante y comparable entre ambos solvers,
 independientemente de las diferencias de formulación de cada código.
 
