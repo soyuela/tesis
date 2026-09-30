@@ -361,17 +361,9 @@ Nota: $t_{\max}$ es el espesor máximo de la sección de pala en la posición ra
 
 Las características hidrodinámicas de una hélice en flujo uniforme se obtienen mediante el \textbf{ensayo de aguas abiertas} (\emph{open-water test}), la contraparte para el propulsor del ensayo de resistencia del casco. La hélice se ensaya \emph{aislada}, sin casco delante, de modo que el flujo que la alcanza es uniforme y libre de la estela del buque (véase la Figura~\ref{fig:esquema_aguas_abiertas}).
 
-La hélice se monta sobre un eje portahélice horizontal accionado por un \textbf{dinamómetro de aguas abiertas}, que mide simultáneamente el \textbf{empuje} $T$ (fuerza axial sobre el eje) y el \textbf{par} $Q$ (momento torsor). El conjunto puede remolcarse con el carro en el canal de remolque —caso de la hélice Wageningen B4-60, cuyos datos de archivo provienen del LabHiNO— o instalarse en un túnel de cavitación —caso del propulsor P206, ensayado por Hanwha Ocean—. En ambos casos el eje se alinea con la dirección de avance y se cumplen las condiciones normalizadas por la ITTC (7.5-02-03-02.1): la hélice se sumerge lo suficiente (para los casos en canal, con una inmersión del eje de al menos 1.5 D) para evitar la deformación de la superficie libre y la ventilación, y se incluye un carenado en el cubo para minimizar su interferencia en el flujo.
+La hélice se monta sobre un eje portahélice horizontal accionado por un \textbf{dinamómetro de aguas abiertas}, que mide simultáneamente el \textbf{empuje} $T$ (fuerza axial sobre el eje) y el \textbf{par} $Q$ (momento torsor). El conjunto puede remolcarse con el carro en el canal de remolque —caso de la hélice Wageningen B4-60, cuyos datos de archivo provienen del LabHiNO— o instalarse en un túnel de cavitación —caso del propulsor P206, ensayado por Hanwha Ocean—. En ambos casos el eje se alinea con la dirección de avance y se cumplen las condiciones normalizadas por la ITTC \citep{ITTC_open_water}: la hélice se sumerge lo suficiente (para los casos en canal, con una inmersión del eje de al menos 1.5 D) para evitar la deformación de la superficie libre y la ventilación, y se incluye un carenado en el cubo para minimizar su interferencia en el flujo.
 
 El ensayo se realiza a velocidad de giro $n$ constante, barriendo el \textbf{coeficiente de avance} $J = V_a/(nD)$ mediante la variación de la velocidad de avance $V_a$. Las fuerzas medidas se adimensionalizan en el coeficiente de empuje $K_T$, el coeficiente de par $K_Q$ y la eficiencia en aguas abiertas $\eta_0$ (definidos en la Sección~\ref{sec:pow_antec}), cuyas curvas en función de $J$ constituyen el resultado del ensayo y la referencia experimental de validación empleada en el Capítulo~\ref{chap:helices}.
-
-Cabe señalar que la información experimental de aguas abiertas disponible para ambas hélices
-se limita a los valores de $J$, $K_T$ y $K_Q$ --acompañados, en el caso de la B4-60, de las
-condiciones del ensayo y de un ajuste polinómico de las curvas--, sin datos sobre la
-instrumentación empleada ni sobre la incertidumbre de medición. Por este motivo, a diferencia del
-ensayo de resistencia del casco analizado en la sección anterior, no fue posible cuantificar
-la incertidumbre experimental de estas curvas, y la comparación con las simulaciones debe
-interpretarse teniendo en cuenta esta limitación.
 
 \begin{figure}[htpb]
     \centering
@@ -379,6 +371,104 @@ interpretarse teniendo en cuenta esta limitación.
     \caption{Esquema del ensayo de aguas abiertas en canal. Adaptado de \citet{birk2019}.}
     \label{fig:esquema_aguas_abiertas}
 \end{figure}
+
+\subsubsection{Procedimiento de Ensayo y Análisis de Incertidumbre}
+
+Se siguió el procedimiento estándar para ensayos de aguas abiertas según la ITTC \citep{ITTC_open_water}, complementado con las directrices de análisis de incertidumbre para este ensayo \citep{ITTC_uncertainty_OW}.
+
+La información experimental disponible difiere marcadamente entre ambas hélices. Para el propulsor \textbf{P206} se dispone únicamente de los valores de $J$, $K_T$ y $K_Q$, sin datos sobre la instrumentación empleada ni sobre la incertidumbre de medición, por lo que \emph{no} fue posible cuantificar la incertidumbre experimental de sus curvas y la comparación con las simulaciones debe interpretarse teniendo en cuenta esta limitación. Para la hélice \textbf{B4-60}, en cambio, la hoja de ensayo de archivo consigna las condiciones del ensayo y el dinamómetro utilizado, lo que permite construir la evaluación de incertidumbre que se describe a continuación y cuyos resultados se presentan junto con los datos experimentales en el Capítulo~\ref{chap:helices}.
+
+\subsubsection*{Metodología de Análisis de Incertidumbre del Ensayo de Aguas Abiertas}
+\label{sec:analisis_incertidumbre_aguas_abiertas}
+
+A diferencia de la campaña de resistencia descrita en la Sección~\ref{sec:analisis_incertidumbre_general} --realizada en el marco de esta tesis y con repeticiones sistemáticas--, el ensayo de aguas abiertas de la B4-60 corresponde a una campaña de archivo del LabHiNO, anterior a este trabajo, de la que se conserva una única corrida por punto de funcionamiento. \textbf{Esta diferencia condiciona por completo el alcance del análisis:} sin repeticiones no es posible evaluar la componente de Tipo~A (repetibilidad), de modo que la evaluación se limita a las componentes de Tipo~B, dominadas por el dinamómetro. Los valores obtenidos constituyen, en consecuencia, una \emph{cota inferior} de la incertidumbre total del ensayo, y así deben interpretarse. En la campaña de resistencia del \textit{P1} la repetibilidad resultó ser una de las dos fuentes dominantes (Tabla~\ref{tab:uncert_tpa}), lo que da una medida de la magnitud de lo que aquí no puede cuantificarse.
+
+\paragraph{Modelo de medición y propagación}
+
+Las magnitudes de interés se obtienen de las variables primarias empuje $T$, par $Q$, velocidad de giro $n$, velocidad de avance $V_a$, densidad $\rho$ y diámetro $D$:
+
+\begin{equation}
+K_T = \frac{T}{\rho\,n^{2}D^{4}}, \qquad
+K_Q = \frac{Q}{\rho\,n^{2}D^{5}}, \qquad
+J   = \frac{V_a}{n\,D}, \qquad
+\eta_0 = \frac{T\,V_a}{2\pi\,n\,Q}.
+\label{eq:coef_aguas_abiertas_incert}
+\end{equation}
+
+Suponiendo las variables primarias no correlacionadas, la propagación se realiza mediante la raíz de la suma de los cuadrados (RSS), con los coeficientes de sensibilidad que surgen de los exponentes de la Ecuación~\ref{eq:coef_aguas_abiertas_incert}:
+
+\begin{equation}
+\frac{u(K_T)}{K_T} = \sqrt{\left(\frac{u_T}{T}\right)^{2}
++ \left(\frac{2\,u_n}{n}\right)^{2}
++ \left(\frac{u_\rho}{\rho}\right)^{2}
++ \left(\frac{4\,u_D}{D}\right)^{2}},
+\end{equation}
+
+\begin{equation}
+\frac{u(K_Q)}{K_Q} = \sqrt{\left(\frac{u_Q}{Q}\right)^{2}
++ \left(\frac{2\,u_n}{n}\right)^{2}
++ \left(\frac{u_\rho}{\rho}\right)^{2}
++ \left(\frac{5\,u_D}{D}\right)^{2}},
+\end{equation}
+
+\begin{equation}
+\frac{u(\eta_0)}{\eta_0} = \sqrt{\left(\frac{u_T}{T}\right)^{2}
++ \left(\frac{u_Q}{Q}\right)^{2}
++ \left(\frac{u_n}{n}\right)^{2}
++ \left(\frac{u_{V_a}}{V_a}\right)^{2}}.
+\label{eq:u_eta0}
+\end{equation}
+
+La incertidumbre de $\eta_0$ se evalúa directamente sobre las variables primarias (Ecuación~\ref{eq:u_eta0}) y no combinando $u(J)$, $u(K_T)$ y $u(K_Q)$, lo que contabilizaría varias veces la contribución de $n$ y sobrestimaría el resultado. Las componentes especificadas como límites de error $\pm a$ se convierten a incertidumbre estándar suponiendo distribución rectangular, $u = a/\sqrt{3}$; las asociadas a resolución, mediante $u = \mathrm{res}/(2\sqrt{3})$. La incertidumbre expandida se obtiene, como en el ensayo de resistencia, con un factor de cobertura $k_c = 2$ ($U_{95} = 2\,u_c$).
+
+\paragraph{Componentes de incertidumbre consideradas}
+
+\begin{itemize}
+    \item \textbf{Dinamómetro de aguas abiertas:} El ensayo se realizó con un dinamómetro \textbf{Kempf \& Remmers R43}, de rangos nominales $6$~kgf de empuje ($58.84$~N) y $15$~kgf$\cdot$cm de par ($147.1$~N$\cdot$cm). La incertidumbre asociada se estimó a partir de la documentación técnica del instrumento y de sus registros de calibración, según el presupuesto detallado más abajo.
+
+    \item \textbf{Velocidad de avance y velocidad de giro:} Se adoptó para $V_a$ el límite de sesgo del carro de remolque ($0.07\%$), el mismo valor empleado en la campaña de resistencia. Para la velocidad de giro, regulada electrónicamente y verificada por el propio dinamómetro, se adoptó $0.07\%$ como valor conservador.
+
+    \item \textbf{Densidad del agua:} Se adoptó $0.03\%$, consistente con la variación de temperatura registrada durante los ensayos, igual criterio que en la Sección~\ref{sec:analisis_incertidumbre_general}.
+
+    \item \textbf{Diámetro de la hélice:} Se adoptó $0.05\%$ sobre $D = 0.140$~m ($\pm 0.07$~mm), acorde con la tolerancia de mecanizado habitual de un modelo de hélice. Su coeficiente de sensibilidad es elevado ($4u_D/D$ en $K_T$ y $5u_D/D$ en $K_Q$), por lo que domina el término geométrico de ambos coeficientes.
+
+    \item \textbf{Repetibilidad (Tipo~A):} \emph{No evaluable}. El ensayo de archivo conserva una única corrida por punto de funcionamiento.
+\end{itemize}
+
+\paragraph{Presupuesto del dinamómetro}
+
+La incertidumbre del dinamómetro se estimó como una fracción del fondo de escala (FS) de cada canal, a partir de las componentes reunidas en la Tabla~\ref{tab:presupuesto_dinamometro}. Las asociadas a la linealidad y a la asimetría entre carga positiva y negativa se obtuvieron de los registros de calibración del instrumento --ajuste lineal por el origen, con desvío máximo del orden de $0.02\%$~FS en el canal de empuje y de $0.06\%$~FS en el de par, y asimetría de hasta $0.26\%$~FS--, mientras que la deriva térmica del cero y la fricción en vacío surgen de las especificaciones técnicas del equipo.
+
+\begin{table}[H]
+\centering
+\caption{Presupuesto de incertidumbre del dinamómetro de aguas abiertas, expresado como semiancho $a$ en porcentaje del fondo de escala de cada canal.}
+\label{tab:presupuesto_dinamometro}
+\begin{tabularx}{\textwidth}{Xcc}
+\toprule
+\textbf{Componente} & \boldmath{$a$ [\%~FS]} & \textbf{Origen} \\
+\midrule
+Linealidad                              & 0.06  & Registros de calibración \\
+Asimetría carga positiva/negativa       & 0.13  & Registros de calibración \\
+Diferencia entre instrumentos           & 0.15  & Documentación técnica \\
+Deriva del cero ($\le 10$~K)            & 0.05  & Documentación técnica \\
+Fricción en vacío                       & 0.03  & Documentación técnica \\
+\midrule
+\textbf{Combinación RSS (caso base adoptado)} & \textbf{0.25} & \\
+\bottomrule
+\end{tabularx}
+\footnotesize{Nota: el valor adoptado ($0.25\%$~FS) es una estimación propia construida a
+partir de las componentes individuales, y no una especificación única del fabricante. Por
+ello se acompaña del análisis de sensibilidad entre $0.1$ y $0.5\%$~FS presentado en el
+Capítulo~\ref{chap:helices}.}
+\end{table}
+
+Con el caso base y distribución rectangular, las incertidumbres expandidas absolutas resultan $U(T) \approx 0.17$~N y $U(Q) \approx 0.42$~N$\cdot$cm, constantes en todo el barrido.
+
+\paragraph{Comportamiento característico con el coeficiente de avance}
+
+El rasgo dominante del análisis es que la incertidumbre del dinamómetro es esencialmente una \emph{constante absoluta}, ligada al fondo de escala y no a la carga aplicada. Como $T$ y $Q$ decrecen monótonamente al aumentar $J$ --desde $T \approx 38$~N y $Q \approx 62$~N$\cdot$cm en $J = 0$ hasta $T \approx 3.4$~N y $Q \approx 11.6$~N$\cdot$cm en $J = 0.8$--, la incertidumbre \emph{relativa} crece de manera pronunciada hacia el extremo de carga ligera de la curva. El mecanismo es el mismo que degrada la relación señal--ruido a bajos números de Froude en el ensayo de resistencia (Sección~\ref{sec:analisis_incertidumbre_general}), pero aquí opera en el sentido opuesto del barrido: el punto de máxima incertidumbre relativa no es el de menor velocidad sino el de mayor $J$.
+
+Los valores cuantitativos finales para cada punto de funcionamiento se presentan junto con los resultados experimentales en el Capítulo~\ref{chap:helices}.
 
 \section{Procedimientos de extrapolación modelo--buque}
 \label{sec:extrapolacion_general}

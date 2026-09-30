@@ -81,6 +81,58 @@ La Tabla~\ref{tab:comparacion_efd_marin} presenta la comparación entre los resu
 
 La comparación revela un comportamiento notable: a pesar de la diferencia de casi un orden de magnitud en $Re_n$ entre ambas fuentes, los valores de $K_T$ obtenidos en el LabHiNO y los de MARIN son prácticamente idénticos, con desviaciones inferiores al $0.6\%$ en todo el rango de $J$. El coeficiente de par $10K_Q$, en cambio, presenta una diferencia sistemáticamente positiva (el LabHiNO arroja valores levemente superiores a los de MARIN en todos los puntos) que refleja el mayor nivel de fricción sobre las palas a menor Reynolds. Esta diferencia permanece por debajo del $1.5\%$ en la mayor parte del rango operativo, alcanzando su valor máximo en $J = 0.80$. La reducida magnitud de los efectos de escala en $K_T$ observada en este rango de Reynolds es en sí misma un resultado de interés --y contrasta con los efectos considerablemente mayores reportados en la literatura para otras geometrías \citep{krasilnikov2016cfd}--; su origen y su evolución hasta escala buque, así como su comparación con la predicción del procedimiento ITTC-78, se analizan en profundidad en la Sección~\ref{sec:helices_escala}.
 
+\paragraph{Análisis de incertidumbre}
+
+El análisis de incertidumbre del ensayo de aguas abiertas de la B4-60 sigue la metodología detallada en la Sección~\ref{sec:analisis_incertidumbre_aguas_abiertas}. A diferencia de la campaña de resistencia del \textit{P1}, el ensayo de archivo no cuenta con repeticiones, por lo que \textbf{solo se evalúan componentes de Tipo~B} y los valores que siguen deben leerse como una cota inferior de la incertidumbre total. Las cargas medidas se obtienen de los coeficientes mediante $T = K_T \cdot 110.76$~N y $Q = K_Q \cdot 15.506$~N$\cdot$m, con $n = 16.99$~rps, $\rho = 998.4$~kg/m$^3$ y $D = 0.140$~m.
+
+La fuente dominante es, en todo el rango, la calibración del dinamómetro R43. Su contribución relativa crece fuertemente con el coeficiente de avance: siendo $U(T) \approx 0.17$~N y $U(Q) \approx 0.42$~N$\cdot$cm valores absolutos constantes, la carga medida cae un orden de magnitud entre $J = 0$ y $J = 0.8$, de modo que la incertidumbre relativa de $K_T$ pasa de $0.7\%$ a $5.0\%$ y la de $K_Q$ de $1.0\%$ a $3.7\%$ entre $J = 0.2$ y $J = 0.8$. Los términos geométricos ($4u_D/D$ y $5u_D/D$) y los cinemáticos son, en cambio, constantes en todo el barrido y solo resultan comparables al término del dinamómetro en el extremo de carga elevada. La Tabla~\ref{tab:uncert_b460} presenta el desglose de las componentes para tres puntos representativos.
+
+\begin{table}[htpb]
+\centering
+\caption{Resumen de incertidumbre combinada de los coeficientes de aguas abiertas
+de la hélice B4-60 (componentes de Tipo~B; la repetibilidad no es evaluable).
+Valores en porcentaje de la magnitud correspondiente. Las dos últimas filas recogen la
+sensibilidad del resultado a la exactitud supuesta del dinamómetro, expresada como
+fracción del fondo de escala.}
+\label{tab:uncert_b460}
+\begin{tabularx}{\textwidth}{Xccc}
+\toprule
+\textbf{Componente} & \textbf{J = 0.20} & \textbf{J = 0.50} & \textbf{J = 0.80} \\
+\midrule
+Dinamómetro, canal de empuje ($u_T/T$)      & 0.26\% & 0.43\% & 2.47\% \\
+Dinamómetro, canal de par ($u_Q/Q$)         & 0.38\% & 0.56\% & 1.83\% \\
+Velocidad de giro ($u_n/n$)                 & 0.07\% & 0.07\% & 0.07\% \\
+Velocidad de avance ($u_{V_a}/V_a$)         & 0.07\% & 0.07\% & 0.07\% \\
+Densidad del agua ($u_\rho/\rho$)           & 0.03\% & 0.03\% & 0.03\% \\
+Diámetro de la hélice ($u_D/D$)             & 0.05\% & 0.05\% & 0.05\% \\
+Repetibilidad $^a$                          & n/d    & n/d    & n/d    \\
+\midrule
+Incertidumbre combinada $u_c(K_T)$          & 0.36\% & 0.50\% & 2.49\% \\
+Incertidumbre combinada $u_c(K_Q)$          & 0.48\% & 0.63\% & 1.85\% \\
+\textbf{Incertidumbre combinada} \boldmath{$u_c(\eta_0)$}
+                                            & \textbf{0.47\%} & \textbf{0.71\%} & \textbf{3.08\%} \\
+\midrule
+Incertidumbre expandida $U_{95}(K_T)$       & 0.72\% & 1.00\% & 4.97\% \\
+Incertidumbre expandida $U_{95}(K_Q)$       & 0.96\% & 1.26\% & 3.70\% \\
+Incertidumbre expandida $U_{95}(\eta_0)$    & 0.95\% & 1.43\% & 6.15\% \\
+\midrule
+\multicolumn{4}{@{}l}{\emph{Sensibilidad de $U_{95}(\eta_0)$ a la exactitud supuesta del dinamómetro:}} \\
+\quad con $0.10\%$~FS (cota inferior)       & 0.42\% & 0.60\% & 2.47\% \\
+\quad con $0.50\%$~FS (cota superior)       & 1.86\% & 2.84\% & 12.30\% \\
+\bottomrule
+\end{tabularx}
+\footnotesize{[$^a$] No evaluable: el ensayo de archivo no incluye repeticiones a un
+mismo punto de funcionamiento, por lo que la componente de Tipo~A no puede estimarse
+y los valores de la tabla subestiman la incertidumbre total.}
+\end{table}
+
+Dado que el presupuesto del dinamómetro (Tabla~\ref{tab:presupuesto_dinamometro}) es una estimación indirecta, construida sobre la documentación técnica y los registros de calibración del instrumento y no sobre una calibración contemporánea de la campaña, se evaluó la sensibilidad del resultado frente a dos cotas alternativas, $0.1\%$~FS y $0.5\%$~FS, que acotan por defecto y por exceso el valor base de $0.25\%$~FS. Las dos últimas filas de la Tabla~\ref{tab:uncert_b460} recogen el resultado: la incertidumbre expandida de la eficiencia se mueve entre $0.4\%$ y $2.5\%$ bajo la hipótesis optimista, y entre $1.9\%$ y $12.3\%$ bajo la conservadora, conservando en ambos casos la misma dependencia pronunciada con $J$.
+
+
+De este análisis se desprenden tres consecuencias para el uso de estas curvas como referencia de validación. En primer lugar, \textbf{los datos son plenamente confiables hasta $J \approx 0.6$}: incluso bajo la hipótesis más conservadora la incertidumbre expandida de $\eta_0$ se mantiene por debajo del $3.6\%$, y en el caso base no supera el $1.8\%$. En segundo lugar, a partir de $J \approx 0.7$ la incertidumbre relativa crece rápidamente y la comparación cuantitativa con el CFD pierde resolución; en particular, el máximo de eficiencia medido ($\eta_0 = 0.658$ en $J = 0.70$) es compatible con el valor contiguo de $J = 0.65$ ($\eta_0 = 0.655$) dentro de la incertidumbre, de modo que el valor del pico es defendible pero \emph{su posición exacta no debe afirmarse}. Análogamente, la caída observada en $J = 0.80$ ($\eta_0 = 0.528$) puede ser física, pero el instrumento no la resuelve con holgura. En tercer lugar, conviene recordar que el bajo número de Reynolds del ensayo ($Re_c = 90\,406$ según la formulación de Gutsche, por debajo del umbral habitual de $2\times10^5$) puede introducir \emph{efectos de escala} respecto de otras series experimentales --como se observa en la diferencia sistemática en $10K_Q$ frente a MARIN de la Tabla~\ref{tab:comparacion_efd_marin}--; se trata de un \emph{sesgo} de naturaleza física, ajeno al presupuesto de incertidumbre de medición y que no debe confundirse con él.
+
+Finalmente, cabe señalar las limitaciones del análisis, que se declaran explícitamente: (i) no se evaluó la componente de Tipo~A, por lo que la incertidumbre total está subestimada; (ii) no se dispone de una calibración contemporánea de la campaña ni de un ciclo de descarga que informe sobre la histéresis del instrumento; (iii) se desconoce la resolución del acondicionador de señal empleado, componente no incluida en el balance; y (iv) las incertidumbres de $n$, $V_a$, $\rho$ y $D$ se adoptaron por analogía con la campaña de resistencia y no fueron medidas para este ensayo en particular. 
+
 \subsection{Comparación CFD vs EFD: SST y SST-LM}
 \label{sec:helices_cfd_efd}
 
@@ -104,8 +156,13 @@ CFD SST-LM                       & $3.20 \times 10^5$ & $0.190$ ~~$(+7.3\%)$ & $
 
 El modelo SST sobreestima tanto $K_T$ como $10K_Q$ respecto del ensayo del LabHiNO, con errores de $+5.2\%$ y $+10.3\%$ respectivamente. Este comportamiento es consistente con lo documentado en \citet{rijpkema2015viscous} y \citet{baltazar2018transition}: a $Re_n = 3.20 \times 10^5$ el flujo sobre las palas se encuentra en régimen transicional, y el SST fuerza una transición prematura que sobreestima la extensión turbulenta, elevando artificialmente la fricción y con ella el par. El modelo SST-LM mejora significativamente la predicción de $10K_Q$ (error reducido de $+12.7\%$ a $+7.8\%$) al resolver la intermitencia de la capa límite, y reproduce la eficiencia $\eta_0$ con gran precisión ($0.573$ frente a $0.575$), aunque introduce un ligero incremento en el error de $K_T$ ($+7.3\%$).
 
+Disponiendo ahora de una estimación de la incertidumbre experimental, la comparación de la Tabla~\ref{tab:cfd_efd_b460} admite el mismo tratamiento formal aplicado a la resistencia del casco: con $E\%D = (D-S)/D\times100$ y $U_{val} = \sqrt{U_D^2 + U_{num}^2}$, en $J = 0.5$ resultan $U_D(K_T) = 1.00\%$ (Tabla~\ref{tab:uncert_b460}) y $U_{num} = 1.39\%$ (GCI del estudio de convergencia de malla que se presenta más abajo, Tabla~\ref{tab:gci_kt}), esto es $U_{val} \approx 1.7\%$. Los errores de comparación obtenidos en $K_T$ ($+5.2\%$ para el SST y $+7.3\%$ para el SST-LM) exceden ese umbral, de modo que la comparación no queda validada al nivel de $1.7\%$. El significado de este resultado no es que las soluciones sean incorrectas, sino que el error de modelado queda \emph{resuelto} por encima del ruido: la diferencia es real y su magnitud es del orden del $5$ al $7\%$, lo que traslada la discusión desde la pregunta de si el modelo reproduce el ensayo hacia la de qué origina esa diferencia.
+
+Corresponde señalar, no obstante, que el $U_{val}$ así calculado está incompleto. La formulación general de la ITTC incorpora una tercera componente, $U_{val}^2 = U_D^2 + U_{num}^2 + U_{input}^2$, que recoge las diferencias entre las condiciones efectivamente simuladas y las del ensayo. En este caso $U_{input}$ está dominado por la indeterminación geométrica del modelo de serie --discutida en el párrafo siguiente-- y no fue cuantificado, por no disponerse de los planos del modelo físico. Las diferencias documentadas en la literatura entre distintas discretizaciones geométricas de una misma hélice de serie, del orden del $5$ al $10\%$ en $K_T$ y $K_Q$ \citep{gaggero2018transition}, sugieren que esta componente omitida es comparable al propio error de comparación y que, de incorporarse, dominaría el balance por completo.
+
 Cabe señalar que parte de las diferencias observadas entre CFD y EFD son inherentes a la metodología numérica y no reflejan necesariamente limitaciones del modelo de turbulencia. La geometría computacional de la hélice se construye a partir de las ecuaciones paramétricas de la serie Wageningen, sin acceso a los planos exactos del modelo físico ensayado en el laboratorio. En la práctica, los detalles geométricos del borde de ataque, el borde de salida y especialmente el extremo de pala (``tip'') quedan a criterio del mallador, ya que las series sistemáticas no los especifican de forma unívoca. Estas zonas tienen una influencia desproporcionada sobre $K_T$ y $K_Q$: pequeñas diferencias en el radio del borde de ataque modifican la extensión de la zona de baja presión en el extradós, y la geometría del tip condiciona la intensidad del vórtice de punta, que contribuye tanto al empuje como al par. Diferencias del orden del $5$--$10\%$ en $K_T$ y $K_Q$ entre distintas discretizaciones geométricas de una misma hélice de serie son por lo tanto esperables y han sido documentadas en la literatura \citep{gaggero2018transition}. En este contexto, el acuerdo obtenido con el SST-LM debe considerarse satisfactorio.
 
+La conclusión operativa es que \textbf{esta referencia experimental no posee poder resolutivo suficiente para validar los valores absolutos} de $K_T$ y $K_Q$ de la B4-60, y así se la emplea en lo que sigue: el uso que se hace de ella en las Secciones~\ref{sec:helices_escala} y posteriores es el de una referencia para \emph{diferencias} --entre escalas y entre modelos de turbulencia--, magnitudes en las que el sesgo geométrico, común a todas las simulaciones por partir de una única malla escalada, se cancela en primer orden.
 
 
 Para verificar la independencia de la solución respecto de la malla se realizó, con OpenFOAM, un estudio de convergencia con tres mallas sistemáticamente refinadas para la hélice B4-60 a escala modelo ($D=0.14$~m), $J=0.5$ y modelo $k$--$\omega$ SST, siguiendo el procedimiento descrito en la Sección~\ref{sec:convergencia_de_malla}. Los resultados se presentan en la Tabla~\ref{tab:gci_kt}. La malla fina cuenta con $8\,448\,124$ celdas, de las cuales $8\,234\,196$ ($97.5\%$) son hexaédricas.
@@ -124,7 +181,6 @@ Malla & $h_i/h_1$ & $K_T$ & Razón de refinamiento & GCI (\%) & Incertidumbre ($
 \hline
 \end{tabular}
 \end{table}
-
 
 \section{Efectos de escala en la hélice B4-60}
 \label{sec:helices_escala}
@@ -318,7 +374,6 @@ La Figura~\ref{fig:eficiencia_metodos} compara la evolución de $\eta_0$ con $Re
 \caption{Eficiencia en aguas abiertas $\eta_0$ (izquierda) y variación porcentual $\Delta\eta_0$ respecto al modelo (derecha) en función de $Re_n$, para los métodos ITTC-78 (M1), CFD SST (M2) y sin corrección (M3). Hélice B4-60, $J = 0.5$.}
 \label{fig:eficiencia_metodos}
 \end{figure}
-
 
 
 \subsection{Conclusiones parciales}

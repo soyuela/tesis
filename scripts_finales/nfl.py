@@ -93,23 +93,23 @@ def generar_ittc_nfl_comparacion():
     
     # ITTC - diferentes escalas
     ax.scatter(Re_20, k_20_ittc, s=150, color=tblue, marker='o', 
-               label='FV DB 1:20 - ITTC', zorder=3, edgecolors='black', linewidth=0.5)
+               label='P1 DB 1:20 - ITTC', zorder=3, edgecolors='black', linewidth=0.5)
     ax.scatter(Re_10, k_10_ittc, s=150, color=tgreen, marker='o',
-               label='FV DB 1:10 - ITTC', zorder=3, edgecolors='black', linewidth=0.5)
+               label='P1 DB 1:10 - ITTC', zorder=3, edgecolors='black', linewidth=0.5)
     ax.scatter(Re_5, k_5_ittc, s=150, color=torange, marker='o',
-               label='FV DB 1:5 - ITTC', zorder=3, edgecolors='black', linewidth=0.5)
+               label='P1 DB 1:5 - ITTC', zorder=3, edgecolors='black', linewidth=0.5)
     ax.scatter(Re_1, k_1_ittc, s=150, color=tcyan, marker='o',
-               label='FV DB 1:1 - ITTC', zorder=3, edgecolors='black', linewidth=0.5)
+               label='P1 DB 1:1 - ITTC', zorder=3, edgecolors='black', linewidth=0.5)
     
     # NFL - diferentes escalas
     ax.scatter(Re_20, k_20_nfl, s=150, color=tred, marker='o',
-               label='FV DB 1:20 - NFL', zorder=3, edgecolors='black', linewidth=0.5)
+               label='P1 DB 1:20 - NFL', zorder=3, edgecolors='black', linewidth=0.5)
     ax.scatter(Re_10, k_10_nfl, s=150, color=tpurple, marker='o',
-               label='FV DB 1:10 - NFL', zorder=3, edgecolors='black', linewidth=0.5)
+               label='P1 DB 1:10 - NFL', zorder=3, edgecolors='black', linewidth=0.5)
     ax.scatter(Re_5, k_5_nfl, s=150, color=tyellow, marker='o',
-               label='FV DB 1:5 - NFL', zorder=3, edgecolors='black', linewidth=0.5)
+               label='P1 DB 1:5 - NFL', zorder=3, edgecolors='black', linewidth=0.5)
     ax.scatter(Re_1, k_1_nfl, s=150, color=tpink, marker='o',
-               label='FV DB 1:1 - NFL', zorder=3, edgecolors='black', linewidth=0.5)
+               label='P1 DB 1:1 - NFL', zorder=3, edgecolors='black', linewidth=0.5)
     
     # Líneas de Prohaska (horizontales)
     ax.plot(Reynolds_Prohaska_ITTC57, Prohaska_ITTC57, '--', color=tgreen, 

@@ -1,4 +1,4 @@
-\begin{thebibliography}{81}
+\begin{thebibliography}{82}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -13,6 +13,12 @@
 \newblock \emph{ITTC – Recommended Procedures and Guidelines - Resistance
   Test}.
 \newblock ITTC, 2011.
+
+\bibitem[28th ITTC Propulsion~Committee(2014)]{ITTC_open_water}
+28th ITTC Propulsion~Committee.
+\newblock \emph{ITTC – Recommended Procedures and Guidelines -
+  Propulsion/Propulsor: Propeller Open Water Test}.
+\newblock ITTC, 2014.
 
 \bibitem[28th ITTC Propulsion~Committee(2017)]{ITTC_Performance_prediction}
 28th ITTC Propulsion~Committee.
@@ -211,6 +217,12 @@ C.W.B. Grigson.
 \newblock \emph{Transactions of the Royal Institution of Naval Architects},
   142:\penalty0 76--115, 2000.
 
+\bibitem[Group(2014)]{ITTC_uncertainty_OW}
+ITTC Quality~Systems Group.
+\newblock \emph{ITTC – Recommended Procedures and Guidelines - Uncertainty
+  Analysis, Example for Open Water Test}.
+\newblock ITTC, 2014.
+
 \bibitem[Heinke et~al.(2019)Heinke, Hellwig-Rieck, and L{\"u}bke]{heinke2019}
 H.-J. Heinke, K.~Hellwig-Rieck, and L.~L{\"u}bke.
 \newblock Influence of the {R}eynolds number on the open water characteristics
@@ -237,19 +249,10 @@ G.~Hughes.
   Conference}, 2024.
 
 \bibitem[{ITTC Specialist Committee on CFD and EFD Combined
-  Methods}(2021{\natexlab{a}})]{ITTC_Combined_2021}
+  Methods}(2021)]{ITTC_Combined_2021}
 {ITTC Specialist Committee on CFD and EFD Combined Methods}.
 \newblock Final report and recommendations to the 29th {ITTC}.
-\newblock Technical report, International Towing Tank Conference,
-  2021{\natexlab{a}}.
-
-\bibitem[{ITTC Specialist Committee on CFD and EFD Combined
-  Methods}(2021{\natexlab{b}})]{ittc2021combined}
-{ITTC Specialist Committee on CFD and EFD Combined Methods}.
-\newblock Final report and recommendations to the 29th {ITTC}.
-\newblock Proceedings of the 29th {ITTC}, International Towing Tank Conference,
-  2021{\natexlab{b}}.
-\newblock Specialist Committee on {CFD} and {EFD} Combined Methods.
+\newblock Technical report, International Towing Tank Conference, 2021.
 
 \bibitem[Karim et~al.(2011)Karim, Rahman, and Alim]{Karim}
 Mashud Karim, MM~Rahman, and M.~A. Alim.
@@ -518,13 +521,6 @@ Tsan-Hsing Shih, William~W. Liou, Aamir Shabbir, Zhigang Yang, and Jiang Zhu.
 \newblock \emph{Computers \& Fluids}, 24\penalty0 (3):\penalty0 227--238, 1995.
 \newblock \doi{10.1016/0045-7930(94)00032-T}.
 
-\bibitem[Shirose and Hirono(1982)]{shiroseHirono1982}
-Y.~Shirose and K.~Hirono.
-\newblock A study on the form factor determination.
-\newblock In \emph{Proceedings}, 1982.
-\newblock VERIFICAR datos completos: publicación japonesa citada por Korkmaz
-  (2023).
-
 \bibitem[Song et~al.(2019)Song, Demirel, Atlar, Dai, and
   Turan]{cp_recovery_kcs}
 Soonseok Song, Yigit Demirel, Mehmet Atlar, Saishuai Dai, and Osman Turan.
@@ -597,6 +593,13 @@ David~C. Wilcox.
 B.D.W. Wright.
 \newblock Apparent viscous levels of resistance of a series of model geosims.
 \newblock Technical Report WG/H99, BSRA, 1984.
+
+\bibitem[Y{\i}lmaz and K{\"u}kner(1999)]{yilmaz1999}
+H{\"u}seyin Y{\i}lmaz and Ahmet K{\"u}kner.
+\newblock Evaluation of cross curves of fishing vessels at the preliminary
+  design stage.
+\newblock \emph{Ocean Engineering}, 26\penalty0 (10):\penalty0 979--990, 1999.
+\newblock \doi{10.1016/S0029-8018(98)00038-9}.
 
 \bibitem[York et~al.(2004)York, Evensen, Martinez, and De~Basabe~Delgado]{york}
 Derek York, Norman~M. Evensen, Margarita~Lopez Martinez, and Jonás
