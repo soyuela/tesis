@@ -7,45 +7,45 @@ Warning--to sort, need editor, organization, or key in ITTC1957
 Warning--can't use both volume and number fields in eca2008friction
 Warning--empty booktitle in Korkmaz2019NumericalFL
 Warning--empty booktitle in cp_recovery_kcs
-You've used 82 entries,
+You've used 85 entries,
             2773 wiz_defined-function locations,
-            1091 strings with 21540 characters,
-and the built_in function-call counts, 33716 in all, are:
-= -- 3021
-> -- 1761
-< -- 60
-+ -- 619
-- -- 534
-* -- 2513
-:= -- 5325
-add.period$ -- 315
-call.type$ -- 82
-change.case$ -- 411
-chr.to.int$ -- 79
-cite$ -- 169
-duplicate$ -- 1629
-empty$ -- 2913
-format.name$ -- 637
-if$ -- 7063
+            1104 strings with 22059 characters,
+and the built_in function-call counts, 35038 in all, are:
+= -- 3144
+> -- 1840
+< -- 62
++ -- 646
+- -- 558
+* -- 2618
+:= -- 5535
+add.period$ -- 323
+call.type$ -- 85
+change.case$ -- 429
+chr.to.int$ -- 82
+cite$ -- 175
+duplicate$ -- 1685
+empty$ -- 3015
+format.name$ -- 666
+if$ -- 7332
 int.to.chr$ -- 4
 int.to.str$ -- 1
-missing$ -- 78
-newline$ -- 485
-num.names$ -- 326
-pop$ -- 882
+missing$ -- 80
+newline$ -- 499
+num.names$ -- 338
+pop$ -- 911
 preamble$ -- 1
-purify$ -- 341
+purify$ -- 355
 quote$ -- 0
-skip$ -- 1166
+skip$ -- 1211
 stack$ -- 0
-substring$ -- 864
-swap$ -- 124
+substring$ -- 921
+swap$ -- 125
 text.length$ -- 6
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 825
+type$ -- 858
 warning$ -- 4
-while$ -- 298
+while$ -- 312
 width$ -- 0
-write$ -- 1180
+write$ -- 1217
 (There were 4 warnings)

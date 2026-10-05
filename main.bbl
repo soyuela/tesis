@@ -1,4 +1,4 @@
-\begin{thebibliography}{82}
+\begin{thebibliography}{85}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -39,6 +39,13 @@
   Methodology and Procedures}.
 \newblock ITTC, 2024.
 
+\bibitem[Adams and Johnston(1988)]{adams_johnston1988}
+E.~W. Adams and J.~P. Johnston.
+\newblock Effects of the separating shear layer on the reattachment flow
+  structure. {P}art 2: {R}eattachment length and wall shear stress.
+\newblock \emph{Experiments in Fluids}, 6:\penalty0 493--499, 1988.
+\newblock \doi{10.1007/BF00196511}.
+
 \bibitem[{American Society of Mechanical Engineers}(2009)]{asme}
 {American Society of Mechanical Engineers}.
 \newblock \emph{Standard for Verification and Validation in Computational Fluid
@@ -69,6 +76,14 @@
   \url{https://www.argentina.gob.ar/armada/intereses-maritimos/industria-naval},
   2020.
 \newblock Consultado el 29-08-2026.
+
+\bibitem[Armaly et~al.(1983)Armaly, Durst, Pereira, and
+  Sch{\"o}nung]{armaly1983bfs}
+B.~F. Armaly, F.~Durst, J.~C.~F. Pereira, and B.~Sch{\"o}nung.
+\newblock Experimental and theoretical investigation of backward-facing step
+  flow.
+\newblock \emph{Journal of Fluid Mechanics}, 127:\penalty0 473--496, 1983.
+\newblock \doi{10.1017/S0022112083002839}.
 
 \bibitem[{Astillero Naval Federico Contessi y C{\'i}a.
   S.A.}(2022)]{contessi_historia}
@@ -242,6 +257,12 @@ G.~Hughes.
   formulation for use in model and ship correlation.
 \newblock \emph{Transactions of the Institution of Naval Architects}, 96, 1954.
 
+\bibitem[{ITTC}(2014)]{ittc_nominal_wake}
+{ITTC}.
+\newblock Practical guidelines for {RANS} calculation of nominal wakes.
+  {R}ecommended procedures and guidelines 7.5-03-03-02.
+\newblock Technical report, International Towing Tank Conference, 2014.
+
 \bibitem[{ITTC Resistance and Propulsion Committee}(2024)]{ittc2024rp}
 {ITTC Resistance and Propulsion Committee}.
 \newblock Final report and recommendations to the 30th {ITTC}.
@@ -331,11 +352,26 @@ Brian~E. Launder and D.~B. Spalding.
   3\penalty0 (2):\penalty0 269--289, 1974.
 \newblock \doi{10.1016/0045-7825(74)90029-2}.
 
+\bibitem[Lee et~al.(2003)Lee, Kim, Kim, and Van]{lee2003kcs}
+S.~J. Lee, H.~R. Kim, W.~J. Kim, and S.~H. Van.
+\newblock Wind tunnel tests on flow characteristics of the {KRISO} 3,600 {TEU}
+  containership and 300{K} {VLCC} double-deck ship models.
+\newblock \emph{Journal of Ship Research}, 47\penalty0 (1):\penalty0 24--38,
+  2003.
+
 \bibitem[Lindgren and Dyne(1980)]{lindgrenDyne1980}
 H.~Lindgren and G.~Dyne.
 \newblock Ship performance prediction.
 \newblock \emph{SSPA}, 1980.
 \newblock VERIFICAR datos completos.
+
+\bibitem[Luckring(2002)]{luckring2002}
+J.~M. Luckring.
+\newblock Reynolds number and leading-edge bluntness effects on a 65$^\circ$
+  delta wing.
+\newblock In \emph{40th AIAA Aerospace Sciences Meeting \& Exhibit}, Reno,
+  Nevada, 2002.
+\newblock AIAA Paper 2002-0419.
 
 \bibitem[Menter(1994)]{Menter1994}
 Florian~R. Menter.
@@ -473,14 +509,6 @@ Mar{\'i}a~Tadea Quintu{\~n}a~Rodr{\'i}guez.
 \newblock Master thesis, ``Advanced Ship Design'' (EMSHIP); supervisor:
   Philippe Rigo.
 
-\bibitem[Raven(2016)]{Raven2016}
-H.~C. Raven.
-\newblock A new correction procedure for shallow-water effects in ship speed
-  trials.
-\newblock In \emph{13th International Symposium on Practical Design of Ships
-  (PRADS 2016)}, Copenhagen, Denmark, September 2016.
-\newblock MARIN report.
-
 \bibitem[Raymer(2019)]{raymer2019aircraft}
 Daniel~P. Raymer.
 \newblock \emph{Aircraft Design: A Conceptual Approach}.
@@ -611,14 +639,5 @@ Derek York, Norman~M. Evensen, Margarita~Lopez Martinez, and Jonás
 \newblock ISSN 0002-9505.
 \newblock \doi{10.1119/1.1632486}.
 \newblock URL \url{https://doi.org/10.1119/1.1632486}.
-
-\bibitem[Zeng et~al.(2019)Zeng, Hekkenberg, and Thill]{ZENG2019106434}
-Qingsong Zeng, Robert Hekkenberg, and Cornel Thill.
-\newblock On the viscous resistance of ships sailing in shallow water.
-\newblock \emph{Ocean Engineering}, 190:\penalty0 106434, 2019.
-\newblock ISSN 0029-8018.
-\newblock \doi{https://doi.org/10.1016/j.oceaneng.2019.106434}.
-\newblock URL
-  \url{https://www.sciencedirect.com/science/article/pii/S0029801819305827}.
 
 \end{thebibliography}

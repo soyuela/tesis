@@ -14,24 +14,22 @@
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.1.6}Comparación EFD CFD de resistencia y de factor de forma}{\reset@font\mtcSSfont 90}{subsection.4.1.6}}
 {\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Resistencia}{\reset@font\mtcPfont 90}{section*.86}}
 {\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Factor de forma}{\reset@font\mtcPfont 91}{section*.91}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.1.7}Discusión de incertidumbres y diferencias entre EFD y CFD}{\reset@font\mtcSSfont 97}{subsection.4.1.7}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.1.8}Análisis de efectos de escala}{\reset@font\mtcSSfont 99}{subsection.4.1.8}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Extensión de escalas}{\reset@font\mtcPfont 99}{section*.102}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.1.9}Descomposición de la resistencia viscosa}{\reset@font\mtcSSfont 102}{subsection.4.1.9}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.1.10}Distribución de presiones sobre el casco}{\reset@font\mtcSSfont 106}{subsection.4.1.10}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.1.11}Conclusiones parciales}{\reset@font\mtcSSfont 109}{subsection.4.1.11}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.2}Influencia de la proa bulbo en el factor de forma}{\reset@font\mtcSfont 109}{section.4.2}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.2.1}Motivación y antecedentes sobre proa bulbo en pesqueros}{\reset@font\mtcSSfont 109}{subsection.4.2.1}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.2.2}Modelos numéricos}{\reset@font\mtcSSfont 110}{subsection.4.2.2}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.2.3}Resultados de resistencia para diferentes configuraciones de proa en todo el rango de operación}{\reset@font\mtcSSfont 112}{subsection.4.2.3}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Calado $\mathbf {T = 0{.}165}$~m}{\reset@font\mtcPfont 112}{section*.122}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Calado $\mathbf {T = 0{.}195}$~m}{\reset@font\mtcPfont 114}{section*.124}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.2.4}Efecto sobre el factor de forma}{\reset@font\mtcSSfont 116}{subsection.4.2.4}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Efecto sobre el valor de $(1+k)$}{\reset@font\mtcPfont 116}{section*.126}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Efecto sobre la tendencia de $(1+k)$ con la velocidad}{\reset@font\mtcPfont 116}{section*.128}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.2.5}Conclusiones parciales}{\reset@font\mtcSSfont 117}{subsection.4.2.5}}
-{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.3}Influencia de la popa sumergida en el factor de forma}{\reset@font\mtcSfont 117}{section.4.3}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.3.1}Introducción y motivación del estudio}{\reset@font\mtcSSfont 117}{subsection.4.3.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.1.7}Discusión de incertidumbres y diferencias entre EFD y CFD}{\reset@font\mtcSSfont 98}{subsection.4.1.7}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.1.8}Análisis de efectos de escala}{\reset@font\mtcSSfont 100}{subsection.4.1.8}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Extensión de escalas}{\reset@font\mtcPfont 100}{section*.103}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.1.9}Descomposición de la resistencia viscosa}{\reset@font\mtcSSfont 103}{subsection.4.1.9}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.1.10}Distribución de presiones sobre el casco}{\reset@font\mtcSSfont 109}{subsection.4.1.10}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.1.11}Conclusiones parciales}{\reset@font\mtcSSfont 112}{subsection.4.1.11}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.2}Influencia de la proa bulbo en el factor de forma}{\reset@font\mtcSfont 112}{section.4.2}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.2.1}Motivación y antecedentes sobre proa bulbo en pesqueros}{\reset@font\mtcSSfont 112}{subsection.4.2.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.2.2}Modelos numéricos}{\reset@font\mtcSSfont 113}{subsection.4.2.2}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.2.3}Diagramas de Prohaska con y sin proa bulbo}{\reset@font\mtcSSfont 115}{subsection.4.2.3}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.2.4}Efecto sobre el factor de forma}{\reset@font\mtcSSfont 117}{subsection.4.2.4}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Efecto sobre el valor de $(1+k)$}{\reset@font\mtcPfont 117}{section*.124}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Efecto sobre la tendencia de $(1+k)$ con la velocidad}{\reset@font\mtcPfont 117}{section*.126}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.2.5}Conclusiones parciales}{\reset@font\mtcSSfont 118}{subsection.4.2.5}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {4.3}Influencia de la popa sumergida en el factor de forma}{\reset@font\mtcSfont 118}{section.4.3}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.3.1}Introducción y motivación del estudio}{\reset@font\mtcSSfont 118}{subsection.4.3.1}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.3.2}Definiciones geométricas y parámetros característicos}{\reset@font\mtcSSfont 118}{subsection.4.3.2}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.3.3}Desarrollo del método 2--$k$}{\reset@font\mtcSSfont 119}{subsection.4.3.3}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.3.4}Análisis comparativo de flujo}{\reset@font\mtcSSfont 120}{subsection.4.3.4}}
@@ -42,10 +40,10 @@
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.5.1}Introducción y motivación del estudio}{\reset@font\mtcSSfont 123}{subsection.4.5.1}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.5.2}Metodología y configuración numérica}{\reset@font\mtcSSfont 124}{subsection.4.5.2}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.5.3}Modelos de turbulencia analizados}{\reset@font\mtcSSfont 124}{subsection.4.5.3}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Modelo $k$--$\omega $ SST}{\reset@font\mtcPfont 124}{section*.135}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Modelo $k$--$\omega $ estándar}{\reset@font\mtcPfont 124}{section*.136}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Modelo $k$--$\varepsilon $ estándar}{\reset@font\mtcPfont 125}{section*.137}}
-{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Modelo $k$--$\varepsilon $ realizable}{\reset@font\mtcPfont 125}{section*.138}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Modelo $k$--$\omega $ SST}{\reset@font\mtcPfont 124}{section*.133}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Modelo $k$--$\omega $ estándar}{\reset@font\mtcPfont 124}{section*.134}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Modelo $k$--$\varepsilon $ estándar}{\reset@font\mtcPfont 125}{section*.135}}
+{\reset@font\mtcPfont\mtc@string\contentsline{paragraph}{\noexpand \leavevmode Modelo $k$--$\varepsilon $ realizable}{\reset@font\mtcPfont 125}{section*.136}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.5.4}Comparación de resistencia viscosa}{\reset@font\mtcSSfont 125}{subsection.4.5.4}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.5.5}Efecto sobre el factor de forma}{\reset@font\mtcSSfont 126}{subsection.4.5.5}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.5.6}Descomposición de la resistencia según origen friccional y de presión viscosa}{\reset@font\mtcSSfont 127}{subsection.4.5.6}}
@@ -57,4 +55,4 @@
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.6.3}Presentación de pesqueros con distintos L/B}{\reset@font\mtcSSfont 134}{subsection.4.6.3}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.6.4}Generalización del comportamiento observado y formulación empírica}{\reset@font\mtcSSfont 134}{subsection.4.6.4}}
 {\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.6.5}Implicancias para el escalado y la extrapolación de resultados}{\reset@font\mtcSSfont 136}{subsection.4.6.5}}
-{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.6.6}Conclusiones parciales}{\reset@font\mtcSSfont 137}{subsection.4.6.6}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {4.6.6}Conclusiones parciales}{\reset@font\mtcSSfont 138}{subsection.4.6.6}}
