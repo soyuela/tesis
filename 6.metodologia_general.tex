@@ -873,13 +873,13 @@ Se definió un dominio computacional rectangular prismático dimensionado para e
 
 \begin{itemize}
     \item \textbf{Entrada (Inlet):} Ubicada a $1.5 L_{PP}$ a proa del modelo.
-    \item \textbf{Salida (Outlet):} Ubicada a $2.5 L_{PP}$ a popa \completar{la Figura~\ref{fig:dominio_metodologia} indica $3.0\,L$: unificar}.
+    \item \textbf{Salida (Outlet):} Ubicada a $3 L_{PP}$ a popa.
     \item \textbf{Fondo:} Ubicado a $3.0 L_{PP}$ por debajo de la superficie libre, para simular aguas profundas.
     \item \textbf{Atmósfera:} Ubicada a $1.5 L_{PP}$ por encima de la superficie libre.
-    \item \textbf{Límite lateral:} \completar{distancia en $L_{PP}$; no figura en la Figura~\ref{fig:dominio_metodologia}}. Se modela medio casco, con condición de simetría en el plano diametral.
+    \item \textbf{Límite lateral:} Se modela medio casco, con condición de simetría en el plano longitudinal del mismo y el limite lateral opuesto ubicado a $1.5 L_{PP}$.
 \end{itemize}
 
-El mallado se generó con \texttt{snappyHexMesh}, utilizando una estructura predominantemente hexaédrica no estructurada con refinamientos locales en la superficie libre y la estela, e inserción de capas de prismas en la superficie del casco para resolver la capa límite \completar{número de capas}. Dado que las simulaciones abarcan desde la escala de modelo hasta la escala buque, la resolución de pared no es uniforme: $y^+$ varía desde valores del orden de la unidad en las escalas de modelo menores hasta valores superiores a 300 a escala buque, con el tratamiento de pared descrito a continuación. Los valores de cada caso se informan junto con los resultados en el Capítulo~\ref{cap:resistencia_factor_de_forma}.
+El mallado se generó con \texttt{snappyHexMesh}, utilizando una estructura predominantemente hexaédrica no estructurada con refinamientos locales en la superficie libre y la estela, e inserción de capas de prismas en la superficie del casco para resolver la capa límite. Dado que las simulaciones abarcan desde la escala de modelo hasta la escala buque, la resolución de pared no es uniforme: $y^+$ varía desde valores del orden de la unidad en las escalas de modelo menores hasta valores superiores a 300 a escala buque, con el tratamiento de pared descrito a continuación. Los valores de cada caso se informan junto con los resultados en el Capítulo~\ref{cap:resistencia_factor_de_forma}.
 
 \subsubsection{Tratamiento de pared}
 {\sloppy
@@ -892,7 +892,7 @@ Esta configuración replica el ensayo de canal para obtener la resistencia total
 \begin{itemize}
     \item \textbf{Solucionador:} \texttt{interFoam} (VoF con compresión de interfaz MULES).
     \item \textbf{Algoritmo:} PIMPLE (híbrido PISO-SIMPLE).
-    \item \textbf{Convergencia:} \completar{criterio adoptado: residuos y/o estabilización de $R_T$, ventana de promediado}.
+    \item \textbf{Convergencia:} estabilización de $R_T$ promediada en una ventana que garantice una oscilación máxima de $1 \%$.
 \end{itemize}
 
 La Figura \ref{fig:dominio_metodologia} esquematiza el dominio computacional utilizado, mostrando la disposición de las condiciones de contorno.
@@ -1013,7 +1013,7 @@ formulación de Marco de Referencia Múltiple (MRF). El modelo SST-LM se impleme
 utilizando la formulación \texttt{kOmegaSSTLM} disponible de forma nativa en
 OpenFOAM~8.
 
-El dominio incluye el núcleo y el eje de la hélice, en correspondencia con el montaje del ensayo (Sección~\ref{sec:ensayo_aguas_abiertas}). La solución se consideró convergida cuando \completar{criterio: residuos y/o estabilización de $K_T$ y $K_Q$}.
+El dominio incluye el núcleo y el eje de la hélice, en correspondencia con el montaje del ensayo (Sección~\ref{sec:ensayo_aguas_abiertas}). La solución se consideró convergida cuando $K_T$ y $K_Q$ reducían su oscilación alrededor de un $1\%$ del valor promedio.
 
 La malla se generó íntegramente dentro del entorno OpenFOAM, combinando
 \texttt{cfMesh} para la discretización de la geometría base y \texttt{snappyHexMesh}
