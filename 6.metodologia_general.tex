@@ -3,7 +3,6 @@
 \mtcsettitle{minitoc}{Contenidos} 
 \minitoc
 
-% Marca visible para datos que faltan confirmar. Buscar "completar" antes de la versión final.
 \providecommand{\completar}[1]{\textcolor{red}{[COMPLETAR: #1]}}
 
 \section{Introducción}
@@ -1036,13 +1035,6 @@ es válida de manera continua desde la subcapa viscosa hasta la región logarít
 \centering
 \begin{minipage}[c]{0.55\textwidth}
 \centering
-% El \includegraphics es un nodo de TikZ y el scope redefine los ejes:
-% (0,0) = esquina inferior izquierda de la imagen, (1,1) = superior derecha.
-% Las coordenadas son fracciones de la imagen: no se mueven si cambia el width.
-% El trim recorta el margen blanco del render. Para recalibrar posiciones,
-% descomentar la grilla de ayuda de abajo y volver a comentarla despues.
-% --- estilos de anotacion (definidos localmente para que la figura sea
-%     autocontenida; si ya los tenes en el preambulo, esto es inofensivo) ---
 \usetikzlibrary{arrows.meta}
 \tikzset{
   patchlbl/.style={font=\scriptsize\sffamily, text=white, inner sep=1pt},
@@ -1055,10 +1047,6 @@ es válida de manera continua desde la subcapa viscosa hasta la región logarít
   \node[anchor=south west,inner sep=0] (img) at (0,0)
     {\includegraphics[width=0.93\linewidth,trim=45bp 25bp 45bp 62bp,clip]{images/fig_helice_dominio.png}};
   \begin{scope}[x={(img.south east)},y={(img.north west)}]
-    %\draw[help lines,xstep=.1,ystep=.1] (0,0) grid (1,1);
-    %\foreach \x in {0,...,9}{\node[font=\tiny,anchor=north] at (\x/10,0) {.\x};}
-    %\foreach \y in {0,...,9}{\node[font=\tiny,anchor=east]  at (0,\y/10) {.\y};}
-    % --- nombres de patch (texto blanco sobre las caras oscuras) ---
     \node[patchlbl] at (0.30,0.59) {inlet};
     \node[patchlbl] at (0.74,0.50) {outlet};
     \node[patchlbl] at (0.73,0.76) {ext};

@@ -110,7 +110,11 @@ que la corrección de modelo a buque es puramente friccional ($\Delta K_{Tp} = 0
 
 El primero es el efecto de escala entre condiciones completamente turbulentas (de
 modelo a buque, ambas en régimen turbulento pleno), estudiado sobre la hélice
-Wageningen B4-60 mediante un barrido de diámetros de $D = 0{.}14$ a $8{.}0$~m. Al
+Wageningen B4-60 mediante un barrido de diámetros de $D = 0{.}14$ a $8{.}0$~m. Los
+ensayos de archivo de la B4-60 permitieron cuantificar la incertidumbre
+experimental sobre $\eta_0$ (de $0{.}4\%$ a $12{.}3\%$ según $J$), que delimita el
+rango de $J$ en el que la curva experimental es defendible como referencia de
+validación. Al
 aumentar el Reynolds, el empuje crece ($\Delta K_T = +4{.}7\%$) y el par disminuye
 ($-4{.}1\%$), con una ganancia neta de eficiencia en aguas abiertas de $+9{.}1\%$.
 La descomposición directa de fuerzas mostró que ese aumento de empuje está dominado
@@ -124,7 +128,7 @@ porcentuales que corresponde íntegramente a la componente de presión ignorada.
 
 El segundo mecanismo es la transición laminar-turbulenta sobre las palas a escala de
 modelo, estudiada sobre el propulsor \textit{P206}, ensayado en túnel de cavitación
-a cinco números de Reynolds de cuerda. Los ensayos revelan una joroba transicional
+a cinco números de Reynolds de cuerda. \completar{incertidumbre del P206} Los ensayos revelan una joroba transicional
 en $K_T$ y $K_Q$ cuya amplitud, medida como la diferencia entre los coeficientes
 experimentales y la predicción completamente turbulenta, crece al descargar el
 propulsor, desde un $7{.}1\%$ a $J = 0{.}30$ hasta un $16{.}3\%$ a $J = 0{.}60$. El
@@ -204,31 +208,22 @@ produce una sobrestimación de solo un $5\%$, lo que evidencia que la fuente de
 discrepancia no es el procedimiento en sí, sino la magnitud del efecto de escala del
 factor de forma, mucho mayor que el que asumen implícitamente los métodos vigentes.
 
-En el eje propulsivo, la subestimación de la eficiencia en aguas abiertas, de unos
-$8$ puntos porcentuales por el efecto de escala completamente turbulento (la
-diferencia entre el $+9{.}1\%$ del CFD y el $+1{.}1\%$ del ITTC-78) y de hasta un
-$8{.}5\%$ por el sesgo transicional del procedimiento, actúa sobre el otro extremo
-del cálculo de potencia, degradando la predicción del rendimiento propulsivo. Dado
-que resistencia y propulsión se combinan en la estimación de la potencia instalada,
-sus contribuciones no se cancelan sino que se acumulan. Discrepancias del orden del
-$15\%$ en potencia son suficientemente significativas desde el punto de vista del
-diseño como para justificar su validación mediante pruebas de mar y para
-desaconsejar la aplicación acrítica de los procedimientos estándar.
+En el eje propulsivo, el sesgo opera sobre la eficiencia en aguas abiertas y, a
+través de ella, sobre el rendimiento propulsivo que relaciona $P_E$ con la potencia
+en el eje. El efecto de escala completamente turbulento se traduce en una
+subestimación de unos $8$ puntos porcentuales de la ganancia de eficiencia a escala
+buque (la diferencia entre el $+9{.}1\%$ del CFD y el $+1{.}1\%$ del ITTC-78), y el
+sesgo transicional del procedimiento introduce un error relativo adicional de hasta
+el $8{.}5\%$ en $\eta_0$. Ambas desviaciones constituyen fuentes de error del lado
+propulsivo que se suman a la discrepancia ya identificada en $P_E$, aunque no se
+combinan directamente con ella sin recurrir a un procedimiento de autopropulsión
+que esta tesis no abordó. Que las desviaciones aparezcan en los dos extremos de la
+cadena --resistencia y propulsión-- y sean individualmente del orden del $10\%$ es
+suficiente para justificar una revisión de los procedimientos estándar y una
+validación específica, discutida en la Sección~\ref{sec:lineas_futuras}, con
+pruebas de mar sobre buques reales.
 
 \section{El aporte metodológico: la sinergia EFD-CFD}
-
-El resultado transversal de la tesis, tanto en resistencia como en propulsión, solo
-fue posible gracias a la combinación deliberada de experimentación y simulación, en
-la que cada herramienta suple las limitaciones de la otra. El CFD permite eludir la
-restricción de la semejanza y alcanzar la escala buque, pero, al igual que el ensayo
-a escala de buque, carece de un dato experimental con el cual contrastarse a
-esa escala; el ensayo físico, a su vez, solo accede al régimen de modelo. La
-validación cruzada entre ambos, en el régimen donde el ensayo es posible, no garantiza
-por sí sola la exactitud del resultado a escala buque --que permanece sin un dato
-experimental que lo confirme--, pero sí respalda las tendencias que la simulación
-predice al cambiar de escala: la evolución de las distribuciones de presión, de las
-fuerzas y de los regímenes de flujo. Es esto lo que permite comprender qué mecanismos
-pueden estar gobernando el comportamiento a escala real.
 
 La experimentación aportó la base validada e imprescindible: curvas de resistencia y
 de aguas abiertas con incertidumbre cuantificada, que anclan el análisis en datos
@@ -293,8 +288,9 @@ Los aportes originales de esta tesis pueden resumirse en los siguientes puntos:
     \item Se evaluó el impacto de estos efectos sobre la predicción de potencia,
     mostrando diferencias del orden del $13$--$17\%$ en potencia efectiva por el factor
     de forma y de hasta el $8{.}5\%$ en eficiencia propulsiva por el sesgo del ITTC-78,
-    y se propusieron métodos de doble $k$ y correcciones de fricción y presión que los
-    incorporan.
+    y se desarrolló el método de doble $k$ en resistencia e identificaron los
+    mecanismos de corrección de fricción y presión que un procedimiento estándar
+    debería incorporar.
 
     \item Se consolidó una metodología combinada EFD-CFD, validada frente a
     referencias internacionales, capaz de abordar problemas de escala que ni la
@@ -302,6 +298,7 @@ Los aportes originales de esta tesis pueden resumirse en los siguientes puntos:
 \end{itemize}
 
 \section{Líneas futuras de investigación}
+\label{sec:lineas_futuras}
 
 El trabajo realizado deja abiertas varias direcciones de continuación, con un grado
 de madurez distinto en cada eje. En resistencia, la caracterización alcanzada permite
@@ -314,8 +311,13 @@ considerablemente más abierto.
     partir de una base ampliada de geometrías, que permita estimar $k_S$ sin recurrir
     a simulaciones CFD a escala buque.
 
-    \item La validación de las predicciones de potencia mediante pruebas de mar sobre
-    buques en escala 1:1, dada la magnitud de las discrepancias frente a los métodos estándar.
+    \item La validación de las predicciones de potencia sobre buques en escala
+    1:1. Se trata de verificar, mediante pruebas de mar, si las extrapolaciones
+    obtenidas con el método propuesto (doble $k$ en resistencia, incorporación de
+    la componente de presión del efecto de escala del propulsor y los efectos
+    propulsivos restantes como la reducción de empuje) se acercan más a la
+    potencia medida que las del procedimiento tradicional, dada la magnitud de
+    las discrepancias frente a los métodos estándar documentada en esta tesis.
 
     \item En el terreno propulsivo, la búsqueda de una generalización del efecto de
     escala y de la fracción de presión en función de la geometría de la pala (número de

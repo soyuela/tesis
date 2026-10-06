@@ -461,6 +461,10 @@ laminar-turbulenta y las fuerzas sobre el álabe exhiben un comportamiento
 no monótono, con un incremento local de $K_T$ y $10K_Q$ que ningún modelo
 completamente turbulento es capaz de reproducir.
 
+\paragraph{Análisis de incertidumbre}
+
+\completar{espacio para incertidumbre P206}
+
 \subsection{Configuración numérica}
 \label{sec:coreana_cfd}
 
@@ -479,7 +483,7 @@ viscosidad $\nu = 1.0034 \times 10^{-6}$~m$^2$/s a 20~°C.
 En la malla de OpenFOAM se emplearon 10 capas de prismas sobre la superficie del
 álabe para resolver la capa límite bajo el criterio de $y^+$ descripto en la
 Sección~\ref{sec:metodologia_helices_openfoam}. La malla resultante cuenta con
-$4\,935\,785$ celdas.
+$4\,935\,785$ celdas. A diferencia de la B4-60 (Tabla~\ref{tab:gci_kt}), no se realizó un estudio de convergencia de malla específico para el P206: se adoptaron los parámetros de refinamiento, resolución de pared y densidad local del álabe validados en la hélice B4-60, y la independencia de la solución frente a la discretización se asume por extensión de aquel estudio. En este caso, la validación numérica se apoya en la comparación directa con los datos experimentales de la Sección~\ref{sec:coreana_resultados} y en la verificación cruzada con el solver independiente StarCCM+ (Sección~\ref{sec:coreana_solvers}), más que en un índice $GCI$ propio.
 
 En ambos códigos, las simulaciones con SST-LM se realizaron para tres niveles de
 intensidad turbulenta efectiva en el plano del disco: $Tu = 1.0\%$, $1.4\%$ y
