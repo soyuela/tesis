@@ -261,6 +261,7 @@ para esta clase de cascos, sobre el pesquero P1, se presentó en
     \caption{Diagramas de Prohaska de los modelos Hull-1 y Hull-2. Adaptado de
     \citet{korkmaz_cfd_2021}.}
     \label{fig:korkmaz_bulb_effect}
+    \todoib{EN las figuras que son robadas, sacaría las caption originales. Idem otras más abajo}
 \end{figure}
 
 \section{Determinación del factor de forma asistida por CFD}
@@ -421,7 +422,7 @@ actúan en el mismo sentido, $k_M < k_S$.
 La cuantificación sistemática de este efecto fue abordada por primera vez en
 \citet{gomezgarcia}, donde se reanalizaron quince modelos agrupados en cuatro
 familias de modelos geométricamente semejantes a distinta escala. Para cada
-familia, el factor de forma determinado por Prohaska con la ITTC-57 disminuye al
+familia, el factor de forma determinado por \addedo{el método de} Prohaska con la ITTC-57 disminuye al
 aumentar la razón de escala $\lambda$ --equivalentemente, crece con el tamaño
 del modelo--, de modo que la extrapolación de la recta de regresión a
 $\lambda = 1$ predice un factor de forma de buque mayor que el de cualquier
@@ -457,6 +458,7 @@ presenta en \citet{keh-sik-min}: doce buques de distinto tipo ensayados sobre un
 total de 32 modelos, construidos en varias escalas para un mismo casco de modo
 de barrer el número de Reynolds manteniendo el de Froude. La Figura~\ref{fig:keh-sik} reproduce los resultados de los ensayos de baja
 velocidad para los cuatro modelos geosim de un portacontenedores de 8600~TEU,
+\todoib{¿Qué es geosim y qué 8600~TEU? Pondría alguna referencia}
 graficados como $C_{TM}/C_{FM}$ frente a $Fr$. En ese plano, el valor al que
 tiende cada curva cuando $Fr \to 0$ es el factor de forma, según la definición
 adoptada por la ITTC en 1978 y empleada por los autores. Dos rasgos son
@@ -516,13 +518,17 @@ La pregunta clave es en qué medida esta dependencia con $Re$ es un artefacto de
 El estudio colaborativo ITTC \citep{korkmaz_cfd_2021} aportó evidencia concluyente: la dependencia de $k$ con
 $Re$ desaparece casi por completo al reemplazar la ITTC-57 por líneas de
 fricción numéricas derivadas con el mismo código, al menos para cascos de
-esbeltez moderada como el \textit{KCS} y el KVLCC2. Esto indica que la mayor
+esbeltez moderada como el \textit{KCS} y el KVLCC2.
+\todoib{¿Estos modelos de cascos están referidos en algún lado?}
+Esto indica que la mayor
 parte de la dependencia observada es un artefacto de la pendiente incorrecta de
 la ITTC-57 a bajos números de Reynolds, y no un efecto físico inherente. En la
 misma dirección, en \citet{quintuna2023} se determinaron factores de forma por
 CFD de doble cuerpo para un buque multipropósito y un portacontenedores, y se
 cuantificó que la diferencia del factor de forma entre escala modelo y escala
-buque se reduce en promedio del $10.4\%$, al emplear la línea ITTC-57, al
+buque se reduce en promedio del $10.4\%$,
+\todoib{En castellano el separador decimal es la coma}
+al emplear la línea ITTC-57, al
 $6.4\%$ al utilizar una NFL derivada con el modelo $k$--$\omega$ SST.
 
 Estas cifras admiten, sin embargo, una segunda lectura: la reducción es
@@ -612,13 +618,16 @@ indicando que la naturaleza del efecto de escala sobre el factor de forma, tanto
 en Froude como en Reynolds, requiere investigación adicional. Para lo que aquí
 interesa, la consecuencia es que el rango en el que la variación se manifiesta
 queda por debajo de la ventana $Fr \in [0.1;\, 0.2]$ sobre la que opera el método
-de Prohaska, dentro de la cual las diferencias reportadas son de unos pocos por
-ciento.
+de Prohaska, dentro de la cual las diferencias reportadas son de unos pocos \replacedo{puntos porcentuales.}{por
+ciento.}
+
 \subsection{Una configuración particular: la popa espejo sumergida}
 
 Cuando la popa del casco tiene el espejo sumergido, el flujo se separa en la arista y se forma detrás una zona de recirculación persistente. La inmersión del espejo se acentúa al aumentar el calado y al reducir la velocidad, de modo que el régimen recirculante es más probable en condición de plena carga y, dentro de ella, justamente en el rango de bajos $Fr$ sobre el que operan los métodos de determinación de $(1+k)$. En esa configuración, el flujo de escala modelo y el flujo de escala buque difieren cualitativamente, no solo cuantitativamente, porque la velocidad crítica a la que el espejo ``ventila'' y pasa a flujo libre es diferente en las dos escalas \citep{ITTC_Combined_2021}. Para este caso, en \citet{korkmaz_wetted_transom} se propone un \textbf{método de dos factores de forma} ($2k$) que distingue la contribución del cuerpo sin separación de la contribución adicional de la popa espejo, calculando ambas por CFD en escala modelo y buque respectivamente. El método incluye un criterio de aplicabilidad basado en el área sumergida del espejo relativa a la sección maestra. Los cascos pesqueros analizados en esta tesis superan ese umbral en su condición de plena carga, de modo que la corrección corresponde ser aplicada; cuánto explica del efecto de escala medido en ellos es una cuestión distinta, que se cuantifica en la Sección~\ref{sec:popa_sumergida}.
 
-En \citet{starke2025} se evaluó el procedimiento empleado por MARIN para
+En \citet{starke2025} se evaluó el procedimiento empleado por MARIN
+\todoib{¿QUé es? Referencia}
+para
 cascos con popa espejo sumergida, en el que el factor de forma se calcula
 mediante simulaciones de doble cuerpo sobre una versión del casco prolongada
 suavemente en la popa, y no sobre el casco real. De este modo, la resistencia
@@ -676,7 +685,9 @@ La \textbf{serie Wageningen B} es la familia sistemática de hélices de referen
 \subsection{El procedimiento ITTC-78 para propulsores}
 \label{sec:ittc78_propulsor}
  
-El \textbf{procedimiento ITTC-78} extrapola los resultados del ensayo POW de modelo a escala buque asumiendo que toda la diferencia entre escalas es de naturaleza friccional \citep{ITTC_Performance_prediction}. Su único insumo es la corrección del coeficiente de arrastre de perfil de la sección representativa, tomada a $r/R = 0.75$:
+El \textbf{procedimiento ITTC-78}
+\todob{Sacaría la negrita}
+extrapola los resultados del ensayo POW de \addedo{escala} modelo a escala buque asumiendo que toda la diferencia entre escalas es de naturaleza friccional \citep{ITTC_Performance_prediction}. Su único insumo es la corrección del coeficiente de arrastre \addedo{del} perfil de la sección representativa, tomada a $r/R = 0.75$:
 %
 \begin{equation}
     \Delta C_D = C_{DM} - C_{DS},
@@ -718,13 +729,17 @@ signo opuesto, ya que su $\Delta K_T$ es la cantidad que se resta del valor de
 modelo para producir ese mismo aumento; al comparar ambos marcos se explicita la
 conversión.
 
-El estudio abarca tanto una hélice convencional (VP1304, $A_E/A_0=0.779$, sin
+El estudio
+\todob{¿cuál?}
+abarca tanto una hélice convencional (VP1304, $A_E/A_0=0.779$, sin
 modificación de punta) como una de punta rakeada y área expandida reducida
 (P1727, $A_E/A_0=0.444$). El \emph{rake} es el desplazamiento axial de las
 secciones de la pala a lo largo del eje; una hélice de punta rakeada concentra ese
 desplazamiento en la región exterior, de modo que la punta se inclina hacia proa o
 hacia popa respecto del plano del disco en lugar de permanecer contenida en él.
-Para el P1727 los autores reportan un incremento de empuje entre escala de modelo
+Para el
+\todob{¿modelo?}
+P1727 los autores reportan un incremento de empuje entre escala de modelo
 y escala buque de hasta un $10\%$ bajo un modelo completamente turbulento; al
 descomponer ese incremento, la fracción de presión resulta $f_p\approx0.87$ (entre
 $0.83$ y $0.89$ según el coeficiente de avance), de modo que el procedimiento
@@ -808,9 +823,12 @@ Los ensayos POW se realizan típicamente a $Re_{c,0.7R}$ entre $2\times10^5$ y $
     \caption{Coeficientes de empuje y de par frente al número de Reynolds
     seccional $Re_{c,0.7R}$. Adaptado de \citet{baltazar2018transition}.}
     \label{fig:joroba_joao}
+    \todoib{Agregar que se usaron distontos modelos y qué quiere decir (LER)}
 \end{figure}
  
-Las referencias fundamentales para la predicción numérica de este fenómeno son \citet{baltazar2018transition} y los trabajos de Gaggero. En \citet{baltazar2018transition} se compararon el modelo SST y el modelo de transición $\gamma$-$\widetilde{Re}_{\theta t}$ (descrito en la Sección~\ref{sec:modelos_transicion}) para dos hélices, obteniendo mejor acuerdo con los diagramas experimentales con el modelo de transición en el rango $Re_{c,0.7R} = 10^5$--$10^6$. Existen otros cierres de transición: en \citet{gaggero2018transition} se empleó en OpenFOAM el modelo $k$-$k_L$-$\omega$, que incorpora una ecuación de transporte adicional para la energía cinética de las fluctuaciones laminares $k_L$. Sus limitaciones fueron señaladas posteriormente en \citet{gaggero2021transition}: el cierre posterga la transición hasta números de Reynolds excesivamente altos --del orden de $2.3\times10^6$ para la hélice VP1304-- y resulta prácticamente insensible a la intensidad turbulenta impuesta en la entrada del dominio.
+Las referencias fundamentales para la predicción numérica de este fenómeno son \citet{baltazar2018transition} y los trabajos de Gaggero.
+\todoib{poner estas referencias entre paréntesis con citep }
+En \citet{baltazar2018transition} se compararon el modelo SST y el modelo de transición $\gamma$-$\widetilde{Re}_{\theta t}$ (descrito en la Sección~\ref{sec:modelos_transicion}) para dos hélices, obteniendo mejor acuerdo con los diagramas experimentales con el modelo de transición en el rango $Re_{c,0.7R} = 10^5$--$10^6$. Existen otros cierres de transición: en \citet{gaggero2018transition} se empleó en OpenFOAM el modelo $k$-$k_L$-$\omega$, que incorpora una ecuación de transporte adicional para la energía cinética de las fluctuaciones laminares $k_L$. Sus limitaciones fueron señaladas posteriormente en \citet{gaggero2021transition}: el cierre posterga la transición hasta números de Reynolds excesivamente altos --del orden de $2.3\times10^6$ para la hélice VP1304-- y resulta prácticamente insensible a la intensidad turbulenta impuesta en la entrada del dominio.
 
 En \citet{gaggero2021transition} se retomaron esos mismos casos con el modelo $\gamma$-$\widetilde{Re}_{\theta t}$, resuelto tanto en OpenFOAM como en StarCCM+. De ese trabajo interesa aquí sobre todo un resultado: incluir la transición eleva \emph{tanto} $K_T$ \emph{como} $K_Q$ por encima de los valores totalmente turbulentos. Una capa límite parcialmente laminar reduce la fricción, y por sí sola debería producir un leve aumento del empuje junto con una caída más marcada del par; que ambos suban a la vez no se explica por esa vía y obliga a atribuir el efecto a la presión. El mecanismo propuesto es que, bajo capa límite laminar, las líneas de corriente sobre la pala adoptan una orientación predominantemente radial --por el predominio de la fuerza centrífuga-- que produce un efecto equivalente a un aumento de curvatura del perfil y eleva la succión en el dorso, en particular hacia el borde de salida; ese incremento de succión aporta simultáneamente empuje y par, y cancela el efecto favorable de la menor fricción. A diferencia del $k$-$k_L$-$\omega$, este cierre sí exhibe una sensibilidad apreciable a la intensidad turbulenta de entrada, cuestión que se retoma en la Sección~\ref{sec:modelos_transicion}.
  
@@ -841,6 +859,7 @@ Esta cuestión se vincula, además, con una preocupación que la propia ITTC ha 
  
 \subsubsection{Modelado numérico de la transición: SST y SST-LM}
 \label{sec:modelos_transicion}
+\todoib{Esto lo pondría como subsubsection* para que no numere}
  
 El modelo $k$-$\omega$ SST de \citet{Menter1994}, cuyo desempeño en una amplia gama de aplicaciones industriales fue documentado por \citet{menter2003}, es el estándar de la industria para simulaciones viscosas de hélices a escala buque, donde el flujo es enteramente turbulento. Sin embargo, a Reynolds de escala modelo el SST fuerza la transición a un número de Reynolds excesivamente bajo, sobreestimando la extensión de la zona turbulenta y no reproduciendo la joroba \citep{baltazar2018transition}.
  
