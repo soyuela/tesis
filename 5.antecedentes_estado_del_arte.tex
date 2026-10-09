@@ -50,7 +50,9 @@ número de Reynolds y otro función exclusiva del número de Froude. La propuest
 donde $C_W$ es el coeficiente de resistencia por formación de olas, $C_{F0}$ es
 el coeficiente de resistencia friccional adimensional de una \emph{placa plana
 equivalente} --una placa plana bidimensional de la misma eslora y la misma
-superficie mojada que el casco, evaluada al mismo número de Reynolds-- y $(1+k)$
+superficie mojada que el casco, evaluada al mismo número de Reynolds--
+\todob{Estos guiones no se usan comunmente en castellano y son muy buchones del uso de IA.}
+y $(1+k)$
 es el \textbf{factor de forma}, un multiplicador de origen puramente geométrico.
 
 El primer término de la Ecuación~\eqref{eq:CT_decomposicion_hughes} es la
@@ -176,6 +178,7 @@ características afectan directamente el valor del factor de forma que se
 determina sobre el modelo; sus consecuencias se analizan en detalle en la
 Sección~\ref{sec:k_vs_Re}, siguiendo a \citet{KORKMAZ2022112590}.
 
+\todoib{Seguido?}
 La ITTC-57 es, por lo tanto, la referencia que se emplea en esta tesis, y es
 la que se aplica en todos los resultados experimentales y numéricos que se
 presentan, salvo donde se indique lo contrario.
@@ -263,7 +266,9 @@ para esta clase de cascos, sobre el pesquero P1, se presentó en
 \section{Determinación del factor de forma asistida por CFD}
 \label{sec:cfd_ff_antec}
 
-El recurso al CFD para determinar el factor de forma plantea dos cuestiones
+El recurso al CFD
+\todoib{Esto no me suena bien: ``La utilización de CFD''??}
+para determinar el factor de forma plantea dos cuestiones
 independientes, que se corresponden con los dos miembros del cociente
 $(1+k) = C_V/C_{F0}$ de la Ecuación~\eqref{eq:k_dos_cocientes}. La primera es
 cómo obtener el numerador, es decir por qué camino se llega a la resistencia
@@ -349,7 +354,7 @@ La ventaja decisiva sobre el método de Prohaska es que el doble cuerpo elimina 
 \label{sec:estado_arte_ff}
 
 El Comité Especialista de la 29a ITTC sobre Métodos Combinados CFD/EFD coordinó un
-estudio colaborativo en el que nueve organizaciones y ocho códigos calcularon el
+estudio colaborativo en el que nueve organizaciones \replacedo{utilizando}{y} ocho códigos calcularon el
 factor de forma para los cascos \textit{KCS} y KVLCC2 \citep{ITTC_Combined_2021,
 KORKMAZ2022112590}. Los resultados mostraron que la dispersión entre
 organizaciones es significativamente menor que la del método de Prohaska, que el
