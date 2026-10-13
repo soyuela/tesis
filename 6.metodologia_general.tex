@@ -13,7 +13,7 @@ A continuación se describe, en primer lugar, la metodología experimental: las 
 
 \section{Metodología Experimental (EFD)}
 
-Los ensayos experimentales se llevaron a cabo en el canal de remolque de la Universidad de Buenos Aires (UBA), Argentina. Esta campaña tuvo como objetivo principal generar una base de datos de validación confiable para modelos de buques pesqueros (P1, P2 y P3) y comparar los resultados con el buque de referencia \textit{KCS}.
+Los ensayos experimentales se llevaron a cabo en el canal de remolque \addedo{de la Facultad de Ingeniería} de la Universidad de Buenos Aires (UBA), Argentina. Esta campaña tuvo como objetivo principal generar una base de datos de validación confiable para modelos de buques pesqueros (P1, P2 y P3) y comparar los resultados con el buque de referencia \textit{KCS}.
 
 La sección se organiza en dos bloques. Tras describir las instalaciones, se presentan, con la misma estructura, los ensayos de resistencia al avance de los modelos de buques y los ensayos de aguas abiertas de los propulsores: en cada caso, los modelos ensayados, el principio del ensayo y las magnitudes que entrega, el montaje e instrumentación, el procedimiento y el análisis de incertidumbre.
 
@@ -36,7 +36,7 @@ Se fabricaron y ensayaron cuatro modelos a escala, de los cuales tres son pesque
 \subsubsection{Modelo Pesquero 1}
 El primer modelo estudiado, de ahora en más \textit{P1} representa un buque pesquero de baja esbeltez ($L/B < 4$) característico de la flota nacional. El modelo fue construido a escala $\lambda = 20$.
 
-En la Figura \ref{fig:model_tpa}, se presentan las vistas del modelo físico terminado. Se pueden apreciar las marcas de las diferentes secciones, lineas de agua y la disposición de la proa con bulbo. Para asegurar la transición a régimen turbulento de la capa límite y evitar la laminarización del flujo a bajas velocidades, se instalaron estimuladores de turbulencia (alambres cilíndricos de 3 mm de diámetro) a un 5\% de la eslora desde la perpendicular de proa, siguiendo las recomendaciones de la ITTC (Procedimiento 7.5-01-01-01).
+En la Figura \ref{fig:model_tpa}, se presentan las vistas del modelo físico terminado. Se pueden apreciar las marcas de las diferentes secciones, \addedo{líneas} de agua y la disposición de la proa con bulbo. Para asegurar la transición a régimen turbulento de la capa límite y evitar la laminarización del flujo a bajas velocidades, se instalaron estimuladores de turbulencia (alambres cilíndricos de 3 mm de diámetro) a un 5\% de la eslora desde la perpendicular de proa, siguiendo las recomendaciones de la ITTC (Procedimiento 7.5-01-01-01).
 
 \begin{figure}[htpb]
     \centering
@@ -53,6 +53,7 @@ En la Figura \ref{fig:model_tpa}, se presentan las vistas del modelo físico ter
         \caption{Vista de perfil. Geometría de baja esbeltez típica de pesqueros.}
         \label{fig:tpa_side}
     \end{subfigure}
+    \todoib{Alinear subfiguras y captions. Ídem las que siguen}
     \caption{Modelo físico del pesquero P1 (Escala 1:20) preparado para ensayos en el LabHiNO.}
     \label{fig:model_tpa}
 \end{figure}
@@ -81,6 +82,7 @@ Desplazamiento (masa) & $\Delta$ & {[}t{]} & - & 75.0 & 85.0 & 95.0\\
 \bottomrule
 \end{tabularx}
 \label{tab:main_param_p1}
+\todoib{¿Qué es el $C_B$? Creo que no lo definiste antes}
 \end{table}
 
 \subsubsection{Modelo Pesquero 2}
@@ -221,7 +223,8 @@ Desplazamiento (masa) & $\Delta$ & {[}t{]} & 51925.940 & 105.318 \\
 
 La resistencia hidrodinámica de un casco en aguas tranquilas se obtiene mediante el \textbf{ensayo de resistencia al avance} (\emph{resistance test}). El modelo se remolca con el carro a velocidad constante y se mide la fuerza horizontal necesaria para mantener ese movimiento, que en régimen estacionario equilibra la \textbf{resistencia total} $R_T$. El ensayo se realiza en similitud de Froude (Capítulo~\ref{chap:antecedentes}): para cada condición de calado se barre la velocidad de remolque $V$ y, con ella, el número de Froude $Fr = V/\sqrt{g\,L}$, mientras que el número de Reynolds del modelo queda fijado por la escala y resulta varios órdenes de magnitud menor que el del buque.
 
-La fuerza medida se adimensionaliza con el coeficiente de resistencia total $C_T$ (Ecuación~\eqref{eq:CT}), evaluado con la superficie mojada del modelo en reposo. Las curvas de $C_T$ en función de $Fr$ constituyen el resultado del ensayo: en el Capítulo~\ref{cap:resistencia_factor_de_forma} son la base del método de Prohaska para determinar el factor de forma y la referencia experimental de validación de las simulaciones. Los rangos de velocidad ensayados y el número de repeticiones de cada campaña se detallan junto con los resultados.
+La fuerza medida se adimensionaliza con\todob{en?}
+el coeficiente de resistencia total $C_T$ (Ecuación~\eqref{eq:CT}), evaluado con la superficie mojada del modelo en reposo. Las curvas de $C_T$ en función de $Fr$ constituyen el resultado del ensayo: en el Capítulo~\ref{cap:resistencia_factor_de_forma} son la base del método de Prohaska para determinar el factor de forma y la referencia experimental de validación de las simulaciones. Los rangos de velocidad ensayados y el número de repeticiones de cada campaña se detallan junto con los resultados.
 
 La medición de la resistencia total al avance ($R_T$) se realizó mediante una celda de carga de un solo componente marca \textbf{Kempf \& Remmers modelo R 47}. El transductor, diseñado para una carga a escala completa de $\pm 100$ N, posee una sensibilidad de aproximadamente $\pm 1$ mV/V de voltaje de alimentación.
 
@@ -237,7 +240,7 @@ El montaje del modelo al carro se realizó vinculándolo a la celda de carga de 
 El sistema de adquisición de datos se configuró con los siguientes parámetros:
 \begin{itemize}
     \item \textbf{Frecuencia de muestreo:} 200 Hz, permitiendo capturar la dinámica transitoria y las fluctuaciones.
-    \item \textbf{Post-procesamiento:} Se aplicó un filtro paso bajo de 4 Hz a la señal para eliminar el ruido eléctrico y vibraciones mecánicas de alta frecuencia.
+    \item \textbf{Post-procesamiento:} Se aplicó un filtro \addedo{pasa bajos} de 4 Hz a la señal para eliminar el ruido eléctrico y vibraciones mecánicas de alta frecuencia.
 \end{itemize}
 
 \subsubsection{Procedimiento de ensayo}
@@ -531,6 +534,7 @@ rugosidad por el 19.\textsuperscript{o} ITTC, se calcula como
 $C_A = (5.68 - 0.6\log_{10} Re_S)\times 10^{-3}$. Esta separación
 reemplaza la formulación combinada original de Bowden y Davison
 \citep{ITTC_Performance_prediction}.}
+\todoib{Esta nota al pie queda rara acá}
 
 donde $C_{FS0}$ es el coeficiente de fricción del buque calculado mediante la línea ITTC-57 al número de Reynolds del buque, $k_S$ es el factor de forma a escala buque, $\Delta C_F$ es la corrección por rugosidad de la superficie, $C_A$ es el coeficiente de correlación modelo--buque y $C_{AAS}$ es el coeficiente de resistencia aerodinámica de la obra muerta, todos evaluados según las formulaciones recomendadas por la ITTC
 \citep{ITTC_Performance_prediction}.
@@ -552,6 +556,7 @@ La resistencia total del buque y la potencia efectiva de remolque se obtienen co
 %
 donde $\rho$ es la densidad del agua, $V_S$ la velocidad del buque y $S_S$
 la superficie mojada a escala buque.
+\todoib{Esta sección se me hizo repetitiva con lo del cap 2}
 
 \subsection{Extrapolación de las características del propulsor (procedimiento ITTC-78)}
 \label{sec:ittc78_helices_metodo}
