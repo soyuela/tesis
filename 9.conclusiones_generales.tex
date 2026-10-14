@@ -110,11 +110,7 @@ que la corrección de modelo a buque es puramente friccional ($\Delta K_{Tp} = 0
 
 El primero es el efecto de escala entre condiciones completamente turbulentas (de
 modelo a buque, ambas en régimen turbulento pleno), estudiado sobre la hélice
-Wageningen B4-60 mediante un barrido de diámetros de $D = 0{.}14$ a $8{.}0$~m. Los
-ensayos de archivo de la B4-60 permitieron cuantificar la incertidumbre
-experimental sobre $\eta_0$ (de $0{.}4\%$ a $12{.}3\%$ según $J$), que delimita el
-rango de $J$ en el que la curva experimental es defendible como referencia de
-validación. Al
+Wageningen B4-60 mediante un barrido de diámetros de $D = 0{.}14$ a $8{.}0$~m. Al
 aumentar el Reynolds, el empuje crece ($\Delta K_T = +4{.}7\%$) y el par disminuye
 ($-4{.}1\%$), con una ganancia neta de eficiencia en aguas abiertas de $+9{.}1\%$.
 La descomposición directa de fuerzas mostró que ese aumento de empuje está dominado
@@ -127,8 +123,8 @@ de apenas $+1{.}1\%$ frente al $+9{.}1\%$ del CFD, una diferencia de unos $8$ pu
 porcentuales que corresponde íntegramente a la componente de presión ignorada.
 
 El segundo mecanismo es la transición laminar-turbulenta sobre las palas a escala de
-modelo, estudiada sobre el propulsor \textit{P206}, ensayado en túnel de cavitación
-a cinco números de Reynolds de cuerda. \completar{incertidumbre del P206} Los ensayos revelan una joroba transicional
+modelo, estudiada sobre la hélice P206, ensayada en túnel de cavitación
+a cinco números de Reynolds de cuerda. Los ensayos revelan una joroba transicional
 en $K_T$ y $K_Q$ cuya amplitud, medida como la diferencia entre los coeficientes
 experimentales y la predicción completamente turbulenta, crece al descargar el
 propulsor, desde un $7{.}1\%$ a $J = 0{.}30$ hasta un $16{.}3\%$ a $J = 0{.}60$. El
@@ -142,7 +138,7 @@ No fue posible reproducir con exactitud los valores experimentales de $K_T$ y $K
 transicional con ningún valor de intensidad turbulenta ni con ninguno de los dos
 solvers empleados. Sin embargo, la descomposición directa de las fuerzas mostró que
 el desplazamiento de la curva completamente turbulenta hacia los valores
-experimentales es de origen mayoritariamente de presión --del orden del $90\%$--: la
+experimentales es de origen mayoritariamente de presión (del orden del $90\%$): la
 componente friccional aporta la fracción menor, y el par incluso aumenta levemente
 con el modelo de transición, cuando una reducción puramente friccional lo disminuiría.
 La limitación remanente no es, entonces, la de identificar el mecanismo, sino la de que
@@ -155,13 +151,12 @@ ensayo de túnel disponible, de modo que si esa condición cae dentro de la joro
 error puede duplicarse o triplicarse respecto de un punto vecino a Reynolds apenas
 distinto.
 
-La fracción de presión del efecto de escala completamente turbulento del
-\textit{P206} se midió de forma directa, como el cociente $\Delta K_{Tp}/\Delta K_T$
+La fracción de presión del efecto de escala completamente turbulento de la P206 se midió de forma directa, como el cociente $\Delta K_{Tp}/\Delta K_T$
 obtenido al descomponer las fuerzas sobre la pala en sus componentes de presión y
 fricción entre la condición de modelo y la de escala buque, ambas completamente
 turbulentas, resultando $f_p \approx 0{.}90$--$0{.}92$. El valor es mayor que el de la
 B4-60 ($0{.}70$--$0{.}77$) y prácticamente coincide con el de la hélice geométricamente
-más parecida al \textit{P206} (el P1727, $\approx 0{.}88$), lo que sugiere que la
+más parecida a la P206 (la P1727, $\approx 0{.}88$), lo que sugiere que la
 elevada fracción de presión está gobernada por el área expandida reducida; establecer
 esa dependencia geométrica con generalidad requiere el mapeo sistemático que se plantea
 como trabajo futuro.
@@ -169,8 +164,7 @@ como trabajo futuro.
 A diferencia del eje de resistencia, donde la evidencia acumulada sobre tres cascos
 permitió proponer una generalización geométrica del comportamiento en función de
 $L/B$, el eje propulsivo deja el problema mucho más abierto. Los resultados aquí
-obtenidos se apoyan en solo dos hélices estudiadas en detalle, la B4-60 y el
-\textit{P206}, y en una tercera tomada como referencia externa de la bibliografía
+obtenidos se apoyan en solo dos hélices estudiadas en detalle, la B4-60 y la P206, y en una tercera tomada como referencia externa de la bibliografía
 reciente. La dependencia de la fracción de presión y de la joroba transicional con
 los parámetros geométricos de la pala (número de palas, razón de áreas $A_E/A_0$,
 skew, distribución de cuerdas) apenas comienza a esbozarse, y su generalización,
@@ -208,22 +202,30 @@ produce una sobrestimación de solo un $5\%$, lo que evidencia que la fuente de
 discrepancia no es el procedimiento en sí, sino la magnitud del efecto de escala del
 factor de forma, mucho mayor que el que asumen implícitamente los métodos vigentes.
 
-En el eje propulsivo, el sesgo opera sobre la eficiencia en aguas abiertas y, a
-través de ella, sobre el rendimiento propulsivo que relaciona $P_E$ con la potencia
-en el eje. El efecto de escala completamente turbulento se traduce en una
-subestimación de unos $8$ puntos porcentuales de la ganancia de eficiencia a escala
-buque (la diferencia entre el $+9{.}1\%$ del CFD y el $+1{.}1\%$ del ITTC-78), y el
-sesgo transicional del procedimiento introduce un error relativo adicional de hasta
-el $8{.}5\%$ en $\eta_0$. Ambas desviaciones constituyen fuentes de error del lado
-propulsivo que se suman a la discrepancia ya identificada en $P_E$, aunque no se
-combinan directamente con ella sin recurrir a un procedimiento de autopropulsión
-que esta tesis no abordó. Que las desviaciones aparezcan en los dos extremos de la
-cadena --resistencia y propulsión-- y sean individualmente del orden del $10\%$ es
-suficiente para justificar una revisión de los procedimientos estándar y una
-validación específica, discutida en la Sección~\ref{sec:lineas_futuras}, con
-pruebas de mar sobre buques reales.
+En el eje propulsivo, la subestimación de la eficiencia en aguas abiertas, de unos
+$8$ puntos porcentuales por el efecto de escala completamente turbulento (la
+diferencia entre el $+9{.}1\%$ del CFD y el $+1{.}1\%$ del ITTC-78) y de hasta un
+$8{.}5\%$ por el sesgo transicional del procedimiento, actúa sobre el otro extremo
+del cálculo de potencia, degradando la predicción del rendimiento propulsivo. Dado
+que resistencia y propulsión se combinan en la estimación de la potencia instalada,
+sus contribuciones no se cancelan sino que se acumulan. Discrepancias del orden del
+$15\%$ en potencia son suficientemente significativas desde el punto de vista del
+diseño como para justificar su validación mediante pruebas de mar y para
+desaconsejar la aplicación acrítica de los procedimientos estándar.
 
 \section{El aporte metodológico: la sinergia EFD-CFD}
+
+El resultado transversal de la tesis, tanto en resistencia como en propulsión, solo
+fue posible gracias a la combinación deliberada de experimentación y simulación, en
+la que cada herramienta suple las limitaciones de la otra. El CFD permite eludir la
+restricción de la semejanza y alcanzar la escala buque, pero, al igual que el ensayo
+a escala de buque, carece de un dato experimental con el cual contrastarse a
+esa escala; el ensayo físico, a su vez, solo accede al régimen de modelo. La
+validación cruzada entre ambos, en el régimen donde el ensayo es posible, no garantiza
+por sí sola la exactitud del resultado a escala buque, que permanece sin un dato experimental que lo confirme, pero sí respalda las tendencias que la simulación
+predice al cambiar de escala: la evolución de las distribuciones de presión, de las
+fuerzas y de los regímenes de flujo. Es esto lo que permite comprender qué mecanismos
+pueden estar gobernando el comportamiento a escala real.
 
 La experimentación aportó la base validada e imprescindible: curvas de resistencia y
 de aguas abiertas con incertidumbre cuantificada, que anclan el análisis en datos
@@ -274,23 +276,21 @@ Los aportes originales de esta tesis pueden resumirse en los siguientes puntos:
     \item Se cuantificó, para la hélice B4-60, que la componente de presión domina el
     efecto de escala completamente turbulento sobre el empuje ($\sim 76$--$77\%$).
 
-    \item Se caracterizó, experimental y numéricamente, el comportamiento del propulsor
-    \textit{P206} en régimen transicional, describiendo la joroba en $K_T$ y $K_Q$ y
+    \item Se caracterizó, experimental y numéricamente, el comportamiento de la hélice
+    P206 en régimen transicional, describiendo la joroba en $K_T$ y $K_Q$ y
     poniendo en evidencia el problema que supone extrapolar las prestaciones desde ese
     régimen, donde el resultado depende críticamente del número de Reynolds al que se
     realizó el ensayo.
 
-    \item Se analizó, por separado, el efecto de escala completamente turbulento del
-    \textit{P206}, cuantificando su fracción de presión en $f_p \approx 0{.}90$--$0{.}92$
+    \item Se analizó, por separado, el efecto de escala completamente turbulento de la P206, cuantificando su fracción de presión en $f_p \approx 0{.}90$--$0{.}92$
     mediante la descomposición directa de fuerzas, un valor muy superior al de las
     hélices convencionales de área moderada.
 
     \item Se evaluó el impacto de estos efectos sobre la predicción de potencia,
     mostrando diferencias del orden del $13$--$17\%$ en potencia efectiva por el factor
     de forma y de hasta el $8{.}5\%$ en eficiencia propulsiva por el sesgo del ITTC-78,
-    y se desarrolló el método de doble $k$ en resistencia e identificaron los
-    mecanismos de corrección de fricción y presión que un procedimiento estándar
-    debería incorporar.
+    y se propusieron métodos de doble $k$ y correcciones de fricción y presión que los
+    incorporan.
 
     \item Se consolidó una metodología combinada EFD-CFD, validada frente a
     referencias internacionales, capaz de abordar problemas de escala que ni la
@@ -298,7 +298,6 @@ Los aportes originales de esta tesis pueden resumirse en los siguientes puntos:
 \end{itemize}
 
 \section{Líneas futuras de investigación}
-\label{sec:lineas_futuras}
 
 El trabajo realizado deja abiertas varias direcciones de continuación, con un grado
 de madurez distinto en cada eje. En resistencia, la caracterización alcanzada permite
@@ -311,13 +310,8 @@ considerablemente más abierto.
     partir de una base ampliada de geometrías, que permita estimar $k_S$ sin recurrir
     a simulaciones CFD a escala buque.
 
-    \item La validación de las predicciones de potencia sobre buques en escala
-    1:1. Se trata de verificar, mediante pruebas de mar, si las extrapolaciones
-    obtenidas con el método propuesto (doble $k$ en resistencia, incorporación de
-    la componente de presión del efecto de escala del propulsor y los efectos
-    propulsivos restantes como la reducción de empuje) se acercan más a la
-    potencia medida que las del procedimiento tradicional, dada la magnitud de
-    las discrepancias frente a los métodos estándar documentada en esta tesis.
+    \item La validación de las predicciones de potencia mediante pruebas de mar sobre
+    buques en escala 1:1, dada la magnitud de las discrepancias frente a los métodos estándar.
 
     \item En el terreno propulsivo, la búsqueda de una generalización del efecto de
     escala y de la fracción de presión en función de la geometría de la pala (número de
