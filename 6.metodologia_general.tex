@@ -644,7 +644,9 @@ fuerzas que se define en la Sección~\ref{sec:metodologia_helices_descomp}.
 \section{Metodología Numérica (CFD)}
 \label{sec:cfd}
 
-Las simulaciones numéricas se realizaron con el código abierto \textbf{OpenFOAM}, basado en el Método de Volúmenes Finitos (FVM); la versión empleada se indica en cada caso. La sección se organiza en tres partes: los fundamentos comunes a todas las simulaciones (ecuaciones de gobierno, el modelo de turbulencia $k$--$\omega$ SST y su extensión de transición SST-LM), la metodología específica de las simulaciones de resistencia del casco (Sección~\ref{sec:cfd_casco}) y la de las simulaciones de hélices en aguas abiertas (Sección~\ref{sec:metodologia_helices}).
+Las simulaciones numéricas se realizaron con el \addedo{software de} código abierto \textbf{OpenFOAM},
+\todoib{Link o referencia a OF}
+basado en el Método de Volúmenes Finitos (FVM); la versión empleada se indica en cada caso. La sección se organiza en tres partes: los fundamentos comunes a todas las simulaciones (ecuaciones de gobierno, el modelo de turbulencia $k$--$\omega$ SST y su extensión de transición SST-LM), la metodología específica de las simulaciones de resistencia del casco (Sección~\ref{sec:cfd_casco}) y la de las simulaciones de hélices en aguas abiertas (Sección~\ref{sec:metodologia_helices}).
 
 \subsection{Ecuaciones de gobierno}
 \label{sec:ecuaciones_gobierno}
@@ -690,7 +692,7 @@ media a través de una viscosidad turbulenta $\mu_t = \rho\,\nu_t$:
 \end{equation}
 %
 donde $k = \tfrac{1}{2}\,\overline{u_i' u_i'}$ es la energía cinética
-turbulenta y $\delta_{ij}$ el delta de Kronecker. El modelo de turbulencia
+turbulenta y $\delta_{ij}$ \replacedo{la función}{el} delta de Kronecker. El modelo de turbulencia
 empleado para determinar $\nu_t$ se describe en la
 Sección~\ref{sec:metodo_SST}.
  
@@ -730,17 +732,18 @@ Las ecuaciones de transporte para $k$ y $\omega$ en el modelo SST son:
 
 \begin{equation}
     \frac{\partial (\rho \omega)}{\partial t} + \frac{\partial (\rho U_i \omega)}{\partial x_i} = \alpha \rho S^2 - \beta \rho \omega^2 + \frac{\partial}{\partial x_i} \left[ (\mu + \sigma_\omega \mu_t) \frac{\partial \omega}{\partial x_i} \right] + 2(1-F_1) \rho \sigma_{\omega 2} \frac{1}{\omega} \frac{\partial k}{\partial x_i} \frac{\partial \omega}{\partial x_i},
+    \label{eq:omega}
 \end{equation}
 
 donde $\rho$ es la densidad del fluido, $U_i$ la componente $i$ de la
 velocidad, $\mu$ la viscosidad dinámica molecular, $\mu_t$ la viscosidad
-turbulenta dinámica, $\tilde{P}_k$ el término de producción limitado de
+\replacedo{dinámica turbulenta,}{turbulenta dinámica,} $\tilde{P}_k$ el término de producción limitado de
 turbulencia, $F_1$ la función de mezcla del modelo SST, y $\sigma_k$,
 $\sigma_\omega$, $\beta$, $\beta^*$ y $\alpha$ son coeficientes del modelo
 interpolados mediante $F_1$ entre los valores de los modelos
 $k$--$\omega$ y $k$--$\varepsilon$.
-
-El último término de la ecuación de $\omega$ representa la \textbf{difusión cruzada}, que se activa únicamente en la zona de flujo libre ($F_1 \to 0$), permitiendo transformar matemáticamente el modelo $k$--$\varepsilon$ en una formulación basada en $\omega$.
+%
+El último término de la ecuación de $\omega$ \addedo{\eqref{eq:omega}} representa la \textbf{difusión cruzada}, que se activa únicamente en la zona de flujo libre ($F_1 \to 0$), permitiendo transformar matemáticamente el modelo $k$--$\varepsilon$ en una formulación basada en $\omega$.
 
 \paragraph{Definición de la Viscosidad Turbulenta}
 La diferencia fundamental del modelo SST respecto a los modelos estándar radica en la definición de la viscosidad turbulenta ($\nu_t$). En las capas límite sujetas a gradientes de presión adversos, la hipótesis estándar de Boussinesq sobreestima el esfuerzo cortante de Reynolds, lo que conduce a una predicción tardía de la separación del flujo.
@@ -762,6 +765,7 @@ Esta formulación asegura que $\nu_t$ no crezca excesivamente en zonas de alta d
 
 \paragraph{Extensión de transición: modelo SST-LM}
 \label{sec:metodo_sstlm}
+\todoib{Falta puntuación, punto o 2 puntos. Igual abajo.}
 El modelo SST supone la capa límite turbulenta desde el borde de ataque, hipótesis razonable a escala buque pero no necesariamente a escala de modelo, donde parte de la capa límite puede permanecer laminar. Para representar la transición se empleó el modelo SST-LM ($\gamma$--$\widetilde{Re}_{\theta t}$) de \citet{langtry2009}, que agrega al SST dos ecuaciones de transporte: una para la intermitencia $\gamma$ y otra para el número de Reynolds de espesor de cantidad de movimiento de inicio de transición, $\widetilde{Re}_{\theta t}$,
 %
 \begin{equation}
@@ -774,7 +778,9 @@ El modelo SST supone la capa límite turbulenta desde el borde de ataque, hipót
     = P_{\theta t} + \frac{\partial}{\partial x_j}\left[\sigma_{\theta t}\,(\mu + \mu_t)\frac{\partial \widetilde{Re}_{\theta t}}{\partial x_j}\right].
 \end{equation}
 %
-Fuera de la capa límite, el término fuente $P_{\theta t}$ fuerza $\widetilde{Re}_{\theta t}$ hacia el valor dado por una correlación empírica en función de la intensidad turbulenta local (Ecuación~\eqref{eq:tu_rethetat}), y la difusión lo transporta al interior de la capa límite. Allí, $P_\gamma$ activa la producción de intermitencia cuando el Reynolds local de la capa límite supera un valor crítico ligado a $\widetilde{Re}_{\theta t}$, mientras que $E_\gamma$ permite la relaminarización. El acoplamiento con el SST se realiza a través de una intermitencia efectiva $\gamma_{\mathrm{eff}}$, que modula la producción y la destrucción de $k$,
+Fuera de la capa límite, el término fuente $P_{\theta t}$ fuerza $\widetilde{Re}_{\theta t}$ hacia el valor dado por una correlación empírica en función de la intensidad turbulenta local (Ecuación~\eqref{eq:tu_rethetat}),
+\todoib{Esta ecuación queda muy lejos, agregaría una frase tipo ``que se discute más adelante''}
+y la difusión lo transporta al interior de la capa límite. Allí, $P_\gamma$ activa la producción de intermitencia cuando el Reynolds local de la capa límite supera un valor crítico ligado a $\widetilde{Re}_{\theta t}$, mientras que $E_\gamma$ permite la relaminarización. El acoplamiento con el SST se realiza a través de una intermitencia efectiva $\gamma_{\mathrm{eff}}$, que modula la producción y la destrucción de $k$,
 %
 \begin{equation}
     \tilde{P}_k^{\,LM} = \gamma_{\mathrm{eff}}\,\tilde{P}_k, \qquad
@@ -789,7 +795,9 @@ El SST completamente turbulento es el modelo de referencia en todas las simulaci
 \subsection{Simulaciones de resistencia del casco}
 \label{sec:cfd_casco}
 
-Las simulaciones de resistencia del casco se realizaron con \textbf{OpenFOAM} (versión 11) y el modelo $k$--$\omega$ SST completamente turbulento. Se emplearon dos configuraciones de simulación: con superficie libre, que replica el ensayo de canal, y de doble cuerpo, destinada a aislar la resistencia viscosa y determinar el factor de forma. Se presentan primero la formulación del problema con superficie libre, la integración de fuerzas, el dominio con su mallado y el tratamiento de pared, y luego las condiciones de contorno específicas de cada configuración, seleccionadas para garantizar la estabilidad y la conservación de masa en el dominio.
+Las simulaciones de resistencia del casco se realizaron con \textbf{OpenFOAM} (versión 11)
+\todoib{Aclarar que es org}
+y el modelo $k$--$\omega$ SST completamente turbulento. Se emplearon dos configuraciones de simulación: con superficie libre, que replica el ensayo de canal, y de doble cuerpo, destinada a aislar la resistencia viscosa y determinar el factor de forma. Se presentan primero la formulación del problema con superficie libre, la integración de fuerzas, el dominio con su mallado y el tratamiento de pared, y luego las condiciones de contorno específicas de cada configuración, seleccionadas para garantizar la estabilidad y la conservación de masa en el dominio.
 
 \subsubsection{Formulación con superficie libre}
 \paragraph{Presión modificada}
@@ -807,6 +815,7 @@ sobre superficies verticales sin introducir un flujo espurio.
  
 \paragraph{Captura de la interfaz}
 La interfaz aire--agua se modela con el método de volumen de fluido (VoF),
+\todoib{(VoF, por las siglas en inglés de Volume of Fluid)}
 que introduce una fracción volumétrica de agua $\alpha_{water}$ definida
 como la fracción del volumen de cada celda ocupada por la fase líquida, de
 modo que $\alpha_{water} = 1$ en el agua, $\alpha_{water} = 0$ en el aire y
@@ -824,8 +833,10 @@ donde el tercer término es la compresión artificial de interfaz, con
 $U_{r,j}$ una velocidad relativa que actúa únicamente en la banda
 $0 < \alpha_{water} < 1$ y cuyo efecto es contrarrestar la difusión numérica
 de la interfaz. Su tratamiento acotado se resuelve mediante el algoritmo
-MULES. Las propiedades del fluido en cada celda se obtienen por mezcla
-ponderada de las de ambas fases,
+MULES.
+\todob{Referencia}
+Las propiedades del fluido en cada celda se obtienen por mezcla
+ponderada de \deletedo{las de} ambas fases,
 %
 \begin{equation}\label{eq:mezcla}
     \rho = \alpha_{water}\,\rho_w + (1 - \alpha_{water})\,\rho_a ,
@@ -873,7 +884,9 @@ con $V$ la velocidad del buque. La integral de $C_P$ sobre la superficie mojada,
 \subsubsection{Dominio Computacional y Mallado}
 \label{sec:mallado_general}
 
-Se definió un dominio computacional rectangular prismático dimensionado para evitar la reflexión de olas. Las distancias se expresan en esloras entre perpendiculares del modelo, $L_{PP}$.
+Se definió un dominio computacional rectangular prismático dimensionado para evitar la reflexión de olas. Las distancias se expresan en esloras entre
+\todob{¿Está bien?¿Se dice así?}
+perpendiculares del modelo, $L_{PP}$.
 
 \begin{itemize}
     \item \textbf{Entrada (Inlet):} Ubicada a $1.5 L_{PP}$ a proa del modelo.
@@ -883,7 +896,8 @@ Se definió un dominio computacional rectangular prismático dimensionado para e
     \item \textbf{Límite lateral:} Se modela medio casco, con condición de simetría en el plano longitudinal del mismo y el limite lateral opuesto ubicado a $1.5 L_{PP}$.
 \end{itemize}
 
-El mallado se generó con \texttt{snappyHexMesh}, utilizando una estructura predominantemente hexaédrica no estructurada con refinamientos locales en la superficie libre y la estela, e inserción de capas de prismas en la superficie del casco para resolver la capa límite. Dado que las simulaciones abarcan desde la escala de modelo hasta la escala buque, la resolución de pared no es uniforme: $y^+$ varía desde valores del orden de la unidad en las escalas de modelo menores hasta valores superiores a 300 a escala buque, con el tratamiento de pared descrito a continuación. Los valores de cada caso se informan junto con los resultados en el Capítulo~\ref{cap:resistencia_factor_de_forma}.
+El mallado se generó con \addedo{el mallador} \texttt{snappyHexMesh} \addedo{de OpenFOAM}, utilizando una estructura predominantemente hexaédrica no estructurada con refinamientos locales en la superficie libre y la estela, e inserción de capas de prismas en la superficie del casco para resolver la capa límite. Dado que las simulaciones abarcan desde la escala de modelo hasta la escala buque, la resolución de pared no es uniforme: $y^+$ varía desde valores del orden de la unidad en las escalas de modelo menores hasta valores superiores a 300 a escala buque, con el tratamiento de pared descrito a continuación. Los valores de cada caso se informan junto con los resultados en el Capítulo~\ref{cap:resistencia_factor_de_forma}.
+\todoib{Mover la última frase al final de la subsección siguiente.}
 
 \subsubsection{Tratamiento de pared}
 {\sloppy
@@ -944,6 +958,7 @@ $\nu_t$ & calc. & calc. & calc. & nutkWF \\
 \end{itemize}
 
 \noindent\textbf{Esquemas de discretización:} la integración temporal emplea el esquema de Euler implícito. Los gradientes se calculan con \texttt{Gauss linear}, con el limitador \texttt{cellLimited} para los que intervienen en las ecuaciones de turbulencia. El término convectivo de momento se discretiza con \texttt{linearUpwind}, de segundo orden; el de la fracción volumétrica, con \texttt{interfaceCompression vanLeer}, y los de $k$ y $\omega$, con \texttt{linearUpwind} limitado. Los términos laplacianos emplean \texttt{Gauss linear corrected}, la interpolación es lineal y la distancia a la pared se evalúa con el método \texttt{meshWave}.
+\todoib{¿Alguna referencia de porqué se eligen estos?}
 
 \subsubsection{Simulación de Doble Cuerpo}\label{sec:doble_cuerpo}
 
@@ -996,7 +1011,9 @@ simulaciones propias de esta tesis se realizaron con OpenFOAM (código abierto, 
 segregado), cuya configuración se detalla a continuación. Con el objetivo de evaluar la
 robustez de las predicciones frente a la elección del código de cálculo, estos
 resultados se contrastan además con simulaciones equivalentes obtenidas con StarCCM+
-(comercial, solver acoplado) por S.~Gaggero y provistas para este trabajo; al no
+(comercial, solver acoplado) por S.~Gaggero
+\todoib{¿Es el tano? Pondría más datos. También se puede poner una referencia como ``Comunicación personal''}
+y provistas para este trabajo; al no
 haberse ejecutado ese código como parte de esta tesis, su configuración específica no
 se documenta aquí. Los casos de estudio particulares (geometría de la hélice, rango de
 $Re_n$ o $Re_c$ explorado, niveles de intensidad turbulenta ensayados) se presentan en
@@ -1005,6 +1022,7 @@ el Capítulo~\ref{chap:helices} junto con los resultados.
 En ambos códigos se emplearon los dos modelos de turbulencia descritos en la
 Sección~\ref{sec:metodo_SST}: el $k$--$\omega$ SST completamente turbulento como
 referencia y su extensión de transición SST-LM (Sección~\ref{sec:metodo_sstlm}).
+\todoib{Esta última frase la pondría antes de la última del párrafo anterior y todo en el mismo párrafo.}
 
 \subsubsection{Configuración en OpenFOAM}
 \label{sec:metodologia_helices_openfoam}
@@ -1025,7 +1043,9 @@ para la inserción de las capas de prismas en la superficie del álabe, con un $
 objetivo menor a 2 en promedio --requisito para el correcto funcionamiento del modelo
 de transición--, aunque en algunas zonas puntuales se alcanzaron valores de hasta 3.
 La cantidad de capas de prismas específica de cada caso se detalla en el
-Capítulo~\ref{chap:helices}. El término convectivo de momento se discretiza con un esquema acotado de segundo orden
+Capítulo~\ref{chap:helices}. El término convectivo de momento
+\todoib{En castellano, momento es fuerza por distancia, lo que vos querés decir es cantidad de movimiento.}
+se discretiza con un esquema acotado de segundo orden
 (\texttt{bounded Gauss linearUpwindV}), tras 200 iteraciones iniciales con \texttt{upwind}
 para estabilizar la solución; para los términos convectivos de $k$, $\omega$, $\gamma$ y
 $\widetilde{Re}_{\theta t}$ se emplea \texttt{Gauss upwind}. Los gradientes se calculan mediante
@@ -1075,6 +1095,7 @@ $90^\circ$ con interfaz periódica AMI). Las distancias se expresan en diámetro
 hélice $D$.}
 \label{fg:helice_dominio}
 \end{minipage}
+\todoib{Esta figura no está referida en el texto. Sacaría la caption fuera de la minipage para que quede formateada igual que el resto.}
 \end{figure}
 
 \subsubsection{Calibración de la intensidad turbulenta}
@@ -1107,7 +1128,9 @@ $Tu$ (expresado en \%), en su forma sin gradiente de presión:
     \label{eq:tu_rethetat}
 \end{equation}
 %
-Siguiendo la metodología de \citet{Gaggero2020}, en ambos códigos las variables de
+Siguiendo la metodología de \citet{Gaggero2020},
+\todoib{Esta referencia está listada 2 veces en la bibliografía}
+en ambos códigos las variables de
 turbulencia se mantienen congeladas desde la entrada del dominio hasta una distancia de
 $0.5D$ aguas arriba de la hélice, permitiendo su decaimiento únicamente en el tramo
 restante de $0.5D$ hasta el plano de la hélice. De este modo, $Tu$ en el disco --y no en la
@@ -1190,7 +1213,7 @@ referencia la resultante en la sección de $r/R = 0.7$, $V_{\text{ref}} = V_{0.7
 
 \section{Estrategia de verificación y validación (V\&V)}
 
-Para garantizar la fiabilidad de los resultados numéricos --tanto de las simulaciones de resistencia del casco como de las de hélices-- y cuantificar la incertidumbre de la simulación, se siguió el procedimiento estándar recomendado por la ITTC \cite{ITTC_uncertainty_CFD} y la ASME \cite{asme}, basado en las directrices de \citet{freitas}. La \emph{verificación} estima el error numérico de la solución a partir de su convergencia con la malla; la \emph{validación} contrasta la solución verificada con el ensayo, empleando para ello las incertidumbres experimentales de las Secciones~\ref{sec:analisis_incertidumbre_general} y~\ref{sec:analisis_incertidumbre_aguas_abiertas}.
+Para garantizar la fiabilidad de los resultados numéricos --tanto de las simulaciones de resistencia del casco como de las de hélices-- y cuantificar la incertidumbre de la simulación, se siguió el procedimiento estándar recomendado por la ITTC \citep{ITTC_uncertainty_CFD} y la ASME \citep{asme}, basado en las directrices de \citet{freitas}. La \emph{verificación} estima el error numérico de la solución a partir de su convergencia con la malla; la \emph{validación} contrasta la solución verificada con el ensayo, empleando para ello las incertidumbres experimentales de las Secciones~\ref{sec:analisis_incertidumbre_general} y~\ref{sec:analisis_incertidumbre_aguas_abiertas}.
 
 \subsection{Estudio de Convergencia de Malla (GCI)}
 \label{sec:convergencia_de_malla}
