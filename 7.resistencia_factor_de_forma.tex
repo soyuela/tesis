@@ -6,6 +6,9 @@
 \subsection{Ensayos experimentales de resistencia al avance}
 
 \subsubsection{Introducción general}
+\todoib{Este título lo podés obviar, y dejar el párrafo directamente como una intro gral.
+
+Personalmente no me gusta que haya más de 3 niveles de numeración, me parece mucho, pero es algo de estilo mío. Yo eliminaría la numeración de las subsubsecciones (poniéndolas con *) y dejaría solo los títulos.}
 
 La presente sección aborda la construcción de la curva de resistencia y el cálculo del factor de forma $(1+k)$ a partir de ensayos experimentales realizados en el canal del Laboratorio de Hidrodinámica Naval y Oceánica (LabHiNO). El objetivo específico de esta etapa es generar un conjunto de datos experimentales reproducibles que sirvan como base para la posterior comparación con resultados numéricos y para el análisis de efectos de escala que se desarrollará más adelante.
 
@@ -27,7 +30,7 @@ La resistencia total se midió mediante una celda de carga Kempf \& Remmers R47,
 
 El análisis de incertidumbre para los ensayos del modelo \textit{P1} sigue la metodología general detallada en la Sección~\ref{sec:analisis_incertidumbre_general}. Se realizaron cuatro repeticiones independientes de cada ensayo a cada velocidad, permitiendo evaluar tanto la dispersión entre ensayos como las incertidumbres instrumentales asociadas.
 
-En el modelo \textit{P1}, las fuentes dominantes de incertidumbre resultan ser la calibración del dinamómetro R47 y la dispersión entre repeticiones. La contribución relativa de estas componentes disminuye significativamente con el número de Froude: a $Fr = 0{.}14$, donde la resistencia total es mínima, la relación señal-ruido se deteriora y la incertidumbre relativa alcanza su máximo. A medida que aumenta la velocidad hacia $Fr = 0{.}37$, la resistencia crece cuadráticamente y la incertidumbre relativa desciende pronunciadamente. Este comportamiento es característico de ensayos de remolque y está cualitativamente acorde con el desempeño esperado.
+En el modelo \textit{P1}, las fuentes dominantes de incertidumbre resultan ser la calibración del dinamómetro R47 y la dispersión entre repeticiones. La contribución relativa de estas componentes disminuye significativamente con el número de Froude: a $Fr = 0{.}14$, donde la resistencia total es mínima, la relación señal-ruido se deteriora y la incertidumbre relativa alcanza su máximo. A medida que aumenta la velocidad hacia $Fr = 0{.}37$, la resistencia crece cuadráticamente y la incertidumbre relativa desciende pronunciadamente. Este comportamiento es característico de ensayos de remolque y \replacedo{es acorde cualitativamente}{está cualitativamente acorde} con el desempeño esperado.
 
 La combinación de todas las componentes mediante el método RSS (Sección~\ref{sec:analisis_incertidumbre_general}) arrojó incertidumbres combinadas de $5{.}35\%$, $2{.}04\%$ y $0{.}83\%$ para $Fr = 0{.}14$, $0{.}26$ y $0{.}37$ respectivamente, niveles adecuados y consistentes con las recomendaciones de la ITTC. La Tabla~\ref{tab:uncert_tpa} presenta el desglose detallado de todas las componentes consideradas.
 
@@ -61,6 +64,10 @@ la media) $\times N^{1/2}$.}
 
 Las Figuras~\ref{fig:resis_tpa_165}, \ref{fig:resis_tpa_180} y \ref{fig:resis_tpa_195} muestran las curvas de resistencia total obtenidas para cada uno de los calados ensayados. En todos los casos se observa el comportamiento esperado para un modelo de buque de desplazamiento: la resistencia crece de manera aproximadamente cuadrática con la velocidad en el rango de bajos números de Froude, donde domina la componente viscosa, y aumenta con mayor pendiente a partir de aproximadamente $Fr \approx 0{.}30$, donde la componente de generación de olas, proporcional a una potencia entre 2 y 4 de $Fr$, comienza a adquirir mayor relevancia. Las mediciones presentan una evolución continua y consistente entre velocidades, sin discontinuidades ni dispersiones significativas, lo que indica una adquisición estable de la fuerza de remolque y un desempeño correcto del sistema experimental. Estas curvas constituyen la base para el análisis posterior, donde se descompondrá la resistencia total en sus componentes viscosa y de formación de olas.
 
+\todoib{¿Por qué 3 figuras con una serie cada una si se pueden agrupar en una sola? En todo caso, fijaría la escala vertical de las 3 en el mismo rango.
+
+¿No se puede hacer una ajuste a una cuadrática en cada caso y mostrar cómo da?
+}
 \begin{figure}[htpb]
     \centering
     \includegraphics[width=0.6\textwidth]{images/efd_165.pdf}
@@ -336,6 +343,7 @@ muestra en la Figura~\ref{fig:york_kcs}.
 \end{figure}
 
 Conviene precisar que esta incertidumbre corresponde a la componente \emph{estadística} del ajuste (la propagación de los errores aleatorios de medición a través de la regresión) y resulta sensiblemente menor que la incertidumbre relativa de cada punto individual ($\sim 4\%$). Esta reducción no es anómala: aunque $(1+k)$ se obtiene por extrapolación a la abscisa nula, y la incertidumbre de una ordenada al origen crece con la distancia entre el centroide de los datos y el origen, en el \textit{KCS} los puntos son numerosos, se alinean estrechamente sobre la recta y su rango de ajuste se aproxima al origen, de modo que el término de palanca resulta pequeño y predomina el efecto del número de mediciones. Cabe señalar que este valor no incorpora eventuales errores sistemáticos, comunes a todas las corridas, que no se reducen por este mecanismo.
+\todoib{No es contradictoria esta última frase?}
 
 Este valor contrasta de manera marcada con el obtenido para el \textit{P1}
 (Tabla~\ref{tab:york_tpa}), cuya incertidumbre relativa se situaba entre el
@@ -387,6 +395,8 @@ presentado en la Tabla~\ref{tab:bc_setup}, garantizando la conservación de
 masa y la correcta generación de turbulencia en la capa límite mediante el 
 modelo $k$-$\omega$ SST.
 
+\todoib{Discutir ubicación de figuras con Ale}
+
 A diferencia del ensayo experimental, donde solo se obtiene la fuerza integral 
 $R_{T}$, el enfoque numérico permite separar las contribuciones de las fuerzas 
 de presión y de fricción. Esta descomposición es fundamental para analizar la 
@@ -424,6 +434,7 @@ diferentes condiciones de velocidad.
     elevación de la superficie libre (WH, \textit{water height}, en m, escala 
     modelo) y corresponde únicamente a la columna CFD.}
     \label{fig:3D-comparacion}
+    \todoib{Sacaría las negritas en la leyenda.}
 \end{figure}
 
 En las Figuras~\ref{fig:cfd_165_tpa}, \ref{fig:cfd_180_tpa} y~\ref{fig:cfd_195_tpa} se presentan 
@@ -659,6 +670,7 @@ Este hallazgo resulta crítico: si el factor de forma varía de manera apreciabl
 
     \caption{Factor de forma calculado mediante el método de doble cuerpo (DB) para el \textit{P1} en los tres calados analizados, en función de Froude.}
     \label{fig:tpa_DB_k_evolucion}
+    \todoib{¿Por qué en algunos casos usás 3 figuras diferentes y en otros 1 con subfiguras. Igualmente sigo pensando que es mejor juntar las 3 curvas en una sola figura, pero bue...}
 \end{figure}
 
 \subsubsection{Validación con modelo de referencia \textit{KCS}}
@@ -779,7 +791,7 @@ Esta validación cruzada permite afirmar que:
     cuyo origen físico se analiza en profundidad en las secciones siguientes.
 \end{enumerate}
 
-\subsection{Comparación EFD CFD de resistencia y de factor de forma}\label{sec:comparacion_efd_cfd}
+\subsection{Comparación \addedo{EFD--CFD} de resistencia y \deletedo{de} factor de forma}\label{sec:comparacion_efd_cfd}
 
 En esta sección se comparan los resultados experimentales y computacionales 
 del \textit{P1} presentados en las secciones anteriores con el fin de 
@@ -1043,7 +1055,7 @@ Prohaska CFD & 1.193 & 1.314 & 1.254 \\
     \label{fig:tpa_proj_DB_k_escala20_195}
 \end{figure}
 
-
+\todoib{AO: HASTA ACÁ}
      
 \subsection{Discusión de incertidumbres y diferencias entre EFD y CFD}
 
