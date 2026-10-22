@@ -115,19 +115,20 @@ aumentar el Reynolds, el empuje crece ($\Delta K_T = +4{.}7\%$) y el par disminu
 ($-4{.}1\%$), con una ganancia neta de eficiencia en aguas abiertas de $+9{.}1\%$.
 La descomposición directa de fuerzas mostró que ese aumento de empuje está dominado
 por la presión: la fracción $\Delta K_{Tp}/\Delta K_T$ se estabiliza en torno al
-$76$--$77\%$, de modo que apenas una cuarta parte proviene de la reducción de
-fricción. El análisis del campo de presión localizó esta redistribución sobre el
+$76$--$77\%$, de modo que apenas una cuarta parte proviene de la disminución del
+coeficiente de fricción. El análisis del campo de presión localizó esta redistribución sobre el
 lado de succión de la mitad externa de la pala, intensificándose hacia la punta. El
 procedimiento ITTC-78, al corregir solo fricción, predice una ganancia de eficiencia
-de apenas $+1{.}1\%$ frente al $+9{.}1\%$ del CFD, una diferencia de unos $8$ puntos
-porcentuales que corresponde íntegramente a la componente de presión ignorada.
+de $+6{.}1\%$ frente al $+9{.}1\%$ del CFD, una diferencia de unos $3$ puntos
+porcentuales que corresponde principalmente a la componente de presión ignorada.
 
 El segundo mecanismo es la transición laminar-turbulenta sobre las palas a escala de
 modelo, estudiada sobre la hélice P206, ensayada en túnel de cavitación
 a cinco números de Reynolds de cuerda. Los ensayos revelan una joroba transicional
-en $K_T$ y $K_Q$ cuya amplitud, medida como la diferencia entre los coeficientes
-experimentales y la predicción completamente turbulenta, crece al descargar el
-propulsor, desde un $7{.}1\%$ a $J = 0{.}30$ hasta un $16{.}3\%$ a $J = 0{.}60$. El
+en $K_T$ y $K_Q$. Su amplitud en $K_T$, medida como la diferencia entre el máximo y
+el mínimo relativa a la media, crece al descargar el propulsor, desde un $7{.}1\%$ a
+$J = 0{.}30$ hasta un $16{.}3\%$ a $J = 0{.}60$, principalmente por el déficit de los
+coeficientes en el menor número de Reynolds ensayado. El
 modelo completamente turbulento no reproduce este comportamiento en ningún caso, y
 el modelo de transición ($\gamma$-$\widetilde{Re}_{\theta t}$), verificado en dos
 solvers independientes (OpenFOAM y StarCCM+), lo captura solo parcialmente: ningún
@@ -145,7 +146,7 @@ La limitación remanente no es, entonces, la de identificar el mecanismo, sino l
 ningún nivel único de intensidad turbulenta reproduce la joroba experimental en todo el
 rango de operación. Al propagar esta física a
 través del ITTC-78 se constató un doble problema: un sesgo sistemático de
-subestimación de hasta el $8{.}5\%$, y, más grave, que el resultado de la
+subestimación de entre el $2$ y el $10\%$ en $K_T$, y, más grave, que el resultado de la
 extrapolación depende críticamente de en qué velocidad de giro se realizó el único
 ensayo de túnel disponible, de modo que si esa condición cae dentro de la joroba el
 error puede duplicarse o triplicarse respecto de un punto vecino a Reynolds apenas
@@ -203,9 +204,10 @@ discrepancia no es el procedimiento en sí, sino la magnitud del efecto de escal
 factor de forma, mucho mayor que el que asumen implícitamente los métodos vigentes.
 
 En el eje propulsivo, la subestimación de la eficiencia en aguas abiertas, de unos
-$8$ puntos porcentuales por el efecto de escala completamente turbulento (la
-diferencia entre el $+9{.}1\%$ del CFD y el $+1{.}1\%$ del ITTC-78) y de hasta un
-$8{.}5\%$ por el sesgo transicional del procedimiento, actúa sobre el otro extremo
+$3$ puntos porcentuales por el efecto de escala completamente turbulento (la
+diferencia entre el $+9{.}1\%$ del CFD y el $+6{.}1\%$ del ITTC-78) y la dispersión de
+hasta $17{.}7$ puntos en el $K_T$ extrapolado cuando el ensayo se realiza en régimen
+transicional, actúan sobre el otro extremo
 del cálculo de potencia, degradando la predicción del rendimiento propulsivo. Dado
 que resistencia y propulsión se combinan en la estimación de la potencia instalada,
 sus contribuciones no se cancelan sino que se acumulan. Discrepancias del orden del
@@ -288,7 +290,8 @@ Los aportes originales de esta tesis pueden resumirse en los siguientes puntos:
 
     \item Se evaluó el impacto de estos efectos sobre la predicción de potencia,
     mostrando diferencias del orden del $13$--$17\%$ en potencia efectiva por el factor
-    de forma y de hasta el $8{.}5\%$ en eficiencia propulsiva por el sesgo del ITTC-78,
+    de forma, de unos $3$ puntos porcentuales en la ganancia de eficiencia en aguas
+    abiertas y de hasta el $10\%$ en el empuje extrapolado por el sesgo del ITTC-78,
     y se propusieron métodos de doble $k$ y correcciones de fricción y presión que los
     incorporan.
 
