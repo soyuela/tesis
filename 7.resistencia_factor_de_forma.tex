@@ -20,13 +20,13 @@ Asimismo aunque esta sección se centra inicialmente en el modelo objetivo (\tex
 
 \subsubsection{Modelo \textit{P1}}
 
-\paragraph{Ensayo de resistencia al avance}
+\paragraph{Ensayo de resistencia al avance.}
 
 El modelo \textit{P1}, presentado en la Sección \ref{sec:presentacion_modelos}, representa un buque pesquero de baja esbeltez, construido en escala 1:20 y ensayado en tres condiciones de calado: ligero, medio y pesado.
 Cada ensayo se realizó siguiendo los procedimientos recomendados por la ITTC \citep{ITTC_resistance}, manteniendo libre el trimado y el hundimiento.
 La resistencia total se midió mediante una celda de carga Kempf \& Remmers R47, con adquisición a 200~Hz y filtrado de 4~Hz.
 
-\paragraph{Análisis de incertidumbre}
+\paragraph{Análisis de incertidumbre.}
 
 El análisis de incertidumbre para los ensayos del modelo \textit{P1} sigue la metodología general detallada en la Sección~\ref{sec:analisis_incertidumbre_general}. Se realizaron cuatro repeticiones independientes de cada ensayo a cada velocidad, permitiendo evaluar tanto la dispersión entre ensayos como las incertidumbres instrumentales asociadas.
 
@@ -523,7 +523,7 @@ CFD Prohaska ($k$) & 0.193 & 0.314 & 0.254 \\
 \label{tab:form_factors_cfd}
 \end{table}
 
-\subsection{Enfoque de Doble Cuerpo}\label{sec:4.1.5_enfoque_doble_cuerpo}
+\subsection{Enfoque de doble cuerpo}\label{sec:4.1.5_enfoque_doble_cuerpo}
 
 Ante las dificultades observadas para aplicar el método de Prohaska en el 
 entorno numérico, debido a la incertidumbre en la transición de la turbulencia 
@@ -627,7 +627,7 @@ en las escalas intermedias, los valores de $(1+k)$ varían de manera no
 monótona con la velocidad y alcanzan índices de convergencia de malla de hasta
 aproximadamente un 4\%, en consistencia con la mayor incertidumbre numérica de
 la componente de presión viscosa reportada para las simulaciones de doble
-cuerpo \citep{KORKMAZ2022112590}. Los resultados de escala buque, que son los
+cuerpo \citep{korkmaz_wetted_transom}. Los resultados de escala buque, que son los
 que sustentan las conclusiones de esta tesis, resultan en cambio suaves y
 monótonos con el número de Reynolds ($1+k$ crece de $1{.}654$ a $1{.}745$ en el
 rango analizado), se ubican en el rango de $y^+$ válido para las funciones de
@@ -802,7 +802,7 @@ sin superficie libre, la confiabilidad del enfoque numérico completo descansa
 en primer lugar en la concordancia que aquí se establece entre el modelo 
 bifásico con superficie libre y los ensayos de canal.
 
-\paragraph{Resistencia} Las Figuras~\ref{fig:resis_tpa_efd_cfd_165}, \ref{fig:resis_tpa_efd_cfd_180} 
+\paragraph{Resistencia.} Las Figuras~\ref{fig:resis_tpa_efd_cfd_165}, \ref{fig:resis_tpa_efd_cfd_180} 
 y~\ref{fig:resis_tpa_efd_cfd_195} comparan la resistencia experimental y
 computacional del \textit{P1} para los tres calados. Para cuantificar
 formalmente esta concordancia más allá de la inspección visual, se aplicó el
@@ -891,7 +891,7 @@ coinciden con los adoptados por Prohaska a partir de los ensayos
     \label{fig:resis_tpa_efd_cfd_195}
 \end{figure}
 
-\paragraph{Factor de forma} Como fue mencionado en las secciones 
+\paragraph{Factor de forma.} Como fue mencionado en las secciones 
 \ref{sec:det_exp_fac_form} y \ref{sec:det_num_fac_form}, tanto para el cálculo 
 experimental como para el computacional, no es posible ajustar adecuadamente 
 la recta esperada por el método de Prohaska a bajas velocidades. Las 
@@ -1149,7 +1149,7 @@ observadas mediante el método de doble cuerpo.
 
 \subsection{Análisis de efectos de escala} \label{sec:analisis_efectos_escala}
 
-\paragraph{Extensión de escalas}
+\paragraph{Extensión de escalas.}
 
 Con el fin de resaltar el comportamiento distintivo de $(1+k)$ en función de 
 $Re$ que se ha encontrado para el \textit{P1}, en esta subsección se compara 
@@ -1370,7 +1370,7 @@ En el \textit{P1}, la popa presenta tres zonas de separación fijadas por la
 geometría (Figuras~\ref{fig:geom_popa_render} y~\ref{fig:geom_popa_cuad_P1}): 
 el codillo en la unión entre el fondo en V y el dormido, que se extiende a lo 
 largo del cuerpo de popa; el extremo romo del dormido; y la arista entre el 
-fondo y el espejo, análoga a un escalón hacia atrás \citep{KORKMAZ2022112590}, 
+fondo y el espejo, análoga a un escalón hacia atrás \citep{korkmaz_wetted_transom}, 
 cuya recirculación se analiza en la Sección~\ref{sec:popa_sumergida}. El 
 pantoque, en cambio, es redondeado y no presenta arista viva 
 (Figura~\ref{fig:geom_popa_cuad_P1}), de modo que el punto de separación 
@@ -1809,7 +1809,7 @@ trabajo futuro.
 
 \subsection{Efecto sobre el factor de forma}
 
-\paragraph{Efecto sobre el valor de $(1+k)$} La aplicación del método de 
+\paragraph{Efecto sobre el valor de $(1+k)$.} La aplicación del método de 
 Prohaska a las simulaciones bifásicas de ambas configuraciones arroja los 
 valores reunidos en la Tabla~\ref{tab:k_bulbo_ctrlz}. El bulbo incrementa el 
 factor de forma en los dos calados analizados, lo cual es consistente con el 
@@ -1842,7 +1842,7 @@ en la literatura: si la contribución del bulbo al factor de forma está
 asociada a su proximidad a la superficie libre, al aumentar el calado el 
 bulbo queda más sumergido y su influencia se atenúa.
 
-\paragraph{Efecto sobre la tendencia de $(1+k)$ con la velocidad} La 
+\paragraph{Efecto sobre la tendencia de $(1+k)$ con la velocidad.} La 
 comparación de las curvas de $(1+k)$ determinadas por doble cuerpo 
 (Figuras~\ref{fig:k_bulbo_165} y \ref{fig:k_bulbo_195}) permite abordar la 
 segunda de las hipótesis planteadas. Ambas configuraciones presentan un 
@@ -2074,7 +2074,7 @@ condición que, según \citet{korkmaz_wetted_transom}, origina el déficit de re
     \label{fig:recirculacion_comparativa2}
 \end{figure}
 
-\subsection{Aplicación al Pesquero~1}
+\subsection{Aplicación al pesquero~1}
 
 La geometría de popa del \textit{P1} presenta una inmersión del espejo y según los criterios establecidos en \citet{korkmaz_wetted_transom} debe evaluarse en condición estática ($Fr = 0$), ya que el método demanda los parámetros geométricos correspondientes al buque en reposo. La Tabla~\ref{tab:tpa_transom_params} resume los parámetros calculados para esa condición.
 
@@ -2238,7 +2238,7 @@ cálculos presentados hasta ahora, con formulaciones alternativas para evaluar
 su impacto en la predicción de la resistencia viscosa y el factor de forma 
 $(1+k)$.
 
-\paragraph{Modelo $k$--$\omega$ SST}
+\paragraph{Modelo $k$--$\omega$ SST.}
 
 El modelo $k$--$\omega$ SST (``Shear Stress Transport'') fue utilizado 
 como modelo de referencia para todos los cálculos presentados en los capítulos 
@@ -2248,7 +2248,7 @@ Capítulo~\ref{chap:Metodologia}. En esta comparativa, sus resultados sirven
 como línea de referencia frente a la cual se evalúan las desviaciones de los 
 otros modelos.
 
-\paragraph{Modelo $k$--$\omega$ estándar}
+\paragraph{Modelo $k$--$\omega$ estándar.}
 
 El modelo $k$--$\omega$ original \citep{Wilcox1988} es un modelo RANS de dos 
 ecuaciones que resuelve la energía cinética turbulenta $k$ y la tasa 
@@ -2291,7 +2291,7 @@ sensibilidad a las condiciones de contorno de turbulencia en el flujo libre
 (``freestream sensitivity''), lo que puede afectar la predicción del 
 campo turbulento global si el dominio no es suficientemente grande.
 
-\paragraph{Modelo $k$--$\varepsilon$ estándar}
+\paragraph{Modelo $k$--$\varepsilon$ estándar.}
 
 El modelo $k$--$\varepsilon$ estándar \citep{Launder1974} resuelve las 
 ecuaciones de transporte para la energía cinética turbulenta $k$ y su tasa 
@@ -2332,7 +2332,7 @@ en la capa límite y no resulta adecuado para capturar con precisión efectos
 de separación bajo gradientes de presión adversos, tendiendo a predecir una 
 re-adhesión del flujo demasiado temprana en la popa.
 
-\paragraph{Modelo $k$--$\varepsilon$ realizable}
+\paragraph{Modelo $k$--$\varepsilon$ realizable.}
 
 El modelo $k$--$\varepsilon$ realizable \citep{Shih1994} introduce 
 modificaciones conceptuales al modelo estándar con el objetivo de cumplir 
