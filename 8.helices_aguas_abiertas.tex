@@ -169,7 +169,9 @@ Para verificar la independencia de la solución respecto de la malla se realizó
 
 \begin{table}[htbp]
 \centering
-\caption{Resultados de $K_T$ y estudio de convergencia de malla (GCI) para OpenFOAM, con $r = 1.41$. Hélice B4-60 a escala modelo ($D=0.14$~m), $J=0.5$, modelo $k$--$\omega$ SST.}
+\caption{Resultados de $K_T$ y estudio de convergencia de malla (GCI) para OpenFOAM, con $r = 1.41$. Hélice B4-60 
+\todoib{A veces usaste B.4.60, otras B4-60 y quizás otra diferente. Hay que unificar notación.}
+a escala modelo ($D=0.14$~m), $J=0.5$, modelo $k$--$\omega$ SST.}
 \label{tab:gci_kt}
 \begin{tabular}{cccccc}
 \hline
@@ -181,6 +183,8 @@ Malla & $h_i/h_1$ & $K_T$ & Razón de refinamiento & GCI (\%) & Incertidumbre ($
 \hline
 \end{tabular}
 \end{table}
+
+\todoib{Faltaría una frase mencionando el resultado que se muestra en la tabla y diciendo que con estos valores de GCI se valida la malla que se usa.}
 
 \section{Efectos de escala en la hélice B4-60}
 \label{sec:helices_escala}
@@ -356,6 +360,7 @@ El ITTC-78 subestima $K_T$ a escala buque en un $4.0\%$ respecto del CFD: su cor
 \includegraphics[width=0.95\textwidth]{images/fig4_gap_fraccion.png}
 \caption{Izquierda: diferencia $K_{T,\mathrm{CFD}} - K_{T,\mathrm{ITTC}}$ en función del diámetro. Derecha: fracción del efecto de escala en $K_T$ atribuible a la componente de presión ($\Delta K_{Tp}/\Delta K_T$), comparada con dos geometrías de la serie sistemática de \citet{gaggero2026series}.}
 \label{fig:gap_fraccion}
+\todoib{¿Por qué las columnas tienen distinto ancho?}
 \end{figure}
 
 \begin{figure}[htpb]
