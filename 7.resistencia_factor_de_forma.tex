@@ -66,10 +66,6 @@ la media) $\times N^{1/2}$.}
 
 Las Figuras~\ref{fig:resis_tpa_165}, \ref{fig:resis_tpa_180} y \ref{fig:resis_tpa_195} muestran las curvas de resistencia total obtenidas para cada uno de los calados ensayados. En todos los casos se observa el comportamiento esperado para un modelo de buque de desplazamiento: la resistencia crece de manera aproximadamente cuadrática con la velocidad en el rango de bajos números de Froude, donde domina la componente viscosa, y aumenta con mayor pendiente a partir de aproximadamente $Fr \approx 0{.}30$, donde la componente de generación de olas, proporcional a una potencia entre 2 y 4 de $Fr$, comienza a adquirir mayor relevancia. Las mediciones presentan una evolución continua y consistente entre velocidades, sin discontinuidades ni dispersiones significativas, lo que indica una adquisición estable de la fuerza de remolque y un desempeño correcto del sistema experimental. Estas curvas constituyen la base para el análisis posterior, donde se descompondrá la resistencia total en sus componentes viscosa y de formación de olas.
 
-\todoib{¿Por qué 3 figuras con una serie cada una si se pueden agrupar en una sola? En todo caso, fijaría la escala vertical de las 3 en el mismo rango.
-
-¿No se puede hacer una ajuste a una cuadrática en cada caso y mostrar cómo da?
-}
 \begin{figure}[htpb]
     \centering
     \includegraphics[width=0.6\textwidth]{images/efd_165.pdf}
@@ -396,7 +392,6 @@ presentado en la Tabla~\ref{tab:bc_setup}, garantizando la conservación de
 masa y la correcta generación de turbulencia en la capa límite mediante el 
 modelo $k$-$\omega$ SST.
 
-\todoib{Discutir ubicación de figuras con Ale}
 
 A diferencia del ensayo experimental, donde solo se obtiene la fuerza integral 
 $R_{T}$, el enfoque numérico permite separar las contribuciones de las fuerzas 
@@ -669,7 +664,7 @@ Este hallazgo resulta crítico: si el factor de forma varía de manera apreciabl
 
     \caption{Factor de forma calculado mediante el método de doble cuerpo (DB) para el \textit{P1} en los tres calados analizados, en función de Froude.}
     \label{fig:tpa_DB_k_evolucion}
-    \todoib{¿Por qué en algunos casos usás 3 figuras diferentes y en otros 1 con subfiguras. Igualmente sigo pensando que es mejor juntar las 3 curvas en una sola figura, pero bue...}
+    
 \end{figure}
 
 \subsubsection{Validación con modelo de referencia \textit{KCS}}
@@ -2640,8 +2635,7 @@ sistemática de los cascos de baja esbeltez, y no a una particularidad del
  
 Ambas observaciones motivaron la búsqueda de referencias en otros ámbitos donde 
 la geometría controla la resistencia viscosa y donde se manejan cuerpos 
-de baja esbeltez. En aerodinámica,\todob{de aeronanves?}
-el método clásico de estimación de 
+de baja esbeltez. En el diseño aerodinámico de aeronaves, el método clásico de estimación de 
 resistencia de fuselajes consiste en multiplicar el coeficiente de 
 fricción turbulenta de placa plana por un factor de forma empírico 
 dependiente de la razón de esbeltez del cuerpo, y por el área mojada. 
