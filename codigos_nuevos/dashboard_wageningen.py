@@ -195,9 +195,12 @@ save("fig3_delta_vs_D.png")
 # FIG 4 — brecha ITTC y fracción de presión
 fig, (a1, a2) = plt.subplots(1, 2, figsize=(13,4.8))
 gap = Kt[1:] - Kt_ittc[1:]
-a1.bar(D_plot, gap, width=[0.35,0.35,0.7,1.1,1.4], color=BAR_B)
-for d,g in zip(D_plot,gap):
-    a1.text(d, g+gap.max()*0.02, f'{g:.4f}', ha='center', va='bottom', fontsize=9)
+x = np.arange(len(D_plot))
+a1.bar(x, gap, width=0.6, color=BAR_B)
+for xi, g in zip(x, gap):
+    a1.text(xi, g + gap.max()*0.02, f'{g:.4f}', ha='center', va='bottom', fontsize=9)
+a1.set_xticks(x)
+a1.set_xticklabels([f'{d:g}' for d in D_plot])
 a1.set_ylim(0, gap.max()*1.25)
 a1.set_xlabel(r'$D$ [m]'); a1.set_ylabel(r'$K_{T,\mathrm{CFD}} - K_{T,\mathrm{ITTC}}$')
 frac = dKtp[1:]/dKt[1:]*100

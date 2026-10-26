@@ -102,13 +102,13 @@ def generar_ittc_nfl_comparacion():
                label='P1 DB 1:1 - ITTC', zorder=3, edgecolors='black', linewidth=0.5)
     
     # NFL - diferentes escalas
-    ax.scatter(Re_20, k_20_nfl, s=150, color=tred, marker='o',
+    ax.scatter(Re_20, k_20_nfl, s=150, color=tred, marker='^',
                label='P1 DB 1:20 - NFL', zorder=3, edgecolors='black', linewidth=0.5)
-    ax.scatter(Re_10, k_10_nfl, s=150, color=tpurple, marker='o',
+    ax.scatter(Re_10, k_10_nfl, s=150, color=tpurple, marker='^',
                label='P1 DB 1:10 - NFL', zorder=3, edgecolors='black', linewidth=0.5)
-    ax.scatter(Re_5, k_5_nfl, s=150, color=tyellow, marker='o',
+    ax.scatter(Re_5, k_5_nfl, s=150, color=tyellow, marker='^',
                label='P1 DB 1:5 - NFL', zorder=3, edgecolors='black', linewidth=0.5)
-    ax.scatter(Re_1, k_1_nfl, s=150, color=tpink, marker='o',
+    ax.scatter(Re_1, k_1_nfl, s=150, color=tpink, marker='^',
                label='P1 DB 1:1 - NFL', zorder=3, edgecolors='black', linewidth=0.5)
     
     # Líneas de Prohaska (horizontales)

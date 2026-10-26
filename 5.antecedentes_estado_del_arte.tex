@@ -168,10 +168,16 @@ aprobó con carácter expresamente interino, tras un debate considerable, y
 fundada menos en su exactitud que en ofrecer una formulación matemática
 conveniente para los cálculos de potencia \citep{ITTC1957}. Esa provisionalidad
 nunca se levantó: la línea sigue vigente hoy \citep{ITTC_Performance_prediction}.
-
-Embebe además implícitamente un factor de forma de aproximadamente $1.09$, y a ello se suma una pendiente excesivamente pronunciada en el rango de bajos números de Reynolds, propio de los modelos de
+Embebe además implícitamente un factor de forma de aproximadamente $1.09$, y a
+ello se suma una pendiente excesivamente pronunciada en el rango de bajos números de Reynolds, propio de los modelos de
 laboratorio: allí la Ecuación~\eqref{eq:ITTC57} entrega valores de $C_{F0}$
-superiores a la fricción real de una placa plana y decrece con $Re$ más rápido que ésta. Dado que $(1+k)$ se obtiene como cociente $C_V/C_{F0}$, ambas características afectan directamente el valor del factor de forma que se determina sobre el modelo; sus consecuencias se analizan en detalle en la Sección~\ref{sec:k_vs_Re}. La ITTC-57 es, por lo tanto, la referencia que se emplea en esta tesis, y es la que se aplica en todos los resultados experimentales y numéricos que se presentan, salvo donde se indique lo contrario.
+superiores a la fricción real de una placa plana y decrece con $Re$ más rápido
+que ésta. Dado que $(1+k)$ se obtiene como cociente $C_V/C_{F0}$, ambas
+características afectan directamente el valor del factor de forma que se
+determina sobre el modelo; sus consecuencias se analizan en detalle en la
+Sección~\ref{sec:k_vs_Re}, siguiendo a \citet{KORKMAZ2022112590}. La ITTC-57 es, por lo tanto, la referencia que se emplea en esta tesis, y es
+la que se aplica en todos los resultados experimentales y numéricos que se
+presentan, salvo donde se indique lo contrario.
 
 Pese a estas objeciones, la ITTC recomienda continuar utilizando la ITTC-57 para
 mantener coherencia con las bases de datos históricas de \emph{factores de
@@ -242,7 +248,7 @@ través de la popa espejo, que en la condición de plena carga queda
 sustancialmente sumergida y genera separación (Sección~\ref{sec:popa_sumergida});
 y la tercera a través de la sensibilidad del valor de $(1+k)$ al rango de Froude
 retenido en la regresión. Una primera cuantificación conjunta de estos efectos
-para esta clase de cascos, sobre el pesquero P1, se presentó en
+para esta clase de cascos, sobre el pesquero \textit{P1}, se presentó en
 \citet{oyuela2024jmse}.
 
 \begin{figure}[htbp]
@@ -359,7 +365,7 @@ ampliamente utilizados en la validación de códigos de CFD: el \textit{KCS}
 (\emph{KRISO Container Ship}), un portacontenedores de 3600~TEU, y el
 \textit{KVLCC2} (\emph{KRISO Very Large Crude Carrier}), un petrolero de
 300\,000~toneladas de porte bruto \citep{lee2003kcs, larsson2014gothenburg}.
-Los resultados del estudio \citep{ITTC_Combined_2021, korkmaz_cfd_2021}
+Los resultados del estudio \citep{ITTC_Combined_2021, KORKMAZ2022112590}
 mostraron que la dispersión entre organizaciones es significativamente menor que
 la del método de Prohaska, que el valor medio de las predicciones CFD concuerda
 con el experimental dentro de la incertidumbre, y que las predicciones de
@@ -369,7 +375,7 @@ del CFD como complemento al método experimental.
 
 Esa evidencia proviene, sin embargo, de cascos de esbeltez moderada. Para cascos
 pesqueros con $L/B < 4$ el punto de partida es \citet{oyuela2024jmse}, donde se
-determinó el factor de forma del pesquero P1 por el método de doble cuerpo y se lo
+determinó el factor de forma del pesquero \textit{P1} por el método de doble cuerpo y se lo
 contrastó con el obtenido experimentalmente sobre el mismo casco en el LabHiNO
 (Laboratorio de Hidrodinámica Naval y Oceánica, UBA), verificando que el CFD
 reproduce el valor medido para cierto rango de $Fr$. Trabajos posteriores del mismo grupo ampliaron el
@@ -558,11 +564,11 @@ viscosa $C_{PV}$ mantenga una proporción invariante al aumentar el número de
 Reynolds, y es ahí donde interviene la forma del casco.
 
 En \citet{DOGRUL2020107428} se calcularon por CFD de doble cuerpo los factores
-de forma del \textit{KCS} y del KVLCC2 en tres escalas de modelo y en escala
+de forma del \textit{KCS} y del \textit{KVLCC2} en tres escalas de modelo y en escala
 real, empleando como referencia tanto la línea ITTC-57 como la ATTC-1947. El
 resultado directo es que $(1+k)$ crece de manera monótona con $Re$ en ambos
 cascos: con la ITTC-57, aproximadamente de $1.10$ a $1.16$ en el \textit{KCS} y
-de $1.20$ a $1.27$ en el KVLCC2 entre el modelo más pequeño y la escala buque. La
+de $1.20$ a $1.27$ en el \textit{KVLCC2} entre el modelo más pequeño y la escala buque. La
 comparación entre ambas líneas de referencia reproduce, de paso, el
 comportamiento descrito en el apartado anterior: las diferencias entre los
 valores obtenidos con una y otra son apreciables en el rango de Reynolds de
@@ -582,7 +588,7 @@ decir, el factor de forma, crece con la escala.
 La forma del casco no interviene en el signo de este efecto, que es el mismo en
 ambos buques, sino en el peso que el segundo término tiene sobre el total. La
 presión viscosa representa alrededor del $7\%$ de la resistencia total del
-\textit{KCS} en todas las escalas, frente a un $16$--$17\%$ en el KVLCC2, de
+\textit{KCS} en todas las escalas, frente a un $16$--$17\%$ en el \textit{KVLCC2}, de
 formas mucho más llenas; los factores de forma correspondientes son también
 mayores en este último. Cuanto mayor es esa fracción, mayor es la porción de
 $(1+k)$ que queda gobernada por un término que no escala como la fricción, y
@@ -680,7 +686,7 @@ donde $V_{r/R}$ es la velocidad resultante del flujo incidente sobre esa secció
 \subsection{La serie Wageningen B}
 \label{sec:wageningen_antec}
  
-La serie Wageningen B es la familia sistemática de hélices de referencia más ampliamente utilizada en la industria naval. Comprende modelos experimentados en el canal MARIN cubriendo de $Z = 2$ a $Z = 7$ palas, relaciones de área expandida $A_E/A_0$ de $0.30$ a $1.05$ (cociente entre el área expandida de las palas y el área del disco de la hélice) y relaciones paso--diámetro $P/D$ de $0.5$ a $1.4$ (con $P$ el paso geométrico y $D$ el diámetro de la hélice). Los resultados originales de \citet{troost1940} fueron corregidos por efectos de escala y ajustados a polinomios de regresión en \citet{oosterveld1975}, cuyas expresiones para $K_T$ y $K_Q$ en función de $J$, $P/D$, $A_E/A_0$ y $Z$ son actualmente la referencia estándar. Dichos polinomios fueron obtenidos a $Re_{c,0.75R} = 2\times10^6$ y son la base para la hélice B4-60 ($P/D = 0.81$, $D = 0.14$~m) analizada numéricamente en el LabHiNO (Laboratorio de Hidrodinámica Naval y Oceánica, UBA) y presentada en el Capítulo~\ref{chap:helices}. La nomenclatura de la serie identifica, en ese orden, la serie B, el número de palas y la relación de área expandida: B4-60 designa entonces una hélice de cuatro palas con $A_E/A_0 = 0.60$.
+La serie Wageningen B es la familia sistemática de hélices de referencia más ampliamente utilizada en la industria naval. Comprende modelos experimentados en el canal MARIN cubriendo de $Z = 2$ a $Z = 7$ palas, relaciones de área expandida $A_E/A_0$ de $0.30$ a $1.05$ (cociente entre el área expandida de las palas y el área del disco de la hélice) y relaciones paso--diámetro $P/D$ de $0.5$ a $1.4$ (con $P$ el paso geométrico y $D$ el diámetro de la hélice). Los resultados originales de \citet{troost1940} fueron corregidos por efectos de escala y ajustados a polinomios de regresión en \citet{oosterveld1975}, cuyas expresiones para $K_T$ y $K_Q$ en función de $J$, $P/D$, $A_E/A_0$ y $Z$ son actualmente la referencia estándar. Dichos polinomios fueron obtenidos a $Re_{c,0.75R} = 2\times10^6$ y son la base para la hélice \textit{B4-60} ($P/D = 0.81$, $D = 0.14$~m) analizada numéricamente en el LabHiNO (Laboratorio de Hidrodinámica Naval y Oceánica, UBA) y presentada en el Capítulo~\ref{chap:helices}. La nomenclatura de la serie identifica, en ese orden, la serie B, el número de palas y la relación de área expandida: \textit{B4-60} designa entonces una hélice de cuatro palas con $A_E/A_0 = 0.60$.
  
 \section{Efectos de escala en hélices y el procedimiento ITTC-78}
 \label{sec:escala_helices}
@@ -731,20 +737,20 @@ signo opuesto, ya que su $\Delta K_T$ es la cantidad que se resta del valor de
 modelo para producir ese mismo aumento; al comparar ambos marcos se explicita la
 conversión.
 
-El estudio de \citet{gallotti2026} abarca tanto una hélice convencional (VP1304,
+El estudio de \citet{gallotti2026} abarca tanto una hélice convencional (\textit{VP1304},
 $A_E/A_0=0.779$, sin modificación de punta) como una de punta rakeada y área
-expandida reducida (P1727, $A_E/A_0=0.444$). El \emph{rake} es el desplazamiento axial de las
+expandida reducida (\textit{P1727}, $A_E/A_0=0.444$). El \emph{rake} es el desplazamiento axial de las
 secciones de la pala a lo largo del eje; una hélice de punta rakeada concentra ese
 desplazamiento en la región exterior, de modo que la punta se inclina hacia proa o
 hacia popa respecto del plano del disco en lugar de permanecer contenida en él.
-Para la hélice P1727, los autores reportan un incremento de empuje entre escala
+Para la hélice \textit{P1727}, los autores reportan un incremento de empuje entre escala
 de modelo y escala buque de hasta un $10\%$ bajo la hipótesis de flujo
 completamente turbulento; al descomponer ese incremento, la fracción de presión resulta $f_p\approx0.87$ (entre
 $0.83$ y $0.89$ según el coeficiente de avance), de modo que el procedimiento
 ITTC-78, que corrige únicamente la fricción, capta apenas la fracción restante
 (del orden del $13\%$).
 
-Es importante notar que la fracción de presión de la P1727 responde a dos
+Es importante notar que la fracción de presión de la \textit{P1727} responde a dos
 mecanismos superpuestos. El primero es el área expandida reducida: para un mismo
 diámetro y un mismo empuje, menos área significa cuerdas más cortas, y por lo
 tanto números de Reynolds seccionales más bajos y una carga hidrodinámica por
@@ -755,9 +761,9 @@ punta, que a escala buque atenúa la separación en esa región y añade una
 contribución de presión adicional propia de las geometrías de punta modificada
 \citep{Baltazar2021}. Una hélice de área reducida pero \emph{sin} rake apreciable
 comparte solo el primer mecanismo, por lo que cabe esperar para ella una fracción
-de presión intermedia entre la de una hélice convencional y la de la P1727. Este
-marco se retoma en el Capítulo~\ref{chap:helices}, donde la P1727 se emplea como
-cota superior y la VP1304 como cota inferior convencional, junto con la serie Wageningen B4-60, para acotar la fracción de presión de la hélice de menor
+de presión intermedia entre la de una hélice convencional y la de la \textit{P1727}. Este
+marco se retoma en el Capítulo~\ref{chap:helices}, donde la \textit{P1727} se emplea como
+cota superior y la \textit{VP1304} como cota inferior convencional, junto con la serie Wageningen \textit{B4-60}, para acotar la fracción de presión de la hélice de menor
 $A_E/A_0$ analizada en esta tesis.
 
 La insuficiencia de la corrección por fricción no se limita a las geometrías de
@@ -830,11 +836,11 @@ Los ensayos POW se realizan típicamente a $Re_{c,0.7R}$ entre $2\times10^5$ y $
 Las referencias fundamentales para la predicción numérica de este fenómeno son
 los trabajos de Baltazar y de Gaggero \citep{baltazar2018transition,
 gaggero2018transition, gaggero2021transition}.
-En \citet{baltazar2018transition} se compararon el modelo SST y el modelo de transición $\gamma$-$\widetilde{Re}_{\theta t}$ (descrito en la Sección~\ref{sec:modelos_transicion}) para dos hélices, obteniendo mejor acuerdo con los diagramas experimentales con el modelo de transición en el rango $Re_{c,0.7R} = 10^5$--$10^6$. Existen otros cierres de transición: en \citet{gaggero2018transition} se empleó en OpenFOAM el modelo $k$-$k_L$-$\omega$, que incorpora una ecuación de transporte adicional para la energía cinética de las fluctuaciones laminares $k_L$. Sus limitaciones fueron señaladas posteriormente en \citet{gaggero2021transition}: el cierre posterga la transición hasta números de Reynolds excesivamente altos (del orden de $2.3\times10^6$ para la hélice VP1304) y resulta prácticamente insensible a la intensidad turbulenta impuesta en la entrada del dominio.
+En \citet{baltazar2018transition} se compararon el modelo SST y el modelo de transición $\gamma$-$\widetilde{Re}_{\theta t}$ (descrito en la Sección~\ref{sec:modelos_transicion}) para dos hélices, obteniendo mejor acuerdo con los diagramas experimentales con el modelo de transición en el rango $Re_{c,0.7R} = 10^5$--$10^6$. Existen otros cierres de transición: en \citet{gaggero2018transition} se empleó en OpenFOAM el modelo $k$-$k_L$-$\omega$, que incorpora una ecuación de transporte adicional para la energía cinética de las fluctuaciones laminares $k_L$. Sus limitaciones fueron señaladas posteriormente en \citet{gaggero2021transition}: el cierre posterga la transición hasta números de Reynolds excesivamente altos (del orden de $2.3\times10^6$ para la hélice \textit{VP1304}) y resulta prácticamente insensible a la intensidad turbulenta impuesta en la entrada del dominio.
 
 En \citet{gaggero2021transition} se retomaron esos mismos casos con el modelo $\gamma$-$\widetilde{Re}_{\theta t}$, resuelto tanto en OpenFOAM como en StarCCM+. De ese trabajo interesa aquí sobre todo un resultado: incluir la transición eleva \emph{tanto} $K_T$ \emph{como} $K_Q$ por encima de los valores totalmente turbulentos. Una capa límite parcialmente laminar reduce la fricción, y por sí sola debería producir un leve aumento del empuje junto con una caída más marcada del par; que ambos suban a la vez no se explica por esa vía y obliga a atribuir el efecto a la presión. El mecanismo propuesto es que, bajo capa límite laminar, las líneas de corriente sobre la pala adoptan una orientación predominantemente radial (por el predominio de la fuerza centrífuga), que produce un efecto equivalente a un aumento de curvatura del perfil y eleva la succión en el dorso, en particular hacia el borde de salida; ese incremento de succión aporta simultáneamente empuje y par, y cancela el efecto favorable de la menor fricción. A diferencia del $k$-$k_L$-$\omega$, este cierre sí exhibe una sensibilidad apreciable a la intensidad turbulenta de entrada, cuestión que se retoma en la Sección~\ref{sec:modelos_transicion}.
  
-La implicación directa para la extrapolación ITTC-78 es que, si el ensayo de modelo se realiza en el rango de la joroba, los valores de $K_T$ y $K_Q$ medidos no son representativos del comportamiento turbulento que el método asume y la corrección $\Delta C_D$ puede introducir errores sistemáticos de signo indefinido. Este argumento se desarrolla en el Capítulo~\ref{chap:helices} a través de la hélice P206, cuyos datos experimentales fueron provistos por Hanwha Ocean (empresa que además realizó la campaña experimental)
+La implicación directa para la extrapolación ITTC-78 es que, si el ensayo de modelo se realiza en el rango de la joroba, los valores de $K_T$ y $K_Q$ medidos no son representativos del comportamiento turbulento que el método asume y la corrección $\Delta C_D$ puede introducir errores sistemáticos de signo indefinido. Este argumento se desarrolla en el Capítulo~\ref{chap:helices} a través de la hélice \textit{P206}, cuyos datos experimentales fueron provistos por Hanwha Ocean (empresa que además realizó la campaña experimental)
 y que fue simulada numéricamente en el LabHiNO (Laboratorio de Hidrodinámica Naval y Oceánica, UBA). Sus $Re_{c,0.7R}$ de modelo se ubican precisamente en este rango conflictivo.
  
 Vale la pena precisar por qué el estudio de este rango transicional tiene relevancia

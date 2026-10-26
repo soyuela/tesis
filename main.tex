@@ -25,7 +25,7 @@
   dimlbl/.style  ={font=\scriptsize, fill=white, inner sep=1pt},
 }
 %Numbered subsubsections
-\setcounter{secnumdepth}{3} % default value for 'report' class is "2"
+\setcounter{secnumdepth}{2} % subsubsecciones sin numerar (se citan con \secnom)
 %Idioma español
 \usepackage[spanish, es-tabla, es-nodecimaldot]{babel}
 %Controlar donde poner imágenes y tablas
@@ -71,6 +71,8 @@
 \usepackage[x11names,usenames,dvipsnames]{xcolor}
 \usepackage{xurl}
 \usepackage{hyperref}
+% Referencia a subsubsecciones (sin número): número de la subsección que la contiene + título
+\newcommand{\secnom}[1]{Sección~\ref{#1}, «\nameref{#1}»}
 \hypersetup{
     colorlinks=true,
     linkcolor=blue,
@@ -189,7 +191,6 @@ coltitle=black,center title}}
 \input{9.conclusiones_generales}
 \newpage
 
-\todoib{Revisar las referencias, en algunas faltan mayúsculas. Unificar el formato: hay algunas con Nombre Segundo Apellido, otras con Nombre S. Apellido y otras con N. S. Apellido.}
 \bibliographystyle{plainnatsp}
 \bibliography{referencias}
 
