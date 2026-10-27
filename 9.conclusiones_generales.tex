@@ -27,10 +27,22 @@ síntoma de la aproximación subyacente y no su raíz.
 El CFD modifica este panorama, porque permite eludir la limitación de la
 semejanza: una simulación puede resolverse directamente al Reynolds de escala
 buque, o recurrir a esquemas de escalamiento viscoso, sin la restricción que ata
-al ensayo físico. Esa misma virtud, sin embargo, trae aparejada una complicación
-que comparte con el ensayo a escala de buque: la ausencia de datos
-experimentales con los cuales contrastar el resultado a esa escala.
-\todoib{Enfatizar lo de arriba}
+al ensayo físico. Esa misma virtud, sin embargo, trae aparejada una limitación
+de fondo, que comparte con cualquier predicción a escala buque: no existen datos
+experimentales a esa escala con los cuales contrastar el resultado. Los
+resultados más relevantes de esta tesis, como el crecimiento del factor de forma
+con la escala en cascos de baja esbeltez o el origen no friccional del efecto de
+escala en la hélice, se ubican precisamente en ese régimen no verificable
+directamente. La confianza en ellos no puede descansar, por lo tanto, en una
+comparación con mediciones, sino en la validación de la herramienta numérica allí
+donde sí hay ensayos, en la coherencia física de su comportamiento entre escalas
+y en su consistencia con la evidencia disponible en la literatura. De ahí que el
+trabajo se apoye en una combinación deliberada de EFD y CFD, en la que el ensayo
+valida la herramienta numérica en el régimen accesible y el CFD, una vez validado,
+extiende el análisis hasta la escala buque y descompone las fuerzas en sus
+componentes de fricción y de presión, algo fuera del alcance de la medición
+integral.
+
 De ahí que el
 trabajo se apoye en una combinación deliberada de EFD y CFD, en la que el ensayo
 valida la herramienta numérica en el régimen accesible y el CFD, una vez validado,
@@ -43,11 +55,10 @@ y la propulsión, a través del comportamiento de la hélice en aguas abiertas.
 \section{Síntesis del Eje 1: resistencia al avance en cascos de baja esbeltez}
 
 El primer eje abordó un tipo de buque escasamente estudiado en la literatura de
-hidrodinámica naval: los pesqueros de baja esbeltez ($L/B < 4$),
-\todoib{Pondría ``los buques de baja esbeltez ($L/B < 4$, como los pesqueros estudiados en este trabajo, '' para generalizar el alcance.}
-cuyos efectos de
-escala en resistencia al avance no habían sido caracterizados con la profundidad
-con que sí lo fueron los buques mercantes convencionales. El estudio experimental
+hidrodinámica naval: los buques de baja esbeltez ($L/B < 4$, como los pesqueros
+estudiados en este trabajo), cuyos efectos de escala en resistencia al avance no
+habían sido caracterizados con la profundidad con que sí lo fueron los buques
+mercantes convencionales. El estudio experimental
 del pesquero \textit{P1} (escala 1:20, tres calados) y del casco de referencia
 \textit{KCS} (escala 1:79) permitió construir una base de datos de resistencia con
 incertidumbres compatibles con las recomendaciones de la ITTC, cuantificadas tanto
