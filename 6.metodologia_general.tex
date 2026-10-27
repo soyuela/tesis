@@ -37,17 +37,17 @@ El primer modelo estudiado, de ahora en más \textit{P1} representa un buque pes
 
 En la Figura \ref{fig:model_tpa}, se presentan las vistas del modelo físico terminado. Se pueden apreciar las marcas de las diferentes secciones, líneas de agua y la disposición de la proa con bulbo. Para asegurar la transición a régimen turbulento de la capa límite y evitar la laminarización del flujo a bajas velocidades, se instalaron estimuladores de turbulencia (alambres cilíndricos de 3 mm de diámetro) a un 5\% de la eslora desde la perpendicular de proa, siguiendo las recomendaciones de la ITTC (Procedimiento 7.5-01-01-01).
 
-\begin{figure}[!htbp]
+\begin{figure}%[!htbp]
     \centering
-    \begin{subfigure}{0.45\textwidth}
+    \begin{subfigure}{\textwidth}
         \centering
-        \includegraphics[width=\linewidth]{images/tpa-pers.png}
+        \includegraphics[width=0.5\linewidth]{images/tpa-pers.png}
         \caption{Vista en perspectiva de proa. Se observan las marcas de calado y los estimuladores de turbulencia.}
         \label{fig:tpa_pers}
     \end{subfigure}
 
     \vspace{1em}
-    \begin{subfigure}{0.9\textwidth}
+    \begin{subfigure}{\textwidth}
         \centering
         \includegraphics[width=\linewidth]{images/tpa-side.png}
         \caption{Vista de perfil. Geometría de baja esbeltez típica de pesqueros.}
@@ -55,9 +55,13 @@ En la Figura \ref{fig:model_tpa}, se presentan las vistas del modelo físico ter
     \end{subfigure}
     \caption{Modelo físico del pesquero \textit{P1} (Escala 1:20) preparado para ensayos en el LabHiNO.}
     \label{fig:model_tpa}
+\end{figure}
 
-    \vspace{1.5em}
-\captionof{table}{Características principales del pesquero \textit{P1} en escala buque y del modelo en tres condiciones de calado.}
+
+%     \vspace{1.5em}
+\begin{figure}%[!htbp]
+
+\caption{Características principales del pesquero \textit{P1} en escala buque y del modelo en tres condiciones de calado.}
 \centering
 \begin{tabularx}{\textwidth}{lllllll}
 \toprule
@@ -86,17 +90,17 @@ dinámicas del buque pesquero en escala buque y del modelo en las tres condicion
 \subsubsection{Modelo pesquero 2}
 El segundo pesquero analizado, de ahora en más \textit{P2} fue construido a escala $\lambda = 10$ y ensayado en una sola condición de calado. La Tabla~\ref{tab:main_param_p2} resume sus características principales.
 
-\begin{figure}[!htbp]
+\begin{figure}%[!htbp]
     \centering
-    \begin{subfigure}{0.45\textwidth}
+    \begin{subfigure}{\textwidth}
         \centering
-        \includegraphics[width=\linewidth]{images/contessi-pers.png}
+        \includegraphics[width=0.5\linewidth]{images/contessi-pers.png}
         \caption{Vista en perspectiva de proa. Se observan las marcas de calado y los estimuladores de turbulencia.}
         \label{fig:contessi_pers}
     \end{subfigure}
 
     \vspace{1em}
-    \begin{subfigure}{0.9\textwidth}
+    \begin{subfigure}{\textwidth}
         \centering
         \includegraphics[width=\linewidth]{images/contessi-side.png}
         \caption{Vista de perfil. Geometría de baja esbeltez típica de pesqueros.}
@@ -105,8 +109,12 @@ El segundo pesquero analizado, de ahora en más \textit{P2} fue construido a esc
     \caption{Modelo físico del pesquero \textit{P2} (Escala 1:10) preparado para ensayos en el LabHiNO.}
     \label{fig:model_contessi}
 
-    \vspace{1.5em}
-\captionof{table}{Características principales del pesquero \textit{P2}.}
+\end{figure}
+
+
+%     \vspace{1.5em}
+\begin{figure}%[!htbp]
+\caption{Características principales del pesquero \textit{P2}.}
 \centering
 \begin{tabularx}{\textwidth}{lllll}
 \toprule
@@ -129,7 +137,7 @@ Desplazamiento (masa) & $\Delta$ & {[}t{]} & 397.295 & 387.0 \\
 \subsubsection{Modelo pesquero 3}
 El tercer pesquero analizado, de ahora en más \textit{P3} fue construido a escala $\lambda = 13$ y ensayado en una sola condición de calado. La Tabla~\ref{tab:main_param_p3} resume sus características principales.
 
-\begin{figure}[!htbp]
+\begin{figure}%[!htbp]
     \centering
     \begin{subfigure}{0.45\textwidth}
         \centering
@@ -175,7 +183,7 @@ Con el fin de complementar el análisis mediante la inclusión de un buque compl
 
 La Figura \ref{fig:model_kcs} muestra el modelo \textit{KCS}, permitiendo comparar visualmente la geometría esbelta y refinada de este portacontenedores con la forma llena y robusta de los pesqueros argentinos. 
 
-\begin{figure}[!htbp]
+\begin{figure}%[!htbp]
     \centering
     \begin{subfigure}{0.45\textwidth}
         \centering
@@ -226,7 +234,7 @@ La medición de la resistencia total al avance ($R_T$) se realizó mediante una 
 
 El montaje del modelo al carro se realizó vinculándolo a la celda de carga de manera tal que se restringieron los movimientos de avance (velocidad constante impuesta por el carro), deriva (``sway''), guiñada (``yaw'') y rolido (``roll''). El sistema permitió que el modelo quedara libre a cabeceo (``pitch'') y hundimiento (``heave''), conforme a los estándares para ensayos de resistencia al avance. El montaje se esquematiza en la Figura~\ref{fig:esquema_resistencia}.
 
-\begin{figure}[htpb]
+\begin{figure}%[htpb]
     \centering
     \includegraphics[width=0.75\textwidth]{images/esquema_resistencia.png}
     \caption{Montaje del ensayo de resistencia.}
@@ -304,14 +312,14 @@ La \textit{B4-60} pertenece a la serie sistemática de Wageningen, de cuatro pal
 y la Tabla~\ref{tab:geom_wageningen} resume sus parámetros principales. Los ensayos de
 aguas abiertas de archivo se realizaron a una temperatura del agua de $18.5$~°C ($\rho = 998.4$~kg/m$^3$, $\nu = 1.04\times10^{-6}$~m$^2$/s) y una velocidad de giro de $n = 16.99$~rps. La hoja de ensayo consigna $Re = 90\,406$, calculado según la formulación de Gutsche, que emplea la cuerda y la velocidad resultante en la sección $r/R = 0.75$. En esta tesis se adopta la definición rotacional $Re_n = nD^2/\nu$, que para estas condiciones da $Re_n = 3.20\times10^5$ y, por construirse solo con parámetros globales de operación, caracteriza unívocamente el punto de funcionamiento con independencia del coeficiente de avance.
 
-\begin{figure}[H]
+\begin{figure}%[H]
     \centering
     \includegraphics[width=0.55\textwidth]{images/pala_wageningen.png}
     \caption{Geometría de la hélice de referencia Wageningen \textit{B4-60}.}
     \label{fig:pala_wageningen}
 \end{figure}
 
-\begin{table}[H]
+\begin{table}%[H]
 \centering
 \caption{Características geométricas principales de la hélice Wageningen \textit{B4-60}.}
 \label{tab:geom_wageningen}
@@ -333,14 +341,14 @@ La \textit{P206} es una hélice de cuatro palas, de área expandida reducida y c
 Hanwha Ocean. La Figura~\ref{fig:pala_p206} muestra su geometría y la
 Tabla~\ref{tab:geom_coreana} resume sus parámetros principales.
 
-\begin{figure}[H]
+\begin{figure}%[H]
     \centering
     \includegraphics[width=0.55\textwidth]{images/pala_p206.png}
     \caption{Geometría de la hélice \textit{P206}.}
     \label{fig:pala_p206}
 \end{figure}
 
-\begin{table}[H]
+\begin{table}%[H]
 \centering
 \caption{Características geométricas principales de la hélice \textit{P206}.}
 \label{tab:geom_coreana}
@@ -379,7 +387,7 @@ J   = \frac{V_a}{n\,D}, \qquad
 %
 casos particulares de las definiciones de la Sección~\ref{sec:pow_antec}. Las curvas de $K_T$, $K_Q$ y $\eta_0$ en función de $J$ constituyen el resultado del ensayo y la referencia experimental de validación empleada en el Capítulo~\ref{chap:helices}. Las condiciones de cada ensayo (velocidad de giro, temperatura, rango de $J$) se detallan junto con los resultados.
 
-\begin{figure}[htpb]
+\begin{figure}%[htpb]
     \centering
     \includegraphics[width=0.9\textwidth]{images/esquema_aguas_abiertas.png}
     \caption{Esquema del ensayo de aguas abiertas en canal. Adaptado de \citet{birk2019}.}
@@ -445,7 +453,7 @@ La incertidumbre de $\eta_0$ se evalúa directamente sobre las variables primari
 
 La incertidumbre del dinamómetro se estimó como una fracción del fondo de escala (FS) de cada canal, a partir de las componentes reunidas en la Tabla~\ref{tab:presupuesto_dinamometro}. Las asociadas a la linealidad y a la asimetría entre carga positiva y negativa se obtuvieron de los registros de calibración del instrumento (ajuste lineal por el origen), mientras que la deriva térmica del cero y la fricción en vacío surgen de las especificaciones técnicas del equipo. El desvío máximo de linealidad es del orden de $0.02\%$~FS en el canal de empuje y de $0.06\%$~FS en el de par, y la asimetría alcanza $0.26\%$~FS.
 
-\begin{table}[H]
+\begin{table}%[H]
 \centering
 \caption{Presupuesto de incertidumbre del dinamómetro de aguas abiertas, expresado como semiancho $a$ en porcentaje del fondo de escala de cada canal.}
 \label{tab:presupuesto_dinamometro}
@@ -909,7 +917,7 @@ Esta configuración replica el ensayo de canal para obtener la resistencia total
 
 La Figura \ref{fig:dominio_metodologia} esquematiza el dominio computacional utilizado, mostrando la disposición de las condiciones de contorno.
 
-\begin{figure}[htpb]
+\begin{figure}%[htpb]
     \centering
     \includegraphics[width=0.6\textwidth]{images/domain.png}
     \caption{Dominio computacional y condiciones de contorno para las simulaciones de resistencia con superficie libre.}
@@ -918,7 +926,7 @@ La Figura \ref{fig:dominio_metodologia} esquematiza el dominio computacional uti
 
 Las condiciones de borde específicas se resumen en la Tabla \ref{tab:bc_setup}.
 
-\begin{table}[H]
+\begin{table}%[H]
 \centering
 \caption{Condiciones de borde específicas para las simulaciones con superficie libre (VoF).}
 \label{tab:bc_setup}
@@ -962,7 +970,7 @@ Esta configuración se utiliza exclusivamente para aislar la resistencia viscosa
 \paragraph{Fundamento físico y dominio.}
 En esta aproximación, la superficie libre se sustituye por una condición de \emph{tapa rígida sin fricción}. Geométricamente, el dominio se trunca en la línea de flotación estática, plano $z = 0$ del sistema de coordenadas, tal como se ilustra en la Figura~\ref{fig:double_body_domain}. Se adopta un sistema cartesiano con $x$ en la dirección longitudinal, positiva hacia popa, $y$ en la dirección transversal y $z$ vertical, positiva hacia arriba desde la flotación estática. En el contexto de capa límite, $y$ denota además la distancia normal a la pared, tal como se emplea en las Ecuaciones~\eqref{eq:tauw} e \eqref{eq:yplus}.
 
-\begin{figure}[htpb]
+\begin{figure}%[htpb]
     \centering
     \includegraphics[width=0.6\textwidth]{images/esquema_malla}
     \caption{Dominio reducido para simulación sin superficie libre (Doble Cuerpo), mostrando la condición de simetría en el plano de flotación.}
@@ -1048,7 +1056,7 @@ $\widetilde{Re}_{\theta t}$ se emplea \texttt{Gauss upwind}. Los gradientes se c
 \texttt{omegaWallFunction} para $\omega$; la primera, basada en la ley de pared de Spalding,
 es válida de manera continua desde la subcapa viscosa hasta la región logarítmica.
 
-\begin{figure}[htb]
+\begin{figure}%[htb]
 \centering
 \begin{minipage}[c]{0.55\textwidth}
 \centering
