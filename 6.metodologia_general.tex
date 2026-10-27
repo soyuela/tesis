@@ -32,33 +32,41 @@ El canal está equipado con un carro capaz de alcanzar una velocidad máxima de 
 
 Se fabricaron y ensayaron cuatro modelos a escala, de los cuales tres son pesqueros diseñados por astilleros argentinos y uno un portacontenedores de referencia. Todos fueron lijados y acabados con pintura mate, de modo de obtener una superficie hidráulicamente lisa. A continuación se presentan los mismos.
 
+% Se desactiva localmente el \FloatBarrier automático de las subsubsecciones
+% (definido en main.tex) para que las figuras y tablas de los cuatro modelos
+% se acomoden entre sí sin dejar huecos. La barrera vuelve a actuar en la
+% subsección siguiente.
+\begingroup
+\let\FloatBarrier\relax
 \subsubsection{Modelo pesquero 1}
 El primer modelo estudiado, de ahora en más \textit{P1} representa un buque pesquero de baja esbeltez ($L/B < 4$) característico de la flota nacional. El modelo fue construido a escala $\lambda = 20$.
 
 En la Figura \ref{fig:model_tpa}, se presentan las vistas del modelo físico terminado. Se pueden apreciar las marcas de las diferentes secciones, líneas de agua y la disposición de la proa con bulbo. Para asegurar la transición a régimen turbulento de la capa límite y evitar la laminarización del flujo a bajas velocidades, se instalaron estimuladores de turbulencia (alambres cilíndricos de 3 mm de diámetro) a un 5\% de la eslora desde la perpendicular de proa, siguiendo las recomendaciones de la ITTC (Procedimiento 7.5-01-01-01).
 
-\begin{figure}[!htbp]
+\begin{figure}[htbp]
     \centering
-    \begin{subfigure}{0.45\textwidth}
+    \begin{subfigure}{\textwidth}
         \centering
-        \includegraphics[width=\linewidth]{images/tpa-pers.png}
-        \caption{Vista en perspectiva de proa. Se observan las marcas de calado y los estimuladores de turbulencia.}
+        \includegraphics[height=4.5cm]{images/tpa-pers.png}
+        \caption{Vista en perspectiva de proa.}
         \label{fig:tpa_pers}
     \end{subfigure}
 
-    \vspace{1em}
-    \begin{subfigure}{0.9\textwidth}
+    \vspace{0.5em}
+    \begin{subfigure}{\textwidth}
         \centering
-        \includegraphics[width=\linewidth]{images/tpa-side.png}
-        \caption{Vista de perfil. Geometría de baja esbeltez típica de pesqueros.}
+        \includegraphics[width=0.85\textwidth]{images/tpa-side.png}
+        \caption{Vista de perfil.}
         \label{fig:tpa_side}
     \end{subfigure}
     \caption{Modelo físico del pesquero \textit{P1} (Escala 1:20) preparado para ensayos en el LabHiNO.}
     \label{fig:model_tpa}
+\end{figure}
 
-    \vspace{1.5em}
-\captionof{table}{Características principales del pesquero \textit{P1} en escala buque y del modelo en tres condiciones de calado.}
+\begin{table}[htbp]
 \centering
+\caption{Características principales del pesquero \textit{P1} en escala buque y del modelo en tres condiciones de calado.}
+\label{tab:main_param_p1}
 \begin{tabularx}{\textwidth}{lllllll}
 \toprule
 \textbf{Característica}&\textbf{Símbolo}&\textbf{Unidad}&\textbf{Escala Buque}&\textbf{Modelo} & \textbf{Modelo} & \textbf{Modelo}\\
@@ -75,8 +83,7 @@ Coeficiente de bloque & C$_B$ & {[}-{]} & 0.60 & 0.60 & 0.61 & 0.64\\
 Desplazamiento (masa) & $\Delta$ & {[}t{]} & - & 75.0 & 85.0 & 95.0\\
 \bottomrule
 \end{tabularx}
-\label{tab:main_param_p1}
-\end{figure}
+\end{table}
 
 El modelo se evaluó en tres condiciones de carga (ligero T1, medio T2 y pesado T3) para barrer un rango operativo amplio y analizar la sensibilidad del factor de forma al calado. Las áreas transversales medias del modelo representaron el 1\%, 1.1\% y 1.2\% del área transversal del tanque para las condiciones de carga ligera, media y pesada, respectivamente.
 
@@ -84,30 +91,32 @@ La Tabla~\ref{tab:main_param_p1} resume las características geométricas y
 dinámicas del buque pesquero en escala buque y del modelo en las tres condiciones de calado ensayadas (T1, T2 y T3), incluido el coeficiente de bloque $C_B = \nabla/(L_{WL}\,B\,T)$.
 
 \subsubsection{Modelo pesquero 2}
-El segundo pesquero analizado, de ahora en más \textit{P2} fue construido a escala $\lambda = 10$ y ensayado en una sola condición de calado. La Tabla~\ref{tab:main_param_p2} resume sus características principales.
+El segundo pesquero analizado, de ahora en más \textit{P2} fue construido a escala $\lambda = 10$ y ensayado en una sola condición de calado. La Figura~\ref{fig:model_contessi} muestra el modelo físico y la Tabla~\ref{tab:main_param_p2} resume sus características principales.
 
-\begin{figure}[!htbp]
+\begin{figure}[htbp]
     \centering
-    \begin{subfigure}{0.45\textwidth}
+    \begin{subfigure}{\textwidth}
         \centering
-        \includegraphics[width=\linewidth]{images/contessi-pers.png}
-        \caption{Vista en perspectiva de proa. Se observan las marcas de calado y los estimuladores de turbulencia.}
+        \adjincludegraphics[trim={{.02\width} 0 {.22\width} 0}, clip, height=4.5cm]{images/contessi-pers.png}
+        \caption{Vista en perspectiva de proa.}
         \label{fig:contessi_pers}
     \end{subfigure}
 
-    \vspace{1em}
-    \begin{subfigure}{0.9\textwidth}
+    \vspace{0.5em}
+    \begin{subfigure}{\textwidth}
         \centering
-        \includegraphics[width=\linewidth]{images/contessi-side.png}
-        \caption{Vista de perfil. Geometría de baja esbeltez típica de pesqueros.}
+        \adjincludegraphics[trim={{.01\width} {.34\height} {.02\width} {.30\height}}, clip, width=0.85\textwidth]{images/contessi-side.png}
+        \caption{Vista de perfil.}
         \label{fig:contessi_side}
     \end{subfigure}
     \caption{Modelo físico del pesquero \textit{P2} (Escala 1:10) preparado para ensayos en el LabHiNO.}
     \label{fig:model_contessi}
+\end{figure}
 
-    \vspace{1.5em}
-\captionof{table}{Características principales del pesquero \textit{P2}.}
+\begin{table}[htbp]
 \centering
+\caption{Características principales del pesquero \textit{P2}.}
+\label{tab:main_param_p2}
 \begin{tabularx}{\textwidth}{lllll}
 \toprule
 \textbf{Característica}&\textbf{Símbolo}&\textbf{Unidad} & \textbf{Escala Buque} & \textbf{Modelo}\\
@@ -123,34 +132,35 @@ Coeficiente de bloque & C$_B$ & {[}-{]} & 0.577 & 0.571 \\
 Desplazamiento (masa) & $\Delta$ & {[}t{]} & 397.295 & 387.0 \\
 \bottomrule
 \end{tabularx}
-\label{tab:main_param_p2}
-\end{figure}
+\end{table}
 
 \subsubsection{Modelo pesquero 3}
-El tercer pesquero analizado, de ahora en más \textit{P3} fue construido a escala $\lambda = 13$ y ensayado en una sola condición de calado. La Tabla~\ref{tab:main_param_p3} resume sus características principales.
+El tercer pesquero analizado, de ahora en más \textit{P3} fue construido a escala $\lambda = 13$ y ensayado en una sola condición de calado. La Figura~\ref{fig:model_jpa} muestra el modelo físico y la Tabla~\ref{tab:main_param_p3} resume sus características principales.
 
-\begin{figure}[!htbp]
+\begin{figure}[htbp]
     \centering
-    \begin{subfigure}{0.45\textwidth}
+    \begin{subfigure}{\textwidth}
         \centering
-        \includegraphics[width=\linewidth]{images/jpa-pers.png}
-        \caption{Vista en perspectiva de proa. Se observan las marcas de calado y los estimuladores de turbulencia.}
+        \adjincludegraphics[trim={0 0 {.25\width} 0}, clip, height=4.5cm]{images/jpa-pers.png}
+        \caption{Vista en perspectiva de proa.}
         \label{fig:jpa_pers}
     \end{subfigure}
 
-    \vspace{1em}
-    \begin{subfigure}{0.9\textwidth}
+    \vspace{0.5em}
+    \begin{subfigure}{\textwidth}
         \centering
-        \includegraphics[width=\linewidth]{images/jpa-side.png}
-        \caption{Vista de perfil. Geometría de baja esbeltez típica de pesqueros.}
+        \adjincludegraphics[trim={{.01\width} {.21\height} {.12\width} {.40\height}}, clip, width=0.85\textwidth]{images/jpa-side.png}
+        \caption{Vista de perfil.}
         \label{fig:jpa_side}
     \end{subfigure}
     \caption{Modelo físico del pesquero \textit{P3} (Escala 1:13) preparado para ensayos en el LabHiNO.}
     \label{fig:model_jpa}
+\end{figure}
 
-    \vspace{1.5em}
-\captionof{table}{Características principales del pesquero \textit{P3}.}
+\begin{table}[htbp]
 \centering
+\caption{Características principales del pesquero \textit{P3}.}
+\label{tab:main_param_p3}
 \begin{tabularx}{\textwidth}{lllll}
 \toprule
 \textbf{Característica}&\textbf{Símbolo}&\textbf{Unidad} & \textbf{Escala Buque} & \textbf{Modelo}\\
@@ -166,8 +176,7 @@ Coeficiente de bloque & C$_B$ & {[}-{]} & 0.643 & 0.608 \\
 Desplazamiento (masa) & $\Delta$ & {[}t{]} & 328.360 & 146.0 \\
 \bottomrule
 \end{tabularx}
-\label{tab:main_param_p3}
-\end{figure}
+\end{table}
 
 
 \subsubsection{Modelo de referencia \textit{KCS}}
@@ -175,28 +184,30 @@ Con el fin de complementar el análisis mediante la inclusión de un buque compl
 
 La Figura \ref{fig:model_kcs} muestra el modelo \textit{KCS}, permitiendo comparar visualmente la geometría esbelta y refinada de este portacontenedores con la forma llena y robusta de los pesqueros argentinos. 
 
-\begin{figure}[!htbp]
+\begin{figure}[htbp]
     \centering
-    \begin{subfigure}{0.45\textwidth}
+    \begin{subfigure}{\textwidth}
         \centering
-        \includegraphics[width=\linewidth]{images/kcs-pers.png}
-        \caption{Vista en perspectiva de proa. Se observan las marcas de calado y los estimuladores de turbulencia.}
+        \includegraphics[height=4.5cm]{images/kcs-pers.png}
+        \caption{Vista en perspectiva de proa.}
         \label{fig:kcs_pers}
     \end{subfigure}
 
-    \vspace{1em}
-    \begin{subfigure}{0.9\textwidth}
+    \vspace{0.5em}
+    \begin{subfigure}{\textwidth}
         \centering
-        \includegraphics[width=\linewidth]{images/kcs-side.png}
-        \caption{Vista de perfil. Geometría esbelta y afinada del portacontenedores.}
+        \includegraphics[width=0.85\textwidth]{images/kcs-side.png}
+        \caption{Vista de perfil.}
         \label{fig:kcs_side}
     \end{subfigure}
     \caption{Modelo físico del \textit{KCS} (Escala 1:79) preparado para ensayos en el LabHiNO.}
     \label{fig:model_kcs}
+\end{figure}
 
-    \vspace{1.5em}
-\captionof{table}{Características principales del portacontenedores \textit{KCS}.}
+\begin{table}[htbp]
 \centering
+\caption{Características principales del portacontenedores \textit{KCS}.}
+\label{tab:main_param_kcs}
 \begin{tabularx}{\textwidth}{lllll}
 \toprule
 \textbf{Característica}&\textbf{Símbolo}&\textbf{Unidad} & \textbf{Escala Buque} & \textbf{Modelo}\\
@@ -212,8 +223,9 @@ Coeficiente de bloque & C$_B$ & {[}-{]} & 0.595 & 0.653 \\
 Desplazamiento (masa) & $\Delta$ & {[}t{]} & 51925.940 & 105.318 \\
 \bottomrule
 \end{tabularx}
-\label{tab:main_param_kcs}
-\end{figure}
+\end{table}
+
+\endgroup
 
 \subsection{Resistencia al avance. Instrumentación y adquisición de datos}
 \label{sec:ensayo_resistencia}
@@ -304,14 +316,14 @@ La \textit{B4-60} pertenece a la serie sistemática de Wageningen, de cuatro pal
 y la Tabla~\ref{tab:geom_wageningen} resume sus parámetros principales. Los ensayos de
 aguas abiertas de archivo se realizaron a una temperatura del agua de $18.5$~°C ($\rho = 998.4$~kg/m$^3$, $\nu = 1.04\times10^{-6}$~m$^2$/s) y una velocidad de giro de $n = 16.99$~rps. La hoja de ensayo consigna $Re = 90\,406$, calculado según la formulación de Gutsche, que emplea la cuerda y la velocidad resultante en la sección $r/R = 0.75$. En esta tesis se adopta la definición rotacional $Re_n = nD^2/\nu$, que para estas condiciones da $Re_n = 3.20\times10^5$ y, por construirse solo con parámetros globales de operación, caracteriza unívocamente el punto de funcionamiento con independencia del coeficiente de avance.
 
-\begin{figure}[H]
+\begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.55\textwidth]{images/pala_wageningen.png}
+    \includegraphics[width=0.40\textwidth]{images/pala_wageningen.png}
     \caption{Geometría de la hélice de referencia Wageningen \textit{B4-60}.}
     \label{fig:pala_wageningen}
 \end{figure}
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \caption{Características geométricas principales de la hélice Wageningen \textit{B4-60}.}
 \label{tab:geom_wageningen}
@@ -333,14 +345,14 @@ La \textit{P206} es una hélice de cuatro palas, de área expandida reducida y c
 Hanwha Ocean. La Figura~\ref{fig:pala_p206} muestra su geometría y la
 Tabla~\ref{tab:geom_coreana} resume sus parámetros principales.
 
-\begin{figure}[H]
+\begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.55\textwidth]{images/pala_p206.png}
+    \includegraphics[width=0.40\textwidth]{images/pala_p206.png}
     \caption{Geometría de la hélice \textit{P206}.}
     \label{fig:pala_p206}
 \end{figure}
 
-\begin{table}[H]
+\begin{table}[htbp]
 \centering
 \caption{Características geométricas principales de la hélice \textit{P206}.}
 \label{tab:geom_coreana}
@@ -1029,28 +1041,9 @@ formulación de Marco de Referencia Múltiple (MRF). El modelo SST-LM se impleme
 utilizando la formulación \texttt{kOmegaSSTLM} disponible de forma nativa en
 OpenFOAM~8.
 
-El dominio incluye el núcleo y el eje de la hélice, en correspondencia con el montaje del ensayo (Sección~\ref{sec:ensayo_aguas_abiertas}). La solución se consideró convergida cuando $K_T$ y $K_Q$ reducían su oscilación alrededor de un $1\%$ del valor promedio.
-
-La malla se generó íntegramente dentro del entorno OpenFOAM, combinando
-\texttt{cfMesh} para la discretización de la geometría base y \texttt{snappyHexMesh}
-para la inserción de las capas de prismas en la superficie del álabe, con un $y^+$
-objetivo menor a 2 en promedio, requisito para el correcto funcionamiento del modelo
-de transición, aunque en algunas zonas puntuales se alcanzaron valores de hasta 3.
-La cantidad de capas de prismas específica de cada caso se detalla en el
-Capítulo~\ref{chap:helices}. El término convectivo de la ecuación de cantidad de movimiento se discretiza con un esquema acotado de segundo orden
-(\texttt{bounded Gauss linearUpwindV}), tras 200 iteraciones iniciales con \texttt{upwind}
-para estabilizar la solución; para los términos convectivos de $k$, $\omega$, $\gamma$ y
-$\widetilde{Re}_{\theta t}$ se emplea \texttt{Gauss upwind}. Los gradientes se calculan mediante
-\texttt{cellMDLimited Gauss linear} y distancia a la pared evaluada con el método
-\texttt{meshWave}. En la entrada se impusieron condiciones de tipo
-\texttt{fixedValue} para $k$, $\omega$ y $\widetilde{Re}_{\theta t}$. En la superficie de la pala se emplearon las funciones de pared
-\texttt{nutUSpaldingWallFunction} para $\nu_t$, \texttt{kqRWallFunction} para $k$ y
-\texttt{omegaWallFunction} para $\omega$; la primera, basada en la ley de pared de Spalding,
-es válida de manera continua desde la subcapa viscosa hasta la región logarítmica.
-
-\begin{figure}[htb]
+\begin{figure}[tp]
 \centering
-\begin{minipage}[c]{0.55\textwidth}
+\begin{minipage}[c]{0.48\textwidth}
 \centering
 \usetikzlibrary{arrows.meta}
 \tikzset{
@@ -1088,6 +1081,25 @@ $90^\circ$ con interfaz periódica AMI). Las distancias se expresan en diámetro
 hélice $D$.}
 \label{fig:helice_dominio}
 \end{figure}
+
+El dominio incluye el núcleo y el eje de la hélice, en correspondencia con el montaje del ensayo (Sección~\ref{sec:ensayo_aguas_abiertas}). La solución se consideró convergida cuando $K_T$ y $K_Q$ reducían su oscilación alrededor de un $1\%$ del valor promedio.
+
+La malla se generó íntegramente dentro del entorno OpenFOAM, combinando
+\texttt{cfMesh} para la discretización de la geometría base y \texttt{snappyHexMesh}
+para la inserción de las capas de prismas en la superficie del álabe, con un $y^+$
+objetivo menor a 2 en promedio, requisito para el correcto funcionamiento del modelo
+de transición, aunque en algunas zonas puntuales se alcanzaron valores de hasta 3.
+La cantidad de capas de prismas específica de cada caso se detalla en el
+Capítulo~\ref{chap:helices}. El término convectivo de la ecuación de cantidad de movimiento se discretiza con un esquema acotado de segundo orden
+(\texttt{bounded Gauss linearUpwindV}), tras 200 iteraciones iniciales con \texttt{upwind}
+para estabilizar la solución; para los términos convectivos de $k$, $\omega$, $\gamma$ y
+$\widetilde{Re}_{\theta t}$ se emplea \texttt{Gauss upwind}. Los gradientes se calculan mediante
+\texttt{cellMDLimited Gauss linear} y distancia a la pared evaluada con el método
+\texttt{meshWave}. En la entrada se impusieron condiciones de tipo
+\texttt{fixedValue} para $k$, $\omega$ y $\widetilde{Re}_{\theta t}$. En la superficie de la pala se emplearon las funciones de pared
+\texttt{nutUSpaldingWallFunction} para $\nu_t$, \texttt{kqRWallFunction} para $k$ y
+\texttt{omegaWallFunction} para $\omega$; la primera, basada en la ley de pared de Spalding,
+es válida de manera continua desde la subcapa viscosa hasta la región logarítmica.
 
 \subsubsection{Calibración de la intensidad turbulenta}
 \label{sec:metodologia_helices_tu}

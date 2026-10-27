@@ -27,30 +27,27 @@ síntoma de la aproximación subyacente y no su raíz.
 El CFD modifica este panorama, porque permite eludir la limitación de la
 semejanza: una simulación puede resolverse directamente al Reynolds de escala
 buque, o recurrir a esquemas de escalamiento viscoso, sin la restricción que ata
-al ensayo físico. Esa misma virtud, sin embargo, trae aparejada una limitación
-de fondo, que comparte con cualquier predicción a escala buque: no existen datos
-experimentales a esa escala con los cuales contrastar el resultado. Los
-resultados más relevantes de esta tesis, como el crecimiento del factor de forma
-con la escala en cascos de baja esbeltez o el origen no friccional del efecto de
-escala en la hélice, se ubican precisamente en ese régimen no verificable
-directamente. La confianza en ellos no puede descansar, por lo tanto, en una
-comparación con mediciones, sino en la validación de la herramienta numérica allí
-donde sí hay ensayos, en la coherencia física de su comportamiento entre escalas
-y en su consistencia con la evidencia disponible en la literatura. De ahí que el
-trabajo se apoye en una combinación deliberada de EFD y CFD, en la que el ensayo
-valida la herramienta numérica en el régimen accesible y el CFD, una vez validado,
-extiende el análisis hasta la escala buque y descompone las fuerzas en sus
-componentes de fricción y de presión, algo fuera del alcance de la medición
-integral.
-
-De ahí que el
-trabajo se apoye en una combinación deliberada de EFD y CFD, en la que el ensayo
-valida la herramienta numérica en el régimen accesible y el CFD, una vez validado,
-extiende el análisis hasta la escala buque y descompone las fuerzas en sus
-componentes de fricción y de presión, algo fuera del alcance de la medición
-integral. Sobre esa base, la tesis contribuye por dos vías complementarias de la
-cadena propulsiva: la resistencia al avance, a través del factor de forma $(1+k)$,
-y la propulsión, a través del comportamiento de la hélice en aguas abiertas.
+al ensayo físico. No obstante, si bien el CFD permite superar las restricciones
+experimentales asociadas a la semejanza dinámica, introduce otras incertidumbres,
+relacionadas con el modelado de la turbulencia, la discretización y las
+condiciones de contorno. A ellas se suma una limitación de fondo, que comparte con
+cualquier predicción a escala buque: no existen datos experimentales a esa escala
+con los cuales contrastar el resultado. Los resultados más relevantes de esta
+tesis, como el crecimiento del factor de forma con la escala en cascos de baja
+esbeltez o el origen no friccional del efecto de escala en la hélice, se ubican
+precisamente en ese régimen no verificable directamente. La confianza en ellos no
+puede descansar, por lo tanto, en una comparación con mediciones, sino en la
+validación de la herramienta numérica allí donde sí hay ensayos, en la coherencia
+física de su comportamiento entre escalas y en su consistencia con la evidencia
+disponible en la literatura. De ahí que el trabajo se apoye en una combinación
+deliberada de EFD y CFD, en la que el ensayo valida la herramienta numérica en el
+régimen accesible y el CFD, una vez validado, extiende el análisis hasta la escala
+buque y descompone las fuerzas en sus componentes de fricción y de presión, algo
+fuera del alcance de la medición integral. Sobre esa base, la tesis contribuye a
+comprender y cuantificar los efectos de escala que afectan la extrapolación
+modelo-buque, abordándolos en los dos eslabones de la cadena propulsiva: la
+resistencia al avance, a través del factor de forma $(1+k)$, y la propulsión, a
+través del comportamiento de la hélice en aguas abiertas.
 
 \section{Síntesis del Eje 1: resistencia al avance en cascos de baja esbeltez}
 
@@ -58,9 +55,9 @@ El primer eje abordó un tipo de buque escasamente estudiado en la literatura de
 hidrodinámica naval: los buques de baja esbeltez ($L/B < 4$, como los pesqueros
 estudiados en este trabajo), cuyos efectos de escala en resistencia al avance no
 habían sido caracterizados con la profundidad con que sí lo fueron los buques
-mercantes convencionales. El estudio experimental
-del pesquero \textit{P1} (escala 1:20, tres calados) y del casco de referencia
-\textit{KCS} (escala 1:79) permitió construir una base de datos de resistencia con
+mercantes convencionales. Los ensayos de resistencia realizados en el marco de esta
+tesis en el LabHiNO, sobre el pesquero \textit{P1} (escala 1:20, tres calados) y el
+casco de referencia \textit{KCS} (escala 1:79), permitieron construir una base de datos de resistencia con
 incertidumbres compatibles con las recomendaciones de la ITTC, cuantificadas tanto
 por combinación cuadrática (RSS) como mediante el ajuste ponderado de York sobre el
 diagrama de Prohaska. Esa base reveló ya una primera asimetría: mientras el
@@ -84,8 +81,12 @@ referencia caracterizados en el marco del comité de resistencia de la ITTC, y n
 tiene precedente documentado para un casco desnudo. Este comportamiento no es una
 singularidad del \textit{P1}: los tres pesqueros analizados (\textit{P1},
 \textit{P2} y \textit{P3}, con $L/B$ entre $2{.}85$ y $3{.}53$) reproducen la misma
-tendencia creciente, lo que la establece como un rasgo estructural de los cascos
-con $L/B < 4$.
+tendencia creciente, consistente con la influencia de la baja esbeltez. Cabe
+señalar, no obstante, que los tres cascos comparten también otras características
+que no se analizaron de forma aislada y que podrían contribuir al mismo
+comportamiento, como el coeficiente de bloque, la distribución longitudinal del
+volumen, la geometría de las secciones de popa, la forma del pantoque o las
+características de separación del flujo.
 
 El mecanismo físico responsable se aisló mediante la descomposición de la
 resistencia viscosa que solo el CFD DB hace posible. El crecimiento sostenido de
@@ -101,7 +102,8 @@ bulbo; la popa espejo sumergida, tratada con el método de dos factores de forma
 $2k$, aporta $k_{tr} = 0{.}025$, apenas un $5\%$ del efecto de escala total
 ($k_S - k_M = 0{.}522$); y la sustitución de la línea ITTC-57 por líneas de fricción
 numéricas atenúa la dependencia con $Re$ pero no la elimina. El efecto dominante es,
-por lo tanto, la evolución de $C_{PV}$ gobernada por la geometría de baja esbeltez.
+por lo tanto, la evolución de $C_{PV}$, asociada a la geometría de popa llena y baja
+esbeltez de estos cascos.
 
 Como consecuencia directa, las correlaciones empíricas navales de corrección de
 escala fallan en este régimen: la fórmula de \citet{gomezgarcia}, por ejemplo,
@@ -134,15 +136,17 @@ $76$--$77\%$, de modo que apenas una cuarta parte proviene de la reducción de
 fricción. El análisis del campo de presión localizó esta redistribución sobre el
 lado de succión de la mitad externa de la pala, intensificándose hacia la punta. El
 procedimiento ITTC-78, al corregir solo fricción, predice una ganancia de eficiencia
-de apenas $+1{.}1\%$ frente al $+9{.}1\%$ del CFD, una diferencia de unos $8$ puntos
-porcentuales que corresponde íntegramente a la componente de presión ignorada.
+de $+6{.}1\%$ frente al $+9{.}1\%$ del CFD, una diferencia de unos $3$ puntos
+porcentuales que corresponde principalmente a la componente de presión ignorada.
 
 El segundo mecanismo es la transición laminar-turbulenta sobre las palas a escala de
-modelo, estudiada sobre la hélice \textit{P206}, ensayada en túnel de cavitación
-a cinco números de Reynolds de cuerda. Los ensayos revelan una joroba transicional
-en $K_T$ y $K_Q$ cuya amplitud, medida como la diferencia entre los coeficientes
-experimentales y la predicción completamente turbulenta, crece al descargar el
-propulsor, desde un $7{.}1\%$ a $J = 0{.}30$ hasta un $16{.}3\%$ a $J = 0{.}60$. El
+modelo, estudiada numéricamente sobre la hélice \textit{P206} y contrastada con ensayos en
+túnel de cavitación provistos por el fabricante a cinco números de Reynolds de
+cuerda. Esos ensayos revelan una joroba transicional
+en $K_T$ y $K_Q$. Su amplitud en $K_T$, medida como la diferencia entre el máximo y
+el mínimo relativa a la media, crece al descargar el propulsor, desde un $7{.}1\%$ a
+$J = 0{.}30$ hasta un $16{.}3\%$ a $J = 0{.}60$, principalmente por el déficit de los
+coeficientes en el menor número de Reynolds ensayado. El
 modelo completamente turbulento no reproduce este comportamiento en ningún caso, y
 el modelo de transición ($\gamma$-$\widetilde{Re}_{\theta t}$), verificado en dos
 solvers independientes (OpenFOAM y StarCCM+), lo captura solo parcialmente: ningún
@@ -159,10 +163,14 @@ con el modelo de transición, cuando una reducción puramente friccional lo dism
 La limitación remanente no es, entonces, la de identificar el mecanismo, sino la de que
 ningún nivel único de intensidad turbulenta reproduce la joroba experimental en todo el
 rango de operación. Al propagar esta física a
-través del ITTC-78 se constató un doble problema: un sesgo sistemático de
-subestimación de hasta el $8{.}5\%$, y, más grave, que el resultado de la
+través del ITTC-78 se constató un doble problema, referido en ambos casos al
+coeficiente de empuje $K_T$ extrapolado a escala buque y no a la eficiencia. Por un
+lado, aplicado sobre la base completamente turbulenta, el procedimiento subestima
+de forma sistemática el $K_T$ de escala buque, entre un $2$ y un $10\%$ según el
+$Re_c$ y el $J$. Por otro, y más grave, aplicado al ensayo, el resultado de la
 extrapolación depende críticamente de en qué velocidad de giro se realizó el único
-ensayo de túnel disponible, de modo que si esa condición cae dentro de la joroba el
+ensayo de túnel disponible, con una dispersión que alcanza los $17{.}7$ puntos
+porcentuales a $J = 0{.}60$, de modo que si esa condición cae dentro de la joroba el
 error puede duplicarse o triplicarse respecto de un punto vecino a Reynolds apenas
 distinto.
 
@@ -206,48 +214,68 @@ contribución transversal del trabajo.
 
 \section{Impacto sobre la predicción de potencia del buque}
 
-La consecuencia práctica de estos resultados se materializa al estimar la potencia
-del \textit{P1} a escala buque. En el eje de resistencia, la comparación entre el
-método ITTC estándar (que asume $k_S = k_M$) y un método de doble factor de forma
-basado en CFD DB (con $k_M$ y $k_S$ determinados numéricamente en cada escala)
-arroja diferencias del $13$ al $17\%$ en la potencia efectiva, gobernadas
-directamente por el salto $k_S \gg k_M$ que constituye el resultado central del
-primer eje. A modo de referencia, ignorar por completo el factor de forma ($k = 0$)
-produce una sobrestimación de solo un $5\%$, lo que evidencia que la fuente de
-discrepancia no es el procedimiento en sí, sino la magnitud del efecto de escala del
-factor de forma, mucho mayor que el que asumen implícitamente los métodos vigentes.
+La consecuencia práctica de estos resultados se evalúa por separado en cada eje. La
+tesis no incluye la condición autopropulsada, que permitiría cerrar el cálculo de la
+potencia instalada, por lo que lo que se cuantifica son, por un lado, las
+discrepancias en la potencia efectiva de remolque del casco y, por otro, las
+discrepancias en las prestaciones de la hélice en aguas abiertas.
 
-En el eje propulsivo, la subestimación de la eficiencia en aguas abiertas, de unos
-$8$ puntos porcentuales por el efecto de escala completamente turbulento (la
-diferencia entre el $+9{.}1\%$ del CFD y el $+1{.}1\%$ del ITTC-78) y de hasta un
-$8{.}5\%$ por el sesgo transicional del procedimiento, actúa sobre el otro extremo
-del cálculo de potencia, degradando la predicción del rendimiento propulsivo. Dado
-que resistencia y propulsión se combinan en la estimación de la potencia instalada,
-sus contribuciones no se cancelan sino que se acumulan. Discrepancias del orden del
-$15\%$ en potencia son suficientemente significativas desde el punto de vista del
-diseño como para justificar su validación mediante pruebas de mar y para
-desaconsejar la aplicación acrítica de los procedimientos estándar.
+En resistencia, la comparación entre el método ITTC estándar (que asume $k_S = k_M$)
+y un método de doble factor de forma basado en CFD DB (con $k_M$ y $k_S$
+determinados numéricamente en cada escala) arroja, para el \textit{P1} a escala
+buque, diferencias del $13$ al $17\%$ en la potencia efectiva de remolque,
+gobernadas directamente por el salto $k_S \gg k_M$ que constituye el resultado
+central del primer eje. A modo de referencia, ignorar por completo el factor de
+forma ($k = 0$) produce una sobrestimación de solo entre el $5$ y el $7\%$, lo que
+evidencia que la fuente de discrepancia no es el procedimiento en sí, sino la
+magnitud del efecto de escala del factor de forma, mucho mayor que el que asumen
+implícitamente los métodos vigentes. Discrepancias del orden del $15\%$ en la
+potencia efectiva de remolque son suficientemente significativas desde el punto de
+vista del diseño como para justificar su validación mediante pruebas de mar y para
+desaconsejar la aplicación acrítica del procedimiento estándar en cascos de baja
+esbeltez.
+
+En propulsión, los resultados se refieren a la hélice en aguas abiertas, y la
+magnitud afectada difiere según el mecanismo. En el efecto de escala completamente
+turbulento de la \textit{B4-60}, el ITTC-78 subestima la ganancia de eficiencia en aguas
+abiertas a escala buque en unos $3$ puntos porcentuales (la diferencia entre el
+$+9{.}1\%$ del CFD y el $+6{.}1\%$ del ITTC-78). En el régimen transicional de la
+\textit{P206}, en cambio, la magnitud evaluada no es la eficiencia sino el coeficiente de
+empuje extrapolado: el ITTC-78 subestima el $K_T$ de escala buque entre un $2$ y un
+$10\%$ cuando se aplica sobre la base completamente turbulenta, y su resultado
+presenta una dispersión de hasta $17{.}7$ puntos según el número de Reynolds al que
+se realizó el ensayo.
+
+Ambos mecanismos, el del casco y el de la hélice, pueden modificar la potencia
+requerida por el buque. Su efecto conjunto sobre la potencia instalada, sin embargo,
+no puede obtenerse sumando las discrepancias de cada eje: depende de la interacción
+entre resistencia, empuje, rendimiento y punto de operación de la hélice detrás del
+casco, cuya evaluación requiere el análisis de la condición autopropulsada que se
+plantea como línea futura.
 
 \section{El aporte metodológico: la sinergia EFD-CFD}
 
-El resultado transversal de la tesis, tanto en resistencia como en propulsión, solo
-fue posible gracias a la combinación deliberada de experimentación y simulación, en
-la que cada herramienta suple las limitaciones de la otra. El CFD permite eludir la
-restricción de la semejanza y alcanzar la escala buque, pero, al igual que el ensayo
-a escala de buque, carece de un dato experimental con el cual contrastarse a
-esa escala; el ensayo físico, a su vez, solo accede al régimen de modelo. La
+El resultado transversal de la tesis, tanto en resistencia como en propulsión, se
+apoyó en la combinación deliberada de experimentación y simulación, en la que cada
+herramienta compensa parte de las limitaciones de la otra. El CFD permite eludir la
+restricción de la semejanza y alcanzar la escala buque, pero introduce sus propias
+incertidumbres de modelado y carece, a esa escala, de un dato experimental con el
+cual contrastarse; el ensayo físico, a su vez, solo accede al régimen de modelo. La
 validación cruzada entre ambos, en el régimen donde el ensayo es posible, no garantiza
 por sí sola la exactitud del resultado a escala buque, que permanece sin un dato experimental que lo confirme, pero sí respalda las tendencias que la simulación
 predice al cambiar de escala: la evolución de las distribuciones de presión, de las
 fuerzas y de los regímenes de flujo. Es esto lo que permite comprender qué mecanismos
 pueden estar gobernando el comportamiento a escala real.
 
-La experimentación aportó la base validada e imprescindible: curvas de resistencia y
-de aguas abiertas con incertidumbre cuantificada, que anclan el análisis en datos
-reales. El acuerdo entre los ensayos del LabHiNO y las referencias internacionales,
-las mediciones del \textit{KCS} frente a los datos de distintos laboratorios y las de
-la \textit{B4-60} frente a MARIN, confirmó la calidad de la campaña experimental y habilitó el
-uso del canal como fuente confiable de validación.
+La experimentación aportó la base imprescindible para la validación: curvas de
+resistencia y de aguas abiertas con incertidumbre cuantificada, que anclan el
+análisis en datos reales. En resistencia, la campaña realizada en el marco de esta
+tesis y el acuerdo de las mediciones del \textit{KCS} con los datos de distintos
+laboratorios confirmaron la calidad de los ensayos y habilitaron el uso del canal
+como fuente confiable de validación. En propulsión, la validación se apoyó en datos
+preexistentes: los ensayos de archivo del LabHiNO para la \textit{B4-60}, cuyo acuerdo con
+MARIN se verificó, y los ensayos en túnel de cavitación provistos por el fabricante
+para la \textit{P206}.
 
 El CFD, a su vez, aportó lo que el ensayo no puede: por un lado, el acceso a escalas
 de Reynolds inalcanzables en un canal de dimensiones finitas, que permitió observar
@@ -268,19 +296,22 @@ capturar y que solo el CFD de transición, anclado en datos de túnel, reproduce
 
 \section{Aportes principales}
 
-Los aportes originales de esta tesis pueden resumirse en los siguientes puntos:
+Los aportes originales de esta tesis pueden resumirse en los siguientes puntos,
+agrupados según el eje al que corresponden.
+
+\subsection*{Resistencia al avance}
 
 \begin{itemize}
     \item Se caracterizó en profundidad, por primera vez sobre datos propios y para
-    tres cascos distintos, el efecto de escala del factor de forma en pesqueros de
+    tres cascos distintos, el efecto de escala sobre el factor de forma en pesqueros de
     baja esbeltez ($L/B < 4$), un tipo de buque escasamente estudiado, mostrando que
     $(1+k)$ crece de manera continua y no asintótica con el número de Reynolds hasta
     la escala buque, con una magnitud muy superior a la de los cascos de referencia
     caracterizados en el marco del comité de resistencia de la ITTC.
 
-    \item Se identificó a la componente de presión viscosa $C_{PV}$ de la popa como la
-    causa física dominante de ese comportamiento, y se cuantificó y descartó, mediante
-    los análisis de proa bulbo, popa espejo sumergida ($2k$) y línea de fricción, el
+    \item Se identificó a la componente de presión viscosa $C_{PV}$ como la causa
+    física dominante de ese comportamiento, y se cuantificó y descartó, mediante los
+    análisis de proa bulbo, popa espejo sumergida ($2k$) y línea de fricción, el
     peso de las causas alternativas.
 
     \item Se mostró la inaplicabilidad de las correlaciones navales de factor de forma
@@ -288,28 +319,30 @@ Los aportes originales de esta tesis pueden resumirse en los siguientes puntos:
     cuerpos de revolución en función de $L/B$ como marco más apropiado, abriendo la vía
     a una formulación empírica específica.
 
+    \item Se evaluó el impacto sobre la potencia efectiva de remolque del \textit{P1}:
+    el método de doble factor de forma basado en CFD DB arroja diferencias del orden
+    del $13$--$17\%$ respecto del método ITTC estándar, que supone $k_S = k_M$.
+\end{itemize}
+
+\subsection*{Propulsión}
+
+\begin{itemize}
     \item Se cuantificó, para la hélice \textit{B4-60}, que la componente de presión domina el
-    efecto de escala completamente turbulento sobre el empuje ($\sim 76$--$77\%$).
+    efecto de escala completamente turbulento sobre el empuje ($\sim 76$--$77\%$), y
+    que el ITTC-78, al ignorarla, subestima la ganancia de eficiencia en aguas abiertas
+    a escala buque en unos $3$ puntos porcentuales.
 
-    \item Se caracterizó, experimental y numéricamente, el comportamiento de la hélice
-    \textit{P206} en régimen transicional, describiendo la joroba en $K_T$ y $K_Q$ y
-    poniendo en evidencia el problema que supone extrapolar las prestaciones desde ese
-    régimen, donde el resultado depende críticamente del número de Reynolds al que se
-    realizó el ensayo.
+    \item Se caracterizó numéricamente, a partir de ensayos en túnel de cavitación
+    provistos por el fabricante, el comportamiento de la hélice \textit{P206} en régimen
+    transicional, describiendo la joroba en $K_T$ y $K_Q$ y poniendo en evidencia el
+    problema que supone extrapolar las prestaciones desde ese régimen: el $K_T$
+    extrapolado con el ITTC-78 depende críticamente del número de Reynolds al que se
+    realizó el ensayo, con una dispersión de hasta $17{.}7$ puntos.
 
-    \item Se analizó, por separado, el efecto de escala completamente turbulento de la \textit{P206}, cuantificando su fracción de presión en $f_p \approx 0{.}90$--$0{.}92$
+    \item Se analizó, por separado, el efecto de escala completamente turbulento de la
+    \textit{P206}, cuantificando su fracción de presión en $f_p \approx 0{.}90$--$0{.}92$
     mediante la descomposición directa de fuerzas, un valor muy superior al de las
     hélices convencionales de área moderada.
-
-    \item Se evaluó el impacto de estos efectos sobre la predicción de potencia,
-    mostrando diferencias del orden del $13$--$17\%$ en potencia efectiva por el factor
-    de forma y de hasta el $8{.}5\%$ en eficiencia propulsiva por el sesgo del ITTC-78,
-    y se propusieron métodos de doble $k$ y correcciones de fricción y presión que los
-    incorporan.
-
-    \item Se consolidó una metodología combinada EFD-CFD, validada frente a
-    referencias internacionales, capaz de abordar problemas de escala que ni la
-    experimentación ni la simulación resuelven por separado.
 \end{itemize}
 
 \section{Líneas futuras de investigación}
@@ -361,7 +394,7 @@ joroba transicional, abriendo un terreno donde el mapeo del
 comportamiento en función de la geometría de la pala queda por delante. En ambos
 frentes, la combinación de experimentación y simulación numérica se muestra como la
 herramienta adecuada: el ensayo aporta la validación en el régimen accesible, el CFD
-el acceso a la escala real y a la física subyacente, y solo su uso conjunto permite
+el acceso a la escala real y a la física subyacente, y su uso conjunto permite
 cuantificar la componente de presión del efecto de escala que los procedimientos
 vigentes, apoyados en una hipótesis puramente friccional, dejan fuera. El eje de
 resistencia queda así caracterizado con una generalización geométrica al alcance;
