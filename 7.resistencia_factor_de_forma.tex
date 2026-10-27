@@ -3,14 +3,12 @@
 \minitoc
 
 \section{Determinación experimental y numérica del factor de forma}
-
-Parte de los resultados de esta sección se presentaron previamente: los
-ensayos de resistencia del \textit{P1}, su análisis de incertidumbre y la
-validación numérica, en \citet{diazojeda2024bulbous} y \citet{oyuela2024jmse};
-la determinación del factor de forma por doble cuerpo y el análisis de efectos
-de escala, en \citet{oyuela2026oceaneng}.
-
 \subsection{Ensayos experimentales de resistencia al avance}
+
+\subsubsection{Introducción general}
+\todoib{Este título lo podés obviar, y dejar el párrafo directamente como una intro gral.
+
+Personalmente no me gusta que haya más de 3 niveles de numeración, me parece mucho, pero es algo de estilo mío. Yo eliminaría la numeración de las subsubsecciones (poniéndolas con *) y dejaría solo los títulos.}
 
 La presente sección aborda la construcción de la curva de resistencia y el cálculo del factor de forma $(1+k)$ a partir de ensayos experimentales realizados en el canal del Laboratorio de Hidrodinámica Naval y Oceánica (LabHiNO). El objetivo específico de esta etapa es generar un conjunto de datos experimentales reproducibles que sirvan como base para la posterior comparación con resultados numéricos y para el análisis de efectos de escala que se desarrollará más adelante.
 
@@ -30,15 +28,15 @@ La resistencia total se midió mediante una celda de carga Kempf \& Remmers R47,
 
 \paragraph{Análisis de incertidumbre.}
 
-El análisis de incertidumbre para los ensayos del modelo \textit{P1} sigue la metodología general detallada en la \secnom{sec:analisis_incertidumbre_general}. Se realizaron cuatro repeticiones independientes de cada ensayo a cada velocidad, permitiendo evaluar tanto la dispersión entre ensayos como las incertidumbres instrumentales asociadas.
+El análisis de incertidumbre para los ensayos del modelo \textit{P1} sigue la metodología general detallada en la Sección~\ref{sec:analisis_incertidumbre_general}. Se realizaron cuatro repeticiones independientes de cada ensayo a cada velocidad, permitiendo evaluar tanto la dispersión entre ensayos como las incertidumbres instrumentales asociadas.
 
-En el modelo \textit{P1}, las fuentes dominantes de incertidumbre resultan ser la calibración del dinamómetro R47 y la dispersión entre repeticiones. La contribución relativa de estas componentes disminuye significativamente con el número de Froude: a $Fr = 0{.}14$, donde la resistencia total es mínima, la relación señal-ruido se deteriora y la incertidumbre relativa alcanza su máximo. A medida que aumenta la velocidad hacia $Fr = 0{.}37$, la resistencia crece cuadráticamente y la incertidumbre relativa desciende pronunciadamente. Este comportamiento es característico de ensayos de remolque y es acorde cualitativamente con el desempeño esperado.
+En el modelo \textit{P1}, las fuentes dominantes de incertidumbre resultan ser la calibración del dinamómetro R47 y la dispersión entre repeticiones. La contribución relativa de estas componentes disminuye significativamente con el número de Froude: a $Fr = 0{.}14$, donde la resistencia total es mínima, la relación señal-ruido se deteriora y la incertidumbre relativa alcanza su máximo. A medida que aumenta la velocidad hacia $Fr = 0{.}37$, la resistencia crece cuadráticamente y la incertidumbre relativa desciende pronunciadamente. Este comportamiento es característico de ensayos de remolque y \replacedo{es acorde cualitativamente}{está cualitativamente acorde} con el desempeño esperado.
 
-La combinación de todas las componentes mediante el método RSS (\secnom{sec:analisis_incertidumbre_general}) arrojó incertidumbres combinadas de $5{.}35\%$, $2{.}04\%$ y $0{.}83\%$ para $Fr = 0{.}14$, $0{.}26$ y $0{.}37$ respectivamente, niveles adecuados y consistentes con las recomendaciones de la ITTC. La Tabla~\ref{tab:uncert_tpa} presenta el desglose detallado de todas las componentes consideradas.
+La combinación de todas las componentes mediante el método RSS (Sección~\ref{sec:analisis_incertidumbre_general}) arrojó incertidumbres combinadas de $5{.}35\%$, $2{.}04\%$ y $0{.}83\%$ para $Fr = 0{.}14$, $0{.}26$ y $0{.}37$ respectivamente, niveles adecuados y consistentes con las recomendaciones de la ITTC. La Tabla~\ref{tab:uncert_tpa} presenta el desglose detallado de todas las componentes consideradas.
 
 \begin{table}[H]
 \caption{Resumen de incertidumbre combinada en las mediciones de resistencia
-del modelo \textit{P1}. Adaptado de \citet{diazojeda2024bulbous}.}
+del modelo \textit{P1}.}
 \begin{tabularx}{\textwidth}{lccc}
 \toprule
 \textbf{Componente} & \textbf{Fr = 0.14} & \textbf{Fr = 0.26} & \textbf{Fr = 0.37} \\
@@ -66,6 +64,10 @@ la media) $\times N^{1/2}$.}
 
 Las Figuras~\ref{fig:resis_tpa_165}, \ref{fig:resis_tpa_180} y \ref{fig:resis_tpa_195} muestran las curvas de resistencia total obtenidas para cada uno de los calados ensayados. En todos los casos se observa el comportamiento esperado para un modelo de buque de desplazamiento: la resistencia crece de manera aproximadamente cuadrática con la velocidad en el rango de bajos números de Froude, donde domina la componente viscosa, y aumenta con mayor pendiente a partir de aproximadamente $Fr \approx 0{.}30$, donde la componente de generación de olas, proporcional a una potencia entre 2 y 4 de $Fr$, comienza a adquirir mayor relevancia. Las mediciones presentan una evolución continua y consistente entre velocidades, sin discontinuidades ni dispersiones significativas, lo que indica una adquisición estable de la fuerza de remolque y un desempeño correcto del sistema experimental. Estas curvas constituyen la base para el análisis posterior, donde se descompondrá la resistencia total en sus componentes viscosa y de formación de olas.
 
+\todoib{¿Por qué 3 figuras con una serie cada una si se pueden agrupar en una sola? En todo caso, fijaría la escala vertical de las 3 en el mismo rango.
+
+¿No se puede hacer una ajuste a una cuadrática en cada caso y mostrar cómo da?
+}
 \begin{figure}[htpb]
     \centering
     \includegraphics[width=0.6\textwidth]{images/efd_165.pdf}
@@ -329,7 +331,7 @@ proporcional a la resistencia con un coeficiente de variación constante,
 igual al valor mediano observado en las repeticiones ($\sim 4\%$). Este
 criterio evita que algún grupo con pocas corridas casualmente coincidentes
 reciba un peso desproporcionado en la regresión ponderada. El ajuste
-confirma el valor adoptado y le asocia una incertidumbre estadística expandida de
+confirma el valor adoptado y le asocia una incertidumbre expandida de
 $\pm 0{.}024$, esto es, una incertidumbre relativa del $\pm 2{.}3\%$, como se
 muestra en la Figura~\ref{fig:york_kcs}.
 
@@ -340,7 +342,8 @@ muestra en la Figura~\ref{fig:york_kcs}.
 \label{fig:york_kcs}
 \end{figure}
 
-Conviene precisar que esta incertidumbre corresponde a la componente \emph{estadística} del ajuste (la propagación de los errores aleatorios de medición a través de la regresión) y resulta sensiblemente menor que la incertidumbre relativa de cada punto individual ($\sim 4\%$). Esta reducción no es anómala: aunque $(1+k)$ se obtiene por extrapolación a la abscisa nula, y la incertidumbre de una ordenada al origen crece con la distancia entre el centroide de los datos y el origen, en el \textit{KCS} los puntos son numerosos, se alinean estrechamente sobre la recta y su rango de ajuste se aproxima al origen, de modo que el término de palanca resulta pequeño y predomina el efecto del número de mediciones. Esta incertidumbre no incluye, sin embargo, los errores sistemáticos comunes a todas las corridas (por ejemplo, el de calibración de la celda de carga): a diferencia de los aleatorios, esos errores no se atenúan al aumentar el número de mediciones, por lo que la incertidumbre total de $(1+k)$ es mayor que la componente estadística aquí reportada.
+Conviene precisar que esta incertidumbre corresponde a la componente \emph{estadística} del ajuste (la propagación de los errores aleatorios de medición a través de la regresión) y resulta sensiblemente menor que la incertidumbre relativa de cada punto individual ($\sim 4\%$). Esta reducción no es anómala: aunque $(1+k)$ se obtiene por extrapolación a la abscisa nula, y la incertidumbre de una ordenada al origen crece con la distancia entre el centroide de los datos y el origen, en el \textit{KCS} los puntos son numerosos, se alinean estrechamente sobre la recta y su rango de ajuste se aproxima al origen, de modo que el término de palanca resulta pequeño y predomina el efecto del número de mediciones. Cabe señalar que este valor no incorpora eventuales errores sistemáticos, comunes a todas las corridas, que no se reducen por este mecanismo.
+\todoib{No es contradictoria esta última frase?}
 
 Este valor contrasta de manera marcada con el obtenido para el \textit{P1}
 (Tabla~\ref{tab:york_tpa}), cuya incertidumbre relativa se situaba entre el
@@ -392,6 +395,21 @@ presentado en la Tabla~\ref{tab:bc_setup}, garantizando la conservación de
 masa y la correcta generación de turbulencia en la capa límite mediante el 
 modelo $k$-$\omega$ SST.
 
+\begin{figure}[tbp]
+    \centering
+    \includegraphics[width=0.9\linewidth]{images/3D-comparacion1.png}
+    \caption{Patrón de olas sobre el \textit{P1} para distintos $Fr$ y 
+    Calado~3. \textbf{Columna izquierda}: modelo CFD. 
+    \textbf{Columna derecha}: EFD. 
+    \textbf{Primera fila}: $Fr = 0{.}26$. \textbf{Segunda fila}: $Fr = 0{.}37$. 
+    \textbf{Tercera fila}: $Fr = 0{.}45$. La escala de colores indica la 
+    elevación de la superficie libre (WH, \textit{water height}, en m, escala 
+    modelo) y corresponde únicamente a la columna CFD.}
+    \label{fig:3D-comparacion}
+    \todoib{Sacaría las negritas en la leyenda.}
+\end{figure}
+
+\todoib{Discutir ubicación de figuras con Ale}
 
 A diferencia del ensayo experimental, donde solo se obtiene la fuerza integral 
 $R_{T}$, el enfoque numérico permite separar las contribuciones de las fuerzas 
@@ -419,17 +437,6 @@ experimental (EFD), para el Calado~3 a tres números de Froude distintos
 ($Fr = 0{.}26$, $0{.}37$ y $0{.}45$). Los tres casos ilustran la capacidad del 
 modelo numérico para reproducir el patrón de olas generado por el buque en 
 diferentes condiciones de velocidad.
-
-\begin{figure}[H]
-    \includegraphics[width=1\linewidth]{images/3D-comparacion1.png}
-        \caption{Patrón de olas sobre el \textit{P1} en el calado T3, para
-    $Fr = 0{.}26$, $0{.}37$ y $0{.}45$ (filas, de arriba hacia abajo).
-    La columna izquierda corresponde al modelo CFD y la derecha al ensayo (EFD).
-    La escala de colores indica la elevación de la superficie libre
-    (WH, \textit{water height}, en m, escala modelo) y se aplica únicamente a la
-    columna CFD. Adaptado de \citet{diazojeda2024bulbous}.}
-    \label{fig:3D-comparacion}
-\end{figure}
 
 En las Figuras~\ref{fig:cfd_165_tpa}, \ref{fig:cfd_180_tpa} y~\ref{fig:cfd_195_tpa} se presentan 
 las curvas de resistencia total obtenidas por CFD para los tres calados del 
@@ -523,9 +530,9 @@ Ante las dificultades observadas para aplicar el método de Prohaska en el
 entorno numérico, debido a la incertidumbre en la transición de la turbulencia 
 y la curvatura observada en el diagrama $C_{T}/C_{F0}$ vs $Fr^4/C_{F0}$ a 
 bajas velocidades, se optó por una estrategia alternativa: el método de 
-``doble cuerpo'', descripto en la \secnom{sec:doble_cuerpo}.
+``doble cuerpo'', descripto en la Sección~\ref{sec:doble_cuerpo}.
 
-Como se detalló allí, este enfoque elimina la superficie libre y la formación de olas, modelando el fluido como un medio infinito y el casco como un cuerpo reflejado (ver Figura \ref{fig:double_body_domain}). Esto permite aislar la resistencia viscosa ($R_V$) y calcular el factor de forma $(1+k)$ directamente para cada velocidad mediante la relación $C_V / C_{F0}$, sin depender de la extrapolación a velocidad cero.
+Como se detalló en la Sección \ref{sec:doble_cuerpo}, este enfoque elimina la superficie libre y la formación de olas, modelando el fluido como un medio infinito y el casco como un cuerpo reflejado (ver Figura \ref{fig:double_body_domain}). Esto permite aislar la resistencia viscosa ($R_V$) y calcular el factor de forma $(1+k)$ directamente para cada velocidad mediante la relación $C_V / C_{F0}$, sin depender de la extrapolación a velocidad cero.
 
 \subsubsection{Análisis del \textit{P1}}
 
@@ -664,7 +671,7 @@ Este hallazgo resulta crítico: si el factor de forma varía de manera apreciabl
 
     \caption{Factor de forma calculado mediante el método de doble cuerpo (DB) para el \textit{P1} en los tres calados analizados, en función de Froude.}
     \label{fig:tpa_DB_k_evolucion}
-    
+    \todoib{¿Por qué en algunos casos usás 3 figuras diferentes y en otros 1 con subfiguras. Igualmente sigo pensando que es mejor juntar las 3 curvas en una sola figura, pero bue...}
 \end{figure}
 
 \subsubsection{Validación con modelo de referencia \textit{KCS}}
@@ -785,7 +792,7 @@ Esta validación cruzada permite afirmar que:
     cuyo origen físico se analiza en profundidad en las secciones siguientes.
 \end{enumerate}
 
-\subsection{Comparación EFD--CFD de resistencia y factor de forma}\label{sec:comparacion_efd_cfd}
+\subsection{Comparación \addedo{EFD--CFD} de resistencia y \deletedo{de} factor de forma}\label{sec:comparacion_efd_cfd}
 
 En esta sección se comparan los resultados experimentales y computacionales 
 del \textit{P1} presentados en las secciones anteriores con el fin de 
@@ -972,7 +979,7 @@ superficie libre predicen factores de forma del mismo orden para el
 Habiendo establecido un valor único y consistente de $(1+k)$ mediante Prohaska, 
 surge la pregunta de cómo se relaciona este valor con los resultados obtenidos 
 mediante el método de doble cuerpo, presentado en la 
-\secnom{sec:doble_cuerpo}. Las Figuras~\ref{fig:tpa_proj_DB_k_escala20_165}, 
+Sección~\ref{sec:doble_cuerpo}. Las Figuras~\ref{fig:tpa_proj_DB_k_escala20_165}, 
 \ref{fig:tpa_proj_DB_k_escala20_180} y \ref{fig:tpa_proj_DB_k_escala20_195} 
 superponen, para cada calado, el valor adoptado por Prohaska EFD (línea horizontal 
 roja) con los valores de $(1+k)$ obtenidos mediante el método de doble cuerpo, en función 
@@ -1049,7 +1056,8 @@ Prohaska CFD & 1.193 & 1.314 & 1.254 \\
     \label{fig:tpa_proj_DB_k_escala20_195}
 \end{figure}
 
-
+\todoib{AO: HASTA ACÁ}
+     
 \subsection{Discusión de incertidumbres y diferencias entre EFD y CFD}
 
 Los resultados presentados hasta el momento permiten realizar una primera discusión conjunta sobre las incertidumbres involucradas y las diferencias observadas entre los ensayos experimentales (EFD) y las simulaciones numéricas (CFD) en la determinación de la resistencia al avance y del factor de forma $(1+k)$.
@@ -1646,11 +1654,6 @@ efectos geométricos en la estimación del factor de forma.
 
 \section{Influencia de la proa bulbo en el factor de forma}\label{sec:proa_bulbo}
 
-El efecto de la proa bulbo sobre la resistencia total de este pesquero se
-analizó en \citet{diazojeda2024bulbous}, mediante la comparación de la proa
-original con dos proas sin bulbo; en esta sección se extiende ese análisis a su
-influencia sobre el factor de forma.
-
 \subsection{Motivación y antecedentes sobre proa bulbo en pesqueros}
 
 La incorporación de una proa bulbo en cascos pesqueros suele tener dos 
@@ -2198,9 +2201,6 @@ Sección~\ref{sec:descomposicion_de_la_res_viscosa}.
 \section{Efecto de los modelos de turbulencia}
 \label{sec:efecto_modelos_turbulencia}
 
-Una versión preliminar de los resultados de esta sección se presentó en
-\citet{oyuela2025mecanica}.
-
 \subsection{Introducción y motivación del estudio}
 
 El modelado de la turbulencia constituye una de las principales fuentes de 
@@ -2224,7 +2224,7 @@ valor experimental obtenido mediante el método de Prohaska.
 \subsection{Metodología y configuración numérica}
 
 Las simulaciones se realizaron bajo las mismas condiciones numéricas y de 
-contorno descritas en la \secnom{sec:doble_cuerpo}: dominio de cuerpo 
+contorno descritas en la Sección~\ref{sec:doble_cuerpo}: dominio de cuerpo 
 doble sin superficie libre, flujo estacionario y configuración de malla 
 equivalente. Las únicas variaciones entre casos corresponden al modelo de 
 turbulencia empleado, de modo que las diferencias observadas sean atribuibles 
@@ -2494,8 +2494,6 @@ extrapolaciones o comparaciones con datos experimentales.
 
 \section{Efecto de la relación de aspecto L/B}
 
-Los resultados de esta sección se basan en \citet{oyuela2026oceaneng}.
-
 \subsection{Motivación y observaciones sobre L/B en cascos de baja esbeltez}
 
 Como se demostró en las Secciones~\ref{sec:analisis_efectos_escala} 
@@ -2509,7 +2507,7 @@ estelas más anchas y pérdidas viscosas por presión que persisten hasta la
 escala buque, impidiendo la estabilización de $(1+k)$ dentro del rango 
 analizado.
  
-En esta sección se mostrará la incapacidad de los métodos empíricos para la estimación del factor de forma en el \textit{P1} y luego se extenderá el análisis a los pesqueros 2 y 3, que cuentan con distintas razones $L/B$, para identificar tendencias generalizables.
+En esta sección se mostrará la incapacidad de los métodos empíricos para la estimación del factor de forma en el \textit{P1} y luego se extenderá el análisis al Pesquero 2 y 3, que cuentan con distintas razones $L/B$, para identificar tendencias generalizables.
 
 \subsection{Análisis CFD y comparación de presión y resistencia viscosa}
 
@@ -2635,7 +2633,7 @@ sistemática de los cascos de baja esbeltez, y no a una particularidad del
  
 Ambas observaciones motivaron la búsqueda de referencias en otros ámbitos donde 
 la geometría controla la resistencia viscosa y donde se manejan cuerpos 
-de baja esbeltez. En el diseño aerodinámico de aeronaves, el método clásico de estimación de 
+de baja esbeltez. En aerodinámica, el método clásico de estimación de 
 resistencia de fuselajes consiste en multiplicar el coeficiente de 
 fricción turbulenta de placa plana por un factor de forma empírico 
 dependiente de la razón de esbeltez del cuerpo, y por el área mojada. 
@@ -2742,9 +2740,9 @@ transversal y forma de popa.
         \vspace{1em}
         \footnotesize % controla el tamaño de texto
         \textbf{\textit{KCS} (L/B = 7.14)}\\[3em]
-        \textbf{\textit{P1} (L/B = 3.52)}\\[3.5em]
-        \textbf{\textit{P2} (L/B = 3.22)}\\[3.5em]
-        \textbf{\textit{P3} (L/B = 2.83)}
+        \textbf{P1 (L/B = 3.52)}\\[3.5em]
+        \textbf{P2 (L/B = 3.22)}\\[3.5em]
+        \textbf{P3 (L/B = 2.83)}
         \caption*{ }
     \end{subfigure}
     % --- Segunda columna: vista frontal ---
