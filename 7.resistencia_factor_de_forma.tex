@@ -468,7 +468,7 @@ esperado para un ensayo de remolque.
 
 \subsection{Determinación numérica del factor de forma}\label{sec:det_num_fac_form}
 
-Para la determinación computacional del factor de forma se implementaron dos métodos. El primero fue repetir lo propuesto por Prohaska para lo tres calados con el dominio presentado en la Figura \ref{fig:dominio_metodologia}, mientras que el segundo, que será tratado en detalle en la Sección \ref{sec:4.1.5_enfoque_doble_cuerpo}, implica la simulación únicamente de la obra viva eliminando la superficie libre. El primer método permite una comparación directa con el ensayo experimental. Como sucedió en los ensayos experimentales, a bajas velocidades también se observa en los ensayos CFD una separación de los puntos respecto de la recta teórica esperada, pero esta vez de forma cóncava en lugar de convexa, como se ve en la Figura \ref{fig:prohaska_tpa_cfd}.
+Para la determinación computacional del factor de forma se implementaron dos métodos. El primero fue repetir lo propuesto por Prohaska para lo tres calados con el dominio presentado en la Figura \ref{fig:dominio_metodologia}, mientras que el segundo, que será tratado en detalle en la Sección \ref{sec:4.1.5_enfoque_doble_cuerpo}, implica la simulación únicamente de la obra viva (la parte sumergida del casco) eliminando la superficie libre. El primer método permite una comparación directa con el ensayo experimental. Como sucedió en los ensayos experimentales, a bajas velocidades también se observa en los ensayos CFD una separación de los puntos respecto de la recta teórica esperada, pero esta vez de forma cóncava en lugar de convexa, como se ve en la Figura \ref{fig:prohaska_tpa_cfd}.
 
 
 \begin{figure}[htpb]
@@ -1248,11 +1248,11 @@ analizan en profundidad en la Sección~\ref{sec:generalizacion_LB}.
 El método de \citet{gomezgarcia} (Sección~\ref{sec:k_vs_Re})
 ofrece una prueba cuantitativa directa de cuán anómalo resulta el
 comportamiento del \textit{P1}. Aplicando su relación empírica
-[Ecuación~\eqref{eq:gomezgarcia}] a la escala del modelo ($\lambda = 20$), el efecto de escala predicho es $K_S - K_M \approx 1{.}91\times 19\times 10^{-3}= 0{.}036$. El valor obtenido por CFD de doble cuerpo para el \textit{P1} en el Calado~3, en cambio, es $K_S - K_M = 0{.}716 - 0{.}194 = 0{.}522$, es decir, aproximadamente catorce veces mayor que la predicción. La fórmula de \citet{gomezgarcia}, calibrada para estimar la corrección de escala del factor de forma, subestima en más de un orden de magnitud el efecto de escala real de este casco.
+[Ecuación~\eqref{eq:gomezgarcia}] a la escala del modelo ($\lambda = 20$), el efecto de escala predicho es $k_S - k_M \approx 1{.}91\times 19\times 10^{-3}= 0{.}036$. El valor obtenido por CFD de doble cuerpo para el \textit{P1} en el Calado~3, en cambio, es $K_S - K_M = 0{.}716 - 0{.}194 = 0{.}522$, es decir, aproximadamente catorce veces mayor que la predicción. La fórmula de \citet{gomezgarcia}, calibrada para estimar la corrección de escala del factor de forma, subestima en más de un orden de magnitud el efecto de escala real de este casco.
 
 Esta discrepancia no se limita a la magnitud, sino que alcanza a la propia
-forma funcional. Al ajustar el modelo lineal de \citet{gomezgarcia} ($K_S -
-K_M$ en función de $\lambda$) a varias escalas calculadas para el \textit{P1} (1:20, 1:18, 1:16, 1:14, 1:12, 1:10, 1:7.5, 1:5, 1:2.5 y 1:1), únicamente a $Fr = 0{.}20$, la pendiente resultante es de
+forma funcional. Al ajustar el modelo lineal de \citet{gomezgarcia} ($k_S -
+k_M$ en función de $\lambda$) a varias escalas calculadas para el \textit{P1} (1:20, 1:18, 1:16, 1:14, 1:12, 1:10, 1:7.5, 1:5, 1:2.5 y 1:1), únicamente a $Fr = 0{.}20$, la pendiente resultante es de
 $15{.}8\times 10^{-3}$, más de ocho veces la de $1{.}851\times 10^{-3}$ de la regresión original (Figura~\ref{fig:gomez-garcia-nuestro}). Las escalas intermedias, simuladas solo a ese número de Froude, no figuran por ese motivo en la Figura~\ref{fig:comparacion_total_escalas_kcs_tpa}. Más significativo aún es que el ajuste lineal del \textit{P1} arroja una ordenada al origen de $0{.}054$, de modo que predice un efecto de escala espurio de $K_S - K_M \approx 0{.}070$ en $\lambda = 1$, condición en la que necesariamente debe anularse. La regresión de \citet{gomezgarcia}, en cambio, satisface esta restricción física ($K_S - K_M \approx 0{.}001$ en $\lambda = 1$). El modelo lineal, por lo tanto, no puede recuperarse reescalando la pendiente: la hipótesis de linealidad en $\lambda$ sobre la que se apoya no se cumple para esta clase de casco.
 
 Cabe mencionar que el origen de esta inaplicabilidad es geométrico. Las cuatro familias de
@@ -1345,8 +1345,8 @@ medida en el cuerpo de salida y la resistencia por presión viscosa
 disminuye, de modo que esta contribución decrece con $Re$. El segundo es la 
 contribución de las estructuras vorticosas que se desprenden del casco, cuyo 
 comportamiento con $Re$ depende de cómo se origina la separación. Cuando la 
-separación ocurre sobre una superficie suave, como el pantoque redondeado de 
-los buques de formas llenas, su inicio y su intensidad dependen del estado y 
+separación ocurre sobre una superficie suave, como el pantoque redondeado (la zona curva de transición entre el fondo y 
+el costado del casco) de los buques de formas llenas, su inicio y su intensidad dependen del estado y 
 del espesor de la capa límite, y los vórtices se debilitan al pasar a escala 
 buque \citep{ittc_nominal_wake}. Cuando, en cambio, la separación queda 
 fijada por una arista viva, la geometría impone el punto de desprendimiento y 
@@ -1386,7 +1386,7 @@ sobre él no queda fijado por la geometría.
 \begin{subfigure}[b]{0.48\textwidth}
     \centering
     \includegraphics[width=\textwidth]{./images/cuadernas_adim_P1.pdf}
-    \caption{Cuadernas de popa del \textit{P1}.}
+    \caption{Cuadernas de popa (secciones transversales del casco) del \textit{P1}.}
     \label{fig:geom_popa_cuad_P1}
 \end{subfigure}
 \hfill
@@ -1408,8 +1408,8 @@ La Figura~\ref{U_x_U_0} presenta contornos de la velocidad longitudinal
 $U_x/U_0$ en un plano transversal ubicado a $0{.}05\,L_{WL}$ aguas abajo del 
 espejo, para escala modelo (1:20, $Re \approx 10^6$) y escala buque (1:1, 
 $Re \approx 10^8$). En ambas escalas se distinguen dos focos espirales: el 
-inferior corresponde al vórtice de quilla y el superior, al vórtice de 
-pantoque. La región de baja velocidad de la estela se adelgaza claramente en 
+inferior corresponde al vórtice de quilla (que se desprende de la línea inferior del 
+casco) y el superior, al vórtice de pantoque. La región de baja velocidad de la estela se adelgaza claramente en 
 escala buque, reflejo del primer mecanismo. El vórtice de quilla conserva su 
 posición y su tamaño entre ambas escalas, mientras que el de pantoque se 
 vuelve algo más compacto y la región de baja velocidad que lo rodea se 
@@ -1438,7 +1438,7 @@ suma, en menor medida, el leve debilitamiento del vórtice de pantoque.
 transversal ubicado a $0{.}05\,L_{WL}$ aguas abajo del espejo, para escala 
 modelo, 1:20 (izquierda, $\log(Re) \approx 6$) y escala buque, 1:1 
 (derecha, $\log(Re) \approx 8$), a $Fr=0{.}2$ y calado 0.195\,m (T3). En cada panel, 
-el borde izquierdo corresponde al plano de crujía y la parte superior se 
+el borde izquierdo corresponde al plano de crujía (el plano vertical longitudinal de simetría del casco) y la parte superior se 
 ubica hacia la superficie libre. Foco inferior: vórtice de quilla; foco 
 superior: vórtice de pantoque.}
 \label{U_x_U_0}
@@ -2970,7 +2970,7 @@ más del método 1 que el método 3: no porque perturbe el procedimiento de
 manera más drástica, sino porque el salto de factor de forma involucrado 
 es en sí mismo mucho mayor.
 
-Estas discrepancias entre el método de doble $k$ (método 2) y el método ITTC (método 1), del orden del 15$\%$ en términos de potencia efectiva, son suficientemente significativas como para justificar una validación mediante pruebas de mar: habría que verificar que las extrapolaciones obtenidas con el método propuesto, una vez incorporados los efectos propulsivos (reducción de empuje, entre otros), conducen a predicciones de potencia más próximas a las medidas en pruebas de mar que las del método tradicional. Además, sugieren que las correlaciones empíricas introducidas en la Sección \ref{sec:generalizacion_LB}, originadas en aeronáutica y dependientes de la razón de esbeltez, podrían ser utilizadas como una estimación preliminar de $k_S$ de forma más confiable que las metodologías navales actuales. Esto permitiría implementar un método de extrapolación de doble $k$, donde $k_M$ se obtenga de CFD DB a escala modelo y $k_S$ de una correlación basada en $L/B$, evitando la necesidad de simulaciones CFD a escala buque.
+Estas discrepancias entre el método de doble $k$ (método 2) y el método ITTC (método 1), del orden del 15$\%$ en términos de potencia efectiva, son suficientemente significativas como para justificar una validación mediante pruebas de mar (mediciones de velocidad y potencia realizadas sobre el buque real): habría que verificar que las extrapolaciones obtenidas con el método propuesto, una vez incorporados los efectos propulsivos (como la reducción de empuje, es decir el aumento de resistencia que provoca la hélice al succionar agua junto a la popa), conducen a predicciones de potencia más próximas a las medidas en pruebas de mar que las del método tradicional. Además, sugieren que las correlaciones empíricas introducidas en la Sección \ref{sec:generalizacion_LB}, originadas en aeronáutica y dependientes de la razón de esbeltez, podrían ser utilizadas como una estimación preliminar de $k_S$ de forma más confiable que las metodologías navales actuales. Esto permitiría implementar un método de extrapolación de doble $k$, donde $k_M$ se obtenga de CFD DB a escala modelo y $k_S$ de una correlación basada en $L/B$, evitando la necesidad de simulaciones CFD a escala buque.
 
 El desarrollo de una curva específica de $(1+k)$ en función de $L/B$ para cascos pesqueros, particularmente para el rango $L/B < 4$, aparece por lo tanto como un paso clave para mejorar la predicción de resistencia y potencia efectiva en este tipo de buques.
 

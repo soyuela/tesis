@@ -200,7 +200,8 @@ pequeña frente a la componente viscosa. Llevado al extremo, ese razonamiento
 lleva a ensayar a velocidades tan bajas que $C_W$ resulte despreciable y el
 cociente $C_{TM}/C_{F0}$ tienda directamente a $(1+k)$; el problema es que en ese
 régimen no puede garantizarse flujo plenamente turbulento sobre el casco, ni
-siquiera con estimuladores de turbulencia, y la precisión de la medición se
+siquiera con estimuladores de turbulencia (pequeños obstáculos colocados cerca
+de la proa que fuerzan la transición de la capa límite a régimen turbulento), y la precisión de la medición se
 deteriora al caer la señal de fuerza \citep{lindgrenDyne1980}. El régimen en el
 que la hipótesis $C_W \approx 0$ es más confiable resulta ser, así, aquel en el
 que la medición es menos confiable.
@@ -235,7 +236,7 @@ El método presenta, sin embargo, limitaciones bien documentadas. La sensibilida
 
 La primera corresponde a efectos geométricos no lineales. La presencia de proas bulbo (protuberancias redondeadas ubicadas en la parte sumergida de la proa, concebidas para generar un sistema de olas que interfiere con el del casco y reduce la resistencia por generación de olas) próximas a la superficie libre genera no linealidades en la curva a bajas velocidades que dificultan la extrapolación \citep{korkmaz_cfd_2021}. En \citet{korkmaz_cfd_2021} se analizaron dos modelos con geometrías casi idénticas (95\% de similitud) que mostraron comportamientos divergentes en la determinación del factor de forma mediante el método de Prohaska. Como se observa en la Figura~\ref{fig:korkmaz_bulb_effect}, el primer modelo (Hull-1) presentó una marcada concavidad en la gráfica de $C_T/C_{F0}$ frente a $Fr^n/C_{F0}$ dentro del rango $0.1 < Fr < 0.2$, mientras que el segundo (Hull-2) mantuvo una tendencia lineal. Esta anomalía en el primer caso se atribuyó a un diseño de bulbo tipo ``goose-neck'' con mayor concentración de volumen cerca de la superficie libre, lo cual genera sistemas de ondas cortos que no interactúan favorablemente con el tren de ondas de la proa a bajas velocidades. Este fenómeno se intensificó al ensayar el modelo en condición de lastre, donde la proximidad del bulbo a la superficie libre indujo una protuberancia significativa en la curva, dificultando la extrapolación precisa de la resistencia viscosa.
 
-La segunda fuente de desviación proviene de fenómenos viscosos asociados a la separación del flujo. Cualquier aparición de separación o desprendimiento de vórtices a baja velocidad contradice el supuesto fundamental del método, que presupone un flujo adherido en la condición de referencia. Los cascos con formas llenas pueden presentar pequeñas zonas de separación en la popa o bajo el espejo, especialmente cuando existen apéndices. Las observaciones originales de Prohaska sobre curvas convexas en buques de doble hélice responden a este tipo de efectos: los soportes, ejes o popas voluminosas generaban una resistencia adicional por presión (resistencia por vórtices) incluso a bajos $Fr$, resultando en valores de $C_T$ superiores a los esperados por fricción pura. De manera similar, la separación de flujo en popas espejo sumergidas genera no linealidades \citep{keh-sik-min, korkmaz_cfd_2021}. Una popa espejo parcialmente sumergida puede inducir separación en la estela a escala modelo, fenómeno que no necesariamente se reproduce a escala buque debido a diferencias en el número de Reynolds. Estos efectos, esencialmente viscosos, se traducen en un ``abultamiento'' en la curva de Prohaska por la aparición de un componente adicional de resistencia de forma. Prohaska advirtió que su método no debía aplicarse de forma automática cuando existe separación de flujo, señalando la dificultad de detectar estos fenómenos (por ejemplo, el desprendimiento en popas espejo o zonas de spray separadas en bulbos apenas aflorantes). Estudios más recientes de CFD \citep{korkmaz-verif-and-valid-cfd-efd} confirman que separaciones leves pueden provocar una disminución aparente del factor de forma al aumentar el número de Reynolds, dado que el flujo tiende a re-adherirse progresivamente a mayor velocidad.
+La segunda fuente de desviación proviene de fenómenos viscosos asociados a la separación del flujo. Cualquier aparición de separación o desprendimiento de vórtices a baja velocidad contradice el supuesto fundamental del método, que presupone un flujo adherido en la condición de referencia. Los cascos con formas llenas (voluminosos, con secciones anchas y popa poco afinada) pueden presentar pequeñas zonas de separación en la popa o bajo el espejo, especialmente cuando existen apéndices (elementos agregados al casco, como el timón, los ejes o sus soportes). Las observaciones originales de Prohaska sobre curvas convexas en buques de doble hélice responden a este tipo de efectos: los soportes, ejes o popas voluminosas generaban una resistencia adicional por presión (resistencia por vórtices) incluso a bajos $Fr$, resultando en valores de $C_T$ superiores a los esperados por fricción pura. De manera similar, la separación de flujo en popas espejo sumergidas genera no linealidades \citep{keh-sik-min, korkmaz_cfd_2021}. Una popa espejo parcialmente sumergida puede inducir separación en la estela a escala modelo, fenómeno que no necesariamente se reproduce a escala buque debido a diferencias en el número de Reynolds. Estos efectos, esencialmente viscosos, se traducen en un ``abultamiento'' en la curva de Prohaska por la aparición de un componente adicional de resistencia de forma. Prohaska advirtió que su método no debía aplicarse de forma automática cuando existe separación de flujo, señalando la dificultad de detectar estos fenómenos (por ejemplo, el desprendimiento en popas espejo o zonas de spray separadas en bulbos apenas aflorantes). Estudios más recientes de CFD \citep{korkmaz-verif-and-valid-cfd-efd} confirman que separaciones leves pueden provocar una disminución aparente del factor de forma al aumentar el número de Reynolds, dado que el flujo tiende a re-adherirse progresivamente a mayor velocidad.
 
 La tercera fuente de desviación es de naturaleza analítica y se desdobla, a su vez, en dos aportes. Por un lado, la línea de referencia interviene en el denominador del diagrama: con la ITTC-57, cuya pendiente a bajos $Re$ ya se discutió en la Sección~\ref{sec:ITTC57}, los puntos adquieren una curvatura convexa que no responde al comportamiento del casco \citep{ITTC_Combined_2021}. Por otro, la propia formulación de Prohaska supone que la resistencia por olas varía como ${\sim}Fr^4$; si la ley real difiere de esa potencia (por ejemplo, por la presencia de un sistema secundario de ondas), los puntos experimentales se apartan de la linealidad esperada, con independencia de la línea de fricción empleada.
 
@@ -353,7 +354,9 @@ viscosa, y el factor de forma se obtiene como \citep{ITTC_Combined_2021}:
     (1+k) = \frac{C_V}{C_{F0}} = \frac{C_F + C_{PV}}{C_{F0}}.
 \end{equation}
 %
-La ventaja decisiva sobre el método de Prohaska es que el doble cuerpo elimina la contaminación por olas en la determinación de $C_V$ (la mayor fuente de incertidumbre del método de Prohaska a bajas velocidades) en lugar de intentar sustraerla por extrapolación. La configuración permite además concentrar la resolución de la malla en la capa límite y la estela viscosa de popa, optimizando el costo computacional frente a las simulaciones con superficie libre. Cabe señalar, sin embargo, que la condición de simetría impuesta en la frontera superior puede distorsionar el campo de presiones en la zona de la proa bulbo cuando esta se encuentra próxima a la superficie libre, por lo que su aplicación requiere verificar que la geometría simulada no se vea afectada por esta limitación. En efecto, en \citet{quintuna2023} se observó que, cuando existe un pequeño espacio entre el tope del bulbo y la superficie libre en reposo, la tapa rígida induce una separación de flujo en torno al bulbo que no se produce en las simulaciones con superficie libre, y que este efecto se atenúa al aumentar la inmersión de la proa mediante el asiento, en línea con lo señalado en \citet{korkmaz_cfd_2021}.
+La ventaja decisiva sobre el método de Prohaska es que el doble cuerpo elimina la contaminación por olas en la determinación de $C_V$ (la mayor fuente de incertidumbre del método de Prohaska a bajas velocidades) en lugar de intentar sustraerla por extrapolación. La configuración permite además concentrar la resolución de la malla en la capa límite y la estela viscosa de popa, optimizando el costo computacional frente a las simulaciones con superficie libre. Cabe señalar, sin embargo, que la condición de simetría impuesta en la frontera superior puede distorsionar el campo de presiones en la zona de la proa bulbo cuando esta se encuentra próxima a la superficie libre, por lo que su aplicación requiere verificar que la geometría simulada no se vea afectada por esta limitación. En efecto, en \citet{quintuna2023} se observó que, cuando existe un pequeño espacio entre el tope del bulbo y la superficie libre en reposo, la tapa rígida (el plano fijo que reemplaza a la superficie libre en la
+configuración de doble cuerpo) induce una separación de flujo en torno al bulbo que no se produce en las simulaciones con superficie libre, y que este efecto se atenúa al aumentar la inmersión de la proa mediante el asiento (la inclinación
+longitudinal del casco, que sumerge más la proa o la popa), en línea con lo señalado en \citet{korkmaz_cfd_2021}.
 
 \subsection{Resultados disponibles: de los cascos de referencia a los pesqueros de baja esbeltez}
 \label{sec:estado_arte_ff}
@@ -362,9 +365,11 @@ El Comité Especialista de la 29.\textsuperscript{a} ITTC sobre Métodos Combina
 CFD/EFD coordinó un estudio colaborativo en el que nueve organizaciones, con siete
 códigos distintos, calcularon el factor de forma de dos cascos de referencia
 ampliamente utilizados en la validación de códigos de CFD: el \textit{KCS}
-(\emph{KRISO Container Ship}), un portacontenedores de 3600~TEU, y el
+(\emph{KRISO Container Ship}), un portacontenedores de 3600~TEU\footnote{El TEU (\emph{twenty-foot equivalent unit}) es la unidad con
+que se expresa la capacidad de carga de un portacontenedores, y equivale a un
+contenedor normalizado de 20~pies de largo.}, y el
 \textit{KVLCC2} (\emph{KRISO Very Large Crude Carrier}), un petrolero de
-300\,000~toneladas de porte bruto \citep{lee2003kcs, larsson2014gothenburg}.
+300\,000~toneladas de porte bruto (la capacidad de carga del buque) \citep{lee2003kcs, larsson2014gothenburg}.
 Los resultados del estudio \citep{ITTC_Combined_2021, KORKMAZ2022112590}
 mostraron que la dispersión entre organizaciones es significativamente menor que
 la del método de Prohaska, que el valor medio de las predicciones CFD concuerda
@@ -468,9 +473,7 @@ semejantes en varias escalas, lo que se conoce como una serie \emph{geosim}
 \citep{molland2017ship}, de modo de barrer el número de Reynolds manteniendo el
 de Froude. La Figura~\ref{fig:keh-sik} reproduce los resultados de los ensayos
 de baja velocidad para los cuatro modelos geosim de un portacontenedores de
-8600~TEU\footnote{El TEU (\emph{twenty-foot equivalent unit}) es la unidad con
-que se expresa la capacidad de carga de un portacontenedores, y equivale a un
-contenedor normalizado de 20~pies de largo.}, graficados como $C_{TM}/C_{FM}$
+8600~TEU, graficados como $C_{TM}/C_{FM}$
 frente a $Fr$. En ese plano, el valor al que
 tiende cada curva cuando $Fr \to 0$ es el factor de forma, según la definición
 adoptada por la ITTC en 1978 y empleada por los autores. Dos rasgos son
@@ -565,7 +568,7 @@ Reynolds, y es ahí donde interviene la forma del casco.
 
 En \citet{DOGRUL2020107428} se calcularon por CFD de doble cuerpo los factores
 de forma del \textit{KCS} y del \textit{KVLCC2} en tres escalas de modelo y en escala
-real, empleando como referencia tanto la línea ITTC-57 como la ATTC-1947. El
+real, empleando como referencia tanto la línea ITTC-57 como la ATTC-1947 (la línea de Schoenherr, adoptada por la \emph{American Towing Tank Conference} en 1947). El
 resultado directo es que $(1+k)$ crece de manera monótona con $Re$ en ambos
 cascos: con la ITTC-57, aproximadamente de $1.10$ a $1.16$ en el \textit{KCS} y
 de $1.20$ a $1.27$ en el \textit{KVLCC2} entre el modelo más pequeño y la escala buque. La
@@ -632,7 +635,7 @@ de Prohaska, dentro de la cual las diferencias reportadas son de unos pocos punt
 
 \subsection{Una configuración particular: la popa espejo sumergida}
 
-Cuando la popa del casco tiene el espejo sumergido, el flujo se separa en la arista y se forma detrás una zona de recirculación persistente. La inmersión del espejo se acentúa al aumentar el calado y al reducir la velocidad, de modo que el régimen recirculante es más probable en condición de plena carga y, dentro de ella, justamente en el rango de bajos $Fr$ sobre el que operan los métodos de determinación de $(1+k)$. En esa configuración, el flujo de escala modelo y el flujo de escala buque difieren cualitativamente, no solo cuantitativamente, porque la velocidad crítica a la que el espejo ``ventila'' y pasa a flujo libre es diferente en las dos escalas \citep{ITTC_Combined_2021}. Para este caso, en \citet{korkmaz_wetted_transom} se propone un \emph{método de dos factores de forma} ($2k$) que distingue la contribución del cuerpo sin separación de la contribución adicional de la popa espejo, calculando ambas por CFD en escala modelo y en escala buque, respectivamente. El método incluye un criterio de aplicabilidad basado en el área sumergida del espejo relativa a la sección maestra. Los cascos pesqueros analizados en esta tesis superan ese umbral en su condición de plena carga, de modo que la corrección corresponde ser aplicada; cuánto explica del efecto de escala medido en ellos es una cuestión distinta, que se cuantifica en la Sección~\ref{sec:popa_sumergida}.
+Cuando la popa del casco tiene el espejo sumergido, el flujo se separa en la arista y se forma detrás una zona de recirculación persistente. La inmersión del espejo se acentúa al aumentar el calado (la profundidad a la que está sumergido el casco, medida desde la línea de flotación hasta su punto más bajo) y al reducir la velocidad, de modo que el régimen recirculante es más probable en condición de plena carga y, dentro de ella, justamente en el rango de bajos $Fr$ sobre el que operan los métodos de determinación de $(1+k)$. En esa configuración, el flujo de escala modelo y el flujo de escala buque difieren cualitativamente, no solo cuantitativamente, porque la velocidad crítica a la que el espejo ``ventila'' y pasa a flujo libre es diferente en las dos escalas \citep{ITTC_Combined_2021}. Para este caso, en \citet{korkmaz_wetted_transom} se propone un \emph{método de dos factores de forma} ($2k$) que distingue la contribución del cuerpo sin separación de la contribución adicional de la popa espejo, calculando ambas por CFD en escala modelo y en escala buque, respectivamente. El método incluye un criterio de aplicabilidad basado en el área sumergida del espejo relativa a la sección maestra. Los cascos pesqueros analizados en esta tesis superan ese umbral en su condición de plena carga, de modo que la corrección corresponde ser aplicada; cuánto explica del efecto de escala medido en ellos es una cuestión distinta, que se cuantifica en la Sección~\ref{sec:popa_sumergida}.
 
 En \citet{starke2025} se evaluó el procedimiento empleado por el MARIN
 (\emph{Maritime Research Institute Netherlands}), uno de los principales
@@ -686,7 +689,7 @@ donde $V_{r/R}$ es la velocidad resultante del flujo incidente sobre esa secció
 \subsection{La serie Wageningen B}
 \label{sec:wageningen_antec}
  
-La serie Wageningen B es la familia sistemática de hélices de referencia más ampliamente utilizada en la industria naval. Comprende modelos experimentados en el canal MARIN cubriendo de $Z = 2$ a $Z = 7$ palas, relaciones de área expandida $A_E/A_0$ de $0.30$ a $1.05$ (cociente entre el área expandida de las palas y el área del disco de la hélice) y relaciones paso--diámetro $P/D$ de $0.5$ a $1.4$ (con $P$ el paso geométrico y $D$ el diámetro de la hélice). Los resultados originales de \citet{troost1940} fueron corregidos por efectos de escala y ajustados a polinomios de regresión en \citet{oosterveld1975}, cuyas expresiones para $K_T$ y $K_Q$ en función de $J$, $P/D$, $A_E/A_0$ y $Z$ son actualmente la referencia estándar. Dichos polinomios fueron obtenidos a $Re_{c,0.75R} = 2\times10^6$ y son la base para la hélice \textit{B4-60} ($P/D = 0.81$, $D = 0.14$~m) analizada numéricamente en el LabHiNO (Laboratorio de Hidrodinámica Naval y Oceánica, UBA) y presentada en el Capítulo~\ref{chap:helices}. La nomenclatura de la serie identifica, en ese orden, la serie B, el número de palas y la relación de área expandida: \textit{B4-60} designa entonces una hélice de cuatro palas con $A_E/A_0 = 0.60$.
+La serie Wageningen B es la familia sistemática de hélices de referencia más ampliamente utilizada en la industria naval. Comprende modelos experimentados en el canal MARIN cubriendo de $Z = 2$ a $Z = 7$ palas, relaciones de área expandida $A_E/A_0$ de $0.30$ a $1.05$ (cociente entre el área expandida de las palas y el área del disco de la hélice) y relaciones paso--diámetro $P/D$ de $0.5$ a $1.4$ (con $P$ el paso geométrico, es decir el avance axial teórico de la pala en una vuelta completa, como el de un tornillo, y $D$ el diámetro de la hélice). Los resultados originales de \citet{troost1940} fueron corregidos por efectos de escala y ajustados a polinomios de regresión en \citet{oosterveld1975}, cuyas expresiones para $K_T$ y $K_Q$ en función de $J$, $P/D$, $A_E/A_0$ y $Z$ son actualmente la referencia estándar. Dichos polinomios fueron obtenidos a $Re_{c,0.75R} = 2\times10^6$ y son la base para la hélice \textit{B4-60} ($P/D = 0.81$, $D = 0.14$~m) analizada numéricamente en el LabHiNO (Laboratorio de Hidrodinámica Naval y Oceánica, UBA) y presentada en el Capítulo~\ref{chap:helices}. La nomenclatura de la serie identifica, en ese orden, la serie B, el número de palas y la relación de área expandida: \textit{B4-60} designa entonces una hélice de cuatro palas con $A_E/A_0 = 0.60$.
  
 \section{Efectos de escala en hélices y el procedimiento ITTC-78}
 \label{sec:escala_helices}
@@ -769,7 +772,9 @@ $A_E/A_0$ analizada en esta tesis.
 La insuficiencia de la corrección por fricción no se limita a las geometrías de
 punta modificada. En \citet{peravali2016} se analizó la hélice Kappel, una
 geometría no convencional en la que la punta de la pala se curva de forma continua
-hacia el lado de succión, integrando una \emph{aleta} en lugar de terminar en una
+hacia el lado de succión (el dorso de la pala, la cara orientada hacia proa, sobre la
+que la presión es menor; la cara opuesta, orientada hacia popa, es el lado de presión),
+integrando una \emph{aleta} en lugar de terminar en una
 punta plana: el efecto viscoso de escala sobre la eficiencia predicho por RANS es
 de $3.5\%$ para la Kappel frente a $2\%$ para la hélice convencional, mientras que
 el ITTC-78 estima menos del $2\%$ en ambos casos.
@@ -851,10 +856,11 @@ de giro más alta para que el ensayo caiga fuera del rango transicional, ya que 
 razonable extraer conclusiones hidrodinámicas generales, ni calibrar procedimientos
 de extrapolación, a partir de un régimen de capa límite que no es representativo del
 comportamiento a escala buque. Sin embargo, esta salida no siempre está disponible.
-En un ensayo autopropulsado, el modelo de hélice no se elige de forma independiente:
+En un ensayo autopropulsado (aquel en el que el modelo de casco avanza impulsado por
+su propia hélice, en lugar de ser remolcado), el modelo de hélice no se elige de forma independiente:
 su escala queda determinada por la escala del modelo de casco, que a su vez está
 acotada por las dimensiones del canal de ensayos (ancho, profundidad, velocidad
-máxima del carro) y por la necesidad de mantener la semejanza de Froude con el buque
+máxima del carro, la plataforma que remolca el modelo a lo largo del canal) y por la necesidad de mantener la semejanza de Froude con el buque
 real. En esas condiciones, puede no existir ninguna combinación de escala de modelo y
 condición de ensayo que evite el rango transicional del propulsor, y la joroba deja
 de ser una condición evitable para convertirse en una limitación estructural del

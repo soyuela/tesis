@@ -431,10 +431,10 @@ propulsora.
 El análisis de la hélice Wageningen \textit{B4-60} presentado en la sección anterior se realizó
 íntegramente con el modelo SST en régimen completamente turbulento, lo cual es apropiado
 para el barrido de escalas donde los diámetros de interés operan a números de Reynolds
-suficientemente elevados. Sin embargo, a escala de modelo la capa límite sobre el álabe
+suficientemente elevados. Sin embargo, a escala de modelo la capa límite sobre la pala
 puede contener regiones laminares de extensión significativa, y su tratamiento numérico
 requiere modelos capaces de reproducir la transición laminar-turbulenta. Esta sección
-aborda ese problema a través del análisis de una hélice de cuatro álabes (en adelante,
+aborda ese problema a través del análisis de una hélice de cuatro palas (en adelante,
 propulsor \textit{P206}), cuyas
 características geométricas principales se resumen en la
 Tabla~\ref{tab:geom_coreana}.
@@ -466,12 +466,12 @@ $c_{0.7R} \approx 0.234\,D = 58.5$~mm, el rango de $Re_c$ explorado
 experimentalmente a $J = 0.5$ es
 $[0.36,\,0.52,\,0.77,\,1.00,\,1.25] \times 10^6$, abarcando desde el régimen
 claramente subcrítico hasta valores próximos al umbral de turbulencia plena para
-perfiles de álabe marino.
+perfiles de pala de hélices marinas.
 
 Este rango resulta especialmente relevante porque contiene la denominada
 ``joroba'': la región de Reynolds en torno a
 $Re_c \sim 5 \times 10^5$ donde la capa límite experimenta la transición
-laminar-turbulenta y las fuerzas sobre el álabe exhiben un comportamiento
+laminar-turbulenta y las fuerzas sobre la pala exhiben un comportamiento
 no monótono, con un incremento local de $K_T$ y $10K_Q$ que ningún modelo
 completamente turbulento es capaz de reproducir.
 
@@ -490,8 +490,8 @@ Las simulaciones en StarCCM+ (S.~Gaggero) se realizaron a las mismas velocidades
 ensayos experimentales (10.33 a 36.33~rps), con densidad $\rho = 998.71$~kg/m$^3$ y
 viscosidad $\nu = 1.0034 \times 10^{-6}$~m$^2$/s a 20~°C.
 
-En la malla de OpenFOAM se emplearon 10 capas de prismas sobre la superficie del
-álabe para resolver la capa límite bajo el criterio de $y^+$ descripto en la
+En la malla de OpenFOAM se emplearon 10 capas de prismas sobre la superficie de la
+pala para resolver la capa límite bajo el criterio de $y^+$ descripto en la
 \secnom{sec:metodologia_helices_openfoam}. La malla resultante cuenta con
 $4\,935\,785$ celdas.
 
@@ -545,16 +545,16 @@ Reynolds elevados ($Re_c \geq 10^6$) ambos modelos tienden a converger, con la
 excepción de la configuración $Tu = 1.0\%$, que conserva una región laminar apreciable
 y mantiene una diferencia con el SST incluso en el extremo superior del rango. Este
 incremento a bajo $Re_c$ es precisamente la manifestación de la ``joroba
-transicional'': la presencia de flujo laminar sobre una fracción significativa del
-álabe reorienta las líneas de corriente de la capa límite en sentido más radial y
+transicional'': la presencia de flujo laminar sobre una fracción significativa de la
+pala reorienta las líneas de corriente de la capa límite en sentido más radial y
 altera la carga a lo largo de la envergadura, modificando la distribución de presión
-sobre el álabe. Este es el mecanismo que \citet{rijpkema2015viscous} infirió de los
+sobre la pala. Este es el mecanismo que \citet{rijpkema2015viscous} infirió de los
 ensayos de ``paint test'', y que eleva tanto el empuje como el par respecto del caso
 completamente turbulento, en concordancia con lo reportado por \citet{gaggero2021transition}
 para la \textit{VP1304} y \citet{Baltazar2021} para la S6368. Conviene anticipar, y se demuestra en la Sección~\ref{sec:coreana_diagnostico}, que esta modificación de la
 presión \emph{no} se produce por un aumento del pico de succión, que resulta
 insensible al modelo de turbulencia, sino por una redistribución de la carga en otras
-zonas del álabe.
+zonas de la pala.
 
 La intensidad turbulenta en el disco actúa como parámetro de ajuste del punto de
 inicio de la transición: a mayor $Tu$, la transición se adelanta hacia el borde de
@@ -687,8 +687,8 @@ $1.25$ & $0.60$ & $+11.5$ & $89$ & $+0.0010$ & $-0.0011$ \\
 \subsection{Diagnóstico seccional: dónde actúan la presión y la fricción}
 \label{sec:coreana_diagnostico}
 
-Para localizar sobre el álabe el cambio de presión implicado por la descomposición anterior
-se analizaron los coeficientes locales $C_{p}$ y $C_f$ sobre el dorso del álabe,
+Para localizar sobre la pala el cambio de presión implicado por la descomposición anterior
+se analizaron los coeficientes locales $C_{p}$ y $C_f$ sobre el dorso de la pala,
 adimensionalizados en este caso con $\tfrac{1}{2}\rho(nD)^2$ en lugar de con la velocidad
 de sección de la Ecuación~\ref{eq:cpn_cf_def}, en cuatro radios ($r/R = 0.3$ a $0.9$), a $J = 0.5$ y para
 los dos $Re_c$ extremos. La Figura~\ref{fig:coreana_cp_cf_rR} resume el resultado en dos
@@ -706,7 +706,7 @@ mientras que $K_{Tp}$ es la integral de superficie de $p\,n_x$.
 \centering
 \includegraphics[width=0.95\textwidth]{cpn_cf_vs_rR_succion_es.png}
 \caption{Pico de succión $-C_{p,\mathrm{pico}}$ (izquierda) y $C_f$ medio (derecha) sobre
-el dorso del álabe de la \textit{P206} en función de $r/R$, a $J=0.5$, para el modelo completamente
+el dorso de la pala de la \textit{P206} en función de $r/R$, a $J=0.5$, para el modelo completamente
 turbulento y el SST-LM con $Tu=1.0\%$, $1.4\%$ y $1.8\%$, en los dos $Re_c$ extremos de la
 campaña ($0.36$ y $1.25\times10^6$, línea llena y discontinua). Ambos coeficientes se
 adimensionalizan con $\tfrac{1}{2}\rho(nD)^2$. El dorso se identifica como la región de
@@ -720,10 +720,10 @@ El coeficiente $C_f$, en cambio, separa nítidamente las configuraciones
 completamente turbulento predice los valores más altos y el crecimiento más rápido
 hacia la punta. A $Re_c$ elevado, los niveles $Tu = 1.4\%$ y $1.8\%$ muestran un
 frente de transición marcado (un salto entre la zona de $C_f$ bajo y la de $C_f$ alto), cuya posición depende de $Tu$, mientras que $Tu = 1.0\%$ mantiene flujo
-predominantemente laminar sobre casi todo el álabe; a $Re_c$ bajo los tres niveles se
+predominantemente laminar sobre casi toda la pala; a $Re_c$ bajo los tres niveles se
 comportan de forma similar. La dirección de la tensión de corte es visiblemente más
 radial en las regiones laminares: la fracción radial de $|\tau_w|$ (el cociente entre
-la componente radial de la tensión de corte en la pared y su módulo, promediado sobre el álabe) aumenta de $0.19$ en el caso completamente turbulento a $0.40$--$0.43$ en el
+la componente radial de la tensión de corte en la pared y su módulo, promediado sobre la pala) aumenta de $0.19$ en el caso completamente turbulento a $0.40$--$0.43$ en el
 SST-LM a $Re_c$ bajo. Esta
 reorientación es la que altera la carga a lo largo de la envergadura (el mecanismo inferido por \citet{rijpkema2015viscous} a partir de los ``paint tests'') y constituye la vía
 plausible por la cual la transición modifica el campo de presión, a través de esa redistribución de carga a lo largo de la envergadura, sin alterar el pico de succión,
@@ -732,7 +732,7 @@ que permanece insensible al modelo.
 \begin{figure}[htpb]
 \centering
 \includegraphics[width=0.85\textwidth]{fig_cf_panel.png}
-\caption{Distribución espacial de $C_f$ sobre el dorso del álabe, para $J=0.5$, los
+\caption{Distribución espacial de $C_f$ sobre el dorso de la pala, para $J=0.5$, los
 cinco $Re_c$ ensayados (filas, de $0.36$ a $1.25\times10^6$) y los cuatro niveles de
 turbulencia (columnas: completamente turbulento y $Tu=1.0\%$, $1.4\%$, $1.8\%$). Las
 flechas indican la dirección local de la tensión de corte.}
@@ -751,7 +751,7 @@ fricción (el frente de transición y su sensibilidad a $Tu$ y $Re_c$), mientras
 cambio acompañante en el empuje de presión integrado, que según la
 Tabla~\ref{tab:coreana_decomp} explica entre el $79$ y el $93\%$ de la diferencia de
 empuje respecto del modelo completamente turbulento, no está localizado en el pico de
-succión. Dónde se produce exactamente sobre el álabe queda abierto: resolverlo requeriría
+succión. Dónde se produce exactamente sobre la pala queda abierto: resolverlo requeriría
 mapas de la diferencia $C_p^{\mathrm{LM}}-C_p^{\mathrm{FT}}$ sobre la pala, análogos a los
 presentados en la Sección~\ref{sec:helices_campo_presion} para la \textit{B4-60}.
 
@@ -897,7 +897,7 @@ La dependencia con la carga del propulsor es igualmente relevante: para la mayor
 las configuraciones, $J = 0.60$, próximo al punto de eficiencia máxima de la hélice, resulta la condición más difícil de predecir, con errores de hasta el $14\%$ en el
 caso Fully Turbulent, mientras que las cargas altas ($J \leq 0.40$) presentan el
 mejor acuerdo generalizado. Esto sugiere que, a medida que el propulsor se descarga,
-la topología de la capa límite laminar sobre el álabe se vuelve más sensible tanto al
+la topología de la capa límite laminar sobre la pala se vuelve más sensible tanto al
 modelo de transición como al solver empleado.
 
 Un resultado adicional, de utilidad práctica, surge de comparar el par $K_Q$ frente al
@@ -1029,7 +1029,7 @@ predicción de escala buque.
 Como en la Sección~\ref{sec:helices_ittc78}, y dado que la referencia a $D=6$~m se
 resolvió con pared hidráulicamente lisa, el término de escala buque de $\Delta C_D$ se
 evalúa con la misma ley de fricción lisa que el de modelo, en lugar de la expresión
-rugosa del procedimiento oficial ($k_p=30\,\mu$m), que compararía superficies
+rugosa del procedimiento oficial ($k_{s,p}=30\,\mu$m), que compararía superficies
 físicamente distintas. Los números de Reynolds y el espesor relativo de la sección
 ($t/c=0.067$) se evalúan a $r/R=0.7$, con $P/D=0.721$ y $c/D=0.234$.
 

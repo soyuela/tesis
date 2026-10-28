@@ -47,7 +47,6 @@ $C_{FM0},\,C_{FS0}$& Coeficiente de fricción de referencia en escala modelo y b
 $C_V$              & Coeficiente de resistencia viscosa, $C_V = C_F + C_{PV}$ \\
 $C_{PV}$           & Coeficiente de resistencia por presión viscosa \\
 $C_W$              & Coeficiente de resistencia por formación de olas \\
-$C_R$              & Coeficiente de resistencia residual (componente no friccional en la descomposición de Hughes/Froude) \\
 $\Delta C_F$       & Corrección por rugosidad de la superficie (Townsin \& Dey) \\
 $C_A$              & Coeficiente de correlación modelo--buque \\
 $C_{AAS}$          & Coeficiente de resistencia aerodinámica de la obra muerta \\
@@ -120,11 +119,12 @@ $r$         & Coordenada radial medida desde el eje \\
 $r/R$       & Posición radial adimensional \\
 $V_a$       & Velocidad de avance del propulsor, $V_a = J\,n\,D$ \\
 $V_{\text{ref}}(r)$ & Velocidad resultante del flujo incidente en la sección de radio $r$, $V_{\text{ref}}(r)=\sqrt{V_a^2+(2\pi n r)^2}$ \\
+$V_{r/R}$   & Velocidad resultante del flujo incidente en la sección $r/R$ (equivalente a $V_{\text{ref}}(r)$) \\
 $V_{0.7R}$  & Velocidad resultante en la sección $r/R=0{,}7$ \\
 $Z$         & Número de palas \\
 $A_E,\,A_0$ & Área expandida de las palas y área del disco \\
 $A_E/A_0$   & Relación de área expandida \\
-$A_b$       & Superficie del álabe (dominio de integración de fuerzas) \\
+$A_b$       & Superficie de la pala (dominio de integración de fuerzas) \\
 $P$         & Paso geométrico \\
 $P/D$       & Relación paso--diámetro \\
 $c_{r/R}$   & Cuerda de la sección en la posición radial $r/R$ \\
@@ -132,14 +132,20 @@ $c_{0.7R},\,c_{0.75R}$ & Cuerda de la sección a $r/R=0{,}7$ y $r/R=0{,}75$ \\
 $t_{\max}$  & Espesor máximo de la sección de pala \\
 $k_{s,p}$   & Rugosidad equivalente de la pala (ITTC-78) \\
 $x/c$       & Coordenada adimensional a lo largo de la cuerda de la sección \\
-$C_{D,M},\,C_{D,S}$ & Coeficiente de arrastre de perfil en escala modelo y buque (ITTC-78) \\
+$C_{DM},\,C_{DS}$ & Coeficiente de arrastre de perfil en escala modelo y buque (ITTC-78) \\
 $\Delta C_D$& Corrección de arrastre de perfil (ITTC-78) \\
+$A_i,\,B_i$ & Coeficientes de los polinomios de ajuste de $K_T(J)$ y $K_Q(J)$ \\
+$n_x$       & Componente axial del versor normal a la superficie de la pala \\
+$e_i$       & Error de extrapolación de $K_T$ a escala buque respecto de la referencia CFD \\
 \end{longtable}
 
 % --------------------------------------------------------------------------
 \section*{Modelado numérico y turbulencia}
 \begin{longtable}{@{}p{0.16\textwidth} p{0.78\textwidth}@{}}
 $U_i,\,\mathbf{U}$ & Componente $i$ de la velocidad media y su forma vectorial \\
+$U_t$       & Componente de la velocidad media tangencial a la pared \\
+$U_x/U_0$   & Velocidad longitudinal adimensionalizada con la velocidad de la corriente libre \\
+$U_{r,j}$   & Velocidad relativa de compresión de la interfaz (VoF) \\
 $u_i'$      & Fluctuación turbulenta de la velocidad \\
 $x_i$       & Coordenada espacial \\
 $x,\,y,\,z$ & Coordenadas longitudinal, transversal y vertical; $z$ positiva hacia arriba desde la flotación estática. En capa límite, $y$ denota la distancia normal a la pared \\
@@ -149,11 +155,14 @@ $p,\,p_\infty$ & Presión estática local y presión de la corriente no perturba
 $p_{rgh}$   & Presión modificada, $p_{rgh}=p-\rho g_j x_j$ \\
 $g,\,g_i$   & Aceleración de la gravedad y su componente $i$ \\
 $\alpha_{water}$ & Fracción volumétrica de agua (VoF) \\
+$\rho_w,\,\rho_a$ & Densidad del agua y del aire \\
+$\mu_w,\,\mu_a$ & Viscosidad dinámica del agua y del aire \\
 $\rho$      & Densidad del fluido \\
 $\nu$       & Viscosidad cinemática molecular \\
 $\nu_t$     & Viscosidad cinemática turbulenta \\
 $\mu,\,\mu_t$ & Viscosidad dinámica molecular y turbulenta \\
 $k$         & Energía cinética turbulenta \\
+$k_0,\,\omega_0$ & Valores de $k$ y $\omega$ impuestos en la entrada del dominio \\
 $\omega$    & Tasa específica de disipación \\
 $\varepsilon$ & Tasa de disipación turbulenta \\
 $k_L$       & Energía cinética de las fluctuaciones laminares (modelo $k$-$k_L$-$\omega$) \\
@@ -163,6 +172,8 @@ $\mathbf{n}$ & Versor normal exterior a la superficie \\
 $\hat{\mathbf{e}}_x$ & Versor en la dirección de avance \\
 $\delta_{ij}$ & Delta de Kronecker \\
 $\gamma$    & Intermitencia (variable de transporte del modelo de transición SST-LM) \\
+$\gamma_{\mathrm{eff}}$ & Intermitencia efectiva que acopla el modelo de transición con el SST \\
+$D_k$       & Término de destrucción de $k$ del modelo SST, $D_k=\beta^*\rho k\omega$ \\
 $F_1,\,F_2$ & Funciones de mezcla del modelo SST \\
 $\tilde{P}_k$ & Término de producción limitado de turbulencia \\
 $S_{ij},\,S$& Tensor y magnitud de la tasa de deformación \\
@@ -196,7 +207,9 @@ $D$         & Valor experimental (\textit{data}) \\
 $S$         & Resultado computacional (\textit{simulation}) \\
 $U_D$       & Incertidumbre experimental \\
 $U_{num}$   & Incertidumbre numérica \\
-$U_{val}$   & Incertidumbre de validación, $U_{val}=\sqrt{U_D^2+U_{num}^2}$ \\
+$U_{input}$ & Incertidumbre asociada a las diferencias entre las condiciones simuladas y las ensayadas \\
+$U_{val}$   & Incertidumbre de validación, $U_{val}=\sqrt{U_D^2+U_{num}^2+U_{input}^2}$ \\
+$U_{1+k}$   & Incertidumbre expandida del ajuste de $(1+k)$ (95\,\%) \\
 MAE         & Error absoluto medio (\textit{Mean Absolute Error}) \\
 \end{longtable}
 
@@ -222,13 +235,19 @@ NFL     & Línea de fricción numérica (\textit{Numerical Friction Line}) \\
 ITTC    & \textit{International Towing Tank Conference} \\
 ITTC-57 & Línea de correlación modelo--buque de la ITTC (1957) \\
 ITTC-78 & Método de predicción de potencia de la ITTC (1978) \\
+ATTC-1947 & Línea de fricción de Schoenherr adoptada por la \textit{American Towing Tank Conference} (1947) \\
 GCI     & Índice de convergencia de malla \\
 V\&V    & Verificación y validación \\
 MAE     & Error absoluto medio (\textit{Mean Absolute Error}) \\
 RSS     & Raíz de la suma de los cuadrados (\textit{Root Sum Squares}) \\
 RMS     & Raíz del valor cuadrático medio (\textit{Root Mean Square}) \\
 POW     & Ensayo de hélice en aguas abiertas (\textit{Propeller Open Water}) \\
-BPG     & Guías de buenas prácticas (\textit{Best Practice Guidelines}) \\
+FT      & Completamente turbulento (\textit{fully turbulent}) \\
+LER     & Rugosidad en el borde de ataque (\textit{Leading Edge Roughness}) \\
+DAS     & Sistema de adquisición de datos (\textit{Data Acquisition System}) \\
+TEU     & Unidad equivalente a un contenedor de 20 pies (\textit{Twenty-foot Equivalent Unit}) \\
+AUV     & Vehículo submarino autónomo (\textit{Autonomous Underwater Vehicle}) \\
+ROV     & Vehículo submarino operado remotamente (\textit{Remotely Operated Vehicle}) \\
 LCB     & Centro longitudinal de carena (\textit{Longitudinal Centre of Buoyancy}) \\
 KRISO   & \textit{Korea Research Institute of Ships and Ocean Engineering} \\
 KCS     & \textit{KRISO Container Ship} \\
@@ -236,8 +255,8 @@ KVLCC2  & \textit{KRISO Very Large Crude Carrier}, versión 2 \\
 LabHiNO & Laboratorio de Hidrodinámica Naval y Oceánica (UBA) \\
 UBA     & Universidad de Buenos Aires \\
 MARIN   & \textit{Maritime Research Institute Netherlands} \\
+SSPA    & Canal de ensayos sueco (\textit{Statens Skeppsprovningsanstalt}) \\
 ASME    & \textit{American Society of Mechanical Engineers} \\
-IMO     & \textit{International Maritime Organization} \\
 \end{longtable}
 
 \renewcommand{\arraystretch}{1.0}

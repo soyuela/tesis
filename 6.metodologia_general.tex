@@ -41,7 +41,7 @@ Se fabricaron y ensayaron cuatro modelos a escala, de los cuales tres son pesque
 \subsubsection{Modelo pesquero 1}
 El primer modelo estudiado, de ahora en más \textit{P1} representa un buque pesquero de baja esbeltez ($L/B < 4$) característico de la flota nacional. El modelo fue construido a escala $\lambda = 20$.
 
-En la Figura \ref{fig:model_tpa}, se presentan las vistas del modelo físico terminado. Se pueden apreciar las marcas de las diferentes secciones, líneas de agua y la disposición de la proa con bulbo. Para asegurar la transición a régimen turbulento de la capa límite y evitar la laminarización del flujo a bajas velocidades, se instalaron estimuladores de turbulencia (alambres cilíndricos de 3 mm de diámetro) a un 5\% de la eslora desde la perpendicular de proa, siguiendo las recomendaciones de la ITTC (Procedimiento 7.5-01-01-01).
+En la Figura \ref{fig:model_tpa}, se presentan las vistas del modelo físico terminado. Se pueden apreciar las marcas de las diferentes secciones, líneas de agua y la disposición de la proa con bulbo. Para asegurar la transición a régimen turbulento de la capa límite y evitar la laminarización del flujo a bajas velocidades, se instalaron estimuladores de turbulencia (alambres cilíndricos de 3 mm de diámetro) a un 5\% de la eslora desde la perpendicular de proa (la vertical trazada por el punto en que la proa corta la línea de flotación), siguiendo las recomendaciones de la ITTC (Procedimiento 7.5-01-01-01).
 
 \begin{figure}[htbp]
     \centering
@@ -88,7 +88,7 @@ Desplazamiento (masa) & $\Delta$ & {[}t{]} & - & 75.0 & 85.0 & 95.0\\
 El modelo se evaluó en tres condiciones de carga (ligero T1, medio T2 y pesado T3) para barrer un rango operativo amplio y analizar la sensibilidad del factor de forma al calado. Las áreas transversales medias del modelo representaron el 1\%, 1.1\% y 1.2\% del área transversal del tanque para las condiciones de carga ligera, media y pesada, respectivamente.
 
 La Tabla~\ref{tab:main_param_p1} resume las características geométricas y
-dinámicas del buque pesquero en escala buque y del modelo en las tres condiciones de calado ensayadas (T1, T2 y T3), incluido el coeficiente de bloque $C_B = \nabla/(L_{WL}\,B\,T)$.
+dinámicas del buque pesquero en escala buque y del modelo en las tres condiciones de calado ensayadas (T1, T2 y T3), incluido el coeficiente de bloque $C_B = \nabla/(L_{WL}\,B\,T)$, con $\nabla$ el volumen de desplazamiento (el volumen de agua que desplaza el casco) y $T$ el calado.
 
 \subsubsection{Modelo pesquero 2}
 El segundo pesquero analizado, de ahora en más \textit{P2} fue construido a escala $\lambda = 10$ y ensayado en una sola condición de calado. La Figura~\ref{fig:model_contessi} muestra el modelo físico y la Tabla~\ref{tab:main_param_p2} resume sus características principales.
@@ -332,7 +332,7 @@ aguas abiertas de archivo se realizaron a una temperatura del agua de $18.5$~°C
 Parámetro & Símbolo & Valor \\
 \hline
 Diámetro de modelo            & $D$           & 0.140~m \\
-Número de álabes              & $Z$           & 4       \\
+Número de palas               & $Z$           & 4       \\
 Relación de Paso Diámetro     & $P/D$         & 0.81    \\
 Relación de área expandida    & $A_E/A_0$     & 0.60    \\
 Ángulo de rake                & ---           & $0^\circ$ \\
@@ -341,7 +341,7 @@ Relación de área expandida    & $A_E/A_0$     & 0.60    \\
 \end{table}
 
 \subsubsection{Hélice \textit{P206}}
-La \textit{P206} es una hélice de cuatro palas, de área expandida reducida y con skew, cedida por
+La \textit{P206} es una hélice de cuatro palas, de área expandida reducida y con skew (desplazamiento angular de las secciones de la pala en el plano del disco, que la curva hacia atrás respecto del sentido de giro), cedida por
 Hanwha Ocean. La Figura~\ref{fig:pala_p206} muestra su geometría y la
 Tabla~\ref{tab:geom_coreana} resume sus parámetros principales.
 
@@ -361,7 +361,7 @@ Tabla~\ref{tab:geom_coreana} resume sus parámetros principales.
 Parámetro & Símbolo & Valor \\
 \hline
 Diámetro de modelo        & $D$             & 0.250~m      \\
-Número de álabes          & $Z$             & 4            \\
+Número de palas           & $Z$             & 4            \\
 Relación de Paso Diámetro a $r/R=0.7$ & $P/D$        & 0.721        \\
 Relación de área desarrollada & $A_E/A_0$   & 0.431        \\
 Relación espesor-diámetro a $r/R=0.7$ & $t_{\max}/D$ & 0.0156       \\
@@ -398,7 +398,7 @@ casos particulares de las definiciones de la Sección~\ref{sec:pow_antec}. Las c
     \label{fig:esquema_aguas_abiertas}
 \end{figure}
 
-La hélice se monta sobre un eje portahélice horizontal accionado por un dinamómetro de aguas abiertas, que mide simultáneamente el \emph{empuje} $T$ (fuerza axial sobre el eje) y el \emph{par} $Q$ (momento torsor). El conjunto puede remolcarse con el carro en el canal de remolque (caso de la hélice Wageningen \textit{B4-60}, cuyos datos de archivo provienen del LabHiNO) o instalarse en un túnel de cavitación (caso de la hélice \textit{P206}, ensayada por Hanwha Ocean). En ambos casos el eje se alinea con la dirección de avance y se cumplen las condiciones normalizadas por la ITTC \citep{ITTC_open_water}: la hélice se sumerge lo suficiente (para los casos en canal, con una inmersión del eje de al menos 1.5 D) para evitar la deformación de la superficie libre y la ventilación, y se incluye un carenado en el cubo para minimizar su interferencia en el flujo.
+La hélice se monta sobre un eje portahélice horizontal accionado por un dinamómetro de aguas abiertas, que mide simultáneamente el \emph{empuje} $T$ (fuerza axial sobre el eje) y el \emph{par} $Q$ (momento torsor). El conjunto puede remolcarse con el carro en el canal de remolque (caso de la hélice Wageningen \textit{B4-60}, cuyos datos de archivo provienen del LabHiNO) o instalarse en un túnel de cavitación, un circuito cerrado de agua en el que la hélice se ensaya con velocidad de flujo y presión controladas (caso de la hélice \textit{P206}, ensayada por Hanwha Ocean). En ambos casos el eje se alinea con la dirección de avance y se cumplen las condiciones normalizadas por la ITTC \citep{ITTC_open_water}: la hélice se sumerge lo suficiente (para los casos en canal, con una inmersión del eje de al menos 1.5 D) para evitar la deformación de la superficie libre y la ventilación (la entrada de aire desde la superficie hacia la hélice), y se incluye un carenado en el cubo (la pieza central a la que se fijan las palas) para minimizar su interferencia en el flujo.
 
 \subsubsection{Procedimiento de ensayo}
 
@@ -1086,7 +1086,7 @@ El dominio incluye el núcleo y el eje de la hélice, en correspondencia con el 
 
 La malla se generó íntegramente dentro del entorno OpenFOAM, combinando
 \texttt{cfMesh} para la discretización de la geometría base y \texttt{snappyHexMesh}
-para la inserción de las capas de prismas en la superficie del álabe, con un $y^+$
+para la inserción de las capas de prismas en la superficie de la pala, con un $y^+$
 objetivo menor a 2 en promedio, requisito para el correcto funcionamiento del modelo
 de transición, aunque en algunas zonas puntuales se alcanzaron valores de hasta 3.
 La cantidad de capas de prismas específica de cada caso se detalla en el
@@ -1166,7 +1166,7 @@ resultados a este parámetro.
 El análisis de los efectos de escala del Capítulo~\ref{chap:helices} requiere ir más
 allá de los coeficientes integrales $K_T$ y $K_Q$ y separar las contribuciones de
 presión y de fricción a las fuerzas sobre la pala. Ambos códigos calculan el empuje y
-el par integrando sobre la superficie del álabe $A_b$ la fuerza ejercida por el fluido, que se descompone de forma natural en un término de presión y uno viscoso, tal como se estableció para el casco en la Ecuación~\eqref{eq:integracion_fuerzas}. Siendo $\mathbf{n}$ la normal exterior, $\hat{\mathbf{e}}_x$ el versor del eje del propulsor (dirección del empuje), $\mathbf{r}$ el vector posición respecto del eje, $\boldsymbol{\tau}_w$ el vector de tensión de corte en la pared, $p$ la presión estática local sobre la pala y $p_\infty$ la presión de la corriente no perturbada, el empuje $T$ y el par $Q$ se escriben como
+el par integrando sobre la superficie de la pala $A_b$ la fuerza ejercida por el fluido, que se descompone de forma natural en un término de presión y uno viscoso, tal como se estableció para el casco en la Ecuación~\eqref{eq:integracion_fuerzas}. Siendo $\mathbf{n}$ la normal exterior, $\hat{\mathbf{e}}_x$ el versor del eje del propulsor (dirección del empuje), $\mathbf{r}$ el vector posición respecto del eje, $\boldsymbol{\tau}_w$ el vector de tensión de corte en la pared, $p$ la presión estática local sobre la pala y $p_\infty$ la presión de la corriente no perturbada, el empuje $T$ y el par $Q$ se escriben como
 %
 \begin{align}
         T &= \underbrace{\oint_{A_b} -(p - p_\infty)\,\mathbf{n}\cdot\hat{\mathbf{e}}_x \; dA_b}_{T_p}
@@ -1208,7 +1208,7 @@ presión y un coeficiente de fricción,
 \end{equation}
 %
 donde $V_{\text{ref}}(r) = \sqrt{V_a^2 + (2\pi n r)^2}$ es la velocidad resultante del flujo incidente en la sección de radio $r$, definida en la Ecuación~\eqref{eq:Re_helice}, y $V_a = J n D$ la velocidad de avance. Estos coeficientes se evalúan
-punto a punto sobre el dorso y la cara del álabe para el diagnóstico seccional del
+punto a punto sobre el dorso y la cara de la pala para el diagnóstico seccional del
 Capítulo~\ref{chap:helices}; cuando se requiere una referencia común a toda la pala
 (por ejemplo, para comparar mapas de $C_p$ entre escalas), se adopta como velocidad de
 referencia la resultante en la sección de $r/R = 0.7$, $V_{\text{ref}} = V_{0.7R}$.
