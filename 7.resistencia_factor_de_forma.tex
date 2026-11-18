@@ -64,7 +64,7 @@ la media) $\times N^{1/2}$.}
 \label{tab:uncert_tpa}
 \end{table}
 
-Las Figuras~\ref{fig:resis_tpa_165}, \ref{fig:resis_tpa_180} y \ref{fig:resis_tpa_195} muestran las curvas de resistencia total obtenidas para cada uno de los calados ensayados. En todos los casos se observa el comportamiento esperado para un modelo de buque de desplazamiento: la resistencia crece de manera aproximadamente cuadrática con la velocidad en el rango de bajos números de Froude, donde domina la componente viscosa, y aumenta con mayor pendiente a partir de aproximadamente $Fr \approx 0{.}30$, donde la componente de generación de olas, proporcional a una potencia entre 4 y 6 de $Fr$, comienza a adquirir mayor relevancia. Las mediciones presentan una evolución continua y consistente entre velocidades, sin discontinuidades ni dispersiones significativas, lo que indica una adquisición estable de la fuerza de remolque y un desempeño correcto del sistema experimental. Estas curvas constituyen la base para el análisis posterior, donde se descompondrá la resistencia total en sus componentes viscosa y de formación de olas.
+Las Figuras~\ref{fig:resis_tpa_165}, \ref{fig:resis_tpa_180} y \ref{fig:resis_tpa_195} muestran las curvas de resistencia total obtenidas para cada uno de los calados ensayados. En todos los casos se observa el comportamiento esperado para un modelo de buque de desplazamiento: la resistencia crece de manera aproximadamente cuadrática con la velocidad en el rango de bajos números de Froude, donde domina la componente viscosa, y aumenta con mayor pendiente a partir de aproximadamente $Fr \approx 0{.}30$, donde la componente de generación de olas, proporcional a una potencia entre 2 y 4 de $Fr$, comienza a adquirir mayor relevancia. Las mediciones presentan una evolución continua y consistente entre velocidades, sin discontinuidades ni dispersiones significativas, lo que indica una adquisición estable de la fuerza de remolque y un desempeño correcto del sistema experimental. Estas curvas constituyen la base para el análisis posterior, donde se descompondrá la resistencia total en sus componentes viscosa y de formación de olas.
 
 \begin{figure}[htpb]
     \centering
@@ -90,7 +90,7 @@ Las Figuras~\ref{fig:resis_tpa_165}, \ref{fig:resis_tpa_180} y \ref{fig:resis_tp
 
 \subsection{Determinación experimental del factor de forma}\label{sec:det_exp_fac_form}
 
-A partir de los resultados experimentales obtenidos para las distintas velocidades y condiciones de calado, se construyeron los diagramas del método de Prohaska (presentado en la Sección \ref{sec:prohaska_antec}), graficando $\frac{C_T}{C_F}$ frente a $\frac{Fr^4}{C_F}$ (Figura~\ref{fig:prohaska_tpa}).  
+A partir de los resultados experimentales obtenidos para las distintas velocidades y condiciones de calado, se construyeron los diagramas del método de Prohaska (presentado en la Sección \ref{sec:prohaska_antec}), graficando $\frac{C_T}{C_{F0}}$ frente a $\frac{Fr^4}{C_{F0}}$ (Figura~\ref{fig:prohaska_tpa}).  
 Cada conjunto de puntos corresponde a un calado diferente del \textit{P1}.  
 Según el planteo teórico de \citet{prohaska1966}, los puntos deberían alinearse aproximadamente sobre una recta, cuya extrapolación al origen permite obtener el valor de $(1+k)$.  
 Sin embargo, en los tres calados se observa una ligera curvatura en los puntos experimentales, especialmente a bajos números de Froude, lo que indica una desviación del comportamiento lineal esperado. En esta y en todas las figuras siguientes que presentan diagramas de Prohaska o resultados derivados de este método, las líneas verticales punteadas en $Fr = 0{.}10$ y $Fr = 0{.}20$ delimitan el rango de Froude recomendado por la ITTC para la aplicación del método (Sección~\ref{sec:prohaska_antec}), dentro del cual se asume que la resistencia por olas es despreciable y es válida la extrapolación lineal utilizada para obtener $(1+k)$.
@@ -98,7 +98,7 @@ Sin embargo, en los tres calados se observa una ligera curvatura en los puntos e
 \begin{figure}[htpb]
 \centering
 \includegraphics[width=0.6\textwidth]{images/prohaska_tpa_comparacion.pdf}
-\caption{Diagramas del método de Prohaska para los tres calados del \textit{P1}. La desviación respecto de la linealidad teórica se acentúa a bajos números de Froude. Las líneas verticales punteadas indican $Fr = 0{.}10$ y $Fr = 0{.}20$ para el \textit{P1}.}
+\caption{Diagramas del método de Prohaska para los tres calados del \textit{P1}, obtenidos a partir de los ensayos experimentales (EFD). La desviación respecto de la linealidad teórica, de forma convexa, se acentúa a bajos números de Froude. Las líneas verticales punteadas indican $Fr = 0{.}10$ y $Fr = 0{.}20$ para el \textit{P1}.}
 \label{fig:prohaska_tpa}
 \end{figure}
 
@@ -275,8 +275,8 @@ El factor de forma experimental se determinó mediante el método de Prohaska,
 siguiendo el mismo procedimiento de ajuste aplicado al modelo \textit{P1}. 
 La Figura~\ref{fig:prohaska_kcs} muestra el diagrama obtenido, donde se 
 grafica $C_{T}/C_{F0}$ frente a $Fr^4/C_{F0}$, siendo $C_{F0}$ el 
-coeficiente de fricción de placa plana evaluado al número de Reynolds del 
-modelo según la línea ITTC-57. Los puntos experimentales presentan una buena 
+coeficiente de fricción de la línea ITTC-57 evaluado al número de Reynolds del 
+modelo. Los puntos experimentales presentan una buena 
 alineación sobre la recta de regresión en todo el rango analizado, en 
 contraste con el comportamiento observado en el \textit{P1}. Este resultado 
 es consistente con lo esperable para un casco como el \textit{KCS}: la hipótesis de 
@@ -295,8 +295,8 @@ conjunto favorecen el cumplimiento de los supuestos del método.
 \includegraphics[width=0.6\textwidth]{images/prohaska_kcs.pdf}
 \caption{Diagrama de Prohaska para el modelo \textit{KCS}. Se grafica 
 $C_{T}/C_{F0}$ frente a $Fr^4/C_{F0}$, donde $C_{F0}$ es el 
-coeficiente de fricción de placa plana al $Re$ del modelo según 
-la línea ITTC-57. La línea continua representa el ajuste por 
+coeficiente de fricción de la línea ITTC-57 al $Re$ del 
+modelo. La línea continua representa el ajuste por 
 mínimos cuadrados, cuya extrapolación al origen permite obtener 
 el valor de $1+k$. Las líneas verticales punteadas indican $Fr = 0{.}10$ y $Fr = 0{.}20$ para el \textit{KCS}.}
 \label{fig:prohaska_kcs}
@@ -468,13 +468,13 @@ esperado para un ensayo de remolque.
 
 \subsection{Determinación numérica del factor de forma}\label{sec:det_num_fac_form}
 
-Para la determinación computacional del factor de forma se implementaron dos métodos. El primero fue repetir lo propuesto por Prohaska para lo tres calados con el dominio presentado en la Figura \ref{fig:dominio_metodologia}, mientras que el segundo, que será tratado en detalle en la Sección \ref{sec:4.1.5_enfoque_doble_cuerpo}, implica la simulación únicamente de la obra viva (la parte sumergida del casco) eliminando la superficie libre. El primer método permite una comparación directa con el ensayo experimental. Como sucedió en los ensayos experimentales, a bajas velocidades también se observa en los ensayos CFD una separación de los puntos respecto de la recta teórica esperada, pero esta vez de forma cóncava en lugar de convexa, como se ve en la Figura \ref{fig:prohaska_tpa_cfd}.
+Para la determinación computacional del factor de forma se implementaron dos métodos. El primero fue repetir lo propuesto por Prohaska para lo tres calados con el dominio presentado en la Figura \ref{fig:dominio_metodologia}, mientras que el segundo, que será tratado en detalle en la Sección \ref{sec:4.1.5_enfoque_doble_cuerpo}, implica la simulación únicamente de la obra viva eliminando la superficie libre. El primer método permite una comparación directa con el ensayo experimental. Como sucedió en los ensayos experimentales, a bajas velocidades también se observa en los ensayos CFD una separación de los puntos respecto de la recta teórica esperada, pero esta vez de forma cóncava en lugar de convexa, como se ve en la Figura \ref{fig:prohaska_tpa_cfd}.
 
 
 \begin{figure}[htpb]
 \centering
 \includegraphics[width=0.6\textwidth]{images/prohaska_tpa_cfd_comparacion.pdf}
-\caption{Diagramas del método de Prohaska para los tres calados del \textit{P1}. La desviación respecto de la linealidad teórica se acentúa a bajos números de Froude. Las líneas verticales punteadas indican $Fr = 0{.}10$ y $Fr = 0{.}20$ para el \textit{P1}.}
+\caption{Diagramas del método de Prohaska para los tres calados del \textit{P1}, obtenidos a partir de las simulaciones CFD con superficie libre. La desviación respecto de la linealidad teórica, de forma cóncava, se acentúa a bajos números de Froude. Las líneas verticales punteadas indican $Fr = 0{.}10$ y $Fr = 0{.}20$ para el \textit{P1}.}
 \label{fig:prohaska_tpa_cfd}
 \end{figure}
 
@@ -1248,11 +1248,11 @@ analizan en profundidad en la Sección~\ref{sec:generalizacion_LB}.
 El método de \citet{gomezgarcia} (Sección~\ref{sec:k_vs_Re})
 ofrece una prueba cuantitativa directa de cuán anómalo resulta el
 comportamiento del \textit{P1}. Aplicando su relación empírica
-[Ecuación~\eqref{eq:gomezgarcia}] a la escala del modelo ($\lambda = 20$), el efecto de escala predicho es $k_S - k_M \approx 1{.}91\times 19\times 10^{-3}= 0{.}036$. El valor obtenido por CFD de doble cuerpo para el \textit{P1} en el Calado~3, en cambio, es $K_S - K_M = 0{.}716 - 0{.}194 = 0{.}522$, es decir, aproximadamente catorce veces mayor que la predicción. La fórmula de \citet{gomezgarcia}, calibrada para estimar la corrección de escala del factor de forma, subestima en más de un orden de magnitud el efecto de escala real de este casco.
+[Ecuación~\eqref{eq:gomezgarcia}] a la escala del modelo ($\lambda = 20$), el efecto de escala predicho es $K_S - K_M \approx 1{.}91\times 19\times 10^{-3}= 0{.}036$. El valor obtenido por CFD de doble cuerpo para el \textit{P1} en el Calado~3, en cambio, es $K_S - K_M = 0{.}716 - 0{.}194 = 0{.}522$, es decir, aproximadamente catorce veces mayor que la predicción. La fórmula de \citet{gomezgarcia}, calibrada para estimar la corrección de escala del factor de forma, subestima en más de un orden de magnitud el efecto de escala real de este casco.
 
 Esta discrepancia no se limita a la magnitud, sino que alcanza a la propia
-forma funcional. Al ajustar el modelo lineal de \citet{gomezgarcia} ($k_S -
-k_M$ en función de $\lambda$) a varias escalas calculadas para el \textit{P1} (1:20, 1:18, 1:16, 1:14, 1:12, 1:10, 1:7.5, 1:5, 1:2.5 y 1:1), únicamente a $Fr = 0{.}20$, la pendiente resultante es de
+forma funcional. Al ajustar el modelo lineal de \citet{gomezgarcia} ($K_S -
+K_M$ en función de $\lambda$) a varias escalas calculadas para el \textit{P1} (1:20, 1:18, 1:16, 1:14, 1:12, 1:10, 1:7.5, 1:5, 1:2.5 y 1:1), únicamente a $Fr = 0{.}20$, la pendiente resultante es de
 $15{.}8\times 10^{-3}$, más de ocho veces la de $1{.}851\times 10^{-3}$ de la regresión original (Figura~\ref{fig:gomez-garcia-nuestro}). Las escalas intermedias, simuladas solo a ese número de Froude, no figuran por ese motivo en la Figura~\ref{fig:comparacion_total_escalas_kcs_tpa}. Más significativo aún es que el ajuste lineal del \textit{P1} arroja una ordenada al origen de $0{.}054$, de modo que predice un efecto de escala espurio de $K_S - K_M \approx 0{.}070$ en $\lambda = 1$, condición en la que necesariamente debe anularse. La regresión de \citet{gomezgarcia}, en cambio, satisface esta restricción física ($K_S - K_M \approx 0{.}001$ en $\lambda = 1$). El modelo lineal, por lo tanto, no puede recuperarse reescalando la pendiente: la hipótesis de linealidad en $\lambda$ sobre la que se apoya no se cumple para esta clase de casco.
 
 Cabe mencionar que el origen de esta inaplicabilidad es geométrico. Las cuatro familias de
@@ -1266,6 +1266,86 @@ Sección~\ref{sec:descomposicion_de_la_res_viscosa}.
 en función de la razón de escala $\lambda$, con la recta de regresión lineal ajustada a los puntos calculados por CFD de doble cuerpo (DB). Se incluye, para comparación, la recta de \citet{gomezgarcia}.}
 \label{fig:gomez-garcia-nuestro}
 \end{figure}
+
+\paragraph{Factor de forma por el método geosim.}
+Las simulaciones bifásicas con superficie libre del \textit{P1} en el
+calado~T3, disponibles a escala modelo (1:20) y a escala buque (1:1) con la misma
+configuración numérica, permiten aplicar además el método geosim descrito en la
+Sección~\ref{sec:geosim_antec}. En el entorno numérico este método no requiere
+construir varios modelos: basta con escalar la geometría, y la escala buque puede
+incorporarse directamente como uno de los miembros de la serie. Las simulaciones
+con superficie libre son, además, independientes de las de doble cuerpo, por lo
+que proporcionan un contraste adicional de los resultados de la
+Sección~\ref{sec:4.1.5_enfoque_doble_cuerpo}. La Tabla~\ref{tab:geosim_P1} reúne,
+para $Fr = 0{.}10$, $0{.}16$ y $0{.}20$, los coeficientes de resistencia total de
+ambas escalas, el factor de forma resultante de la
+Ecuación~\eqref{eq:geosim} y, como referencia, los valores obtenidos por doble
+cuerpo. Se emplean resultados CFD en ambas escalas, y no el ensayo experimental a
+escala modelo, porque el método exige que los dos miembros de la serie difieran
+únicamente en el número de Reynolds: combinar el ensayo con la simulación a escala
+buque incorporaría a la diferencia $C_{TM} - C_{TS}$ la discrepancia entre ambos
+enfoques (error de modelado, trimado y hundimiento libres en el canal frente a
+casco fijo en la simulación, y distinto tratamiento de la transición), que el
+cociente de la Ecuación~\eqref{eq:geosim} amplifica. Como control, el cálculo
+repetido con los valores experimentales a escala modelo, disponibles a
+$Fr = 0{.}16$ y $0{.}20$, arroja $(1+k)_{geosim} \approx 0{.}91$ y $0{.}96$,
+todavía menores que los obtenidos con CFD, de modo que la conclusión que sigue no
+depende de esta elección.
+
+\begin{table}[htbp]
+\centering
+\caption{Factor de forma del \textit{P1} por el método geosim a partir de las
+simulaciones con superficie libre a escalas 1:20 y 1:1 (calado 0.195\,m, T3),
+frente a los valores de doble cuerpo (DB) a ambas escalas. $C_T - C_V$ es la
+diferencia entre la resistencia total con superficie libre y la viscosa de doble
+cuerpo en cada escala.}
+\label{tab:geosim_P1}
+\small
+\begin{tabular}{cccccccc}
+\toprule
+ & \multicolumn{2}{c}{$C_T/C_{F0}$} & \multicolumn{2}{c}{$(C_T - C_V)\times10^{3}$}
+ & & \multicolumn{2}{c}{$(1+k)$ DB} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){7-8}
+$Fr$ & 1:20 & 1:1 & 1:20 & 1:1 & $(1+k)_{geosim}$ & 1:20 & 1:1 \\
+\midrule
+0.10 & 1.333 & 1.651 & 0.797 & $-0.007$ & 1.09 & 1.179 & 1.654 \\
+0.16 & 1.373 & 1.845 & 0.569 & 0.327 & 0.98 & 1.251 & 1.690 \\
+0.20 & 1.567 & 2.240 & 1.098 & 1.077 & 0.99 & 1.320 & 1.713 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+El método geosim arroja valores de $(1+k)$ próximos a la unidad, e incluso
+inferiores, lo que equivaldría a una resistencia por presión viscosa nula o
+negativa y carece, por lo tanto, de sentido físico. Los resultados quedan además
+muy por debajo de los valores de doble cuerpo de ambas escalas. Este
+comportamiento es el que anticipa la Ecuación~\eqref{eq:geosim_aparente}: con los
+valores de doble cuerpo a $Fr = 0{.}20$, $(1+k_M) = 1{.}320$ y
+$(1+k_S) = 1{.}713$, y con $C_{F0,S}/(C_{F0,M} - C_{F0,S}) = 0{.}85$, el valor
+aparente resulta $1{.}320 - 0{.}393 \times 0{.}85 = 0{.}99$, coincidente con el
+obtenido a partir de las simulaciones con superficie libre.
+
+Para atribuir esta falla a la hipótesis $k_M = k_S$ es necesario descartar la
+otra hipótesis del método, la igualdad de $C_W$ entre escalas. La diferencia
+$C_T - C_V$ de la Tabla~\ref{tab:geosim_P1} permite verificarla. A
+$Fr = 0{.}20$ resulta prácticamente igual en ambas escalas
+($1{.}10\times10^{-3}$ y $1{.}08\times10^{-3}$), de modo que la componente asociada
+a la superficie libre se conserva y la falla del método se debe enteramente a la
+variación del factor de forma con la escala. A $Fr = 0{.}10$ y $0{.}16$, en
+cambio, la simulación a escala modelo presenta un exceso de resistencia que no
+aparece a escala buque, asociado a la curvatura cóncava del diagrama de Prohaska
+numérico a bajos $Fr$ discutida en la Sección~\ref{sec:det_num_fac_form}; esos
+puntos no satisfacen la igualdad de $C_W$ y resultan, por lo tanto, menos
+concluyentes. Por otra parte, a $Fr = 0{.}10$, donde la resistencia por olas es
+despreciable, el cociente $C_{TS}/C_{F0,S} = 1{.}651$ de la simulación con
+superficie libre a escala buque coincide con el valor de doble cuerpo
+$(1+k_S) = 1{.}654$, lo que confirma de manera independiente el factor de forma
+elevado obtenido a escala buque.
+
+En síntesis, el método geosim no permite determinar el factor de forma del
+\textit{P1}, y su falla constituye en sí misma una evidencia adicional, obtenida a
+partir de simulaciones independientes de las de doble cuerpo, de que el factor de
+forma de este casco no es independiente de la escala.
 
 De manera similar, el método de \citet{keh-sik-min} (Sección~\ref{sec:k_vs_Re}) 
 podría ser aplicado exitosamente al \textit{KCS}, dado que se observa dicho factor de 
@@ -1345,8 +1425,8 @@ medida en el cuerpo de salida y la resistencia por presión viscosa
 disminuye, de modo que esta contribución decrece con $Re$. El segundo es la 
 contribución de las estructuras vorticosas que se desprenden del casco, cuyo 
 comportamiento con $Re$ depende de cómo se origina la separación. Cuando la 
-separación ocurre sobre una superficie suave, como el pantoque redondeado (la zona curva de transición entre el fondo y 
-el costado del casco) de los buques de formas llenas, su inicio y su intensidad dependen del estado y 
+separación ocurre sobre una superficie suave, como el pantoque redondeado de 
+los buques de formas llenas, su inicio y su intensidad dependen del estado y 
 del espesor de la capa límite, y los vórtices se debilitan al pasar a escala 
 buque \citep{ittc_nominal_wake}. Cuando, en cambio, la separación queda 
 fijada por una arista viva, la geometría impone el punto de desprendimiento y 
@@ -1386,7 +1466,7 @@ sobre él no queda fijado por la geometría.
 \begin{subfigure}[b]{0.48\textwidth}
     \centering
     \includegraphics[width=\textwidth]{./images/cuadernas_adim_P1.pdf}
-    \caption{Cuadernas de popa (secciones transversales del casco) del \textit{P1}.}
+    \caption{Cuadernas de popa del \textit{P1}.}
     \label{fig:geom_popa_cuad_P1}
 \end{subfigure}
 \hfill
@@ -1408,8 +1488,8 @@ La Figura~\ref{U_x_U_0} presenta contornos de la velocidad longitudinal
 $U_x/U_0$ en un plano transversal ubicado a $0{.}05\,L_{WL}$ aguas abajo del 
 espejo, para escala modelo (1:20, $Re \approx 10^6$) y escala buque (1:1, 
 $Re \approx 10^8$). En ambas escalas se distinguen dos focos espirales: el 
-inferior corresponde al vórtice de quilla (que se desprende de la línea inferior del 
-casco) y el superior, al vórtice de pantoque. La región de baja velocidad de la estela se adelgaza claramente en 
+inferior corresponde al vórtice de quilla y el superior, al vórtice de 
+pantoque. La región de baja velocidad de la estela se adelgaza claramente en 
 escala buque, reflejo del primer mecanismo. El vórtice de quilla conserva su 
 posición y su tamaño entre ambas escalas, mientras que el de pantoque se 
 vuelve algo más compacto y la región de baja velocidad que lo rodea se 
@@ -1438,7 +1518,7 @@ suma, en menor medida, el leve debilitamiento del vórtice de pantoque.
 transversal ubicado a $0{.}05\,L_{WL}$ aguas abajo del espejo, para escala 
 modelo, 1:20 (izquierda, $\log(Re) \approx 6$) y escala buque, 1:1 
 (derecha, $\log(Re) \approx 8$), a $Fr=0{.}2$ y calado 0.195\,m (T3). En cada panel, 
-el borde izquierdo corresponde al plano de crujía (el plano vertical longitudinal de simetría del casco) y la parte superior se 
+el borde izquierdo corresponde al plano de crujía y la parte superior se 
 ubica hacia la superficie libre. Foco inferior: vórtice de quilla; foco 
 superior: vórtice de pantoque.}
 \label{U_x_U_0}
@@ -1969,10 +2049,10 @@ siendo $k_M$ el factor de forma obtenido para el modelo (por método de Prohaska
 Este último se expresa como:
 
 \begin{equation}
-k_{tr} \simeq \frac{C_{tr,S}}{C_{FS0}},
+k_{tr} \simeq \frac{C_{tr,S}}{C_{F0,S}},
 \end{equation}
 
-donde $C_{tr,S}$ representa la contribución viscosa adicional debida al vórtice de recirculación, y $C_{FS0}$ el coeficiente de fricción a escala buque obtenido de la línea de fricción \citep{korkmaz_wetted_transom}.
+donde $C_{tr,S}$ representa la contribución viscosa adicional debida al vórtice de recirculación, y $C_{F0,S}$ el coeficiente de fricción a escala buque obtenido de la línea de fricción \citep{korkmaz_wetted_transom}.
 
 El valor de $k_{tr}$ puede estimarse empíricamente mediante correlaciones con parámetros geométricos del espejo (secciones 6.3 y 7 de \cite{korkmaz_wetted_transom}), o bien por CFD comparativo entre modelo y escala buque, ya que bajo la hipótesis del método la diferencia total entre escalas coincide con la corrección de popa mojada:
 %
@@ -2169,6 +2249,9 @@ explicar la variación de $(1+k)$ con $Re$ observada en el \textit{P1}.
 La Figura~\ref{ittc_nfl} presenta la variación de $(1+k)$ frente al número 
 de Reynolds para el \textit{P1}, considerando la línea ITTC-57 
 \citep{ITTC_resistance} y la NFL propuesta en \citet{Korkmaz2019NumericalFL}.
+En el segundo caso el factor de forma se calcula como
+$(1+k) = C_V/C_{F0,\mathrm{NFL}}$, con la misma resistencia viscosa $C_V$ de doble
+cuerpo y la línea numérica en el denominador.
 
 \begin{figure}[htpb]
 	\centering
@@ -2472,7 +2555,7 @@ extrapolación de resistencia viscosa, los resultados obtenidos permiten
 formular las siguientes recomendaciones prácticas:
 
 \begin{itemize}
-    \item Priorizar modelos capaces de resolver adecuadamente la región cercana a la pared como el $k$--$\omega$ SST, 
+    \item Priorizar modelos capaces de resolver adecuadamente la región cercana a la pared en régimen transicional, como el $k$--$\omega$ SST, 
     cuya formulación híbrida ofrece un comportamiento estable tanto en la capa límite como en el flujo externo.
     \item Mantener una resolución de malla coherente con el modelo seleccionado, especialmente en términos de $y^+$.
     \item Evaluar explícitamente la sensibilidad del factor de forma al modelo de turbulencia cuando se trabaja a bajos $Re$, en particular 
@@ -2634,90 +2717,218 @@ comportamiento observado responde a una característica geométrica
 sistemática de los cascos de baja esbeltez, y no a una particularidad del 
 \textit{P1}.
  
-Ambas observaciones motivaron la búsqueda de referencias en otros ámbitos donde 
-la geometría controla la resistencia viscosa y donde se manejan cuerpos 
-de baja esbeltez. En el diseño aerodinámico de aeronaves, el método clásico de estimación de 
-resistencia de fuselajes consiste en multiplicar el coeficiente de 
-fricción turbulenta de placa plana por un factor de forma empírico 
-dependiente de la razón de esbeltez del cuerpo, y por el área mojada. 
-El fuselaje se modela como un cuerpo de revolución, y el parámetro 
-geométrico principal es la razón de esbeltez $l/d$, directamente análoga 
-a $L/B$ en cascos de buques. En \citet{hoerner1965drag} se derivó por primera vez un factor de forma para cuerpos de revolución a partir de 
-correlaciones con ensayos en túnel de viento, obteniendo una curva válida 
-para $l/d > 4.5$ que fue extrapolada hacia valores menores sin validación 
-experimental. Autores posteriores \citep{raymer2019aircraft, 
-torenbeek2010synthesis, roskam1987airplane, shevell1989fundamentals} 
-continuaron ajustando estas correlaciones para extender su rango de 
-validez hacia cuerpos menos esbeltos. La Figura~\ref{aerodynamics} 
-superpone estas correlaciones con los valores de $(1+k)$ a escala buque 
-obtenidos por CFD DB para el \textit{P1} ($L/B = 3{.}52$) y para el \textit{KCS} 
-($L/B = 7{.}14$, datos de \citet{TerzievDataSet}), representados en 
-función de $l/d = L/B$.
-
-La Tabla~\ref{tab:aerodinamicos} presenta las expresiones de las 
-correlaciones aerodinámicas consideradas en la Figura~\ref{aerodynamics}.
+Ambas observaciones motivaron la búsqueda de referencias en otros ámbitos donde
+la geometría controla la resistencia viscosa y donde se manejan cuerpos
+de baja esbeltez. En el diseño aerodinámico de aeronaves, el método clásico
+de estimación de la resistencia parásita de un fuselaje (\textit{component
+build-up}) multiplica el coeficiente de fricción de placa plana $C_{F0,\mathrm{pp}}$, evaluado al
+número de Reynolds basado en la longitud del fuselaje, por el área mojada y
+por un factor de forma empírico $\mathrm{FF}$ que depende únicamente de la
+razón de esbeltez $l/d$ \citep{roskam1987airplane, raymer1992aircraft,
+torenbeek2010synthesis, gur2010drag}. El factor de forma cumple así el mismo
+papel que $(1+k)$ en la hipótesis de Hughes, y la razón de esbeltez $l/d$
+es la magnitud análoga a $L/B$ en cascos de buques. La
+Tabla~\ref{tab:aerodinamicos} reúne las correlaciones consideradas y la
+Tabla~\ref{tab:aero_origen} resume, para cada una, el tipo de cuerpo del que
+proviene y las condiciones de validez que declaran sus fuentes. Las
+expresiones y condiciones de \citet{roskam1987airplane},
+\citet{torenbeek2010synthesis} y \citet{raymer1992aircraft} se tomaron de las
+obras originales. Las correspondientes a \citet{hoerner1965drag},
+\citet{shevell1989fundamentals} y \citet{raymer2019aircraft} se toman de las
+compilaciones de \citet{gotten2021form} y \citet{gur2010drag}, dado que no fue
+posible consultar los textos originales.
 
 \begin{table}[htpb]
 \centering
-\caption{Correlaciones aerodinámicas de factor de forma para cuerpos de 
-revolución en función de la razón de esbeltez $l/d$.}
+\caption{Correlaciones aerodinámicas de factor de forma para fuselajes y
+cuerpos de revolución en función de la razón de esbeltez $l/d$.}
 \label{tab:aerodinamicos}
 \small
 \begin{tabularx}{\textwidth}{lX}
 \toprule
 \textbf{Método} & \textbf{Expresión} \\
 \midrule
-\citet{hoerner1965drag} &
-$\displaystyle \mathrm{FF} = 1 + 
-\frac{1{.}5}{(l/d)^{1{.}5}} + 
+\citet{hoerner1965drag}$^{b}$ &
+$\displaystyle \mathrm{FF} = 1 +
+\frac{1{.}5}{(l/d)^{1{.}5}} +
 \frac{7}{(l/d)^{3}}$ \\[10pt]
 
 \citet{torenbeek2010synthesis} &
-$\displaystyle \mathrm{FF} = 1 + 
-\frac{2{.}2}{(l/d)^{1{.}5}} + 
+$\displaystyle \mathrm{FF} = 1 +
+\frac{2{.}2}{(l/d)^{1{.}5}} +
 \frac{3{.}8}{(l/d)^{3}}$ \\[10pt]
 
-\citet{shevell1989fundamentals} &
-$\displaystyle \mathrm{FF} = 2{.}939 - 0{.}7666\,\frac{l}{d} + 
+\citet{shevell1989fundamentals}$^{a}$ &
+$\displaystyle \mathrm{FF} = 2{.}939 - 0{.}7666\,\frac{l}{d} +
 0{.}1328\left(\frac{l}{d}\right)^{2}
 - 0{.}01074\left(\frac{l}{d}\right)^{3}
 + 3{.}275\times10^{-4}\left(\frac{l}{d}\right)^{4}$ \\[10pt]
 
-\citet{raymer2019aircraft} (Raymer new) &
-$\displaystyle \mathrm{FF} = 0{.}9 + 0{.}0025\,\frac{l}{d} + 
+\citet{raymer2019aircraft} (Raymer \textit{new})$^{b}$ &
+$\displaystyle \mathrm{FF} = 0{.}9 + 0{.}0025\,\frac{l}{d} +
 \frac{5}{(l/d)^{1{.}5}}$ \\[10pt]
 
-\citet{roskam1987airplane} &
-$\displaystyle \mathrm{FF} = 1 + 0{.}0025\,\frac{l}{d} + 
+\begin{tabular}[t]{@{}l@{}}\citet{roskam1987airplane};\\
+\citet{raymer1992aircraft} (Raymer \textit{old})\end{tabular} &
+$\displaystyle \mathrm{FF} = 1 + 0{.}0025\,\frac{l}{d} +
 \frac{60}{(l/d)^{3}}$ \\
 \bottomrule
 \end{tabularx}
+
+\vspace{0.4em}
+{\footnotesize\raggedright
+$^{a}$~Ajuste polinómico de la curva de \citet{shevell1989fundamentals}
+según \citet{gotten2021form} (texto original no consultado);
+\citet{gur2010drag} reportan la forma
+alternativa $\mathrm{FF} = 1 + 2{.}8/(l/d)^{1{.}5} + 3{.}8/(l/d)^{3}$.\\
+$^{b}$~Expresión según \citet{gotten2021form} y \citet{gur2010drag}; texto
+original no consultado.\par}
 \end{table}
+
+\begin{table}[htpb]
+\centering
+\caption{Origen y condiciones de validez de las correlaciones aerodinámicas
+de factor de forma. Para \citet{hoerner1965drag},
+\citet{shevell1989fundamentals} y \citet{raymer2019aircraft}, la información
+proviene de \citet{gotten2021form} y \citet{gur2010drag}.}
+\label{tab:aero_origen}
+\footnotesize
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{2.3cm}
+                             >{\raggedright\arraybackslash}X
+                             >{\raggedright\arraybackslash}X}
+\toprule
+\textbf{Correlación} & \textbf{Cuerpos de origen y rango de esbeltez} &
+\textbf{Número de Reynolds y capa límite} \\
+\midrule
+\citet{hoerner1965drag} &
+Cuerpos de revolución fuselados y modelos de dirigible ensayados en túnel de
+viento, algunos con superficie rugosa. Datos solo para $l/d > 4{.}5$;
+extrapolada hacia valores menores sin respaldo experimental
+\citep{gotten2021form}. &
+Formulación para régimen supercrítico ($Re > 10^5$). Ensayos de origen del
+orden de $10^6$--$10^7$, a distintos $Re$ \citep{gotten2021form}. \\[4pt]
+
+\citet{torenbeek2010synthesis} &
+Fuselajes fuselados sin proa roma y con popa aguzada de longitud
+$l_A \geq 2\,D_{eff}$. Ajuste contrastado con los métodos de Badiagin, Eick,
+Hoerner y R.Ae.S.\ y con datos experimentales, algunos de fuselajes con popa
+levantada. Datos hasta $\lambda_{eff} \approx 3$. Esbeltez efectiva
+$\lambda_{eff}$ con diámetro equivalente al área de la sección máxima. Popas
+cortas o romas se tratan con un incremento de presión adicional. &
+No especificado; $Re$ interviene solo en el $C_{F0,\mathrm{pp}}$ de placa plana, con
+transición supuesta en la proa. \\[4pt]
+
+\citet{shevell1989fundamentals} &
+Fuselajes idealizados como cuerpos de revolución \citep{gur2010drag}. &
+No especificado en \citet{gur2010drag} ni en \citet{gotten2021form}. \\[4pt]
+
+Raymer \textit{new} \citep{raymer2019aircraft} &
+Revisión de la versión \textit{old}, que el autor consideró excesivamente
+conservadora para $l/d$ bajos, realizada sin nuevos datos experimentales
+\citep{gotten2021form}. &
+No especificado en \citet{gotten2021form}. \\[4pt]
+
+Roskam; Raymer \textit{old} \citep{roskam1987airplane, raymer1992aircraft} &
+Fuselajes de aeronaves; $d$ es el diámetro equivalente al área de la sección
+máxima. No se indica la fuente de los datos. \citet{raymer1992aircraft}
+recomienda incrementar el valor un $40\%$ para fuselajes de sección cuadrada
+y un $50\%$ para cascos de hidroavión. &
+No especificado; $Re$ interviene solo en el $C_{F0,\mathrm{pp}}$, turbulento
+\citep{roskam1987airplane} o mixto laminar--turbulento
+\citep{raymer1992aircraft}, con el mismo $\mathrm{FF}$. Válida hasta el Mach
+de divergencia. \\[4pt]
+
+\citet{gotten2021form}$^{c}$ &
+70 cuerpos de proa y popa fijas con tramo central variable, secciones de
+circular a cuadrada, $2 \leq l/w \leq 10$. &
+CFD RANS a $Re = 5\times10^6$, verificado entre $5\times10^5$ y $10^7$;
+flujo totalmente turbulento. Validación experimental entre $10^6$ y
+$2\times10^8$, para $l/d \geq 3{.}1$ y sección circular. \\
+\bottomrule
+\end{tabularx}
+
+\vspace{0.4em}
+{\footnotesize\raggedright
+$^{c}$~Incluida como referencia por ser la única con rango de Reynolds
+explícito; no se representa en la Figura~\ref{aerodynamics}.\par}
+\end{table}
+
+Ninguna de las correlaciones clásicas declara un rango de validez en número
+de Reynolds. Esto no responde a una omisión de sus fuentes, sino a la forma en
+que se construyen: cada ensayo de origen, realizado a un Reynolds conocido, se
+normaliza con el coeficiente de fricción de placa plana evaluado a ese mismo
+Reynolds, $\mathrm{FF} = C_D/(C_{F0,\mathrm{pp}}\,S_{wet}/S_{ref})$, y los valores
+resultantes se ajustan en función de $l/d$. La dependencia con $Re$ queda así
+absorbida en $C_{F0,\mathrm{pp}}$, bajo la hipótesis implícita de que el factor de forma es
+independiente del número de Reynolds, que es la misma que sustenta el
+procedimiento ITTC-78 ($k_M = k_S$). Del mismo modo, el estado de la capa
+límite se incorpora únicamente a través de $C_{F0,\mathrm{pp}}$:
+\citet{torenbeek2010synthesis} supone la transición en la proa,
+\citet{roskam1987airplane} emplea un $C_{F0,\mathrm{pp}}$ turbulento, y
+\citet{raymer1992aircraft} y \citet{gur2010drag} admiten un $C_{F0,\mathrm{pp}}$ mixto
+laminar--turbulento, aplicando en todos los casos el mismo $\mathrm{FF}$. La
+única formulación con un rango de Reynolds explícito es la de
+\citet{gotten2021form}, construida a $Re = 5\times10^6$. Ese valor corresponde
+al rango de escala modelo de esta tesis
+(Tabla~\ref{tab:CFD_summary_compact}), mientras que su validación
+experimental alcanza la escala buque del \textit{P1}
+($5{.}7\times10^{7}$--$2{.}3\times10^{8}$), pero no la del \textit{KCS}.
+
+De lo anterior se desprenden tres consideraciones para la comparación que
+sigue. En primer lugar, dado que las curvas no tienen un número de Reynolds
+asociado, la comparación con los valores de $(1+k)$ de los cascos se realiza
+en función de la esbeltez y no a igual Reynolds: la concordancia que se
+observe debe interpretarse como una concordancia en la dependencia geométrica
+del factor de forma, y no como una equivalencia física entre ambos flujos. En
+segundo lugar, las fuentes definen $d$ como el diámetro equivalente al área de
+la sección máxima, mientras que en esta tesis se adopta $l/d = L/B$, de modo
+de mantener la misma variable empleada por las correlaciones navales. El 
+diámetro equivalente de la sección maestra en doble cuerpo, 
+$d_{eq} = \sqrt{8\,C_M\,B\,T/\pi}$, difiere de la manga según la relación 
+$B/T$ y el coeficiente de la sección maestra $C_M$, por lo que la posición de 
+cada casco sobre el eje de esbeltez depende del criterio adoptado. En tercer
+lugar, las correlaciones se formularon para cuerpos fuselados con popa
+aguzada: \citet{torenbeek2010synthesis} excluye explícitamente las popas
+cortas o romas, y \citet{raymer1992aircraft} indica que el casco de un
+hidroavión presenta un factor de forma un $50\%$ superior al que predice su
+correlación. Los pesqueros, con popa llena y espejo sumergido, se ubican fuera
+de esa condición geométrica, lo que resulta coherente con el diagnóstico de la
+Sección~\ref{sec:descomposicion_de_la_res_viscosa}: la presión viscosa de
+estos cascos no queda descripta por un término de esbeltez que escala con la
+fricción.
+
+La Figura~\ref{aerodynamics} superpone estas correlaciones con los valores de
+$(1+k)$ a escala buque obtenidos por CFD DB para los tres pesqueros y para el
+\textit{KCS} \citep{TerzievDataSet}, representados en función de
+$l/d = L/B$.
 
 \begin{figure}[htpb]
     \centering
-    \includegraphics[width=.6\textwidth]{./images/aerodynamics.pdf}
-    \caption{Factores de forma para cuerpos de revolución en función de la 
-    razón de esbeltez $l/d$ y comparación con valores CFD DB para el 
-    \textit{P1} y el \textit{KCS}. Datos de \citep{hoerner1965drag, 
-    raymer2019aircraft, torenbeek2010synthesis, roskam1987airplane, 
+    \includegraphics[width=.6\textwidth]{./images/aerodynamics2.pdf}
+    \caption{Correlaciones aerodinámicas de factor de forma en función de la
+    razón de esbeltez $l/d$ y valores de $(1+k)$ a escala buque obtenidos
+    mediante CFD DB para los tres pesqueros y el \textit{KCS}, representados
+    en función de $l/d = L/B$. Datos de \citep{hoerner1965drag,
+    raymer2019aircraft, torenbeek2010synthesis, roskam1987airplane,
     shevell1989fundamentals, TerzievDataSet}.}
     \label{aerodynamics}
 \end{figure}
 
-El valor del \textit{KCS} coincide con la curva de \citet{hoerner1965drag}, coherente 
-con su alta esbeltez y con el rango para el que dicha curva fue derivada 
-originalmente. El valor del \textit{P1}, en cambio, muestra mayor afinidad 
-con la curva ``Raymer New'' \citep{raymer2019aircraft}, ajustada 
-específicamente para cuerpos de menor esbeltez. Es notable que correlaciones 
-provenientes de un campo de estudio diferente, pero que incluyen valores de 
-$l/d$ suficientemente bajos como para abarcar la geometría del \textit{P1}, 
-reproduzcan los resultados CFD con mayor fidelidad que las correlaciones 
-navales tradicionales.
+El valor del \textit{KCS} coincide con la curva de \citet{hoerner1965drag},
+coherente con su alta esbeltez y con el rango de $l/d$ cubierto por los datos
+de origen de esa correlación. Los pesqueros, en cambio, se ubican en la región
+de baja esbeltez, próximos a las curvas de \citet{roskam1987airplane} y de
+Raymer \textit{new} \citep{raymer2019aircraft}, esta última resultante de una
+revisión orientada a corregir la sobreestimación de la versión anterior a
+bajo $l/d$. Es notable que correlaciones provenientes de un campo de estudio
+diferente, que abarcan valores de $l/d$ suficientemente bajos como para
+incluir la geometría de los pesqueros, reproduzcan los resultados CFD con
+mayor fidelidad que las correlaciones navales tradicionales, aun con las
+salvedades señaladas sobre su origen y su rango de validez.
 
-Este hallazgo sugiere que, para cascos con baja razón $L/B$, las 
-correlaciones aerodinámicas representan mejor la dependencia geométrica del 
-factor de forma que las correlaciones navales tradicionales, desarrolladas 
+Este hallazgo sugiere que, para cascos con baja razón $L/B$, las
+correlaciones aerodinámicas representan mejor la dependencia geométrica del
+factor de forma que las correlaciones navales tradicionales, desarrolladas
 para valores de $L/B$ significativamente más altos.
 
 
@@ -2796,18 +3007,15 @@ turbulenta.
 
 La consistencia entre los tres modelos confirma que este comportamiento no es propio de un caso aislado, sino un rasgo estructural de cascos con $L/B < 4$. A medida que disminuye la esbeltez, aumenta el componente de presión viscosa y, en consecuencia, el factor de forma. La tendencia creciente y no asintótica en los pesqueros sugiere que la influencia de la presión viscosa domina su comportamiento hidrodinámico incluso en condiciones de escala buque.
 
-Para interpretar esta dependencia geométrica, se recurrió nuevamente a correlaciones aerodinámicas desarrolladas para cuerpos de revolución, donde el factor de forma se expresa en función de la razón de esbeltez $l/d$. La Figura~\ref{fig:aero_comparison_full} incorpora simultáneamente las diferentes curvas aerodinámicas clásicas junto con los valores de $(1+k)$ provenientes de CFD DB para los cuatro cascos estudiados, todos representados en términos de $l/d = L/B$.
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=.6\textwidth]{./images/aerodynamics2.pdf}
-    \caption{Comparación entre correlaciones aerodinámicas de factor de forma y los valores $(1+k)$ obtenidos mediante CFD DB para los tres pesqueros y el \textit{KCS}, representados en función de $l/d = L/B$.}
-    \label{fig:aero_comparison_full}
-\end{figure}
+Para interpretar esta dependencia geométrica, se retoma la comparación con
+las correlaciones aerodinámicas presentada en la
+Figura~\ref{aerodynamics}, donde los valores de $(1+k)$ a escala buque de los
+cuatro cascos se representan en función de $l/d = L/B$ junto con las curvas
+clásicas.
 
 El gráfico revela una tendencia clara:  
 \begin{itemize}
-    \item El valor correspondiente al \textit{KCS} se ubica en la región de altas esbelteces y coincide con la curva clásica de Hoerner, como era de esperar para un casco alargado.
+    \item El valor correspondiente al \textit{KCS} se ubica en la región de altas esbelteces y coincide con la curva clásica de Hoerner, como era de esperar para un casco alargado dentro del rango de $l/d$ cubierto por los datos de esa correlación.
     \item Los tres pesqueros, caracterizados por $L/B < 4$, se agrupan en la región de cuerpos poco esbeltos y exhiben proximidad a las correlaciones propuestas por \cite{roskam1987airplane} y \cite{raymer2019aircraft}.
     \item La alineación de los tres pesqueros refuerza la existencia de un mecanismo geométrico común que explica sus elevados valores de $(1+k)$.
 \end{itemize}
@@ -2832,10 +3040,10 @@ procedimiento estándar de predicción de potencia \citep{ITTC_Performance_predi
 estima la resistencia total del buque como:
 %
 \begin{equation}
-    C_{TS} = (1 + k_S)\,C_{FS0} + C_W + \Delta C_F + C_A,
+    C_{TS} = (1 + k_S)\,C_{F0,S} + C_W + \Delta C_F + C_A,
 \end{equation}
 %
-donde $C_{FS0}$ es el coeficiente de fricción del buque calculado mediante 
+donde $C_{F0,S}$ es el coeficiente de fricción del buque calculado mediante 
 la línea ITTC-57, $C_W$ es el coeficiente de resistencia por formación de 
 olas obtenido del modelo físico como residuo de la descomposición viscosa, 
 y $\Delta C_F$ y $C_A$ corresponden a las correcciones por rugosidad y 
@@ -2942,10 +3150,10 @@ $Fr$ & $V_S$ & $V_S$ & Método 2 vs 1 & Método 3 vs 1 \\
 
 
 
-Los resultados muestran que asumir $k=0$ (método 3) produce, en ambas velocidades, una sobreestimación de la potencia efectiva de entre el $5$ y el $7\%$ respecto al método estándar ITTC. La sobreestimación no proviene del término que se descarta, sino de $C_W$: al tomar $k=0$, la resistencia de forma del modelo, $k_M C_{FM0}$, queda incluida en el residuo $C_W = C_{TM} - C_{FM0}$, que se traslada a escala buque sin corrección por Reynolds. Como $C_{FS0} < C_{FM0}$, esa porción no se reduce al pasar a escala buque, y resulta
+Los resultados muestran que asumir $k=0$ (método 3) produce, en ambas velocidades, una sobreestimación de la potencia efectiva de entre el $5$ y el $7\%$ respecto al método estándar ITTC. La sobreestimación no proviene del término que se descarta, sino de $C_W$: al tomar $k=0$, la resistencia de forma del modelo, $k_M C_{F0,M}$, queda incluida en el residuo $C_W = C_{TM} - C_{F0,M}$, que se traslada a escala buque sin corrección por Reynolds. Como $C_{F0,S} < C_{F0,M}$, esa porción no se reduce al pasar a escala buque, y resulta
 %
 \begin{equation}
-    C_{TS}^{(3)} - C_{TS}^{(1)} = k_M\,\left(C_{FM0} - C_{FS0}\right) > 0 .
+    C_{TS}^{(3)} - C_{TS}^{(1)} = k_M\,\left(C_{F0,M} - C_{F0,S}\right) > 0 .
 \end{equation}
 %
 Su utilidad radica en que provee una referencia cuando no se dispone de ningún ensayo ni simulación para estimar el factor de forma, permitiendo acotar el error esperado.
@@ -2958,19 +3166,19 @@ lo que cambia es el $k$ aplicado al reconstruir $C_{TS}$ a escala buque,
 que pasa de $k_M$ a $k_S$:
 %
 \begin{equation}
-    C_{TS}^{(2)} - C_{TS}^{(1)} = (k_S - k_M)\,C_{FS0}.
+    C_{TS}^{(2)} - C_{TS}^{(1)} = (k_S - k_M)\,C_{F0,S}.
 \end{equation}
 %
 Comparando ambas expresiones, el método 2 se aparta del método 1 en 
-$(k_S-k_M)\,C_{FS0}$ y el método 3 en $k_M\,(C_{FM0}-C_{FS0})$. Aunque 
-$C_{FM0}-C_{FS0}$ es del mismo orden que $C_{FS0}$, el salto de factor de 
+$(k_S-k_M)\,C_{F0,S}$ y el método 3 en $k_M\,(C_{F0,M}-C_{F0,S})$. Aunque 
+$C_{F0,M}-C_{F0,S}$ es del mismo orden que $C_{F0,S}$, el salto de factor de 
 forma $k_S-k_M$ es mucho mayor que $k_M$, precisamente porque $k_S \gg k_M$ 
 es el resultado central de esta tesis. Por esa razón el método 2 se aleja 
 más del método 1 que el método 3: no porque perturbe el procedimiento de 
 manera más drástica, sino porque el salto de factor de forma involucrado 
 es en sí mismo mucho mayor.
 
-Estas discrepancias entre el método de doble $k$ (método 2) y el método ITTC (método 1), del orden del 15$\%$ en términos de potencia efectiva, son suficientemente significativas como para justificar una validación mediante pruebas de mar (mediciones de velocidad y potencia realizadas sobre el buque real): habría que verificar que las extrapolaciones obtenidas con el método propuesto, una vez incorporados los efectos propulsivos (como la reducción de empuje, es decir el aumento de resistencia que provoca la hélice al succionar agua junto a la popa), conducen a predicciones de potencia más próximas a las medidas en pruebas de mar que las del método tradicional. Además, sugieren que las correlaciones empíricas introducidas en la Sección \ref{sec:generalizacion_LB}, originadas en aeronáutica y dependientes de la razón de esbeltez, podrían ser utilizadas como una estimación preliminar de $k_S$ de forma más confiable que las metodologías navales actuales. Esto permitiría implementar un método de extrapolación de doble $k$, donde $k_M$ se obtenga de CFD DB a escala modelo y $k_S$ de una correlación basada en $L/B$, evitando la necesidad de simulaciones CFD a escala buque.
+Estas discrepancias entre el método de doble $k$ (método 2) y el método ITTC (método 1), del orden del 15$\%$ en términos de potencia efectiva, son suficientemente significativas como para justificar una validación mediante pruebas de mar: habría que verificar que las extrapolaciones obtenidas con el método propuesto, una vez incorporados los efectos propulsivos (reducción de empuje, entre otros), conducen a predicciones de potencia más próximas a las medidas en pruebas de mar que las del método tradicional. Además, sugieren que las correlaciones empíricas introducidas en la Sección \ref{sec:generalizacion_LB}, originadas en aeronáutica y dependientes de la razón de esbeltez, podrían ser utilizadas como una estimación preliminar de $k_S$ de forma más confiable que las metodologías navales actuales. Esto permitiría implementar un método de extrapolación de doble $k$, donde $k_M$ se obtenga de CFD DB a escala modelo y $k_S$ de una correlación basada en $L/B$, evitando la necesidad de simulaciones CFD a escala buque.
 
 El desarrollo de una curva específica de $(1+k)$ en función de $L/B$ para cascos pesqueros, particularmente para el rango $L/B < 4$, aparece por lo tanto como un paso clave para mejorar la predicción de resistencia y potencia efectiva en este tipo de buques.
 

@@ -113,13 +113,13 @@
   note         = {Consultado el 29-08-2026}
 }
 
-@misc{pesca_maritima_1989_2013,
+@article{pesca_maritima_1989_2013,
   author       = {Nudelman, Jorge},
   title        = {La pesca mar{\'i}tima en {Argentina} (1989--2013): un caso de apropiaci{\'o}n territorial},
-  howpublished = {\url{https://www.revistasipgh.org/index.php/regeo/article/download/218/221/392}},
+  url          = {https://www.revistasipgh.org/index.php/regeo/article/download/218/221/392},
   journal      = {Revista Geogr{\'a}fica (IPGH)},
   year         = {2015},
-  note         = {Fuente acad{\'e}mica. Consultado el 29-08-2026}
+  note         = {Consultado el 29-08-2026}
 }
 
 @misc{argentina_gob_industria_naval,
@@ -144,6 +144,19 @@
   howpublished = {\url{https://www.argentina.gob.ar/noticias/la-pesca-argentina-alcanzo-en-2025-el-segundo-mejor-registro-historico-de-exportaciones}},
   year         = {2026},
   note         = {Consultado el 29-08-2026}
+}
+
+@techreport{indec2026complejos,
+  author      = {{Instituto Nacional de Estad{\'i}stica y Censos}},
+  title       = {Complejos exportadores. {A}{\~n}o 2025},
+  institution = {INDEC},
+  address     = {Buenos Aires},
+  type        = {Informes t{\'e}cnicos, vol.~10, n.\textsuperscript{o}},
+  number      = {51},
+  month       = mar,
+  year        = {2026},
+  url         = {https://www.indec.gob.ar/uploads/informesdeprensa/complejos_03_2686A1604947.pdf},
+  note        = {Serie Comercio exterior, vol.~10, n.~4. Consultado el 12-11-2026},
 }
 
 @misc{pescare_exportaciones_2025,
@@ -188,11 +201,12 @@
 
 @article{gallotti2026,
   author  = {Gallotti, Vittorio and Gaggero, Stefano},
-  title   = {A {CFD} Investigation on Scale Effects of Open and Ducted Propellers},
+  title   = {A {CFD} investigation on scale effects of open and ducted propellers},
   journal = {Journal of Marine Engineering \& Technology},
   year    = {2026},
+  pages   = {1--40},
   doi     = {10.1080/20464177.2026.2647616},
-  note    = {Publicado online, marzo de 2026; volumen/n{\'u}mero pendientes de asignaci{\'o}n definitiva}
+  note    = {Publicado en l{\'\i}nea (\textit{online first}); volumen y n{\'u}mero a{\'u}n no asignados},
 }
 
 @article{gaggero2026series,
@@ -258,20 +272,15 @@
   url          = {http://hdl.handle.net/2268.2/18058}
 }
 
-@inproceedings{shiroseHirono1982,
-  author    = {Shirose, Y. and Hirono, K.},
-  title     = {A study on the form factor determination},
-  booktitle = {Proceedings},
-  year      = {1982},
-  note      = {VERIFICAR datos completos: publicación japonesa citada por Korkmaz (2023)}
-}
-
-@article{lindgrenDyne1980,
-  author  = {Lindgren, H. and Dyne, G.},
-  title   = {Ship performance prediction},
-  journal = {SSPA},
-  year    = {1980},
-  note    = {VERIFICAR datos completos}
+@techreport{lindgrenDyne1980,
+  author      = {Lindgren, Hans and Dyne, Gilbert},
+  title       = {Ship Performance Prediction},
+  institution = {Statens Skeppsprovningsanstalt (SSPA)},
+  address     = {G{\"o}teborg},
+  type        = {Meddelanden fr{\aa}n Statens Skeppsprovningsanstalt},
+  number      = {85},
+  year        = {1980},
+  note        = {ISBN 91-38-05473-6},
 }
 
 @article{Wilcox1988,
@@ -316,11 +325,12 @@
 }
 
 @inproceedings{cp_recovery_kcs,
-author = {Song, Soonseok and Demirel, Yigit Kemal and Atlar, Mehmet and Dai, Saishuai and Turan, Osman},
-year = {2019},
-month = oct,
-pages = {},
-title = {Validation of the {CFD} Approach for Modelling Roughness Effect on Ship Resistance}
+  author    = {Song, Soonseok and Demirel, Yigit Kemal and Atlar, Mehmet and Dai, Saishuai and Day, Sandy and Turan, Osman},
+  title     = {Validation of the {CFD} approach for modelling roughness effect on ship resistance},
+  booktitle = {Sixth International Conference on Advanced Model Measurement Technology for the Maritime Industry (AMT'19)},
+  address   = {Rome, Italy},
+  month     = oct,
+  year      = {2019},
 }
 
 @book{raymer2019aircraft,
@@ -345,7 +355,7 @@ title = {Validation of the {CFD} Approach for Modelling Roughness Effect on Ship
 @inproceedings{couser1997calm,
   author    = {Couser, P. R. and Molland, A. F. and Armstrong, N. A. and Utama, I. K. A. P.},
   title     = {Calm water powering prediction for high speed catamarans},
-  booktitle = {Proceedings of 4th International Conference on Fast Sea Transportation, FAST’97},
+  booktitle = {Proceedings of 4th International Conference on Fast Sea Transportation, FAST'97},
   year      = {1997},
   address   = {Sydney}
 }
@@ -382,12 +392,8 @@ journal = {Ocean Engineering},
 volume = {258},
 pages = {111733},
 year = {2022},
-issn = {0029-8018},
 doi = {10.1016/j.oceaneng.2022.111733},
-url = {},
 author = {Roberto Ravenna and Soonseok Song and Weichao Shi and Tonio Sant and Claire {De Marco Muscat-Fenech} and Tahsin Tezdogan and Yigit Kemal Demirel},
-keywords = {Roughness effect, Computational fluid dynamics (CFD), Heterogeneous roughness, Ship resistance, KRISO Container ship (KCS)},
-abstract = {Hull roughness significantly increases ship resistance, power, and fuel consumption. Although it is typically spatially heterogeneous, little research has dealt with heterogeneously distributed roughness on ship hulls. Therefore, this study investigates the heterogeneous hull roughness effect on ship resistance using Computational Fluid Dynamics (CFD). A series of CFD simulations were conducted on the KRISO Container Ship (KSC) hull model to accurately predict the effect of heterogeneous hull roughness on ship resistance. Specifically, the StarCCM + software package was adopted to develop Unsteady Reynolds Averaged Navier–Stokes (URANS)-based CFD simulations with a modified wall-function approach. Various surface coverage conditions were modelled, including homogeneous (i.e., smooth and full rough conditions) and heterogeneous conditions (i.e., different smooth/rough wetted surface ratios). Eventually, the present findings showed that increased roughness on the bulbous bow region has the most significant impact on ship resistance. Moreover, the introduction of a so-called roughness impact factor correlated the added resistance of the heterogeneous roughness scenarios to the corresponding rough wetted surface area. Accordingly, the rough bulbous bow scenario presented a higher roughness impact factor than the other rough hull cases.}
 }
 
 @inproceedings{Raven2016,
@@ -398,7 +404,6 @@ abstract = {Hull roughness significantly increases ship resistance, power, and f
   address      = {Copenhagen, Denmark},
   month        = sep,
   note         = {MARIN report},
-  url          = {}
 }
 
 
@@ -408,42 +413,44 @@ abstract = {Hull roughness significantly increases ship resistance, power, and f
   publisher = {Springer},
   address   = {Dordrecht, The Netherlands},
   year      = {2010},
-  pages     = {501--505},
+  pages     = {501--503},
   isbn      = {9789048129924}
 }
 
-@article{townsinDey1990,
-  author  = {Townsin, R. L. and Dey, S. K.},
-  title   = {The correlation of roughness drag with surface characteristics},
-  journal = {Marine Roughness and Drag Workshop, RINA},
-  year    = {1990},
-  note    = {VERIFICAR datos completos}
+@inproceedings{townsinDey1990,
+  author    = {Townsin, R. L. and Dey, S. K.},
+  title     = {The correlation of roughness drag with surface characteristics},
+  booktitle = {Proceedings of the RINA International Workshop on Marine Roughness and Drag},
+  address   = {London},
+  publisher = {Royal Institution of Naval Architects},
+  month     = mar,
+  year      = {1990},
 }
 
 @techreport{bowdenDavison1974,
   author      = {Bowden, B. S. and Davison, N. J.},
-  title       = {Resistance increments due to hull roughness associated with
-                 form factor extrapolation methods},
-  institution = {National Physical Laboratory (NPL)},
-  number      = {Ship TM 3800},
+  title       = {Resistance increments due to hull roughness associated with form factor extrapolation methods},
+  institution = {National Physical Laboratory},
+  address     = {Teddington},
+  type        = {NPL Ship Technical Manuscript},
+  number      = {TM 3800},
   year        = {1974},
-  note        = {VERIFICAR datos completos}
 }
 
 @book{roskam1987airplane,
   author    = {Jan Roskam},
-  title     = {Airplane Design},
+  title     = {Airplane Design, Part {VI}: Preliminary Calculation of Aerodynamic, Thrust and Power Characteristics},
   publisher = {Roskam Aviation and Engineering Corp.},
   address   = {Ottawa, KS},
   year      = {1987},
-  pages     = {44--49}
+  pages     = {44--46}
 }
 
 @book{shevell1989fundamentals,
   author    = {Richard S. Shevell},
   title     = {Fundamentals of Flight},
   edition   = {2},
-  publisher = {Prentice–Hall},
+  publisher = {Prentice--Hall},
   address   = {Upper Saddle River, NJ},
   year      = {1989},
   pages     = {178--180},
@@ -483,12 +490,9 @@ journal = {Ocean Engineering},
 volume = {190},
 pages = {106434},
 year = {2019},
-issn = {0029-8018},
 doi = {10.1016/j.oceaneng.2019.106434},
 url = {https://www.sciencedirect.com/science/article/pii/S0029801819305827},
 author = {Qingsong Zeng and Robert Hekkenberg and Cornel Thill},
-keywords = {Shallow water, Viscous resistance, Form factor, Inland ship, CFD},
-abstract = {Accurate resistance prediction for ships sailing in vertically restricted waterways is highly required to improve the design and operation for large ships entering harbors and for vessels navigating in inland waters. The methods derived from deep water may lead to large errors, and studies considering shallow water effects are needed. As most ships sailing in shallow water operate at a low Froude number, the viscous resistance dominates the total resistance and becomes the main concern. In this study, a Wigley hull and the KCS (KRISO Container Ship), which have available benchmark data, are applied. A typical 86 m long inland ship is then chosen to further investigate the influence of a different hull form. Results show that the friction and the viscous pressure resistance depend on ship types, speeds, and water depths. A formula to predict a ship's friction in shallow water is given with some constants determined based on ship's characteristics. A form factor defined based on computed ship's friction is suggested, and an empirical expression is provided for each ship applied. With the investigations for three ship forms, this study is expected to provide inspirations to further improve the prediction of ship's viscous resistance in shallow water.}
 }
 
 @article{gomezgarcia,
@@ -496,28 +500,21 @@ title = {On the form factor scale effect},
 journal = {Ocean Engineering},
 volume = {27},
 number = {1},
-pages = {97-109},
+pages = {97--109},
 year = {2000},
-issn = {0029-8018},
 doi = {10.1016/S0029-8018(98)00042-0},
 url = {https://www.sciencedirect.com/science/article/pii/S0029801898000420},
 author = {Garc{\'i}a-G{\'o}mez, A.},
-keywords = {Form factor, Scale effect, Geosim, Wake fraction, Correlation line, ITTCs},
-abstract = {Four geosim families, with fully available resistance test results, have been re-analyzed to check the possible scale effect on the form factor. The form factor determined by Prohaska's method, with exponent n=4 and ITTC'57 correlation line, increases with the model size in all four cases analyzed. Because of its high correlation coefficient, a linear variation of the form factor with the scale is assumed. It is possible to have a first estimation of the ship's form factor extrapolating for λ=1 in the regression line. Form factor Reynolds number dependency will always be associated with a friction line. Using the ITTC'57 correlation line, the following equation KS−KM=1.91·(λ−1)·10−3 can be used to estimate the scale effect on the form factor. Calculations carried out, for axisymetric bodies, with some CFD codes are in good agreement with the experimental findings.}
 }
 
 @article{TERZIEV2021147,
-title = {Exploring the effects of speed and scale on a ship’s form factor using {CFD}},
+title = {Exploring the effects of speed and scale on a ship's form factor using {CFD}},
 journal = {International Journal of Naval Architecture and Ocean Engineering},
 volume = {13},
-pages = {147-162},
+pages = {147--162},
 year = {2021},
-issn = {2092-6782},
 doi = {10.1016/j.ijnaoe.2020.12.002},
-url = {},
 author = {Momchil Terziev and Tahsin Tezdogan and Yigit Kemal Demirel and Diego Villa and Simon Mizzi and Atilla Incecik},
-keywords = {Form factor, Ship resistance, Scale effects, Reynolds number dependence, Froude number dependence},
-abstract = {The problem of predicting a ship’s form factor and associated scale effects has been subject to many investigations in recent years. In this study, an attempt is made to investigate whether the form factor is influenced by a change in the ship’s speed by numerically modelling a geosim series of the KCS hull form by means of a RANS solver. The turbulence dependence of the problem is also studied by altering the closure model among three widely used approaches (the k-ω, k-ω SST, and k-ε models). The results show that at very low speeds (Froude numbers in the range of 0.02–0.06) the numerical model predicts changes in the form factor of a ship between 10% and 20%, depending on the turbulence model and scale factor choices. As the speed is increased further, the form factor exhibits little change, usually in the range of 1% or less. Simulations where the Reynolds number is changed by approximately two orders of magnitude, achieved by altering the value of viscosity, confirmed that the form factor can be considered Froude-dependent only for low speeds, predicting essentially identical values when high speed cases are considered.}
 }
 
 @inproceedings{heinke2019,
@@ -561,7 +558,6 @@ abstract = {The problem of predicting a ship’s form factor and associated scal
 author = {Karim, Mashud and Rahman, M. M. and Alim, M. A.},
 year = {2011},
 month = jul,
-pages = {},
 title = {Performance of {SST} k-$\omega$ turbulence model for computation of viscous drag of axisymmetric underwater bodies},
 volume = {24},
 journal = {International Journal of Engineering}
@@ -573,12 +569,9 @@ journal = {Ocean Engineering},
 volume = {266},
 pages = {112590},
 year = {2022},
-issn = {0029-8018},
 doi = {10.1016/j.oceaneng.2022.112590},
 url = {https://www.sciencedirect.com/science/article/pii/S002980182201873X},
 author = {Kadir Burak Korkmaz and Sofia Werner and Rickard E. Bensow},
-keywords = {Ship resistance, Form factor, CFD, Combined CFD/EFD methods, Transom flow, Wetted-transom},
-abstract = {Determining a ship’s propulsive power is a critical stage in the design phase in which the evaluation of the stern plays a crucial role. Different flow regimes can be observed depending on the position and shape of the transom. This paper investigates the wetted-transom flow characteristics and their implications on the 1978 ITTC Performance Prediction Method. In the case of flow separation, such as the wetted-transom flow, the current ITTC-78 procedure does not provide an alternative method. Therefore, two alternative methods were proposed based on the investigations of CFD computations on seven hull forms. The firstly proposed method is a combined EFD&CFD method called the two form factor method. It requires CFD computations in model and full-scale, and it can handle any case of flow separation, including the wetted-transom flow. The second proposed method is an empirical correction formula for the hulls with a wetted-transom flow. Finally, the full-scale speed-power relations between the speed trials and the full-scale predictions from the two alternative methods and the standard ITTC-78 method were presented. It is observed that the two suggested methods considerably improve the correlation between the predictions and the speed trials.}
 }
 
 @article{prohaska1966,
@@ -590,16 +583,14 @@ abstract = {Determining a ship’s propulsive power is a critical stage in the d
 }
 
 @article{york,
-    author = {York, Derek and Evensen, Norman M. and L{\'o}pez Mart{\'i}nez, Margarita and De Basabe Delgado, Jonás},
+    author = {York, Derek and Evensen, Norman M. and L{\'o}pez Mart{\'i}nez, Margarita and De Basabe Delgado, Jon{\'a}s},
     title = {Unified equations for the slope, intercept, and standard errors of the best straight line},
     journal = {American Journal of Physics},
     volume = {72},
     number = {3},
-    pages = {367-375},
+    pages = {367--375},
     year = {2004},
     month = mar,
-    abstract = {It has long been recognized that the least-squares estimation method of fitting the best straight line to data points having normally distributed errors yields identical results for the slope and intercept of the line as does the method of maximum likelihood estimation. We show that, contrary to previous understanding, these two methods also give identical results for the standard errors in slope and intercept, provided that the least-squares estimation expressions are evaluated at the least-squares-adjusted points rather than at the observed points as has been done traditionally. This unification of standard errors holds when both x and y observations are subject to correlated errors that vary from point to point. All known correct regression solutions in the literature, including various special cases, can be derived from the original York equations. We present a compact set of equations for the slope, intercept, and newly unified standard errors.},
-    issn = {0002-9505},
     doi = {10.1119/1.1632486},
     url = {https://doi.org/10.1119/1.1632486},
     eprint = {https://pubs.aip.org/aapt/ajp/article-pdf/72/3/367/10126344/367_1_online.pdf},
@@ -638,17 +629,15 @@ abstract = {Determining a ship’s propulsive power is a critical stage in the d
 @article{korkmaz_cfd_2021,
 	title = {{CFD} based form factor determination method},
 	volume = {220},
-	abstract = {The 1978 {ITTC} Power Prediction method is used to predict the propulsive power of ships through towing tank testing. The form factor approach and its determination in this method have been questioned. This paper investigates the possibility to improve the power predictions by introducing Combined {CFD}/{EFD} Method where the experimental determination of form factor is replaced by double body {RANS} computations applied for open cases {KVLCC}2 and {KCS}, including first-time published towing tank tests of {KVLCC}2 at ballast condition including an experimental uncertainty analysis specifically derived for the form factor. Computations from nine organisations and seven {CFD} codes are compared to the experiments. The form factor predictions for both hulls in design loading condition compared well with the experimental results in general. For the {KVLCC}2 ballast condition, majority of the form factors were under-predicted while staying within the experimental uncertainty. Speed dependency is observed with the application of {ITTC}57 line but it is reduced with the Katsui line and nearly eliminated by numerical friction lines. Comparison of the full-scale viscous resistance predictions obtained by the extrapolations from model scale and direct full-scale computations show that the Combined {CFD}/{EFD} Method show significantly less scatter and may thus be a preferred approach.},
 	pages = {108451},
 	journal = {Ocean Engineering},
 	shortjournal = {Ocean Engineering},
 	author = {Korkmaz, Kadir Burak and Werner, Sofia and Sakamoto, Nobuaki and Queutey, Patrick and Deng, Ganbo and Gao, Yuling and Dong, Guoxiang and Maki, Kevin and Ye, Haixuan and Akinturk, Ayhan and Sayeed, Tanvir and Hino, Takanori and Zhao, Feng and Tezdogan, Tahsin and Demirel, Yigit Kemal and Bensow, Rickard E.},
 	year = {2021},
 	langid = {english},
-	keywords = {{CFD}, Combined {CFD}/{EFD} Methods, Experimental uncertainty analysis, Form factor, Scale effects, Ship resistance},
 }
 
-@Article{korkmaz-verif-and-valid-cfd-efd,
+@article{korkmaz-verif-and-valid-cfd-efd,
 AUTHOR = {Korkmaz, Kadir Burak and Werner, Sofia and Bensow, Rickard E.},
 TITLE = {Verification and Validation of {CFD} Based Form Factors as a Combined {CFD/EFD} Method},
 JOURNAL = {Journal of Marine Science and Engineering},
@@ -657,19 +646,18 @@ YEAR = {2021},
 NUMBER = {1},
 ARTICLE-NUMBER = {75},
 URL = {https://www.mdpi.com/2077-1312/9/1/75},
-ISSN = {2077-1312},
-ABSTRACT = {Predicting the propulsive power of ships with high accuracy still remains a challenge. Well established practices in the 1978 ITTC Power Prediction method have been questioned such as the form factor approach and its determination method. This paper investigates the possibility to improve the power predictions by the introduction of a combined CFD/EFD Method where the experimental determination of form factor is replaced by double body RANS computations. Following the Quality Assurance Procedure proposed by ITTC, a best practice guideline has been derived for the CFD based form factor determination method by applying systematic variations to the CFD set-ups. Following the verification and validation of the CFD based form factor method in model scale, the full scale speed-power-rpm relations between large number of speed trials and full scale predictions using the CFD based form factors in combination with ITTC-57 line and numerical friction lines are investigated. It is observed that the usage of CFD based form factors improves the predictions in general and no deterioration is noted within the limits of this study. Therefore, the combination of EFD and CFD is expected to provide immediate improvements to the 1978 ITTC Performance Prediction Method.},
 DOI = {10.3390/jmse9010075}
 }
 
 @misc{TerzievDataSet,
-  author = {Terziev, M. and Tezdogan, T. and Demirel, Y. K. and Villa, D. and Mizzi, S. and Incecik, A.},
-  title = {Data for: "Exploring the effects of speed and scale on a ship’s form factor using {CFD}"},
-  year = {2020},
-  month = dec,
+  author    = {Terziev, Momchil and Tezdogan, Tahsin and Demirel, Yigit Kemal and Villa, Diego and Mizzi, Simon and Incecik, Atilla},
+  title     = {Data for: ``{Exploring} the effects of speed and scale on a ship's form factor using {CFD}''},
+  year      = {2020},
+  month     = dec,
   publisher = {University of Strathclyde},
-  note = {},
-  doi = {10.15129/177ff072-cd23-4762-9492-2f495a4879d3}
+  howpublished = {Conjunto de datos, University of Strathclyde},
+  doi       = {10.15129/177ff072-cd23-4762-9492-2f495a4879d3},
+  url       = {https://doi.org/10.15129/177ff072-cd23-4762-9492-2f495a4879d3},
 }
 
 @article{DOGRUL2020107428,
@@ -678,16 +666,13 @@ journal = {Ocean Engineering},
 volume = {209},
 pages = {107428},
 year = {2020},
-issn = {0029-8018},
 doi = {10.1016/j.oceaneng.2020.107428},
 url = {https://www.sciencedirect.com/science/article/pii/S0029801820304534},
 author = {Ali Dogrul and Soonseok Song and Yigit Kemal Demirel},
-keywords = {CFD, Ship resistance, Scale effect, KCS, KVLCC2, Form factor},
-abstract = {To design eco-friendly ships, the hydrodynamic behaviour of the hull has to be estimated precisely. The first and foremost one is the ship resistance, which is closely related to the energy efficiency of the ship. Different extrapolation methods, based on different assumptions, have been used to predict the full-scale ship resistance from model-scale experiments. In this manner, it is important to understand the scale effect on the individual ship resistance components. In this study, URANS CFD simulations of KCS and KVLCC2 were conducted at different scales. The total resistance components were decomposed into the individual resistance components to investigate the scale effects. The simulation results were compared with full-scale resistance predictions using different extrapolation methods and the rationale of the different compliances between them was investigated. Finally, the hydrodynamic characteristics in different scales were examined.}
 }
 
 @book{ITTC_2011_Model_Manufacture,
-	title = {{ITTC} – Recommended Procedures and Guidelines: Model Manufacture, Ship Models},
+	title = {{ITTC} -- Recommended Procedures and Guidelines: Model Manufacture, Ship Models},
 	publisher = {ITTC},
 	author = {{ITTC}},
 	note = {Specialist Committee on Procedures for Resistance, Propulsion and Propeller Open Water Tests of the 23rd ITTC},
@@ -711,7 +696,7 @@ abstract = {To design eco-friendly ships, the hydrodynamic behaviour of the hull
 }
 
 @book{ITTC_resistance,
-	title = {{ITTC} – Recommended Procedures and Guidelines - Resistance Test},
+	title = {{ITTC} -- Recommended Procedures and Guidelines - Resistance Test},
 	publisher = {ITTC},
 	author = {{ITTC}},
 	note = {26th ITTC Resistance Committee},
@@ -719,7 +704,7 @@ abstract = {To design eco-friendly ships, the hydrodynamic behaviour of the hull
 }
 
 @book{ITTC_Performance_prediction,
-	title = {{ITTC} – Recommended Procedures and Guidelines - 1978 {ITTC} Performance Prediction Method},
+	title = {{ITTC} -- Recommended Procedures and Guidelines - 1978 {ITTC} Performance Prediction Method},
 	publisher = {ITTC},
 	author = {{ITTC}},
 	note = {28th ITTC Propulsion Committee},
@@ -727,7 +712,7 @@ abstract = {To design eco-friendly ships, the hydrodynamic behaviour of the hull
 }
 
 @book{ITTC_CFD_guidelines,
-	title = {{ITTC} – Recommended Procedures and Guidelines - Practical Guidelines for Ship {CFD} Applications, 7.5-03-02-03},
+	title = {{ITTC} -- Recommended Procedures and Guidelines - Practical Guidelines for Ship {CFD} Applications, 7.5-03-02-03},
 	publisher = {ITTC},
 	author = {{ITTC}},
 	note = {26th ITTC Specialist Committee on CFD in Marine Hydrodynamics},
@@ -735,7 +720,7 @@ abstract = {To design eco-friendly ships, the hydrodynamic behaviour of the hull
 }
 
 @book{ITTC_open_water,
-	title = {{ITTC} – Recommended Procedures and Guidelines - Propulsion/Propulsor: Propeller Open Water Test},
+	title = {{ITTC} -- Recommended Procedures and Guidelines - Propulsion/Propulsor: Propeller Open Water Test},
 	publisher = {ITTC},
 	author = {{ITTC}},
 	note = {28th ITTC Propulsion Committee},
@@ -743,7 +728,7 @@ abstract = {To design eco-friendly ships, the hydrodynamic behaviour of the hull
 }
 
 @book{ITTC_uncertainty_OW,
-	title = {{ITTC} – Recommended Procedures and Guidelines - Uncertainty Analysis, Example for Open Water Test},
+	title = {{ITTC} -- Recommended Procedures and Guidelines - Uncertainty Analysis, Example for Open Water Test},
 	publisher = {ITTC},
 	author = {{ITTC}},
 	note = {ITTC Quality Systems Group},
@@ -754,7 +739,7 @@ abstract = {To design eco-friendly ships, the hydrodynamic behaviour of the hull
   title={Modelling and phase control of wave-energy converters},
   author={Hals, J{\o}rgen},
   year={2010},
-  publisher={Norges teknisk-naturvitenskapelige universitet, Fakultet for~…}
+  publisher={Norges teknisk-naturvitenskapelige universitet, Fakultet for~\ldots{}}
 }
 
 @article{keh-sik-min,
@@ -767,7 +752,6 @@ abstract = {To design eco-friendly ships, the hydrodynamic behaviour of the hull
   year={2010},
   doi={10.1007/s00773-009-0077-y},
   url={https://doi.org/10.1007/s00773-009-0077-y},
-  issn={1437-8213}
 }
 
 @book{windt2020high,
@@ -919,6 +903,7 @@ abstract = {To design eco-friendly ships, the hydrodynamic behaviour of the hull
   number  = {3},
   pages   = {443--452},
   year    = {2025},
+  doi     = {10.70567/mc.v42.ocsid8247},
 }
 
 @article{Baltazar2021,
@@ -1131,4 +1116,40 @@ numero y paginas de lee2003kcs y titulo exacto de ittc_nominal_wake.
   year      = {2026},
   note      = {Trabajo aceptado, en prensa},
   url       = {https://amcaonline.org.ar/ocs/index.php/mecom2026/mecom2026/paper/view/8882},
+}
+
+@article{gotten2021form,
+  author  = {G{\"o}tten, Falk and Havermann, Marc and Braun, Carsten
+             and Marino, Matthew and Bil, Cees},
+  title   = {Improved Form Factor for Drag Estimation of Fuselages
+             with Various Cross Sections},
+  journal = {Journal of Aircraft},
+  volume  = {58},
+  number  = {3},
+  pages   = {549--561},
+  year    = {2021},
+  doi     = {10.2514/1.C036032}
+}
+
+@article{gur2010drag,
+  author  = {Gur, Ohad and Mason, William H. and Schetz, Joseph A.},
+  title   = {Full-Configuration Drag Estimation},
+  journal = {Journal of Aircraft},
+  volume  = {47},
+  number  = {4},
+  pages   = {1356--1367},
+  year    = {2010},
+  doi     = {10.2514/1.47557}
+}
+
+@book{raymer1992aircraft,
+  author    = {Daniel P. Raymer},
+  title     = {Aircraft Design: A Conceptual Approach},
+  edition   = {2},
+  series    = {AIAA Education Series},
+  publisher = {American Institute of Aeronautics and Astronautics},
+  address   = {Washington, DC},
+  year      = {1992},
+  pages     = {282--284},
+  isbn      = {0930403517}
 }

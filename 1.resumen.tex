@@ -1,31 +1,218 @@
-\section*{Resumen}
+% ==========================================================================
+%  TÍTULO Y RESUMEN EN CASTELLANO E INGLÉS, LUGAR DE TRABAJO Y FINANCIAMIENTO
+%  Formato según la plantilla de tesis doctoral (H-SSECID_GAyAD-266-V01-MOD):
+%   - Título: Arial, negrita, 22 pt; espaciado anterior 0 pt, posterior 8 pt;
+%     interlineado múltiple 1.08.
+%   - Resumen: Arial, 11 pt; interlineado sencillo; espaciado anterior y
+%     posterior 0 pt; sangría de primera línea 0.5 cm.
+%     Castellano: al menos 5000 caracteres. Inglés: al menos 2000 caracteres.
+%   - Lugar de trabajo y financiamiento: Arial, 14 pt, interlineado sencillo.
+%  Los entornos y comandos se definen en el preámbulo de main.tex.
+% ==========================================================================
 
-La tesis aborda los efectos de escala en la extrapolación modelo--buque, un
-problema central de la hidrodinámica naval derivado de la imposibilidad de
-igualar simultáneamente los adimensionales entre modelo y buque real. El trabajo
-se basa en una metodología combinada CFD--EFD: por un lado, simulaciones CFD
-(RANS, con modelos de turbulencia SST y de transición SST-LM) sobre cascos de
-pesqueros y hélices tipo Wageningen B4-60, entre otras; por otro, campañas
-experimentales de resistencia y de hélices en aguas abiertas realizadas en canal
-de ensayos, algunas propias y otras preexistentes en el LabHiNO (previas a la
-tesis, o cedidas por una empresa), utilizadas para calibrar y validar los modelos
-numéricos. Sobre la resistencia, se estudia en detalle el factor de forma $(1+k)$
-de la hipótesis de Hughes: su determinación experimental y numérica combinada, la
-influencia de la proa bulbo, la popa sumergida, la relación de aspecto $L/B$ del
-casco, la línea de fricción de referencia (ITTC-57 vs.\ líneas numéricas) y el
-modelo de turbulencia empleado, evaluando cómo cada uno de estos factores
-introduce sesgos sistemáticos en la extrapolación a escala real.
+\pagestyle{plain}
 
-En el capítulo de propulsión, la misma lógica de integración CFD--EFD se aplica al
-análisis de los efectos de escala en hélices operando en aguas abiertas, mostrando
-las limitaciones del procedimiento estándar ITTC-78 (que asume que toda la
-diferencia entre escalas es friccional) frente a la evidencia, respaldada por
-simulaciones, de que la componente de presión también escala de forma
-significativa, cuantificada mediante la ``fracción de presión''. Se estudia además
-el régimen transicional laminar-turbulento a bajos números de Reynolds de modelo,
-donde la hipótesis del ITTC-78 falla al no contemplar el comportamiento no monótono
-de $K_T/K_Q$, empleando el modelo de transición $\gamma$--$\widetilde{Re}_{\theta t}$
-(SST-LM) calibrado y contrastado contra datos experimentales de campañas de aguas
-abiertas. En síntesis, es una tesis de hidrodinámica naval con enfoque combinado
-numérico--experimental, orientada a mejorar los procedimientos de extrapolación
-modelo--buque tanto en resistencia como en propulsión.
+% ------------------------- Castellano -------------------------------------
+% Dorso de la carátula en blanco (impresión a doble faz): el resumen empieza
+% en la siguiente página impar.
+\cleardoublepage
+\TituloPlantilla{Análisis de los efectos de escala en la predicción de
+potencia para buques pesqueros empleando métodos combinados CFD/EFD}
+
+\begin{ResumenPlantilla}
+La predicción de la potencia de un buque a partir de ensayos con modelos exige
+extrapolar resultados obtenidos a números de Reynolds muy inferiores a los de
+operación, porque en un canal de ensayos no es posible igualar a la vez el
+número de Froude y el de Reynolds del buque. Los procedimientos vigentes de la
+International Towing Tank Conference (ITTC) corrigen esa diferencia suponiendo
+que el efecto de escala es esencialmente friccional: en la resistencia al
+avance, mediante un factor de forma $(1+k)$ que se considera independiente de
+la escala, y en la propulsión, mediante el procedimiento ITTC-78, que corrige
+solo el arrastre friccional de las palas de la hélice. Estos métodos fueron
+desarrollados y calibrados sobre buques mercantes esbeltos, y su validez para
+los buques pesqueros de baja esbeltez (relación eslora-manga $L/B < 4$) que hoy
+se construyen en astilleros argentinos no había sido verificada. Esta tesis
+estudia los efectos de escala en los dos eslabones de la predicción de potencia
+mediante una metodología combinada de ensayos experimentales (EFD) y
+simulaciones numéricas (CFD) con el código OpenFOAM: el ensayo valida la
+herramienta numérica donde la medición es posible y la simulación, una vez
+validada, extiende el análisis hasta la escala buque y descompone las fuerzas
+en sus componentes de fricción y de presión.
+
+En el eje de la resistencia al avance se ensayaron, en el canal del Laboratorio
+de Hidrodinámica Naval y Oceánica (LabHiNO) de la Universidad de Buenos Aires,
+el modelo de un buque pesquero (\textit{P1}, escala 1:20, tres calados) y el del
+portacontenedores de referencia \textit{KCS} (escala 1:79), con incertidumbres
+cuantificadas según las recomendaciones de la ITTC. El factor de forma
+del \textit{KCS} medido en el LabHiNO concuerda con los datos de distintos
+laboratorios internacionales, lo que respalda la calidad de los ensayos. El método experimental de
+Prohaska resultó confiable para el \textit{KCS}, con un factor de forma de
+$1.052 \pm 2.3\%$, pero no para el pesquero, cuyo diagrama presenta una
+curvatura sistemática a bajos números de Froude y una incertidumbre de ajuste
+del 8 al 11\%. Las simulaciones de doble cuerpo, cuya configuración numérica se
+validó frente a los ensayos, se extendieron a cuatro escalas geométricas hasta
+la escala buque. A diferencia del \textit{KCS}, cuyo factor de forma se
+estabiliza al crecer el número de Reynolds, el del pesquero crece de manera
+continua y sin alcanzar un valor asintótico: aumenta cerca de un 40\% entre la
+escala de modelo y la escala buque, donde alcanza $(1+k) \approx 1.72$, casi un
+50\% por encima del valor del \textit{KCS}. Los otros dos pesqueros estudiados
+(\textit{P2} y \textit{P3}) reproducen la misma tendencia, y la aplicación del
+método geosim a simulaciones independientes con superficie libre confirma que el
+factor de forma de estos cascos depende de la escala.
+
+La descomposición de la resistencia viscosa mostró que el mecanismo responsable
+es la persistencia de la resistencia por presión viscosa, asociada a la escasa
+recuperación de presión en la popa llena y a estructuras vorticosas
+longitudinales cuya separación queda fijada por las aristas vivas de la popa,
+por lo que apenas se atenúan con el número de Reynolds. Mientras la fricción de
+referencia disminuye con la escala, esa componente casi no lo hace, y el cociente
+que define el factor de forma no puede estabilizarse. Los análisis
+complementarios descartaron las explicaciones alternativas: la proa bulbo
+modifica el valor de $(1+k)$ pero no su tendencia; la popa espejo sumergida,
+tratada con el método de dos factores de forma, explica apenas un 5\% del efecto
+de escala; y el reemplazo de la línea ITTC-57 por líneas de fricción numéricas lo
+atenúa sin eliminarlo. Las correlaciones navales de factor de forma, calibradas
+sobre cascos esbeltos, subestiman el efecto en más de un orden de magnitud,
+mientras que las correlaciones aerodinámicas de fuselajes en función de la
+esbeltez reproducen mejor los valores de los pesqueros. Sobre la potencia
+efectiva del \textit{P1}, un método de doble factor de forma basado en CFD
+arroja entre un 13 y un 17\% más que el procedimiento ITTC estándar.
+
+En el eje de la propulsión se analizaron los efectos de escala en hélices en
+aguas abiertas. Para la hélice de referencia Wageningen \textit{B4-60}, un
+barrido de diámetros entre 0.14 y 8~m mostró que, en régimen completamente
+turbulento, entre el 76 y el 77\% del aumento de empuje entre modelo y buque
+proviene de la redistribución de presión sobre la pala, concentrada en el lado
+de succión de su mitad externa, y solo una cuarta parte de la reducción de la
+fricción. Al ignorar esa componente, el ITTC-78 subestima en unos 3 puntos
+porcentuales la ganancia de eficiencia en aguas abiertas. Sobre una hélice
+comercial de área expandida reducida (\textit{P206}), ensayada por el fabricante
+en túnel de cavitación a cinco números de Reynolds, se estudió además el régimen
+de transición laminar-turbulenta a escala de modelo, que genera una joroba en
+los coeficientes de empuje y de par. El modelo de transición
+$\gamma$-$\widetilde{Re}_{\theta t}$, verificado en dos códigos, la captura solo
+parcialmente, pero la descomposición de fuerzas mostró que el apartamiento
+respecto del cálculo completamente turbulento es de origen mayoritariamente de
+presión. El coeficiente de empuje extrapolado con el ITTC-78 depende
+críticamente del número de Reynolds del ensayo, con una dispersión de hasta 17.7
+puntos, y la fracción de presión del efecto de escala de esta hélice alcanza
+valores de 0.90 a 0.92.
+
+Leídos en conjunto, los dos ejes convergen en una misma conclusión: en ambos
+eslabones de la cadena propulsiva, el efecto de escala dominante es de presión y
+no de fricción, que es lo que corrigen los procedimientos estándar. La tesis
+cuantifica esa componente, propone una vía para estimar el factor de forma de
+cascos de baja esbeltez en función de $L/B$ y plantea como líneas futuras su
+calibración sobre una base ampliada de geometrías, la generalización del efecto
+de escala en hélices a distintas geometrías de pala y la validación de las
+predicciones mediante pruebas de mar. La combinación de ensayos y simulaciones
+se muestra, así, como la herramienta adecuada para este problema: el ensayo
+aporta la validación en el régimen accesible y el CFD, el acceso a la escala
+real y a la física subyacente.
+\end{ResumenPlantilla}
+
+% ------------------------- Inglés -----------------------------------------
+\clearpage
+\begin{otherlanguage}{english}
+\TituloPlantilla{Analysis of scale effects on power prediction for fishing
+vessels using combined CFD/EFD methods}
+
+\begin{ResumenPlantilla}
+Predicting the power of a ship from model tests requires extrapolating results
+obtained at Reynolds numbers far below those of the full-scale ship, because
+the Froude and Reynolds numbers of the ship cannot be matched simultaneously in
+a towing tank. The current procedures of the International Towing Tank
+Conference (ITTC) correct this difference by assuming that the scale effect is
+essentially frictional: for resistance, through a form factor $(1+k)$ that is
+taken as independent of scale, and for propulsion, through the ITTC-78
+procedure, which corrects only the frictional drag of the propeller blades.
+These methods were developed and calibrated on slender merchant ships, and
+their validity for the low-slenderness fishing vessels (length-to-beam ratio
+$L/B < 4$) currently built in Argentine shipyards had not been verified. This
+thesis studies scale effects in both links of power prediction through a
+combined methodology of experimental fluid dynamics (EFD) and computational
+fluid dynamics (CFD) with the OpenFOAM code: the tests validate the numerical
+tool where measurement is possible and the simulations, once validated, extend
+the analysis to full scale and split the forces into their friction and
+pressure components.
+
+For resistance, the model of a fishing vessel (\textit{P1}, scale 1:20, three
+drafts) and that of the \textit{KCS} reference container ship (scale 1:79) were
+tested in the towing tank of the Naval and Ocean Hydrodynamics Laboratory
+(LabHiNO) of the University of Buenos Aires, with uncertainties quantified
+according to ITTC recommendations. The form factor of the \textit{KCS} measured
+at the LabHiNO agrees with data from several international laboratories, which
+supports the quality of the tests. Prohaska's experimental method proved
+reliable for the \textit{KCS}, with a form factor of $1.052 \pm 2.3\%$, but not
+for the fishing vessel, whose diagram shows a systematic curvature at low Froude
+numbers and a fitting uncertainty of 8 to 11\%. Double-body simulations, whose
+numerical setup was validated against the tests, were extended over four
+geometric scales up to full scale. Unlike that of the \textit{KCS}, whose form
+factor levels off as the Reynolds number increases, the form factor of the
+fishing vessel grows continuously without reaching an asymptotic value: it
+increases by about 40\% between model scale and full scale, where it reaches
+$(1+k) \approx 1.72$, almost 50\% above the \textit{KCS} value. The other two
+fishing vessels studied (\textit{P2} and \textit{P3}) reproduce the same trend,
+and applying the geosim method to independent free-surface simulations confirms
+that the form factor of these hulls depends on scale.
+
+The decomposition of viscous resistance showed that the responsible mechanism is
+the persistence of viscous pressure resistance, associated with poor pressure
+recovery at the full stern and with longitudinal vortical structures whose
+separation is fixed by the sharp edges of the stern, so that they hardly weaken
+as the Reynolds number increases. While the reference friction decreases with
+scale, this component barely does, and the ratio that defines the form factor
+cannot level off. Complementary analyses ruled out alternative explanations: the
+bulbous bow changes the value of $(1+k)$ but not its trend; the immersed transom,
+treated with the two-form-factor method, accounts for only 5\% of the scale
+effect; and replacing the ITTC-57 line with numerical friction lines attenuates
+it without removing it. Naval form factor correlations, calibrated on slender
+hulls, underestimate the effect by more than an order of magnitude, whereas
+aerodynamic fuselage correlations expressed in terms of slenderness better
+reproduce the values of the fishing vessels. For the effective power of the
+\textit{P1}, a CFD-based two-form-factor method yields between 13 and 17\% more
+than the standard ITTC procedure.
+
+For propulsion, scale effects were analysed on propellers in open water. For the
+Wageningen \textit{B4-60} reference propeller, a sweep of diameters between 0.14
+and 8~m showed that, under fully turbulent conditions, 76 to 77\% of the thrust
+increase between model and ship comes from pressure redistribution on the blade,
+concentrated on the suction side of its outer half, and only one quarter from the
+reduction in friction. By ignoring this component, ITTC-78 underestimates the
+open-water efficiency gain by about 3 percentage points. On a commercial
+propeller with reduced expanded area (\textit{P206}), tested by the manufacturer
+in a cavitation tunnel at five Reynolds numbers, the laminar-turbulent transition
+regime at model scale was also studied; it produces a hump in the thrust and
+torque coefficients. The $\gamma$-$\widetilde{Re}_{\theta t}$ transition model,
+verified in two codes, captures it only partially, but the force decomposition
+showed that the departure from the fully turbulent computation is mostly due to
+pressure. The thrust coefficient extrapolated with ITTC-78 depends critically on
+the Reynolds number of the test, with a scatter of up to 17.7 points, and the
+pressure fraction of the scale effect of this propeller reaches values of 0.90
+to 0.92.
+
+Taken together, both research lines converge on the same conclusion: in both
+links of the propulsion chain, the dominant scale effect is a pressure effect and
+not a frictional one, which is what standard procedures correct. The thesis
+quantifies this component, proposes a way to estimate the form factor of
+low-slenderness hulls as a function of $L/B$, and identifies as future work its
+calibration on an extended set of geometries, the generalisation of propeller
+scale effects to different blade geometries, and the validation of the
+predictions through sea trials. The combination of tests and simulations thus
+proves to be the appropriate tool for this problem: the tests provide validation
+in the accessible regime, and CFD provides access to full scale and to the
+underlying physics.
+\end{ResumenPlantilla}
+\end{otherlanguage}
+
+% ------------------- Lugar de trabajo y financiamiento --------------------
+% (página propia, como en la plantilla; los agradecimientos van en la siguiente)
+\clearpage
+\begin{DatosPlantilla}
+\DatoPlantilla{Lugar de trabajo:}{LabHiNO, Facultad de Ingeniería,
+Universidad de Buenos Aires}
+
+\DatoPlantilla{Financiamiento recibido:}{Beca Peruilh\\
+Programa Pampa Azul\\
+Beca UBAINT Doctoral (estadía de investigación en Génova)}
+\end{DatosPlantilla}

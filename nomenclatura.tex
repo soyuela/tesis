@@ -31,19 +31,21 @@ $C_B$       & Coeficiente de bloque \\
 $C_P$       & Coeficiente de presión sobre el casco, $C_P = (p-p_\infty)/\tfrac{1}{2}\rho V^2$ \\
 $C_p$       & Coeficiente de presión sobre la pala, $C_p = (p-p_\infty)/\tfrac{1}{2}\rho V_{\text{ref}}^2$, con $V_{\text{ref}}(r)$ la velocidad resultante en la sección de radio $r$ \\
 $\Delta C_p$ & Diferencia del coeficiente de presión sobre la pala entre escalas, $\Delta C_p = C_p(Re_n) - C_p(Re_{n,\mathrm{ref}})$ \\
-$C_f$       & Coeficiente de fricción local sobre la pala, $C_f = |\boldsymbol{\tau}_w|/\tfrac{1}{2}\rho V_{\text{ref}}^2$ \\
+$C_f$       & Coeficiente de fricción local en pared, $C_f = |\boldsymbol{\tau}_w|/\tfrac{1}{2}\rho V^2$ sobre el casco y $C_f = |\boldsymbol{\tau}_w|/\tfrac{1}{2}\rho V_{\text{ref}}^2$ sobre la pala \\
 \end{longtable}
 
-\noindent{\footnotesize Los coeficientes referidos al casco se denotan con subíndice mayúscula ($C_P$, $C_F$) y los referidos a la pala del propulsor con subíndice minúscula ($C_p$, $C_f$).\par}
+\noindent{\footnotesize El coeficiente de presión local se denota $C_P$ sobre el casco y $C_p$ sobre la pala. El coeficiente de fricción local se denota $C_f$ en ambos casos, para distinguirlo del coeficiente integral de fricción del casco $C_F$.\par}
 
 % --------------------------------------------------------------------------
 \section*{Coeficientes y fuerzas de resistencia}
 \begin{longtable}{@{}p{0.16\textwidth} p{0.78\textwidth}@{}}
 $C_T$              & Coeficiente de resistencia total \\
 $C_{TM},\,C_{TS}$  & Coeficiente de resistencia total en escala modelo y buque \\
-$C_F$              & Coeficiente de resistencia friccional \\
-$C_{F0}$           & Coeficiente de fricción de referencia (línea ITTC-57) \\
-$C_{FM0},\,C_{FS0}$& Coeficiente de fricción de referencia en escala modelo y buque \\
+$C_F$              & Coeficiente de resistencia friccional del casco (integral de los esfuerzos de corte sobre la superficie mojada) \\
+$C_{F0}$           & Coeficiente de fricción de referencia; sin otro subíndice, línea de correlación ITTC-57 \\
+$C_{F0,M},\,C_{F0,S}$& Coeficiente de fricción de la línea ITTC-57 en escala modelo y buque \\
+$C_{F0,\mathrm{NFL}}$ & Coeficiente de fricción de una línea de fricción numérica (NFL) \\
+$C_{F0,\mathrm{pp}}$ & Coeficiente de fricción de placa plana empleado en las correlaciones aerodinámicas \\
 $C_V$              & Coeficiente de resistencia viscosa, $C_V = C_F + C_{PV}$ \\
 $C_{PV}$           & Coeficiente de resistencia por presión viscosa \\
 $C_W$              & Coeficiente de resistencia por formación de olas \\

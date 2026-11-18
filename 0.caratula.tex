@@ -1,1 +1,80 @@
-\includepdf{images/Caratula_Tesis_Doctorado.pdf}
+% ==========================================================================
+%  CARÁTULA — según la plantilla de tesis doctoral de la SSECID-GAyAD
+%  (H-SSECID_GAyAD-266-V01-MOD, Template tesis doctoral, Español).
+%
+%  Reglas tomadas de la plantilla:
+%   - Fondo de página completa con franja lateral y logo UBA-FIUBA
+%     (images/fondo_caratula.png, extraído de la plantilla).
+%   - Márgenes: superior 3.75 cm, izquierdo 1.75 cm, derecho 2.00 cm.
+%   - Todo el texto en Arial (aquí Helvetica, phv), alineado a la derecha.
+%   - Título: negrita, 33 pt, color #3C3C3B.
+%   - Autor: 20 pt; carrera: 15 pt; etiquetas y nombres: 11 pt;
+%     fecha y lugar: itálica, 10 pt. Todo en color #575756.
+%   - Espaciados verticales: los de la plantilla (convertidos de twips).
+%
+%  Requiere en el preámbulo: tikz, xcolor, graphicx (ya cargados en main.tex).
+%  Compilar dos veces (tikz con remember picture).
+% ==========================================================================
+
+% ---- Datos de la carátula (editar aquí) ----------------------------------
+\newcommand{\CarTitulo}{Análisis de los efectos de escala en la predicción
+  de potencia para buques pesqueros empleando métodos combinados CFD/EFD}
+\newcommand{\CarAutor}{Ing. Sebastián Oyuela}
+\newcommand{\CarCarrera}{Doctorado de la Universidad de Buenos Aires, área Ingeniería}
+\newcommand{\CarEtiqDirector}{Director:}
+\newcommand{\CarDirector}{Dr. Roberto Sosa (FIUBA/CONICET)}
+\newcommand{\CarEtiqCodirector}{Codirector:}
+\newcommand{\CarCodirector}{Dr. Alejandro D. Otero (FIUBA/CONICET)}
+\newcommand{\CarJurados}{%
+  Dr. Leo Miguel González Gutiérrez (Universidad Politécnica de Madrid)\\
+  Dr. Gonzalo Andrés Tampier Brockhaus (Universidad Austral de Chile)\\
+  Dr. Pablo Javier Cobelli (CONICET/FCEN, UBA)\\
+  Dr. Román Gustavo Martino (CONICET/UNC)}
+\newcommand{\CarFecha}{Noviembre 2026, Buenos Aires}
+% --------------------------------------------------------------------------
+
+\definecolor{carTitulo}{HTML}{3C3C3B}
+\definecolor{carTexto}{HTML}{575756}
+
+\begin{titlepage}
+\thispagestyle{empty}
+\begin{tikzpicture}[remember picture, overlay]
+  % Fondo de la plantilla (página completa)
+  \node[anchor=north west, inner sep=0pt] at (current page.north west)
+    {\includegraphics[width=\paperwidth,height=\paperheight]{fondo_caratula.png}};
+  % Caja de texto: entre márgenes izquierdo 1.75 cm y derecho 2.00 cm,
+  % a partir del margen superior de 3.75 cm
+  \node[anchor=north east, inner sep=0pt]
+    at ([xshift=-2.00cm, yshift=-3.75cm]current page.north east)
+  {\begin{minipage}[t]{\dimexpr\paperwidth-3.75cm\relax}
+    \raggedleft
+    \fontfamily{phv}\selectfont
+    \hyphenpenalty=10000\exhyphenpenalty=10000
+    % Párrafo vacío del logo (espaciado posterior 150 pt)
+    \vspace*{\dimexpr 14pt+150pt\relax}
+    % Título
+    {\color{carTitulo}\fontsize{33}{40}\selectfont\bfseries \CarTitulo\par}
+    \vspace{6.5pt}
+    % Autor
+    {\color{carTexto}\fontsize{20}{24}\selectfont \CarAutor\par}
+    \vspace{24pt}
+    % Carrera
+    {\color{carTexto}\fontsize{15}{18}\selectfont \CarCarrera\par}
+    \vspace{36pt}
+    \color{carTexto}\fontsize{11}{13.9}\selectfont
+    % Dirección
+    \CarEtiqDirector\par
+    \CarDirector\par
+    \vspace{6pt}
+    \CarEtiqCodirector\par
+    \CarCodirector\par
+    \vspace{\dimexpr 12pt+13.9pt+22.5pt\relax}
+    % Jurados
+    Jurados:\par
+    \CarJurados\par
+    % Fecha y lugar (una línea en blanco antes)
+    \vspace{13.9pt}
+    {\fontsize{10}{12.6}\selectfont\itshape \CarFecha\par}
+  \end{minipage}};
+\end{tikzpicture}
+\end{titlepage}
