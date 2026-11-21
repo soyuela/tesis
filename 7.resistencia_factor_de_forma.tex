@@ -1248,7 +1248,7 @@ analizan en profundidad en la Sección~\ref{sec:generalizacion_LB}.
 El método de \citet{gomezgarcia} (Sección~\ref{sec:k_vs_Re})
 ofrece una prueba cuantitativa directa de cuán anómalo resulta el
 comportamiento del \textit{P1}. Aplicando su relación empírica
-[Ecuación~\eqref{eq:gomezgarcia}] a la escala del modelo ($\lambda = 20$), el efecto de escala predicho es $K_S - K_M \approx 1{.}91\times 19\times 10^{-3}= 0{.}036$. El valor obtenido por CFD de doble cuerpo para el \textit{P1} en el Calado~3, en cambio, es $K_S - K_M = 0{.}716 - 0{.}194 = 0{.}522$, es decir, aproximadamente catorce veces mayor que la predicción. La fórmula de \citet{gomezgarcia}, calibrada para estimar la corrección de escala del factor de forma, subestima en más de un orden de magnitud el efecto de escala real de este casco.
+[Ecuación~\eqref{eq:gomezgarcia}] a la escala del modelo ($\lambda = 20$), el efecto de escala predicho es $K_S - K_M \approx 1{.}91\times 19\times 10^{-3}= 0{.}036$. El valor obtenido por CFD de doble cuerpo para el \textit{P1} en el Calado~3, en cambio, es $K_S - K_M = 0{.}716 - 0{.}193 = 0{.}523$, es decir, aproximadamente catorce veces mayor que la predicción. La fórmula de \citet{gomezgarcia}, calibrada para estimar la corrección de escala del factor de forma, subestima en más de un orden de magnitud el efecto de escala real de este casco.
 
 Esta discrepancia no se limita a la magnitud, sino que alcanza a la propia
 forma funcional. Al ajustar el modelo lineal de \citet{gomezgarcia} ($K_S -
@@ -2201,9 +2201,9 @@ establecido en \citet{korkmaz_wetted_transom}, por lo que corresponde aplicar
 la corrección. El factor de forma de escala buque queda entonces:
 
 \begin{equation}
-    k_S = k_M + k_{tr} = 0{.}194 + 0{.}025 = 0{.}219
+    k_S = k_M + k_{tr} = 0{.}193 + 0{.}025 = 0{.}218
     \quad \Rightarrow \quad
-    (1+k_S) = 1{.}219.
+    (1+k_S) = 1{.}218.
 \end{equation}
 
 Sin embargo para evaluar si este mecanismo explica la diferencia observada 
@@ -2211,10 +2211,10 @@ entre escalas, es necesario compararlo con la magnitud total de esa diferencia.
 Según los resultados de CFD DB presentados en la 
 Sección~\ref{sec:analisis_efectos_escala}, el valor de $(1+k)$ a escala buque 
 es de aproximadamente $1{.}716$ ($k_S = 0{.}716$), mientras que el valor adoptado 
-a escala modelo es $(1+k_M) = 1{.}194$ ($k_M = 0{.}194$). La diferencia total es:
+a escala modelo es $(1+k_M) = 1{.}193$ ($k_M = 0{.}193$). La diferencia total es:
 
 \begin{equation}
-    k_S - k_M = 0{.}716 - 0{.}194 = 0{.}522.
+    k_S - k_M = 0{.}716 - 0{.}193 = 0{.}523.
 \end{equation}
 
 La corrección de popa mojada $k_{tr} = 0{.}025$ representa apenas el $5\%$ de 
@@ -2233,7 +2233,7 @@ marginal.
 El análisis comparativo de flujo confirma que la estructura de recirculación en la zona del espejo de popa se mantiene estable frente al cambio de escala, tanto en las simulaciones con superficie libre como en las de doble cuerpo. 
 Esta persistencia de la recirculación con $Re$ es precisamente la condición que, según \citet{korkmaz_wetted_transom}, origina un déficit de resistencia viscosa en la extrapolación estándar y que justifica la aplicación del método 2--$k$.
 
-La aplicación del método al \textit{P1} arroja $k_{tr} = 0{.}025$, lo que representa aproximadamente el $5\%$ de la diferencia total observada entre el factor de forma a escala modelo y a escala buque ($k_S - k_M = 0{.}522$). 
+La aplicación del método al \textit{P1} arroja $k_{tr} = 0{.}025$, lo que representa aproximadamente el $5\%$ de la diferencia total observada entre el factor de forma a escala modelo y a escala buque ($k_S - k_M = 0{.}523$). 
 Este resultado permite cuantificar la contribución de la popa espejo sumergida al efecto de escala total y, al mismo tiempo, descartarla como causa principal: la diferencia predominante tiene su origen en la evolución de $C_{PV}$, analizado en la Sección~\ref{sec:descomposicion_de_la_res_viscosa}. 
 El análisis del efecto de la línea de fricción, que completa el diagnóstico de los efectos de escala en el \textit{P1}, se presenta en la Sección~\ref{sec:linea_de_friccion}.
 
@@ -2475,7 +2475,7 @@ o la intensidad del campo de recirculación varían según el modelo.
 La Figura~\ref{fig:comparacion_k} muestra la evolución del factor de forma 
 $(1+k)$ con el número de Reynolds para los cuatro modelos. El $k$--$\omega$ 
 SST presenta la mayor concordancia con el valor experimental del 
-\textit{P1} ($1+k \approx 1.30$ en $Re \approx 10^6$) para la simulación en escala modelo. El modelo 
+\textit{P1} ($1+k \approx 1.19$ en $Re \approx 10^6$, calado T3) para la simulación en escala modelo. El modelo 
 $k$--$\omega$ predice valores más altos de $(1+k)$ que el $k$--$\omega$ SST 
 en el rango intermedio ($Re \approx 2\times10^7$), atribuibles al incremento 
 de la resistencia de presión viscosa observada en ese régimen. En cambio, el 
@@ -2602,7 +2602,7 @@ la persistencia de $C_{PV}$ frente a la caída de $C_{F0}$ impide que
 $(1+k)$ alcance un valor asintótico en el \textit{P1}, a diferencia de lo 
 observado en el \textit{KCS}. Al comparar el valor de $(1+k)$ resultante con 
 correlaciones empíricas desarrolladas para buques mercantes, surge una 
-doble inconsistencia. Por un lado, el valor de $(1+k) \approx 1{.}73$ 
+doble inconsistencia. Por un lado, el valor de $(1+k) \approx 1{.}72$ 
 obtenido por CFD DB a escala buque no tiene precedente en la literatura 
 de hidrodinámica naval: no se ha encontrado un valor comparable para 
 ningún casco desnudo documentado hasta la fecha. Por otro lado, las 
